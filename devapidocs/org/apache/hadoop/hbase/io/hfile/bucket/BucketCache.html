@@ -82,7 +82,7 @@ loadScripts(document, 'script');</script>
 </dl>
 <hr>
 <div class="type-signature"><span class="annotations">@Private
-</span><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-115">BucketCache</a></span>
+</span><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-116">BucketCache</a></span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
 implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hbase.io.hfile">BlockCache</a>, <a href="../../HeapSize.html" title="interface in org.apache.hadoop.hbase.io">HeapSize</a></span></div>
 <div class="block">BucketCache uses <a href="BucketAllocator.html" title="class in org.apache.hadoop.hbase.io.hfile.bucket"><code>BucketAllocator</code></a> to allocate/free blocks, and uses BucketCache#ramCache
@@ -906,13 +906,13 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="LOG">
 <h3>LOG</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-117">LOG</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-118">LOG</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="SINGLE_FACTOR_CONFIG_NAME">
 <h3>SINGLE_FACTOR_CONFIG_NAME</h3>
-<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-120">SINGLE_FACTOR_CONFIG_NAME</a></span></div>
+<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-121">SINGLE_FACTOR_CONFIG_NAME</a></span></div>
 <div class="block">Priority buckets config</div>
 <dl class="notes">
 <dt>See Also:</dt>
@@ -927,7 +927,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="MULTI_FACTOR_CONFIG_NAME">
 <h3>MULTI_FACTOR_CONFIG_NAME</h3>
-<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-121">MULTI_FACTOR_CONFIG_NAME</a></span></div>
+<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-122">MULTI_FACTOR_CONFIG_NAME</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -941,7 +941,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="MEMORY_FACTOR_CONFIG_NAME">
 <h3>MEMORY_FACTOR_CONFIG_NAME</h3>
-<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-122">MEMORY_FACTOR_CONFIG_NAME</a></span></div>
+<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-123">MEMORY_FACTOR_CONFIG_NAME</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -955,7 +955,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="EXTRA_FREE_FACTOR_CONFIG_NAME">
 <h3>EXTRA_FREE_FACTOR_CONFIG_NAME</h3>
-<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-123">EXTRA_FREE_FACTOR_CONFIG_NAME</a></span></div>
+<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-124">EXTRA_FREE_FACTOR_CONFIG_NAME</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -969,7 +969,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="ACCEPT_FACTOR_CONFIG_NAME">
 <h3>ACCEPT_FACTOR_CONFIG_NAME</h3>
-<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-124">ACCEPT_FACTOR_CONFIG_NAME</a></span></div>
+<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-125">ACCEPT_FACTOR_CONFIG_NAME</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -983,7 +983,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="MIN_FACTOR_CONFIG_NAME">
 <h3>MIN_FACTOR_CONFIG_NAME</h3>
-<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-125">MIN_FACTOR_CONFIG_NAME</a></span></div>
+<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-126">MIN_FACTOR_CONFIG_NAME</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -997,7 +997,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="BACKING_MAP_PERSISTENCE_CHUNK_SIZE">
 <h3>BACKING_MAP_PERSISTENCE_CHUNK_SIZE</h3>
-<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-126">BACKING_MAP_PERSISTENCE_CHUNK_SIZE</a></span></div>
+<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-127">BACKING_MAP_PERSISTENCE_CHUNK_SIZE</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -1011,7 +1011,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="STRONG_REF_KEY">
 <h3>STRONG_REF_KEY</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-130">STRONG_REF_KEY</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-131">STRONG_REF_KEY</a></span></div>
 <div class="block">Use strong reference for offsetLock or not</div>
 <dl class="notes">
 <dt>See Also:</dt>
@@ -1026,7 +1026,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="STRONG_REF_DEFAULT">
 <h3>STRONG_REF_DEFAULT</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-131">STRONG_REF_DEFAULT</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-132">STRONG_REF_DEFAULT</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -1040,7 +1040,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="DEFAULT_SINGLE_FACTOR">
 <h3>DEFAULT_SINGLE_FACTOR</h3>
-<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-134">DEFAULT_SINGLE_FACTOR</a></span></div>
+<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-135">DEFAULT_SINGLE_FACTOR</a></span></div>
 <div class="block">Priority buckets</div>
 <dl class="notes">
 <dt>See Also:</dt>
@@ -1055,7 +1055,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="DEFAULT_MULTI_FACTOR">
 <h3>DEFAULT_MULTI_FACTOR</h3>
-<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-135">DEFAULT_MULTI_FACTOR</a></span></div>
+<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-136">DEFAULT_MULTI_FACTOR</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -1069,7 +1069,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="DEFAULT_MEMORY_FACTOR">
 <h3>DEFAULT_MEMORY_FACTOR</h3>
-<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-136">DEFAULT_MEMORY_FACTOR</a></span></div>
+<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-137">DEFAULT_MEMORY_FACTOR</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -1083,7 +1083,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="DEFAULT_MIN_FACTOR">
 <h3>DEFAULT_MIN_FACTOR</h3>
-<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-137">DEFAULT_MIN_FACTOR</a></span></div>
+<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-138">DEFAULT_MIN_FACTOR</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -1097,7 +1097,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="DEFAULT_EXTRA_FREE_FACTOR">
 <h3>DEFAULT_EXTRA_FREE_FACTOR</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-139">DEFAULT_EXTRA_FREE_FACTOR</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-140">DEFAULT_EXTRA_FREE_FACTOR</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -1111,7 +1111,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="DEFAULT_ACCEPT_FACTOR">
 <h3>DEFAULT_ACCEPT_FACTOR</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-140">DEFAULT_ACCEPT_FACTOR</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-141">DEFAULT_ACCEPT_FACTOR</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -1125,7 +1125,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="DEFAULT_FREE_ENTIRE_BLOCK_FACTOR">
 <h3>DEFAULT_FREE_ENTIRE_BLOCK_FACTOR</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-143">DEFAULT_FREE_ENTIRE_BLOCK_FACTOR</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-144">DEFAULT_FREE_ENTIRE_BLOCK_FACTOR</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -1139,7 +1139,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="statThreadPeriod">
 <h3>statThreadPeriod</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-146">statThreadPeriod</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-147">statThreadPeriod</a></span></div>
 <div class="block">Statistics thread</div>
 <dl class="notes">
 <dt>See Also:</dt>
@@ -1154,7 +1154,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="DEFAULT_WRITER_THREADS">
 <h3>DEFAULT_WRITER_THREADS</h3>
-<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-148">DEFAULT_WRITER_THREADS</a></span></div>
+<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-149">DEFAULT_WRITER_THREADS</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -1168,7 +1168,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="DEFAULT_WRITER_QUEUE_ITEMS">
 <h3>DEFAULT_WRITER_QUEUE_ITEMS</h3>
-<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-149">DEFAULT_WRITER_QUEUE_ITEMS</a></span></div>
+<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-150">DEFAULT_WRITER_QUEUE_ITEMS</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -1182,7 +1182,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="DEFAULT_BACKING_MAP_PERSISTENCE_CHUNK_SIZE">
 <h3>DEFAULT_BACKING_MAP_PERSISTENCE_CHUNK_SIZE</h3>
-<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-151">DEFAULT_BACKING_MAP_PERSISTENCE_CHUNK_SIZE</a></span></div>
+<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-152">DEFAULT_BACKING_MAP_PERSISTENCE_CHUNK_SIZE</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -1196,31 +1196,31 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="ioEngine">
 <h3>ioEngine</h3>
-<div class="member-signature"><span class="modifiers">final transient</span>&nbsp;<span class="return-type"><a href="IOEngine.html" title="interface in org.apache.hadoop.hbase.io.hfile.bucket">IOEngine</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-154">ioEngine</a></span></div>
+<div class="member-signature"><span class="modifiers">final transient</span>&nbsp;<span class="return-type"><a href="IOEngine.html" title="interface in org.apache.hadoop.hbase.io.hfile.bucket">IOEngine</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-155">ioEngine</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="ramCache">
 <h3>ramCache</h3>
-<div class="member-signature"><span class="modifiers">final transient</span>&nbsp;<span class="return-type"><a href="BucketCache.RAMCache.html" title="class in org.apache.hadoop.hbase.io.hfile.bucket">BucketCache.RAMCache</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-157">ramCache</a></span></div>
+<div class="member-signature"><span class="modifiers">final transient</span>&nbsp;<span class="return-type"><a href="BucketCache.RAMCache.html" title="class in org.apache.hadoop.hbase.io.hfile.bucket">BucketCache.RAMCache</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-158">ramCache</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="backingMap">
 <h3>backingMap</h3>
-<div class="member-signature"><span class="modifiers">transient</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>,<wbr><a href="BucketEntry.html" title="class in org.apache.hadoop.hbase.io.hfile.bucket">BucketEntry</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-160">backingMap</a></span></div>
+<div class="member-signature"><span class="modifiers">transient</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>,<wbr><a href="BucketEntry.html" title="class in org.apache.hadoop.hbase.io.hfile.bucket">BucketEntry</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-161">backingMap</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="backingMapValidated">
 <h3>backingMapValidated</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/atomic/AtomicBoolean.html" title="class or interface in java.util.concurrent.atomic" class="external-link">AtomicBoolean</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-162">backingMapValidated</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/atomic/AtomicBoolean.html" title="class or interface in java.util.concurrent.atomic" class="external-link">AtomicBoolean</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-163">backingMapValidated</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="fullyCachedFiles">
 <h3>fullyCachedFiles</h3>
-<div class="member-signature"><span class="modifiers">final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="../../../util/Pair.html" title="class in org.apache.hadoop.hbase.util">Pair</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-169">fullyCachedFiles</a></span></div>
+<div class="member-signature"><span class="modifiers">final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="../../../util/Pair.html" title="class in org.apache.hadoop.hbase.util">Pair</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-170">fullyCachedFiles</a></span></div>
 <div class="block">Map of hFile -> Region -> File size. This map is used to track all files completed prefetch,
  together with the region those belong to and the total cached size for the
  region.TestBlockEvictionOnRegionMovement</div>
@@ -1229,7 +1229,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="regionCachedSize">
 <h3>regionCachedSize</h3>
-<div class="member-signature"><span class="modifiers">final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-174">regionCachedSize</a></span></div>
+<div class="member-signature"><span class="modifiers">final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-175">regionCachedSize</a></span></div>
 <div class="block">Map of region -> total size of the region prefetched on this region server. This is the total
  size of hFiles for this region prefetched on this region server</div>
 </section>
@@ -1237,13 +1237,13 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="cachePersister">
 <h3>cachePersister</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="BucketCachePersister.html" title="class in org.apache.hadoop.hbase.io.hfile.bucket">BucketCachePersister</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-176">cachePersister</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="BucketCachePersister.html" title="class in org.apache.hadoop.hbase.io.hfile.bucket">BucketCachePersister</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-177">cachePersister</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="cacheState">
 <h3>cacheState</h3>
-<div class="member-signature"><span class="modifiers">private volatile</span>&nbsp;<span class="return-type"><a href="BucketCache.CacheState.html" title="enum class in org.apache.hadoop.hbase.io.hfile.bucket">BucketCache.CacheState</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-194">cacheState</a></span></div>
+<div class="member-signature"><span class="modifiers">private volatile</span>&nbsp;<span class="return-type"><a href="BucketCache.CacheState.html" title="enum class in org.apache.hadoop.hbase.io.hfile.bucket">BucketCache.CacheState</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-195">cacheState</a></span></div>
 <div class="block">Flag if the cache is enabled or not... We shut it off if there are IO errors for some time, so
  that Bucket IO exceptions/errors don't bring down the HBase server.</div>
 </section>
@@ -1251,7 +1251,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="writerQueues">
 <h3>writerQueues</h3>
-<div class="member-signature"><span class="modifiers">final transient</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/BlockingQueue.html" title="class or interface in java.util.concurrent" class="external-link">BlockingQueue</a>&lt;<a href="BucketCache.RAMQueueEntry.html" title="class in org.apache.hadoop.hbase.io.hfile.bucket">BucketCache.RAMQueueEntry</a>&gt;&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-203">writerQueues</a></span></div>
+<div class="member-signature"><span class="modifiers">final transient</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/BlockingQueue.html" title="class or interface in java.util.concurrent" class="external-link">BlockingQueue</a>&lt;<a href="BucketCache.RAMQueueEntry.html" title="class in org.apache.hadoop.hbase.io.hfile.bucket">BucketCache.RAMQueueEntry</a>&gt;&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-204">writerQueues</a></span></div>
 <div class="block">A list of writer queues. We have a queue per <a href="BucketCache.WriterThread.html" title="class in org.apache.hadoop.hbase.io.hfile.bucket"><code>BucketCache.WriterThread</code></a> we have running. In other
  words, the work adding blocks to the BucketCache is divided up amongst the running
  WriterThreads. Its done by taking hash of the cache key modulo queue count. WriterThread when
@@ -1262,52 +1262,52 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="writerThreads">
 <h3>writerThreads</h3>
-<div class="member-signature"><span class="modifiers">final transient</span>&nbsp;<span class="return-type"><a href="BucketCache.WriterThread.html" title="class in org.apache.hadoop.hbase.io.hfile.bucket">BucketCache.WriterThread</a>[]</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-204">writerThreads</a></span></div>
+<div class="member-signature"><span class="modifiers">final transient</span>&nbsp;<span class="return-type"><a href="BucketCache.WriterThread.html" title="class in org.apache.hadoop.hbase.io.hfile.bucket">BucketCache.WriterThread</a>[]</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-205">writerThreads</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="freeInProgress">
 <h3>freeInProgress</h3>
-<div class="member-signature"><span class="modifiers">private volatile</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-207">freeInProgress</a></span></div>
+<div class="member-signature"><span class="modifiers">private volatile</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-208">freeInProgress</a></span></div>
 <div class="block">Volatile boolean to track if free space is in process or not</div>
 </section>
 </li>
 <li>
 <section class="detail" id="freeSpaceLock">
 <h3>freeSpaceLock</h3>
-<div class="member-signature"><span class="modifiers">private final transient</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/locks/Lock.html" title="class or interface in java.util.concurrent.locks" class="external-link">Lock</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-208">freeSpaceLock</a></span></div>
+<div class="member-signature"><span class="modifiers">private final transient</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/locks/Lock.html" title="class or interface in java.util.concurrent.locks" class="external-link">Lock</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-209">freeSpaceLock</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="realCacheSize">
 <h3>realCacheSize</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/atomic/LongAdder.html" title="class or interface in java.util.concurrent.atomic" class="external-link">LongAdder</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-210">realCacheSize</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/atomic/LongAdder.html" title="class or interface in java.util.concurrent.atomic" class="external-link">LongAdder</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-211">realCacheSize</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="heapSize">
 <h3>heapSize</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/atomic/LongAdder.html" title="class or interface in java.util.concurrent.atomic" class="external-link">LongAdder</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-211">heapSize</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/atomic/LongAdder.html" title="class or interface in java.util.concurrent.atomic" class="external-link">LongAdder</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-212">heapSize</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="blockNumber">
 <h3>blockNumber</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/atomic/LongAdder.html" title="class or interface in java.util.concurrent.atomic" class="external-link">LongAdder</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-213">blockNumber</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/atomic/LongAdder.html" title="class or interface in java.util.concurrent.atomic" class="external-link">LongAdder</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-214">blockNumber</a></span></div>
 <div class="block">Current number of cached elements</div>
 </section>
 </li>
 <li>
 <section class="detail" id="accessCount">
 <h3>accessCount</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/atomic/AtomicLong.html" title="class or interface in java.util.concurrent.atomic" class="external-link">AtomicLong</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-216">accessCount</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/atomic/AtomicLong.html" title="class or interface in java.util.concurrent.atomic" class="external-link">AtomicLong</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-217">accessCount</a></span></div>
 <div class="block">Cache access count (sequential ID)</div>
 </section>
 </li>
 <li>
 <section class="detail" id="DEFAULT_CACHE_WAIT_TIME">
 <h3>DEFAULT_CACHE_WAIT_TIME</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-218">DEFAULT_CACHE_WAIT_TIME</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-219">DEFAULT_CACHE_WAIT_TIME</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -1321,45 +1321,45 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="cacheStats">
 <h3>cacheStats</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="BucketCacheStats.html" title="class in org.apache.hadoop.hbase.io.hfile.bucket">BucketCacheStats</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-220">cacheStats</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="BucketCacheStats.html" title="class in org.apache.hadoop.hbase.io.hfile.bucket">BucketCacheStats</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-221">cacheStats</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="persistencePath">
 <h3>persistencePath</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-221">persistencePath</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-222">persistencePath</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="isCacheInconsistent">
 <h3>isCacheInconsistent</h3>
-<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/atomic/AtomicBoolean.html" title="class or interface in java.util.concurrent.atomic" class="external-link">AtomicBoolean</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-222">isCacheInconsistent</a></span></div>
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/atomic/AtomicBoolean.html" title="class or interface in java.util.concurrent.atomic" class="external-link">AtomicBoolean</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-223">isCacheInconsistent</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="cacheCapacity">
 <h3>cacheCapacity</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-223">cacheCapacity</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-224">cacheCapacity</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="blockSize">
 <h3>blockSize</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-225">blockSize</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-226">blockSize</a></span></div>
 <div class="block">Approximate block size</div>
 </section>
 </li>
 <li>
 <section class="detail" id="ioErrorsTolerationDuration">
 <h3>ioErrorsTolerationDuration</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-228">ioErrorsTolerationDuration</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-229">ioErrorsTolerationDuration</a></span></div>
 <div class="block">Duration of IO errors tolerated before we disable cache, 1 min as default</div>
 </section>
 </li>
 <li>
 <section class="detail" id="DEFAULT_ERROR_TOLERATION_DURATION">
 <h3>DEFAULT_ERROR_TOLERATION_DURATION</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-230">DEFAULT_ERROR_TOLERATION_DURATION</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-231">DEFAULT_ERROR_TOLERATION_DURATION</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -1373,19 +1373,19 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="ioErrorStartTime">
 <h3>ioErrorStartTime</h3>
-<div class="member-signature"><span class="modifiers">private volatile</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-234">ioErrorStartTime</a></span></div>
+<div class="member-signature"><span class="modifiers">private volatile</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-235">ioErrorStartTime</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="conf">
 <h3>conf</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.conf.Configuration</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-236">conf</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.conf.Configuration</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-237">conf</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="offsetLock">
 <h3>offsetLock</h3>
-<div class="member-signature"><span class="modifiers">final transient</span>&nbsp;<span class="return-type"><a href="../../../util/IdReadWriteLock.html" title="class in org.apache.hadoop.hbase.util">IdReadWriteLock</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-243">offsetLock</a></span></div>
+<div class="member-signature"><span class="modifiers">final transient</span>&nbsp;<span class="return-type"><a href="../../../util/IdReadWriteLock.html" title="class in org.apache.hadoop.hbase.util">IdReadWriteLock</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-244">offsetLock</a></span></div>
 <div class="block">A ReentrantReadWriteLock to lock on a particular block identified by offset. The purpose of
  this is to avoid freeing the block which is being read.
  <p></div>
@@ -1394,40 +1394,40 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="blocksByHFile">
 <h3>blocksByHFile</h3>
-<div class="member-signature"><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/NavigableSet.html" title="class or interface in java.util" class="external-link">NavigableSet</a>&lt;<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-245">blocksByHFile</a></span></div>
+<div class="member-signature"><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/NavigableSet.html" title="class or interface in java.util" class="external-link">NavigableSet</a>&lt;<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-246">blocksByHFile</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="scheduleThreadPool">
 <h3>scheduleThreadPool</h3>
-<div class="member-signature"><span class="modifiers">private final transient</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ScheduledExecutorService.html" title="class or interface in java.util.concurrent" class="external-link">ScheduledExecutorService</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-249">scheduleThreadPool</a></span></div>
+<div class="member-signature"><span class="modifiers">private final transient</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ScheduledExecutorService.html" title="class or interface in java.util.concurrent" class="external-link">ScheduledExecutorService</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-250">scheduleThreadPool</a></span></div>
 <div class="block">Statistics thread schedule pool (for heavy debugging, could remove)</div>
 </section>
 </li>
 <li>
 <section class="detail" id="bucketAllocator">
 <h3>bucketAllocator</h3>
-<div class="member-signature"><span class="modifiers">private transient</span>&nbsp;<span class="return-type"><a href="BucketAllocator.html" title="class in org.apache.hadoop.hbase.io.hfile.bucket">BucketAllocator</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-254">bucketAllocator</a></span></div>
+<div class="member-signature"><span class="modifiers">private transient</span>&nbsp;<span class="return-type"><a href="BucketAllocator.html" title="class in org.apache.hadoop.hbase.io.hfile.bucket">BucketAllocator</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-255">bucketAllocator</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="acceptableFactor">
 <h3>acceptableFactor</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-257">acceptableFactor</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-258">acceptableFactor</a></span></div>
 <div class="block">Acceptable size of cache (no evictions if size &lt; acceptable)</div>
 </section>
 </li>
 <li>
 <section class="detail" id="minFactor">
 <h3>minFactor</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-260">minFactor</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-261">minFactor</a></span></div>
 <div class="block">Minimum threshold of cache (when evicting, evict until size &lt; min)</div>
 </section>
 </li>
 <li>
 <section class="detail" id="extraFreeFactor">
 <h3>extraFreeFactor</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-266">extraFreeFactor</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-267">extraFreeFactor</a></span></div>
 <div class="block">Free this floating point factor of extra blocks when evicting. For example free the number of
  blocks requested * (1 + extraFreeFactor)</div>
 </section>
@@ -1435,34 +1435,34 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="singleFactor">
 <h3>singleFactor</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-269">singleFactor</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-270">singleFactor</a></span></div>
 <div class="block">Single access bucket size</div>
 </section>
 </li>
 <li>
 <section class="detail" id="multiFactor">
 <h3>multiFactor</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-272">multiFactor</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-273">multiFactor</a></span></div>
 <div class="block">Multiple access bucket size</div>
 </section>
 </li>
 <li>
 <section class="detail" id="memoryFactor">
 <h3>memoryFactor</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-275">memoryFactor</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-276">memoryFactor</a></span></div>
 <div class="block">In-memory bucket size</div>
 </section>
 </li>
 <li>
 <section class="detail" id="bucketcachePersistInterval">
 <h3>bucketcachePersistInterval</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-277">bucketcachePersistInterval</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-278">bucketcachePersistInterval</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="FILE_VERIFY_ALGORITHM">
 <h3>FILE_VERIFY_ALGORITHM</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-279">FILE_VERIFY_ALGORITHM</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-280">FILE_VERIFY_ALGORITHM</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -1476,7 +1476,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="DEFAULT_FILE_VERIFY_ALGORITHM">
 <h3>DEFAULT_FILE_VERIFY_ALGORITHM</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-281">DEFAULT_FILE_VERIFY_ALGORITHM</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-282">DEFAULT_FILE_VERIFY_ALGORITHM</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -1490,7 +1490,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="QUEUE_ADDITION_WAIT_TIME">
 <h3>QUEUE_ADDITION_WAIT_TIME</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-283">QUEUE_ADDITION_WAIT_TIME</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-284">QUEUE_ADDITION_WAIT_TIME</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -1504,7 +1504,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="DEFAULT_QUEUE_ADDITION_WAIT_TIME">
 <h3>DEFAULT_QUEUE_ADDITION_WAIT_TIME</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-285">DEFAULT_QUEUE_ADDITION_WAIT_TIME</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-286">DEFAULT_QUEUE_ADDITION_WAIT_TIME</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -1518,13 +1518,13 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="queueAdditionWaitTime">
 <h3>queueAdditionWaitTime</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-286">queueAdditionWaitTime</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-287">queueAdditionWaitTime</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="algorithm">
 <h3>algorithm</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-291">algorithm</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-292">algorithm</a></span></div>
 <div class="block">Use <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/security/MessageDigest.html" title="class or interface in java.security" class="external-link"><code>MessageDigest</code></a> class's encryption algorithms to check persistent file
  integrity, default algorithm is MD5</div>
 </section>
@@ -1532,19 +1532,19 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="persistenceChunkSize">
 <h3>persistenceChunkSize</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-293">persistenceChunkSize</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-294">persistenceChunkSize</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="allocFailLogPrevTs">
 <h3>allocFailLogPrevTs</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-296">allocFailLogPrevTs</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-297">allocFailLogPrevTs</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="ALLOCATION_FAIL_LOG_TIME_PERIOD">
 <h3>ALLOCATION_FAIL_LOG_TIME_PERIOD</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-297">ALLOCATION_FAIL_LOG_TIME_PERIOD</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-298">ALLOCATION_FAIL_LOG_TIME_PERIOD</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -1566,7 +1566,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="&lt;init&gt;(java.lang.String,long,int,int[],int,int,java.lang.String)">
 <h3>BucketCache</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-299">BucketCache</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;ioEngineName,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-300">BucketCache</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;ioEngineName,
  long&nbsp;capacity,
  int&nbsp;blockSize,
  int[]&nbsp;bucketSizes,
@@ -1583,7 +1583,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="&lt;init&gt;(java.lang.String,long,int,int[],int,int,java.lang.String,int,org.apache.hadoop.conf.Configuration)">
 <h3>BucketCache</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-305">BucketCache</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;ioEngineName,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-306">BucketCache</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;ioEngineName,
  long&nbsp;capacity,
  int&nbsp;blockSize,
  int[]&nbsp;bucketSizes,
@@ -1610,27 +1610,27 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="startPersistenceRetriever(int[],long)">
 <h3>startPersistenceRetriever</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-388">startPersistenceRetriever</a></span><wbr><span class="parameters">(int[]&nbsp;bucketSizes,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-389">startPersistenceRetriever</a></span><wbr><span class="parameters">(int[]&nbsp;bucketSizes,
  long&nbsp;capacity)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="sanityCheckConfigs()">
 <h3>sanityCheckConfigs</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-414">sanityCheckConfigs</a></span>()</div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-415">sanityCheckConfigs</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="instantiateWriterThreads()">
 <h3>instantiateWriterThreads</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-437">instantiateWriterThreads</a></span>()</div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-438">instantiateWriterThreads</a></span>()</div>
 <div class="block">Called by the constructor to instantiate the writer threads.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="startWriterThreads()">
 <h3>startWriterThreads</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-450">startWriterThreads</a></span>()</div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-451">startWriterThreads</a></span>()</div>
 <div class="block">Called by the constructor to start the writer threads. Used by tests that need to override
  starting the threads.</div>
 </section>
@@ -1638,13 +1638,13 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="startBucketCachePersisterThread()">
 <h3>startBucketCachePersisterThread</h3>
-<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-456">startBucketCachePersisterThread</a></span>()</div>
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-457">startBucketCachePersisterThread</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="isCacheEnabled()">
 <h3>isCacheEnabled</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-463">isCacheEnabled</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-464">isCacheEnabled</a></span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../BlockCache.html#isCacheEnabled()">BlockCache</a></code></span></div>
 <div class="block">API to check whether or not, the cache is enabled.</div>
 <dl class="notes">
@@ -1658,7 +1658,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="getMaxSize()">
 <h3>getMaxSize</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-468">getMaxSize</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-469">getMaxSize</a></span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../BlockCache.html#getMaxSize()">BlockCache</a></code></span></div>
 <div class="block">Returns the Max size of the block cache, in bytes.</div>
 <dl class="notes">
@@ -1672,13 +1672,13 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="getIoEngine()">
 <h3>getIoEngine</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-473">getIoEngine</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-474">getIoEngine</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getIOEngineFromName(java.lang.String,long,java.lang.String)">
 <h3>getIOEngineFromName</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="IOEngine.html" title="interface in org.apache.hadoop.hbase.io.hfile.bucket">IOEngine</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-481">getIOEngineFromName</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;ioEngineName,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="IOEngine.html" title="interface in org.apache.hadoop.hbase.io.hfile.bucket">IOEngine</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-482">getIOEngineFromName</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;ioEngineName,
  long&nbsp;capacity,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;persistencePath)</span>
                               throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
@@ -1694,13 +1694,13 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="isCachePersistenceEnabled()">
 <h3>isCachePersistenceEnabled</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-508">isCachePersistenceEnabled</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-509">isCachePersistenceEnabled</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="cacheBlock(org.apache.hadoop.hbase.io.hfile.BlockCacheKey,org.apache.hadoop.hbase.io.hfile.Cacheable)">
 <h3>cacheBlock</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-517">cacheBlock</a></span><wbr><span class="parameters">(<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;cacheKey,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-518">cacheBlock</a></span><wbr><span class="parameters">(<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;cacheKey,
  <a href="../Cacheable.html" title="interface in org.apache.hadoop.hbase.io.hfile">Cacheable</a>&nbsp;buf)</span></div>
 <div class="block">Cache the block with the specified name and buffer.</div>
 <dl class="notes">
@@ -1715,7 +1715,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="cacheBlock(org.apache.hadoop.hbase.io.hfile.BlockCacheKey,org.apache.hadoop.hbase.io.hfile.Cacheable,boolean)">
 <h3>cacheBlock</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-528">cacheBlock</a></span><wbr><span class="parameters">(<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;cacheKey,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-529">cacheBlock</a></span><wbr><span class="parameters">(<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;cacheKey,
  <a href="../Cacheable.html" title="interface in org.apache.hadoop.hbase.io.hfile">Cacheable</a>&nbsp;cachedItem,
  boolean&nbsp;inMemory)</span></div>
 <div class="block">Cache the block with the specified name and buffer.</div>
@@ -1732,7 +1732,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="cacheBlock(org.apache.hadoop.hbase.io.hfile.BlockCacheKey,org.apache.hadoop.hbase.io.hfile.Cacheable,boolean,boolean)">
 <h3>cacheBlock</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-539">cacheBlock</a></span><wbr><span class="parameters">(<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;cacheKey,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-540">cacheBlock</a></span><wbr><span class="parameters">(<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;cacheKey,
  <a href="../Cacheable.html" title="interface in org.apache.hadoop.hbase.io.hfile">Cacheable</a>&nbsp;cachedItem,
  boolean&nbsp;inMemory,
  boolean&nbsp;waitWhenCache)</span></div>
@@ -1752,7 +1752,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="cacheBlockWithWait(org.apache.hadoop.hbase.io.hfile.BlockCacheKey,org.apache.hadoop.hbase.io.hfile.Cacheable,boolean,boolean)">
 <h3>cacheBlockWithWait</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-552">cacheBlockWithWait</a></span><wbr><span class="parameters">(<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;cacheKey,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-553">cacheBlockWithWait</a></span><wbr><span class="parameters">(<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;cacheKey,
  <a href="../Cacheable.html" title="interface in org.apache.hadoop.hbase.io.hfile">Cacheable</a>&nbsp;cachedItem,
  boolean&nbsp;inMemory,
  boolean&nbsp;wait)</span></div>
@@ -1769,14 +1769,14 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="shouldReplaceExistingCacheBlock(org.apache.hadoop.hbase.io.hfile.BlockCacheKey,org.apache.hadoop.hbase.io.hfile.Cacheable)">
 <h3>shouldReplaceExistingCacheBlock</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-570">shouldReplaceExistingCacheBlock</a></span><wbr><span class="parameters">(<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;cacheKey,
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-571">shouldReplaceExistingCacheBlock</a></span><wbr><span class="parameters">(<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;cacheKey,
  <a href="../Cacheable.html" title="interface in org.apache.hadoop.hbase.io.hfile">Cacheable</a>&nbsp;newBlock)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="cacheBlockWithWaitInternal(org.apache.hadoop.hbase.io.hfile.BlockCacheKey,org.apache.hadoop.hbase.io.hfile.Cacheable,boolean,boolean)">
 <h3>cacheBlockWithWaitInternal</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-574">cacheBlockWithWaitInternal</a></span><wbr><span class="parameters">(<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;cacheKey,
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-575">cacheBlockWithWaitInternal</a></span><wbr><span class="parameters">(<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;cacheKey,
  <a href="../Cacheable.html" title="interface in org.apache.hadoop.hbase.io.hfile">Cacheable</a>&nbsp;cachedItem,
  boolean&nbsp;inMemory,
  boolean&nbsp;wait)</span></div>
@@ -1785,7 +1785,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="getBlockForReference(org.apache.hadoop.hbase.io.hfile.BlockCacheKey)">
 <h3>getBlockForReference</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="BucketEntry.html" title="class in org.apache.hadoop.hbase.io.hfile.bucket">BucketEntry</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-627">getBlockForReference</a></span><wbr><span class="parameters">(<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;key)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="BucketEntry.html" title="class in org.apache.hadoop.hbase.io.hfile.bucket">BucketEntry</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-628">getBlockForReference</a></span><wbr><span class="parameters">(<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;key)</span></div>
 <div class="block">If the passed cache key relates to a reference (&lt;hfile&gt;.&lt;parentEncRegion&gt;), this
  method looks for the block from the referred file, in the cache. If present in the cache, the
  block for the referred file is returned, otherwise, this method returns null. It will also
@@ -1802,7 +1802,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="getBlock(org.apache.hadoop.hbase.io.hfile.BlockCacheKey,boolean,boolean,boolean)">
 <h3>getBlock</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../Cacheable.html" title="interface in org.apache.hadoop.hbase.io.hfile">Cacheable</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-650">getBlock</a></span><wbr><span class="parameters">(<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;key,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../Cacheable.html" title="interface in org.apache.hadoop.hbase.io.hfile">Cacheable</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-651">getBlock</a></span><wbr><span class="parameters">(<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;key,
  boolean&nbsp;caching,
  boolean&nbsp;repeat,
  boolean&nbsp;updateCacheMetrics)</span></div>
@@ -1823,7 +1823,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="blockEvicted(org.apache.hadoop.hbase.io.hfile.BlockCacheKey,org.apache.hadoop.hbase.io.hfile.bucket.BucketEntry,boolean,boolean)">
 <h3>blockEvicted</h3>
-<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-723">blockEvicted</a></span><wbr><span class="parameters">(<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;cacheKey,
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-724">blockEvicted</a></span><wbr><span class="parameters">(<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;cacheKey,
  <a href="BucketEntry.html" title="class in org.apache.hadoop.hbase.io.hfile.bucket">BucketEntry</a>&nbsp;bucketEntry,
  boolean&nbsp;decrementBlockNumber,
  boolean&nbsp;evictedByEvictionProcess)</span></div>
@@ -1833,27 +1833,27 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="fileNotFullyCached(java.lang.String)">
 <h3>fileNotFullyCached</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-741">fileNotFullyCached</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hfileName)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-742">fileNotFullyCached</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hfileName)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="fileCacheCompleted(org.apache.hadoop.fs.Path,long)">
 <h3>fileCacheCompleted</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-760">fileCacheCompleted</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;filePath,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-761">fileCacheCompleted</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;filePath,
  long&nbsp;size)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="updateRegionCachedSize(org.apache.hadoop.fs.Path,long)">
 <h3>updateRegionCachedSize</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-769">updateRegionCachedSize</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;filePath,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-770">updateRegionCachedSize</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;filePath,
  long&nbsp;cachedSize)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="freeBucketEntry(org.apache.hadoop.hbase.io.hfile.bucket.BucketEntry)">
 <h3>freeBucketEntry</h3>
-<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-781">freeBucketEntry</a></span><wbr><span class="parameters">(<a href="BucketEntry.html" title="class in org.apache.hadoop.hbase.io.hfile.bucket">BucketEntry</a>&nbsp;bucketEntry)</span></div>
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-782">freeBucketEntry</a></span><wbr><span class="parameters">(<a href="BucketEntry.html" title="class in org.apache.hadoop.hbase.io.hfile.bucket">BucketEntry</a>&nbsp;bucketEntry)</span></div>
 <div class="block">Free the {<a href="BucketEntry.html" title="class in org.apache.hadoop.hbase.io.hfile.bucket"><code>BucketEntry</code></a> actually,which could only be invoked when the
  <a href="BucketEntry.html#refCnt"><code>BucketEntry.refCnt</code></a> becoming 0.</div>
 </section>
@@ -1861,7 +1861,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="evictBlock(org.apache.hadoop.hbase.io.hfile.BlockCacheKey)">
 <h3>evictBlock</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-802">evictBlock</a></span><wbr><span class="parameters">(<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;cacheKey)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-803">evictBlock</a></span><wbr><span class="parameters">(<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;cacheKey)</span></div>
 <div class="block">Try to evict the block from <a href="../BlockCache.html" title="interface in org.apache.hadoop.hbase.io.hfile"><code>BlockCache</code></a> by force. We'll call this in few cases:<br>
  1. Close an HFile, and clear all cached blocks. <br>
  2. Call <a href="../../../client/Admin.html#clearBlockCache(org.apache.hadoop.hbase.TableName)"><code>Admin.clearBlockCache(TableName)</code></a> to clear all blocks for a given table.<br>
@@ -1887,7 +1887,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="doEvictBlock(org.apache.hadoop.hbase.io.hfile.BlockCacheKey,org.apache.hadoop.hbase.io.hfile.bucket.BucketEntry,boolean)">
 <h3>doEvictBlock</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-816">doEvictBlock</a></span><wbr><span class="parameters">(<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;cacheKey,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-817">doEvictBlock</a></span><wbr><span class="parameters">(<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;cacheKey,
  <a href="BucketEntry.html" title="class in org.apache.hadoop.hbase.io.hfile.bucket">BucketEntry</a>&nbsp;bucketEntry,
  boolean&nbsp;evictedByEvictionProcess)</span></div>
 <div class="block">Evict the <a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile"><code>BlockCacheKey</code></a> and <a href="BucketEntry.html" title="class in org.apache.hadoop.hbase.io.hfile.bucket"><code>BucketEntry</code></a> from <a href="#backingMap"><code>backingMap</code></a> and
@@ -1906,7 +1906,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="createRecycler(org.apache.hadoop.hbase.io.hfile.bucket.BucketEntry)">
 <h3>createRecycler</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../ByteBuffAllocator.Recycler.html" title="interface in org.apache.hadoop.hbase.io">ByteBuffAllocator.Recycler</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-858">createRecycler</a></span><wbr><span class="parameters">(<a href="BucketEntry.html" title="class in org.apache.hadoop.hbase.io.hfile.bucket">BucketEntry</a>&nbsp;bucketEntry)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../ByteBuffAllocator.Recycler.html" title="interface in org.apache.hadoop.hbase.io">ByteBuffAllocator.Recycler</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-859">createRecycler</a></span><wbr><span class="parameters">(<a href="BucketEntry.html" title="class in org.apache.hadoop.hbase.io.hfile.bucket">BucketEntry</a>&nbsp;bucketEntry)</span></div>
 <div class="block"><pre>
  Create the <a href="../../ByteBuffAllocator.Recycler.html" title="interface in org.apache.hadoop.hbase.io"><code>ByteBuffAllocator.Recycler</code></a> for <a href="BucketEntry.html#refCnt"><code>BucketEntry.refCnt</code></a>,which would be used as
  <a href="../../../nio/RefCnt.html#recycler"><code>RefCnt.recycler</code></a> of <code>HFileBlock#buf</code> returned from <a href="#getBlock(org.apache.hadoop.hbase.io.hfile.BlockCacheKey,boolean,boolean,boolean)"><code>getBlock(org.apache.hadoop.hbase.io.hfile.BlockCacheKey, boolean, boolean, boolean)</code></a>.
@@ -1923,14 +1923,14 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="evictBlockIfNoRpcReferenced(org.apache.hadoop.hbase.io.hfile.BlockCacheKey)">
 <h3>evictBlockIfNoRpcReferenced</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-868">evictBlockIfNoRpcReferenced</a></span><wbr><span class="parameters">(<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;blockCacheKey)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-869">evictBlockIfNoRpcReferenced</a></span><wbr><span class="parameters">(<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;blockCacheKey)</span></div>
 <div class="block">NOTE: This method is only for test.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="evictBucketEntryIfNoRpcReferenced(org.apache.hadoop.hbase.io.hfile.BlockCacheKey,org.apache.hadoop.hbase.io.hfile.bucket.BucketEntry)">
 <h3>evictBucketEntryIfNoRpcReferenced</h3>
-<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-885">evictBucketEntryIfNoRpcReferenced</a></span><wbr><span class="parameters">(<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;blockCacheKey,
+<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-886">evictBucketEntryIfNoRpcReferenced</a></span><wbr><span class="parameters">(<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;blockCacheKey,
  <a href="BucketEntry.html" title="class in org.apache.hadoop.hbase.io.hfile.bucket">BucketEntry</a>&nbsp;bucketEntry)</span></div>
 <div class="block">Evict <a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile"><code>BlockCacheKey</code></a> and its corresponding <a href="BucketEntry.html" title="class in org.apache.hadoop.hbase.io.hfile.bucket"><code>BucketEntry</code></a> only if
  <a href="BucketEntry.html#isRpcRef()"><code>BucketEntry.isRpcRef()</code></a> is false. <br/>
@@ -1948,62 +1948,62 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="removeFromRamCache(org.apache.hadoop.hbase.io.hfile.BlockCacheKey)">
 <h3>removeFromRamCache</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-892">removeFromRamCache</a></span><wbr><span class="parameters">(<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;cacheKey)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-893">removeFromRamCache</a></span><wbr><span class="parameters">(<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;cacheKey)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="isCacheInconsistent()">
 <h3>isCacheInconsistent</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-901">isCacheInconsistent</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-902">isCacheInconsistent</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="setCacheInconsistent(boolean)">
 <h3>setCacheInconsistent</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-905">setCacheInconsistent</a></span><wbr><span class="parameters">(boolean&nbsp;setCacheInconsistent)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-906">setCacheInconsistent</a></span><wbr><span class="parameters">(boolean&nbsp;setCacheInconsistent)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="setCacheState(org.apache.hadoop.hbase.io.hfile.bucket.BucketCache.CacheState)">
 <h3>setCacheState</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-909">setCacheState</a></span><wbr><span class="parameters">(<a href="BucketCache.CacheState.html" title="enum class in org.apache.hadoop.hbase.io.hfile.bucket">BucketCache.CacheState</a>&nbsp;state)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-910">setCacheState</a></span><wbr><span class="parameters">(<a href="BucketCache.CacheState.html" title="enum class in org.apache.hadoop.hbase.io.hfile.bucket">BucketCache.CacheState</a>&nbsp;state)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="logStats()">
 <h3>logStats</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-931">logStats</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-932">logStats</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getRealCacheSize()">
 <h3>getRealCacheSize</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-964">getRealCacheSize</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-965">getRealCacheSize</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="acceptableSize()">
 <h3>acceptableSize</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-968">acceptableSize</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-969">acceptableSize</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getPartitionSize(float)">
 <h3>getPartitionSize</h3>
-<div class="member-signature"><span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-975">getPartitionSize</a></span><wbr><span class="parameters">(float&nbsp;partitionFactor)</span></div>
+<div class="member-signature"><span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-976">getPartitionSize</a></span><wbr><span class="parameters">(float&nbsp;partitionFactor)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="bucketSizesAboveThresholdCount(float)">
 <h3>bucketSizesAboveThresholdCount</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-986">bucketSizesAboveThresholdCount</a></span><wbr><span class="parameters">(float&nbsp;minFactor)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-987">bucketSizesAboveThresholdCount</a></span><wbr><span class="parameters">(float&nbsp;minFactor)</span></div>
 <div class="block">Return the count of bucketSizeinfos still need free space</div>
 </section>
 </li>
 <li>
 <section class="detail" id="freeEntireBuckets(int)">
 <h3>freeEntireBuckets</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1010">freeEntireBuckets</a></span><wbr><span class="parameters">(int&nbsp;completelyFreeBucketsNeeded)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1011">freeEntireBuckets</a></span><wbr><span class="parameters">(int&nbsp;completelyFreeBucketsNeeded)</span></div>
 <div class="block">This method will find the buckets that are minimally occupied and are not reference counted and
  will free them completely without any constraint on the access times of the elements, and as a
  process will completely free at most the number of buckets passed, sometimes it might not due
@@ -2017,7 +2017,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="freeSpace(java.lang.String)">
 <h3>freeSpace</h3>
-<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1040">freeSpace</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;why)</span></div>
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1041">freeSpace</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;why)</span></div>
 <div class="block">Free the space if the used size reaches acceptableSize() or one size block couldn't be
  allocated. When freeing the space, we use the LRU algorithm and ensure there must be some
  blocks evicted</div>
@@ -2030,7 +2030,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="putIntoBackingMap(org.apache.hadoop.hbase.io.hfile.BlockCacheKey,org.apache.hadoop.hbase.io.hfile.bucket.BucketEntry)">
 <h3>putIntoBackingMap</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1233">putIntoBackingMap</a></span><wbr><span class="parameters">(<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;key,
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1234">putIntoBackingMap</a></span><wbr><span class="parameters">(<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;key,
  <a href="BucketEntry.html" title="class in org.apache.hadoop.hbase.io.hfile.bucket">BucketEntry</a>&nbsp;bucketEntry)</span></div>
 <div class="block">Put the new bucket entry into backingMap. Notice that we are allowed to replace the existing
  cache with a new block for the same cache key. there's a corner case: one thread cache a block
@@ -2054,7 +2054,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="getAllocationFailWarningMessage(org.apache.hadoop.hbase.io.hfile.bucket.BucketAllocatorException,org.apache.hadoop.hbase.io.hfile.bucket.BucketCache.RAMQueueEntry)">
 <h3>getAllocationFailWarningMessage</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1251">getAllocationFailWarningMessage</a></span><wbr><span class="parameters">(<a href="BucketAllocatorException.html" title="class in org.apache.hadoop.hbase.io.hfile.bucket">BucketAllocatorException</a>&nbsp;fle,
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1252">getAllocationFailWarningMessage</a></span><wbr><span class="parameters">(<a href="BucketAllocatorException.html" title="class in org.apache.hadoop.hbase.io.hfile.bucket">BucketAllocatorException</a>&nbsp;fle,
  <a href="BucketCache.RAMQueueEntry.html" title="class in org.apache.hadoop.hbase.io.hfile.bucket">BucketCache.RAMQueueEntry</a>&nbsp;re)</span></div>
 <div class="block">Prepare and return a warning message for Bucket Allocator Exception</div>
 <dl class="notes">
@@ -2069,7 +2069,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="doDrain(java.util.List,java.nio.ByteBuffer)">
 <h3>doDrain</h3>
-<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1293">doDrain</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="BucketCache.RAMQueueEntry.html" title="class in org.apache.hadoop.hbase.io.hfile.bucket">BucketCache.RAMQueueEntry</a>&gt;&nbsp;entries,
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1294">doDrain</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="BucketCache.RAMQueueEntry.html" title="class in org.apache.hadoop.hbase.io.hfile.bucket">BucketCache.RAMQueueEntry</a>&gt;&nbsp;entries,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a>&nbsp;metaBuff)</span>
       throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/InterruptedException.html" title="class or interface in java.lang" class="external-link">InterruptedException</a></span></div>
 <div class="block">Flush the entries in ramCache to IOEngine and add bucket entry to backingMap. Process all that
@@ -2087,7 +2087,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="getRAMQueueEntries(java.util.concurrent.BlockingQueue,java.util.List)">
 <h3>getRAMQueueEntries</h3>
-<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="BucketCache.RAMQueueEntry.html" title="class in org.apache.hadoop.hbase.io.hfile.bucket">BucketCache.RAMQueueEntry</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1417">getRAMQueueEntries</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/BlockingQueue.html" title="class or interface in java.util.concurrent" class="external-link">BlockingQueue</a>&lt;<a href="BucketCache.RAMQueueEntry.html" title="class in org.apache.hadoop.hbase.io.hfile.bucket">BucketCache.RAMQueueEntry</a>&gt;&nbsp;q,
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="BucketCache.RAMQueueEntry.html" title="class in org.apache.hadoop.hbase.io.hfile.bucket">BucketCache.RAMQueueEntry</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1418">getRAMQueueEntries</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/BlockingQueue.html" title="class or interface in java.util.concurrent" class="external-link">BlockingQueue</a>&lt;<a href="BucketCache.RAMQueueEntry.html" title="class in org.apache.hadoop.hbase.io.hfile.bucket">BucketCache.RAMQueueEntry</a>&gt;&nbsp;q,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="BucketCache.RAMQueueEntry.html" title="class in org.apache.hadoop.hbase.io.hfile.bucket">BucketCache.RAMQueueEntry</a>&gt;&nbsp;receptacle)</span>
                                                    throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/InterruptedException.html" title="class or interface in java.lang" class="external-link">InterruptedException</a></span></div>
 <div class="block">Blocks until elements available in <code>q</code> then tries to grab as many as possible before
@@ -2107,7 +2107,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="persistToFile()">
 <h3>persistToFile</h3>
-<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1430">persistToFile</a></span>()
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1431">persistToFile</a></span>()
             throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -2124,13 +2124,13 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="isCachePersistent()">
 <h3>isCachePersistent</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1463">isCachePersistent</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1464">isCachePersistent</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getRegionCachedInfo()">
 <h3>getRegionCachedInfo</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1467">getRegionCachedInfo</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1468">getRegionCachedInfo</a></span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../BlockCache.html#getRegionCachedInfo()">BlockCache</a></code></span></div>
 <div class="block">Returns an Optional containing a map of regions and the percentage of how much of it has been
  cached so far.</div>
@@ -2146,7 +2146,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="retrieveFromFile(int[])">
 <h3>retrieveFromFile</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1475">retrieveFromFile</a></span><wbr><span class="parameters">(int[]&nbsp;bucketSizes)</span>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1476">retrieveFromFile</a></span><wbr><span class="parameters">(int[]&nbsp;bucketSizes)</span>
                        throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -2163,19 +2163,19 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="updateRegionSizeMapWhileRetrievingFromFile()">
 <h3>updateRegionSizeMapWhileRetrievingFromFile</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1516">updateRegionSizeMapWhileRetrievingFromFile</a></span>()</div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1513">updateRegionSizeMapWhileRetrievingFromFile</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="dumpPrefetchList()">
 <h3>dumpPrefetchList</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1532">dumpPrefetchList</a></span>()</div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1529">dumpPrefetchList</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="verifyCapacityAndClasses(long,java.lang.String,java.lang.String)">
 <h3>verifyCapacityAndClasses</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1539">verifyCapacityAndClasses</a></span><wbr><span class="parameters">(long&nbsp;capacitySize,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1536">verifyCapacityAndClasses</a></span><wbr><span class="parameters">(long&nbsp;capacitySize,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;ioclass,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;mapclass)</span>
                                throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
@@ -2188,13 +2188,13 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="verifyFileIntegrity(org.apache.hadoop.hbase.shaded.protobuf.generated.BucketCacheProtos.BucketCacheEntry)">
 <h3>verifyFileIntegrity</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1555">verifyFileIntegrity</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.shaded.protobuf.generated.BucketCacheProtos.BucketCacheEntry&nbsp;proto)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1552">verifyFileIntegrity</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.shaded.protobuf.generated.BucketCacheProtos.BucketCacheEntry&nbsp;proto)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="updateCacheIndex(org.apache.hadoop.hbase.shaded.protobuf.generated.BucketCacheProtos.BackingMap,java.util.Map)">
 <h3>updateCacheIndex</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1597">updateCacheIndex</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.shaded.protobuf.generated.BucketCacheProtos.BackingMap&nbsp;chunk,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1594">updateCacheIndex</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.shaded.protobuf.generated.BucketCacheProtos.BackingMap&nbsp;chunk,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;deserializer)</span>
                        throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
@@ -2206,7 +2206,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="parsePB(org.apache.hadoop.hbase.shaded.protobuf.generated.BucketCacheProtos.BucketCacheEntry)">
 <h3>parsePB</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1605">parsePB</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.shaded.protobuf.generated.BucketCacheProtos.BucketCacheEntry&nbsp;proto)</span>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1602">parsePB</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.shaded.protobuf.generated.BucketCacheProtos.BucketCacheEntry&nbsp;proto)</span>
               throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -2217,7 +2217,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="persistChunkedBackingMap(java.io.FileOutputStream)">
 <h3>persistChunkedBackingMap</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1622">persistChunkedBackingMap</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/FileOutputStream.html" title="class or interface in java.io" class="external-link">FileOutputStream</a>&nbsp;fos)</span>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1619">persistChunkedBackingMap</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/FileOutputStream.html" title="class or interface in java.io" class="external-link">FileOutputStream</a>&nbsp;fos)</span>
                                throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -2228,7 +2228,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="retrieveChunkedBackingMap(java.io.FileInputStream)">
 <h3>retrieveChunkedBackingMap</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1635">retrieveChunkedBackingMap</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/FileInputStream.html" title="class or interface in java.io" class="external-link">FileInputStream</a>&nbsp;in)</span>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1632">retrieveChunkedBackingMap</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/FileInputStream.html" title="class or interface in java.io" class="external-link">FileInputStream</a>&nbsp;in)</span>
                                 throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -2239,7 +2239,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="checkIOErrorIsTolerated()">
 <h3>checkIOErrorIsTolerated</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1666">checkIOErrorIsTolerated</a></span>()</div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1663">checkIOErrorIsTolerated</a></span>()</div>
 <div class="block">Check whether we tolerate IO error this time. If the duration of IOEngine throwing errors
  exceeds ioErrorsDurationTimeTolerated, we will disable the cache</div>
 </section>
@@ -2247,14 +2247,14 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="disableCache()">
 <h3>disableCache</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1684">disableCache</a></span>()</div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1681">disableCache</a></span>()</div>
 <div class="block">Used to shut down the cache -or- turn it off in the case of something broken.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="join()">
 <h3>join</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1704">join</a></span>()
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1701">join</a></span>()
            throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/InterruptedException.html" title="class or interface in java.lang" class="external-link">InterruptedException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -2265,7 +2265,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="shutdown()">
 <h3>shutdown</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1709">shutdown</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1706">shutdown</a></span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../BlockCache.html#shutdown()">BlockCache</a></code></span></div>
 <div class="block">Shutdown the cache.</div>
 <dl class="notes">
@@ -2277,7 +2277,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="finalize()">
 <h3>finalize</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1737">finalize</a></span>()</div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1734">finalize</a></span>()</div>
 <div class="block">Needed mostly for UTs that might run in the same VM and create different BucketCache instances
  on different UT methods.</div>
 <dl class="notes">
@@ -2289,7 +2289,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="getStats()">
 <h3>getStats</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../CacheStats.html" title="class in org.apache.hadoop.hbase.io.hfile">CacheStats</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1744">getStats</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../CacheStats.html" title="class in org.apache.hadoop.hbase.io.hfile">CacheStats</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1741">getStats</a></span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../BlockCache.html#getStats()">BlockCache</a></code></span></div>
 <div class="block">Get the statistics for this block cache.</div>
 <dl class="notes">
@@ -2301,13 +2301,13 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="getAllocator()">
 <h3>getAllocator</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="BucketAllocator.html" title="class in org.apache.hadoop.hbase.io.hfile.bucket">BucketAllocator</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1749">getAllocator</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="BucketAllocator.html" title="class in org.apache.hadoop.hbase.io.hfile.bucket">BucketAllocator</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1746">getAllocator</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="heapSize()">
 <h3>heapSize</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1753">heapSize</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1750">heapSize</a></span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../../HeapSize.html#heapSize()">HeapSize</a></code></span></div>
 <div class="block">Return the approximate 'exclusive deep size' of implementing object. Includes count of payload
  and hosting object sizings.</div>
@@ -2320,7 +2320,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="size()">
 <h3>size</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1758">size</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1755">size</a></span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../BlockCache.html#size()">BlockCache</a></code></span></div>
 <div class="block">Returns the total size of the block cache, in bytes.</div>
 <dl class="notes">
@@ -2334,7 +2334,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="getCurrentDataSize()">
 <h3>getCurrentDataSize</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1763">getCurrentDataSize</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1760">getCurrentDataSize</a></span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../BlockCache.html#getCurrentDataSize()">BlockCache</a></code></span></div>
 <div class="block">Returns the occupied size of data blocks, in bytes.</div>
 <dl class="notes">
@@ -2348,7 +2348,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="getFreeSize()">
 <h3>getFreeSize</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1768">getFreeSize</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1765">getFreeSize</a></span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../BlockCache.html#getFreeSize()">BlockCache</a></code></span></div>
 <div class="block">Returns the free size of the block cache, in bytes.</div>
 <dl class="notes">
@@ -2362,7 +2362,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="getBlockCount()">
 <h3>getBlockCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1776">getBlockCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1773">getBlockCount</a></span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../BlockCache.html#getBlockCount()">BlockCache</a></code></span></div>
 <div class="block">Returns the number of blocks currently cached in the block cache.</div>
 <dl class="notes">
@@ -2376,7 +2376,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="getDataBlockCount()">
 <h3>getDataBlockCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1781">getDataBlockCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1778">getDataBlockCount</a></span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../BlockCache.html#getDataBlockCount()">BlockCache</a></code></span></div>
 <div class="block">Returns the number of data blocks currently cached in the block cache.</div>
 <dl class="notes">
@@ -2390,7 +2390,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="getCurrentSize()">
 <h3>getCurrentSize</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1786">getCurrentSize</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1783">getCurrentSize</a></span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../BlockCache.html#getCurrentSize()">BlockCache</a></code></span></div>
 <div class="block">Returns the occupied size of the block cache, in bytes.</div>
 <dl class="notes">
@@ -2404,13 +2404,13 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="getAlgorithm()">
 <h3>getAlgorithm</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1794">getAlgorithm</a></span>()</div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1791">getAlgorithm</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="evictBlocksByHfileName(java.lang.String)">
 <h3>evictBlocksByHfileName</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1804">evictBlocksByHfileName</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hfileName)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1801">evictBlocksByHfileName</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hfileName)</span></div>
 <div class="block">Evicts all blocks for a specific HFile.
  <p>
  This is used for evict-on-close to remove all blocks of a specific HFile.</div>
@@ -2425,7 +2425,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="evictBlocksRangeByHfileName(java.lang.String,long,long)">
 <h3>evictBlocksRangeByHfileName</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1809">evictBlocksRangeByHfileName</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hfileName,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1806">evictBlocksRangeByHfileName</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hfileName,
  long&nbsp;initOffset,
  long&nbsp;endOffset)</span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../BlockCache.html#evictBlocksRangeByHfileName(java.lang.String,long,long)">BlockCache</a></code></span></div>
@@ -2445,7 +2445,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="getAllCacheKeysForFile(java.lang.String,long,long)">
 <h3>getAllCacheKeysForFile</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1824">getAllCacheKeysForFile</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hfileName,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1821">getAllCacheKeysForFile</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hfileName,
  long&nbsp;init,
  long&nbsp;end)</span></div>
 </section>
@@ -2453,7 +2453,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="stopWriterThreads()">
 <h3>stopWriterThreads</h3>
-<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1974">stopWriterThreads</a></span>()
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1971">stopWriterThreads</a></span>()
                 throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/InterruptedException.html" title="class or interface in java.lang" class="external-link">InterruptedException</a></span></div>
 <div class="block">Only used in test</div>
 <dl class="notes">
@@ -2465,7 +2465,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="iterator()">
 <h3>iterator</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Iterator.html" title="class or interface in java.util" class="external-link">Iterator</a>&lt;<a href="../CachedBlock.html" title="interface in org.apache.hadoop.hbase.io.hfile">CachedBlock</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1982">iterator</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Iterator.html" title="class or interface in java.util" class="external-link">Iterator</a>&lt;<a href="../CachedBlock.html" title="interface in org.apache.hadoop.hbase.io.hfile">CachedBlock</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-1979">iterator</a></span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../BlockCache.html#iterator()">BlockCache</a></code></span></div>
 <div class="block">Returns Iterator over the blocks in the cache.</div>
 <dl class="notes">
@@ -2479,7 +2479,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="getBlockCaches()">
 <h3>getBlockCaches</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../BlockCache.html" title="interface in org.apache.hadoop.hbase.io.hfile">BlockCache</a>[]</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-2072">getBlockCaches</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../BlockCache.html" title="interface in org.apache.hadoop.hbase.io.hfile">BlockCache</a>[]</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-2069">getBlockCaches</a></span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../BlockCache.html#getBlockCaches()">BlockCache</a></code></span></div>
 <div class="block">Returns The list of sub blockcaches that make up this one; returns null if no sub caches.</div>
 <dl class="notes">
@@ -2491,67 +2491,67 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="getRpcRefCount(org.apache.hadoop.hbase.io.hfile.BlockCacheKey)">
 <h3>getRpcRefCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-2077">getRpcRefCount</a></span><wbr><span class="parameters">(<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;cacheKey)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-2074">getRpcRefCount</a></span><wbr><span class="parameters">(<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;cacheKey)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getAcceptableFactor()">
 <h3>getAcceptableFactor</h3>
-<div class="member-signature"><span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-2085">getAcceptableFactor</a></span>()</div>
+<div class="member-signature"><span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-2082">getAcceptableFactor</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getMinFactor()">
 <h3>getMinFactor</h3>
-<div class="member-signature"><span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-2089">getMinFactor</a></span>()</div>
+<div class="member-signature"><span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-2086">getMinFactor</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getExtraFreeFactor()">
 <h3>getExtraFreeFactor</h3>
-<div class="member-signature"><span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-2093">getExtraFreeFactor</a></span>()</div>
+<div class="member-signature"><span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-2090">getExtraFreeFactor</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getSingleFactor()">
 <h3>getSingleFactor</h3>
-<div class="member-signature"><span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-2097">getSingleFactor</a></span>()</div>
+<div class="member-signature"><span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-2094">getSingleFactor</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getMultiFactor()">
 <h3>getMultiFactor</h3>
-<div class="member-signature"><span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-2101">getMultiFactor</a></span>()</div>
+<div class="member-signature"><span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-2098">getMultiFactor</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getMemoryFactor()">
 <h3>getMemoryFactor</h3>
-<div class="member-signature"><span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-2105">getMemoryFactor</a></span>()</div>
+<div class="member-signature"><span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-2102">getMemoryFactor</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getPersistencePath()">
 <h3>getPersistencePath</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-2109">getPersistencePath</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-2106">getPersistencePath</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getBackingMap()">
 <h3>getBackingMap</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>,<wbr><a href="BucketEntry.html" title="class in org.apache.hadoop.hbase.io.hfile.bucket">BucketEntry</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-2196">getBackingMap</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>,<wbr><a href="BucketEntry.html" title="class in org.apache.hadoop.hbase.io.hfile.bucket">BucketEntry</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-2193">getBackingMap</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getBackingMapValidated()">
 <h3>getBackingMapValidated</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/atomic/AtomicBoolean.html" title="class or interface in java.util.concurrent.atomic" class="external-link">AtomicBoolean</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-2200">getBackingMapValidated</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/atomic/AtomicBoolean.html" title="class or interface in java.util.concurrent.atomic" class="external-link">AtomicBoolean</a></span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-2197">getBackingMapValidated</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getFullyCachedFiles()">
 <h3>getFullyCachedFiles</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="../../../util/Pair.html" title="class in org.apache.hadoop.hbase.util">Pair</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;&gt;&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-2204">getFullyCachedFiles</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="../../../util/Pair.html" title="class in org.apache.hadoop.hbase.util">Pair</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;&gt;&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-2201">getFullyCachedFiles</a></span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../BlockCache.html#getFullyCachedFiles()">BlockCache</a></code></span></div>
 <div class="block">Returns an Optional containing the map of files that have been fully cached (all its blocks are
  present in the cache. This method may not be overridden by all implementing classes. In such
@@ -2568,13 +2568,13 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="getBucketCacheFromCacheConfig(org.apache.hadoop.hbase.io.hfile.CacheConfig)">
 <h3>getBucketCacheFromCacheConfig</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="BucketCache.html" title="class in org.apache.hadoop.hbase.io.hfile.bucket">BucketCache</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-2209">getBucketCacheFromCacheConfig</a></span><wbr><span class="parameters">(<a href="../CacheConfig.html" title="class in org.apache.hadoop.hbase.io.hfile">CacheConfig</a>&nbsp;cacheConf)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="BucketCache.html" title="class in org.apache.hadoop.hbase.io.hfile.bucket">BucketCache</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-2206">getBucketCacheFromCacheConfig</a></span><wbr><span class="parameters">(<a href="../CacheConfig.html" title="class in org.apache.hadoop.hbase.io.hfile">CacheConfig</a>&nbsp;cacheConf)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="notifyFileCachingCompleted(org.apache.hadoop.fs.Path,int,int,long)">
 <h3>notifyFileCachingCompleted</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-2224">notifyFileCachingCompleted</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;fileName,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-2221">notifyFileCachingCompleted</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;fileName,
  int&nbsp;totalBlockCount,
  int&nbsp;dataBlockCount,
  long&nbsp;size)</span></div>
@@ -2595,7 +2595,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="blockFitsIntoTheCache(org.apache.hadoop.hbase.io.hfile.HFileBlock)">
 <h3>blockFitsIntoTheCache</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-2295">blockFitsIntoTheCache</a></span><wbr><span class="parameters">(<a href="../HFileBlock.html" title="class in org.apache.hadoop.hbase.io.hfile">HFileBlock</a>&nbsp;block)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-2292">blockFitsIntoTheCache</a></span><wbr><span class="parameters">(<a href="../HFileBlock.html" title="class in org.apache.hadoop.hbase.io.hfile">HFileBlock</a>&nbsp;block)</span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../BlockCache.html#blockFitsIntoTheCache(org.apache.hadoop.hbase.io.hfile.HFileBlock)">BlockCache</a></code></span></div>
 <div class="block">Checks whether there's enough space left in the cache to accommodate the passed block. This
  method may not be overridden by all implementing classes. In such cases, the returned Optional
@@ -2615,7 +2615,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="shouldCacheFile(java.lang.String)">
 <h3>shouldCacheFile</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-2306">shouldCacheFile</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;fileName)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-2303">shouldCacheFile</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;fileName)</span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../BlockCache.html#shouldCacheFile(java.lang.String)">BlockCache</a></code></span></div>
 <div class="block">Checks whether blocks for the passed file should be cached or not. This method may not be
  overridden by all implementing classes. In such cases, the returned Optional will be empty. For
@@ -2635,7 +2635,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="isAlreadyCached(org.apache.hadoop.hbase.io.hfile.BlockCacheKey)">
 <h3>isAlreadyCached</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-2312">isAlreadyCached</a></span><wbr><span class="parameters">(<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;key)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-2309">isAlreadyCached</a></span><wbr><span class="parameters">(<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;key)</span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../BlockCache.html#isAlreadyCached(org.apache.hadoop.hbase.io.hfile.BlockCacheKey)">BlockCache</a></code></span></div>
 <div class="block">Checks whether the block for the passed key is already cached. This method may not be
  overridden by all implementing classes. In such cases, the returned Optional will be empty. For
@@ -2655,7 +2655,7 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="getBlockSize(org.apache.hadoop.hbase.io.hfile.BlockCacheKey)">
 <h3>getBlockSize</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-2320">getBlockSize</a></span><wbr><span class="parameters">(<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;key)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-2317">getBlockSize</a></span><wbr><span class="parameters">(<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;key)</span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../BlockCache.html#getBlockSize(org.apache.hadoop.hbase.io.hfile.BlockCacheKey)">BlockCache</a></code></span></div>
 <div class="block">Returns an Optional containing the size of the block related to the passed key. If the block is
  not in the cache, returned optional will be empty. Also, this method may not be overridden by
@@ -2674,13 +2674,13 @@ implements <a href="../BlockCache.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="isCacheInitialized(java.lang.String)">
 <h3>isCacheInitialized</h3>
-<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-2334">isCacheInitialized</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;api)</span></div>
+<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-2331">isCacheInitialized</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;api)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="waitForCacheInitialization(long)">
 <h3>waitForCacheInitialization</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-2342">waitForCacheInitialization</a></span><wbr><span class="parameters">(long&nbsp;timeout)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/bucket/BucketCache.html#line-2339">waitForCacheInitialization</a></span><wbr><span class="parameters">(long&nbsp;timeout)</span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../BlockCache.html#waitForCacheInitialization(long)">BlockCache</a></code></span></div>
 <div class="block">Wait for the bucket cache to be enabled while server restart</div>
 <dl class="notes">
