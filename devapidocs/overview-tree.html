@@ -1455,7 +1455,7 @@ loadScripts(document, 'script');</script>
 <li class="circle">org.apache.hadoop.hbase.replication.regionserver.<a href="org/apache/hadoop/hbase/replication/regionserver/DumpReplicationQueues.html" class="type-name-link" title="class in org.apache.hadoop.hbase.replication.regionserver">DumpReplicationQueues</a> (implements org.apache.hadoop.util.Tool)</li>
 <li class="circle">org.apache.hadoop.hbase.mob.<a href="org/apache/hadoop/hbase/mob/ExpiredMobFileCleaner.html" class="type-name-link" title="class in org.apache.hadoop.hbase.mob">ExpiredMobFileCleaner</a> (implements org.apache.hadoop.util.Tool)</li>
 <li class="circle">org.apache.hadoop.hbase.mapreduce.<a href="org/apache/hadoop/hbase/mapreduce/Export.html" class="type-name-link" title="class in org.apache.hadoop.hbase.mapreduce">Export</a> (implements org.apache.hadoop.util.Tool)</li>
-<li class="circle">org.apache.hadoop.fs.FileSystem (implements java.io.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Closeable.html" title="class or interface in java.io" class="external-link">Closeable</a>, org.apache.hadoop.security.token.DelegationTokenIssuer, org.apache.hadoop.fs.PathCapabilities)
+<li class="circle">org.apache.hadoop.fs.FileSystem (implements org.apache.hadoop.fs.BulkDeleteSource, java.io.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Closeable.html" title="class or interface in java.io" class="external-link">Closeable</a>, org.apache.hadoop.security.token.DelegationTokenIssuer, org.apache.hadoop.fs.PathCapabilities)
 <ul>
 <li class="circle">org.apache.hadoop.fs.FilterFileSystem
 <ul>
@@ -4546,16 +4546,13 @@ loadScripts(document, 'script');</script>
 <li class="circle">org.apache.hadoop.hbase.errorhandling.<a href="org/apache/hadoop/hbase/errorhandling/ForeignException.html" class="type-name-link" title="class in org.apache.hadoop.hbase.errorhandling">ForeignException</a></li>
 <li class="circle">org.apache.hadoop.hbase.<a href="org/apache/hadoop/hbase/HBaseIOException.html" class="type-name-link" title="class in org.apache.hadoop.hbase">HBaseIOException</a>
 <ul>
-<li class="circle">org.apache.hadoop.hbase.backup.impl.<a href="org/apache/hadoop/hbase/backup/impl/BackupException.html" class="type-name-link" title="class in org.apache.hadoop.hbase.backup.impl">BackupException</a>
-<ul>
-<li class="circle">org.apache.hadoop.hbase.backup.impl.<a href="org/apache/hadoop/hbase/backup/impl/ColumnFamilyMismatchException.html" class="type-name-link" title="class in org.apache.hadoop.hbase.backup.impl">ColumnFamilyMismatchException</a></li>
-</ul>
-</li>
+<li class="circle">org.apache.hadoop.hbase.backup.impl.<a href="org/apache/hadoop/hbase/backup/impl/BackupException.html" class="type-name-link" title="class in org.apache.hadoop.hbase.backup.impl">BackupException</a></li>
 <li class="circle">org.apache.hadoop.hbase.procedure2.<a href="org/apache/hadoop/hbase/procedure2/BadProcedureException.html" class="type-name-link" title="class in org.apache.hadoop.hbase.procedure2">BadProcedureException</a></li>
 <li class="circle">org.apache.hadoop.hbase.ipc.<a href="org/apache/hadoop/hbase/ipc/CallCancelledException.html" class="type-name-link" title="class in org.apache.hadoop.hbase.ipc">CallCancelledException</a></li>
 <li class="circle">org.apache.hadoop.hbase.ipc.<a href="org/apache/hadoop/hbase/ipc/CallTimeoutException.html" class="type-name-link" title="class in org.apache.hadoop.hbase.ipc">CallTimeoutException</a></li>
 <li class="circle">org.apache.hadoop.hbase.ipc.<a href="org/apache/hadoop/hbase/ipc/CellScannerButNoCodecException.html" class="type-name-link" title="class in org.apache.hadoop.hbase.ipc">CellScannerButNoCodecException</a></li>
 <li class="circle">org.apache.hadoop.hbase.codec.<a href="org/apache/hadoop/hbase/codec/CodecException.html" class="type-name-link" title="class in org.apache.hadoop.hbase.codec">CodecException</a></li>
+<li class="circle">org.apache.hadoop.hbase.backup.impl.<a href="org/apache/hadoop/hbase/backup/impl/ColumnFamilyMismatchException.html" class="type-name-link" title="class in org.apache.hadoop.hbase.backup.impl">ColumnFamilyMismatchException</a></li>
 <li class="circle">org.apache.hadoop.hbase.exceptions.<a href="org/apache/hadoop/hbase/exceptions/ConnectionClosedException.html" class="type-name-link" title="class in org.apache.hadoop.hbase.exceptions">ConnectionClosedException</a></li>
 <li class="circle">org.apache.hadoop.hbase.procedure2.store.wal.<a href="org/apache/hadoop/hbase/procedure2/store/wal/CorruptedWALProcedureStoreException.html" class="type-name-link" title="class in org.apache.hadoop.hbase.procedure2.store.wal">CorruptedWALProcedureStoreException</a></li>
 <li class="circle">org.apache.hadoop.hbase.regionserver.wal.<a href="org/apache/hadoop/hbase/regionserver/wal/DamagedWALException.html" class="type-name-link" title="class in org.apache.hadoop.hbase.regionserver.wal">DamagedWALException</a></li>

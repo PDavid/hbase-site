@@ -33,50 +33,51 @@
 <span class="source-line-no">020</span><span id="line-20">import java.util.ArrayList;</span>
 <span class="source-line-no">021</span><span id="line-21">import java.util.List;</span>
 <span class="source-line-no">022</span><span id="line-22">import org.apache.commons.lang3.StringUtils;</span>
-<span class="source-line-no">023</span><span id="line-23">import org.apache.hadoop.hbase.TableName;</span>
-<span class="source-line-no">024</span><span id="line-24">import org.apache.hadoop.hbase.client.ColumnFamilyDescriptor;</span>
-<span class="source-line-no">025</span><span id="line-25">import org.apache.yetus.audience.InterfaceAudience;</span>
-<span class="source-line-no">026</span><span id="line-26"></span>
-<span class="source-line-no">027</span><span id="line-27">@InterfaceAudience.Public</span>
-<span class="source-line-no">028</span><span id="line-28">public final class ColumnFamilyMismatchException extends BackupException {</span>
-<span class="source-line-no">029</span><span id="line-29">  private final List&lt;TableName&gt; mismatchedTables;</span>
-<span class="source-line-no">030</span><span id="line-30"></span>
-<span class="source-line-no">031</span><span id="line-31">  private ColumnFamilyMismatchException(String msg, List&lt;TableName&gt; mismatchedTables) {</span>
-<span class="source-line-no">032</span><span id="line-32">    super(msg);</span>
-<span class="source-line-no">033</span><span id="line-33">    this.mismatchedTables = mismatchedTables;</span>
-<span class="source-line-no">034</span><span id="line-34">  }</span>
-<span class="source-line-no">035</span><span id="line-35"></span>
-<span class="source-line-no">036</span><span id="line-36">  public static final class ColumnFamilyMismatchExceptionBuilder {</span>
-<span class="source-line-no">037</span><span id="line-37">    private final List&lt;TableName&gt; mismatchedTables = new ArrayList&lt;&gt;();</span>
-<span class="source-line-no">038</span><span id="line-38">    private final StringBuilder msg = new StringBuilder();</span>
-<span class="source-line-no">039</span><span id="line-39"></span>
-<span class="source-line-no">040</span><span id="line-40">    public ColumnFamilyMismatchExceptionBuilder addMismatchedTable(TableName tableName,</span>
-<span class="source-line-no">041</span><span id="line-41">      ColumnFamilyDescriptor[] currentCfs, ColumnFamilyDescriptor[] backupCfs) {</span>
-<span class="source-line-no">042</span><span id="line-42">      this.mismatchedTables.add(tableName);</span>
-<span class="source-line-no">043</span><span id="line-43"></span>
-<span class="source-line-no">044</span><span id="line-44">      String currentCfsParsed = StringUtils.join(currentCfs, ',');</span>
-<span class="source-line-no">045</span><span id="line-45">      String backupCfsParsed = StringUtils.join(backupCfs, ',');</span>
-<span class="source-line-no">046</span><span id="line-46">      msg.append("\nMismatch in column family descriptor for table: ").append(tableName)</span>
-<span class="source-line-no">047</span><span id="line-47">        .append("\n");</span>
-<span class="source-line-no">048</span><span id="line-48">      msg.append("Current families: ").append(currentCfsParsed).append("\n");</span>
-<span class="source-line-no">049</span><span id="line-49">      msg.append("Backup families: ").append(backupCfsParsed);</span>
-<span class="source-line-no">050</span><span id="line-50"></span>
-<span class="source-line-no">051</span><span id="line-51">      return this;</span>
-<span class="source-line-no">052</span><span id="line-52">    }</span>
-<span class="source-line-no">053</span><span id="line-53"></span>
-<span class="source-line-no">054</span><span id="line-54">    public ColumnFamilyMismatchException build() {</span>
-<span class="source-line-no">055</span><span id="line-55">      return new ColumnFamilyMismatchException(msg.toString(), mismatchedTables);</span>
-<span class="source-line-no">056</span><span id="line-56">    }</span>
-<span class="source-line-no">057</span><span id="line-57">  }</span>
-<span class="source-line-no">058</span><span id="line-58"></span>
-<span class="source-line-no">059</span><span id="line-59">  public List&lt;TableName&gt; getMismatchedTables() {</span>
-<span class="source-line-no">060</span><span id="line-60">    return mismatchedTables;</span>
-<span class="source-line-no">061</span><span id="line-61">  }</span>
-<span class="source-line-no">062</span><span id="line-62"></span>
-<span class="source-line-no">063</span><span id="line-63">  public static ColumnFamilyMismatchExceptionBuilder newBuilder() {</span>
-<span class="source-line-no">064</span><span id="line-64">    return new ColumnFamilyMismatchExceptionBuilder();</span>
-<span class="source-line-no">065</span><span id="line-65">  }</span>
-<span class="source-line-no">066</span><span id="line-66">}</span>
+<span class="source-line-no">023</span><span id="line-23">import org.apache.hadoop.hbase.HBaseIOException;</span>
+<span class="source-line-no">024</span><span id="line-24">import org.apache.hadoop.hbase.TableName;</span>
+<span class="source-line-no">025</span><span id="line-25">import org.apache.hadoop.hbase.client.ColumnFamilyDescriptor;</span>
+<span class="source-line-no">026</span><span id="line-26">import org.apache.yetus.audience.InterfaceAudience;</span>
+<span class="source-line-no">027</span><span id="line-27"></span>
+<span class="source-line-no">028</span><span id="line-28">@InterfaceAudience.Public</span>
+<span class="source-line-no">029</span><span id="line-29">public final class ColumnFamilyMismatchException extends HBaseIOException {</span>
+<span class="source-line-no">030</span><span id="line-30">  private final List&lt;TableName&gt; mismatchedTables;</span>
+<span class="source-line-no">031</span><span id="line-31"></span>
+<span class="source-line-no">032</span><span id="line-32">  private ColumnFamilyMismatchException(String msg, List&lt;TableName&gt; mismatchedTables) {</span>
+<span class="source-line-no">033</span><span id="line-33">    super(msg);</span>
+<span class="source-line-no">034</span><span id="line-34">    this.mismatchedTables = mismatchedTables;</span>
+<span class="source-line-no">035</span><span id="line-35">  }</span>
+<span class="source-line-no">036</span><span id="line-36"></span>
+<span class="source-line-no">037</span><span id="line-37">  public static final class ColumnFamilyMismatchExceptionBuilder {</span>
+<span class="source-line-no">038</span><span id="line-38">    private final List&lt;TableName&gt; mismatchedTables = new ArrayList&lt;&gt;();</span>
+<span class="source-line-no">039</span><span id="line-39">    private final StringBuilder msg = new StringBuilder();</span>
+<span class="source-line-no">040</span><span id="line-40"></span>
+<span class="source-line-no">041</span><span id="line-41">    public ColumnFamilyMismatchExceptionBuilder addMismatchedTable(TableName tableName,</span>
+<span class="source-line-no">042</span><span id="line-42">      ColumnFamilyDescriptor[] currentCfs, ColumnFamilyDescriptor[] backupCfs) {</span>
+<span class="source-line-no">043</span><span id="line-43">      this.mismatchedTables.add(tableName);</span>
+<span class="source-line-no">044</span><span id="line-44"></span>
+<span class="source-line-no">045</span><span id="line-45">      String currentCfsParsed = StringUtils.join(currentCfs, ',');</span>
+<span class="source-line-no">046</span><span id="line-46">      String backupCfsParsed = StringUtils.join(backupCfs, ',');</span>
+<span class="source-line-no">047</span><span id="line-47">      msg.append("\nMismatch in column family descriptor for table: ").append(tableName)</span>
+<span class="source-line-no">048</span><span id="line-48">        .append("\n");</span>
+<span class="source-line-no">049</span><span id="line-49">      msg.append("Current families: ").append(currentCfsParsed).append("\n");</span>
+<span class="source-line-no">050</span><span id="line-50">      msg.append("Backup families: ").append(backupCfsParsed);</span>
+<span class="source-line-no">051</span><span id="line-51"></span>
+<span class="source-line-no">052</span><span id="line-52">      return this;</span>
+<span class="source-line-no">053</span><span id="line-53">    }</span>
+<span class="source-line-no">054</span><span id="line-54"></span>
+<span class="source-line-no">055</span><span id="line-55">    public ColumnFamilyMismatchException build() {</span>
+<span class="source-line-no">056</span><span id="line-56">      return new ColumnFamilyMismatchException(msg.toString(), mismatchedTables);</span>
+<span class="source-line-no">057</span><span id="line-57">    }</span>
+<span class="source-line-no">058</span><span id="line-58">  }</span>
+<span class="source-line-no">059</span><span id="line-59"></span>
+<span class="source-line-no">060</span><span id="line-60">  public List&lt;TableName&gt; getMismatchedTables() {</span>
+<span class="source-line-no">061</span><span id="line-61">    return mismatchedTables;</span>
+<span class="source-line-no">062</span><span id="line-62">  }</span>
+<span class="source-line-no">063</span><span id="line-63"></span>
+<span class="source-line-no">064</span><span id="line-64">  public static ColumnFamilyMismatchExceptionBuilder newBuilder() {</span>
+<span class="source-line-no">065</span><span id="line-65">    return new ColumnFamilyMismatchExceptionBuilder();</span>
+<span class="source-line-no">066</span><span id="line-66">  }</span>
+<span class="source-line-no">067</span><span id="line-67">}</span>
 
 
 

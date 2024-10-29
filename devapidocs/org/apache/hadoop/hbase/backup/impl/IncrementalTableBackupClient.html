@@ -340,7 +340,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="execute()">
 <h3>execute</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/IncrementalTableBackupClient.html#line-270">execute</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/IncrementalTableBackupClient.html#line-276">execute</a></span>()
              throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a>,
 <a href="ColumnFamilyMismatchException.html" title="class in org.apache.hadoop.hbase.backup.impl">ColumnFamilyMismatchException</a></span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="TableBackupClient.html#execute()">TableBackupClient</a></code></span></div>
@@ -349,15 +349,17 @@ loadScripts(document, 'script');</script>
 <dt>Specified by:</dt>
 <dd><code><a href="TableBackupClient.html#execute()">execute</a></code>&nbsp;in class&nbsp;<code><a href="TableBackupClient.html" title="class in org.apache.hadoop.hbase.backup.impl">TableBackupClient</a></code></dd>
 <dt>Throws:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code> - if the execution of the backup fails</dd>
-<dd><code><a href="ColumnFamilyMismatchException.html" title="class in org.apache.hadoop.hbase.backup.impl">ColumnFamilyMismatchException</a></code></dd>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code> - If the execution of the backup fails</dd>
+<dd><code><a href="ColumnFamilyMismatchException.html" title="class in org.apache.hadoop.hbase.backup.impl">ColumnFamilyMismatchException</a></code> - If the column families of the current table do not match
+                                       the column families for the last full backup. In which
+                                       case, a full backup should be taken</dd>
 </dl>
 </section>
 </li>
 <li>
 <section class="detail" id="incrementalCopyHFiles(java.lang.String[],java.lang.String)">
 <h3>incrementalCopyHFiles</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/IncrementalTableBackupClient.html#line-336">incrementalCopyHFiles</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>[]&nbsp;files,
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/IncrementalTableBackupClient.html#line-342">incrementalCopyHFiles</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>[]&nbsp;files,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupDest)</span>
                               throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
@@ -369,7 +371,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="deleteBulkLoadDirectory()">
 <h3>deleteBulkLoadDirectory</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/IncrementalTableBackupClient.html#line-366">deleteBulkLoadDirectory</a></span>()
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/IncrementalTableBackupClient.html#line-372">deleteBulkLoadDirectory</a></span>()
                                 throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -380,7 +382,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="convertWALsToHFiles()">
 <h3>convertWALsToHFiles</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/IncrementalTableBackupClient.html#line-376">convertWALsToHFiles</a></span>()
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/IncrementalTableBackupClient.html#line-382">convertWALsToHFiles</a></span>()
                             throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -391,7 +393,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="tableExists(org.apache.hadoop.hbase.TableName,org.apache.hadoop.hbase.client.Connection)">
 <h3>tableExists</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/IncrementalTableBackupClient.html#line-396">tableExists</a></span><wbr><span class="parameters">(<a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;table,
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/IncrementalTableBackupClient.html#line-402">tableExists</a></span><wbr><span class="parameters">(<a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;table,
  <a href="../../client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;conn)</span>
                        throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
@@ -403,7 +405,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="walToHFiles(java.util.List,java.util.List)">
 <h3>walToHFiles</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/IncrementalTableBackupClient.html#line-402">walToHFiles</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;dirPaths,
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/IncrementalTableBackupClient.html#line-408">walToHFiles</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;dirPaths,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;tableList)</span>
                     throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
@@ -415,19 +417,19 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getBulkOutputDirForTable(org.apache.hadoop.hbase.TableName)">
 <h3>getBulkOutputDirForTable</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/IncrementalTableBackupClient.html#line-434">getBulkOutputDirForTable</a></span><wbr><span class="parameters">(<a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;table)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/IncrementalTableBackupClient.html#line-440">getBulkOutputDirForTable</a></span><wbr><span class="parameters">(<a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;table)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getBulkOutputDir()">
 <h3>getBulkOutputDir</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/IncrementalTableBackupClient.html#line-441">getBulkOutputDir</a></span>()</div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/IncrementalTableBackupClient.html#line-447">getBulkOutputDir</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getFullBackupIds()">
 <h3>getFullBackupIds</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/IncrementalTableBackupClient.html#line-449">getFullBackupIds</a></span>()
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/IncrementalTableBackupClient.html#line-455">getFullBackupIds</a></span>()
                                         throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -438,7 +440,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="verifyCfCompatibility(java.util.Set,java.util.Map)">
 <h3>verifyCfCompatibility</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/IncrementalTableBackupClient.html#line-473">verifyCfCompatibility</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&gt;&nbsp;tables,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/IncrementalTableBackupClient.html#line-479">verifyCfCompatibility</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&gt;&nbsp;tables,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;tablesToFullBackupId)</span>
                             throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a>,
 <a href="ColumnFamilyMismatchException.html" title="class in org.apache.hadoop.hbase.backup.impl">ColumnFamilyMismatchException</a></span></div>
@@ -455,7 +457,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="areCfsCompatible(org.apache.hadoop.hbase.client.ColumnFamilyDescriptor[],org.apache.hadoop.hbase.client.ColumnFamilyDescriptor[])">
 <h3>areCfsCompatible</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/IncrementalTableBackupClient.html#line-513">areCfsCompatible</a></span><wbr><span class="parameters">(<a href="../../client/ColumnFamilyDescriptor.html" title="interface in org.apache.hadoop.hbase.client">ColumnFamilyDescriptor</a>[]&nbsp;currentCfs,
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/IncrementalTableBackupClient.html#line-519">areCfsCompatible</a></span><wbr><span class="parameters">(<a href="../../client/ColumnFamilyDescriptor.html" title="interface in org.apache.hadoop.hbase.client">ColumnFamilyDescriptor</a>[]&nbsp;currentCfs,
  <a href="../../client/ColumnFamilyDescriptor.html" title="interface in org.apache.hadoop.hbase.client">ColumnFamilyDescriptor</a>[]&nbsp;backupCfs)</span></div>
 </section>
 </li>

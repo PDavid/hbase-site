@@ -43,146 +43,145 @@
 <span class="source-line-no">030</span><span id="line-30">import org.apache.hadoop.hbase.client.Admin;</span>
 <span class="source-line-no">031</span><span id="line-31">import org.apache.hadoop.hbase.rest.ProtobufMessageHandler;</span>
 <span class="source-line-no">032</span><span id="line-32">import org.apache.hadoop.hbase.rest.RestUtil;</span>
-<span class="source-line-no">033</span><span id="line-33">import org.apache.yetus.audience.InterfaceAudience;</span>
-<span class="source-line-no">034</span><span id="line-34"></span>
-<span class="source-line-no">035</span><span id="line-35">import org.apache.hbase.thirdparty.com.google.protobuf.CodedInputStream;</span>
-<span class="source-line-no">036</span><span id="line-36">import org.apache.hbase.thirdparty.com.google.protobuf.Message;</span>
-<span class="source-line-no">037</span><span id="line-37"></span>
-<span class="source-line-no">038</span><span id="line-38">import org.apache.hadoop.hbase.shaded.rest.protobuf.generated.NamespacePropertiesMessage.NamespaceProperties;</span>
-<span class="source-line-no">039</span><span id="line-39"></span>
-<span class="source-line-no">040</span><span id="line-40">/**</span>
-<span class="source-line-no">041</span><span id="line-41"> * List a HBase namespace's key/value properties.</span>
-<span class="source-line-no">042</span><span id="line-42"> * &lt;ul&gt;</span>
-<span class="source-line-no">043</span><span id="line-43"> * &lt;li&gt;NamespaceProperties: outer element&lt;/li&gt;</span>
-<span class="source-line-no">044</span><span id="line-44"> * &lt;li&gt;properties: sequence property elements&lt;/li&gt;</span>
-<span class="source-line-no">045</span><span id="line-45"> * &lt;li&gt;entry&lt;/li&gt;</span>
-<span class="source-line-no">046</span><span id="line-46"> * &lt;li&gt;key: property key&lt;/li&gt;</span>
-<span class="source-line-no">047</span><span id="line-47"> * &lt;li&gt;value: property value&lt;/li&gt;</span>
-<span class="source-line-no">048</span><span id="line-48"> * &lt;/ul&gt;</span>
-<span class="source-line-no">049</span><span id="line-49"> */</span>
-<span class="source-line-no">050</span><span id="line-50">@XmlRootElement(name = "NamespaceProperties")</span>
-<span class="source-line-no">051</span><span id="line-51">@XmlAccessorType(XmlAccessType.FIELD)</span>
-<span class="source-line-no">052</span><span id="line-52">@InterfaceAudience.Private</span>
-<span class="source-line-no">053</span><span id="line-53">public class NamespacesInstanceModel implements Serializable, ProtobufMessageHandler {</span>
-<span class="source-line-no">054</span><span id="line-54"></span>
-<span class="source-line-no">055</span><span id="line-55">  private static final long serialVersionUID = 1L;</span>
-<span class="source-line-no">056</span><span id="line-56"></span>
-<span class="source-line-no">057</span><span id="line-57">  // JAX-RS automatically converts Map to XMLAnyElement.</span>
-<span class="source-line-no">058</span><span id="line-58">  private Map&lt;String, String&gt; properties = null;</span>
-<span class="source-line-no">059</span><span id="line-59"></span>
-<span class="source-line-no">060</span><span id="line-60">  @XmlTransient</span>
-<span class="source-line-no">061</span><span id="line-61">  private String namespaceName;</span>
-<span class="source-line-no">062</span><span id="line-62"></span>
-<span class="source-line-no">063</span><span id="line-63">  /**</span>
-<span class="source-line-no">064</span><span id="line-64">   * Default constructor. Do not use.</span>
-<span class="source-line-no">065</span><span id="line-65">   */</span>
-<span class="source-line-no">066</span><span id="line-66">  public NamespacesInstanceModel() {</span>
-<span class="source-line-no">067</span><span id="line-67">  }</span>
-<span class="source-line-no">068</span><span id="line-68"></span>
-<span class="source-line-no">069</span><span id="line-69">  /**</span>
-<span class="source-line-no">070</span><span id="line-70">   * Constructor to use if namespace does not exist in HBASE.</span>
-<span class="source-line-no">071</span><span id="line-71">   * @param namespaceName the namespace name.</span>
-<span class="source-line-no">072</span><span id="line-72">   */</span>
-<span class="source-line-no">073</span><span id="line-73">  public NamespacesInstanceModel(String namespaceName) throws IOException {</span>
-<span class="source-line-no">074</span><span id="line-74">    this(null, namespaceName);</span>
-<span class="source-line-no">075</span><span id="line-75">  }</span>
-<span class="source-line-no">076</span><span id="line-76"></span>
-<span class="source-line-no">077</span><span id="line-77">  /**</span>
-<span class="source-line-no">078</span><span id="line-78">   * Constructor</span>
-<span class="source-line-no">079</span><span id="line-79">   * @param admin         the administrative API</span>
-<span class="source-line-no">080</span><span id="line-80">   * @param namespaceName the namespace name.</span>
-<span class="source-line-no">081</span><span id="line-81">   */</span>
-<span class="source-line-no">082</span><span id="line-82">  public NamespacesInstanceModel(Admin admin, String namespaceName) throws IOException {</span>
-<span class="source-line-no">083</span><span id="line-83">    this.namespaceName = namespaceName;</span>
-<span class="source-line-no">084</span><span id="line-84">    if (admin == null) {</span>
-<span class="source-line-no">085</span><span id="line-85">      return;</span>
-<span class="source-line-no">086</span><span id="line-86">    }</span>
-<span class="source-line-no">087</span><span id="line-87"></span>
-<span class="source-line-no">088</span><span id="line-88">    NamespaceDescriptor nd = admin.getNamespaceDescriptor(namespaceName);</span>
-<span class="source-line-no">089</span><span id="line-89"></span>
-<span class="source-line-no">090</span><span id="line-90">    // For properly formed JSON, if no properties, field has to be null (not just no elements).</span>
-<span class="source-line-no">091</span><span id="line-91">    if (nd.getConfiguration().isEmpty()) {</span>
-<span class="source-line-no">092</span><span id="line-92">      return;</span>
-<span class="source-line-no">093</span><span id="line-93">    }</span>
-<span class="source-line-no">094</span><span id="line-94"></span>
-<span class="source-line-no">095</span><span id="line-95">    properties = new HashMap&lt;&gt;();</span>
-<span class="source-line-no">096</span><span id="line-96">    properties.putAll(nd.getConfiguration());</span>
-<span class="source-line-no">097</span><span id="line-97">  }</span>
-<span class="source-line-no">098</span><span id="line-98"></span>
-<span class="source-line-no">099</span><span id="line-99">  /**</span>
-<span class="source-line-no">100</span><span id="line-100">   * Add property to the namespace.</span>
-<span class="source-line-no">101</span><span id="line-101">   * @param key   attribute name</span>
-<span class="source-line-no">102</span><span id="line-102">   * @param value attribute value</span>
-<span class="source-line-no">103</span><span id="line-103">   */</span>
-<span class="source-line-no">104</span><span id="line-104">  public void addProperty(String key, String value) {</span>
-<span class="source-line-no">105</span><span id="line-105">    if (properties == null) {</span>
-<span class="source-line-no">106</span><span id="line-106">      properties = new HashMap&lt;&gt;();</span>
-<span class="source-line-no">107</span><span id="line-107">    }</span>
-<span class="source-line-no">108</span><span id="line-108">    properties.put(key, value);</span>
-<span class="source-line-no">109</span><span id="line-109">  }</span>
-<span class="source-line-no">110</span><span id="line-110"></span>
-<span class="source-line-no">111</span><span id="line-111">  /** Returns The map of uncategorized namespace properties. */</span>
-<span class="source-line-no">112</span><span id="line-112">  public Map&lt;String, String&gt; getProperties() {</span>
-<span class="source-line-no">113</span><span id="line-113">    if (properties == null) {</span>
-<span class="source-line-no">114</span><span id="line-114">      properties = new HashMap&lt;&gt;();</span>
-<span class="source-line-no">115</span><span id="line-115">    }</span>
-<span class="source-line-no">116</span><span id="line-116">    return properties;</span>
-<span class="source-line-no">117</span><span id="line-117">  }</span>
-<span class="source-line-no">118</span><span id="line-118"></span>
-<span class="source-line-no">119</span><span id="line-119">  public String getNamespaceName() {</span>
-<span class="source-line-no">120</span><span id="line-120">    return namespaceName;</span>
-<span class="source-line-no">121</span><span id="line-121">  }</span>
-<span class="source-line-no">122</span><span id="line-122"></span>
-<span class="source-line-no">123</span><span id="line-123">  /*</span>
-<span class="source-line-no">124</span><span id="line-124">   * (non-Javadoc)</span>
-<span class="source-line-no">125</span><span id="line-125">   * @see java.lang.Object#toString()</span>
-<span class="source-line-no">126</span><span id="line-126">   */</span>
-<span class="source-line-no">127</span><span id="line-127">  @Override</span>
-<span class="source-line-no">128</span><span id="line-128">  public String toString() {</span>
-<span class="source-line-no">129</span><span id="line-129">    StringBuilder sb = new StringBuilder();</span>
-<span class="source-line-no">130</span><span id="line-130">    sb.append("{NAME =&gt; \'");</span>
-<span class="source-line-no">131</span><span id="line-131">    sb.append(namespaceName);</span>
-<span class="source-line-no">132</span><span id="line-132">    sb.append("\'");</span>
-<span class="source-line-no">133</span><span id="line-133">    if (properties != null) {</span>
-<span class="source-line-no">134</span><span id="line-134">      for (Map.Entry&lt;String, String&gt; entry : properties.entrySet()) {</span>
-<span class="source-line-no">135</span><span id="line-135">        sb.append(", ");</span>
-<span class="source-line-no">136</span><span id="line-136">        sb.append(entry.getKey());</span>
-<span class="source-line-no">137</span><span id="line-137">        sb.append(" =&gt; '");</span>
-<span class="source-line-no">138</span><span id="line-138">        sb.append(entry.getValue());</span>
-<span class="source-line-no">139</span><span id="line-139">        sb.append("\'");</span>
-<span class="source-line-no">140</span><span id="line-140">      }</span>
-<span class="source-line-no">141</span><span id="line-141">    }</span>
-<span class="source-line-no">142</span><span id="line-142">    sb.append("}");</span>
-<span class="source-line-no">143</span><span id="line-143">    return sb.toString();</span>
-<span class="source-line-no">144</span><span id="line-144">  }</span>
-<span class="source-line-no">145</span><span id="line-145"></span>
-<span class="source-line-no">146</span><span id="line-146">  @Override</span>
-<span class="source-line-no">147</span><span id="line-147">  public Message messageFromObject() {</span>
-<span class="source-line-no">148</span><span id="line-148">    NamespaceProperties.Builder builder = NamespaceProperties.newBuilder();</span>
-<span class="source-line-no">149</span><span id="line-149">    if (properties != null) {</span>
-<span class="source-line-no">150</span><span id="line-150">      for (Map.Entry&lt;String, String&gt; entry : properties.entrySet()) {</span>
-<span class="source-line-no">151</span><span id="line-151">        String key = entry.getKey();</span>
-<span class="source-line-no">152</span><span id="line-152">        NamespaceProperties.Property.Builder property = NamespaceProperties.Property.newBuilder();</span>
-<span class="source-line-no">153</span><span id="line-153">        property.setKey(key);</span>
-<span class="source-line-no">154</span><span id="line-154">        property.setValue(entry.getValue());</span>
-<span class="source-line-no">155</span><span id="line-155">        builder.addProps(property);</span>
-<span class="source-line-no">156</span><span id="line-156">      }</span>
-<span class="source-line-no">157</span><span id="line-157">    }</span>
-<span class="source-line-no">158</span><span id="line-158">    return builder.build();</span>
-<span class="source-line-no">159</span><span id="line-159">  }</span>
-<span class="source-line-no">160</span><span id="line-160"></span>
-<span class="source-line-no">161</span><span id="line-161">  @Override</span>
-<span class="source-line-no">162</span><span id="line-162">  public ProtobufMessageHandler getObjectFromMessage(CodedInputStream cis) throws IOException {</span>
-<span class="source-line-no">163</span><span id="line-163">    NamespaceProperties.Builder builder = NamespaceProperties.newBuilder();</span>
-<span class="source-line-no">164</span><span id="line-164">    RestUtil.mergeFrom(builder, cis);</span>
-<span class="source-line-no">165</span><span id="line-165">    List&lt;NamespaceProperties.Property&gt; properties = builder.getPropsList();</span>
-<span class="source-line-no">166</span><span id="line-166">    for (NamespaceProperties.Property property : properties) {</span>
-<span class="source-line-no">167</span><span id="line-167">      addProperty(property.getKey(), property.getValue());</span>
-<span class="source-line-no">168</span><span id="line-168">    }</span>
-<span class="source-line-no">169</span><span id="line-169">    return this;</span>
-<span class="source-line-no">170</span><span id="line-170">  }</span>
-<span class="source-line-no">171</span><span id="line-171"></span>
-<span class="source-line-no">172</span><span id="line-172">}</span>
+<span class="source-line-no">033</span><span id="line-33">import org.apache.hadoop.hbase.rest.protobuf.generated.NamespacePropertiesMessage.NamespaceProperties;</span>
+<span class="source-line-no">034</span><span id="line-34">import org.apache.yetus.audience.InterfaceAudience;</span>
+<span class="source-line-no">035</span><span id="line-35"></span>
+<span class="source-line-no">036</span><span id="line-36">import org.apache.hbase.thirdparty.com.google.protobuf.CodedInputStream;</span>
+<span class="source-line-no">037</span><span id="line-37">import org.apache.hbase.thirdparty.com.google.protobuf.Message;</span>
+<span class="source-line-no">038</span><span id="line-38"></span>
+<span class="source-line-no">039</span><span id="line-39">/**</span>
+<span class="source-line-no">040</span><span id="line-40"> * List a HBase namespace's key/value properties.</span>
+<span class="source-line-no">041</span><span id="line-41"> * &lt;ul&gt;</span>
+<span class="source-line-no">042</span><span id="line-42"> * &lt;li&gt;NamespaceProperties: outer element&lt;/li&gt;</span>
+<span class="source-line-no">043</span><span id="line-43"> * &lt;li&gt;properties: sequence property elements&lt;/li&gt;</span>
+<span class="source-line-no">044</span><span id="line-44"> * &lt;li&gt;entry&lt;/li&gt;</span>
+<span class="source-line-no">045</span><span id="line-45"> * &lt;li&gt;key: property key&lt;/li&gt;</span>
+<span class="source-line-no">046</span><span id="line-46"> * &lt;li&gt;value: property value&lt;/li&gt;</span>
+<span class="source-line-no">047</span><span id="line-47"> * &lt;/ul&gt;</span>
+<span class="source-line-no">048</span><span id="line-48"> */</span>
+<span class="source-line-no">049</span><span id="line-49">@XmlRootElement(name = "NamespaceProperties")</span>
+<span class="source-line-no">050</span><span id="line-50">@XmlAccessorType(XmlAccessType.FIELD)</span>
+<span class="source-line-no">051</span><span id="line-51">@InterfaceAudience.Private</span>
+<span class="source-line-no">052</span><span id="line-52">public class NamespacesInstanceModel implements Serializable, ProtobufMessageHandler {</span>
+<span class="source-line-no">053</span><span id="line-53"></span>
+<span class="source-line-no">054</span><span id="line-54">  private static final long serialVersionUID = 1L;</span>
+<span class="source-line-no">055</span><span id="line-55"></span>
+<span class="source-line-no">056</span><span id="line-56">  // JAX-RS automatically converts Map to XMLAnyElement.</span>
+<span class="source-line-no">057</span><span id="line-57">  private Map&lt;String, String&gt; properties = null;</span>
+<span class="source-line-no">058</span><span id="line-58"></span>
+<span class="source-line-no">059</span><span id="line-59">  @XmlTransient</span>
+<span class="source-line-no">060</span><span id="line-60">  private String namespaceName;</span>
+<span class="source-line-no">061</span><span id="line-61"></span>
+<span class="source-line-no">062</span><span id="line-62">  /**</span>
+<span class="source-line-no">063</span><span id="line-63">   * Default constructor. Do not use.</span>
+<span class="source-line-no">064</span><span id="line-64">   */</span>
+<span class="source-line-no">065</span><span id="line-65">  public NamespacesInstanceModel() {</span>
+<span class="source-line-no">066</span><span id="line-66">  }</span>
+<span class="source-line-no">067</span><span id="line-67"></span>
+<span class="source-line-no">068</span><span id="line-68">  /**</span>
+<span class="source-line-no">069</span><span id="line-69">   * Constructor to use if namespace does not exist in HBASE.</span>
+<span class="source-line-no">070</span><span id="line-70">   * @param namespaceName the namespace name.</span>
+<span class="source-line-no">071</span><span id="line-71">   */</span>
+<span class="source-line-no">072</span><span id="line-72">  public NamespacesInstanceModel(String namespaceName) throws IOException {</span>
+<span class="source-line-no">073</span><span id="line-73">    this(null, namespaceName);</span>
+<span class="source-line-no">074</span><span id="line-74">  }</span>
+<span class="source-line-no">075</span><span id="line-75"></span>
+<span class="source-line-no">076</span><span id="line-76">  /**</span>
+<span class="source-line-no">077</span><span id="line-77">   * Constructor</span>
+<span class="source-line-no">078</span><span id="line-78">   * @param admin         the administrative API</span>
+<span class="source-line-no">079</span><span id="line-79">   * @param namespaceName the namespace name.</span>
+<span class="source-line-no">080</span><span id="line-80">   */</span>
+<span class="source-line-no">081</span><span id="line-81">  public NamespacesInstanceModel(Admin admin, String namespaceName) throws IOException {</span>
+<span class="source-line-no">082</span><span id="line-82">    this.namespaceName = namespaceName;</span>
+<span class="source-line-no">083</span><span id="line-83">    if (admin == null) {</span>
+<span class="source-line-no">084</span><span id="line-84">      return;</span>
+<span class="source-line-no">085</span><span id="line-85">    }</span>
+<span class="source-line-no">086</span><span id="line-86"></span>
+<span class="source-line-no">087</span><span id="line-87">    NamespaceDescriptor nd = admin.getNamespaceDescriptor(namespaceName);</span>
+<span class="source-line-no">088</span><span id="line-88"></span>
+<span class="source-line-no">089</span><span id="line-89">    // For properly formed JSON, if no properties, field has to be null (not just no elements).</span>
+<span class="source-line-no">090</span><span id="line-90">    if (nd.getConfiguration().isEmpty()) {</span>
+<span class="source-line-no">091</span><span id="line-91">      return;</span>
+<span class="source-line-no">092</span><span id="line-92">    }</span>
+<span class="source-line-no">093</span><span id="line-93"></span>
+<span class="source-line-no">094</span><span id="line-94">    properties = new HashMap&lt;&gt;();</span>
+<span class="source-line-no">095</span><span id="line-95">    properties.putAll(nd.getConfiguration());</span>
+<span class="source-line-no">096</span><span id="line-96">  }</span>
+<span class="source-line-no">097</span><span id="line-97"></span>
+<span class="source-line-no">098</span><span id="line-98">  /**</span>
+<span class="source-line-no">099</span><span id="line-99">   * Add property to the namespace.</span>
+<span class="source-line-no">100</span><span id="line-100">   * @param key   attribute name</span>
+<span class="source-line-no">101</span><span id="line-101">   * @param value attribute value</span>
+<span class="source-line-no">102</span><span id="line-102">   */</span>
+<span class="source-line-no">103</span><span id="line-103">  public void addProperty(String key, String value) {</span>
+<span class="source-line-no">104</span><span id="line-104">    if (properties == null) {</span>
+<span class="source-line-no">105</span><span id="line-105">      properties = new HashMap&lt;&gt;();</span>
+<span class="source-line-no">106</span><span id="line-106">    }</span>
+<span class="source-line-no">107</span><span id="line-107">    properties.put(key, value);</span>
+<span class="source-line-no">108</span><span id="line-108">  }</span>
+<span class="source-line-no">109</span><span id="line-109"></span>
+<span class="source-line-no">110</span><span id="line-110">  /** Returns The map of uncategorized namespace properties. */</span>
+<span class="source-line-no">111</span><span id="line-111">  public Map&lt;String, String&gt; getProperties() {</span>
+<span class="source-line-no">112</span><span id="line-112">    if (properties == null) {</span>
+<span class="source-line-no">113</span><span id="line-113">      properties = new HashMap&lt;&gt;();</span>
+<span class="source-line-no">114</span><span id="line-114">    }</span>
+<span class="source-line-no">115</span><span id="line-115">    return properties;</span>
+<span class="source-line-no">116</span><span id="line-116">  }</span>
+<span class="source-line-no">117</span><span id="line-117"></span>
+<span class="source-line-no">118</span><span id="line-118">  public String getNamespaceName() {</span>
+<span class="source-line-no">119</span><span id="line-119">    return namespaceName;</span>
+<span class="source-line-no">120</span><span id="line-120">  }</span>
+<span class="source-line-no">121</span><span id="line-121"></span>
+<span class="source-line-no">122</span><span id="line-122">  /*</span>
+<span class="source-line-no">123</span><span id="line-123">   * (non-Javadoc)</span>
+<span class="source-line-no">124</span><span id="line-124">   * @see java.lang.Object#toString()</span>
+<span class="source-line-no">125</span><span id="line-125">   */</span>
+<span class="source-line-no">126</span><span id="line-126">  @Override</span>
+<span class="source-line-no">127</span><span id="line-127">  public String toString() {</span>
+<span class="source-line-no">128</span><span id="line-128">    StringBuilder sb = new StringBuilder();</span>
+<span class="source-line-no">129</span><span id="line-129">    sb.append("{NAME =&gt; \'");</span>
+<span class="source-line-no">130</span><span id="line-130">    sb.append(namespaceName);</span>
+<span class="source-line-no">131</span><span id="line-131">    sb.append("\'");</span>
+<span class="source-line-no">132</span><span id="line-132">    if (properties != null) {</span>
+<span class="source-line-no">133</span><span id="line-133">      for (Map.Entry&lt;String, String&gt; entry : properties.entrySet()) {</span>
+<span class="source-line-no">134</span><span id="line-134">        sb.append(", ");</span>
+<span class="source-line-no">135</span><span id="line-135">        sb.append(entry.getKey());</span>
+<span class="source-line-no">136</span><span id="line-136">        sb.append(" =&gt; '");</span>
+<span class="source-line-no">137</span><span id="line-137">        sb.append(entry.getValue());</span>
+<span class="source-line-no">138</span><span id="line-138">        sb.append("\'");</span>
+<span class="source-line-no">139</span><span id="line-139">      }</span>
+<span class="source-line-no">140</span><span id="line-140">    }</span>
+<span class="source-line-no">141</span><span id="line-141">    sb.append("}");</span>
+<span class="source-line-no">142</span><span id="line-142">    return sb.toString();</span>
+<span class="source-line-no">143</span><span id="line-143">  }</span>
+<span class="source-line-no">144</span><span id="line-144"></span>
+<span class="source-line-no">145</span><span id="line-145">  @Override</span>
+<span class="source-line-no">146</span><span id="line-146">  public Message messageFromObject() {</span>
+<span class="source-line-no">147</span><span id="line-147">    NamespaceProperties.Builder builder = NamespaceProperties.newBuilder();</span>
+<span class="source-line-no">148</span><span id="line-148">    if (properties != null) {</span>
+<span class="source-line-no">149</span><span id="line-149">      for (Map.Entry&lt;String, String&gt; entry : properties.entrySet()) {</span>
+<span class="source-line-no">150</span><span id="line-150">        String key = entry.getKey();</span>
+<span class="source-line-no">151</span><span id="line-151">        NamespaceProperties.Property.Builder property = NamespaceProperties.Property.newBuilder();</span>
+<span class="source-line-no">152</span><span id="line-152">        property.setKey(key);</span>
+<span class="source-line-no">153</span><span id="line-153">        property.setValue(entry.getValue());</span>
+<span class="source-line-no">154</span><span id="line-154">        builder.addProps(property);</span>
+<span class="source-line-no">155</span><span id="line-155">      }</span>
+<span class="source-line-no">156</span><span id="line-156">    }</span>
+<span class="source-line-no">157</span><span id="line-157">    return builder.build();</span>
+<span class="source-line-no">158</span><span id="line-158">  }</span>
+<span class="source-line-no">159</span><span id="line-159"></span>
+<span class="source-line-no">160</span><span id="line-160">  @Override</span>
+<span class="source-line-no">161</span><span id="line-161">  public ProtobufMessageHandler getObjectFromMessage(CodedInputStream cis) throws IOException {</span>
+<span class="source-line-no">162</span><span id="line-162">    NamespaceProperties.Builder builder = NamespaceProperties.newBuilder();</span>
+<span class="source-line-no">163</span><span id="line-163">    RestUtil.mergeFrom(builder, cis);</span>
+<span class="source-line-no">164</span><span id="line-164">    List&lt;NamespaceProperties.Property&gt; properties = builder.getPropsList();</span>
+<span class="source-line-no">165</span><span id="line-165">    for (NamespaceProperties.Property property : properties) {</span>
+<span class="source-line-no">166</span><span id="line-166">      addProperty(property.getKey(), property.getValue());</span>
+<span class="source-line-no">167</span><span id="line-167">    }</span>
+<span class="source-line-no">168</span><span id="line-168">    return this;</span>
+<span class="source-line-no">169</span><span id="line-169">  }</span>
+<span class="source-line-no">170</span><span id="line-170"></span>
+<span class="source-line-no">171</span><span id="line-171">}</span>
 
 
 
