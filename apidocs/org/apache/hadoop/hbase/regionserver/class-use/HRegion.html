@@ -57,12 +57,17 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase">org.apache.hadoop.hbase</a></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.regionserver">org.apache.hadoop.hbase.regionserver</a></div>
-<div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.snapshot">org.apache.hadoop.hbase.snapshot</a></div>
+<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.io.hfile">org.apache.hadoop.hbase.io.hfile</a></div>
+<div class="col-last odd-row-color">
+<div class="block">Provides implementations of <code>HFile</code> and HFile
+ <code>BlockCache</code>.</div>
+</div>
+<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.regionserver">org.apache.hadoop.hbase.regionserver</a></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.util">org.apache.hadoop.hbase.util</a></div>
+<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.snapshot">org.apache.hadoop.hbase.snapshot</a></div>
 <div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.util">org.apache.hadoop.hbase.util</a></div>
+<div class="col-last even-row-color">&nbsp;</div>
 </div>
 <section class="class-uses">
 <ul class="block-list">
@@ -264,6 +269,24 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color">
 <div class="block"><span class="deprecated-label">Deprecated.</span></div>
 &nbsp;</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="org.apache.hadoop.hbase.io.hfile">
+<h2>Uses of org.apache.hadoop.hbase.regionserver.HRegion in <a href="../../io/hfile/package-summary.html">org.apache.hadoop.hbase.io.hfile</a></h2>
+<div class="caption"><span>Method parameters in <a href="../../io/hfile/package-summary.html">org.apache.hadoop.hbase.io.hfile</a> with type arguments of type org.apache.hadoop.hbase.regionserver.HRegion in  in </span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>static org.apache.hadoop.hbase.io.hfile.BlockCache</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">BlockCacheFactory.</span><code>createBlockCache<wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr>org.apache.hadoop.hbase.regionserver.HRegion&gt;&nbsp;onlineRegions)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">BlockCacheUtil.</span><code>listAllFilesNames<wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr>org.apache.hadoop.hbase.regionserver.HRegion&gt;&nbsp;onlineRegions)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
 </div>
 </section>
 </li>

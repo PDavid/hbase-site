@@ -82,7 +82,7 @@ loadScripts(document, 'script');</script>
 </dl>
 <hr>
 <div class="type-signature"><span class="annotations">@Private
-</span><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-58">MemcachedBlockCache</a></span>
+</span><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-59">MemcachedBlockCache</a></span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
 implements <a href="BlockCache.html" title="interface in org.apache.hadoop.hbase.io.hfile">BlockCache</a></span></div>
 <div class="block">Class to store blocks into memcached. This should only be used on a cluster of Memcached daemons
@@ -216,80 +216,84 @@ implements <a href="BlockCache.html" title="interface in org.apache.hadoop.hbase
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Add block to cache.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#evictBlock(org.apache.hadoop.hbase.io.hfile.BlockCacheKey)" class="member-name-link">evictBlock</a><wbr>(<a href="BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;cacheKey)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected net.spy.memcached.MemcachedClient</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createMemcachedClient(net.spy.memcached.ConnectionFactory,java.util.List)" class="member-name-link">createMemcachedClient</a><wbr>(net.spy.memcached.ConnectionFactory&nbsp;factory,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/InetSocketAddress.html" title="class or interface in java.net" class="external-link">InetSocketAddress</a>&gt;&nbsp;serverAddresses)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#evictBlock(org.apache.hadoop.hbase.io.hfile.BlockCacheKey)" class="member-name-link">evictBlock</a><wbr>(<a href="BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;cacheKey)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Evict block from cache.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#evictBlocksByHfileName(java.lang.String)" class="member-name-link">evictBlocksByHfileName</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hfileName)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#evictBlocksByHfileName(java.lang.String)" class="member-name-link">evictBlocksByHfileName</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hfileName)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">This method does nothing so that memcached can handle all evictions.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Cacheable.html" title="interface in org.apache.hadoop.hbase.io.hfile">Cacheable</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getBlock(org.apache.hadoop.hbase.io.hfile.BlockCacheKey,boolean,boolean,boolean)" class="member-name-link">getBlock</a><wbr>(<a href="BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;cacheKey,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Cacheable.html" title="interface in org.apache.hadoop.hbase.io.hfile">Cacheable</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getBlock(org.apache.hadoop.hbase.io.hfile.BlockCacheKey,boolean,boolean,boolean)" class="member-name-link">getBlock</a><wbr>(<a href="BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;cacheKey,
  boolean&nbsp;caching,
  boolean&nbsp;repeat,
  boolean&nbsp;updateCacheMetrics)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Fetch block from cache.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="BlockCache.html" title="interface in org.apache.hadoop.hbase.io.hfile">BlockCache</a>[]</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getBlockCaches()" class="member-name-link">getBlockCaches</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="BlockCache.html" title="interface in org.apache.hadoop.hbase.io.hfile">BlockCache</a>[]</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getBlockCaches()" class="member-name-link">getBlockCaches</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns The list of sub blockcaches that make up this one; returns null if no sub caches.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getBlockCount()" class="member-name-link">getBlockCount</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getBlockCount()" class="member-name-link">getBlockCount</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns the number of blocks currently cached in the block cache.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCurrentDataSize()" class="member-name-link">getCurrentDataSize</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCurrentDataSize()" class="member-name-link">getCurrentDataSize</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns the occupied size of data blocks, in bytes.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCurrentSize()" class="member-name-link">getCurrentSize</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCurrentSize()" class="member-name-link">getCurrentSize</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns the occupied size of the block cache, in bytes.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getDataBlockCount()" class="member-name-link">getDataBlockCount</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getDataBlockCount()" class="member-name-link">getDataBlockCount</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns the number of data blocks currently cached in the block cache.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getFreeSize()" class="member-name-link">getFreeSize</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getFreeSize()" class="member-name-link">getFreeSize</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns the free size of the block cache, in bytes.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getMaxSize()" class="member-name-link">getMaxSize</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getMaxSize()" class="member-name-link">getMaxSize</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns the Max size of the block cache, in bytes.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="CacheStats.html" title="class in org.apache.hadoop.hbase.io.hfile">CacheStats</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getStats()" class="member-name-link">getStats</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="CacheStats.html" title="class in org.apache.hadoop.hbase.io.hfile">CacheStats</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getStats()" class="member-name-link">getStats</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Get the statistics for this block cache.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Iterator.html" title="class or interface in java.util" class="external-link">Iterator</a>&lt;<a href="CachedBlock.html" title="interface in org.apache.hadoop.hbase.io.hfile">CachedBlock</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#iterator()" class="member-name-link">iterator</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Iterator.html" title="class or interface in java.util" class="external-link">Iterator</a>&lt;<a href="CachedBlock.html" title="interface in org.apache.hadoop.hbase.io.hfile">CachedBlock</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#iterator()" class="member-name-link">iterator</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns Iterator over the blocks in the cache.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#logStats()" class="member-name-link">logStats</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shutdown()" class="member-name-link">shutdown</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#logStats()" class="member-name-link">logStats</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shutdown()" class="member-name-link">shutdown</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Shutdown the cache.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#size()" class="member-name-link">size</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#size()" class="member-name-link">size</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns the total size of the block cache, in bytes.</div>
 </div>
 </div>
@@ -318,13 +322,13 @@ implements <a href="BlockCache.html" title="interface in org.apache.hadoop.hbase
 <li>
 <section class="detail" id="LOG">
 <h3>LOG</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-61">LOG</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-62">LOG</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="MAX_SIZE">
 <h3>MAX_SIZE</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-65">MAX_SIZE</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-66">MAX_SIZE</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -338,7 +342,7 @@ implements <a href="BlockCache.html" title="interface in org.apache.hadoop.hbase
 <li>
 <section class="detail" id="MAX_TIME">
 <h3>MAX_TIME</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-68">MAX_TIME</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-69">MAX_TIME</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -352,7 +356,7 @@ implements <a href="BlockCache.html" title="interface in org.apache.hadoop.hbase
 <li>
 <section class="detail" id="MEMCACHED_CONFIG_KEY">
 <h3>MEMCACHED_CONFIG_KEY</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-76">MEMCACHED_CONFIG_KEY</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-77">MEMCACHED_CONFIG_KEY</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -366,7 +370,7 @@ implements <a href="BlockCache.html" title="interface in org.apache.hadoop.hbase
 <li>
 <section class="detail" id="MEMCACHED_TIMEOUT_KEY">
 <h3>MEMCACHED_TIMEOUT_KEY</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-77">MEMCACHED_TIMEOUT_KEY</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-78">MEMCACHED_TIMEOUT_KEY</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -380,7 +384,7 @@ implements <a href="BlockCache.html" title="interface in org.apache.hadoop.hbase
 <li>
 <section class="detail" id="MEMCACHED_OPTIMEOUT_KEY">
 <h3>MEMCACHED_OPTIMEOUT_KEY</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-78">MEMCACHED_OPTIMEOUT_KEY</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-79">MEMCACHED_OPTIMEOUT_KEY</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -394,7 +398,7 @@ implements <a href="BlockCache.html" title="interface in org.apache.hadoop.hbase
 <li>
 <section class="detail" id="MEMCACHED_OPTIMIZE_KEY">
 <h3>MEMCACHED_OPTIMIZE_KEY</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-79">MEMCACHED_OPTIMIZE_KEY</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-80">MEMCACHED_OPTIMIZE_KEY</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -408,7 +412,7 @@ implements <a href="BlockCache.html" title="interface in org.apache.hadoop.hbase
 <li>
 <section class="detail" id="MEMCACHED_DEFAULT_TIMEOUT">
 <h3>MEMCACHED_DEFAULT_TIMEOUT</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-80">MEMCACHED_DEFAULT_TIMEOUT</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-81">MEMCACHED_DEFAULT_TIMEOUT</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -422,7 +426,7 @@ implements <a href="BlockCache.html" title="interface in org.apache.hadoop.hbase
 <li>
 <section class="detail" id="MEMCACHED_OPTIMIZE_DEFAULT">
 <h3>MEMCACHED_OPTIMIZE_DEFAULT</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-81">MEMCACHED_OPTIMIZE_DEFAULT</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-82">MEMCACHED_OPTIMIZE_DEFAULT</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -436,7 +440,7 @@ implements <a href="BlockCache.html" title="interface in org.apache.hadoop.hbase
 <li>
 <section class="detail" id="STAT_THREAD_PERIOD">
 <h3>STAT_THREAD_PERIOD</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-82">STAT_THREAD_PERIOD</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-83">STAT_THREAD_PERIOD</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -450,49 +454,49 @@ implements <a href="BlockCache.html" title="interface in org.apache.hadoop.hbase
 <li>
 <section class="detail" id="client">
 <h3>client</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">net.spy.memcached.MemcachedClient</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-84">client</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">net.spy.memcached.MemcachedClient</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-85">client</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="tc">
 <h3>tc</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="MemcachedBlockCache.HFileBlockTranscoder.html" title="class in org.apache.hadoop.hbase.io.hfile">MemcachedBlockCache.HFileBlockTranscoder</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-85">tc</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="MemcachedBlockCache.HFileBlockTranscoder.html" title="class in org.apache.hadoop.hbase.io.hfile">MemcachedBlockCache.HFileBlockTranscoder</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-86">tc</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="cacheStats">
 <h3>cacheStats</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="CacheStats.html" title="class in org.apache.hadoop.hbase.io.hfile">CacheStats</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-86">cacheStats</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="CacheStats.html" title="class in org.apache.hadoop.hbase.io.hfile">CacheStats</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-87">cacheStats</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="cachedCount">
 <h3>cachedCount</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/atomic/AtomicLong.html" title="class or interface in java.util.concurrent.atomic" class="external-link">AtomicLong</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-87">cachedCount</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/atomic/AtomicLong.html" title="class or interface in java.util.concurrent.atomic" class="external-link">AtomicLong</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-88">cachedCount</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="notCachedCount">
 <h3>notCachedCount</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/atomic/AtomicLong.html" title="class or interface in java.util.concurrent.atomic" class="external-link">AtomicLong</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-88">notCachedCount</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/atomic/AtomicLong.html" title="class or interface in java.util.concurrent.atomic" class="external-link">AtomicLong</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-89">notCachedCount</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="cacheErrorCount">
 <h3>cacheErrorCount</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/atomic/AtomicLong.html" title="class or interface in java.util.concurrent.atomic" class="external-link">AtomicLong</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-89">cacheErrorCount</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/atomic/AtomicLong.html" title="class or interface in java.util.concurrent.atomic" class="external-link">AtomicLong</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-90">cacheErrorCount</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="timeoutCount">
 <h3>timeoutCount</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/atomic/AtomicLong.html" title="class or interface in java.util.concurrent.atomic" class="external-link">AtomicLong</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-90">timeoutCount</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/atomic/AtomicLong.html" title="class or interface in java.util.concurrent.atomic" class="external-link">AtomicLong</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-91">timeoutCount</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="scheduleThreadPool">
 <h3>scheduleThreadPool</h3>
-<div class="member-signature"><span class="modifiers">private final transient</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ScheduledExecutorService.html" title="class or interface in java.util.concurrent" class="external-link">ScheduledExecutorService</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-93">scheduleThreadPool</a></span></div>
+<div class="member-signature"><span class="modifiers">private final transient</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ScheduledExecutorService.html" title="class or interface in java.util.concurrent" class="external-link">ScheduledExecutorService</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-94">scheduleThreadPool</a></span></div>
 <div class="block">Statistics thread schedule pool (for heavy debugging, could remove)</div>
 </section>
 </li>
@@ -507,7 +511,7 @@ implements <a href="BlockCache.html" title="interface in org.apache.hadoop.hbase
 <li>
 <section class="detail" id="&lt;init&gt;(org.apache.hadoop.conf.Configuration)">
 <h3>MemcachedBlockCache</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-97">MemcachedBlockCache</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;c)</span>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-98">MemcachedBlockCache</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;c)</span>
                     throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -524,9 +528,21 @@ implements <a href="BlockCache.html" title="interface in org.apache.hadoop.hbase
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
+<section class="detail" id="createMemcachedClient(net.spy.memcached.ConnectionFactory,java.util.List)">
+<h3>createMemcachedClient</h3>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">net.spy.memcached.MemcachedClient</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-131">createMemcachedClient</a></span><wbr><span class="parameters">(net.spy.memcached.ConnectionFactory&nbsp;factory,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/InetSocketAddress.html" title="class or interface in java.net" class="external-link">InetSocketAddress</a>&gt;&nbsp;serverAddresses)</span>
+                                                           throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
+<dl class="notes">
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
+</dl>
+</section>
+</li>
+<li>
 <section class="detail" id="cacheBlock(org.apache.hadoop.hbase.io.hfile.BlockCacheKey,org.apache.hadoop.hbase.io.hfile.Cacheable,boolean)">
 <h3>cacheBlock</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-130">cacheBlock</a></span><wbr><span class="parameters">(<a href="BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;cacheKey,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-136">cacheBlock</a></span><wbr><span class="parameters">(<a href="BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;cacheKey,
  <a href="Cacheable.html" title="interface in org.apache.hadoop.hbase.io.hfile">Cacheable</a>&nbsp;buf,
  boolean&nbsp;inMemory)</span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="BlockCache.html#cacheBlock(org.apache.hadoop.hbase.io.hfile.BlockCacheKey,org.apache.hadoop.hbase.io.hfile.Cacheable,boolean)">BlockCache</a></code></span></div>
@@ -544,7 +560,7 @@ implements <a href="BlockCache.html" title="interface in org.apache.hadoop.hbase
 <li>
 <section class="detail" id="cacheBlock(org.apache.hadoop.hbase.io.hfile.BlockCacheKey,org.apache.hadoop.hbase.io.hfile.Cacheable)">
 <h3>cacheBlock</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-135">cacheBlock</a></span><wbr><span class="parameters">(<a href="BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;cacheKey,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-141">cacheBlock</a></span><wbr><span class="parameters">(<a href="BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;cacheKey,
  <a href="Cacheable.html" title="interface in org.apache.hadoop.hbase.io.hfile">Cacheable</a>&nbsp;buf)</span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="BlockCache.html#cacheBlock(org.apache.hadoop.hbase.io.hfile.BlockCacheKey,org.apache.hadoop.hbase.io.hfile.Cacheable)">BlockCache</a></code></span></div>
 <div class="block">Add block to cache (defaults to not in-memory).</div>
@@ -560,7 +576,7 @@ implements <a href="BlockCache.html" title="interface in org.apache.hadoop.hbase
 <li>
 <section class="detail" id="getBlock(org.apache.hadoop.hbase.io.hfile.BlockCacheKey,boolean,boolean,boolean)">
 <h3>getBlock</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Cacheable.html" title="interface in org.apache.hadoop.hbase.io.hfile">Cacheable</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-159">getBlock</a></span><wbr><span class="parameters">(<a href="BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;cacheKey,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Cacheable.html" title="interface in org.apache.hadoop.hbase.io.hfile">Cacheable</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-165">getBlock</a></span><wbr><span class="parameters">(<a href="BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;cacheKey,
  boolean&nbsp;caching,
  boolean&nbsp;repeat,
  boolean&nbsp;updateCacheMetrics)</span></div>
@@ -583,7 +599,7 @@ implements <a href="BlockCache.html" title="interface in org.apache.hadoop.hbase
 <li>
 <section class="detail" id="evictBlock(org.apache.hadoop.hbase.io.hfile.BlockCacheKey)">
 <h3>evictBlock</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-198">evictBlock</a></span><wbr><span class="parameters">(<a href="BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;cacheKey)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-204">evictBlock</a></span><wbr><span class="parameters">(<a href="BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;cacheKey)</span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="BlockCache.html#evictBlock(org.apache.hadoop.hbase.io.hfile.BlockCacheKey)">BlockCache</a></code></span></div>
 <div class="block">Evict block from cache.</div>
 <dl class="notes">
@@ -599,7 +615,7 @@ implements <a href="BlockCache.html" title="interface in org.apache.hadoop.hbase
 <li>
 <section class="detail" id="evictBlocksByHfileName(java.lang.String)">
 <h3>evictBlocksByHfileName</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-217">evictBlocksByHfileName</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hfileName)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-223">evictBlocksByHfileName</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hfileName)</span></div>
 <div class="block">This method does nothing so that memcached can handle all evictions.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
@@ -612,7 +628,7 @@ implements <a href="BlockCache.html" title="interface in org.apache.hadoop.hbase
 <li>
 <section class="detail" id="getStats()">
 <h3>getStats</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="CacheStats.html" title="class in org.apache.hadoop.hbase.io.hfile">CacheStats</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-222">getStats</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="CacheStats.html" title="class in org.apache.hadoop.hbase.io.hfile">CacheStats</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-228">getStats</a></span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="BlockCache.html#getStats()">BlockCache</a></code></span></div>
 <div class="block">Get the statistics for this block cache.</div>
 <dl class="notes">
@@ -624,7 +640,7 @@ implements <a href="BlockCache.html" title="interface in org.apache.hadoop.hbase
 <li>
 <section class="detail" id="shutdown()">
 <h3>shutdown</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-227">shutdown</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-233">shutdown</a></span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="BlockCache.html#shutdown()">BlockCache</a></code></span></div>
 <div class="block">Shutdown the cache.</div>
 <dl class="notes">
@@ -636,7 +652,7 @@ implements <a href="BlockCache.html" title="interface in org.apache.hadoop.hbase
 <li>
 <section class="detail" id="size()">
 <h3>size</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-248">size</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-254">size</a></span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="BlockCache.html#size()">BlockCache</a></code></span></div>
 <div class="block">Returns the total size of the block cache, in bytes.</div>
 <dl class="notes">
@@ -650,7 +666,7 @@ implements <a href="BlockCache.html" title="interface in org.apache.hadoop.hbase
 <li>
 <section class="detail" id="getMaxSize()">
 <h3>getMaxSize</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-253">getMaxSize</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-259">getMaxSize</a></span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="BlockCache.html#getMaxSize()">BlockCache</a></code></span></div>
 <div class="block">Returns the Max size of the block cache, in bytes.</div>
 <dl class="notes">
@@ -664,7 +680,7 @@ implements <a href="BlockCache.html" title="interface in org.apache.hadoop.hbase
 <li>
 <section class="detail" id="getFreeSize()">
 <h3>getFreeSize</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-258">getFreeSize</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-264">getFreeSize</a></span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="BlockCache.html#getFreeSize()">BlockCache</a></code></span></div>
 <div class="block">Returns the free size of the block cache, in bytes.</div>
 <dl class="notes">
@@ -678,7 +694,7 @@ implements <a href="BlockCache.html" title="interface in org.apache.hadoop.hbase
 <li>
 <section class="detail" id="getCurrentSize()">
 <h3>getCurrentSize</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-263">getCurrentSize</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-269">getCurrentSize</a></span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="BlockCache.html#getCurrentSize()">BlockCache</a></code></span></div>
 <div class="block">Returns the occupied size of the block cache, in bytes.</div>
 <dl class="notes">
@@ -692,7 +708,7 @@ implements <a href="BlockCache.html" title="interface in org.apache.hadoop.hbase
 <li>
 <section class="detail" id="getCurrentDataSize()">
 <h3>getCurrentDataSize</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-268">getCurrentDataSize</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-274">getCurrentDataSize</a></span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="BlockCache.html#getCurrentDataSize()">BlockCache</a></code></span></div>
 <div class="block">Returns the occupied size of data blocks, in bytes.</div>
 <dl class="notes">
@@ -706,7 +722,7 @@ implements <a href="BlockCache.html" title="interface in org.apache.hadoop.hbase
 <li>
 <section class="detail" id="getBlockCount()">
 <h3>getBlockCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-273">getBlockCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-279">getBlockCount</a></span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="BlockCache.html#getBlockCount()">BlockCache</a></code></span></div>
 <div class="block">Returns the number of blocks currently cached in the block cache.</div>
 <dl class="notes">
@@ -720,7 +736,7 @@ implements <a href="BlockCache.html" title="interface in org.apache.hadoop.hbase
 <li>
 <section class="detail" id="getDataBlockCount()">
 <h3>getDataBlockCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-278">getDataBlockCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-284">getDataBlockCount</a></span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="BlockCache.html#getDataBlockCount()">BlockCache</a></code></span></div>
 <div class="block">Returns the number of data blocks currently cached in the block cache.</div>
 <dl class="notes">
@@ -734,7 +750,7 @@ implements <a href="BlockCache.html" title="interface in org.apache.hadoop.hbase
 <li>
 <section class="detail" id="iterator()">
 <h3>iterator</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Iterator.html" title="class or interface in java.util" class="external-link">Iterator</a>&lt;<a href="CachedBlock.html" title="interface in org.apache.hadoop.hbase.io.hfile">CachedBlock</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-283">iterator</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Iterator.html" title="class or interface in java.util" class="external-link">Iterator</a>&lt;<a href="CachedBlock.html" title="interface in org.apache.hadoop.hbase.io.hfile">CachedBlock</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-289">iterator</a></span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="BlockCache.html#iterator()">BlockCache</a></code></span></div>
 <div class="block">Returns Iterator over the blocks in the cache.</div>
 <dl class="notes">
@@ -748,7 +764,7 @@ implements <a href="BlockCache.html" title="interface in org.apache.hadoop.hbase
 <li>
 <section class="detail" id="getBlockCaches()">
 <h3>getBlockCaches</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="BlockCache.html" title="interface in org.apache.hadoop.hbase.io.hfile">BlockCache</a>[]</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-303">getBlockCaches</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="BlockCache.html" title="interface in org.apache.hadoop.hbase.io.hfile">BlockCache</a>[]</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-309">getBlockCaches</a></span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="BlockCache.html#getBlockCaches()">BlockCache</a></code></span></div>
 <div class="block">Returns The list of sub blockcaches that make up this one; returns null if no sub caches.</div>
 <dl class="notes">
@@ -760,7 +776,7 @@ implements <a href="BlockCache.html" title="interface in org.apache.hadoop.hbase
 <li>
 <section class="detail" id="logStats()">
 <h3>logStats</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-359">logStats</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-365">logStats</a></span>()</div>
 </section>
 </li>
 </ul>

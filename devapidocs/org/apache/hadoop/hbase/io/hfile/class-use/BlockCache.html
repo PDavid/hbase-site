@@ -236,32 +236,36 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color"><code>static <a href="../BlockCache.html" title="interface in org.apache.hadoop.hbase.io.hfile">BlockCache</a></code></div>
 <div class="col-second even-row-color"><span class="type-name-label">BlockCacheFactory.</span><code><a href="../BlockCacheFactory.html#createBlockCache(org.apache.hadoop.conf.Configuration)" class="member-name-link">createBlockCache</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>private static <a href="../BlockCache.html" title="interface in org.apache.hadoop.hbase.io.hfile">BlockCache</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">BlockCacheFactory.</span><code><a href="../BlockCacheFactory.html#createExternalBlockcache(org.apache.hadoop.conf.Configuration)" class="member-name-link">createExternalBlockcache</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;c)</code></div>
+<div class="col-first odd-row-color"><code>static <a href="../BlockCache.html" title="interface in org.apache.hadoop.hbase.io.hfile">BlockCache</a></code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">BlockCacheFactory.</span><code><a href="../BlockCacheFactory.html#createBlockCache(org.apache.hadoop.conf.Configuration,java.util.Map)" class="member-name-link">createBlockCache</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="../../../regionserver/HRegion.html" title="class in org.apache.hadoop.hbase.regionserver">HRegion</a>&gt;&nbsp;onlineRegions)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code><a href="../BlockCache.html" title="interface in org.apache.hadoop.hbase.io.hfile">BlockCache</a>[]</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">BlockCache.</span><code><a href="../BlockCache.html#getBlockCaches()" class="member-name-link">getBlockCaches</a>()</code></div>
-<div class="col-last even-row-color">
+<div class="col-first even-row-color"><code>private static <a href="../BlockCache.html" title="interface in org.apache.hadoop.hbase.io.hfile">BlockCache</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">BlockCacheFactory.</span><code><a href="../BlockCacheFactory.html#createExternalBlockcache(org.apache.hadoop.conf.Configuration)" class="member-name-link">createExternalBlockcache</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;c)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code><a href="../BlockCache.html" title="interface in org.apache.hadoop.hbase.io.hfile">BlockCache</a>[]</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">BlockCache.</span><code><a href="../BlockCache.html#getBlockCaches()" class="member-name-link">getBlockCaches</a>()</code></div>
+<div class="col-last odd-row-color">
 <div class="block">Returns The list of sub blockcaches that make up this one; returns null if no sub caches.</div>
 </div>
+<div class="col-first even-row-color"><code><a href="../BlockCache.html" title="interface in org.apache.hadoop.hbase.io.hfile">BlockCache</a>[]</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">CombinedBlockCache.</span><code><a href="../CombinedBlockCache.html#getBlockCaches()" class="member-name-link">getBlockCaches</a>()</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code><a href="../BlockCache.html" title="interface in org.apache.hadoop.hbase.io.hfile">BlockCache</a>[]</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">CombinedBlockCache.</span><code><a href="../CombinedBlockCache.html#getBlockCaches()" class="member-name-link">getBlockCaches</a>()</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">LruAdaptiveBlockCache.</span><code><a href="../LruAdaptiveBlockCache.html#getBlockCaches()" class="member-name-link">getBlockCaches</a>()</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code><a href="../BlockCache.html" title="interface in org.apache.hadoop.hbase.io.hfile">BlockCache</a>[]</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">LruAdaptiveBlockCache.</span><code><a href="../LruAdaptiveBlockCache.html#getBlockCaches()" class="member-name-link">getBlockCaches</a>()</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">LruBlockCache.</span><code><a href="../LruBlockCache.html#getBlockCaches()" class="member-name-link">getBlockCaches</a>()</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code><a href="../BlockCache.html" title="interface in org.apache.hadoop.hbase.io.hfile">BlockCache</a>[]</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">LruBlockCache.</span><code><a href="../LruBlockCache.html#getBlockCaches()" class="member-name-link">getBlockCaches</a>()</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">MemcachedBlockCache.</span><code><a href="../MemcachedBlockCache.html#getBlockCaches()" class="member-name-link">getBlockCaches</a>()</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code><a href="../BlockCache.html" title="interface in org.apache.hadoop.hbase.io.hfile">BlockCache</a>[]</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">MemcachedBlockCache.</span><code><a href="../MemcachedBlockCache.html#getBlockCaches()" class="member-name-link">getBlockCaches</a>()</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">TinyLfuBlockCache.</span><code><a href="../TinyLfuBlockCache.html#getBlockCaches()" class="member-name-link">getBlockCaches</a>()</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code><a href="../BlockCache.html" title="interface in org.apache.hadoop.hbase.io.hfile">BlockCache</a>[]</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">TinyLfuBlockCache.</span><code><a href="../TinyLfuBlockCache.html#getBlockCaches()" class="member-name-link">getBlockCaches</a>()</code></div>
+<div class="col-first odd-row-color"><code><a href="../BlockCache.html" title="interface in org.apache.hadoop.hbase.io.hfile">BlockCache</a></code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">CombinedBlockCache.</span><code><a href="../CombinedBlockCache.html#getSecondLevelCache()" class="member-name-link">getSecondLevelCache</a>()</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code><a href="../BlockCache.html" title="interface in org.apache.hadoop.hbase.io.hfile">BlockCache</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">CombinedBlockCache.</span><code><a href="../CombinedBlockCache.html#getSecondLevelCache()" class="member-name-link">getSecondLevelCache</a>()</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
 </div>
 <div class="caption"><span>Methods in <a href="../package-summary.html">org.apache.hadoop.hbase.io.hfile</a> that return types with arguments of type <a href="../BlockCache.html" title="interface in org.apache.hadoop.hbase.io.hfile">BlockCache</a></span></div>
 <div class="summary-table three-column-summary">

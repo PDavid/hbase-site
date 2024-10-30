@@ -284,14 +284,15 @@
 <span class="source-line-no">271</span><span id="line-271">  }</span>
 <span class="source-line-no">272</span><span id="line-272"></span>
 <span class="source-line-no">273</span><span id="line-273">  /**</span>
-<span class="source-line-no">274</span><span id="line-274">   * Wait for the bucket cache to be enabled while server restart</span>
-<span class="source-line-no">275</span><span id="line-275">   * @param timeout time to wait for the bucket cache to be enable</span>
-<span class="source-line-no">276</span><span id="line-276">   * @return boolean true if the bucket cache is enabled, false otherwise</span>
-<span class="source-line-no">277</span><span id="line-277">   */</span>
-<span class="source-line-no">278</span><span id="line-278">  default boolean waitForCacheInitialization(long timeout) {</span>
-<span class="source-line-no">279</span><span id="line-279">    return true;</span>
-<span class="source-line-no">280</span><span id="line-280">  }</span>
-<span class="source-line-no">281</span><span id="line-281">}</span>
+<span class="source-line-no">274</span><span id="line-274">   * Wait for the block cache implementation to be completely enabled. Some block cache</span>
+<span class="source-line-no">275</span><span id="line-275">   * implementations may take longer to initialise, and this initialisation may be asynchronous.</span>
+<span class="source-line-no">276</span><span id="line-276">   * @param timeout time to wait for the cache to become enabled.</span>
+<span class="source-line-no">277</span><span id="line-277">   * @return boolean true if the cache is enabled, false otherwise.</span>
+<span class="source-line-no">278</span><span id="line-278">   */</span>
+<span class="source-line-no">279</span><span id="line-279">  default boolean waitForCacheInitialization(long timeout) {</span>
+<span class="source-line-no">280</span><span id="line-280">    return true;</span>
+<span class="source-line-no">281</span><span id="line-281">  }</span>
+<span class="source-line-no">282</span><span id="line-282">}</span>
 
 
 

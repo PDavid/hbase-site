@@ -85,7 +85,7 @@ loadScripts(document, 'script');</script>
 <dd><a href="MemcachedBlockCache.html" title="class in org.apache.hadoop.hbase.io.hfile">MemcachedBlockCache</a></dd>
 </dl>
 <hr>
-<div class="type-signature"><span class="modifiers">private static class </span><span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-311">MemcachedBlockCache.HFileBlockTranscoder</a></span>
+<div class="type-signature"><span class="modifiers">private static class </span><span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.html#line-317">MemcachedBlockCache.HFileBlockTranscoder</a></span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
 implements net.spy.memcached.transcoders.Transcoder&lt;<a href="HFileBlock.html" title="class in org.apache.hadoop.hbase.io.hfile">HFileBlock</a>&gt;</span></div>
 <div class="block">Class to encode and decode an HFileBlock to and from memecached's resulting byte arrays.</div>
@@ -150,7 +150,7 @@ implements net.spy.memcached.transcoders.Transcoder&lt;<a href="HFileBlock.html"
 <li>
 <section class="detail" id="&lt;init&gt;()">
 <h3>HFileBlockTranscoder</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.HFileBlockTranscoder.html#line-311">HFileBlockTranscoder</a></span>()</div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.HFileBlockTranscoder.html#line-317">HFileBlockTranscoder</a></span>()</div>
 </section>
 </li>
 </ul>
@@ -164,7 +164,7 @@ implements net.spy.memcached.transcoders.Transcoder&lt;<a href="HFileBlock.html"
 <li>
 <section class="detail" id="asyncDecode(net.spy.memcached.CachedData)">
 <h3>asyncDecode</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.HFileBlockTranscoder.html#line-313">asyncDecode</a></span><wbr><span class="parameters">(net.spy.memcached.CachedData&nbsp;d)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.HFileBlockTranscoder.html#line-319">asyncDecode</a></span><wbr><span class="parameters">(net.spy.memcached.CachedData&nbsp;d)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>asyncDecode</code>&nbsp;in interface&nbsp;<code>net.spy.memcached.transcoders.Transcoder&lt;<a href="HFileBlock.html" title="class in org.apache.hadoop.hbase.io.hfile">HFileBlock</a>&gt;</code></dd>
@@ -174,7 +174,7 @@ implements net.spy.memcached.transcoders.Transcoder&lt;<a href="HFileBlock.html"
 <li>
 <section class="detail" id="encode(org.apache.hadoop.hbase.io.hfile.HFileBlock)">
 <h3>encode</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">net.spy.memcached.CachedData</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.HFileBlockTranscoder.html#line-318">encode</a></span><wbr><span class="parameters">(<a href="HFileBlock.html" title="class in org.apache.hadoop.hbase.io.hfile">HFileBlock</a>&nbsp;block)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">net.spy.memcached.CachedData</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.HFileBlockTranscoder.html#line-324">encode</a></span><wbr><span class="parameters">(<a href="HFileBlock.html" title="class in org.apache.hadoop.hbase.io.hfile">HFileBlock</a>&nbsp;block)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>encode</code>&nbsp;in interface&nbsp;<code>net.spy.memcached.transcoders.Transcoder&lt;<a href="HFileBlock.html" title="class in org.apache.hadoop.hbase.io.hfile">HFileBlock</a>&gt;</code></dd>
@@ -184,7 +184,7 @@ implements net.spy.memcached.transcoders.Transcoder&lt;<a href="HFileBlock.html"
 <li>
 <section class="detail" id="decode(net.spy.memcached.CachedData)">
 <h3>decode</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="HFileBlock.html" title="class in org.apache.hadoop.hbase.io.hfile">HFileBlock</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.HFileBlockTranscoder.html#line-325">decode</a></span><wbr><span class="parameters">(net.spy.memcached.CachedData&nbsp;d)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="HFileBlock.html" title="class in org.apache.hadoop.hbase.io.hfile">HFileBlock</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.HFileBlockTranscoder.html#line-331">decode</a></span><wbr><span class="parameters">(net.spy.memcached.CachedData&nbsp;d)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>decode</code>&nbsp;in interface&nbsp;<code>net.spy.memcached.transcoders.Transcoder&lt;<a href="HFileBlock.html" title="class in org.apache.hadoop.hbase.io.hfile">HFileBlock</a>&gt;</code></dd>
@@ -194,7 +194,7 @@ implements net.spy.memcached.transcoders.Transcoder&lt;<a href="HFileBlock.html"
 <li>
 <section class="detail" id="getMaxSize()">
 <h3>getMaxSize</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.HFileBlockTranscoder.html#line-336">getMaxSize</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/MemcachedBlockCache.HFileBlockTranscoder.html#line-342">getMaxSize</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getMaxSize</code>&nbsp;in interface&nbsp;<code>net.spy.memcached.transcoders.Transcoder&lt;<a href="HFileBlock.html" title="class in org.apache.hadoop.hbase.io.hfile">HFileBlock</a>&gt;</code></dd>

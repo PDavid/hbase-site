@@ -269,7 +269,7 @@ extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/ja
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default boolean</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#waitForCacheInitialization(long)" class="member-name-link">waitForCacheInitialization</a><wbr>(long&nbsp;timeout)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
-<div class="block">Wait for the bucket cache to be enabled while server restart</div>
+<div class="block">Wait for the block cache implementation to be completely enabled.</div>
 </div>
 </div>
 </div>
@@ -665,13 +665,14 @@ extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/ja
 <li>
 <section class="detail" id="waitForCacheInitialization(long)">
 <h3>waitForCacheInitialization</h3>
-<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/BlockCache.html#line-278">waitForCacheInitialization</a></span><wbr><span class="parameters">(long&nbsp;timeout)</span></div>
-<div class="block">Wait for the bucket cache to be enabled while server restart</div>
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/BlockCache.html#line-279">waitForCacheInitialization</a></span><wbr><span class="parameters">(long&nbsp;timeout)</span></div>
+<div class="block">Wait for the block cache implementation to be completely enabled. Some block cache
+ implementations may take longer to initialise, and this initialisation may be asynchronous.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>timeout</code> - time to wait for the bucket cache to be enable</dd>
+<dd><code>timeout</code> - time to wait for the cache to become enabled.</dd>
 <dt>Returns:</dt>
-<dd>boolean true if the bucket cache is enabled, false otherwise</dd>
+<dd>boolean true if the cache is enabled, false otherwise.</dd>
 </dl>
 </section>
 </li>

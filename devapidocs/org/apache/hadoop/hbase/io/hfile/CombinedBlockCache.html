@@ -351,7 +351,7 @@ implements <a href="ResizableBlockCache.html" title="interface in org.apache.had
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#waitForCacheInitialization(long)" class="member-name-link">waitForCacheInitialization</a><wbr>(long&nbsp;timeout)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Wait for the bucket cache to be enabled while server restart</div>
+<div class="block">Wait for the block cache implementation to be completely enabled.</div>
 </div>
 </div>
 </div>
@@ -922,14 +922,15 @@ implements <a href="ResizableBlockCache.html" title="interface in org.apache.had
 <h3>waitForCacheInitialization</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/CombinedBlockCache.html#line-511">waitForCacheInitialization</a></span><wbr><span class="parameters">(long&nbsp;timeout)</span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="BlockCache.html#waitForCacheInitialization(long)">BlockCache</a></code></span></div>
-<div class="block">Wait for the bucket cache to be enabled while server restart</div>
+<div class="block">Wait for the block cache implementation to be completely enabled. Some block cache
+ implementations may take longer to initialise, and this initialisation may be asynchronous.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="BlockCache.html#waitForCacheInitialization(long)">waitForCacheInitialization</a></code>&nbsp;in interface&nbsp;<code><a href="BlockCache.html" title="interface in org.apache.hadoop.hbase.io.hfile">BlockCache</a></code></dd>
 <dt>Parameters:</dt>
-<dd><code>timeout</code> - time to wait for the bucket cache to be enable</dd>
+<dd><code>timeout</code> - time to wait for the cache to become enabled.</dd>
 <dt>Returns:</dt>
-<dd>boolean true if the bucket cache is enabled, false otherwise</dd>
+<dd>boolean true if the cache is enabled, false otherwise.</dd>
 </dl>
 </section>
 </li>
