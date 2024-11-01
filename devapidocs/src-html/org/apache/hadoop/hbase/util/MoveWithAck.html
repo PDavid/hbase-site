@@ -151,7 +151,7 @@
 <span class="source-line-no">138</span><span id="line-138">   */</span>
 <span class="source-line-no">139</span><span id="line-139">  static ServerName getServerNameForRegion(RegionInfo region, Admin admin, Connection conn)</span>
 <span class="source-line-no">140</span><span id="line-140">    throws IOException {</span>
-<span class="source-line-no">141</span><span id="line-141">    if (!admin.isTableEnabled(region.getTable())) {</span>
+<span class="source-line-no">141</span><span id="line-141">    if (!admin.tableExists(region.getTable()) || !admin.isTableEnabled(region.getTable())) {</span>
 <span class="source-line-no">142</span><span id="line-142">      return null;</span>
 <span class="source-line-no">143</span><span id="line-143">    }</span>
 <span class="source-line-no">144</span><span id="line-144">    HRegionLocation loc = conn.getRegionLocator(region.getTable())</span>
