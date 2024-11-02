@@ -264,7 +264,7 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color"><code>static void</code></div>
 <div class="col-second even-row-color"><span class="type-name-label">MobUtils.</span><code>cleanExpiredMobFiles<wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.conf.Configuration&nbsp;conf,
- org.apache.hadoop.hbase.TableName&nbsp;tableName,
+ org.apache.hadoop.hbase.client.TableDescriptor&nbsp;htd,
  org.apache.hadoop.hbase.client.ColumnFamilyDescriptor&nbsp;columnDescriptor,
  org.apache.hadoop.hbase.io.hfile.CacheConfig&nbsp;cacheConfig,
  long&nbsp;current)</code></div>
@@ -275,13 +275,15 @@ loadScripts(document, 'script');</script>
 <div class="col-second odd-row-color"><span class="type-name-label">CachedMobFile.</span><code>create<wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.Path&nbsp;path,
  org.apache.hadoop.conf.Configuration&nbsp;conf,
- org.apache.hadoop.hbase.io.hfile.CacheConfig&nbsp;cacheConf)</code></div>
+ org.apache.hadoop.hbase.io.hfile.CacheConfig&nbsp;cacheConf,
+ org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker&nbsp;sft)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>static org.apache.hadoop.hbase.mob.MobFile</code></div>
 <div class="col-second even-row-color"><span class="type-name-label">MobFile.</span><code>create<wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.Path&nbsp;path,
  org.apache.hadoop.conf.Configuration&nbsp;conf,
- org.apache.hadoop.hbase.io.hfile.CacheConfig&nbsp;cacheConf)</code></div>
+ org.apache.hadoop.hbase.io.hfile.CacheConfig&nbsp;cacheConf,
+ org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker&nbsp;sft)</code></div>
 <div class="col-last even-row-color">
 <div class="block">Creates an instance of the MobFile.</div>
 </div>
@@ -353,7 +355,8 @@ loadScripts(document, 'script');</script>
 <div class="col-first odd-row-color"><code>org.apache.hadoop.hbase.mob.MobFile</code></div>
 <div class="col-second odd-row-color"><span class="type-name-label">MobFileCache.</span><code>openFile<wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.Path&nbsp;path,
- org.apache.hadoop.hbase.io.hfile.CacheConfig&nbsp;cacheConf)</code></div>
+ org.apache.hadoop.hbase.io.hfile.CacheConfig&nbsp;cacheConf,
+ org.apache.hadoop.hbase.regionserver.StoreContext&nbsp;storeContext)</code></div>
 <div class="col-last odd-row-color">
 <div class="block">Opens a mob file.</div>
 </div>
@@ -431,7 +434,8 @@ loadScripts(document, 'script');</script>
  org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.hbase.io.hfile.CacheConfig&nbsp;cacheConf,
  org.apache.hadoop.hbase.regionserver.BloomType&nbsp;cfBloomType,
- boolean&nbsp;primaryReplica)</code></div>
+ boolean&nbsp;primaryReplica,
+ org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker&nbsp;sft)</code></div>
 <div class="col-last odd-row-color">
 <div class="block">Constructor, loads a reader and it's indices, etc.</div>
 </div>

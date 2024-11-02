@@ -77,7 +77,7 @@ loadScripts(document, 'script');</script>
 </div>
 <section class="class-description" id="class-description">
 <hr>
-<div class="type-signature"><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestDirectStoreSplitsMerges.html#line-49">TestDirectStoreSplitsMerges</a></span>
+<div class="type-signature"><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestDirectStoreSplitsMerges.html#line-52">TestDirectStoreSplitsMerges</a></span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
 </section>
 <section class="summary">
@@ -134,9 +134,10 @@ loadScripts(document, 'script');</script>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#after()" class="member-name-link">after</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private org.apache.hadoop.fs.Path</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#mergeFileFromRegion(org.apache.hadoop.hbase.regionserver.HRegionFileSystem,org.apache.hadoop.hbase.regionserver.HRegion,org.apache.hadoop.hbase.regionserver.HStoreFile)" class="member-name-link">mergeFileFromRegion</a><wbr>(org.apache.hadoop.hbase.regionserver.HRegionFileSystem&nbsp;regionFS,
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#mergeFileFromRegion(org.apache.hadoop.hbase.regionserver.HRegionFileSystem,org.apache.hadoop.hbase.regionserver.HRegion,org.apache.hadoop.hbase.regionserver.HStoreFile,org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker)" class="member-name-link">mergeFileFromRegion</a><wbr>(org.apache.hadoop.hbase.regionserver.HRegionFileSystem&nbsp;regionFS,
  org.apache.hadoop.hbase.regionserver.HRegion&nbsp;regionToMerge,
- org.apache.hadoop.hbase.regionserver.HStoreFile&nbsp;file)</code></div>
+ org.apache.hadoop.hbase.regionserver.HStoreFile&nbsp;file,
+ org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker&nbsp;sft)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#putThreeRowsAndFlush(org.apache.hadoop.hbase.TableName)" class="member-name-link">putThreeRowsAndFlush</a><wbr>(org.apache.hadoop.hbase.TableName&nbsp;table)</code></div>
@@ -187,25 +188,25 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="CLASS_RULE">
 <h3>CLASS_RULE</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../HBaseClassTestRule.html" title="class in org.apache.hadoop.hbase">HBaseClassTestRule</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestDirectStoreSplitsMerges.html#line-52">CLASS_RULE</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../HBaseClassTestRule.html" title="class in org.apache.hadoop.hbase">HBaseClassTestRule</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestDirectStoreSplitsMerges.html#line-55">CLASS_RULE</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="TEST_UTIL">
 <h3>TEST_UTIL</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="../HBaseTestingUtil.html" title="class in org.apache.hadoop.hbase">HBaseTestingUtil</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestDirectStoreSplitsMerges.html#line-56">TEST_UTIL</a></span></div>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="../HBaseTestingUtil.html" title="class in org.apache.hadoop.hbase">HBaseTestingUtil</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestDirectStoreSplitsMerges.html#line-59">TEST_UTIL</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="FAMILY_NAME">
 <h3>FAMILY_NAME</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">byte[]</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestDirectStoreSplitsMerges.html#line-58">FAMILY_NAME</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">byte[]</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestDirectStoreSplitsMerges.html#line-61">FAMILY_NAME</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="name">
 <h3>name</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.junit.rules.TestName</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestDirectStoreSplitsMerges.html#line-60">name</a></span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.junit.rules.TestName</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestDirectStoreSplitsMerges.html#line-63">name</a></span></div>
 </section>
 </li>
 </ul>
@@ -219,7 +220,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;()">
 <h3>TestDirectStoreSplitsMerges</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestDirectStoreSplitsMerges.html#line-50">TestDirectStoreSplitsMerges</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestDirectStoreSplitsMerges.html#line-53">TestDirectStoreSplitsMerges</a></span>()</div>
 </section>
 </li>
 </ul>
@@ -233,7 +234,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="setup()">
 <h3>setup</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestDirectStoreSplitsMerges.html#line-63">setup</a></span>()
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestDirectStoreSplitsMerges.html#line-66">setup</a></span>()
                   throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -244,7 +245,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="after()">
 <h3>after</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestDirectStoreSplitsMerges.html#line-68">after</a></span>()
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestDirectStoreSplitsMerges.html#line-71">after</a></span>()
                   throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -255,7 +256,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testSplitStoreDir()">
 <h3>testSplitStoreDir</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestDirectStoreSplitsMerges.html#line-73">testSplitStoreDir</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestDirectStoreSplitsMerges.html#line-76">testSplitStoreDir</a></span>()
                        throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -266,7 +267,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testMergeStoreFile()">
 <h3>testMergeStoreFile</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestDirectStoreSplitsMerges.html#line-96">testMergeStoreFile</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestDirectStoreSplitsMerges.html#line-102">testMergeStoreFile</a></span>()
                         throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -277,7 +278,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testCommitDaughterRegionNoFiles()">
 <h3>testCommitDaughterRegionNoFiles</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestDirectStoreSplitsMerges.html#line-128">testCommitDaughterRegionNoFiles</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestDirectStoreSplitsMerges.html#line-136">testCommitDaughterRegionNoFiles</a></span>()
                                      throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -288,7 +289,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testCommitDaughterRegionWithFiles()">
 <h3>testCommitDaughterRegionWithFiles</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestDirectStoreSplitsMerges.html#line-146">testCommitDaughterRegionWithFiles</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestDirectStoreSplitsMerges.html#line-154">testCommitDaughterRegionWithFiles</a></span>()
                                        throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -299,7 +300,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testCommitMergedRegion()">
 <h3>testCommitMergedRegion</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestDirectStoreSplitsMerges.html#line-179">testCommitMergedRegion</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestDirectStoreSplitsMerges.html#line-190">testCommitMergedRegion</a></span>()
                             throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -310,7 +311,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="waitForSplitProcComplete(int,int)">
 <h3>waitForSplitProcComplete</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestDirectStoreSplitsMerges.html#line-215">waitForSplitProcComplete</a></span><wbr><span class="parameters">(int&nbsp;attempts,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestDirectStoreSplitsMerges.html#line-228">waitForSplitProcComplete</a></span><wbr><span class="parameters">(int&nbsp;attempts,
  int&nbsp;waitTime)</span>
                                throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <dl class="notes">
@@ -320,11 +321,12 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="mergeFileFromRegion(org.apache.hadoop.hbase.regionserver.HRegionFileSystem,org.apache.hadoop.hbase.regionserver.HRegion,org.apache.hadoop.hbase.regionserver.HStoreFile)">
+<section class="detail" id="mergeFileFromRegion(org.apache.hadoop.hbase.regionserver.HRegionFileSystem,org.apache.hadoop.hbase.regionserver.HRegion,org.apache.hadoop.hbase.regionserver.HStoreFile,org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker)">
 <h3>mergeFileFromRegion</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestDirectStoreSplitsMerges.html#line-231">mergeFileFromRegion</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.regionserver.HRegionFileSystem&nbsp;regionFS,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestDirectStoreSplitsMerges.html#line-244">mergeFileFromRegion</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.regionserver.HRegionFileSystem&nbsp;regionFS,
  org.apache.hadoop.hbase.regionserver.HRegion&nbsp;regionToMerge,
- org.apache.hadoop.hbase.regionserver.HStoreFile&nbsp;file)</span>
+ org.apache.hadoop.hbase.regionserver.HStoreFile&nbsp;file,
+ org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker&nbsp;sft)</span>
                                                throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -335,14 +337,14 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="validateResultingFile(java.lang.String,org.apache.hadoop.fs.Path)">
 <h3>validateResultingFile</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestDirectStoreSplitsMerges.html#line-239">validateResultingFile</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;originalRegion,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestDirectStoreSplitsMerges.html#line-252">validateResultingFile</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;originalRegion,
  org.apache.hadoop.fs.Path&nbsp;result)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="putThreeRowsAndFlush(org.apache.hadoop.hbase.TableName)">
 <h3>putThreeRowsAndFlush</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestDirectStoreSplitsMerges.html#line-246">putThreeRowsAndFlush</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.TableName&nbsp;table)</span>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestDirectStoreSplitsMerges.html#line-259">putThreeRowsAndFlush</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.TableName&nbsp;table)</span>
                            throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>

@@ -82,7 +82,7 @@ loadScripts(document, 'script');</script>
 </dl>
 <hr>
 <div class="type-signature"><span class="annotations">@Private
-</span><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-51">StoreFileInfo</a></span>
+</span><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-53">StoreFileInfo</a></span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
 implements org.apache.hadoop.conf.Configurable</span></div>
 <div class="block">Describe a StoreFile (hfile, reference, link)</div>
@@ -186,18 +186,24 @@ implements org.apache.hadoop.conf.Configurable</span></div>
 <div class="table-header col-second">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>&nbsp;</code></div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.FileStatus)" class="member-name-link">StoreFileInfo</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,long,org.apache.hadoop.fs.Path,long,org.apache.hadoop.hbase.io.Reference,org.apache.hadoop.hbase.io.HFileLink,boolean)" class="member-name-link">StoreFileInfo</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.fs.FileSystem&nbsp;fs,
- org.apache.hadoop.fs.FileStatus&nbsp;fileStatus)</code></div>
+ long&nbsp;createdTimestamp,
+ org.apache.hadoop.fs.Path&nbsp;initialPath,
+ long&nbsp;size,
+ <a href="../io/Reference.html" title="class in org.apache.hadoop.hbase.io">Reference</a>&nbsp;reference,
+ <a href="../io/HFileLink.html" title="class in org.apache.hadoop.hbase.io">HFileLink</a>&nbsp;link,
+ boolean&nbsp;primaryReplica)</code></div>
 <div class="col-last even-row-color">
-<div class="block">Create a Store File Info</div>
+<div class="block">Create a Store File Info from an HFileLink and a Reference</div>
 </div>
 <div class="col-first odd-row-color"><code>private </code></div>
-<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.FileStatus,org.apache.hadoop.fs.Path,boolean)" class="member-name-link">StoreFileInfo</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.FileStatus,org.apache.hadoop.fs.Path,boolean,org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker)" class="member-name-link">StoreFileInfo</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.FileStatus&nbsp;fileStatus,
  org.apache.hadoop.fs.Path&nbsp;initialPath,
- boolean&nbsp;primaryReplica)</code></div>
+ boolean&nbsp;primaryReplica,
+ <a href="storefiletracker/StoreFileTracker.html" title="interface in org.apache.hadoop.hbase.regionserver.storefiletracker">StoreFileTracker</a>&nbsp;sft)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>&nbsp;</code></div>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.FileStatus,org.apache.hadoop.hbase.io.HFileLink)" class="member-name-link">StoreFileInfo</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
@@ -223,14 +229,6 @@ implements org.apache.hadoop.conf.Configurable</span></div>
  <a href="../io/HFileLink.html" title="class in org.apache.hadoop.hbase.io">HFileLink</a>&nbsp;link)</code></div>
 <div class="col-last even-row-color">
 <div class="block">Create a Store File Info from an HFileLink and a Reference</div>
-</div>
-<div class="col-first odd-row-color"><code>&nbsp;</code></div>
-<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,boolean)" class="member-name-link">StoreFileInfo</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
- org.apache.hadoop.fs.FileSystem&nbsp;fs,
- org.apache.hadoop.fs.Path&nbsp;initialPath,
- boolean&nbsp;primaryReplica)</code></div>
-<div class="col-last odd-row-color">
-<div class="block">Create a Store File Info</div>
 </div>
 </div>
 </section>
@@ -271,162 +269,168 @@ implements org.apache.hadoop.conf.Configurable</span></div>
  long&nbsp;readahead,
  <a href="../io/hfile/ReaderContext.ReaderType.html" title="enum class in org.apache.hadoop.hbase.io.hfile">ReaderContext.ReaderType</a>&nbsp;type)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) int</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#decreaseRefCount()" class="member-name-link">decreaseRefCount</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#equals(java.lang.Object)" class="member-name-link">equals</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;that)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#formatBulkloadSeqId(long)" class="member-name-link">formatBulkloadSeqId</a><wbr>(long&nbsp;seqId)</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createStoreFileInfoForHFile(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,boolean)" class="member-name-link">createStoreFileInfoForHFile</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+ org.apache.hadoop.fs.FileSystem&nbsp;fs,
+ org.apache.hadoop.fs.Path&nbsp;initialPath,
+ boolean&nbsp;primaryReplica)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getActiveFileName()" class="member-name-link">getActiveFileName</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#decreaseRefCount()" class="member-name-link">decreaseRefCount</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#equals(java.lang.Object)" class="member-name-link">equals</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;that)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#formatBulkloadSeqId(long)" class="member-name-link">formatBulkloadSeqId</a><wbr>(long&nbsp;seqId)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getActiveFileName()" class="member-name-link">getActiveFileName</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Return the active file name that contains the real data.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/OptionalLong.html" title="class or interface in java.util" class="external-link">OptionalLong</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getBulkloadSeqId(org.apache.hadoop.fs.Path)" class="member-name-link">getBulkloadSeqId</a><wbr>(org.apache.hadoop.fs.Path&nbsp;path)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>org.apache.hadoop.conf.Configuration</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getConf()" class="member-name-link">getConf</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCreatedTimestamp()" class="member-name-link">getCreatedTimestamp</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns timestamp when this file was created (as returned by filesystem)</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>org.apache.hadoop.fs.FileStatus</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getFileStatus()" class="member-name-link">getFileStatus</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns The <code>FileStatus</code> of the file</div>
-</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) org.apache.hadoop.fs.FileSystem</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getFileSystem()" class="member-name-link">getFileSystem</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../HDFSBlocksDistribution.html" title="class in org.apache.hadoop.hbase">HDFSBlocksDistribution</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getHDFSBlockDistribution()" class="member-name-link">getHDFSBlockDistribution</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the HDFS block distribution</div>
-</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../io/hfile/HFileInfo.html" title="class in org.apache.hadoop.hbase.io.hfile">HFileInfo</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getHFileInfo()" class="member-name-link">getHFileInfo</a>()</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/OptionalLong.html" title="class or interface in java.util" class="external-link">OptionalLong</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getBulkloadSeqId(org.apache.hadoop.fs.Path)" class="member-name-link">getBulkloadSeqId</a><wbr>(org.apache.hadoop.fs.Path&nbsp;path)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>org.apache.hadoop.conf.Configuration</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getConf()" class="member-name-link">getConf</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getModificationTime()" class="member-name-link">getModificationTime</a>()</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCreatedTimestamp()" class="member-name-link">getCreatedTimestamp</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns timestamp when this file was created (as returned by filesystem)</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>org.apache.hadoop.fs.FileStatus</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getFileStatus()" class="member-name-link">getFileStatus</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns The <code>FileStatus</code> of the file</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) org.apache.hadoop.fs.FileSystem</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getFileSystem()" class="member-name-link">getFileSystem</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../HDFSBlocksDistribution.html" title="class in org.apache.hadoop.hbase">HDFSBlocksDistribution</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getHDFSBlockDistribution()" class="member-name-link">getHDFSBlockDistribution</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns the HDFS block distribution</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../io/hfile/HFileInfo.html" title="class in org.apache.hadoop.hbase.io.hfile">HFileInfo</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getHFileInfo()" class="member-name-link">getHFileInfo</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getModificationTime()" class="member-name-link">getModificationTime</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns Get the modification time of the file.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>org.apache.hadoop.fs.Path</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getPath()" class="member-name-link">getPath</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>org.apache.hadoop.fs.Path</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getPath()" class="member-name-link">getPath</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns The <code>Path</code> of the file</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) int</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRefCount()" class="member-name-link">getRefCount</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../io/Reference.html" title="class in org.apache.hadoop.hbase.io">Reference</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getReference()" class="member-name-link">getReference</a>()</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRefCount()" class="member-name-link">getRefCount</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>org.apache.hadoop.fs.FileStatus</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getReferencedFileStatus(org.apache.hadoop.fs.FileSystem)" class="member-name-link">getReferencedFileStatus</a><wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fs)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../io/Reference.html" title="class in org.apache.hadoop.hbase.io">Reference</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getReference()" class="member-name-link">getReference</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>org.apache.hadoop.fs.FileStatus</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getReferencedFileStatus(org.apache.hadoop.fs.FileSystem)" class="member-name-link">getReferencedFileStatus</a><wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fs)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Get the <code>FileStatus</code> of the file referenced by this StoreFileInfo</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static org.apache.hadoop.fs.Path</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getReferredToFile(org.apache.hadoop.fs.Path)" class="member-name-link">getReferredToFile</a><wbr>(org.apache.hadoop.fs.Path&nbsp;p)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../util/Pair.html" title="class in org.apache.hadoop.hbase.util">Pair</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getReferredToRegionAndFile(java.lang.String)" class="member-name-link">getReferredToRegionAndFile</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;referenceFile)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static org.apache.hadoop.fs.Path</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getReferredToFile(org.apache.hadoop.fs.Path)" class="member-name-link">getReferredToFile</a><wbr>(org.apache.hadoop.fs.Path&nbsp;p)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSize()" class="member-name-link">getSize</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../util/Pair.html" title="class in org.apache.hadoop.hbase.util">Pair</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getReferredToRegionAndFile(java.lang.String)" class="member-name-link">getReferredToRegionAndFile</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;referenceFile)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSize()" class="member-name-link">getSize</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Size of the Hfile</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#hasBulkloadSeqId(org.apache.hadoop.fs.Path)" class="member-name-link">hasBulkloadSeqId</a><wbr>(org.apache.hadoop.fs.Path&nbsp;path)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hashCode()" class="member-name-link">hashCode</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) int</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#increaseRefCount()" class="member-name-link">increaseRefCount</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#initHDFSBlocksDistribution()" class="member-name-link">initHDFSBlocksDistribution</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#initHFileInfo(org.apache.hadoop.hbase.io.hfile.ReaderContext)" class="member-name-link">initHFileInfo</a><wbr>(<a href="../io/hfile/ReaderContext.html" title="class in org.apache.hadoop.hbase.io.hfile">ReaderContext</a>&nbsp;context)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isHFile(java.lang.String)" class="member-name-link">isHFile</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;fileName)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#hasBulkloadSeqId(org.apache.hadoop.fs.Path)" class="member-name-link">hasBulkloadSeqId</a><wbr>(org.apache.hadoop.fs.Path&nbsp;path)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isHFile(org.apache.hadoop.fs.Path)" class="member-name-link">isHFile</a><wbr>(org.apache.hadoop.fs.Path&nbsp;path)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isLink()" class="member-name-link">isLink</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns True if the store file is a link</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isMobFile(org.apache.hadoop.fs.Path)" class="member-name-link">isMobFile</a><wbr>(org.apache.hadoop.fs.Path&nbsp;path)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Checks if the file is a MOB file</div>
-</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isMobRefFile(org.apache.hadoop.fs.Path)" class="member-name-link">isMobRefFile</a><wbr>(org.apache.hadoop.fs.Path&nbsp;path)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Checks if the file is a MOB reference file, created by snapshot</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isNoReadahead()" class="member-name-link">isNoReadahead</a>()</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hashCode()" class="member-name-link">hashCode</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isReference()" class="member-name-link">isReference</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns True if the store file is a Reference</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isReference(java.lang.String)" class="member-name-link">isReference</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isReference(org.apache.hadoop.fs.Path)" class="member-name-link">isReference</a><wbr>(org.apache.hadoop.fs.Path&nbsp;path)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isTopReference()" class="member-name-link">isTopReference</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns True if the store file is a top Reference</div>
-</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isValid(org.apache.hadoop.fs.FileStatus)" class="member-name-link">isValid</a><wbr>(org.apache.hadoop.fs.FileStatus&nbsp;fileStatus)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Return if the specified file is a valid store file or not.</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) <a href="StoreFileReader.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileReader</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#postStoreFileReaderOpen(org.apache.hadoop.hbase.io.hfile.ReaderContext,org.apache.hadoop.hbase.io.hfile.CacheConfig,org.apache.hadoop.hbase.regionserver.StoreFileReader)" class="member-name-link">postStoreFileReaderOpen</a><wbr>(<a href="../io/hfile/ReaderContext.html" title="class in org.apache.hadoop.hbase.io.hfile">ReaderContext</a>&nbsp;context,
- <a href="../io/hfile/CacheConfig.html" title="class in org.apache.hadoop.hbase.io.hfile">CacheConfig</a>&nbsp;cacheConf,
- <a href="StoreFileReader.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileReader</a>&nbsp;reader)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) <a href="StoreFileReader.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileReader</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#preStoreFileReaderOpen(org.apache.hadoop.hbase.io.hfile.ReaderContext,org.apache.hadoop.hbase.io.hfile.CacheConfig)" class="member-name-link">preStoreFileReaderOpen</a><wbr>(<a href="../io/hfile/ReaderContext.html" title="class in org.apache.hadoop.hbase.io.hfile">ReaderContext</a>&nbsp;context,
- <a href="../io/hfile/CacheConfig.html" title="class in org.apache.hadoop.hbase.io.hfile">CacheConfig</a>&nbsp;cacheConf)</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#increaseRefCount()" class="member-name-link">increaseRefCount</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setConf(org.apache.hadoop.conf.Configuration)" class="member-name-link">setConf</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#initHDFSBlocksDistribution()" class="member-name-link">initHDFSBlocksDistribution</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setRegionCoprocessorHost(org.apache.hadoop.hbase.regionserver.RegionCoprocessorHost)" class="member-name-link">setRegionCoprocessorHost</a><wbr>(<a href="RegionCoprocessorHost.html" title="class in org.apache.hadoop.hbase.regionserver">RegionCoprocessorHost</a>&nbsp;coprocessorHost)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#initHFileInfo(org.apache.hadoop.hbase.io.hfile.ReaderContext)" class="member-name-link">initHFileInfo</a><wbr>(<a href="../io/hfile/ReaderContext.html" title="class in org.apache.hadoop.hbase.io.hfile">ReaderContext</a>&nbsp;context)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isHFile(java.lang.String)" class="member-name-link">isHFile</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;fileName)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isHFile(org.apache.hadoop.fs.Path)" class="member-name-link">isHFile</a><wbr>(org.apache.hadoop.fs.Path&nbsp;path)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isLink()" class="member-name-link">isLink</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns True if the store file is a link</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isMobFile(org.apache.hadoop.fs.Path)" class="member-name-link">isMobFile</a><wbr>(org.apache.hadoop.fs.Path&nbsp;path)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Checks if the file is a MOB file</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isMobRefFile(org.apache.hadoop.fs.Path)" class="member-name-link">isMobRefFile</a><wbr>(org.apache.hadoop.fs.Path&nbsp;path)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Checks if the file is a MOB reference file, created by snapshot</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isNoReadahead()" class="member-name-link">isNoReadahead</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isReference()" class="member-name-link">isReference</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns True if the store file is a Reference</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isReference(java.lang.String)" class="member-name-link">isReference</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isReference(org.apache.hadoop.fs.Path)" class="member-name-link">isReference</a><wbr>(org.apache.hadoop.fs.Path&nbsp;path)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isTopReference()" class="member-name-link">isTopReference</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns True if the store file is a top Reference</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isValid(org.apache.hadoop.fs.FileStatus)" class="member-name-link">isValid</a><wbr>(org.apache.hadoop.fs.FileStatus&nbsp;fileStatus)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Return if the specified file is a valid store file or not.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) <a href="StoreFileReader.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileReader</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#postStoreFileReaderOpen(org.apache.hadoop.hbase.io.hfile.ReaderContext,org.apache.hadoop.hbase.io.hfile.CacheConfig,org.apache.hadoop.hbase.regionserver.StoreFileReader)" class="member-name-link">postStoreFileReaderOpen</a><wbr>(<a href="../io/hfile/ReaderContext.html" title="class in org.apache.hadoop.hbase.io.hfile">ReaderContext</a>&nbsp;context,
+ <a href="../io/hfile/CacheConfig.html" title="class in org.apache.hadoop.hbase.io.hfile">CacheConfig</a>&nbsp;cacheConf,
+ <a href="StoreFileReader.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileReader</a>&nbsp;reader)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) <a href="StoreFileReader.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileReader</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#preStoreFileReaderOpen(org.apache.hadoop.hbase.io.hfile.ReaderContext,org.apache.hadoop.hbase.io.hfile.CacheConfig)" class="member-name-link">preStoreFileReaderOpen</a><wbr>(<a href="../io/hfile/ReaderContext.html" title="class in org.apache.hadoop.hbase.io.hfile">ReaderContext</a>&nbsp;context,
+ <a href="../io/hfile/CacheConfig.html" title="class in org.apache.hadoop.hbase.io.hfile">CacheConfig</a>&nbsp;cacheConf)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setConf(org.apache.hadoop.conf.Configuration)" class="member-name-link">setConf</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setRegionCoprocessorHost(org.apache.hadoop.hbase.regionserver.RegionCoprocessorHost)" class="member-name-link">setRegionCoprocessorHost</a><wbr>(<a href="RegionCoprocessorHost.html" title="class in org.apache.hadoop.hbase.regionserver">RegionCoprocessorHost</a>&nbsp;coprocessorHost)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Sets the region coprocessor env.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#validateStoreFileName(java.lang.String)" class="member-name-link">validateStoreFileName</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;fileName)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#validateStoreFileName(java.lang.String)" class="member-name-link">validateStoreFileName</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;fileName)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Validate the store file name.</div>
 </div>
 </div>
@@ -449,13 +453,13 @@ implements org.apache.hadoop.conf.Configurable</span></div>
 <li>
 <section class="detail" id="LOG">
 <h3>LOG</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-53">LOG</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-55">LOG</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="HFILE_NAME_REGEX">
 <h3>HFILE_NAME_REGEX</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-59">HFILE_NAME_REGEX</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-61">HFILE_NAME_REGEX</a></span></div>
 <div class="block">A non-capture group, for hfiles, so that this can be embedded. HFiles are uuid ([0-9a-z]+).
  Bulk loaded hfiles have (_SeqId_[0-9]+_) as a suffix. The mob del file has (_del) as a suffix.</div>
 <dl class="notes">
@@ -471,14 +475,14 @@ implements org.apache.hadoop.conf.Configurable</span></div>
 <li>
 <section class="detail" id="HFILE_NAME_PATTERN">
 <h3>HFILE_NAME_PATTERN</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/regex/Pattern.html" title="class or interface in java.util.regex" class="external-link">Pattern</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-62">HFILE_NAME_PATTERN</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/regex/Pattern.html" title="class or interface in java.util.regex" class="external-link">Pattern</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-64">HFILE_NAME_PATTERN</a></span></div>
 <div class="block">Regex that will work for hfiles</div>
 </section>
 </li>
 <li>
 <section class="detail" id="REF_NAME_PATTERN">
 <h3>REF_NAME_PATTERN</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/regex/Pattern.html" title="class or interface in java.util.regex" class="external-link">Pattern</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-73">REF_NAME_PATTERN</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/regex/Pattern.html" title="class or interface in java.util.regex" class="external-link">Pattern</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-75">REF_NAME_PATTERN</a></span></div>
 <div class="block">Regex that will work for straight reference names (<code>&lt;hfile&gt;.&lt;parentEncRegion&gt;</code>) and
  hfilelink reference names (<code>
 
@@ -491,7 +495,7 @@ implements org.apache.hadoop.conf.Configurable</span></div>
 <li>
 <section class="detail" id="STORE_FILE_READER_NO_READAHEAD">
 <h3>STORE_FILE_READER_NO_READAHEAD</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-76">STORE_FILE_READER_NO_READAHEAD</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-78">STORE_FILE_READER_NO_READAHEAD</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -505,7 +509,7 @@ implements org.apache.hadoop.conf.Configurable</span></div>
 <li>
 <section class="detail" id="DEFAULT_STORE_FILE_READER_NO_READAHEAD">
 <h3>DEFAULT_STORE_FILE_READER_NO_READAHEAD</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-77">DEFAULT_STORE_FILE_READER_NO_READAHEAD</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-79">DEFAULT_STORE_FILE_READER_NO_READAHEAD</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -519,85 +523,85 @@ implements org.apache.hadoop.conf.Configurable</span></div>
 <li>
 <section class="detail" id="conf">
 <h3>conf</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.conf.Configuration</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-80">conf</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.conf.Configuration</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-82">conf</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="fs">
 <h3>fs</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.FileSystem</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-83">fs</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.FileSystem</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-85">fs</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="hdfsBlocksDistribution">
 <h3>hdfsBlocksDistribution</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../HDFSBlocksDistribution.html" title="class in org.apache.hadoop.hbase">HDFSBlocksDistribution</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-86">hdfsBlocksDistribution</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../HDFSBlocksDistribution.html" title="class in org.apache.hadoop.hbase">HDFSBlocksDistribution</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-88">hdfsBlocksDistribution</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="hfileInfo">
 <h3>hfileInfo</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../io/hfile/HFileInfo.html" title="class in org.apache.hadoop.hbase.io.hfile">HFileInfo</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-88">hfileInfo</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../io/hfile/HFileInfo.html" title="class in org.apache.hadoop.hbase.io.hfile">HFileInfo</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-90">hfileInfo</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="reference">
 <h3>reference</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../io/Reference.html" title="class in org.apache.hadoop.hbase.io">Reference</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-91">reference</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../io/Reference.html" title="class in org.apache.hadoop.hbase.io">Reference</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-93">reference</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="link">
 <h3>link</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../io/HFileLink.html" title="class in org.apache.hadoop.hbase.io">HFileLink</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-94">link</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../io/HFileLink.html" title="class in org.apache.hadoop.hbase.io">HFileLink</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-96">link</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="initialPath">
 <h3>initialPath</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-96">initialPath</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-98">initialPath</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="coprocessorHost">
 <h3>coprocessorHost</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="RegionCoprocessorHost.html" title="class in org.apache.hadoop.hbase.regionserver">RegionCoprocessorHost</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-98">coprocessorHost</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="RegionCoprocessorHost.html" title="class in org.apache.hadoop.hbase.regionserver">RegionCoprocessorHost</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-100">coprocessorHost</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="createdTimestamp">
 <h3>createdTimestamp</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-101">createdTimestamp</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-103">createdTimestamp</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="size">
 <h3>size</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-103">size</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-105">size</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="primaryReplica">
 <h3>primaryReplica</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-105">primaryReplica</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-107">primaryReplica</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="noReadahead">
 <h3>noReadahead</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-107">noReadahead</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-109">noReadahead</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="refCount">
 <h3>refCount</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/atomic/AtomicInteger.html" title="class or interface in java.util.concurrent.atomic" class="external-link">AtomicInteger</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-112">refCount</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/atomic/AtomicInteger.html" title="class or interface in java.util.concurrent.atomic" class="external-link">AtomicInteger</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-114">refCount</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="SEQ_ID_MARKER">
 <h3>SEQ_ID_MARKER</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-437">SEQ_ID_MARKER</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-440">SEQ_ID_MARKER</a></span></div>
 <div class="block">Cells in a bulkloaded file don't have a sequenceId since they don't go through memstore. When a
  bulkload file is committed, the current memstore ts is stamped onto the file name as the
  sequenceId of the file. At read time, the sequenceId is copied onto all of the cells returned
@@ -619,7 +623,7 @@ implements org.apache.hadoop.conf.Configurable</span></div>
 <li>
 <section class="detail" id="SEQ_ID_MARKER_LENGTH">
 <h3>SEQ_ID_MARKER_LENGTH</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-438">SEQ_ID_MARKER_LENGTH</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-441">SEQ_ID_MARKER_LENGTH</a></span></div>
 </section>
 </li>
 </ul>
@@ -631,33 +635,14 @@ implements org.apache.hadoop.conf.Configurable</span></div>
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,boolean)">
+<section class="detail" id="&lt;init&gt;(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.FileStatus,org.apache.hadoop.fs.Path,boolean,org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker)">
 <h3>StoreFileInfo</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-121">StoreFileInfo</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
- org.apache.hadoop.fs.FileSystem&nbsp;fs,
- org.apache.hadoop.fs.Path&nbsp;initialPath,
- boolean&nbsp;primaryReplica)</span>
-              throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
-<div class="block">Create a Store File Info</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>conf</code> - the <code>Configuration</code> to use</dd>
-<dd><code>fs</code> - The current file system to use.</dd>
-<dd><code>initialPath</code> - The <code>Path</code> of the file</dd>
-<dd><code>primaryReplica</code> - true if this is a store file for primary replica, otherwise false.</dd>
-<dt>Throws:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="&lt;init&gt;(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.FileStatus,org.apache.hadoop.fs.Path,boolean)">
-<h3>StoreFileInfo</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-126">StoreFileInfo</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-116">StoreFileInfo</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.FileStatus&nbsp;fileStatus,
  org.apache.hadoop.fs.Path&nbsp;initialPath,
- boolean&nbsp;primaryReplica)</span>
+ boolean&nbsp;primaryReplica,
+ <a href="storefiletracker/StoreFileTracker.html" title="interface in org.apache.hadoop.hbase.regionserver.storefiletracker">StoreFileTracker</a>&nbsp;sft)</span>
                throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -666,27 +651,9 @@ implements org.apache.hadoop.conf.Configurable</span></div>
 </section>
 </li>
 <li>
-<section class="detail" id="&lt;init&gt;(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.FileStatus)">
-<h3>StoreFileInfo</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-178">StoreFileInfo</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
- org.apache.hadoop.fs.FileSystem&nbsp;fs,
- org.apache.hadoop.fs.FileStatus&nbsp;fileStatus)</span>
-              throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
-<div class="block">Create a Store File Info</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>conf</code> - the <code>Configuration</code> to use</dd>
-<dd><code>fs</code> - The current file system to use.</dd>
-<dd><code>fileStatus</code> - The <code>FileStatus</code> of the file</dd>
-<dt>Throws:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
-</dl>
-</section>
-</li>
-<li>
 <section class="detail" id="&lt;init&gt;(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.FileStatus,org.apache.hadoop.hbase.io.HFileLink)">
 <h3>StoreFileInfo</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-189">StoreFileInfo</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-169">StoreFileInfo</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.FileStatus&nbsp;fileStatus,
  <a href="../io/HFileLink.html" title="class in org.apache.hadoop.hbase.io">HFileLink</a>&nbsp;link)</span></div>
@@ -702,7 +669,7 @@ implements org.apache.hadoop.conf.Configurable</span></div>
 <li>
 <section class="detail" id="&lt;init&gt;(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.FileStatus,org.apache.hadoop.hbase.io.Reference)">
 <h3>StoreFileInfo</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-201">StoreFileInfo</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-181">StoreFileInfo</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.FileStatus&nbsp;fileStatus,
  <a href="../io/Reference.html" title="class in org.apache.hadoop.hbase.io">Reference</a>&nbsp;reference)</span></div>
@@ -719,11 +686,33 @@ implements org.apache.hadoop.conf.Configurable</span></div>
 <li>
 <section class="detail" id="&lt;init&gt;(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.FileStatus,org.apache.hadoop.hbase.io.Reference,org.apache.hadoop.hbase.io.HFileLink)">
 <h3>StoreFileInfo</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-214">StoreFileInfo</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-194">StoreFileInfo</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.FileStatus&nbsp;fileStatus,
  <a href="../io/Reference.html" title="class in org.apache.hadoop.hbase.io">Reference</a>&nbsp;reference,
  <a href="../io/HFileLink.html" title="class in org.apache.hadoop.hbase.io">HFileLink</a>&nbsp;link)</span></div>
+<div class="block">Create a Store File Info from an HFileLink and a Reference</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>conf</code> - The <code>Configuration</code> to use</dd>
+<dd><code>fs</code> - The current file system to use</dd>
+<dd><code>fileStatus</code> - The <code>FileStatus</code> of the file</dd>
+<dd><code>reference</code> - The reference instance</dd>
+<dd><code>link</code> - The link instance</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="&lt;init&gt;(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,long,org.apache.hadoop.fs.Path,long,org.apache.hadoop.hbase.io.Reference,org.apache.hadoop.hbase.io.HFileLink,boolean)">
+<h3>StoreFileInfo</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-215">StoreFileInfo</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
+ org.apache.hadoop.fs.FileSystem&nbsp;fs,
+ long&nbsp;createdTimestamp,
+ org.apache.hadoop.fs.Path&nbsp;initialPath,
+ long&nbsp;size,
+ <a href="../io/Reference.html" title="class in org.apache.hadoop.hbase.io">Reference</a>&nbsp;reference,
+ <a href="../io/HFileLink.html" title="class in org.apache.hadoop.hbase.io">HFileLink</a>&nbsp;link,
+ boolean&nbsp;primaryReplica)</span></div>
 <div class="block">Create a Store File Info from an HFileLink and a Reference</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -746,7 +735,7 @@ implements org.apache.hadoop.conf.Configurable</span></div>
 <li>
 <section class="detail" id="getConf()">
 <h3>getConf</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hadoop.conf.Configuration</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-227">getConf</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hadoop.conf.Configuration</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-230">getConf</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getConf</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.conf.Configurable</code></dd>
@@ -756,7 +745,7 @@ implements org.apache.hadoop.conf.Configurable</span></div>
 <li>
 <section class="detail" id="setConf(org.apache.hadoop.conf.Configuration)">
 <h3>setConf</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-232">setConf</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-235">setConf</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>setConf</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.conf.Configurable</code></dd>
@@ -766,21 +755,21 @@ implements org.apache.hadoop.conf.Configurable</span></div>
 <li>
 <section class="detail" id="getSize()">
 <h3>getSize</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-240">getSize</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-243">getSize</a></span>()</div>
 <div class="block">Size of the Hfile</div>
 </section>
 </li>
 <li>
 <section class="detail" id="setRegionCoprocessorHost(org.apache.hadoop.hbase.regionserver.RegionCoprocessorHost)">
 <h3>setRegionCoprocessorHost</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-247">setRegionCoprocessorHost</a></span><wbr><span class="parameters">(<a href="RegionCoprocessorHost.html" title="class in org.apache.hadoop.hbase.regionserver">RegionCoprocessorHost</a>&nbsp;coprocessorHost)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-250">setRegionCoprocessorHost</a></span><wbr><span class="parameters">(<a href="RegionCoprocessorHost.html" title="class in org.apache.hadoop.hbase.regionserver">RegionCoprocessorHost</a>&nbsp;coprocessorHost)</span></div>
 <div class="block">Sets the region coprocessor env.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getReference()">
 <h3>getReference</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../io/Reference.html" title="class in org.apache.hadoop.hbase.io">Reference</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-255">getReference</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../io/Reference.html" title="class in org.apache.hadoop.hbase.io">Reference</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-258">getReference</a></span>()</div>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>the Reference object associated to this StoreFileInfo. null if the StoreFile is not a
@@ -791,35 +780,35 @@ implements org.apache.hadoop.conf.Configurable</span></div>
 <li>
 <section class="detail" id="isReference()">
 <h3>isReference</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-260">isReference</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-263">isReference</a></span>()</div>
 <div class="block">Returns True if the store file is a Reference</div>
 </section>
 </li>
 <li>
 <section class="detail" id="isTopReference()">
 <h3>isTopReference</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-265">isTopReference</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-268">isTopReference</a></span>()</div>
 <div class="block">Returns True if the store file is a top Reference</div>
 </section>
 </li>
 <li>
 <section class="detail" id="isLink()">
 <h3>isLink</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-270">isLink</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-273">isLink</a></span>()</div>
 <div class="block">Returns True if the store file is a link</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getHDFSBlockDistribution()">
 <h3>getHDFSBlockDistribution</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../HDFSBlocksDistribution.html" title="class in org.apache.hadoop.hbase">HDFSBlocksDistribution</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-275">getHDFSBlockDistribution</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../HDFSBlocksDistribution.html" title="class in org.apache.hadoop.hbase">HDFSBlocksDistribution</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-278">getHDFSBlockDistribution</a></span>()</div>
 <div class="block">Returns the HDFS block distribution</div>
 </section>
 </li>
 <li>
 <section class="detail" id="createReader(org.apache.hadoop.hbase.io.hfile.ReaderContext,org.apache.hadoop.hbase.io.hfile.CacheConfig)">
 <h3>createReader</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="StoreFileReader.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileReader</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-279">createReader</a></span><wbr><span class="parameters">(<a href="../io/hfile/ReaderContext.html" title="class in org.apache.hadoop.hbase.io.hfile">ReaderContext</a>&nbsp;context,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="StoreFileReader.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileReader</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-282">createReader</a></span><wbr><span class="parameters">(<a href="../io/hfile/ReaderContext.html" title="class in org.apache.hadoop.hbase.io.hfile">ReaderContext</a>&nbsp;context,
  <a href="../io/hfile/CacheConfig.html" title="class in org.apache.hadoop.hbase.io.hfile">CacheConfig</a>&nbsp;cacheConf)</span>
                              throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
@@ -831,7 +820,7 @@ implements org.apache.hadoop.conf.Configurable</span></div>
 <li>
 <section class="detail" id="createReaderContext(boolean,long,org.apache.hadoop.hbase.io.hfile.ReaderContext.ReaderType)">
 <h3>createReaderContext</h3>
-<div class="member-signature"><span class="return-type"><a href="../io/hfile/ReaderContext.html" title="class in org.apache.hadoop.hbase.io.hfile">ReaderContext</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-290">createReaderContext</a></span><wbr><span class="parameters">(boolean&nbsp;doDropBehind,
+<div class="member-signature"><span class="return-type"><a href="../io/hfile/ReaderContext.html" title="class in org.apache.hadoop.hbase.io.hfile">ReaderContext</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-293">createReaderContext</a></span><wbr><span class="parameters">(boolean&nbsp;doDropBehind,
  long&nbsp;readahead,
  <a href="../io/hfile/ReaderContext.ReaderType.html" title="enum class in org.apache.hadoop.hbase.io.hfile">ReaderContext.ReaderType</a>&nbsp;type)</span>
                            throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
@@ -844,7 +833,7 @@ implements org.apache.hadoop.conf.Configurable</span></div>
 <li>
 <section class="detail" id="computeHDFSBlocksDistribution(org.apache.hadoop.fs.FileSystem)">
 <h3>computeHDFSBlocksDistribution</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../HDFSBlocksDistribution.html" title="class in org.apache.hadoop.hbase">HDFSBlocksDistribution</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-331">computeHDFSBlocksDistribution</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.FileSystem&nbsp;fs)</span>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../HDFSBlocksDistribution.html" title="class in org.apache.hadoop.hbase">HDFSBlocksDistribution</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-334">computeHDFSBlocksDistribution</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.FileSystem&nbsp;fs)</span>
                                                      throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Compute the HDFS Block Distribution for this StoreFile</div>
 <dl class="notes">
@@ -856,7 +845,7 @@ implements org.apache.hadoop.conf.Configurable</span></div>
 <li>
 <section class="detail" id="computeHDFSBlocksDistributionInternal(org.apache.hadoop.fs.FileSystem)">
 <h3>computeHDFSBlocksDistributionInternal</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../HDFSBlocksDistribution.html" title="class in org.apache.hadoop.hbase">HDFSBlocksDistribution</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-351">computeHDFSBlocksDistributionInternal</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.FileSystem&nbsp;fs)</span>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../HDFSBlocksDistribution.html" title="class in org.apache.hadoop.hbase">HDFSBlocksDistribution</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-354">computeHDFSBlocksDistributionInternal</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.FileSystem&nbsp;fs)</span>
                                                               throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -867,7 +856,7 @@ implements org.apache.hadoop.conf.Configurable</span></div>
 <li>
 <section class="detail" id="getReferencedFileStatus(org.apache.hadoop.fs.FileSystem)">
 <h3>getReferencedFileStatus</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.FileStatus</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-366">getReferencedFileStatus</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.FileSystem&nbsp;fs)</span>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.FileStatus</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-369">getReferencedFileStatus</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.FileSystem&nbsp;fs)</span>
                                                         throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Get the <code>FileStatus</code> of the file referenced by this StoreFileInfo</div>
 <dl class="notes">
@@ -883,14 +872,14 @@ implements org.apache.hadoop.conf.Configurable</span></div>
 <li>
 <section class="detail" id="getPath()">
 <h3>getPath</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-407">getPath</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-410">getPath</a></span>()</div>
 <div class="block">Returns The <code>Path</code> of the file</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getFileStatus()">
 <h3>getFileStatus</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.FileStatus</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-412">getFileStatus</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.FileStatus</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-415">getFileStatus</a></span>()
                                               throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Returns The <code>FileStatus</code> of the file</div>
 <dl class="notes">
@@ -902,7 +891,7 @@ implements org.apache.hadoop.conf.Configurable</span></div>
 <li>
 <section class="detail" id="getModificationTime()">
 <h3>getModificationTime</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-417">getModificationTime</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-420">getModificationTime</a></span>()
                          throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Returns Get the modification time of the file.</div>
 <dl class="notes">
@@ -914,7 +903,7 @@ implements org.apache.hadoop.conf.Configurable</span></div>
 <li>
 <section class="detail" id="toString()">
 <h3>toString</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-421">toString</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-424">toString</a></span>()</div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></code></dd>
@@ -924,7 +913,7 @@ implements org.apache.hadoop.conf.Configurable</span></div>
 <li>
 <section class="detail" id="hasBulkloadSeqId(org.apache.hadoop.fs.Path)">
 <h3>hasBulkloadSeqId</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-445">hasBulkloadSeqId</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;path)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-448">hasBulkloadSeqId</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;path)</span></div>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>True if the file name looks like a bulkloaded file, based on the presence of the SeqId
@@ -941,7 +930,7 @@ implements org.apache.hadoop.conf.Configurable</span></div>
 <li>
 <section class="detail" id="getBulkloadSeqId(org.apache.hadoop.fs.Path)">
 <h3>getBulkloadSeqId</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/OptionalLong.html" title="class or interface in java.util" class="external-link">OptionalLong</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-455">getBulkloadSeqId</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;path)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/OptionalLong.html" title="class or interface in java.util" class="external-link">OptionalLong</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-458">getBulkloadSeqId</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;path)</span></div>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>If the path is a properly named bulkloaded file, returns the sequence id stamped at the
@@ -958,7 +947,7 @@ implements org.apache.hadoop.conf.Configurable</span></div>
 <li>
 <section class="detail" id="formatBulkloadSeqId(long)">
 <h3>formatBulkloadSeqId</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-471">formatBulkloadSeqId</a></span><wbr><span class="parameters">(long&nbsp;seqId)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-474">formatBulkloadSeqId</a></span><wbr><span class="parameters">(long&nbsp;seqId)</span></div>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>A string value for appending to the end of a bulkloaded file name, containing the
@@ -975,7 +964,7 @@ implements org.apache.hadoop.conf.Configurable</span></div>
 <li>
 <section class="detail" id="isHFile(org.apache.hadoop.fs.Path)">
 <h3>isHFile</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-479">isHFile</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;path)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-482">isHFile</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;path)</span></div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>path</code> - Path to check.</dd>
@@ -987,13 +976,13 @@ implements org.apache.hadoop.conf.Configurable</span></div>
 <li>
 <section class="detail" id="isHFile(java.lang.String)">
 <h3>isHFile</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-483">isHFile</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;fileName)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-486">isHFile</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;fileName)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="isMobFile(org.apache.hadoop.fs.Path)">
 <h3>isMobFile</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-493">isMobFile</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;path)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-496">isMobFile</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;path)</span></div>
 <div class="block">Checks if the file is a MOB file</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -1006,7 +995,7 @@ implements org.apache.hadoop.conf.Configurable</span></div>
 <li>
 <section class="detail" id="isMobRefFile(org.apache.hadoop.fs.Path)">
 <h3>isMobRefFile</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-509">isMobRefFile</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;path)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-512">isMobRefFile</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;path)</span></div>
 <div class="block">Checks if the file is a MOB reference file, created by snapshot</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -1019,7 +1008,7 @@ implements org.apache.hadoop.conf.Configurable</span></div>
 <li>
 <section class="detail" id="isReference(org.apache.hadoop.fs.Path)">
 <h3>isReference</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-527">isReference</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;path)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-530">isReference</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;path)</span></div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>path</code> - Path to check.</dd>
@@ -1031,7 +1020,7 @@ implements org.apache.hadoop.conf.Configurable</span></div>
 <li>
 <section class="detail" id="isReference(java.lang.String)">
 <h3>isReference</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-535">isReference</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-538">isReference</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</span></div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>name</code> - file name to check.</dd>
@@ -1043,26 +1032,26 @@ implements org.apache.hadoop.conf.Configurable</span></div>
 <li>
 <section class="detail" id="getCreatedTimestamp()">
 <h3>getCreatedTimestamp</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-548">getCreatedTimestamp</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-551">getCreatedTimestamp</a></span>()</div>
 <div class="block">Returns timestamp when this file was created (as returned by filesystem)</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getReferredToFile(org.apache.hadoop.fs.Path)">
 <h3>getReferredToFile</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-559">getReferredToFile</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;p)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-562">getReferredToFile</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;p)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getReferredToRegionAndFile(java.lang.String)">
 <h3>getReferredToRegionAndFile</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../util/Pair.html" title="class in org.apache.hadoop.hbase.util">Pair</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-585">getReferredToRegionAndFile</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;referenceFile)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../util/Pair.html" title="class in org.apache.hadoop.hbase.util">Pair</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-588">getReferredToRegionAndFile</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;referenceFile)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="validateStoreFileName(java.lang.String)">
 <h3>validateStoreFileName</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-602">validateStoreFileName</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;fileName)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-605">validateStoreFileName</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;fileName)</span></div>
 <div class="block">Validate the store file name.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -1075,7 +1064,7 @@ implements org.apache.hadoop.conf.Configurable</span></div>
 <li>
 <section class="detail" id="isValid(org.apache.hadoop.fs.FileStatus)">
 <h3>isValid</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-614">isValid</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.FileStatus&nbsp;fileStatus)</span>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-617">isValid</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.FileStatus&nbsp;fileStatus)</span>
                        throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Return if the specified file is a valid store file or not.</div>
 <dl class="notes">
@@ -1091,7 +1080,7 @@ implements org.apache.hadoop.conf.Configurable</span></div>
 <li>
 <section class="detail" id="computeRefFileHDFSBlockDistribution(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.hbase.io.Reference,org.apache.hadoop.fs.FileStatus)">
 <h3>computeRefFileHDFSBlockDistribution</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="../HDFSBlocksDistribution.html" title="class in org.apache.hadoop.hbase">HDFSBlocksDistribution</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-644">computeRefFileHDFSBlockDistribution</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.FileSystem&nbsp;fs,
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="../HDFSBlocksDistribution.html" title="class in org.apache.hadoop.hbase">HDFSBlocksDistribution</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-647">computeRefFileHDFSBlockDistribution</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.FileSystem&nbsp;fs,
  <a href="../io/Reference.html" title="class in org.apache.hadoop.hbase.io">Reference</a>&nbsp;reference,
  org.apache.hadoop.fs.FileStatus&nbsp;status)</span>
                                                                    throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
@@ -1116,7 +1105,7 @@ implements org.apache.hadoop.conf.Configurable</span></div>
 <li>
 <section class="detail" id="equals(java.lang.Object)">
 <h3>equals</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-663">equals</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;that)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-666">equals</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;that)</span></div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></code></dd>
@@ -1126,7 +1115,7 @@ implements org.apache.hadoop.conf.Configurable</span></div>
 <li>
 <section class="detail" id="hashCode()">
 <h3>hashCode</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-709">hashCode</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-712">hashCode</a></span>()</div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></code></dd>
@@ -1136,7 +1125,7 @@ implements org.apache.hadoop.conf.Configurable</span></div>
 <li>
 <section class="detail" id="getActiveFileName()">
 <h3>getActiveFileName</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-725">getActiveFileName</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-728">getActiveFileName</a></span>()</div>
 <div class="block">Return the active file name that contains the real data.
  <p>
  For referenced hfile, we will return the name of the reference file as it will be used to
@@ -1147,25 +1136,25 @@ implements org.apache.hadoop.conf.Configurable</span></div>
 <li>
 <section class="detail" id="getFileSystem()">
 <h3>getFileSystem</h3>
-<div class="member-signature"><span class="return-type">org.apache.hadoop.fs.FileSystem</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-733">getFileSystem</a></span>()</div>
+<div class="member-signature"><span class="return-type">org.apache.hadoop.fs.FileSystem</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-736">getFileSystem</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="isNoReadahead()">
 <h3>isNoReadahead</h3>
-<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-737">isNoReadahead</a></span>()</div>
+<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-740">isNoReadahead</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getHFileInfo()">
 <h3>getHFileInfo</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../io/hfile/HFileInfo.html" title="class in org.apache.hadoop.hbase.io.hfile">HFileInfo</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-741">getHFileInfo</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../io/hfile/HFileInfo.html" title="class in org.apache.hadoop.hbase.io.hfile">HFileInfo</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-744">getHFileInfo</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="initHDFSBlocksDistribution()">
 <h3>initHDFSBlocksDistribution</h3>
-<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-745">initHDFSBlocksDistribution</a></span>()
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-748">initHDFSBlocksDistribution</a></span>()
                          throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -1176,7 +1165,7 @@ implements org.apache.hadoop.conf.Configurable</span></div>
 <li>
 <section class="detail" id="preStoreFileReaderOpen(org.apache.hadoop.hbase.io.hfile.ReaderContext,org.apache.hadoop.hbase.io.hfile.CacheConfig)">
 <h3>preStoreFileReaderOpen</h3>
-<div class="member-signature"><span class="return-type"><a href="StoreFileReader.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileReader</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-749">preStoreFileReaderOpen</a></span><wbr><span class="parameters">(<a href="../io/hfile/ReaderContext.html" title="class in org.apache.hadoop.hbase.io.hfile">ReaderContext</a>&nbsp;context,
+<div class="member-signature"><span class="return-type"><a href="StoreFileReader.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileReader</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-752">preStoreFileReaderOpen</a></span><wbr><span class="parameters">(<a href="../io/hfile/ReaderContext.html" title="class in org.apache.hadoop.hbase.io.hfile">ReaderContext</a>&nbsp;context,
  <a href="../io/hfile/CacheConfig.html" title="class in org.apache.hadoop.hbase.io.hfile">CacheConfig</a>&nbsp;cacheConf)</span>
                                 throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
@@ -1188,7 +1177,7 @@ implements org.apache.hadoop.conf.Configurable</span></div>
 <li>
 <section class="detail" id="postStoreFileReaderOpen(org.apache.hadoop.hbase.io.hfile.ReaderContext,org.apache.hadoop.hbase.io.hfile.CacheConfig,org.apache.hadoop.hbase.regionserver.StoreFileReader)">
 <h3>postStoreFileReaderOpen</h3>
-<div class="member-signature"><span class="return-type"><a href="StoreFileReader.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileReader</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-759">postStoreFileReaderOpen</a></span><wbr><span class="parameters">(<a href="../io/hfile/ReaderContext.html" title="class in org.apache.hadoop.hbase.io.hfile">ReaderContext</a>&nbsp;context,
+<div class="member-signature"><span class="return-type"><a href="StoreFileReader.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileReader</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-762">postStoreFileReaderOpen</a></span><wbr><span class="parameters">(<a href="../io/hfile/ReaderContext.html" title="class in org.apache.hadoop.hbase.io.hfile">ReaderContext</a>&nbsp;context,
  <a href="../io/hfile/CacheConfig.html" title="class in org.apache.hadoop.hbase.io.hfile">CacheConfig</a>&nbsp;cacheConf,
  <a href="StoreFileReader.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileReader</a>&nbsp;reader)</span>
                                  throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
@@ -1201,7 +1190,7 @@ implements org.apache.hadoop.conf.Configurable</span></div>
 <li>
 <section class="detail" id="initHFileInfo(org.apache.hadoop.hbase.io.hfile.ReaderContext)">
 <h3>initHFileInfo</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-769">initHFileInfo</a></span><wbr><span class="parameters">(<a href="../io/hfile/ReaderContext.html" title="class in org.apache.hadoop.hbase.io.hfile">ReaderContext</a>&nbsp;context)</span>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-772">initHFileInfo</a></span><wbr><span class="parameters">(<a href="../io/hfile/ReaderContext.html" title="class in org.apache.hadoop.hbase.io.hfile">ReaderContext</a>&nbsp;context)</span>
                    throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -1212,19 +1201,33 @@ implements org.apache.hadoop.conf.Configurable</span></div>
 <li>
 <section class="detail" id="getRefCount()">
 <h3>getRefCount</h3>
-<div class="member-signature"><span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-773">getRefCount</a></span>()</div>
+<div class="member-signature"><span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-776">getRefCount</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="increaseRefCount()">
 <h3>increaseRefCount</h3>
-<div class="member-signature"><span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-777">increaseRefCount</a></span>()</div>
+<div class="member-signature"><span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-780">increaseRefCount</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="decreaseRefCount()">
 <h3>decreaseRefCount</h3>
-<div class="member-signature"><span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-781">decreaseRefCount</a></span>()</div>
+<div class="member-signature"><span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-784">decreaseRefCount</a></span>()</div>
+</section>
+</li>
+<li>
+<section class="detail" id="createStoreFileInfoForHFile(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,boolean)">
+<h3>createStoreFileInfoForHFile</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/StoreFileInfo.html#line-788">createStoreFileInfoForHFile</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
+ org.apache.hadoop.fs.FileSystem&nbsp;fs,
+ org.apache.hadoop.fs.Path&nbsp;initialPath,
+ boolean&nbsp;primaryReplica)</span>
+                                                 throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
+<dl class="notes">
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
+</dl>
 </section>
 </li>
 </ul>

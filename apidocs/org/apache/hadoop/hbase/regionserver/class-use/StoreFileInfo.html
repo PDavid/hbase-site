@@ -61,10 +61,12 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.regionserver.storefiletracker">org.apache.hadoop.hbase.regionserver.storefiletracker</a></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.util">org.apache.hadoop.hbase.util</a></div>
+<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.snapshot">org.apache.hadoop.hbase.snapshot</a></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.util.compaction">org.apache.hadoop.hbase.util.compaction</a></div>
+<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.util">org.apache.hadoop.hbase.util</a></div>
 <div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.util.compaction">org.apache.hadoop.hbase.util.compaction</a></div>
+<div class="col-last odd-row-color">&nbsp;</div>
 </div>
 <section class="class-uses">
 <ul class="block-list">
@@ -97,26 +99,21 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code>org.apache.hadoop.hbase.regionserver.StoreFileInfo</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">HStoreFile.</span><code>getFileInfo()</code></div>
+<div class="col-first even-row-color"><code>static org.apache.hadoop.hbase.regionserver.StoreFileInfo</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">StoreFileInfo.</span><code>createStoreFileInfoForHFile<wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+ org.apache.hadoop.fs.FileSystem&nbsp;fs,
+ org.apache.hadoop.fs.Path&nbsp;initialPath,
+ boolean&nbsp;primaryReplica)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>org.apache.hadoop.hbase.regionserver.StoreFileInfo</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">HStoreFile.</span><code>getFileInfo()</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
 </div>
 <div class="caption"><span>Methods in <a href="../package-summary.html">org.apache.hadoop.hbase.regionserver</a> that return types with arguments of type org.apache.hadoop.hbase.regionserver.StoreFileInfo in  in </span></div>
 <div class="summary-table three-column-summary">
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;org.apache.hadoop.hbase.regionserver.StoreFileInfo&gt;</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">HRegionFileSystem.</span><code>getStoreFiles<wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;familyName)</code></div>
-<div class="col-last even-row-color">
-<div class="block">Returns the store files available for the family.</div>
-</div>
-<div class="col-first odd-row-color"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;org.apache.hadoop.hbase.regionserver.StoreFileInfo&gt;</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">HRegionFileSystem.</span><code>getStoreFiles<wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;familyName,
- boolean&nbsp;validate)</code></div>
-<div class="col-last odd-row-color">
-<div class="block">Returns the store files available for the family.</div>
-</div>
 <div class="col-first even-row-color"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;org.apache.hadoop.hbase.regionserver.StoreFileInfo&gt;</code></div>
 <div class="col-second even-row-color"><span class="type-name-label">StoreUtils.</span><code>toStoreFileInfo<wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;org.apache.hadoop.hbase.regionserver.HStoreFile&gt;&nbsp;storefiles)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
@@ -173,6 +170,21 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="org.apache.hadoop.hbase.regionserver.storefiletracker">
 <h2>Uses of org.apache.hadoop.hbase.regionserver.StoreFileInfo in <a href="../storefiletracker/package-summary.html">org.apache.hadoop.hbase.regionserver.storefiletracker</a></h2>
+<div class="caption"><span>Methods in <a href="../storefiletracker/package-summary.html">org.apache.hadoop.hbase.regionserver.storefiletracker</a> that return org.apache.hadoop.hbase.regionserver.StoreFileInfo in  in </span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>org.apache.hadoop.hbase.regionserver.StoreFileInfo</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">StoreFileTracker.</span><code>getStoreFileInfo<wbr>(org.apache.hadoop.fs.FileStatus&nbsp;fileStatus,
+ org.apache.hadoop.fs.Path&nbsp;initialPath,
+ boolean&nbsp;primaryReplica)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>org.apache.hadoop.hbase.regionserver.StoreFileInfo</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">StoreFileTracker.</span><code>getStoreFileInfo<wbr>(org.apache.hadoop.fs.Path&nbsp;initialPath,
+ boolean&nbsp;primaryReplica)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+</div>
 <div class="caption"><span>Methods in <a href="../storefiletracker/package-summary.html">org.apache.hadoop.hbase.regionserver.storefiletracker</a> that return types with arguments of type org.apache.hadoop.hbase.regionserver.StoreFileInfo in  in </span></div>
 <div class="summary-table three-column-summary">
 <div class="table-header col-first">Modifier and Type</div>
@@ -209,6 +221,23 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
+<section class="detail" id="org.apache.hadoop.hbase.snapshot">
+<h2>Uses of org.apache.hadoop.hbase.regionserver.StoreFileInfo in <a href="../../snapshot/package-summary.html">org.apache.hadoop.hbase.snapshot</a></h2>
+<div class="caption"><span>Methods in <a href="../../snapshot/package-summary.html">org.apache.hadoop.hbase.snapshot</a> that return types with arguments of type org.apache.hadoop.hbase.regionserver.StoreFileInfo in  in </span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;org.apache.hadoop.hbase.regionserver.StoreFileInfo&gt;</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">SnapshotManifestV1.</span><code>getStoreFiles<wbr>(org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker&nbsp;sft,
+ org.apache.hadoop.hbase.regionserver.HRegionFileSystem&nbsp;regionFS,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;familyName,
+ boolean&nbsp;validate)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<li>
 <section class="detail" id="org.apache.hadoop.hbase.util">
 <h2>Uses of org.apache.hadoop.hbase.regionserver.StoreFileInfo in <a href="../../util/package-summary.html">org.apache.hadoop.hbase.util</a></h2>
 <div class="caption"><span>Methods in <a href="../../util/package-summary.html">org.apache.hadoop.hbase.util</a> that return org.apache.hadoop.hbase.regionserver.StoreFileInfo in  in </span></div>
@@ -222,7 +251,8 @@ loadScripts(document, 'script');</script>
  org.apache.hadoop.hbase.client.RegionInfo&nbsp;regionInfo,
  org.apache.hadoop.hbase.client.RegionInfo&nbsp;regionInfoForFs,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;familyName,
- org.apache.hadoop.fs.Path&nbsp;path)</code></div>
+ org.apache.hadoop.fs.Path&nbsp;path,
+ org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker&nbsp;tracker)</code></div>
 <div class="col-last even-row-color">
 <div class="block">Returns a StoreFileInfo from the given FileStatus.</div>
 </div>

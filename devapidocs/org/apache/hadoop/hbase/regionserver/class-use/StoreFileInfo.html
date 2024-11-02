@@ -117,13 +117,20 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code><a href="../StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">HStoreFile.</span><code><a href="../HStoreFile.html#getFileInfo()" class="member-name-link">getFileInfo</a>()</code></div>
+<div class="col-first even-row-color"><code>static <a href="../StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">StoreFileInfo.</span><code><a href="../StoreFileInfo.html#createStoreFileInfoForHFile(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,boolean)" class="member-name-link">createStoreFileInfoForHFile</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+ org.apache.hadoop.fs.FileSystem&nbsp;fs,
+ org.apache.hadoop.fs.Path&nbsp;initialPath,
+ boolean&nbsp;primaryReplica)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>(package private) <a href="../StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">HRegionFileSystem.</span><code><a href="../HRegionFileSystem.html#getStoreFileInfo(java.lang.String,java.lang.String)" class="member-name-link">getStoreFileInfo</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;familyName,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;fileName)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-first odd-row-color"><code><a href="../StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a></code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">HStoreFile.</span><code><a href="../HStoreFile.html#getFileInfo()" class="member-name-link">getFileInfo</a>()</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>(package private) <a href="../StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">HRegionFileSystem.</span><code><a href="../HRegionFileSystem.html#getStoreFileInfo(java.lang.String,java.lang.String,org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker)" class="member-name-link">getStoreFileInfo</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;familyName,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;fileName,
+ <a href="../storefiletracker/StoreFileTracker.html" title="interface in org.apache.hadoop.hbase.regionserver.storefiletracker">StoreFileTracker</a>&nbsp;tracker)</code></div>
+<div class="col-last even-row-color">
 <div class="block">Return the store file information of the specified family/file.</div>
 </div>
 </div>
@@ -132,17 +139,6 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a>&gt;</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">HRegionFileSystem.</span><code><a href="../HRegionFileSystem.html#getStoreFiles(java.lang.String)" class="member-name-link">getStoreFiles</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;familyName)</code></div>
-<div class="col-last even-row-color">
-<div class="block">Returns the store files available for the family.</div>
-</div>
-<div class="col-first odd-row-color"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a>&gt;</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">HRegionFileSystem.</span><code><a href="../HRegionFileSystem.html#getStoreFiles(java.lang.String,boolean)" class="member-name-link">getStoreFiles</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;familyName,
- boolean&nbsp;validate)</code></div>
-<div class="col-last odd-row-color">
-<div class="block">Returns the store files available for the family.</div>
-</div>
 <div class="col-first even-row-color"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a>&gt;</code></div>
 <div class="col-second even-row-color"><span class="type-name-label">StoreUtils.</span><code><a href="../StoreUtils.html#toStoreFileInfo(java.util.Collection)" class="member-name-link">toStoreFileInfo</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="../HStoreFile.html" title="class in org.apache.hadoop.hbase.regionserver">HStoreFile</a>&gt;&nbsp;storefiles)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
@@ -230,6 +226,30 @@ loadScripts(document, 'script');</script>
 <div class="col-second even-row-color"><span class="type-name-label">FileBasedStoreFileTracker.</span><code><a href="../storefiletracker/FileBasedStoreFileTracker.html#storefiles" class="member-name-link">storefiles</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
+<div class="caption"><span>Methods in <a href="../storefiletracker/package-summary.html">org.apache.hadoop.hbase.regionserver.storefiletracker</a> that return <a href="../StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code><a href="../StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">StoreFileTracker.</span><code><a href="../storefiletracker/StoreFileTracker.html#getStoreFileInfo(org.apache.hadoop.fs.FileStatus,org.apache.hadoop.fs.Path,boolean)" class="member-name-link">getStoreFileInfo</a><wbr>(org.apache.hadoop.fs.FileStatus&nbsp;fileStatus,
+ org.apache.hadoop.fs.Path&nbsp;initialPath,
+ boolean&nbsp;primaryReplica)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code><a href="../StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a></code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">StoreFileTracker.</span><code><a href="../storefiletracker/StoreFileTracker.html#getStoreFileInfo(org.apache.hadoop.fs.Path,boolean)" class="member-name-link">getStoreFileInfo</a><wbr>(org.apache.hadoop.fs.Path&nbsp;initialPath,
+ boolean&nbsp;primaryReplica)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code><a href="../StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">StoreFileTrackerBase.</span><code><a href="../storefiletracker/StoreFileTrackerBase.html#getStoreFileInfo(org.apache.hadoop.fs.FileStatus,org.apache.hadoop.fs.Path,boolean)" class="member-name-link">getStoreFileInfo</a><wbr>(org.apache.hadoop.fs.FileStatus&nbsp;fileStatus,
+ org.apache.hadoop.fs.Path&nbsp;initialPath,
+ boolean&nbsp;primaryReplica)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code><a href="../StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a></code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">StoreFileTrackerBase.</span><code><a href="../storefiletracker/StoreFileTrackerBase.html#getStoreFileInfo(org.apache.hadoop.fs.Path,boolean)" class="member-name-link">getStoreFileInfo</a><wbr>(org.apache.hadoop.fs.Path&nbsp;initialPath,
+ boolean&nbsp;primaryReplica)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+</div>
 <div class="caption"><span>Methods in <a href="../storefiletracker/package-summary.html">org.apache.hadoop.hbase.regionserver.storefiletracker</a> that return types with arguments of type <a href="../StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a></span></div>
 <div class="summary-table three-column-summary">
 <div class="table-header col-first">Modifier and Type</div>
@@ -251,13 +271,18 @@ loadScripts(document, 'script');</script>
  choose to do some cleanup work.</div>
 </div>
 <div class="col-first even-row-color"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a>&gt;</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">StoreFileTracker.</span><code><a href="../storefiletracker/StoreFileTracker.html#load()" class="member-name-link">load</a>()</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">DefaultStoreFileTracker.</span><code><a href="../storefiletracker/DefaultStoreFileTracker.html#getStoreFiles(java.lang.String)" class="member-name-link">getStoreFiles</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;familyName)</code></div>
 <div class="col-last even-row-color">
+<div class="block">Returns the store files available for the family.</div>
+</div>
+<div class="col-first odd-row-color"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a>&gt;</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">StoreFileTracker.</span><code><a href="../storefiletracker/StoreFileTracker.html#load()" class="member-name-link">load</a>()</code></div>
+<div class="col-last odd-row-color">
 <div class="block">Load the store files list when opening a region.</div>
 </div>
-<div class="col-first odd-row-color"><code>final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a>&gt;</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">StoreFileTrackerBase.</span><code><a href="../storefiletracker/StoreFileTrackerBase.html#load()" class="member-name-link">load</a>()</code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a>&gt;</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">StoreFileTrackerBase.</span><code><a href="../storefiletracker/StoreFileTrackerBase.html#load()" class="member-name-link">load</a>()</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
 </div>
 <div class="caption"><span>Methods in <a href="../storefiletracker/package-summary.html">org.apache.hadoop.hbase.regionserver.storefiletracker</a> with parameters of type <a href="../StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a></span></div>
 <div class="summary-table three-column-summary">
@@ -351,8 +376,17 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>private <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a>&gt;</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">SnapshotManifest.</span><code><a href="../../snapshot/SnapshotManifest.html#getStoreFiles(org.apache.hadoop.fs.Path)" class="member-name-link">getStoreFiles</a><wbr>(org.apache.hadoop.fs.Path&nbsp;storeDir)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">SnapshotManifest.</span><code><a href="../../snapshot/SnapshotManifest.html#getStoreFiles(org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.hbase.client.ColumnFamilyDescriptor,org.apache.hadoop.hbase.client.RegionInfo)" class="member-name-link">getStoreFiles</a><wbr>(org.apache.hadoop.fs.Path&nbsp;storePath,
+ <a href="../../client/TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;htd,
+ <a href="../../client/ColumnFamilyDescriptor.html" title="interface in org.apache.hadoop.hbase.client">ColumnFamilyDescriptor</a>&nbsp;hcd,
+ <a href="../../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;regionInfo)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a>&gt;</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">SnapshotManifestV1.</span><code><a href="../../snapshot/SnapshotManifestV1.html#getStoreFiles(org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker,org.apache.hadoop.hbase.regionserver.HRegionFileSystem,java.lang.String,boolean)" class="member-name-link">getStoreFiles</a><wbr>(<a href="../storefiletracker/StoreFileTracker.html" title="interface in org.apache.hadoop.hbase.regionserver.storefiletracker">StoreFileTracker</a>&nbsp;sft,
+ <a href="../HRegionFileSystem.html" title="class in org.apache.hadoop.hbase.regionserver">HRegionFileSystem</a>&nbsp;regionFS,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;familyName,
+ boolean&nbsp;validate)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
 </div>
 <div class="caption"><span>Methods in <a href="../../snapshot/package-summary.html">org.apache.hadoop.hbase.snapshot</a> with parameters of type <a href="../StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a></span></div>
 <div class="summary-table three-column-summary">
@@ -399,12 +433,13 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>static <a href="../StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">ServerRegionReplicaUtil.</span><code><a href="../../util/ServerRegionReplicaUtil.html#getStoreFileInfo(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.hbase.client.RegionInfo,org.apache.hadoop.hbase.client.RegionInfo,java.lang.String,org.apache.hadoop.fs.Path)" class="member-name-link">getStoreFileInfo</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="col-second even-row-color"><span class="type-name-label">ServerRegionReplicaUtil.</span><code><a href="../../util/ServerRegionReplicaUtil.html#getStoreFileInfo(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.hbase.client.RegionInfo,org.apache.hadoop.hbase.client.RegionInfo,java.lang.String,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker)" class="member-name-link">getStoreFileInfo</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.fs.FileSystem&nbsp;fs,
  <a href="../../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;regionInfo,
  <a href="../../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;regionInfoForFs,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;familyName,
- org.apache.hadoop.fs.Path&nbsp;path)</code></div>
+ org.apache.hadoop.fs.Path&nbsp;path,
+ <a href="../storefiletracker/StoreFileTracker.html" title="interface in org.apache.hadoop.hbase.regionserver.storefiletracker">StoreFileTracker</a>&nbsp;tracker)</code></div>
 <div class="col-last even-row-color">
 <div class="block">Returns a StoreFileInfo from the given FileStatus.</div>
 </div>

@@ -84,7 +84,7 @@ loadScripts(document, 'script');</script>
 </dl>
 <hr>
 <div class="type-signature"><span class="annotations">@Private
-</span><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-40">MockHStoreFile</a></span>
+</span><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-42">MockHStoreFile</a></span>
 <span class="extends-implements">extends org.apache.hadoop.hbase.regionserver.HStoreFile</span></div>
 <div class="block">A mock used so our tests don't deal with actual StoreFiles</div>
 </section>
@@ -149,13 +149,22 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(org.apache.hadoop.hbase.HBaseTestingUtil,org.apache.hadoop.fs.Path,long,long,boolean,long)" class="member-name-link">MockHStoreFile</a><wbr>(<a href="../HBaseTestingUtil.html" title="class in org.apache.hadoop.hbase">HBaseTestingUtil</a>&nbsp;testUtil,
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(org.apache.hadoop.hbase.HBaseTestingUtil,org.apache.hadoop.fs.Path,long,long,boolean,long,org.apache.hadoop.hbase.regionserver.StoreFileInfo)" class="member-name-link">MockHStoreFile</a><wbr>(<a href="../HBaseTestingUtil.html" title="class in org.apache.hadoop.hbase">HBaseTestingUtil</a>&nbsp;testUtil,
  org.apache.hadoop.fs.Path&nbsp;testPath,
  long&nbsp;length,
  long&nbsp;ageInDisk,
  boolean&nbsp;isRef,
- long&nbsp;sequenceid)</code></div>
+ long&nbsp;sequenceid,
+ org.apache.hadoop.hbase.regionserver.StoreFileInfo&nbsp;storeFileInfo)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
+<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(org.apache.hadoop.hbase.HBaseTestingUtil,org.apache.hadoop.fs.Path,long,long,boolean,long,org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker)" class="member-name-link">MockHStoreFile</a><wbr>(<a href="../HBaseTestingUtil.html" title="class in org.apache.hadoop.hbase">HBaseTestingUtil</a>&nbsp;testUtil,
+ org.apache.hadoop.fs.Path&nbsp;testPath,
+ long&nbsp;length,
+ long&nbsp;ageInDisk,
+ boolean&nbsp;isRef,
+ long&nbsp;sequenceid,
+ org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker&nbsp;tracker)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
 </div>
 </section>
 </li>
@@ -239,9 +248,17 @@ loadScripts(document, 'script');</script>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setMetadataValue(byte%5B%5D,byte%5B%5D)" class="member-name-link">setMetadataValue</a><wbr>(byte[]&nbsp;key,
  byte[]&nbsp;value)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setTimeRangeTracker(org.apache.hadoop.hbase.regionserver.TimeRangeTracker)" class="member-name-link">setTimeRangeTracker</a><wbr>(org.apache.hadoop.hbase.regionserver.TimeRangeTracker&nbsp;timeRangeTracker)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setMockHStoreFileVals(long,boolean,long,long,boolean,org.apache.hadoop.hbase.HBaseTestingUtil)" class="member-name-link">setMockHStoreFileVals</a><wbr>(long&nbsp;length,
+ boolean&nbsp;isRef,
+ long&nbsp;ageInDisk,
+ long&nbsp;sequenceid,
+ boolean&nbsp;isMajor,
+ <a href="../HBaseTestingUtil.html" title="class in org.apache.hadoop.hbase">HBaseTestingUtil</a>&nbsp;testUtil)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setTimeRangeTracker(org.apache.hadoop.hbase.regionserver.TimeRangeTracker)" class="member-name-link">setTimeRangeTracker</a><wbr>(org.apache.hadoop.hbase.regionserver.TimeRangeTracker&nbsp;timeRangeTracker)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
 </div>
@@ -265,73 +282,73 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="length">
 <h3>length</h3>
-<div class="member-signature"><span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-42">length</a></span></div>
+<div class="member-signature"><span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-44">length</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="isRef">
 <h3>isRef</h3>
-<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-43">isRef</a></span></div>
+<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-45">isRef</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="ageInDisk">
 <h3>ageInDisk</h3>
-<div class="member-signature"><span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-44">ageInDisk</a></span></div>
+<div class="member-signature"><span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-46">ageInDisk</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="sequenceid">
 <h3>sequenceid</h3>
-<div class="member-signature"><span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-45">sequenceid</a></span></div>
+<div class="member-signature"><span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-47">sequenceid</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="metadata">
 <h3>metadata</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;byte[],<wbr>byte[]&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-46">metadata</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;byte[],<wbr>byte[]&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-48">metadata</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="splitPoint">
 <h3>splitPoint</h3>
-<div class="member-signature"><span class="return-type">byte[]</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-47">splitPoint</a></span></div>
+<div class="member-signature"><span class="return-type">byte[]</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-49">splitPoint</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="timeRangeTracker">
 <h3>timeRangeTracker</h3>
-<div class="member-signature"><span class="return-type">org.apache.hadoop.hbase.regionserver.TimeRangeTracker</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-48">timeRangeTracker</a></span></div>
+<div class="member-signature"><span class="return-type">org.apache.hadoop.hbase.regionserver.TimeRangeTracker</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-50">timeRangeTracker</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="entryCount">
 <h3>entryCount</h3>
-<div class="member-signature"><span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-49">entryCount</a></span></div>
+<div class="member-signature"><span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-51">entryCount</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="isMajor">
 <h3>isMajor</h3>
-<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-50">isMajor</a></span></div>
+<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-52">isMajor</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="hdfsBlocksDistribution">
 <h3>hdfsBlocksDistribution</h3>
-<div class="member-signature"><span class="return-type">org.apache.hadoop.hbase.HDFSBlocksDistribution</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-51">hdfsBlocksDistribution</a></span></div>
+<div class="member-signature"><span class="return-type">org.apache.hadoop.hbase.HDFSBlocksDistribution</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-53">hdfsBlocksDistribution</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="modificationTime">
 <h3>modificationTime</h3>
-<div class="member-signature"><span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-52">modificationTime</a></span></div>
+<div class="member-signature"><span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-54">modificationTime</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="compactedAway">
 <h3>compactedAway</h3>
-<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-53">compactedAway</a></span></div>
+<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-55">compactedAway</a></span></div>
 </section>
 </li>
 </ul>
@@ -343,14 +360,32 @@ loadScripts(document, 'script');</script>
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(org.apache.hadoop.hbase.HBaseTestingUtil,org.apache.hadoop.fs.Path,long,long,boolean,long)">
+<section class="detail" id="&lt;init&gt;(org.apache.hadoop.hbase.HBaseTestingUtil,org.apache.hadoop.fs.Path,long,long,boolean,long,org.apache.hadoop.hbase.regionserver.StoreFileInfo)">
 <h3>MockHStoreFile</h3>
-<div class="member-signature"><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-55">MockHStoreFile</a></span><wbr><span class="parameters">(<a href="../HBaseTestingUtil.html" title="class in org.apache.hadoop.hbase">HBaseTestingUtil</a>&nbsp;testUtil,
+<div class="member-signature"><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-57">MockHStoreFile</a></span><wbr><span class="parameters">(<a href="../HBaseTestingUtil.html" title="class in org.apache.hadoop.hbase">HBaseTestingUtil</a>&nbsp;testUtil,
  org.apache.hadoop.fs.Path&nbsp;testPath,
  long&nbsp;length,
  long&nbsp;ageInDisk,
  boolean&nbsp;isRef,
- long&nbsp;sequenceid)</span>
+ long&nbsp;sequenceid,
+ org.apache.hadoop.hbase.regionserver.StoreFileInfo&nbsp;storeFileInfo)</span>
+        throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
+<dl class="notes">
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="&lt;init&gt;(org.apache.hadoop.hbase.HBaseTestingUtil,org.apache.hadoop.fs.Path,long,long,boolean,long,org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker)">
+<h3>MockHStoreFile</h3>
+<div class="member-signature"><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-77">MockHStoreFile</a></span><wbr><span class="parameters">(<a href="../HBaseTestingUtil.html" title="class in org.apache.hadoop.hbase">HBaseTestingUtil</a>&nbsp;testUtil,
+ org.apache.hadoop.fs.Path&nbsp;testPath,
+ long&nbsp;length,
+ long&nbsp;ageInDisk,
+ boolean&nbsp;isRef,
+ long&nbsp;sequenceid,
+ org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker&nbsp;tracker)</span>
         throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -367,15 +402,31 @@ loadScripts(document, 'script');</script>
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
+<section class="detail" id="setMockHStoreFileVals(long,boolean,long,long,boolean,org.apache.hadoop.hbase.HBaseTestingUtil)">
+<h3>setMockHStoreFileVals</h3>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-63">setMockHStoreFileVals</a></span><wbr><span class="parameters">(long&nbsp;length,
+ boolean&nbsp;isRef,
+ long&nbsp;ageInDisk,
+ long&nbsp;sequenceid,
+ boolean&nbsp;isMajor,
+ <a href="../HBaseTestingUtil.html" title="class in org.apache.hadoop.hbase">HBaseTestingUtil</a>&nbsp;testUtil)</span>
+                            throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/UnknownHostException.html" title="class or interface in java.net" class="external-link">UnknownHostException</a></span></div>
+<dl class="notes">
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/UnknownHostException.html" title="class or interface in java.net" class="external-link">UnknownHostException</a></code></dd>
+</dl>
+</section>
+</li>
+<li>
 <section class="detail" id="setLength(long)">
 <h3>setLength</h3>
-<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-71">setLength</a></span><wbr><span class="parameters">(long&nbsp;newLen)</span></div>
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-84">setLength</a></span><wbr><span class="parameters">(long&nbsp;newLen)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getMaxSequenceId()">
 <h3>getMaxSequenceId</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-75">getMaxSequenceId</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-88">getMaxSequenceId</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getMaxSequenceId</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.StoreFile</code></dd>
@@ -387,7 +438,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="isMajorCompactionResult()">
 <h3>isMajorCompactionResult</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-80">isMajorCompactionResult</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-93">isMajorCompactionResult</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>isMajorCompactionResult</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.StoreFile</code></dd>
@@ -399,13 +450,13 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="setIsMajor(boolean)">
 <h3>setIsMajor</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-85">setIsMajor</a></span><wbr><span class="parameters">(boolean&nbsp;isMajor)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-98">setIsMajor</a></span><wbr><span class="parameters">(boolean&nbsp;isMajor)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="isReference()">
 <h3>isReference</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-89">isReference</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-102">isReference</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>isReference</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.StoreFile</code></dd>
@@ -417,7 +468,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="isBulkLoadResult()">
 <h3>isBulkLoadResult</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-94">isBulkLoadResult</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-107">isBulkLoadResult</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>isBulkLoadResult</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.StoreFile</code></dd>
@@ -429,7 +480,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getMetadataValue(byte[])">
 <h3>getMetadataValue</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">byte[]</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-99">getMetadataValue</a></span><wbr><span class="parameters">(byte[]&nbsp;key)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">byte[]</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-112">getMetadataValue</a></span><wbr><span class="parameters">(byte[]&nbsp;key)</span></div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code>getMetadataValue</code>&nbsp;in class&nbsp;<code>org.apache.hadoop.hbase.regionserver.HStoreFile</code></dd>
@@ -439,26 +490,26 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="setMetadataValue(byte[],byte[])">
 <h3>setMetadataValue</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-104">setMetadataValue</a></span><wbr><span class="parameters">(byte[]&nbsp;key,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-117">setMetadataValue</a></span><wbr><span class="parameters">(byte[]&nbsp;key,
  byte[]&nbsp;value)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="setTimeRangeTracker(org.apache.hadoop.hbase.regionserver.TimeRangeTracker)">
 <h3>setTimeRangeTracker</h3>
-<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-108">setTimeRangeTracker</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.regionserver.TimeRangeTracker&nbsp;timeRangeTracker)</span></div>
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-121">setTimeRangeTracker</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.regionserver.TimeRangeTracker&nbsp;timeRangeTracker)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="setEntries(long)">
 <h3>setEntries</h3>
-<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-112">setEntries</a></span><wbr><span class="parameters">(long&nbsp;entryCount)</span></div>
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-125">setEntries</a></span><wbr><span class="parameters">(long&nbsp;entryCount)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getMinimumTimestamp()">
 <h3>getMinimumTimestamp</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/OptionalLong.html" title="class or interface in java.util" class="external-link">OptionalLong</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-116">getMinimumTimestamp</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/OptionalLong.html" title="class or interface in java.util" class="external-link">OptionalLong</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-129">getMinimumTimestamp</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getMinimumTimestamp</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.StoreFile</code></dd>
@@ -470,7 +521,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getMaximumTimestamp()">
 <h3>getMaximumTimestamp</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/OptionalLong.html" title="class or interface in java.util" class="external-link">OptionalLong</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-123">getMaximumTimestamp</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/OptionalLong.html" title="class or interface in java.util" class="external-link">OptionalLong</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-136">getMaximumTimestamp</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getMaximumTimestamp</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.StoreFile</code></dd>
@@ -482,7 +533,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="markCompactedAway()">
 <h3>markCompactedAway</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-130">markCompactedAway</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-143">markCompactedAway</a></span>()</div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code>markCompactedAway</code>&nbsp;in class&nbsp;<code>org.apache.hadoop.hbase.regionserver.HStoreFile</code></dd>
@@ -492,7 +543,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="isCompactedAway()">
 <h3>isCompactedAway</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-135">isCompactedAway</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-148">isCompactedAway</a></span>()</div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code>isCompactedAway</code>&nbsp;in class&nbsp;<code>org.apache.hadoop.hbase.regionserver.HStoreFile</code></dd>
@@ -502,7 +553,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getModificationTimestamp()">
 <h3>getModificationTimestamp</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-140">getModificationTimestamp</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-153">getModificationTimestamp</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getModificationTimestamp</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.StoreFile</code></dd>
@@ -514,7 +565,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getHDFSBlockDistribution()">
 <h3>getHDFSBlockDistribution</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.HDFSBlocksDistribution</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-145">getHDFSBlockDistribution</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.HDFSBlocksDistribution</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-158">getHDFSBlockDistribution</a></span>()</div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code>getHDFSBlockDistribution</code>&nbsp;in class&nbsp;<code>org.apache.hadoop.hbase.regionserver.HStoreFile</code></dd>
@@ -524,7 +575,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="initReader()">
 <h3>initReader</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-150">initReader</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-163">initReader</a></span>()
                 throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Overrides:</dt>
@@ -537,7 +588,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getPreadScanner(boolean,long,long,boolean)">
 <h3>getPreadScanner</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.regionserver.StoreFileScanner</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-154">getPreadScanner</a></span><wbr><span class="parameters">(boolean&nbsp;cacheBlocks,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.regionserver.StoreFileScanner</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-167">getPreadScanner</a></span><wbr><span class="parameters">(boolean&nbsp;cacheBlocks,
  long&nbsp;readPt,
  long&nbsp;scannerOrder,
  boolean&nbsp;canOptimizeForNonNullColumn)</span></div>
@@ -550,7 +601,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getStreamScanner(boolean,boolean,boolean,long,long,boolean)">
 <h3>getStreamScanner</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.regionserver.StoreFileScanner</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-161">getStreamScanner</a></span><wbr><span class="parameters">(boolean&nbsp;canUseDropBehind,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.regionserver.StoreFileScanner</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-174">getStreamScanner</a></span><wbr><span class="parameters">(boolean&nbsp;canUseDropBehind,
  boolean&nbsp;cacheBlocks,
  boolean&nbsp;isCompaction,
  long&nbsp;readPt,
@@ -568,7 +619,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getReader()">
 <h3>getReader</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.regionserver.StoreFileReader</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-169">getReader</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.regionserver.StoreFileReader</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-182">getReader</a></span>()</div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code>getReader</code>&nbsp;in class&nbsp;<code>org.apache.hadoop.hbase.regionserver.HStoreFile</code></dd>
@@ -578,7 +629,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getBulkLoadTimestamp()">
 <h3>getBulkLoadTimestamp</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/OptionalLong.html" title="class or interface in java.util" class="external-link">OptionalLong</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-228">getBulkLoadTimestamp</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/OptionalLong.html" title="class or interface in java.util" class="external-link">OptionalLong</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MockHStoreFile.html#line-241">getBulkLoadTimestamp</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getBulkLoadTimestamp</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.StoreFile</code></dd>

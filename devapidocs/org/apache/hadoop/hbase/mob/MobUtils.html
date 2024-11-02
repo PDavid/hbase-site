@@ -78,7 +78,7 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <hr>
 <div class="type-signature"><span class="annotations">@Private
-</span><span class="modifiers">public final class </span><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-80">MobUtils</a></span>
+</span><span class="modifiers">public final class </span><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-83">MobUtils</a></span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
 <div class="block">The mob utilities</div>
 </section>
@@ -134,9 +134,9 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#cleanExpiredMobFiles(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.TableName,org.apache.hadoop.hbase.client.ColumnFamilyDescriptor,org.apache.hadoop.hbase.io.hfile.CacheConfig,long)" class="member-name-link">cleanExpiredMobFiles</a><wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fs,
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#cleanExpiredMobFiles(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.hbase.client.ColumnFamilyDescriptor,org.apache.hadoop.hbase.io.hfile.CacheConfig,long)" class="member-name-link">cleanExpiredMobFiles</a><wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.conf.Configuration&nbsp;conf,
- <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName,
+ <a href="../client/TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;htd,
  <a href="../client/ColumnFamilyDescriptor.html" title="interface in org.apache.hadoop.hbase.client">ColumnFamilyDescriptor</a>&nbsp;columnDescriptor,
  <a href="../io/hfile/CacheConfig.html" title="class in org.apache.hadoop.hbase.io.hfile">CacheConfig</a>&nbsp;cacheConfig,
  long&nbsp;current)</code></div>
@@ -281,118 +281,122 @@ loadScripts(document, 'script');</script>
 <div class="block">Gets the region dir of the mob files under the specified root dir.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static org.apache.hadoop.fs.Path</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getMobTableDir(org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.TableName)" class="member-name-link">getMobTableDir</a><wbr>(org.apache.hadoop.fs.Path&nbsp;rootDir,
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getMobTableDir(org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.TableName)" class="member-name-link">getMobTableDir</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
  <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static org.apache.hadoop.fs.Path</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getMobTableDir(org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.TableName)" class="member-name-link">getMobTableDir</a><wbr>(org.apache.hadoop.fs.Path&nbsp;rootDir,
+ <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Gets the table dir of the mob files under the qualified HBase root dir.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static int</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getMobValueLength(org.apache.hadoop.hbase.Cell)" class="member-name-link">getMobValueLength</a><wbr>(<a href="../Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getMobValueLength(org.apache.hadoop.hbase.Cell)" class="member-name-link">getMobValueLength</a><wbr>(<a href="../Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Gets the mob value length from the mob ref cell.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static org.apache.hadoop.fs.Path</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getQualifiedMobRootDir(org.apache.hadoop.conf.Configuration)" class="member-name-link">getQualifiedMobRootDir</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static org.apache.hadoop.fs.Path</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getQualifiedMobRootDir(org.apache.hadoop.conf.Configuration)" class="member-name-link">getQualifiedMobRootDir</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Gets the qualified root dir of the mob files.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getTableName(org.apache.hadoop.hbase.ExtendedCell)" class="member-name-link">getTableName</a><wbr>(<a href="../ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getTableName(org.apache.hadoop.hbase.ExtendedCell)" class="member-name-link">getTableName</a><wbr>(<a href="../ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Get the table name from when this cell was written into a mob hfile as a TableName.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getTableNameString(org.apache.hadoop.hbase.ExtendedCell)" class="member-name-link">getTableNameString</a><wbr>(<a href="../ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getTableNameString(org.apache.hadoop.hbase.ExtendedCell)" class="member-name-link">getTableNameString</a><wbr>(<a href="../ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Gets the table name from when this cell was written into a mob hfile as a string.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="../Tag.html" title="interface in org.apache.hadoop.hbase">Tag</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getTableNameTag(org.apache.hadoop.hbase.ExtendedCell)" class="member-name-link">getTableNameTag</a><wbr>(<a href="../ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="../Tag.html" title="interface in org.apache.hadoop.hbase">Tag</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getTableNameTag(org.apache.hadoop.hbase.ExtendedCell)" class="member-name-link">getTableNameTag</a><wbr>(<a href="../ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Gets the table name tag.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#hasMobColumns(org.apache.hadoop.hbase.client.TableDescriptor)" class="member-name-link">hasMobColumns</a><wbr>(<a href="../client/TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;htd)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#hasMobColumns(org.apache.hadoop.hbase.client.TableDescriptor)" class="member-name-link">hasMobColumns</a><wbr>(<a href="../client/TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;htd)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Checks whether this table has mob-enabled columns.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#hasMobReferenceTag(java.util.List)" class="member-name-link">hasMobReferenceTag</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../Tag.html" title="interface in org.apache.hadoop.hbase">Tag</a>&gt;&nbsp;tags)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#hasMobReferenceTag(java.util.List)" class="member-name-link">hasMobReferenceTag</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../Tag.html" title="interface in org.apache.hadoop.hbase">Tag</a>&gt;&nbsp;tags)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Whether the tag list has a mob reference tag.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#hasValidMobRefCellValue(org.apache.hadoop.hbase.Cell)" class="member-name-link">hasValidMobRefCellValue</a><wbr>(<a href="../Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#hasValidMobRefCellValue(org.apache.hadoop.hbase.Cell)" class="member-name-link">hasValidMobRefCellValue</a><wbr>(<a href="../Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Indicates whether the current mob ref cell has a valid value.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isCacheMobBlocks(org.apache.hadoop.hbase.client.Scan)" class="member-name-link">isCacheMobBlocks</a><wbr>(<a href="../client/Scan.html" title="class in org.apache.hadoop.hbase.client">Scan</a>&nbsp;scan)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isCacheMobBlocks(org.apache.hadoop.hbase.client.Scan)" class="member-name-link">isCacheMobBlocks</a><wbr>(<a href="../client/Scan.html" title="class in org.apache.hadoop.hbase.client">Scan</a>&nbsp;scan)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Indicates whether the scan contains the information of caching blocks.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isMobFileExpired(org.apache.hadoop.hbase.client.ColumnFamilyDescriptor,long,java.lang.String)" class="member-name-link">isMobFileExpired</a><wbr>(<a href="../client/ColumnFamilyDescriptor.html" title="interface in org.apache.hadoop.hbase.client">ColumnFamilyDescriptor</a>&nbsp;column,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isMobFileExpired(org.apache.hadoop.hbase.client.ColumnFamilyDescriptor,long,java.lang.String)" class="member-name-link">isMobFileExpired</a><wbr>(<a href="../client/ColumnFamilyDescriptor.html" title="interface in org.apache.hadoop.hbase.client">ColumnFamilyDescriptor</a>&nbsp;column,
  long&nbsp;current,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;fileDate)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Checks if the mob file is expired.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isMobReferenceCell(org.apache.hadoop.hbase.ExtendedCell)" class="member-name-link">isMobReferenceCell</a><wbr>(<a href="../ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isMobReferenceCell(org.apache.hadoop.hbase.ExtendedCell)" class="member-name-link">isMobReferenceCell</a><wbr>(<a href="../ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Whether the current cell is a mob reference cell.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isMobRegionInfo(org.apache.hadoop.hbase.client.RegionInfo)" class="member-name-link">isMobRegionInfo</a><wbr>(<a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;regionInfo)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isMobRegionInfo(org.apache.hadoop.hbase.client.RegionInfo)" class="member-name-link">isMobRegionInfo</a><wbr>(<a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;regionInfo)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Gets whether the current RegionInfo is a mob one.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isMobRegionName(org.apache.hadoop.hbase.TableName,byte%5B%5D)" class="member-name-link">isMobRegionName</a><wbr>(<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isMobRegionName(org.apache.hadoop.hbase.TableName,byte%5B%5D)" class="member-name-link">isMobRegionName</a><wbr>(<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName,
  byte[]&nbsp;regionName)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Gets whether the current region name follows the pattern of a mob region name.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isRawMobScan(org.apache.hadoop.hbase.client.Scan)" class="member-name-link">isRawMobScan</a><wbr>(<a href="../client/Scan.html" title="class in org.apache.hadoop.hbase.client">Scan</a>&nbsp;scan)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isRawMobScan(org.apache.hadoop.hbase.client.Scan)" class="member-name-link">isRawMobScan</a><wbr>(<a href="../client/Scan.html" title="class in org.apache.hadoop.hbase.client">Scan</a>&nbsp;scan)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Indicates whether it's a raw scan.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isReadEmptyValueOnMobCellMiss(org.apache.hadoop.hbase.client.Scan)" class="member-name-link">isReadEmptyValueOnMobCellMiss</a><wbr>(<a href="../client/Scan.html" title="class in org.apache.hadoop.hbase.client">Scan</a>&nbsp;scan)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isReadEmptyValueOnMobCellMiss(org.apache.hadoop.hbase.client.Scan)" class="member-name-link">isReadEmptyValueOnMobCellMiss</a><wbr>(<a href="../client/Scan.html" title="class in org.apache.hadoop.hbase.client">Scan</a>&nbsp;scan)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Indicates whether return null value when the mob file is missing or corrupt.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isRefOnlyScan(org.apache.hadoop.hbase.client.Scan)" class="member-name-link">isRefOnlyScan</a><wbr>(<a href="../client/Scan.html" title="class in org.apache.hadoop.hbase.client">Scan</a>&nbsp;scan)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isRefOnlyScan(org.apache.hadoop.hbase.client.Scan)" class="member-name-link">isRefOnlyScan</a><wbr>(<a href="../client/Scan.html" title="class in org.apache.hadoop.hbase.client">Scan</a>&nbsp;scan)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Indicates whether it's a reference only scan.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Date.html" title="class or interface in java.util" class="external-link">Date</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#parseDate(java.lang.String)" class="member-name-link">parseDate</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;dateString)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Date.html" title="class or interface in java.util" class="external-link">Date</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#parseDate(java.lang.String)" class="member-name-link">parseDate</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;dateString)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Parses the string to a date.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#removeMobFiles(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.hbase.TableName,org.apache.hadoop.fs.Path,byte%5B%5D,java.util.Collection)" class="member-name-link">removeMobFiles</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#removeMobFiles(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.hbase.TableName,org.apache.hadoop.fs.Path,byte%5B%5D,java.util.Collection)" class="member-name-link">removeMobFiles</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.fs.FileSystem&nbsp;fs,
  <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName,
  org.apache.hadoop.fs.Path&nbsp;tableDir,
  byte[]&nbsp;family,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="../regionserver/HStoreFile.html" title="class in org.apache.hadoop.hbase.regionserver">HStoreFile</a>&gt;&nbsp;storeFiles)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Archives the mob files.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static byte[]</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#serializeMobFileRefs(org.apache.hbase.thirdparty.com.google.common.collect.SetMultimap)" class="member-name-link">serializeMobFileRefs</a><wbr>(org.apache.hbase.thirdparty.com.google.common.collect.SetMultimap&lt;<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;mobRefSet)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static byte[]</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#serializeMobFileRefs(org.apache.hbase.thirdparty.com.google.common.collect.SetMultimap)" class="member-name-link">serializeMobFileRefs</a><wbr>(org.apache.hbase.thirdparty.com.google.common.collect.SetMultimap&lt;<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;mobRefSet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Serialize a set of referenced mob hfiles</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#setCacheMobBlocks(org.apache.hadoop.hbase.client.Scan,boolean)" class="member-name-link">setCacheMobBlocks</a><wbr>(<a href="../client/Scan.html" title="class in org.apache.hadoop.hbase.client">Scan</a>&nbsp;scan,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#setCacheMobBlocks(org.apache.hadoop.hbase.client.Scan,boolean)" class="member-name-link">setCacheMobBlocks</a><wbr>(<a href="../client/Scan.html" title="class in org.apache.hadoop.hbase.client">Scan</a>&nbsp;scan,
  boolean&nbsp;cacheBlocks)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Sets the attribute of caching blocks in the scan.</div>
 </div>
 </div>
@@ -415,13 +419,13 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="LOG">
 <h3>LOG</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-83">LOG</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-86">LOG</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="SEP">
 <h3>SEP</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-84">SEP</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-87">SEP</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -435,7 +439,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="LOCAL_FORMAT">
 <h3>LOCAL_FORMAT</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/ThreadLocal.html" title="class or interface in java.lang" class="external-link">ThreadLocal</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/text/SimpleDateFormat.html" title="class or interface in java.text" class="external-link">SimpleDateFormat</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-86">LOCAL_FORMAT</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/ThreadLocal.html" title="class or interface in java.lang" class="external-link">ThreadLocal</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/text/SimpleDateFormat.html" title="class or interface in java.text" class="external-link">SimpleDateFormat</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-89">LOCAL_FORMAT</a></span></div>
 </section>
 </li>
 </ul>
@@ -449,7 +453,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;()">
 <h3>MobUtils</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-97">MobUtils</a></span>()</div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-100">MobUtils</a></span>()</div>
 <div class="block">Private constructor to keep this class from being instantiated.</div>
 </section>
 </li>
@@ -464,7 +468,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="formatDate(java.util.Date)">
 <h3>formatDate</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-105">formatDate</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Date.html" title="class or interface in java.util" class="external-link">Date</a>&nbsp;date)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-108">formatDate</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Date.html" title="class or interface in java.util" class="external-link">Date</a>&nbsp;date)</span></div>
 <div class="block">Formats a date to a string.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -477,7 +481,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="parseDate(java.lang.String)">
 <h3>parseDate</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Date.html" title="class or interface in java.util" class="external-link">Date</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-114">parseDate</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;dateString)</span>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Date.html" title="class or interface in java.util" class="external-link">Date</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-117">parseDate</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;dateString)</span>
                       throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/text/ParseException.html" title="class or interface in java.text" class="external-link">ParseException</a></span></div>
 <div class="block">Parses the string to a date.</div>
 <dl class="notes">
@@ -493,7 +497,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="isMobReferenceCell(org.apache.hadoop.hbase.ExtendedCell)">
 <h3>isMobReferenceCell</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-123">isMobReferenceCell</a></span><wbr><span class="parameters">(<a href="../ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-126">isMobReferenceCell</a></span><wbr><span class="parameters">(<a href="../ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</span></div>
 <div class="block">Whether the current cell is a mob reference cell.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -506,7 +510,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getTableNameTag(org.apache.hadoop.hbase.ExtendedCell)">
 <h3>getTableNameTag</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="../Tag.html" title="interface in org.apache.hadoop.hbase">Tag</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-138">getTableNameTag</a></span><wbr><span class="parameters">(<a href="../ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</span></div>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="../Tag.html" title="interface in org.apache.hadoop.hbase">Tag</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-141">getTableNameTag</a></span><wbr><span class="parameters">(<a href="../ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</span></div>
 <div class="block">Gets the table name tag.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -519,7 +523,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getTableNameString(org.apache.hadoop.hbase.ExtendedCell)">
 <h3>getTableNameString</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-151">getTableNameString</a></span><wbr><span class="parameters">(<a href="../ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-154">getTableNameString</a></span><wbr><span class="parameters">(<a href="../ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</span></div>
 <div class="block">Gets the table name from when this cell was written into a mob hfile as a string.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -532,7 +536,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getTableName(org.apache.hadoop.hbase.ExtendedCell)">
 <h3>getTableName</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-165">getTableName</a></span><wbr><span class="parameters">(<a href="../ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-168">getTableName</a></span><wbr><span class="parameters">(<a href="../ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</span></div>
 <div class="block">Get the table name from when this cell was written into a mob hfile as a TableName.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -545,7 +549,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="hasMobReferenceTag(java.util.List)">
 <h3>hasMobReferenceTag</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-190">hasMobReferenceTag</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../Tag.html" title="interface in org.apache.hadoop.hbase">Tag</a>&gt;&nbsp;tags)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-193">hasMobReferenceTag</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../Tag.html" title="interface in org.apache.hadoop.hbase">Tag</a>&gt;&nbsp;tags)</span></div>
 <div class="block">Whether the tag list has a mob reference tag.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -558,7 +562,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="isRawMobScan(org.apache.hadoop.hbase.client.Scan)">
 <h3>isRawMobScan</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-209">isRawMobScan</a></span><wbr><span class="parameters">(<a href="../client/Scan.html" title="class in org.apache.hadoop.hbase.client">Scan</a>&nbsp;scan)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-212">isRawMobScan</a></span><wbr><span class="parameters">(<a href="../client/Scan.html" title="class in org.apache.hadoop.hbase.client">Scan</a>&nbsp;scan)</span></div>
 <div class="block">Indicates whether it's a raw scan. The information is set in the attribute "hbase.mob.scan.raw"
  of scan. For a mob cell, in a normal scan the scanners retrieves the mob cell from the mob
  file. In a raw scan, the scanner directly returns cell in HBase without retrieve the one in the
@@ -574,7 +578,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="isRefOnlyScan(org.apache.hadoop.hbase.client.Scan)">
 <h3>isRefOnlyScan</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-225">isRefOnlyScan</a></span><wbr><span class="parameters">(<a href="../client/Scan.html" title="class in org.apache.hadoop.hbase.client">Scan</a>&nbsp;scan)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-228">isRefOnlyScan</a></span><wbr><span class="parameters">(<a href="../client/Scan.html" title="class in org.apache.hadoop.hbase.client">Scan</a>&nbsp;scan)</span></div>
 <div class="block">Indicates whether it's a reference only scan. The information is set in the attribute
  "hbase.mob.scan.ref.only" of scan. If it's a ref only scan, only the cells with ref tag are
  returned.</div>
@@ -589,7 +593,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="isCacheMobBlocks(org.apache.hadoop.hbase.client.Scan)">
 <h3>isCacheMobBlocks</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-240">isCacheMobBlocks</a></span><wbr><span class="parameters">(<a href="../client/Scan.html" title="class in org.apache.hadoop.hbase.client">Scan</a>&nbsp;scan)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-243">isCacheMobBlocks</a></span><wbr><span class="parameters">(<a href="../client/Scan.html" title="class in org.apache.hadoop.hbase.client">Scan</a>&nbsp;scan)</span></div>
 <div class="block">Indicates whether the scan contains the information of caching blocks. The information is set
  in the attribute "hbase.mob.cache.blocks" of scan.</div>
 <dl class="notes">
@@ -603,7 +607,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="setCacheMobBlocks(org.apache.hadoop.hbase.client.Scan,boolean)">
 <h3>setCacheMobBlocks</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-256">setCacheMobBlocks</a></span><wbr><span class="parameters">(<a href="../client/Scan.html" title="class in org.apache.hadoop.hbase.client">Scan</a>&nbsp;scan,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-259">setCacheMobBlocks</a></span><wbr><span class="parameters">(<a href="../client/Scan.html" title="class in org.apache.hadoop.hbase.client">Scan</a>&nbsp;scan,
  boolean&nbsp;cacheBlocks)</span></div>
 <div class="block">Sets the attribute of caching blocks in the scan.</div>
 <dl class="notes">
@@ -616,11 +620,11 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="cleanExpiredMobFiles(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.TableName,org.apache.hadoop.hbase.client.ColumnFamilyDescriptor,org.apache.hadoop.hbase.io.hfile.CacheConfig,long)">
+<section class="detail" id="cleanExpiredMobFiles(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.hbase.client.ColumnFamilyDescriptor,org.apache.hadoop.hbase.io.hfile.CacheConfig,long)">
 <h3>cleanExpiredMobFiles</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-270">cleanExpiredMobFiles</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.FileSystem&nbsp;fs,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-273">cleanExpiredMobFiles</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.conf.Configuration&nbsp;conf,
- <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName,
+ <a href="../client/TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;htd,
  <a href="../client/ColumnFamilyDescriptor.html" title="interface in org.apache.hadoop.hbase.client">ColumnFamilyDescriptor</a>&nbsp;columnDescriptor,
  <a href="../io/hfile/CacheConfig.html" title="class in org.apache.hadoop.hbase.io.hfile">CacheConfig</a>&nbsp;cacheConfig,
  long&nbsp;current)</span>
@@ -643,7 +647,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getMobHome(org.apache.hadoop.conf.Configuration)">
 <h3>getMobHome</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-354">getMobHome</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-361">getMobHome</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf)</span></div>
 <div class="block">Gets the root dir of the mob files. It's {HBASE_DIR}/mobdir.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -656,7 +660,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getMobHome(org.apache.hadoop.fs.Path)">
 <h3>getMobHome</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-364">getMobHome</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;rootDir)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-371">getMobHome</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;rootDir)</span></div>
 <div class="block">Gets the root dir of the mob files under the qualified HBase root dir. It's {rootDir}/mobdir.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -669,7 +673,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getQualifiedMobRootDir(org.apache.hadoop.conf.Configuration)">
 <h3>getQualifiedMobRootDir</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-373">getQualifiedMobRootDir</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf)</span>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-380">getQualifiedMobRootDir</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf)</span>
                                                         throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Gets the qualified root dir of the mob files.</div>
 <dl class="notes">
@@ -685,7 +689,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getMobTableDir(org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.TableName)">
 <h3>getMobTableDir</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-387">getMobTableDir</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;rootDir,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-394">getMobTableDir</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;rootDir,
  <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName)</span></div>
 <div class="block">Gets the table dir of the mob files under the qualified HBase root dir. It's
  {rootDir}/mobdir/data/${namespace}/${tableName}</div>
@@ -699,9 +703,16 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
+<section class="detail" id="getMobTableDir(org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.TableName)">
+<h3>getMobTableDir</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-398">getMobTableDir</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
+ <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName)</span></div>
+</section>
+</li>
+<li>
 <section class="detail" id="getMobRegionPath(org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.TableName)">
 <h3>getMobRegionPath</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-398">getMobRegionPath</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-409">getMobRegionPath</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
  <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName)</span></div>
 <div class="block">Gets the region dir of the mob files. It's
  {HBASE_DIR}/mobdir/data/{namespace}/{tableName}/{regionEncodedName}.</div>
@@ -717,7 +728,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getMobRegionPath(org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.TableName)">
 <h3>getMobRegionPath</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-409">getMobRegionPath</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;rootDir,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-420">getMobRegionPath</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;rootDir,
  <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName)</span></div>
 <div class="block">Gets the region dir of the mob files under the specified root dir. It's
  {rootDir}/mobdir/data/{namespace}/{tableName}/{regionEncodedName}.</div>
@@ -733,7 +744,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getMobFamilyPath(org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.TableName,java.lang.String)">
 <h3>getMobFamilyPath</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-423">getMobFamilyPath</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-434">getMobFamilyPath</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
  <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;familyName)</span></div>
 <div class="block">Gets the family dir of the mob files. It's
@@ -751,7 +762,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getMobFamilyPath(org.apache.hadoop.fs.Path,java.lang.String)">
 <h3>getMobFamilyPath</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-434">getMobFamilyPath</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;regionPath,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-445">getMobFamilyPath</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;regionPath,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;familyName)</span></div>
 <div class="block">Gets the family dir of the mob files. It's
  {HBASE_DIR}/mobdir/{namespace}/{tableName}/{regionEncodedName}/{columnFamilyName}.</div>
@@ -767,7 +778,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getMobRegionInfo(org.apache.hadoop.hbase.TableName)">
 <h3>getMobRegionInfo</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-443">getMobRegionInfo</a></span><wbr><span class="parameters">(<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-454">getMobRegionInfo</a></span><wbr><span class="parameters">(<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName)</span></div>
 <div class="block">Gets the RegionInfo of the mob files. This is a dummy region. The mob files are not saved in a
  region in HBase. It's internally used only.</div>
 <dl class="notes">
@@ -779,7 +790,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="isMobRegionInfo(org.apache.hadoop.hbase.client.RegionInfo)">
 <h3>isMobRegionInfo</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-453">isMobRegionInfo</a></span><wbr><span class="parameters">(<a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;regionInfo)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-464">isMobRegionInfo</a></span><wbr><span class="parameters">(<a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;regionInfo)</span></div>
 <div class="block">Gets whether the current RegionInfo is a mob one.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -792,7 +803,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="isMobRegionName(org.apache.hadoop.hbase.TableName,byte[])">
 <h3>isMobRegionName</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-466">isMobRegionName</a></span><wbr><span class="parameters">(<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-477">isMobRegionName</a></span><wbr><span class="parameters">(<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName,
  byte[]&nbsp;regionName)</span></div>
 <div class="block">Gets whether the current region name follows the pattern of a mob region name.</div>
 <dl class="notes">
@@ -807,7 +818,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="removeMobFiles(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.hbase.TableName,org.apache.hadoop.fs.Path,byte[],java.util.Collection)">
 <h3>removeMobFiles</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-479">removeMobFiles</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-490">removeMobFiles</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.fs.FileSystem&nbsp;fs,
  <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName,
  org.apache.hadoop.fs.Path&nbsp;tableDir,
@@ -828,7 +839,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="createMobRefCell(org.apache.hadoop.hbase.ExtendedCell,byte[],org.apache.hadoop.hbase.Tag)">
 <h3>createMobRefCell</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-501">createMobRefCell</a></span><wbr><span class="parameters">(<a href="../ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-512">createMobRefCell</a></span><wbr><span class="parameters">(<a href="../ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell,
  byte[]&nbsp;fileName,
  <a href="../Tag.html" title="interface in org.apache.hadoop.hbase">Tag</a>&nbsp;tableNameTag)</span></div>
 <div class="block">Creates a mob reference KeyValue. The value of the mob reference KeyValue is mobCellValueSize +
@@ -847,7 +858,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="createMobRefCell(org.apache.hadoop.hbase.ExtendedCell,byte[],byte[])">
 <h3>createMobRefCell</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-517">createMobRefCell</a></span><wbr><span class="parameters">(<a href="../ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-528">createMobRefCell</a></span><wbr><span class="parameters">(<a href="../ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell,
  byte[]&nbsp;fileName,
  byte[]&nbsp;refCellTags)</span></div>
 </section>
@@ -855,7 +866,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="createWriter(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.hbase.client.ColumnFamilyDescriptor,java.lang.String,org.apache.hadoop.fs.Path,long,org.apache.hadoop.hbase.io.compress.Compression.Algorithm,java.lang.String,org.apache.hadoop.hbase.io.hfile.CacheConfig,org.apache.hadoop.hbase.io.crypto.Encryption.Context,boolean,java.lang.String)">
 <h3>createWriter</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../regionserver/StoreFileWriter.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileWriter</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-538">createWriter</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../regionserver/StoreFileWriter.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileWriter</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-549">createWriter</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.fs.FileSystem&nbsp;fs,
  <a href="../client/ColumnFamilyDescriptor.html" title="interface in org.apache.hadoop.hbase.client">ColumnFamilyDescriptor</a>&nbsp;family,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;date,
@@ -892,7 +903,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="createWriter(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.hbase.client.ColumnFamilyDescriptor,org.apache.hadoop.hbase.mob.MobFileName,org.apache.hadoop.fs.Path,long,org.apache.hadoop.hbase.io.compress.Compression.Algorithm,org.apache.hadoop.hbase.io.hfile.CacheConfig,org.apache.hadoop.hbase.io.crypto.Encryption.Context,boolean)">
 <h3>createWriter</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../regionserver/StoreFileWriter.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileWriter</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-562">createWriter</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../regionserver/StoreFileWriter.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileWriter</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-573">createWriter</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.fs.FileSystem&nbsp;fs,
  <a href="../client/ColumnFamilyDescriptor.html" title="interface in org.apache.hadoop.hbase.client">ColumnFamilyDescriptor</a>&nbsp;family,
  <a href="MobFileName.html" title="class in org.apache.hadoop.hbase.mob">MobFileName</a>&nbsp;mobFileName,
@@ -926,7 +937,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="createWriter(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.hbase.client.ColumnFamilyDescriptor,org.apache.hadoop.fs.Path,long,org.apache.hadoop.hbase.io.compress.Compression.Algorithm,org.apache.hadoop.hbase.io.hfile.CacheConfig,org.apache.hadoop.hbase.io.crypto.Encryption.Context,org.apache.hadoop.hbase.util.ChecksumType,int,int,org.apache.hadoop.hbase.regionserver.BloomType,boolean)">
 <h3>createWriter</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../regionserver/StoreFileWriter.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileWriter</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-588">createWriter</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../regionserver/StoreFileWriter.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileWriter</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-599">createWriter</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.fs.FileSystem&nbsp;fs,
  <a href="../client/ColumnFamilyDescriptor.html" title="interface in org.apache.hadoop.hbase.client">ColumnFamilyDescriptor</a>&nbsp;family,
  org.apache.hadoop.fs.Path&nbsp;path,
@@ -966,7 +977,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="createWriter(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.hbase.client.ColumnFamilyDescriptor,org.apache.hadoop.fs.Path,long,org.apache.hadoop.hbase.io.compress.Compression.Algorithm,org.apache.hadoop.hbase.io.hfile.CacheConfig,org.apache.hadoop.hbase.io.crypto.Encryption.Context,org.apache.hadoop.hbase.util.ChecksumType,int,int,org.apache.hadoop.hbase.regionserver.BloomType,boolean,java.util.function.Consumer)">
 <h3>createWriter</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../regionserver/StoreFileWriter.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileWriter</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-615">createWriter</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../regionserver/StoreFileWriter.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileWriter</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-626">createWriter</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.fs.FileSystem&nbsp;fs,
  <a href="../client/ColumnFamilyDescriptor.html" title="interface in org.apache.hadoop.hbase.client">ColumnFamilyDescriptor</a>&nbsp;family,
  org.apache.hadoop.fs.Path&nbsp;path,
@@ -1008,7 +1019,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="hasValidMobRefCellValue(org.apache.hadoop.hbase.Cell)">
 <h3>hasValidMobRefCellValue</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-650">hasValidMobRefCellValue</a></span><wbr><span class="parameters">(<a href="../Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-661">hasValidMobRefCellValue</a></span><wbr><span class="parameters">(<a href="../Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell)</span></div>
 <div class="block">Indicates whether the current mob ref cell has a valid value. A mob ref cell has a mob
  reference tag. The value of a mob ref cell consists of two parts, real mob value length and mob
  file name. The real mob value length takes 4 bytes. The remaining part is the mob file name.</div>
@@ -1023,7 +1034,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getMobValueLength(org.apache.hadoop.hbase.Cell)">
 <h3>getMobValueLength</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-661">getMobValueLength</a></span><wbr><span class="parameters">(<a href="../Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-672">getMobValueLength</a></span><wbr><span class="parameters">(<a href="../Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell)</span></div>
 <div class="block">Gets the mob value length from the mob ref cell. A mob ref cell has a mob reference tag. The
  value of a mob ref cell consists of two parts, real mob value length and mob file name. The
  real mob value length takes 4 bytes. The remaining part is the mob file name.</div>
@@ -1038,7 +1049,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getMobFileName(org.apache.hadoop.hbase.Cell)">
 <h3>getMobFileName</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-672">getMobFileName</a></span><wbr><span class="parameters">(<a href="../Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-683">getMobFileName</a></span><wbr><span class="parameters">(<a href="../Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell)</span></div>
 <div class="block">Gets the mob file name from the mob ref cell. A mob ref cell has a mob reference tag. The value
  of a mob ref cell consists of two parts, real mob value length and mob file name. The real mob
  value length takes 4 bytes. The remaining part is the mob file name.</div>
@@ -1053,7 +1064,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="hasMobColumns(org.apache.hadoop.hbase.client.TableDescriptor)">
 <h3>hasMobColumns</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-682">hasMobColumns</a></span><wbr><span class="parameters">(<a href="../client/TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;htd)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-693">hasMobColumns</a></span><wbr><span class="parameters">(<a href="../client/TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;htd)</span></div>
 <div class="block">Checks whether this table has mob-enabled columns.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -1066,7 +1077,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getMobColumnFamilies(org.apache.hadoop.hbase.client.TableDescriptor)">
 <h3>getMobColumnFamilies</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../client/ColumnFamilyDescriptor.html" title="interface in org.apache.hadoop.hbase.client">ColumnFamilyDescriptor</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-697">getMobColumnFamilies</a></span><wbr><span class="parameters">(<a href="../client/TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;htd)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../client/ColumnFamilyDescriptor.html" title="interface in org.apache.hadoop.hbase.client">ColumnFamilyDescriptor</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-708">getMobColumnFamilies</a></span><wbr><span class="parameters">(<a href="../client/TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;htd)</span></div>
 <div class="block">Get list of Mob column families (if any exists)</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -1079,7 +1090,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="isReadEmptyValueOnMobCellMiss(org.apache.hadoop.hbase.client.Scan)">
 <h3>isReadEmptyValueOnMobCellMiss</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-715">isReadEmptyValueOnMobCellMiss</a></span><wbr><span class="parameters">(<a href="../client/Scan.html" title="class in org.apache.hadoop.hbase.client">Scan</a>&nbsp;scan)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-726">isReadEmptyValueOnMobCellMiss</a></span><wbr><span class="parameters">(<a href="../client/Scan.html" title="class in org.apache.hadoop.hbase.client">Scan</a>&nbsp;scan)</span></div>
 <div class="block">Indicates whether return null value when the mob file is missing or corrupt. The information is
  set in the attribute "empty.value.on.mobcell.miss" of scan.</div>
 <dl class="notes">
@@ -1093,7 +1104,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="isMobFileExpired(org.apache.hadoop.hbase.client.ColumnFamilyDescriptor,long,java.lang.String)">
 <h3>isMobFileExpired</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-732">isMobFileExpired</a></span><wbr><span class="parameters">(<a href="../client/ColumnFamilyDescriptor.html" title="interface in org.apache.hadoop.hbase.client">ColumnFamilyDescriptor</a>&nbsp;column,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-743">isMobFileExpired</a></span><wbr><span class="parameters">(<a href="../client/ColumnFamilyDescriptor.html" title="interface in org.apache.hadoop.hbase.client">ColumnFamilyDescriptor</a>&nbsp;column,
  long&nbsp;current,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;fileDate)</span></div>
 <div class="block">Checks if the mob file is expired.</div>
@@ -1110,7 +1121,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="serializeMobFileRefs(org.apache.hbase.thirdparty.com.google.common.collect.SetMultimap)">
 <h3>serializeMobFileRefs</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">byte[]</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-761">serializeMobFileRefs</a></span><wbr><span class="parameters">(org.apache.hbase.thirdparty.com.google.common.collect.SetMultimap&lt;<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;mobRefSet)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">byte[]</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-772">serializeMobFileRefs</a></span><wbr><span class="parameters">(org.apache.hbase.thirdparty.com.google.common.collect.SetMultimap&lt;<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;mobRefSet)</span></div>
 <div class="block">Serialize a set of referenced mob hfiles</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -1123,7 +1134,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="deserializeMobFileRefs(byte[])">
 <h3>deserializeMobFileRefs</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">org.apache.hbase.thirdparty.com.google.common.collect.ImmutableSetMultimap.Builder&lt;<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-802">deserializeMobFileRefs</a></span><wbr><span class="parameters">(byte[]&nbsp;bytes)</span>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">org.apache.hbase.thirdparty.com.google.common.collect.ImmutableSetMultimap.Builder&lt;<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobUtils.html#line-813">deserializeMobFileRefs</a></span><wbr><span class="parameters">(byte[]&nbsp;bytes)</span>
                                                                                                                                    throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/IllegalStateException.html" title="class or interface in java.lang" class="external-link">IllegalStateException</a></span></div>
 <div class="block">Deserialize the set of referenced mob hfiles from store file metadata.</div>
 <dl class="notes">

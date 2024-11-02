@@ -227,337 +227,336 @@
 <span class="source-line-no">214</span><span id="line-214">  }</span>
 <span class="source-line-no">215</span><span id="line-215"></span>
 <span class="source-line-no">216</span><span id="line-216">  public HStoreFile createStoreFileAndReader(Path p) throws IOException {</span>
-<span class="source-line-no">217</span><span id="line-217">    StoreFileInfo info = new StoreFileInfo(conf, ctx.getRegionFileSystem().getFileSystem(), p,</span>
-<span class="source-line-no">218</span><span id="line-218">      ctx.isPrimaryReplicaStore());</span>
-<span class="source-line-no">219</span><span id="line-219">    return createStoreFileAndReader(info);</span>
-<span class="source-line-no">220</span><span id="line-220">  }</span>
-<span class="source-line-no">221</span><span id="line-221"></span>
-<span class="source-line-no">222</span><span id="line-222">  public HStoreFile createStoreFileAndReader(StoreFileInfo info) throws IOException {</span>
-<span class="source-line-no">223</span><span id="line-223">    info.setRegionCoprocessorHost(coprocessorHost);</span>
-<span class="source-line-no">224</span><span id="line-224">    HStoreFile storeFile = new HStoreFile(info, ctx.getFamily().getBloomFilterType(),</span>
-<span class="source-line-no">225</span><span id="line-225">      ctx.getCacheConf(), bloomFilterMetrics);</span>
-<span class="source-line-no">226</span><span id="line-226">    storeFile.initReader();</span>
-<span class="source-line-no">227</span><span id="line-227">    return storeFile;</span>
-<span class="source-line-no">228</span><span id="line-228">  }</span>
-<span class="source-line-no">229</span><span id="line-229"></span>
-<span class="source-line-no">230</span><span id="line-230">  /**</span>
-<span class="source-line-no">231</span><span id="line-231">   * Validates a store file by opening and closing it. In HFileV2 this should not be an expensive</span>
-<span class="source-line-no">232</span><span id="line-232">   * operation.</span>
-<span class="source-line-no">233</span><span id="line-233">   * @param path the path to the store file</span>
-<span class="source-line-no">234</span><span id="line-234">   */</span>
-<span class="source-line-no">235</span><span id="line-235">  public void validateStoreFile(Path path) throws IOException {</span>
-<span class="source-line-no">236</span><span id="line-236">    HStoreFile storeFile = null;</span>
-<span class="source-line-no">237</span><span id="line-237">    try {</span>
-<span class="source-line-no">238</span><span id="line-238">      storeFile = createStoreFileAndReader(path);</span>
-<span class="source-line-no">239</span><span id="line-239">    } catch (IOException e) {</span>
-<span class="source-line-no">240</span><span id="line-240">      LOG.error("Failed to open store file : {}, keeping it in tmp location", path, e);</span>
-<span class="source-line-no">241</span><span id="line-241">      throw e;</span>
-<span class="source-line-no">242</span><span id="line-242">    } finally {</span>
-<span class="source-line-no">243</span><span id="line-243">      if (storeFile != null) {</span>
-<span class="source-line-no">244</span><span id="line-244">        storeFile.closeStoreFile(false);</span>
-<span class="source-line-no">245</span><span id="line-245">      }</span>
-<span class="source-line-no">246</span><span id="line-246">    }</span>
-<span class="source-line-no">247</span><span id="line-247">  }</span>
-<span class="source-line-no">248</span><span id="line-248"></span>
-<span class="source-line-no">249</span><span id="line-249">  private List&lt;HStoreFile&gt; openStoreFiles(Collection&lt;StoreFileInfo&gt; files, boolean warmup)</span>
-<span class="source-line-no">250</span><span id="line-250">    throws IOException {</span>
-<span class="source-line-no">251</span><span id="line-251">    if (CollectionUtils.isEmpty(files)) {</span>
-<span class="source-line-no">252</span><span id="line-252">      return Collections.emptyList();</span>
-<span class="source-line-no">253</span><span id="line-253">    }</span>
-<span class="source-line-no">254</span><span id="line-254">    // initialize the thread pool for opening store files in parallel..</span>
-<span class="source-line-no">255</span><span id="line-255">    ExecutorService storeFileOpenerThreadPool =</span>
-<span class="source-line-no">256</span><span id="line-256">      openStoreFileThreadPoolCreator.apply("StoreFileOpener-" + ctx.getRegionInfo().getEncodedName()</span>
-<span class="source-line-no">257</span><span id="line-257">        + "-" + ctx.getFamily().getNameAsString());</span>
-<span class="source-line-no">258</span><span id="line-258">    CompletionService&lt;HStoreFile&gt; completionService =</span>
-<span class="source-line-no">259</span><span id="line-259">      new ExecutorCompletionService&lt;&gt;(storeFileOpenerThreadPool);</span>
-<span class="source-line-no">260</span><span id="line-260"></span>
-<span class="source-line-no">261</span><span id="line-261">    int totalValidStoreFile = 0;</span>
-<span class="source-line-no">262</span><span id="line-262">    for (StoreFileInfo storeFileInfo : files) {</span>
-<span class="source-line-no">263</span><span id="line-263">      // The StoreFileInfo will carry store configuration down to HFile, we need to set it to</span>
-<span class="source-line-no">264</span><span id="line-264">      // our store's CompoundConfiguration here.</span>
-<span class="source-line-no">265</span><span id="line-265">      storeFileInfo.setConf(conf);</span>
-<span class="source-line-no">266</span><span id="line-266">      // open each store file in parallel</span>
-<span class="source-line-no">267</span><span id="line-267">      completionService.submit(() -&gt; createStoreFileAndReader(storeFileInfo));</span>
-<span class="source-line-no">268</span><span id="line-268">      totalValidStoreFile++;</span>
-<span class="source-line-no">269</span><span id="line-269">    }</span>
-<span class="source-line-no">270</span><span id="line-270"></span>
-<span class="source-line-no">271</span><span id="line-271">    Set&lt;String&gt; compactedStoreFiles = new HashSet&lt;&gt;();</span>
-<span class="source-line-no">272</span><span id="line-272">    ArrayList&lt;HStoreFile&gt; results = new ArrayList&lt;&gt;(files.size());</span>
-<span class="source-line-no">273</span><span id="line-273">    IOException ioe = null;</span>
-<span class="source-line-no">274</span><span id="line-274">    try {</span>
-<span class="source-line-no">275</span><span id="line-275">      for (int i = 0; i &lt; totalValidStoreFile; i++) {</span>
-<span class="source-line-no">276</span><span id="line-276">        try {</span>
-<span class="source-line-no">277</span><span id="line-277">          HStoreFile storeFile = completionService.take().get();</span>
-<span class="source-line-no">278</span><span id="line-278">          if (storeFile != null) {</span>
-<span class="source-line-no">279</span><span id="line-279">            LOG.debug("loaded {}", storeFile);</span>
-<span class="source-line-no">280</span><span id="line-280">            results.add(storeFile);</span>
-<span class="source-line-no">281</span><span id="line-281">            compactedStoreFiles.addAll(storeFile.getCompactedStoreFiles());</span>
-<span class="source-line-no">282</span><span id="line-282">          }</span>
-<span class="source-line-no">283</span><span id="line-283">        } catch (InterruptedException e) {</span>
-<span class="source-line-no">284</span><span id="line-284">          if (ioe == null) {</span>
-<span class="source-line-no">285</span><span id="line-285">            ioe = new InterruptedIOException(e.getMessage());</span>
-<span class="source-line-no">286</span><span id="line-286">          }</span>
-<span class="source-line-no">287</span><span id="line-287">        } catch (ExecutionException e) {</span>
-<span class="source-line-no">288</span><span id="line-288">          if (ioe == null) {</span>
-<span class="source-line-no">289</span><span id="line-289">            ioe = new IOException(e.getCause());</span>
-<span class="source-line-no">290</span><span id="line-290">          }</span>
-<span class="source-line-no">291</span><span id="line-291">        }</span>
-<span class="source-line-no">292</span><span id="line-292">      }</span>
-<span class="source-line-no">293</span><span id="line-293">    } finally {</span>
-<span class="source-line-no">294</span><span id="line-294">      storeFileOpenerThreadPool.shutdownNow();</span>
-<span class="source-line-no">295</span><span id="line-295">    }</span>
-<span class="source-line-no">296</span><span id="line-296">    if (ioe != null) {</span>
-<span class="source-line-no">297</span><span id="line-297">      // close StoreFile readers</span>
-<span class="source-line-no">298</span><span id="line-298">      boolean evictOnClose =</span>
-<span class="source-line-no">299</span><span id="line-299">        ctx.getCacheConf() != null ? ctx.getCacheConf().shouldEvictOnClose() : true;</span>
-<span class="source-line-no">300</span><span id="line-300">      for (HStoreFile file : results) {</span>
-<span class="source-line-no">301</span><span id="line-301">        try {</span>
-<span class="source-line-no">302</span><span id="line-302">          if (file != null) {</span>
-<span class="source-line-no">303</span><span id="line-303">            file.closeStoreFile(evictOnClose);</span>
-<span class="source-line-no">304</span><span id="line-304">          }</span>
-<span class="source-line-no">305</span><span id="line-305">        } catch (IOException e) {</span>
-<span class="source-line-no">306</span><span id="line-306">          LOG.warn("Could not close store file {}", file, e);</span>
-<span class="source-line-no">307</span><span id="line-307">        }</span>
-<span class="source-line-no">308</span><span id="line-308">      }</span>
-<span class="source-line-no">309</span><span id="line-309">      throw ioe;</span>
-<span class="source-line-no">310</span><span id="line-310">    }</span>
-<span class="source-line-no">311</span><span id="line-311"></span>
-<span class="source-line-no">312</span><span id="line-312">    // Should not archive the compacted store files when region warmup. See HBASE-22163.</span>
-<span class="source-line-no">313</span><span id="line-313">    if (!warmup) {</span>
-<span class="source-line-no">314</span><span id="line-314">      // Remove the compacted files from result</span>
-<span class="source-line-no">315</span><span id="line-315">      List&lt;HStoreFile&gt; filesToRemove = new ArrayList&lt;&gt;(compactedStoreFiles.size());</span>
-<span class="source-line-no">316</span><span id="line-316">      for (HStoreFile storeFile : results) {</span>
-<span class="source-line-no">317</span><span id="line-317">        if (compactedStoreFiles.contains(storeFile.getPath().getName())) {</span>
-<span class="source-line-no">318</span><span id="line-318">          LOG.warn("Clearing the compacted storefile {} from {}", storeFile, this);</span>
-<span class="source-line-no">319</span><span id="line-319">          storeFile.getReader()</span>
-<span class="source-line-no">320</span><span id="line-320">            .close(storeFile.getCacheConf() != null</span>
-<span class="source-line-no">321</span><span id="line-321">              ? storeFile.getCacheConf().shouldEvictOnClose()</span>
-<span class="source-line-no">322</span><span id="line-322">              : true);</span>
-<span class="source-line-no">323</span><span id="line-323">          filesToRemove.add(storeFile);</span>
-<span class="source-line-no">324</span><span id="line-324">        }</span>
-<span class="source-line-no">325</span><span id="line-325">      }</span>
-<span class="source-line-no">326</span><span id="line-326">      results.removeAll(filesToRemove);</span>
-<span class="source-line-no">327</span><span id="line-327">      if (!filesToRemove.isEmpty() &amp;&amp; ctx.isPrimaryReplicaStore()) {</span>
-<span class="source-line-no">328</span><span id="line-328">        LOG.debug("Moving the files {} to archive", filesToRemove);</span>
-<span class="source-line-no">329</span><span id="line-329">        ctx.getRegionFileSystem().removeStoreFiles(ctx.getFamily().getNameAsString(),</span>
-<span class="source-line-no">330</span><span id="line-330">          filesToRemove);</span>
-<span class="source-line-no">331</span><span id="line-331">      }</span>
-<span class="source-line-no">332</span><span id="line-332">    }</span>
-<span class="source-line-no">333</span><span id="line-333"></span>
-<span class="source-line-no">334</span><span id="line-334">    return results;</span>
-<span class="source-line-no">335</span><span id="line-335">  }</span>
-<span class="source-line-no">336</span><span id="line-336"></span>
-<span class="source-line-no">337</span><span id="line-337">  public void initialize(boolean warmup) throws IOException {</span>
-<span class="source-line-no">338</span><span id="line-338">    List&lt;StoreFileInfo&gt; fileInfos = storeFileTracker.load();</span>
-<span class="source-line-no">339</span><span id="line-339">    List&lt;HStoreFile&gt; files = openStoreFiles(fileInfos, warmup);</span>
-<span class="source-line-no">340</span><span id="line-340">    storeFileManager.loadFiles(files);</span>
-<span class="source-line-no">341</span><span id="line-341">  }</span>
-<span class="source-line-no">342</span><span id="line-342"></span>
-<span class="source-line-no">343</span><span id="line-343">  public void refreshStoreFiles() throws IOException {</span>
-<span class="source-line-no">344</span><span id="line-344">    List&lt;StoreFileInfo&gt; fileInfos = storeFileTracker.load();</span>
-<span class="source-line-no">345</span><span id="line-345">    refreshStoreFilesInternal(fileInfos);</span>
-<span class="source-line-no">346</span><span id="line-346">  }</span>
-<span class="source-line-no">347</span><span id="line-347"></span>
-<span class="source-line-no">348</span><span id="line-348">  public void refreshStoreFiles(Collection&lt;String&gt; newFiles) throws IOException {</span>
-<span class="source-line-no">349</span><span id="line-349">    List&lt;StoreFileInfo&gt; storeFiles = new ArrayList&lt;&gt;(newFiles.size());</span>
-<span class="source-line-no">350</span><span id="line-350">    for (String file : newFiles) {</span>
-<span class="source-line-no">351</span><span id="line-351">      storeFiles</span>
-<span class="source-line-no">352</span><span id="line-352">        .add(ctx.getRegionFileSystem().getStoreFileInfo(ctx.getFamily().getNameAsString(), file));</span>
-<span class="source-line-no">353</span><span id="line-353">    }</span>
-<span class="source-line-no">354</span><span id="line-354">    refreshStoreFilesInternal(storeFiles);</span>
-<span class="source-line-no">355</span><span id="line-355">  }</span>
-<span class="source-line-no">356</span><span id="line-356"></span>
-<span class="source-line-no">357</span><span id="line-357">  /**</span>
-<span class="source-line-no">358</span><span id="line-358">   * Checks the underlying store files, and opens the files that have not been opened, and removes</span>
-<span class="source-line-no">359</span><span id="line-359">   * the store file readers for store files no longer available. Mainly used by secondary region</span>
-<span class="source-line-no">360</span><span id="line-360">   * replicas to keep up to date with the primary region files.</span>
-<span class="source-line-no">361</span><span id="line-361">   */</span>
-<span class="source-line-no">362</span><span id="line-362">  private void refreshStoreFilesInternal(Collection&lt;StoreFileInfo&gt; newFiles) throws IOException {</span>
-<span class="source-line-no">363</span><span id="line-363">    Collection&lt;HStoreFile&gt; currentFiles = storeFileManager.getStoreFiles();</span>
-<span class="source-line-no">364</span><span id="line-364">    Collection&lt;HStoreFile&gt; compactedFiles = storeFileManager.getCompactedfiles();</span>
-<span class="source-line-no">365</span><span id="line-365">    if (currentFiles == null) {</span>
-<span class="source-line-no">366</span><span id="line-366">      currentFiles = Collections.emptySet();</span>
-<span class="source-line-no">367</span><span id="line-367">    }</span>
-<span class="source-line-no">368</span><span id="line-368">    if (newFiles == null) {</span>
-<span class="source-line-no">369</span><span id="line-369">      newFiles = Collections.emptySet();</span>
-<span class="source-line-no">370</span><span id="line-370">    }</span>
-<span class="source-line-no">371</span><span id="line-371">    if (compactedFiles == null) {</span>
-<span class="source-line-no">372</span><span id="line-372">      compactedFiles = Collections.emptySet();</span>
-<span class="source-line-no">373</span><span id="line-373">    }</span>
-<span class="source-line-no">374</span><span id="line-374"></span>
-<span class="source-line-no">375</span><span id="line-375">    HashMap&lt;StoreFileInfo, HStoreFile&gt; currentFilesSet = new HashMap&lt;&gt;(currentFiles.size());</span>
-<span class="source-line-no">376</span><span id="line-376">    for (HStoreFile sf : currentFiles) {</span>
-<span class="source-line-no">377</span><span id="line-377">      currentFilesSet.put(sf.getFileInfo(), sf);</span>
-<span class="source-line-no">378</span><span id="line-378">    }</span>
-<span class="source-line-no">379</span><span id="line-379">    HashMap&lt;StoreFileInfo, HStoreFile&gt; compactedFilesSet = new HashMap&lt;&gt;(compactedFiles.size());</span>
-<span class="source-line-no">380</span><span id="line-380">    for (HStoreFile sf : compactedFiles) {</span>
-<span class="source-line-no">381</span><span id="line-381">      compactedFilesSet.put(sf.getFileInfo(), sf);</span>
-<span class="source-line-no">382</span><span id="line-382">    }</span>
-<span class="source-line-no">383</span><span id="line-383"></span>
-<span class="source-line-no">384</span><span id="line-384">    Set&lt;StoreFileInfo&gt; newFilesSet = new HashSet&lt;StoreFileInfo&gt;(newFiles);</span>
-<span class="source-line-no">385</span><span id="line-385">    // Exclude the files that have already been compacted</span>
-<span class="source-line-no">386</span><span id="line-386">    newFilesSet = Sets.difference(newFilesSet, compactedFilesSet.keySet());</span>
-<span class="source-line-no">387</span><span id="line-387">    Set&lt;StoreFileInfo&gt; toBeAddedFiles = Sets.difference(newFilesSet, currentFilesSet.keySet());</span>
-<span class="source-line-no">388</span><span id="line-388">    Set&lt;StoreFileInfo&gt; toBeRemovedFiles = Sets.difference(currentFilesSet.keySet(), newFilesSet);</span>
-<span class="source-line-no">389</span><span id="line-389"></span>
-<span class="source-line-no">390</span><span id="line-390">    if (toBeAddedFiles.isEmpty() &amp;&amp; toBeRemovedFiles.isEmpty()) {</span>
-<span class="source-line-no">391</span><span id="line-391">      return;</span>
-<span class="source-line-no">392</span><span id="line-392">    }</span>
-<span class="source-line-no">393</span><span id="line-393"></span>
-<span class="source-line-no">394</span><span id="line-394">    LOG.info("Refreshing store files for " + this + " files to add: " + toBeAddedFiles</span>
-<span class="source-line-no">395</span><span id="line-395">      + " files to remove: " + toBeRemovedFiles);</span>
-<span class="source-line-no">396</span><span id="line-396"></span>
-<span class="source-line-no">397</span><span id="line-397">    Set&lt;HStoreFile&gt; toBeRemovedStoreFiles = new HashSet&lt;&gt;(toBeRemovedFiles.size());</span>
-<span class="source-line-no">398</span><span id="line-398">    for (StoreFileInfo sfi : toBeRemovedFiles) {</span>
-<span class="source-line-no">399</span><span id="line-399">      toBeRemovedStoreFiles.add(currentFilesSet.get(sfi));</span>
-<span class="source-line-no">400</span><span id="line-400">    }</span>
-<span class="source-line-no">401</span><span id="line-401"></span>
-<span class="source-line-no">402</span><span id="line-402">    // try to open the files</span>
-<span class="source-line-no">403</span><span id="line-403">    List&lt;HStoreFile&gt; openedFiles = openStoreFiles(toBeAddedFiles, false);</span>
-<span class="source-line-no">404</span><span id="line-404"></span>
-<span class="source-line-no">405</span><span id="line-405">    // propogate the file changes to the underlying store file manager</span>
-<span class="source-line-no">406</span><span id="line-406">    replaceStoreFiles(toBeRemovedStoreFiles, openedFiles, () -&gt; {</span>
-<span class="source-line-no">407</span><span id="line-407">    }, () -&gt; {</span>
-<span class="source-line-no">408</span><span id="line-408">    }); // won't throw an exception</span>
-<span class="source-line-no">409</span><span id="line-409">  }</span>
-<span class="source-line-no">410</span><span id="line-410"></span>
-<span class="source-line-no">411</span><span id="line-411">  /**</span>
-<span class="source-line-no">412</span><span id="line-412">   * Commit the given {@code files}.</span>
-<span class="source-line-no">413</span><span id="line-413">   * &lt;p/&gt;</span>
-<span class="source-line-no">414</span><span id="line-414">   * We will move the file into data directory, and open it.</span>
-<span class="source-line-no">415</span><span id="line-415">   * @param files    the files want to commit</span>
-<span class="source-line-no">416</span><span id="line-416">   * @param validate whether to validate the store files</span>
-<span class="source-line-no">417</span><span id="line-417">   * @return the committed store files</span>
-<span class="source-line-no">418</span><span id="line-418">   */</span>
-<span class="source-line-no">419</span><span id="line-419">  public List&lt;HStoreFile&gt; commitStoreFiles(List&lt;Path&gt; files, boolean validate) throws IOException {</span>
-<span class="source-line-no">420</span><span id="line-420">    List&lt;HStoreFile&gt; committedFiles = new ArrayList&lt;&gt;(files.size());</span>
-<span class="source-line-no">421</span><span id="line-421">    HRegionFileSystem hfs = ctx.getRegionFileSystem();</span>
-<span class="source-line-no">422</span><span id="line-422">    String familyName = ctx.getFamily().getNameAsString();</span>
-<span class="source-line-no">423</span><span id="line-423">    Path storeDir = hfs.getStoreDir(familyName);</span>
-<span class="source-line-no">424</span><span id="line-424">    for (Path file : files) {</span>
-<span class="source-line-no">425</span><span id="line-425">      try {</span>
-<span class="source-line-no">426</span><span id="line-426">        if (validate) {</span>
-<span class="source-line-no">427</span><span id="line-427">          validateStoreFile(file);</span>
-<span class="source-line-no">428</span><span id="line-428">        }</span>
-<span class="source-line-no">429</span><span id="line-429">        Path committedPath;</span>
-<span class="source-line-no">430</span><span id="line-430">        // As we want to support writing to data directory directly, here we need to check whether</span>
-<span class="source-line-no">431</span><span id="line-431">        // the store file is already in the right place</span>
-<span class="source-line-no">432</span><span id="line-432">        if (file.getParent() != null &amp;&amp; file.getParent().equals(storeDir)) {</span>
-<span class="source-line-no">433</span><span id="line-433">          // already in the right place, skip renmaing</span>
-<span class="source-line-no">434</span><span id="line-434">          committedPath = file;</span>
-<span class="source-line-no">435</span><span id="line-435">        } else {</span>
-<span class="source-line-no">436</span><span id="line-436">          // Write-out finished successfully, move into the right spot</span>
-<span class="source-line-no">437</span><span id="line-437">          committedPath = hfs.commitStoreFile(familyName, file);</span>
-<span class="source-line-no">438</span><span id="line-438">        }</span>
-<span class="source-line-no">439</span><span id="line-439">        HStoreFile sf = createStoreFileAndReader(committedPath);</span>
-<span class="source-line-no">440</span><span id="line-440">        committedFiles.add(sf);</span>
-<span class="source-line-no">441</span><span id="line-441">      } catch (IOException e) {</span>
-<span class="source-line-no">442</span><span id="line-442">        LOG.error("Failed to commit store file {}", file, e);</span>
-<span class="source-line-no">443</span><span id="line-443">        // Try to delete the files we have committed before.</span>
-<span class="source-line-no">444</span><span id="line-444">        // It is OK to fail when deleting as leaving the file there does not cause any data</span>
-<span class="source-line-no">445</span><span id="line-445">        // corruption problem. It just introduces some duplicated data which may impact read</span>
-<span class="source-line-no">446</span><span id="line-446">        // performance a little when reading before compaction.</span>
-<span class="source-line-no">447</span><span id="line-447">        for (HStoreFile sf : committedFiles) {</span>
-<span class="source-line-no">448</span><span id="line-448">          Path pathToDelete = sf.getPath();</span>
-<span class="source-line-no">449</span><span id="line-449">          try {</span>
-<span class="source-line-no">450</span><span id="line-450">            sf.deleteStoreFile();</span>
-<span class="source-line-no">451</span><span id="line-451">          } catch (IOException deleteEx) {</span>
-<span class="source-line-no">452</span><span id="line-452">            LOG.warn(HBaseMarkers.FATAL, "Failed to delete committed store file {}", pathToDelete,</span>
-<span class="source-line-no">453</span><span id="line-453">              deleteEx);</span>
-<span class="source-line-no">454</span><span id="line-454">          }</span>
-<span class="source-line-no">455</span><span id="line-455">        }</span>
-<span class="source-line-no">456</span><span id="line-456">        throw new IOException("Failed to commit the flush", e);</span>
-<span class="source-line-no">457</span><span id="line-457">      }</span>
-<span class="source-line-no">458</span><span id="line-458">    }</span>
-<span class="source-line-no">459</span><span id="line-459">    return committedFiles;</span>
-<span class="source-line-no">460</span><span id="line-460">  }</span>
-<span class="source-line-no">461</span><span id="line-461"></span>
-<span class="source-line-no">462</span><span id="line-462">  /**</span>
-<span class="source-line-no">463</span><span id="line-463">   * Add the store files to store file manager, and also record it in the store file tracker.</span>
-<span class="source-line-no">464</span><span id="line-464">   * &lt;p/&gt;</span>
-<span class="source-line-no">465</span><span id="line-465">   * The {@code actionAfterAdding} will be executed after the insertion to store file manager, under</span>
-<span class="source-line-no">466</span><span id="line-466">   * the lock protection. Usually this is for clear the memstore snapshot.</span>
-<span class="source-line-no">467</span><span id="line-467">   */</span>
-<span class="source-line-no">468</span><span id="line-468">  public void addStoreFiles(Collection&lt;HStoreFile&gt; storeFiles,</span>
-<span class="source-line-no">469</span><span id="line-469">    IOExceptionRunnable actionAfterAdding) throws IOException {</span>
-<span class="source-line-no">470</span><span id="line-470">    storeFileTracker.add(StoreUtils.toStoreFileInfo(storeFiles));</span>
-<span class="source-line-no">471</span><span id="line-471">    writeLock();</span>
-<span class="source-line-no">472</span><span id="line-472">    try {</span>
-<span class="source-line-no">473</span><span id="line-473">      storeFileManager.insertNewFiles(storeFiles);</span>
-<span class="source-line-no">474</span><span id="line-474">      actionAfterAdding.run();</span>
-<span class="source-line-no">475</span><span id="line-475">    } finally {</span>
-<span class="source-line-no">476</span><span id="line-476">      // We need the lock, as long as we are updating the storeFiles</span>
-<span class="source-line-no">477</span><span id="line-477">      // or changing the memstore. Let us release it before calling</span>
-<span class="source-line-no">478</span><span id="line-478">      // notifyChangeReadersObservers. See HBASE-4485 for a possible</span>
-<span class="source-line-no">479</span><span id="line-479">      // deadlock scenario that could have happened if continue to hold</span>
-<span class="source-line-no">480</span><span id="line-480">      // the lock.</span>
-<span class="source-line-no">481</span><span id="line-481">      writeUnlock();</span>
-<span class="source-line-no">482</span><span id="line-482">    }</span>
-<span class="source-line-no">483</span><span id="line-483">  }</span>
-<span class="source-line-no">484</span><span id="line-484"></span>
-<span class="source-line-no">485</span><span id="line-485">  public void replaceStoreFiles(Collection&lt;HStoreFile&gt; compactedFiles,</span>
-<span class="source-line-no">486</span><span id="line-486">    Collection&lt;HStoreFile&gt; newFiles, IOExceptionRunnable walMarkerWriter, Runnable actionUnderLock)</span>
-<span class="source-line-no">487</span><span id="line-487">    throws IOException {</span>
-<span class="source-line-no">488</span><span id="line-488">    storeFileTracker.replace(StoreUtils.toStoreFileInfo(compactedFiles),</span>
-<span class="source-line-no">489</span><span id="line-489">      StoreUtils.toStoreFileInfo(newFiles));</span>
-<span class="source-line-no">490</span><span id="line-490">    walMarkerWriter.run();</span>
-<span class="source-line-no">491</span><span id="line-491">    writeLock();</span>
-<span class="source-line-no">492</span><span id="line-492">    try {</span>
-<span class="source-line-no">493</span><span id="line-493">      storeFileManager.addCompactionResults(compactedFiles, newFiles);</span>
-<span class="source-line-no">494</span><span id="line-494">      actionUnderLock.run();</span>
-<span class="source-line-no">495</span><span id="line-495">    } finally {</span>
-<span class="source-line-no">496</span><span id="line-496">      writeUnlock();</span>
-<span class="source-line-no">497</span><span id="line-497">    }</span>
-<span class="source-line-no">498</span><span id="line-498">  }</span>
-<span class="source-line-no">499</span><span id="line-499"></span>
-<span class="source-line-no">500</span><span id="line-500">  public void removeCompactedFiles(Collection&lt;HStoreFile&gt; compactedFiles) {</span>
-<span class="source-line-no">501</span><span id="line-501">    writeLock();</span>
-<span class="source-line-no">502</span><span id="line-502">    try {</span>
-<span class="source-line-no">503</span><span id="line-503">      storeFileManager.removeCompactedFiles(compactedFiles);</span>
-<span class="source-line-no">504</span><span id="line-504">    } finally {</span>
-<span class="source-line-no">505</span><span id="line-505">      writeUnlock();</span>
-<span class="source-line-no">506</span><span id="line-506">    }</span>
-<span class="source-line-no">507</span><span id="line-507">  }</span>
-<span class="source-line-no">508</span><span id="line-508"></span>
-<span class="source-line-no">509</span><span id="line-509">  /**</span>
-<span class="source-line-no">510</span><span id="line-510">   * Create the StoreEngine configured for the given Store.</span>
-<span class="source-line-no">511</span><span id="line-511">   * @param store          The store. An unfortunate dependency needed due to it being passed to</span>
-<span class="source-line-no">512</span><span id="line-512">   *                       coprocessors via the compactor.</span>
-<span class="source-line-no">513</span><span id="line-513">   * @param conf           Store configuration.</span>
-<span class="source-line-no">514</span><span id="line-514">   * @param cellComparator CellComparator for storeFileManager.</span>
-<span class="source-line-no">515</span><span id="line-515">   * @return StoreEngine to use.</span>
-<span class="source-line-no">516</span><span id="line-516">   */</span>
-<span class="source-line-no">517</span><span id="line-517">  public static StoreEngine&lt;?, ?, ?, ?&gt; create(HStore store, Configuration conf,</span>
-<span class="source-line-no">518</span><span id="line-518">    CellComparator cellComparator) throws IOException {</span>
-<span class="source-line-no">519</span><span id="line-519">    String className = conf.get(STORE_ENGINE_CLASS_KEY, DEFAULT_STORE_ENGINE_CLASS.getName());</span>
-<span class="source-line-no">520</span><span id="line-520">    try {</span>
-<span class="source-line-no">521</span><span id="line-521">      StoreEngine&lt;?, ?, ?, ?&gt; se =</span>
-<span class="source-line-no">522</span><span id="line-522">        ReflectionUtils.instantiateWithCustomCtor(className, new Class[] {}, new Object[] {});</span>
-<span class="source-line-no">523</span><span id="line-523">      se.createComponentsOnce(conf, store, cellComparator);</span>
-<span class="source-line-no">524</span><span id="line-524">      return se;</span>
-<span class="source-line-no">525</span><span id="line-525">    } catch (Exception e) {</span>
-<span class="source-line-no">526</span><span id="line-526">      throw new IOException("Unable to load configured store engine '" + className + "'", e);</span>
-<span class="source-line-no">527</span><span id="line-527">    }</span>
-<span class="source-line-no">528</span><span id="line-528">  }</span>
-<span class="source-line-no">529</span><span id="line-529"></span>
-<span class="source-line-no">530</span><span id="line-530">  /**</span>
-<span class="source-line-no">531</span><span id="line-531">   * Whether the implementation of the used storefile tracker requires you to write to temp</span>
-<span class="source-line-no">532</span><span id="line-532">   * directory first, i.e, does not allow broken store files under the actual data directory.</span>
-<span class="source-line-no">533</span><span id="line-533">   */</span>
-<span class="source-line-no">534</span><span id="line-534">  public boolean requireWritingToTmpDirFirst() {</span>
-<span class="source-line-no">535</span><span id="line-535">    return storeFileTracker.requireWritingToTmpDirFirst();</span>
-<span class="source-line-no">536</span><span id="line-536">  }</span>
-<span class="source-line-no">537</span><span id="line-537"></span>
-<span class="source-line-no">538</span><span id="line-538">  @RestrictedApi(explanation = "Should only be called in TestHStore", link = "",</span>
-<span class="source-line-no">539</span><span id="line-539">      allowedOnPath = ".*/TestHStore.java")</span>
-<span class="source-line-no">540</span><span id="line-540">  ReadWriteLock getLock() {</span>
-<span class="source-line-no">541</span><span id="line-541">    return storeLock;</span>
-<span class="source-line-no">542</span><span id="line-542">  }</span>
-<span class="source-line-no">543</span><span id="line-543"></span>
-<span class="source-line-no">544</span><span id="line-544">  public BloomFilterMetrics getBloomFilterMetrics() {</span>
-<span class="source-line-no">545</span><span id="line-545">    return bloomFilterMetrics;</span>
-<span class="source-line-no">546</span><span id="line-546">  }</span>
-<span class="source-line-no">547</span><span id="line-547">}</span>
+<span class="source-line-no">217</span><span id="line-217">    StoreFileInfo info = storeFileTracker.getStoreFileInfo(p, ctx.isPrimaryReplicaStore());</span>
+<span class="source-line-no">218</span><span id="line-218">    return createStoreFileAndReader(info);</span>
+<span class="source-line-no">219</span><span id="line-219">  }</span>
+<span class="source-line-no">220</span><span id="line-220"></span>
+<span class="source-line-no">221</span><span id="line-221">  public HStoreFile createStoreFileAndReader(StoreFileInfo info) throws IOException {</span>
+<span class="source-line-no">222</span><span id="line-222">    info.setRegionCoprocessorHost(coprocessorHost);</span>
+<span class="source-line-no">223</span><span id="line-223">    HStoreFile storeFile = new HStoreFile(info, ctx.getFamily().getBloomFilterType(),</span>
+<span class="source-line-no">224</span><span id="line-224">      ctx.getCacheConf(), bloomFilterMetrics);</span>
+<span class="source-line-no">225</span><span id="line-225">    storeFile.initReader();</span>
+<span class="source-line-no">226</span><span id="line-226">    return storeFile;</span>
+<span class="source-line-no">227</span><span id="line-227">  }</span>
+<span class="source-line-no">228</span><span id="line-228"></span>
+<span class="source-line-no">229</span><span id="line-229">  /**</span>
+<span class="source-line-no">230</span><span id="line-230">   * Validates a store file by opening and closing it. In HFileV2 this should not be an expensive</span>
+<span class="source-line-no">231</span><span id="line-231">   * operation.</span>
+<span class="source-line-no">232</span><span id="line-232">   * @param path the path to the store file</span>
+<span class="source-line-no">233</span><span id="line-233">   */</span>
+<span class="source-line-no">234</span><span id="line-234">  public void validateStoreFile(Path path) throws IOException {</span>
+<span class="source-line-no">235</span><span id="line-235">    HStoreFile storeFile = null;</span>
+<span class="source-line-no">236</span><span id="line-236">    try {</span>
+<span class="source-line-no">237</span><span id="line-237">      storeFile = createStoreFileAndReader(path);</span>
+<span class="source-line-no">238</span><span id="line-238">    } catch (IOException e) {</span>
+<span class="source-line-no">239</span><span id="line-239">      LOG.error("Failed to open store file : {}, keeping it in tmp location", path, e);</span>
+<span class="source-line-no">240</span><span id="line-240">      throw e;</span>
+<span class="source-line-no">241</span><span id="line-241">    } finally {</span>
+<span class="source-line-no">242</span><span id="line-242">      if (storeFile != null) {</span>
+<span class="source-line-no">243</span><span id="line-243">        storeFile.closeStoreFile(false);</span>
+<span class="source-line-no">244</span><span id="line-244">      }</span>
+<span class="source-line-no">245</span><span id="line-245">    }</span>
+<span class="source-line-no">246</span><span id="line-246">  }</span>
+<span class="source-line-no">247</span><span id="line-247"></span>
+<span class="source-line-no">248</span><span id="line-248">  private List&lt;HStoreFile&gt; openStoreFiles(Collection&lt;StoreFileInfo&gt; files, boolean warmup)</span>
+<span class="source-line-no">249</span><span id="line-249">    throws IOException {</span>
+<span class="source-line-no">250</span><span id="line-250">    if (CollectionUtils.isEmpty(files)) {</span>
+<span class="source-line-no">251</span><span id="line-251">      return Collections.emptyList();</span>
+<span class="source-line-no">252</span><span id="line-252">    }</span>
+<span class="source-line-no">253</span><span id="line-253">    // initialize the thread pool for opening store files in parallel..</span>
+<span class="source-line-no">254</span><span id="line-254">    ExecutorService storeFileOpenerThreadPool =</span>
+<span class="source-line-no">255</span><span id="line-255">      openStoreFileThreadPoolCreator.apply("StoreFileOpener-" + ctx.getRegionInfo().getEncodedName()</span>
+<span class="source-line-no">256</span><span id="line-256">        + "-" + ctx.getFamily().getNameAsString());</span>
+<span class="source-line-no">257</span><span id="line-257">    CompletionService&lt;HStoreFile&gt; completionService =</span>
+<span class="source-line-no">258</span><span id="line-258">      new ExecutorCompletionService&lt;&gt;(storeFileOpenerThreadPool);</span>
+<span class="source-line-no">259</span><span id="line-259"></span>
+<span class="source-line-no">260</span><span id="line-260">    int totalValidStoreFile = 0;</span>
+<span class="source-line-no">261</span><span id="line-261">    for (StoreFileInfo storeFileInfo : files) {</span>
+<span class="source-line-no">262</span><span id="line-262">      // The StoreFileInfo will carry store configuration down to HFile, we need to set it to</span>
+<span class="source-line-no">263</span><span id="line-263">      // our store's CompoundConfiguration here.</span>
+<span class="source-line-no">264</span><span id="line-264">      storeFileInfo.setConf(conf);</span>
+<span class="source-line-no">265</span><span id="line-265">      // open each store file in parallel</span>
+<span class="source-line-no">266</span><span id="line-266">      completionService.submit(() -&gt; createStoreFileAndReader(storeFileInfo));</span>
+<span class="source-line-no">267</span><span id="line-267">      totalValidStoreFile++;</span>
+<span class="source-line-no">268</span><span id="line-268">    }</span>
+<span class="source-line-no">269</span><span id="line-269"></span>
+<span class="source-line-no">270</span><span id="line-270">    Set&lt;String&gt; compactedStoreFiles = new HashSet&lt;&gt;();</span>
+<span class="source-line-no">271</span><span id="line-271">    ArrayList&lt;HStoreFile&gt; results = new ArrayList&lt;&gt;(files.size());</span>
+<span class="source-line-no">272</span><span id="line-272">    IOException ioe = null;</span>
+<span class="source-line-no">273</span><span id="line-273">    try {</span>
+<span class="source-line-no">274</span><span id="line-274">      for (int i = 0; i &lt; totalValidStoreFile; i++) {</span>
+<span class="source-line-no">275</span><span id="line-275">        try {</span>
+<span class="source-line-no">276</span><span id="line-276">          HStoreFile storeFile = completionService.take().get();</span>
+<span class="source-line-no">277</span><span id="line-277">          if (storeFile != null) {</span>
+<span class="source-line-no">278</span><span id="line-278">            LOG.debug("loaded {}", storeFile);</span>
+<span class="source-line-no">279</span><span id="line-279">            results.add(storeFile);</span>
+<span class="source-line-no">280</span><span id="line-280">            compactedStoreFiles.addAll(storeFile.getCompactedStoreFiles());</span>
+<span class="source-line-no">281</span><span id="line-281">          }</span>
+<span class="source-line-no">282</span><span id="line-282">        } catch (InterruptedException e) {</span>
+<span class="source-line-no">283</span><span id="line-283">          if (ioe == null) {</span>
+<span class="source-line-no">284</span><span id="line-284">            ioe = new InterruptedIOException(e.getMessage());</span>
+<span class="source-line-no">285</span><span id="line-285">          }</span>
+<span class="source-line-no">286</span><span id="line-286">        } catch (ExecutionException e) {</span>
+<span class="source-line-no">287</span><span id="line-287">          if (ioe == null) {</span>
+<span class="source-line-no">288</span><span id="line-288">            ioe = new IOException(e.getCause());</span>
+<span class="source-line-no">289</span><span id="line-289">          }</span>
+<span class="source-line-no">290</span><span id="line-290">        }</span>
+<span class="source-line-no">291</span><span id="line-291">      }</span>
+<span class="source-line-no">292</span><span id="line-292">    } finally {</span>
+<span class="source-line-no">293</span><span id="line-293">      storeFileOpenerThreadPool.shutdownNow();</span>
+<span class="source-line-no">294</span><span id="line-294">    }</span>
+<span class="source-line-no">295</span><span id="line-295">    if (ioe != null) {</span>
+<span class="source-line-no">296</span><span id="line-296">      // close StoreFile readers</span>
+<span class="source-line-no">297</span><span id="line-297">      boolean evictOnClose =</span>
+<span class="source-line-no">298</span><span id="line-298">        ctx.getCacheConf() != null ? ctx.getCacheConf().shouldEvictOnClose() : true;</span>
+<span class="source-line-no">299</span><span id="line-299">      for (HStoreFile file : results) {</span>
+<span class="source-line-no">300</span><span id="line-300">        try {</span>
+<span class="source-line-no">301</span><span id="line-301">          if (file != null) {</span>
+<span class="source-line-no">302</span><span id="line-302">            file.closeStoreFile(evictOnClose);</span>
+<span class="source-line-no">303</span><span id="line-303">          }</span>
+<span class="source-line-no">304</span><span id="line-304">        } catch (IOException e) {</span>
+<span class="source-line-no">305</span><span id="line-305">          LOG.warn("Could not close store file {}", file, e);</span>
+<span class="source-line-no">306</span><span id="line-306">        }</span>
+<span class="source-line-no">307</span><span id="line-307">      }</span>
+<span class="source-line-no">308</span><span id="line-308">      throw ioe;</span>
+<span class="source-line-no">309</span><span id="line-309">    }</span>
+<span class="source-line-no">310</span><span id="line-310"></span>
+<span class="source-line-no">311</span><span id="line-311">    // Should not archive the compacted store files when region warmup. See HBASE-22163.</span>
+<span class="source-line-no">312</span><span id="line-312">    if (!warmup) {</span>
+<span class="source-line-no">313</span><span id="line-313">      // Remove the compacted files from result</span>
+<span class="source-line-no">314</span><span id="line-314">      List&lt;HStoreFile&gt; filesToRemove = new ArrayList&lt;&gt;(compactedStoreFiles.size());</span>
+<span class="source-line-no">315</span><span id="line-315">      for (HStoreFile storeFile : results) {</span>
+<span class="source-line-no">316</span><span id="line-316">        if (compactedStoreFiles.contains(storeFile.getPath().getName())) {</span>
+<span class="source-line-no">317</span><span id="line-317">          LOG.warn("Clearing the compacted storefile {} from {}", storeFile, this);</span>
+<span class="source-line-no">318</span><span id="line-318">          storeFile.getReader()</span>
+<span class="source-line-no">319</span><span id="line-319">            .close(storeFile.getCacheConf() != null</span>
+<span class="source-line-no">320</span><span id="line-320">              ? storeFile.getCacheConf().shouldEvictOnClose()</span>
+<span class="source-line-no">321</span><span id="line-321">              : true);</span>
+<span class="source-line-no">322</span><span id="line-322">          filesToRemove.add(storeFile);</span>
+<span class="source-line-no">323</span><span id="line-323">        }</span>
+<span class="source-line-no">324</span><span id="line-324">      }</span>
+<span class="source-line-no">325</span><span id="line-325">      results.removeAll(filesToRemove);</span>
+<span class="source-line-no">326</span><span id="line-326">      if (!filesToRemove.isEmpty() &amp;&amp; ctx.isPrimaryReplicaStore()) {</span>
+<span class="source-line-no">327</span><span id="line-327">        LOG.debug("Moving the files {} to archive", filesToRemove);</span>
+<span class="source-line-no">328</span><span id="line-328">        ctx.getRegionFileSystem().removeStoreFiles(ctx.getFamily().getNameAsString(),</span>
+<span class="source-line-no">329</span><span id="line-329">          filesToRemove);</span>
+<span class="source-line-no">330</span><span id="line-330">      }</span>
+<span class="source-line-no">331</span><span id="line-331">    }</span>
+<span class="source-line-no">332</span><span id="line-332"></span>
+<span class="source-line-no">333</span><span id="line-333">    return results;</span>
+<span class="source-line-no">334</span><span id="line-334">  }</span>
+<span class="source-line-no">335</span><span id="line-335"></span>
+<span class="source-line-no">336</span><span id="line-336">  public void initialize(boolean warmup) throws IOException {</span>
+<span class="source-line-no">337</span><span id="line-337">    List&lt;StoreFileInfo&gt; fileInfos = storeFileTracker.load();</span>
+<span class="source-line-no">338</span><span id="line-338">    List&lt;HStoreFile&gt; files = openStoreFiles(fileInfos, warmup);</span>
+<span class="source-line-no">339</span><span id="line-339">    storeFileManager.loadFiles(files);</span>
+<span class="source-line-no">340</span><span id="line-340">  }</span>
+<span class="source-line-no">341</span><span id="line-341"></span>
+<span class="source-line-no">342</span><span id="line-342">  public void refreshStoreFiles() throws IOException {</span>
+<span class="source-line-no">343</span><span id="line-343">    List&lt;StoreFileInfo&gt; fileInfos = storeFileTracker.load();</span>
+<span class="source-line-no">344</span><span id="line-344">    refreshStoreFilesInternal(fileInfos);</span>
+<span class="source-line-no">345</span><span id="line-345">  }</span>
+<span class="source-line-no">346</span><span id="line-346"></span>
+<span class="source-line-no">347</span><span id="line-347">  public void refreshStoreFiles(Collection&lt;String&gt; newFiles) throws IOException {</span>
+<span class="source-line-no">348</span><span id="line-348">    List&lt;StoreFileInfo&gt; storeFiles = new ArrayList&lt;&gt;(newFiles.size());</span>
+<span class="source-line-no">349</span><span id="line-349">    for (String file : newFiles) {</span>
+<span class="source-line-no">350</span><span id="line-350">      storeFiles.add(ctx.getRegionFileSystem().getStoreFileInfo(ctx.getFamily().getNameAsString(),</span>
+<span class="source-line-no">351</span><span id="line-351">        file, storeFileTracker));</span>
+<span class="source-line-no">352</span><span id="line-352">    }</span>
+<span class="source-line-no">353</span><span id="line-353">    refreshStoreFilesInternal(storeFiles);</span>
+<span class="source-line-no">354</span><span id="line-354">  }</span>
+<span class="source-line-no">355</span><span id="line-355"></span>
+<span class="source-line-no">356</span><span id="line-356">  /**</span>
+<span class="source-line-no">357</span><span id="line-357">   * Checks the underlying store files, and opens the files that have not been opened, and removes</span>
+<span class="source-line-no">358</span><span id="line-358">   * the store file readers for store files no longer available. Mainly used by secondary region</span>
+<span class="source-line-no">359</span><span id="line-359">   * replicas to keep up to date with the primary region files.</span>
+<span class="source-line-no">360</span><span id="line-360">   */</span>
+<span class="source-line-no">361</span><span id="line-361">  private void refreshStoreFilesInternal(Collection&lt;StoreFileInfo&gt; newFiles) throws IOException {</span>
+<span class="source-line-no">362</span><span id="line-362">    Collection&lt;HStoreFile&gt; currentFiles = storeFileManager.getStoreFiles();</span>
+<span class="source-line-no">363</span><span id="line-363">    Collection&lt;HStoreFile&gt; compactedFiles = storeFileManager.getCompactedfiles();</span>
+<span class="source-line-no">364</span><span id="line-364">    if (currentFiles == null) {</span>
+<span class="source-line-no">365</span><span id="line-365">      currentFiles = Collections.emptySet();</span>
+<span class="source-line-no">366</span><span id="line-366">    }</span>
+<span class="source-line-no">367</span><span id="line-367">    if (newFiles == null) {</span>
+<span class="source-line-no">368</span><span id="line-368">      newFiles = Collections.emptySet();</span>
+<span class="source-line-no">369</span><span id="line-369">    }</span>
+<span class="source-line-no">370</span><span id="line-370">    if (compactedFiles == null) {</span>
+<span class="source-line-no">371</span><span id="line-371">      compactedFiles = Collections.emptySet();</span>
+<span class="source-line-no">372</span><span id="line-372">    }</span>
+<span class="source-line-no">373</span><span id="line-373"></span>
+<span class="source-line-no">374</span><span id="line-374">    HashMap&lt;StoreFileInfo, HStoreFile&gt; currentFilesSet = new HashMap&lt;&gt;(currentFiles.size());</span>
+<span class="source-line-no">375</span><span id="line-375">    for (HStoreFile sf : currentFiles) {</span>
+<span class="source-line-no">376</span><span id="line-376">      currentFilesSet.put(sf.getFileInfo(), sf);</span>
+<span class="source-line-no">377</span><span id="line-377">    }</span>
+<span class="source-line-no">378</span><span id="line-378">    HashMap&lt;StoreFileInfo, HStoreFile&gt; compactedFilesSet = new HashMap&lt;&gt;(compactedFiles.size());</span>
+<span class="source-line-no">379</span><span id="line-379">    for (HStoreFile sf : compactedFiles) {</span>
+<span class="source-line-no">380</span><span id="line-380">      compactedFilesSet.put(sf.getFileInfo(), sf);</span>
+<span class="source-line-no">381</span><span id="line-381">    }</span>
+<span class="source-line-no">382</span><span id="line-382"></span>
+<span class="source-line-no">383</span><span id="line-383">    Set&lt;StoreFileInfo&gt; newFilesSet = new HashSet&lt;StoreFileInfo&gt;(newFiles);</span>
+<span class="source-line-no">384</span><span id="line-384">    // Exclude the files that have already been compacted</span>
+<span class="source-line-no">385</span><span id="line-385">    newFilesSet = Sets.difference(newFilesSet, compactedFilesSet.keySet());</span>
+<span class="source-line-no">386</span><span id="line-386">    Set&lt;StoreFileInfo&gt; toBeAddedFiles = Sets.difference(newFilesSet, currentFilesSet.keySet());</span>
+<span class="source-line-no">387</span><span id="line-387">    Set&lt;StoreFileInfo&gt; toBeRemovedFiles = Sets.difference(currentFilesSet.keySet(), newFilesSet);</span>
+<span class="source-line-no">388</span><span id="line-388"></span>
+<span class="source-line-no">389</span><span id="line-389">    if (toBeAddedFiles.isEmpty() &amp;&amp; toBeRemovedFiles.isEmpty()) {</span>
+<span class="source-line-no">390</span><span id="line-390">      return;</span>
+<span class="source-line-no">391</span><span id="line-391">    }</span>
+<span class="source-line-no">392</span><span id="line-392"></span>
+<span class="source-line-no">393</span><span id="line-393">    LOG.info("Refreshing store files for " + this + " files to add: " + toBeAddedFiles</span>
+<span class="source-line-no">394</span><span id="line-394">      + " files to remove: " + toBeRemovedFiles);</span>
+<span class="source-line-no">395</span><span id="line-395"></span>
+<span class="source-line-no">396</span><span id="line-396">    Set&lt;HStoreFile&gt; toBeRemovedStoreFiles = new HashSet&lt;&gt;(toBeRemovedFiles.size());</span>
+<span class="source-line-no">397</span><span id="line-397">    for (StoreFileInfo sfi : toBeRemovedFiles) {</span>
+<span class="source-line-no">398</span><span id="line-398">      toBeRemovedStoreFiles.add(currentFilesSet.get(sfi));</span>
+<span class="source-line-no">399</span><span id="line-399">    }</span>
+<span class="source-line-no">400</span><span id="line-400"></span>
+<span class="source-line-no">401</span><span id="line-401">    // try to open the files</span>
+<span class="source-line-no">402</span><span id="line-402">    List&lt;HStoreFile&gt; openedFiles = openStoreFiles(toBeAddedFiles, false);</span>
+<span class="source-line-no">403</span><span id="line-403"></span>
+<span class="source-line-no">404</span><span id="line-404">    // propogate the file changes to the underlying store file manager</span>
+<span class="source-line-no">405</span><span id="line-405">    replaceStoreFiles(toBeRemovedStoreFiles, openedFiles, () -&gt; {</span>
+<span class="source-line-no">406</span><span id="line-406">    }, () -&gt; {</span>
+<span class="source-line-no">407</span><span id="line-407">    }); // won't throw an exception</span>
+<span class="source-line-no">408</span><span id="line-408">  }</span>
+<span class="source-line-no">409</span><span id="line-409"></span>
+<span class="source-line-no">410</span><span id="line-410">  /**</span>
+<span class="source-line-no">411</span><span id="line-411">   * Commit the given {@code files}.</span>
+<span class="source-line-no">412</span><span id="line-412">   * &lt;p/&gt;</span>
+<span class="source-line-no">413</span><span id="line-413">   * We will move the file into data directory, and open it.</span>
+<span class="source-line-no">414</span><span id="line-414">   * @param files    the files want to commit</span>
+<span class="source-line-no">415</span><span id="line-415">   * @param validate whether to validate the store files</span>
+<span class="source-line-no">416</span><span id="line-416">   * @return the committed store files</span>
+<span class="source-line-no">417</span><span id="line-417">   */</span>
+<span class="source-line-no">418</span><span id="line-418">  public List&lt;HStoreFile&gt; commitStoreFiles(List&lt;Path&gt; files, boolean validate) throws IOException {</span>
+<span class="source-line-no">419</span><span id="line-419">    List&lt;HStoreFile&gt; committedFiles = new ArrayList&lt;&gt;(files.size());</span>
+<span class="source-line-no">420</span><span id="line-420">    HRegionFileSystem hfs = ctx.getRegionFileSystem();</span>
+<span class="source-line-no">421</span><span id="line-421">    String familyName = ctx.getFamily().getNameAsString();</span>
+<span class="source-line-no">422</span><span id="line-422">    Path storeDir = hfs.getStoreDir(familyName);</span>
+<span class="source-line-no">423</span><span id="line-423">    for (Path file : files) {</span>
+<span class="source-line-no">424</span><span id="line-424">      try {</span>
+<span class="source-line-no">425</span><span id="line-425">        if (validate) {</span>
+<span class="source-line-no">426</span><span id="line-426">          validateStoreFile(file);</span>
+<span class="source-line-no">427</span><span id="line-427">        }</span>
+<span class="source-line-no">428</span><span id="line-428">        Path committedPath;</span>
+<span class="source-line-no">429</span><span id="line-429">        // As we want to support writing to data directory directly, here we need to check whether</span>
+<span class="source-line-no">430</span><span id="line-430">        // the store file is already in the right place</span>
+<span class="source-line-no">431</span><span id="line-431">        if (file.getParent() != null &amp;&amp; file.getParent().equals(storeDir)) {</span>
+<span class="source-line-no">432</span><span id="line-432">          // already in the right place, skip renmaing</span>
+<span class="source-line-no">433</span><span id="line-433">          committedPath = file;</span>
+<span class="source-line-no">434</span><span id="line-434">        } else {</span>
+<span class="source-line-no">435</span><span id="line-435">          // Write-out finished successfully, move into the right spot</span>
+<span class="source-line-no">436</span><span id="line-436">          committedPath = hfs.commitStoreFile(familyName, file);</span>
+<span class="source-line-no">437</span><span id="line-437">        }</span>
+<span class="source-line-no">438</span><span id="line-438">        HStoreFile sf = createStoreFileAndReader(committedPath);</span>
+<span class="source-line-no">439</span><span id="line-439">        committedFiles.add(sf);</span>
+<span class="source-line-no">440</span><span id="line-440">      } catch (IOException e) {</span>
+<span class="source-line-no">441</span><span id="line-441">        LOG.error("Failed to commit store file {}", file, e);</span>
+<span class="source-line-no">442</span><span id="line-442">        // Try to delete the files we have committed before.</span>
+<span class="source-line-no">443</span><span id="line-443">        // It is OK to fail when deleting as leaving the file there does not cause any data</span>
+<span class="source-line-no">444</span><span id="line-444">        // corruption problem. It just introduces some duplicated data which may impact read</span>
+<span class="source-line-no">445</span><span id="line-445">        // performance a little when reading before compaction.</span>
+<span class="source-line-no">446</span><span id="line-446">        for (HStoreFile sf : committedFiles) {</span>
+<span class="source-line-no">447</span><span id="line-447">          Path pathToDelete = sf.getPath();</span>
+<span class="source-line-no">448</span><span id="line-448">          try {</span>
+<span class="source-line-no">449</span><span id="line-449">            sf.deleteStoreFile();</span>
+<span class="source-line-no">450</span><span id="line-450">          } catch (IOException deleteEx) {</span>
+<span class="source-line-no">451</span><span id="line-451">            LOG.warn(HBaseMarkers.FATAL, "Failed to delete committed store file {}", pathToDelete,</span>
+<span class="source-line-no">452</span><span id="line-452">              deleteEx);</span>
+<span class="source-line-no">453</span><span id="line-453">          }</span>
+<span class="source-line-no">454</span><span id="line-454">        }</span>
+<span class="source-line-no">455</span><span id="line-455">        throw new IOException("Failed to commit the flush", e);</span>
+<span class="source-line-no">456</span><span id="line-456">      }</span>
+<span class="source-line-no">457</span><span id="line-457">    }</span>
+<span class="source-line-no">458</span><span id="line-458">    return committedFiles;</span>
+<span class="source-line-no">459</span><span id="line-459">  }</span>
+<span class="source-line-no">460</span><span id="line-460"></span>
+<span class="source-line-no">461</span><span id="line-461">  /**</span>
+<span class="source-line-no">462</span><span id="line-462">   * Add the store files to store file manager, and also record it in the store file tracker.</span>
+<span class="source-line-no">463</span><span id="line-463">   * &lt;p/&gt;</span>
+<span class="source-line-no">464</span><span id="line-464">   * The {@code actionAfterAdding} will be executed after the insertion to store file manager, under</span>
+<span class="source-line-no">465</span><span id="line-465">   * the lock protection. Usually this is for clear the memstore snapshot.</span>
+<span class="source-line-no">466</span><span id="line-466">   */</span>
+<span class="source-line-no">467</span><span id="line-467">  public void addStoreFiles(Collection&lt;HStoreFile&gt; storeFiles,</span>
+<span class="source-line-no">468</span><span id="line-468">    IOExceptionRunnable actionAfterAdding) throws IOException {</span>
+<span class="source-line-no">469</span><span id="line-469">    storeFileTracker.add(StoreUtils.toStoreFileInfo(storeFiles));</span>
+<span class="source-line-no">470</span><span id="line-470">    writeLock();</span>
+<span class="source-line-no">471</span><span id="line-471">    try {</span>
+<span class="source-line-no">472</span><span id="line-472">      storeFileManager.insertNewFiles(storeFiles);</span>
+<span class="source-line-no">473</span><span id="line-473">      actionAfterAdding.run();</span>
+<span class="source-line-no">474</span><span id="line-474">    } finally {</span>
+<span class="source-line-no">475</span><span id="line-475">      // We need the lock, as long as we are updating the storeFiles</span>
+<span class="source-line-no">476</span><span id="line-476">      // or changing the memstore. Let us release it before calling</span>
+<span class="source-line-no">477</span><span id="line-477">      // notifyChangeReadersObservers. See HBASE-4485 for a possible</span>
+<span class="source-line-no">478</span><span id="line-478">      // deadlock scenario that could have happened if continue to hold</span>
+<span class="source-line-no">479</span><span id="line-479">      // the lock.</span>
+<span class="source-line-no">480</span><span id="line-480">      writeUnlock();</span>
+<span class="source-line-no">481</span><span id="line-481">    }</span>
+<span class="source-line-no">482</span><span id="line-482">  }</span>
+<span class="source-line-no">483</span><span id="line-483"></span>
+<span class="source-line-no">484</span><span id="line-484">  public void replaceStoreFiles(Collection&lt;HStoreFile&gt; compactedFiles,</span>
+<span class="source-line-no">485</span><span id="line-485">    Collection&lt;HStoreFile&gt; newFiles, IOExceptionRunnable walMarkerWriter, Runnable actionUnderLock)</span>
+<span class="source-line-no">486</span><span id="line-486">    throws IOException {</span>
+<span class="source-line-no">487</span><span id="line-487">    storeFileTracker.replace(StoreUtils.toStoreFileInfo(compactedFiles),</span>
+<span class="source-line-no">488</span><span id="line-488">      StoreUtils.toStoreFileInfo(newFiles));</span>
+<span class="source-line-no">489</span><span id="line-489">    walMarkerWriter.run();</span>
+<span class="source-line-no">490</span><span id="line-490">    writeLock();</span>
+<span class="source-line-no">491</span><span id="line-491">    try {</span>
+<span class="source-line-no">492</span><span id="line-492">      storeFileManager.addCompactionResults(compactedFiles, newFiles);</span>
+<span class="source-line-no">493</span><span id="line-493">      actionUnderLock.run();</span>
+<span class="source-line-no">494</span><span id="line-494">    } finally {</span>
+<span class="source-line-no">495</span><span id="line-495">      writeUnlock();</span>
+<span class="source-line-no">496</span><span id="line-496">    }</span>
+<span class="source-line-no">497</span><span id="line-497">  }</span>
+<span class="source-line-no">498</span><span id="line-498"></span>
+<span class="source-line-no">499</span><span id="line-499">  public void removeCompactedFiles(Collection&lt;HStoreFile&gt; compactedFiles) {</span>
+<span class="source-line-no">500</span><span id="line-500">    writeLock();</span>
+<span class="source-line-no">501</span><span id="line-501">    try {</span>
+<span class="source-line-no">502</span><span id="line-502">      storeFileManager.removeCompactedFiles(compactedFiles);</span>
+<span class="source-line-no">503</span><span id="line-503">    } finally {</span>
+<span class="source-line-no">504</span><span id="line-504">      writeUnlock();</span>
+<span class="source-line-no">505</span><span id="line-505">    }</span>
+<span class="source-line-no">506</span><span id="line-506">  }</span>
+<span class="source-line-no">507</span><span id="line-507"></span>
+<span class="source-line-no">508</span><span id="line-508">  /**</span>
+<span class="source-line-no">509</span><span id="line-509">   * Create the StoreEngine configured for the given Store.</span>
+<span class="source-line-no">510</span><span id="line-510">   * @param store          The store. An unfortunate dependency needed due to it being passed to</span>
+<span class="source-line-no">511</span><span id="line-511">   *                       coprocessors via the compactor.</span>
+<span class="source-line-no">512</span><span id="line-512">   * @param conf           Store configuration.</span>
+<span class="source-line-no">513</span><span id="line-513">   * @param cellComparator CellComparator for storeFileManager.</span>
+<span class="source-line-no">514</span><span id="line-514">   * @return StoreEngine to use.</span>
+<span class="source-line-no">515</span><span id="line-515">   */</span>
+<span class="source-line-no">516</span><span id="line-516">  public static StoreEngine&lt;?, ?, ?, ?&gt; create(HStore store, Configuration conf,</span>
+<span class="source-line-no">517</span><span id="line-517">    CellComparator cellComparator) throws IOException {</span>
+<span class="source-line-no">518</span><span id="line-518">    String className = conf.get(STORE_ENGINE_CLASS_KEY, DEFAULT_STORE_ENGINE_CLASS.getName());</span>
+<span class="source-line-no">519</span><span id="line-519">    try {</span>
+<span class="source-line-no">520</span><span id="line-520">      StoreEngine&lt;?, ?, ?, ?&gt; se =</span>
+<span class="source-line-no">521</span><span id="line-521">        ReflectionUtils.instantiateWithCustomCtor(className, new Class[] {}, new Object[] {});</span>
+<span class="source-line-no">522</span><span id="line-522">      se.createComponentsOnce(conf, store, cellComparator);</span>
+<span class="source-line-no">523</span><span id="line-523">      return se;</span>
+<span class="source-line-no">524</span><span id="line-524">    } catch (Exception e) {</span>
+<span class="source-line-no">525</span><span id="line-525">      throw new IOException("Unable to load configured store engine '" + className + "'", e);</span>
+<span class="source-line-no">526</span><span id="line-526">    }</span>
+<span class="source-line-no">527</span><span id="line-527">  }</span>
+<span class="source-line-no">528</span><span id="line-528"></span>
+<span class="source-line-no">529</span><span id="line-529">  /**</span>
+<span class="source-line-no">530</span><span id="line-530">   * Whether the implementation of the used storefile tracker requires you to write to temp</span>
+<span class="source-line-no">531</span><span id="line-531">   * directory first, i.e, does not allow broken store files under the actual data directory.</span>
+<span class="source-line-no">532</span><span id="line-532">   */</span>
+<span class="source-line-no">533</span><span id="line-533">  public boolean requireWritingToTmpDirFirst() {</span>
+<span class="source-line-no">534</span><span id="line-534">    return storeFileTracker.requireWritingToTmpDirFirst();</span>
+<span class="source-line-no">535</span><span id="line-535">  }</span>
+<span class="source-line-no">536</span><span id="line-536"></span>
+<span class="source-line-no">537</span><span id="line-537">  @RestrictedApi(explanation = "Should only be called in TestHStore", link = "",</span>
+<span class="source-line-no">538</span><span id="line-538">      allowedOnPath = ".*/TestHStore.java")</span>
+<span class="source-line-no">539</span><span id="line-539">  ReadWriteLock getLock() {</span>
+<span class="source-line-no">540</span><span id="line-540">    return storeLock;</span>
+<span class="source-line-no">541</span><span id="line-541">  }</span>
+<span class="source-line-no">542</span><span id="line-542"></span>
+<span class="source-line-no">543</span><span id="line-543">  public BloomFilterMetrics getBloomFilterMetrics() {</span>
+<span class="source-line-no">544</span><span id="line-544">    return bloomFilterMetrics;</span>
+<span class="source-line-no">545</span><span id="line-545">  }</span>
+<span class="source-line-no">546</span><span id="line-546">}</span>
 
 
 

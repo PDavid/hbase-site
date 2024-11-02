@@ -912,7 +912,8 @@ Input/OutputFormats, a table indexing MapReduce job, and utility methods.</div>
 <div class="block">Used by the client (via master) to identify if all regions have the schema updates</div>
 </div>
 <div class="col-first even-row-color"><code>private <a href="../Pair.html" title="class in org.apache.hadoop.hbase.util">Pair</a>&lt;org.apache.hadoop.fs.Path,<wbr>org.apache.hadoop.fs.Path&gt;</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">SplitTableRegionProcedure.</span><code><a href="../../master/assignment/SplitTableRegionProcedure.html#splitStoreFile(org.apache.hadoop.hbase.regionserver.HRegionFileSystem,byte%5B%5D,org.apache.hadoop.hbase.regionserver.HStoreFile)" class="member-name-link">splitStoreFile</a><wbr>(<a href="../../regionserver/HRegionFileSystem.html" title="class in org.apache.hadoop.hbase.regionserver">HRegionFileSystem</a>&nbsp;regionFs,
+<div class="col-second even-row-color"><span class="type-name-label">SplitTableRegionProcedure.</span><code><a href="../../master/assignment/SplitTableRegionProcedure.html#splitStoreFile(org.apache.hadoop.hbase.regionserver.HRegionFileSystem,org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker,byte%5B%5D,org.apache.hadoop.hbase.regionserver.HStoreFile)" class="member-name-link">splitStoreFile</a><wbr>(<a href="../../regionserver/HRegionFileSystem.html" title="class in org.apache.hadoop.hbase.regionserver">HRegionFileSystem</a>&nbsp;regionFs,
+ <a href="../../regionserver/storefiletracker/StoreFileTracker.html" title="interface in org.apache.hadoop.hbase.regionserver.storefiletracker">StoreFileTracker</a>&nbsp;tracker,
  byte[]&nbsp;family,
  <a href="../../regionserver/HStoreFile.html" title="class in org.apache.hadoop.hbase.regionserver">HStoreFile</a>&nbsp;sf)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>

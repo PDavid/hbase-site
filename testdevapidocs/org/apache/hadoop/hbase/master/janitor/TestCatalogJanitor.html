@@ -77,7 +77,7 @@ loadScripts(document, 'script');</script>
 </div>
 <section class="class-description" id="class-description">
 <hr>
-<div class="type-signature"><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-81">TestCatalogJanitor</a></span>
+<div class="type-signature"><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-84">TestCatalogJanitor</a></span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
 </section>
 <section class="summary">
@@ -145,7 +145,9 @@ loadScripts(document, 'script');</script>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#beforeClass()" class="member-name-link">beforeClass</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private org.apache.hadoop.fs.Path</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createMergeReferenceFile(org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.client.RegionInfo,org.apache.hadoop.hbase.client.RegionInfo)" class="member-name-link">createMergeReferenceFile</a><wbr>(org.apache.hadoop.fs.Path&nbsp;storeDir,
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createMergeReferenceFile(org.apache.hadoop.fs.Path,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.client.ColumnFamilyDescriptor,org.apache.hadoop.hbase.client.RegionInfo,org.apache.hadoop.hbase.client.RegionInfo)" class="member-name-link">createMergeReferenceFile</a><wbr>(org.apache.hadoop.fs.Path&nbsp;storeDir,
+ org.apache.hadoop.fs.Path&nbsp;tableDir,
+ org.apache.hadoop.hbase.client.ColumnFamilyDescriptor&nbsp;columnFamilyDescriptor,
  org.apache.hadoop.hbase.client.RegionInfo&nbsp;mergedRegion,
  org.apache.hadoop.hbase.client.RegionInfo&nbsp;parentRegion)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
@@ -262,37 +264,37 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="CLASS_RULE">
 <h3>CLASS_RULE</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../HBaseClassTestRule.html" title="class in org.apache.hadoop.hbase">HBaseClassTestRule</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-84">CLASS_RULE</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../HBaseClassTestRule.html" title="class in org.apache.hadoop.hbase">HBaseClassTestRule</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-87">CLASS_RULE</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="LOG">
 <h3>LOG</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-88">LOG</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-91">LOG</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="HTU">
 <h3>HTU</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="../../HBaseTestingUtil.html" title="class in org.apache.hadoop.hbase">HBaseTestingUtil</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-90">HTU</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="../../HBaseTestingUtil.html" title="class in org.apache.hadoop.hbase">HBaseTestingUtil</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-93">HTU</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="name">
 <h3>name</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type">org.junit.rules.TestName</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-92">name</a></span></div>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type">org.junit.rules.TestName</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-95">name</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="masterServices">
 <h3>masterServices</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../assignment/MockMasterServices.html" title="class in org.apache.hadoop.hbase.master.assignment">MockMasterServices</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-95">masterServices</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../assignment/MockMasterServices.html" title="class in org.apache.hadoop.hbase.master.assignment">MockMasterServices</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-98">masterServices</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="janitor">
 <h3>janitor</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.master.janitor.CatalogJanitor</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-96">janitor</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.master.janitor.CatalogJanitor</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-99">janitor</a></span></div>
 </section>
 </li>
 </ul>
@@ -306,7 +308,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;()">
 <h3>TestCatalogJanitor</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-82">TestCatalogJanitor</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-85">TestCatalogJanitor</a></span>()</div>
 </section>
 </li>
 </ul>
@@ -320,7 +322,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="beforeClass()">
 <h3>beforeClass</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-98">beforeClass</a></span>()
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-101">beforeClass</a></span>()
                         throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -331,7 +333,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="setup()">
 <h3>setup</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-104">setup</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-107">setup</a></span>()
            throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -342,13 +344,13 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="teardown()">
 <h3>teardown</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-112">teardown</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-115">teardown</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="createRegionInfo(org.apache.hadoop.hbase.TableName,byte[],byte[])">
 <h3>createRegionInfo</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.client.RegionInfo</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-118">createRegionInfo</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.TableName&nbsp;tableName,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.client.RegionInfo</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-121">createRegionInfo</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.TableName&nbsp;tableName,
  byte[]&nbsp;startKey,
  byte[]&nbsp;endKey)</span></div>
 </section>
@@ -356,7 +358,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="createRegionInfo(org.apache.hadoop.hbase.TableName,byte[],byte[],boolean)">
 <h3>createRegionInfo</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.client.RegionInfo</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-122">createRegionInfo</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.TableName&nbsp;tableName,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.client.RegionInfo</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-125">createRegionInfo</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.TableName&nbsp;tableName,
  byte[]&nbsp;startKey,
  byte[]&nbsp;endKey,
  boolean&nbsp;split)</span></div>
@@ -365,7 +367,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testCleanMerge()">
 <h3>testCleanMerge</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-128">testCleanMerge</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-131">testCleanMerge</a></span>()
                     throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -376,7 +378,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testDontCleanMergeIfFileSystemException()">
 <h3>testDontCleanMergeIfFileSystemException</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-165">testDontCleanMergeIfFileSystemException</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-170">testDontCleanMergeIfFileSystemException</a></span>()
                                              throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -385,9 +387,11 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="createMergeReferenceFile(org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.client.RegionInfo,org.apache.hadoop.hbase.client.RegionInfo)">
+<section class="detail" id="createMergeReferenceFile(org.apache.hadoop.fs.Path,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.client.ColumnFamilyDescriptor,org.apache.hadoop.hbase.client.RegionInfo,org.apache.hadoop.hbase.client.RegionInfo)">
 <h3>createMergeReferenceFile</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-212">createMergeReferenceFile</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;storeDir,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-217">createMergeReferenceFile</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;storeDir,
+ org.apache.hadoop.fs.Path&nbsp;tableDir,
+ org.apache.hadoop.hbase.client.ColumnFamilyDescriptor&nbsp;columnFamilyDescriptor,
  org.apache.hadoop.hbase.client.RegionInfo&nbsp;mergedRegion,
  org.apache.hadoop.hbase.client.RegionInfo&nbsp;parentRegion)</span>
                                                     throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
@@ -400,7 +404,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testCleanParent()">
 <h3>testCleanParent</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-225">testCleanParent</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-238">testCleanParent</a></span>()
                      throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a>,
 <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/InterruptedException.html" title="class or interface in java.lang" class="external-link">InterruptedException</a></span></div>
 <div class="block">Test clearing a split parent.</div>
@@ -414,7 +418,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testParentCleanedEvenIfDaughterGoneFirst()">
 <h3>testParentCleanedEvenIfDaughterGoneFirst</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-267">testParentCleanedEvenIfDaughterGoneFirst</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-287">testParentCleanedEvenIfDaughterGoneFirst</a></span>()
                                               throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a>,
 <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/InterruptedException.html" title="class or interface in java.lang" class="external-link">InterruptedException</a></span></div>
 <div class="block">Make sure parent gets cleaned up even if daughter is cleaned up before it.</div>
@@ -428,7 +432,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testLastParentCleanedEvenIfDaughterGoneFirst()">
 <h3>testLastParentCleanedEvenIfDaughterGoneFirst</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-277">testLastParentCleanedEvenIfDaughterGoneFirst</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-297">testLastParentCleanedEvenIfDaughterGoneFirst</a></span>()
                                                   throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a>,
 <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/InterruptedException.html" title="class or interface in java.lang" class="external-link">InterruptedException</a></span></div>
 <div class="block">Make sure last parent with empty end key gets cleaned up even if daughter is cleaned up before
@@ -443,7 +447,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="createTableDescriptorForCurrentMethod()">
 <h3>createTableDescriptorForCurrentMethod</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.client.TableDescriptor</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-287">createTableDescriptorForCurrentMethod</a></span>()</div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.client.TableDescriptor</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-307">createTableDescriptorForCurrentMethod</a></span>()</div>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>A TableDescriptor with a tableName of current method name and a column family that is
@@ -454,7 +458,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="parentWithSpecifiedEndKeyCleanedEvenIfDaughterGoneFirst(java.lang.String,byte[])">
 <h3>parentWithSpecifiedEndKeyCleanedEvenIfDaughterGoneFirst</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-300">parentWithSpecifiedEndKeyCleanedEvenIfDaughterGoneFirst</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;rootDir,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-320">parentWithSpecifiedEndKeyCleanedEvenIfDaughterGoneFirst</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;rootDir,
  byte[]&nbsp;lastEndKey)</span>
                                                               throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a>,
 <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/InterruptedException.html" title="class or interface in java.lang" class="external-link">InterruptedException</a></span></div>
@@ -473,7 +477,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testScanDoesNotCleanRegionsWithExistingParents()">
 <h3>testScanDoesNotCleanRegionsWithExistingParents</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-385">testScanDoesNotCleanRegionsWithExistingParents</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-405">testScanDoesNotCleanRegionsWithExistingParents</a></span>()
                                                     throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <div class="block">CatalogJanitor.scan() should not clean parent regions if their own parents are still
  referencing them. This ensures that grandparent regions do not point to deleted parent regions.</div>
@@ -486,14 +490,14 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testSplitParentFirstComparator()">
 <h3>testSplitParentFirstComparator</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-452">testSplitParentFirstComparator</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-472">testSplitParentFirstComparator</a></span>()</div>
 <div class="block">Test that we correctly archive all the storefiles when a region is deleted</div>
 </section>
 </li>
 <li>
 <section class="detail" id="testArchiveOldRegion()">
 <h3>testArchiveOldRegion</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-521">testArchiveOldRegion</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-541">testArchiveOldRegion</a></span>()
                           throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -504,7 +508,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="logFiles(java.lang.String,org.apache.hadoop.fs.FileStatus[])">
 <h3>logFiles</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-585">logFiles</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;description,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-605">logFiles</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;description,
  org.apache.hadoop.fs.FileStatus[]&nbsp;storeFiles)</span></div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -516,7 +520,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testDuplicateHFileResolution()">
 <h3>testDuplicateHFileResolution</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-596">testDuplicateHFileResolution</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-616">testDuplicateHFileResolution</a></span>()
                                   throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <div class="block">Test that if a store file with the same name is present as those already backed up cause the
  already archived files to be timestamped backup</div>
@@ -529,7 +533,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testAlreadyRunningStatus()">
 <h3>testAlreadyRunningStatus</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-656">testAlreadyRunningStatus</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-676">testAlreadyRunningStatus</a></span>()
                               throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -540,7 +544,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="addMockStoreFiles(int,org.apache.hadoop.hbase.master.MasterServices,org.apache.hadoop.fs.Path)">
 <h3>addMockStoreFiles</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.FileStatus[]</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-679">addMockStoreFiles</a></span><wbr><span class="parameters">(int&nbsp;count,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.FileStatus[]</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-699">addMockStoreFiles</a></span><wbr><span class="parameters">(int&nbsp;count,
  org.apache.hadoop.hbase.master.MasterServices&nbsp;services,
  org.apache.hadoop.fs.Path&nbsp;storedir)</span>
                                                      throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
@@ -553,7 +557,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="setRootDirAndCleanIt(org.apache.hadoop.hbase.HBaseTestingUtil,java.lang.String)">
 <h3>setRootDirAndCleanIt</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-698">setRootDirAndCleanIt</a></span><wbr><span class="parameters">(<a href="../../HBaseTestingUtil.html" title="class in org.apache.hadoop.hbase">HBaseTestingUtil</a>&nbsp;htu,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-718">setRootDirAndCleanIt</a></span><wbr><span class="parameters">(<a href="../../HBaseTestingUtil.html" title="class in org.apache.hadoop.hbase">HBaseTestingUtil</a>&nbsp;htu,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;subdir)</span>
                              throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
@@ -565,7 +569,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="createReferences(org.apache.hadoop.hbase.master.MasterServices,org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.hbase.client.RegionInfo,org.apache.hadoop.hbase.client.RegionInfo,byte[],boolean)">
 <h3>createReferences</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-707">createReferences</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.master.MasterServices&nbsp;services,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-727">createReferences</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.master.MasterServices&nbsp;services,
  org.apache.hadoop.hbase.client.TableDescriptor&nbsp;td,
  org.apache.hadoop.hbase.client.RegionInfo&nbsp;parent,
  org.apache.hadoop.hbase.client.RegionInfo&nbsp;daughter,
@@ -581,7 +585,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="createResult(org.apache.hadoop.hbase.client.RegionInfo,org.apache.hadoop.hbase.client.RegionInfo,org.apache.hadoop.hbase.client.RegionInfo)">
 <h3>createResult</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.client.Result</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-724">createResult</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.client.RegionInfo&nbsp;parent,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.client.Result</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/janitor/TestCatalogJanitor.html#line-751">createResult</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.client.RegionInfo&nbsp;parent,
  org.apache.hadoop.hbase.client.RegionInfo&nbsp;a,
  org.apache.hadoop.hbase.client.RegionInfo&nbsp;b)</span>
                                                     throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>

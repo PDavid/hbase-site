@@ -2075,116 +2075,113 @@ Input/OutputFormats, a table indexing MapReduce job, and utility methods.</div>
 <div class="col-last odd-row-color">
 <div class="block">This is a helper function to compute HDFS block distribution on demand</div>
 </div>
-<div class="col-first even-row-color"><code>static org.apache.hadoop.hbase.regionserver.HRegion</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">HRegion.</span><code>createHRegion<wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="col-first even-row-color"><code>static org.apache.hadoop.hbase.regionserver.HRegionFileSystem</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">HRegionFileSystem.</span><code>create<wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+ org.apache.hadoop.fs.FileSystem&nbsp;fs,
+ org.apache.hadoop.fs.Path&nbsp;tableDir,
+ org.apache.hadoop.hbase.client.RegionInfo&nbsp;regionInfo)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static org.apache.hadoop.hbase.regionserver.HRegion</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">HRegion.</span><code>createHRegion<wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.hbase.client.RegionInfo&nbsp;regionInfo,
  org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.Path&nbsp;tableDir,
  org.apache.hadoop.hbase.client.TableDescriptor&nbsp;tableDesc)</code></div>
-<div class="col-last even-row-color">
+<div class="col-last odd-row-color">
 <div class="block">Create a region under the given table directory.</div>
 </div>
+<div class="col-first even-row-color"><code>static org.apache.hadoop.hbase.regionserver.HRegion</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">HRegion.</span><code>createHRegion<wbr>(org.apache.hadoop.hbase.client.RegionInfo&nbsp;info,
+ org.apache.hadoop.fs.Path&nbsp;rootDir,
+ org.apache.hadoop.conf.Configuration&nbsp;conf,
+ org.apache.hadoop.hbase.client.TableDescriptor&nbsp;hTableDescriptor,
+ org.apache.hadoop.hbase.wal.WAL&nbsp;wal)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>static org.apache.hadoop.hbase.regionserver.HRegion</code></div>
 <div class="col-second odd-row-color"><span class="type-name-label">HRegion.</span><code>createHRegion<wbr>(org.apache.hadoop.hbase.client.RegionInfo&nbsp;info,
  org.apache.hadoop.fs.Path&nbsp;rootDir,
  org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.hbase.client.TableDescriptor&nbsp;hTableDescriptor,
- org.apache.hadoop.hbase.wal.WAL&nbsp;wal)</code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
+ org.apache.hadoop.hbase.wal.WAL&nbsp;wal,
+ boolean&nbsp;initialize)</code></div>
+<div class="col-last odd-row-color">
+<div class="block">Convenience method creating new HRegions.</div>
+</div>
 <div class="col-first even-row-color"><code>static org.apache.hadoop.hbase.regionserver.HRegion</code></div>
 <div class="col-second even-row-color"><span class="type-name-label">HRegion.</span><code>createHRegion<wbr>(org.apache.hadoop.hbase.client.RegionInfo&nbsp;info,
  org.apache.hadoop.fs.Path&nbsp;rootDir,
  org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.hbase.client.TableDescriptor&nbsp;hTableDescriptor,
  org.apache.hadoop.hbase.wal.WAL&nbsp;wal,
- boolean&nbsp;initialize)</code></div>
-<div class="col-last even-row-color">
-<div class="block">Convenience method creating new HRegions.</div>
-</div>
-<div class="col-first odd-row-color"><code>static org.apache.hadoop.hbase.regionserver.HRegion</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">HRegion.</span><code>createHRegion<wbr>(org.apache.hadoop.hbase.client.RegionInfo&nbsp;info,
- org.apache.hadoop.fs.Path&nbsp;rootDir,
- org.apache.hadoop.conf.Configuration&nbsp;conf,
- org.apache.hadoop.hbase.client.TableDescriptor&nbsp;hTableDescriptor,
- org.apache.hadoop.hbase.wal.WAL&nbsp;wal,
  boolean&nbsp;initialize,
  org.apache.hadoop.hbase.regionserver.RegionServerServices&nbsp;rsRpcServices)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-last even-row-color">
 <div class="block">Convenience method creating new HRegions.</div>
 </div>
-<div class="col-first even-row-color"><code>static org.apache.hadoop.hbase.regionserver.HRegionFileSystem</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">HRegion.</span><code>createRegionDir<wbr>(org.apache.hadoop.conf.Configuration&nbsp;configuration,
+<div class="col-first odd-row-color"><code>static org.apache.hadoop.hbase.regionserver.HRegionFileSystem</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">HRegion.</span><code>createRegionDir<wbr>(org.apache.hadoop.conf.Configuration&nbsp;configuration,
  org.apache.hadoop.hbase.client.RegionInfo&nbsp;ri,
  org.apache.hadoop.fs.Path&nbsp;rootDir)</code></div>
-<div class="col-last even-row-color">
+<div class="col-last odd-row-color">
 <div class="block">Create the region directory in the filesystem.</div>
 </div>
-<div class="col-first odd-row-color"><code>static org.apache.hadoop.hbase.regionserver.HRegionFileSystem</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">HRegionFileSystem.</span><code>createRegionOnFileSystem<wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="col-first even-row-color"><code>static org.apache.hadoop.hbase.regionserver.HRegionFileSystem</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">HRegionFileSystem.</span><code>createRegionOnFileSystem<wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.Path&nbsp;tableDir,
  org.apache.hadoop.hbase.client.RegionInfo&nbsp;regionInfo)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-last even-row-color">
 <div class="block">Create a new Region on file-system.</div>
 </div>
-<div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">HRegionFileSystem.</span><code>createSplitsDir<wbr>(org.apache.hadoop.hbase.client.RegionInfo&nbsp;daughterA,
+<div class="col-first odd-row-color"><code>void</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">HRegionFileSystem.</span><code>createSplitsDir<wbr>(org.apache.hadoop.hbase.client.RegionInfo&nbsp;daughterA,
  org.apache.hadoop.hbase.client.RegionInfo&nbsp;daughterB)</code></div>
-<div class="col-last even-row-color">
+<div class="col-last odd-row-color">
 <div class="block">Creates region split daughter directories under the table dir.</div>
 </div>
-<div class="col-first odd-row-color"><code>static void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">HRegionFileSystem.</span><code>deleteRegionFromFileSystem<wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="col-first even-row-color"><code>static void</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">HRegionFileSystem.</span><code>deleteRegionFromFileSystem<wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.Path&nbsp;tableDir,
  org.apache.hadoop.hbase.client.RegionInfo&nbsp;regionInfo)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-last even-row-color">
 <div class="block">Remove the region from the table directory, archiving the region's hfiles.</div>
 </div>
-<div class="col-first even-row-color"><code>org.apache.hadoop.fs.Path</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">HRegionFileSystem.</span><code>getSplitsDir<wbr>(org.apache.hadoop.hbase.client.RegionInfo&nbsp;hri)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>static org.apache.hadoop.fs.Path</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">HRegionFileSystem.</span><code>getStoreHomedir<wbr>(org.apache.hadoop.fs.Path&nbsp;tabledir,
+<div class="col-first odd-row-color"><code>org.apache.hadoop.fs.Path</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">HRegionFileSystem.</span><code>getSplitsDir<wbr>(org.apache.hadoop.hbase.client.RegionInfo&nbsp;hri)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static org.apache.hadoop.fs.Path</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">HRegionFileSystem.</span><code>getStoreHomedir<wbr>(org.apache.hadoop.fs.Path&nbsp;tabledir,
  org.apache.hadoop.hbase.client.RegionInfo&nbsp;hri,
  byte[]&nbsp;family)</code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>org.apache.hadoop.hbase.wal.WAL</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">HRegionServer.</span><code>getWAL<wbr>(org.apache.hadoop.hbase.client.RegionInfo&nbsp;regionInfo)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>org.apache.hadoop.hbase.wal.WAL</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">RegionServerServices.</span><code>getWAL<wbr>(org.apache.hadoop.hbase.client.RegionInfo&nbsp;regionInfo)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-second odd-row-color"><span class="type-name-label">HRegionServer.</span><code>getWAL<wbr>(org.apache.hadoop.hbase.client.RegionInfo&nbsp;regionInfo)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>org.apache.hadoop.hbase.wal.WAL</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">RegionServerServices.</span><code>getWAL<wbr>(org.apache.hadoop.hbase.client.RegionInfo&nbsp;regionInfo)</code></div>
+<div class="col-last even-row-color">
 <div class="block">Returns the WAL for a particular region.</div>
 </div>
-<div class="col-first even-row-color"><code>org.apache.hadoop.fs.Path</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">HRegionFileSystem.</span><code>mergeStoreFile<wbr>(org.apache.hadoop.hbase.client.RegionInfo&nbsp;mergingRegion,
+<div class="col-first odd-row-color"><code>org.apache.hadoop.fs.Path</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">HRegionFileSystem.</span><code>mergeStoreFile<wbr>(org.apache.hadoop.hbase.client.RegionInfo&nbsp;mergingRegion,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;familyName,
- org.apache.hadoop.hbase.regionserver.HStoreFile&nbsp;f)</code></div>
-<div class="col-last even-row-color">
+ org.apache.hadoop.hbase.regionserver.HStoreFile&nbsp;f,
+ org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker&nbsp;tracker)</code></div>
+<div class="col-last odd-row-color">
 <div class="block">Write out a merge reference under the given merges directory.</div>
 </div>
-<div class="col-first odd-row-color"><code>static org.apache.hadoop.hbase.regionserver.HRegion</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">HRegion.</span><code>newHRegion<wbr>(org.apache.hadoop.fs.Path&nbsp;tableDir,
+<div class="col-first even-row-color"><code>static org.apache.hadoop.hbase.regionserver.HRegion</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">HRegion.</span><code>newHRegion<wbr>(org.apache.hadoop.fs.Path&nbsp;tableDir,
  org.apache.hadoop.hbase.wal.WAL&nbsp;wal,
  org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.hbase.client.RegionInfo&nbsp;regionInfo,
  org.apache.hadoop.hbase.client.TableDescriptor&nbsp;htd,
  org.apache.hadoop.hbase.regionserver.RegionServerServices&nbsp;rsServices)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-last even-row-color">
 <div class="block">A utility method to create new instances of HRegion based on the <code>HConstants.REGION_IMPL</code>
  configuration property.</div>
-</div>
-<div class="col-first even-row-color"><code>static org.apache.hadoop.hbase.regionserver.HRegion</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">HRegion.</span><code>openHRegion<wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
- org.apache.hadoop.fs.FileSystem&nbsp;fs,
- org.apache.hadoop.fs.Path&nbsp;rootDir,
- org.apache.hadoop.hbase.client.RegionInfo&nbsp;info,
- org.apache.hadoop.hbase.client.TableDescriptor&nbsp;htd,
- org.apache.hadoop.hbase.wal.WAL&nbsp;wal)</code></div>
-<div class="col-last even-row-color">
-<div class="block">Open a Region.</div>
 </div>
 <div class="col-first odd-row-color"><code>static org.apache.hadoop.hbase.regionserver.HRegion</code></div>
 <div class="col-second odd-row-color"><span class="type-name-label">HRegion.</span><code>openHRegion<wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
@@ -2192,18 +2189,19 @@ Input/OutputFormats, a table indexing MapReduce job, and utility methods.</div>
  org.apache.hadoop.fs.Path&nbsp;rootDir,
  org.apache.hadoop.hbase.client.RegionInfo&nbsp;info,
  org.apache.hadoop.hbase.client.TableDescriptor&nbsp;htd,
- org.apache.hadoop.hbase.wal.WAL&nbsp;wal,
- org.apache.hadoop.hbase.regionserver.RegionServerServices&nbsp;rsServices,
- org.apache.hadoop.hbase.util.CancelableProgressable&nbsp;reporter)</code></div>
+ org.apache.hadoop.hbase.wal.WAL&nbsp;wal)</code></div>
 <div class="col-last odd-row-color">
 <div class="block">Open a Region.</div>
 </div>
 <div class="col-first even-row-color"><code>static org.apache.hadoop.hbase.regionserver.HRegion</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">HRegion.</span><code>openHRegion<wbr>(org.apache.hadoop.fs.Path&nbsp;rootDir,
+<div class="col-second even-row-color"><span class="type-name-label">HRegion.</span><code>openHRegion<wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+ org.apache.hadoop.fs.FileSystem&nbsp;fs,
+ org.apache.hadoop.fs.Path&nbsp;rootDir,
  org.apache.hadoop.hbase.client.RegionInfo&nbsp;info,
  org.apache.hadoop.hbase.client.TableDescriptor&nbsp;htd,
  org.apache.hadoop.hbase.wal.WAL&nbsp;wal,
- org.apache.hadoop.conf.Configuration&nbsp;conf)</code></div>
+ org.apache.hadoop.hbase.regionserver.RegionServerServices&nbsp;rsServices,
+ org.apache.hadoop.hbase.util.CancelableProgressable&nbsp;reporter)</code></div>
 <div class="col-last even-row-color">
 <div class="block">Open a Region.</div>
 </div>
@@ -2212,17 +2210,18 @@ Input/OutputFormats, a table indexing MapReduce job, and utility methods.</div>
  org.apache.hadoop.hbase.client.RegionInfo&nbsp;info,
  org.apache.hadoop.hbase.client.TableDescriptor&nbsp;htd,
  org.apache.hadoop.hbase.wal.WAL&nbsp;wal,
- org.apache.hadoop.conf.Configuration&nbsp;conf,
- org.apache.hadoop.hbase.regionserver.RegionServerServices&nbsp;rsServices,
- org.apache.hadoop.hbase.util.CancelableProgressable&nbsp;reporter)</code></div>
+ org.apache.hadoop.conf.Configuration&nbsp;conf)</code></div>
 <div class="col-last odd-row-color">
 <div class="block">Open a Region.</div>
 </div>
 <div class="col-first even-row-color"><code>static org.apache.hadoop.hbase.regionserver.HRegion</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">HRegion.</span><code>openHRegion<wbr>(org.apache.hadoop.hbase.client.RegionInfo&nbsp;info,
+<div class="col-second even-row-color"><span class="type-name-label">HRegion.</span><code>openHRegion<wbr>(org.apache.hadoop.fs.Path&nbsp;rootDir,
+ org.apache.hadoop.hbase.client.RegionInfo&nbsp;info,
  org.apache.hadoop.hbase.client.TableDescriptor&nbsp;htd,
  org.apache.hadoop.hbase.wal.WAL&nbsp;wal,
- org.apache.hadoop.conf.Configuration&nbsp;conf)</code></div>
+ org.apache.hadoop.conf.Configuration&nbsp;conf,
+ org.apache.hadoop.hbase.regionserver.RegionServerServices&nbsp;rsServices,
+ org.apache.hadoop.hbase.util.CancelableProgressable&nbsp;reporter)</code></div>
 <div class="col-last even-row-color">
 <div class="block">Open a Region.</div>
 </div>
@@ -2230,84 +2229,93 @@ Input/OutputFormats, a table indexing MapReduce job, and utility methods.</div>
 <div class="col-second odd-row-color"><span class="type-name-label">HRegion.</span><code>openHRegion<wbr>(org.apache.hadoop.hbase.client.RegionInfo&nbsp;info,
  org.apache.hadoop.hbase.client.TableDescriptor&nbsp;htd,
  org.apache.hadoop.hbase.wal.WAL&nbsp;wal,
+ org.apache.hadoop.conf.Configuration&nbsp;conf)</code></div>
+<div class="col-last odd-row-color">
+<div class="block">Open a Region.</div>
+</div>
+<div class="col-first even-row-color"><code>static org.apache.hadoop.hbase.regionserver.HRegion</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">HRegion.</span><code>openHRegion<wbr>(org.apache.hadoop.hbase.client.RegionInfo&nbsp;info,
+ org.apache.hadoop.hbase.client.TableDescriptor&nbsp;htd,
+ org.apache.hadoop.hbase.wal.WAL&nbsp;wal,
  org.apache.hadoop.conf.Configuration&nbsp;conf,
+ org.apache.hadoop.hbase.regionserver.RegionServerServices&nbsp;rsServices,
+ org.apache.hadoop.hbase.util.CancelableProgressable&nbsp;reporter)</code></div>
+<div class="col-last even-row-color">
+<div class="block">Open a Region.</div>
+</div>
+<div class="col-first odd-row-color"><code>static org.apache.hadoop.hbase.regionserver.HRegion</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">HRegion.</span><code>openHRegionFromTableDir<wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+ org.apache.hadoop.fs.FileSystem&nbsp;fs,
+ org.apache.hadoop.fs.Path&nbsp;tableDir,
+ org.apache.hadoop.hbase.client.RegionInfo&nbsp;info,
+ org.apache.hadoop.hbase.client.TableDescriptor&nbsp;htd,
+ org.apache.hadoop.hbase.wal.WAL&nbsp;wal,
  org.apache.hadoop.hbase.regionserver.RegionServerServices&nbsp;rsServices,
  org.apache.hadoop.hbase.util.CancelableProgressable&nbsp;reporter)</code></div>
 <div class="col-last odd-row-color">
 <div class="block">Open a Region.</div>
 </div>
 <div class="col-first even-row-color"><code>static org.apache.hadoop.hbase.regionserver.HRegion</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">HRegion.</span><code>openHRegionFromTableDir<wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
- org.apache.hadoop.fs.FileSystem&nbsp;fs,
- org.apache.hadoop.fs.Path&nbsp;tableDir,
- org.apache.hadoop.hbase.client.RegionInfo&nbsp;info,
- org.apache.hadoop.hbase.client.TableDescriptor&nbsp;htd,
- org.apache.hadoop.hbase.wal.WAL&nbsp;wal,
- org.apache.hadoop.hbase.regionserver.RegionServerServices&nbsp;rsServices,
- org.apache.hadoop.hbase.util.CancelableProgressable&nbsp;reporter)</code></div>
-<div class="col-last even-row-color">
-<div class="block">Open a Region.</div>
-</div>
-<div class="col-first odd-row-color"><code>static org.apache.hadoop.hbase.regionserver.HRegion</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">HRegion.</span><code>openReadOnlyFileSystemHRegion<wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="col-second even-row-color"><span class="type-name-label">HRegion.</span><code>openReadOnlyFileSystemHRegion<wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.Path&nbsp;tableDir,
  org.apache.hadoop.hbase.client.RegionInfo&nbsp;info,
  org.apache.hadoop.hbase.client.TableDescriptor&nbsp;htd)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-last even-row-color">
 <div class="block">Open a Region on a read-only file-system (like hdfs snapshots)</div>
 </div>
-<div class="col-first even-row-color"><code>static org.apache.hadoop.hbase.regionserver.HRegionFileSystem</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">HRegionFileSystem.</span><code>openRegionFromFileSystem<wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="col-first odd-row-color"><code>static org.apache.hadoop.hbase.regionserver.HRegionFileSystem</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">HRegionFileSystem.</span><code>openRegionFromFileSystem<wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.Path&nbsp;tableDir,
  org.apache.hadoop.hbase.client.RegionInfo&nbsp;regionInfo,
  boolean&nbsp;readOnly)</code></div>
-<div class="col-last even-row-color">
+<div class="col-last odd-row-color">
 <div class="block">Open Region from file-system.</div>
 </div>
-<div class="col-first odd-row-color"><code>void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">RegionCoprocessorHost.</span><code>postReplayWALs<wbr>(org.apache.hadoop.hbase.client.RegionInfo&nbsp;info,
- org.apache.hadoop.fs.Path&nbsp;edits)</code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">RegionCoprocessorHost.</span><code>preReplayWALs<wbr>(org.apache.hadoop.hbase.client.RegionInfo&nbsp;info,
+<div class="col-second even-row-color"><span class="type-name-label">RegionCoprocessorHost.</span><code>postReplayWALs<wbr>(org.apache.hadoop.hbase.client.RegionInfo&nbsp;info,
  org.apache.hadoop.fs.Path&nbsp;edits)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>static boolean</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">HRegion.</span><code>rowIsInRange<wbr>(org.apache.hadoop.hbase.client.RegionInfo&nbsp;info,
- byte[]&nbsp;row)</code></div>
-<div class="col-last odd-row-color">
-<div class="block">Determines if the specified row is within the row range specified by the specified RegionInfo</div>
-</div>
+<div class="col-first odd-row-color"><code>void</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">RegionCoprocessorHost.</span><code>preReplayWALs<wbr>(org.apache.hadoop.hbase.client.RegionInfo&nbsp;info,
+ org.apache.hadoop.fs.Path&nbsp;edits)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>static boolean</code></div>
 <div class="col-second even-row-color"><span class="type-name-label">HRegion.</span><code>rowIsInRange<wbr>(org.apache.hadoop.hbase.client.RegionInfo&nbsp;info,
+ byte[]&nbsp;row)</code></div>
+<div class="col-last even-row-color">
+<div class="block">Determines if the specified row is within the row range specified by the specified RegionInfo</div>
+</div>
+<div class="col-first odd-row-color"><code>static boolean</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">HRegion.</span><code>rowIsInRange<wbr>(org.apache.hadoop.hbase.client.RegionInfo&nbsp;info,
  byte[]&nbsp;row,
  int&nbsp;offset,
  short&nbsp;length)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>org.apache.hadoop.fs.Path</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">HRegionFileSystem.</span><code>splitStoreFile<wbr>(org.apache.hadoop.hbase.client.RegionInfo&nbsp;hri,
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>org.apache.hadoop.fs.Path</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">HRegionFileSystem.</span><code>splitStoreFile<wbr>(org.apache.hadoop.hbase.client.RegionInfo&nbsp;hri,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;familyName,
  org.apache.hadoop.hbase.regionserver.HStoreFile&nbsp;f,
  byte[]&nbsp;splitRow,
  boolean&nbsp;top,
- org.apache.hadoop.hbase.regionserver.RegionSplitPolicy&nbsp;splitPolicy)</code></div>
-<div class="col-last odd-row-color">
+ org.apache.hadoop.hbase.regionserver.RegionSplitPolicy&nbsp;splitPolicy,
+ org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker&nbsp;tracker)</code></div>
+<div class="col-last even-row-color">
 <div class="block">Write out a split reference.</div>
 </div>
-<div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">RSSnapshotVerifier.</span><code>verifyRegion<wbr>(org.apache.hadoop.hbase.shaded.protobuf.generated.SnapshotProtos.SnapshotDescription&nbsp;snapshot,
+<div class="col-first odd-row-color"><code>void</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">RSSnapshotVerifier.</span><code>verifyRegion<wbr>(org.apache.hadoop.hbase.shaded.protobuf.generated.SnapshotProtos.SnapshotDescription&nbsp;snapshot,
  org.apache.hadoop.hbase.client.RegionInfo&nbsp;region)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>static org.apache.hadoop.hbase.regionserver.HRegion</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">HRegion.</span><code>warmupHRegion<wbr>(org.apache.hadoop.hbase.client.RegionInfo&nbsp;info,
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static org.apache.hadoop.hbase.regionserver.HRegion</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">HRegion.</span><code>warmupHRegion<wbr>(org.apache.hadoop.hbase.client.RegionInfo&nbsp;info,
  org.apache.hadoop.hbase.client.TableDescriptor&nbsp;htd,
  org.apache.hadoop.hbase.wal.WAL&nbsp;wal,
  org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.hbase.regionserver.RegionServerServices&nbsp;rsServices,
  org.apache.hadoop.hbase.util.CancelableProgressable&nbsp;reporter)</code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-last even-row-color">&nbsp;</div>
 </div>
 <div class="caption"><span>Method parameters in <a href="../../regionserver/package-summary.html">org.apache.hadoop.hbase.regionserver</a> with type arguments of type org.apache.hadoop.hbase.client.RegionInfo in  in </span></div>
 <div class="summary-table three-column-summary">
@@ -3042,7 +3050,8 @@ Input/OutputFormats, a table indexing MapReduce job, and utility methods.</div>
  org.apache.hadoop.hbase.client.RegionInfo&nbsp;regionInfo,
  org.apache.hadoop.hbase.client.RegionInfo&nbsp;regionInfoForFs,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;familyName,
- org.apache.hadoop.fs.Path&nbsp;path)</code></div>
+ org.apache.hadoop.fs.Path&nbsp;path,
+ org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker&nbsp;tracker)</code></div>
 <div class="col-last even-row-color">
 <div class="block">Returns a StoreFileInfo from the given FileStatus.</div>
 </div>

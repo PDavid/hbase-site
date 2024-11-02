@@ -84,7 +84,7 @@ loadScripts(document, 'script');</script>
 </dl>
 <hr>
 <div class="type-signature"><span class="annotations">@Private
-</span><span class="modifiers">class </span><span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/regionserver/storefiletracker/FileBasedStoreFileTracker.html#line-50">FileBasedStoreFileTracker</a></span>
+</span><span class="modifiers">class </span><span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/regionserver/storefiletracker/FileBasedStoreFileTracker.html#line-52">FileBasedStoreFileTracker</a></span>
 <span class="extends-implements">extends <a href="StoreFileTrackerBase.html" title="class in org.apache.hadoop.hbase.regionserver.storefiletracker">StoreFileTrackerBase</a></span></div>
 <div class="block">A file based store file tracker.
  <p/>
@@ -109,9 +109,12 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color"><code>private final <a href="StoreFileListFile.html" title="class in org.apache.hadoop.hbase.regionserver.storefiletracker">StoreFileListFile</a></code></div>
 <div class="col-second even-row-color"><code><a href="#backedFile" class="member-name-link">backedFile</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="../StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a>&gt;</code></div>
-<div class="col-second odd-row-color"><code><a href="#storefiles" class="member-name-link">storefiles</a></code></div>
+<div class="col-first odd-row-color"><code>private static final org.slf4j.Logger</code></div>
+<div class="col-second odd-row-color"><code><a href="#LOG" class="member-name-link">LOG</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="../StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a>&gt;</code></div>
+<div class="col-second even-row-color"><code><a href="#storefiles" class="member-name-link">storefiles</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
 </div>
 <div class="inherited-list">
 <h3 id="fields-inherited-from-class-org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTrackerBase">Fields inherited from class&nbsp;org.apache.hadoop.hbase.regionserver.storefiletracker.<a href="StoreFileTrackerBase.html" title="class in org.apache.hadoop.hbase.regionserver.storefiletracker">StoreFileTrackerBase</a></h3>
@@ -174,7 +177,7 @@ loadScripts(document, 'script');</script>
 </div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTrackerBase">Methods inherited from class&nbsp;org.apache.hadoop.hbase.regionserver.storefiletracker.<a href="StoreFileTrackerBase.html" title="class in org.apache.hadoop.hbase.regionserver.storefiletracker">StoreFileTrackerBase</a></h3>
-<code><a href="StoreFileTrackerBase.html#add(java.util.Collection)">add</a>, <a href="StoreFileTrackerBase.html#createWriter(org.apache.hadoop.hbase.regionserver.CreateStoreFileWriterParams)">createWriter</a>, <a href="StoreFileTrackerBase.html#getTrackerName()">getTrackerName</a>, <a href="StoreFileTrackerBase.html#load()">load</a>, <a href="StoreFileTrackerBase.html#replace(java.util.Collection,java.util.Collection)">replace</a>, <a href="StoreFileTrackerBase.html#set(java.util.List)">set</a>, <a href="StoreFileTrackerBase.html#updateWithTrackerConfigs(org.apache.hadoop.hbase.client.TableDescriptorBuilder)">updateWithTrackerConfigs</a></code></div>
+<code><a href="StoreFileTrackerBase.html#add(java.util.Collection)">add</a>, <a href="StoreFileTrackerBase.html#createReference(org.apache.hadoop.hbase.io.Reference,org.apache.hadoop.fs.Path)">createReference</a>, <a href="StoreFileTrackerBase.html#createWriter(org.apache.hadoop.hbase.regionserver.CreateStoreFileWriterParams)">createWriter</a>, <a href="StoreFileTrackerBase.html#getStoreFileInfo(org.apache.hadoop.fs.FileStatus,org.apache.hadoop.fs.Path,boolean)">getStoreFileInfo</a>, <a href="StoreFileTrackerBase.html#getStoreFileInfo(org.apache.hadoop.fs.Path,boolean)">getStoreFileInfo</a>, <a href="StoreFileTrackerBase.html#getTrackerName()">getTrackerName</a>, <a href="StoreFileTrackerBase.html#hasReferences()">hasReferences</a>, <a href="StoreFileTrackerBase.html#load()">load</a>, <a href="StoreFileTrackerBase.html#readReference(org.apache.hadoop.fs.Path)">readReference</a>, <a href="StoreFileTrackerBase.html#replace(java.util.Collection,java.util.Collection)">replace</a>, <a href="StoreFileTrackerBase.html#set(java.util.List)">set</a>, <a href="StoreFileTrackerBase.html#updateWithTrackerConfigs(org.apache.hadoop.hbase.client.TableDescriptorBuilder)">updateWithTrackerConfigs</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;java.lang.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></h3>
 <code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
@@ -192,13 +195,19 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="backedFile">
 <h3>backedFile</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="StoreFileListFile.html" title="class in org.apache.hadoop.hbase.regionserver.storefiletracker">StoreFileListFile</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/regionserver/storefiletracker/FileBasedStoreFileTracker.html#line-53">backedFile</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="StoreFileListFile.html" title="class in org.apache.hadoop.hbase.regionserver.storefiletracker">StoreFileListFile</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/regionserver/storefiletracker/FileBasedStoreFileTracker.html#line-55">backedFile</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="storefiles">
 <h3>storefiles</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="../StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/regionserver/storefiletracker/FileBasedStoreFileTracker.html#line-55">storefiles</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="../StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/regionserver/storefiletracker/FileBasedStoreFileTracker.html#line-57">storefiles</a></span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="LOG">
+<h3>LOG</h3>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/regionserver/storefiletracker/FileBasedStoreFileTracker.html#line-58">LOG</a></span></div>
 </section>
 </li>
 </ul>
@@ -212,7 +221,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;(org.apache.hadoop.conf.Configuration,boolean,org.apache.hadoop.hbase.regionserver.StoreContext)">
 <h3>FileBasedStoreFileTracker</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/regionserver/storefiletracker/FileBasedStoreFileTracker.html#line-57">FileBasedStoreFileTracker</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/regionserver/storefiletracker/FileBasedStoreFileTracker.html#line-60">FileBasedStoreFileTracker</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
  boolean&nbsp;isPrimaryReplica,
  <a href="../StoreContext.html" title="class in org.apache.hadoop.hbase.regionserver">StoreContext</a>&nbsp;ctx)</span></div>
 </section>
@@ -228,7 +237,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="doLoadStoreFiles(boolean)">
 <h3>doLoadStoreFiles</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/regionserver/storefiletracker/FileBasedStoreFileTracker.html#line-69">doLoadStoreFiles</a></span><wbr><span class="parameters">(boolean&nbsp;readOnly)</span>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/regionserver/storefiletracker/FileBasedStoreFileTracker.html#line-72">doLoadStoreFiles</a></span><wbr><span class="parameters">(boolean&nbsp;readOnly)</span>
                                         throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="StoreFileTrackerBase.html#doLoadStoreFiles(boolean)">StoreFileTrackerBase</a></code></span></div>
 <div class="block">For primary replica, we will call load once when opening a region, and the implementation could
@@ -246,7 +255,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="requireWritingToTmpDirFirst()">
 <h3>requireWritingToTmpDirFirst</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/regionserver/storefiletracker/FileBasedStoreFileTracker.html#line-97">requireWritingToTmpDirFirst</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/regionserver/storefiletracker/FileBasedStoreFileTracker.html#line-104">requireWritingToTmpDirFirst</a></span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="StoreFileTracker.html#requireWritingToTmpDirFirst()">StoreFileTracker</a></code></span></div>
 <div class="block">Whether the implementation of this tracker requires you to write to temp directory first, i.e,
  does not allow broken store files under the actual data directory.</div>
@@ -255,13 +264,13 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="toStoreFileEntry(org.apache.hadoop.hbase.regionserver.StoreFileInfo)">
 <h3>toStoreFileEntry</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.shaded.protobuf.generated.StoreFileTrackerProtos.StoreFileEntry</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/regionserver/storefiletracker/FileBasedStoreFileTracker.html#line-102">toStoreFileEntry</a></span><wbr><span class="parameters">(<a href="../StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a>&nbsp;info)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.shaded.protobuf.generated.StoreFileTrackerProtos.StoreFileEntry</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/regionserver/storefiletracker/FileBasedStoreFileTracker.html#line-109">toStoreFileEntry</a></span><wbr><span class="parameters">(<a href="../StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a>&nbsp;info)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="doAddNewStoreFiles(java.util.Collection)">
 <h3>doAddNewStoreFiles</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/regionserver/storefiletracker/FileBasedStoreFileTracker.html#line-107">doAddNewStoreFiles</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="../StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a>&gt;&nbsp;newFiles)</span>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/regionserver/storefiletracker/FileBasedStoreFileTracker.html#line-114">doAddNewStoreFiles</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="../StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a>&gt;&nbsp;newFiles)</span>
                            throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
@@ -274,7 +283,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="doAddCompactionResults(java.util.Collection,java.util.Collection)">
 <h3>doAddCompactionResults</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/regionserver/storefiletracker/FileBasedStoreFileTracker.html#line-124">doAddCompactionResults</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="../StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a>&gt;&nbsp;compactedFiles,
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/regionserver/storefiletracker/FileBasedStoreFileTracker.html#line-134">doAddCompactionResults</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="../StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a>&gt;&nbsp;compactedFiles,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="../StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a>&gt;&nbsp;newFiles)</span>
                                throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
@@ -288,7 +297,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="doSetStoreFiles(java.util.Collection)">
 <h3>doSetStoreFiles</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/regionserver/storefiletracker/FileBasedStoreFileTracker.html#line-150">doSetStoreFiles</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="../StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a>&gt;&nbsp;files)</span>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/regionserver/storefiletracker/FileBasedStoreFileTracker.html#line-164">doSetStoreFiles</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="../StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a>&gt;&nbsp;files)</span>
                         throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Specified by:</dt>

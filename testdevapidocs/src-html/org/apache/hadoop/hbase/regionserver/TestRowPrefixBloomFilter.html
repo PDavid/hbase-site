@@ -199,7 +199,7 @@
 <span class="source-line-no">186</span><span id="line-186"></span>
 <span class="source-line-no">187</span><span id="line-187">    // read the file</span>
 <span class="source-line-no">188</span><span id="line-188">    ReaderContext context = new ReaderContextBuilder().withFileSystemAndPath(fs, f).build();</span>
-<span class="source-line-no">189</span><span id="line-189">    StoreFileInfo storeFileInfo = new StoreFileInfo(conf, fs, f, true);</span>
+<span class="source-line-no">189</span><span id="line-189">    StoreFileInfo storeFileInfo = StoreFileInfo.createStoreFileInfoForHFile(conf, fs, f, true);</span>
 <span class="source-line-no">190</span><span id="line-190">    storeFileInfo.initHFileInfo(context);</span>
 <span class="source-line-no">191</span><span id="line-191">    StoreFileReader reader = storeFileInfo.createReader(context, cacheConf);</span>
 <span class="source-line-no">192</span><span id="line-192">    storeFileInfo.getHFileInfo().initMetaAndIndex(reader.getHFileReader());</span>
@@ -272,7 +272,7 @@
 <span class="source-line-no">259</span><span id="line-259">    writeStoreFile(f, bt, expKeys);</span>
 <span class="source-line-no">260</span><span id="line-260"></span>
 <span class="source-line-no">261</span><span id="line-261">    ReaderContext context = new ReaderContextBuilder().withFileSystemAndPath(fs, f).build();</span>
-<span class="source-line-no">262</span><span id="line-262">    StoreFileInfo storeFileInfo = new StoreFileInfo(conf, fs, f, true);</span>
+<span class="source-line-no">262</span><span id="line-262">    StoreFileInfo storeFileInfo = StoreFileInfo.createStoreFileInfoForHFile(conf, fs, f, true);</span>
 <span class="source-line-no">263</span><span id="line-263">    storeFileInfo.initHFileInfo(context);</span>
 <span class="source-line-no">264</span><span id="line-264">    StoreFileReader reader = storeFileInfo.createReader(context, cacheConf);</span>
 <span class="source-line-no">265</span><span id="line-265">    storeFileInfo.getHFileInfo().initMetaAndIndex(reader.getHFileReader());</span>
@@ -328,7 +328,7 @@
 <span class="source-line-no">315</span><span id="line-315">    writeStoreFile(f, bt, expKeys);</span>
 <span class="source-line-no">316</span><span id="line-316"></span>
 <span class="source-line-no">317</span><span id="line-317">    ReaderContext context = new ReaderContextBuilder().withFileSystemAndPath(fs, f).build();</span>
-<span class="source-line-no">318</span><span id="line-318">    StoreFileInfo storeFileInfo = new StoreFileInfo(conf, fs, f, true);</span>
+<span class="source-line-no">318</span><span id="line-318">    StoreFileInfo storeFileInfo = StoreFileInfo.createStoreFileInfoForHFile(conf, fs, f, true);</span>
 <span class="source-line-no">319</span><span id="line-319">    storeFileInfo.initHFileInfo(context);</span>
 <span class="source-line-no">320</span><span id="line-320">    StoreFileReader reader = storeFileInfo.createReader(context, cacheConf);</span>
 <span class="source-line-no">321</span><span id="line-321">    storeFileInfo.getHFileInfo().initMetaAndIndex(reader.getHFileReader());</span>

@@ -83,7 +83,7 @@ loadScripts(document, 'script');</script>
 <dd><code><a href="TestDateTieredCompactionPolicy.html" title="class in org.apache.hadoop.hbase.regionserver">TestDateTieredCompactionPolicy</a></code>, <code><a href="TestDateTieredCompactionPolicyHeterogeneousStorage.html" title="class in org.apache.hadoop.hbase.regionserver">TestDateTieredCompactionPolicyHeterogeneousStorage</a></code>, <code><a href="TestDateTieredCompactionPolicyOverflow.html" title="class in org.apache.hadoop.hbase.regionserver">TestDateTieredCompactionPolicyOverflow</a></code></dd>
 </dl>
 <hr>
-<div class="type-signature"><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/AbstractTestDateTieredCompactionPolicy.html#line-35">AbstractTestDateTieredCompactionPolicy</a></span>
+<div class="type-signature"><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/AbstractTestDateTieredCompactionPolicy.html#line-36">AbstractTestDateTieredCompactionPolicy</a></span>
 <span class="extends-implements">extends <a href="TestCompactionPolicy.html" title="class in org.apache.hadoop.hbase.regionserver">TestCompactionPolicy</a></span></div>
 </section>
 <section class="summary">
@@ -170,7 +170,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;()">
 <h3>AbstractTestDateTieredCompactionPolicy</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/AbstractTestDateTieredCompactionPolicy.html#line-35">AbstractTestDateTieredCompactionPolicy</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/AbstractTestDateTieredCompactionPolicy.html#line-36">AbstractTestDateTieredCompactionPolicy</a></span>()</div>
 </section>
 </li>
 </ul>
@@ -184,7 +184,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="sfCreate(long[],long[],long[])">
 <h3>sfCreate</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;org.apache.hadoop.hbase.regionserver.HStoreFile&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/AbstractTestDateTieredCompactionPolicy.html#line-37">sfCreate</a></span><wbr><span class="parameters">(long[]&nbsp;minTimestamps,
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;org.apache.hadoop.hbase.regionserver.HStoreFile&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/AbstractTestDateTieredCompactionPolicy.html#line-38">sfCreate</a></span><wbr><span class="parameters">(long[]&nbsp;minTimestamps,
  long[]&nbsp;maxTimestamps,
  long[]&nbsp;sizes)</span>
                                                                        throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
@@ -197,7 +197,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="compactEquals(long,java.util.ArrayList,long[],long[],boolean,boolean)">
 <h3>compactEquals</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/AbstractTestDateTieredCompactionPolicy.html#line-59">compactEquals</a></span><wbr><span class="parameters">(long&nbsp;now,
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/AbstractTestDateTieredCompactionPolicy.html#line-62">compactEquals</a></span><wbr><span class="parameters">(long&nbsp;now,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;org.apache.hadoop.hbase.regionserver.HStoreFile&gt;&nbsp;candidates,
  long[]&nbsp;expectedFileSizes,
  long[]&nbsp;expectedBoundaries,
@@ -213,7 +213,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getRequest(long,java.util.ArrayList,boolean,boolean)">
 <h3>getRequest</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.regionserver.compactions.DateTieredCompactionRequest</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/AbstractTestDateTieredCompactionPolicy.html#line-68">getRequest</a></span><wbr><span class="parameters">(long&nbsp;now,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.regionserver.compactions.DateTieredCompactionRequest</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/AbstractTestDateTieredCompactionPolicy.html#line-71">getRequest</a></span><wbr><span class="parameters">(long&nbsp;now,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;org.apache.hadoop.hbase.regionserver.HStoreFile&gt;&nbsp;candidates,
  boolean&nbsp;isMajor,
  boolean&nbsp;toCompact)</span>
@@ -227,7 +227,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="compactEqualsStoragePolicy(long,java.util.ArrayList,java.util.Map,boolean,boolean)">
 <h3>compactEqualsStoragePolicy</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/AbstractTestDateTieredCompactionPolicy.html#line-90">compactEqualsStoragePolicy</a></span><wbr><span class="parameters">(long&nbsp;now,
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/AbstractTestDateTieredCompactionPolicy.html#line-93">compactEqualsStoragePolicy</a></span><wbr><span class="parameters">(long&nbsp;now,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;org.apache.hadoop.hbase.regionserver.HStoreFile&gt;&nbsp;candidates,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;expectedBoundariesPolicies,
  boolean&nbsp;isMajor,

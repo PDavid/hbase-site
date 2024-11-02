@@ -3219,11 +3219,19 @@ loadScripts(document, 'script');</script>
  org.apache.hadoop.hbase.client.RegionInfo&nbsp;hri)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>private void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">TestBulkLoadReplication.</span><code><a href="../regionserver/TestBulkLoadReplication.html#setupCoprocessor(org.apache.hadoop.hbase.HBaseTestingUtil)" class="member-name-link">setupCoprocessor</a><wbr>(<a href="../HBaseTestingUtil.html" title="class in org.apache.hadoop.hbase">HBaseTestingUtil</a>&nbsp;cluster)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">MockHStoreFile.</span><code><a href="../regionserver/MockHStoreFile.html#setMockHStoreFileVals(long,boolean,long,long,boolean,org.apache.hadoop.hbase.HBaseTestingUtil)" class="member-name-link">setMockHStoreFileVals</a><wbr>(long&nbsp;length,
+ boolean&nbsp;isRef,
+ long&nbsp;ageInDisk,
+ long&nbsp;sequenceid,
+ boolean&nbsp;isMajor,
+ <a href="../HBaseTestingUtil.html" title="class in org.apache.hadoop.hbase">HBaseTestingUtil</a>&nbsp;testUtil)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>static void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">TestRegionServerNoMaster.</span><code><a href="../regionserver/TestRegionServerNoMaster.html#stopMasterAndCacheMetaLocation(org.apache.hadoop.hbase.HBaseTestingUtil)" class="member-name-link">stopMasterAndCacheMetaLocation</a><wbr>(<a href="../HBaseTestingUtil.html" title="class in org.apache.hadoop.hbase">HBaseTestingUtil</a>&nbsp;HTU)</code></div>
+<div class="col-first even-row-color"><code>private void</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">TestBulkLoadReplication.</span><code><a href="../regionserver/TestBulkLoadReplication.html#setupCoprocessor(org.apache.hadoop.hbase.HBaseTestingUtil)" class="member-name-link">setupCoprocessor</a><wbr>(<a href="../HBaseTestingUtil.html" title="class in org.apache.hadoop.hbase">HBaseTestingUtil</a>&nbsp;cluster)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static void</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">TestRegionServerNoMaster.</span><code><a href="../regionserver/TestRegionServerNoMaster.html#stopMasterAndCacheMetaLocation(org.apache.hadoop.hbase.HBaseTestingUtil)" class="member-name-link">stopMasterAndCacheMetaLocation</a><wbr>(<a href="../HBaseTestingUtil.html" title="class in org.apache.hadoop.hbase">HBaseTestingUtil</a>&nbsp;HTU)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
 </div>
 <div class="caption"><span>Constructors in <a href="../regionserver/package-summary.html">org.apache.hadoop.hbase.regionserver</a> with parameters of type <a href="../HBaseTestingUtil.html" title="class in org.apache.hadoop.hbase">HBaseTestingUtil</a></span></div>
 <div class="summary-table three-column-summary">
@@ -3231,13 +3239,23 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>(package private)</code></div>
-<div class="col-second even-row-color"><code><a href="../regionserver/MockHStoreFile.html#%3Cinit%3E(org.apache.hadoop.hbase.HBaseTestingUtil,org.apache.hadoop.fs.Path,long,long,boolean,long)" class="member-name-link">MockHStoreFile</a><wbr>(<a href="../HBaseTestingUtil.html" title="class in org.apache.hadoop.hbase">HBaseTestingUtil</a>&nbsp;testUtil,
+<div class="col-second even-row-color"><code><a href="../regionserver/MockHStoreFile.html#%3Cinit%3E(org.apache.hadoop.hbase.HBaseTestingUtil,org.apache.hadoop.fs.Path,long,long,boolean,long,org.apache.hadoop.hbase.regionserver.StoreFileInfo)" class="member-name-link">MockHStoreFile</a><wbr>(<a href="../HBaseTestingUtil.html" title="class in org.apache.hadoop.hbase">HBaseTestingUtil</a>&nbsp;testUtil,
  org.apache.hadoop.fs.Path&nbsp;testPath,
  long&nbsp;length,
  long&nbsp;ageInDisk,
  boolean&nbsp;isRef,
- long&nbsp;sequenceid)</code></div>
+ long&nbsp;sequenceid,
+ org.apache.hadoop.hbase.regionserver.StoreFileInfo&nbsp;storeFileInfo)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>(package private)</code></div>
+<div class="col-second odd-row-color"><code><a href="../regionserver/MockHStoreFile.html#%3Cinit%3E(org.apache.hadoop.hbase.HBaseTestingUtil,org.apache.hadoop.fs.Path,long,long,boolean,long,org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker)" class="member-name-link">MockHStoreFile</a><wbr>(<a href="../HBaseTestingUtil.html" title="class in org.apache.hadoop.hbase">HBaseTestingUtil</a>&nbsp;testUtil,
+ org.apache.hadoop.fs.Path&nbsp;testPath,
+ long&nbsp;length,
+ long&nbsp;ageInDisk,
+ boolean&nbsp;isRef,
+ long&nbsp;sequenceid,
+ org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker&nbsp;tracker)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
 </div>
 </section>
 </li>

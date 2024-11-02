@@ -644,7 +644,7 @@
 <span class="source-line-no">631</span><span id="line-631">          // to read the hfiles.</span>
 <span class="source-line-no">632</span><span id="line-632">          storeFileInfo.setConf(storeConfiguration);</span>
 <span class="source-line-no">633</span><span id="line-633">          Path refFile = mergeRegionFs.mergeStoreFile(regionFs.getRegionInfo(), family,</span>
-<span class="source-line-no">634</span><span id="line-634">            new HStoreFile(storeFileInfo, hcd.getBloomFilterType(), CacheConfig.DISABLED));</span>
+<span class="source-line-no">634</span><span id="line-634">            new HStoreFile(storeFileInfo, hcd.getBloomFilterType(), CacheConfig.DISABLED), tracker);</span>
 <span class="source-line-no">635</span><span id="line-635">          mergedFiles.add(refFile);</span>
 <span class="source-line-no">636</span><span id="line-636">        }</span>
 <span class="source-line-no">637</span><span id="line-637">      }</span>

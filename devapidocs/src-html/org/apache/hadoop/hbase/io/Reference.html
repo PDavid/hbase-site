@@ -208,7 +208,7 @@
 <span class="source-line-no">195</span><span id="line-195">   * delimiter, pb reads to EOF which may not be what you want).</span>
 <span class="source-line-no">196</span><span id="line-196">   * @return This instance serialized as a delimited protobuf w/ a magic pb prefix.</span>
 <span class="source-line-no">197</span><span id="line-197">   */</span>
-<span class="source-line-no">198</span><span id="line-198">  byte[] toByteArray() throws IOException {</span>
+<span class="source-line-no">198</span><span id="line-198">  public byte[] toByteArray() throws IOException {</span>
 <span class="source-line-no">199</span><span id="line-199">    return ProtobufUtil.prependPBMagic(convert().toByteArray());</span>
 <span class="source-line-no">200</span><span id="line-200">  }</span>
 <span class="source-line-no">201</span><span id="line-201"></span>

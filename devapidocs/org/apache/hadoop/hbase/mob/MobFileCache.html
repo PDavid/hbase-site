@@ -78,7 +78,7 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <hr>
 <div class="type-signature"><span class="annotations">@Private
-</span><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-49">MobFileCache</a></span>
+</span><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-52">MobFileCache</a></span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
 <div class="block">The cache for mob files. This cache doesn't cache the mob file blocks. It only caches the
  references of mob files. We are doing this to avoid opening and closing mob files all the time.
@@ -229,9 +229,10 @@ loadScripts(document, 'script');</script>
 <div class="block">Use murmurhash to reduce the conflicts of hashed file names.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="MobFile.html" title="class in org.apache.hadoop.hbase.mob">MobFile</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#openFile(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.io.hfile.CacheConfig)" class="member-name-link">openFile</a><wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fs,
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#openFile(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.io.hfile.CacheConfig,org.apache.hadoop.hbase.regionserver.StoreContext)" class="member-name-link">openFile</a><wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.Path&nbsp;path,
- <a href="../io/hfile/CacheConfig.html" title="class in org.apache.hadoop.hbase.io.hfile">CacheConfig</a>&nbsp;cacheConf)</code></div>
+ <a href="../io/hfile/CacheConfig.html" title="class in org.apache.hadoop.hbase.io.hfile">CacheConfig</a>&nbsp;cacheConf,
+ <a href="../regionserver/StoreContext.html" title="class in org.apache.hadoop.hbase.regionserver">StoreContext</a>&nbsp;storeContext)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Opens a mob file.</div>
 </div>
@@ -263,91 +264,91 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="LOG">
 <h3>LOG</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-52">LOG</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-55">LOG</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="map">
 <h3>map</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="CachedMobFile.html" title="class in org.apache.hadoop.hbase.mob">CachedMobFile</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-74">map</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="CachedMobFile.html" title="class in org.apache.hadoop.hbase.mob">CachedMobFile</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-77">map</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="count">
 <h3>count</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/atomic/AtomicLong.html" title="class or interface in java.util.concurrent.atomic" class="external-link">AtomicLong</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-76">count</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/atomic/AtomicLong.html" title="class or interface in java.util.concurrent.atomic" class="external-link">AtomicLong</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-79">count</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="lastAccess">
 <h3>lastAccess</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-77">lastAccess</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-80">lastAccess</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="miss">
 <h3>miss</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/atomic/LongAdder.html" title="class or interface in java.util.concurrent.atomic" class="external-link">LongAdder</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-78">miss</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/atomic/LongAdder.html" title="class or interface in java.util.concurrent.atomic" class="external-link">LongAdder</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-81">miss</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="lastMiss">
 <h3>lastMiss</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-79">lastMiss</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-82">lastMiss</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="evictedFileCount">
 <h3>evictedFileCount</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/atomic/LongAdder.html" title="class or interface in java.util.concurrent.atomic" class="external-link">LongAdder</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-80">evictedFileCount</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/atomic/LongAdder.html" title="class or interface in java.util.concurrent.atomic" class="external-link">LongAdder</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-83">evictedFileCount</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="lastEvictedFileCount">
 <h3>lastEvictedFileCount</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-81">lastEvictedFileCount</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-84">lastEvictedFileCount</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="evictionLock">
 <h3>evictionLock</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/locks/ReentrantLock.html" title="class or interface in java.util.concurrent.locks" class="external-link">ReentrantLock</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-85">evictionLock</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/locks/ReentrantLock.html" title="class or interface in java.util.concurrent.locks" class="external-link">ReentrantLock</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-88">evictionLock</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="keyLock">
 <h3>keyLock</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../util/IdLock.html" title="class in org.apache.hadoop.hbase.util">IdLock</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-88">keyLock</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../util/IdLock.html" title="class in org.apache.hadoop.hbase.util">IdLock</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-91">keyLock</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="scheduleThreadPool">
 <h3>scheduleThreadPool</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ScheduledExecutorService.html" title="class or interface in java.util.concurrent" class="external-link">ScheduledExecutorService</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-90">scheduleThreadPool</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ScheduledExecutorService.html" title="class or interface in java.util.concurrent" class="external-link">ScheduledExecutorService</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-93">scheduleThreadPool</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="conf">
 <h3>conf</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">org.apache.hadoop.conf.Configuration</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-92">conf</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">org.apache.hadoop.conf.Configuration</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-95">conf</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="mobFileMaxCacheSize">
 <h3>mobFileMaxCacheSize</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-95">mobFileMaxCacheSize</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-98">mobFileMaxCacheSize</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="isCacheEnabled">
 <h3>isCacheEnabled</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-96">isCacheEnabled</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-99">isCacheEnabled</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="evictRemainRatio">
 <h3>evictRemainRatio</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-97">evictRemainRatio</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-100">evictRemainRatio</a></span></div>
 </section>
 </li>
 </ul>
@@ -361,7 +362,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;(org.apache.hadoop.conf.Configuration)">
 <h3>MobFileCache</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-99">MobFileCache</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-102">MobFileCache</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf)</span></div>
 </section>
 </li>
 </ul>
@@ -375,7 +376,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="evict()">
 <h3>evict</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-133">evict</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-136">evict</a></span>()</div>
 <div class="block">Evicts the lru cached mob files when the count of the cached files is larger than the
  threshold.</div>
 </section>
@@ -383,7 +384,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="evictFile(java.lang.String)">
 <h3>evictFile</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-173">evictFile</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;fileName)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-176">evictFile</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;fileName)</span></div>
 <div class="block">Evicts the cached file by the name.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -392,11 +393,12 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="openFile(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.io.hfile.CacheConfig)">
+<section class="detail" id="openFile(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.io.hfile.CacheConfig,org.apache.hadoop.hbase.regionserver.StoreContext)">
 <h3>openFile</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="MobFile.html" title="class in org.apache.hadoop.hbase.mob">MobFile</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-201">openFile</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.FileSystem&nbsp;fs,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="MobFile.html" title="class in org.apache.hadoop.hbase.mob">MobFile</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-204">openFile</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.Path&nbsp;path,
- <a href="../io/hfile/CacheConfig.html" title="class in org.apache.hadoop.hbase.io.hfile">CacheConfig</a>&nbsp;cacheConf)</span>
+ <a href="../io/hfile/CacheConfig.html" title="class in org.apache.hadoop.hbase.io.hfile">CacheConfig</a>&nbsp;cacheConf,
+ <a href="../regionserver/StoreContext.html" title="class in org.apache.hadoop.hbase.regionserver">StoreContext</a>&nbsp;storeContext)</span>
                  throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Opens a mob file.</div>
 <dl class="notes">
@@ -414,7 +416,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="closeFile(org.apache.hadoop.hbase.mob.MobFile)">
 <h3>closeFile</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-236">closeFile</a></span><wbr><span class="parameters">(<a href="MobFile.html" title="class in org.apache.hadoop.hbase.mob">MobFile</a>&nbsp;file)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-241">closeFile</a></span><wbr><span class="parameters">(<a href="MobFile.html" title="class in org.apache.hadoop.hbase.mob">MobFile</a>&nbsp;file)</span></div>
 <div class="block">Closes a mob file.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -425,13 +427,13 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="shutdown()">
 <h3>shutdown</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-254">shutdown</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-259">shutdown</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getCacheSize()">
 <h3>getCacheSize</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-278">getCacheSize</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-283">getCacheSize</a></span>()</div>
 <div class="block">Gets the count of cached mob files.</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -442,7 +444,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getAccessCount()">
 <h3>getAccessCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-286">getAccessCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-291">getAccessCount</a></span>()</div>
 <div class="block">Gets the count of accesses to the mob file cache.</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -453,7 +455,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getMissCount()">
 <h3>getMissCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-294">getMissCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-299">getMissCount</a></span>()</div>
 <div class="block">Gets the count of misses to the mob file cache.</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -464,7 +466,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getEvictedFileCount()">
 <h3>getEvictedFileCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-302">getEvictedFileCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-307">getEvictedFileCount</a></span>()</div>
 <div class="block">Gets the number of items evicted from the mob file cache.</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -475,7 +477,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getHitRatio()">
 <h3>getHitRatio</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-310">getHitRatio</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-315">getHitRatio</a></span>()</div>
 <div class="block">Gets the hit ratio to the mob file cache.</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -486,14 +488,14 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="printStatistics()">
 <h3>printStatistics</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-317">printStatistics</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-322">printStatistics</a></span>()</div>
 <div class="block">Prints the statistics.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="hashFileName(java.lang.String)">
 <h3>hashFileName</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-334">hashFileName</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;fileName)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFileCache.html#line-339">hashFileName</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;fileName)</span></div>
 <div class="block">Use murmurhash to reduce the conflicts of hashed file names. We should notice that the hash
  conflicts may bring deadlocks, when opening mob files with evicting some other files, as
  described in HBASE-28047.</div>

@@ -143,194 +143,196 @@
 <span class="source-line-no">130</span><span id="line-130">      region.put(p);</span>
 <span class="source-line-no">131</span><span id="line-131">      HStore store = region.getStore(fam);</span>
 <span class="source-line-no">132</span><span id="line-132">      // use the lock to manually get a new memstore scanner. this is what</span>
-<span class="source-line-no">133</span><span id="line-133">      // HStore#notifyChangedReadersObservers does under the lock.(lock is not needed here</span>
-<span class="source-line-no">134</span><span id="line-134">      // since it is just a testcase).</span>
-<span class="source-line-no">135</span><span id="line-135">      store.getStoreEngine().readLock();</span>
-<span class="source-line-no">136</span><span id="line-136">      final List&lt;KeyValueScanner&gt; memScanners = store.memstore.getScanners(Long.MAX_VALUE);</span>
-<span class="source-line-no">137</span><span id="line-137">      store.getStoreEngine().readUnlock();</span>
-<span class="source-line-no">138</span><span id="line-138">      Thread closeThread = new Thread() {</span>
-<span class="source-line-no">139</span><span id="line-139">        public void run() {</span>
-<span class="source-line-no">140</span><span id="line-140">          // close should be completed</span>
-<span class="source-line-no">141</span><span id="line-141">          scan.close(false, true);</span>
-<span class="source-line-no">142</span><span id="line-142">        }</span>
-<span class="source-line-no">143</span><span id="line-143">      };</span>
-<span class="source-line-no">144</span><span id="line-144">      closeThread.start();</span>
-<span class="source-line-no">145</span><span id="line-145">      Thread updateThread = new Thread() {</span>
-<span class="source-line-no">146</span><span id="line-146">        public void run() {</span>
-<span class="source-line-no">147</span><span id="line-147">          try {</span>
-<span class="source-line-no">148</span><span id="line-148">            // use the updated memstoreScanners and pass it to updateReaders</span>
-<span class="source-line-no">149</span><span id="line-149">            scan.updateReaders(true, Collections.emptyList(), memScanners);</span>
-<span class="source-line-no">150</span><span id="line-150">          } catch (IOException e) {</span>
-<span class="source-line-no">151</span><span id="line-151">            e.printStackTrace();</span>
-<span class="source-line-no">152</span><span id="line-152">          }</span>
-<span class="source-line-no">153</span><span id="line-153">        }</span>
-<span class="source-line-no">154</span><span id="line-154">      };</span>
-<span class="source-line-no">155</span><span id="line-155">      updateThread.start();</span>
-<span class="source-line-no">156</span><span id="line-156">      // wait for close and updateThread to complete</span>
-<span class="source-line-no">157</span><span id="line-157">      closeThread.join();</span>
-<span class="source-line-no">158</span><span id="line-158">      updateThread.join();</span>
-<span class="source-line-no">159</span><span id="line-159">      MemStoreLAB memStoreLAB;</span>
-<span class="source-line-no">160</span><span id="line-160">      for (KeyValueScanner scanner : memScanners) {</span>
-<span class="source-line-no">161</span><span id="line-161">        if (scanner instanceof SegmentScanner) {</span>
-<span class="source-line-no">162</span><span id="line-162">          memStoreLAB = ((SegmentScanner) scanner).segment.getMemStoreLAB();</span>
-<span class="source-line-no">163</span><span id="line-163">          if (memStoreLAB != null) {</span>
-<span class="source-line-no">164</span><span id="line-164">            // There should be no unpooled chunks</span>
-<span class="source-line-no">165</span><span id="line-165">            int refCount = ((MemStoreLABImpl) memStoreLAB).getRefCntValue();</span>
-<span class="source-line-no">166</span><span id="line-166">            assertTrue("The memstore should not have unpooled chunks", refCount == 0);</span>
-<span class="source-line-no">167</span><span id="line-167">          }</span>
-<span class="source-line-no">168</span><span id="line-168">        }</span>
-<span class="source-line-no">169</span><span id="line-169">      }</span>
-<span class="source-line-no">170</span><span id="line-170">    }</span>
-<span class="source-line-no">171</span><span id="line-171">  }</span>
-<span class="source-line-no">172</span><span id="line-172"></span>
-<span class="source-line-no">173</span><span id="line-173">  @Test</span>
-<span class="source-line-no">174</span><span id="line-174">  public void testScannerCloseAndUpdateReaders1() throws Exception {</span>
-<span class="source-line-no">175</span><span id="line-175">    testScannerCloseAndUpdateReaderInternal(true, false);</span>
-<span class="source-line-no">176</span><span id="line-176">  }</span>
-<span class="source-line-no">177</span><span id="line-177"></span>
-<span class="source-line-no">178</span><span id="line-178">  @Test</span>
-<span class="source-line-no">179</span><span id="line-179">  public void testScannerCloseAndUpdateReaders2() throws Exception {</span>
-<span class="source-line-no">180</span><span id="line-180">    testScannerCloseAndUpdateReaderInternal(false, true);</span>
-<span class="source-line-no">181</span><span id="line-181">  }</span>
-<span class="source-line-no">182</span><span id="line-182"></span>
-<span class="source-line-no">183</span><span id="line-183">  private Path writeStoreFile() throws IOException {</span>
-<span class="source-line-no">184</span><span id="line-184">    Path storeFileParentDir = new Path(TEST_UTIL.getDataTestDir(), "TestHFile");</span>
-<span class="source-line-no">185</span><span id="line-185">    HFileContext meta = new HFileContextBuilder().withBlockSize(64 * 1024).build();</span>
-<span class="source-line-no">186</span><span id="line-186">    StoreFileWriter sfw = new StoreFileWriter.Builder(CONF, fs).withOutputDir(storeFileParentDir)</span>
-<span class="source-line-no">187</span><span id="line-187">      .withFileContext(meta).build();</span>
-<span class="source-line-no">188</span><span id="line-188"></span>
-<span class="source-line-no">189</span><span id="line-189">    final int rowLen = 32;</span>
-<span class="source-line-no">190</span><span id="line-190">    Random rand = ThreadLocalRandom.current();</span>
-<span class="source-line-no">191</span><span id="line-191">    for (int i = 0; i &lt; 1000; ++i) {</span>
-<span class="source-line-no">192</span><span id="line-192">      byte[] k = RandomKeyValueUtil.randomOrderedKey(rand, i);</span>
-<span class="source-line-no">193</span><span id="line-193">      byte[] v = RandomKeyValueUtil.randomValue(rand);</span>
-<span class="source-line-no">194</span><span id="line-194">      int cfLen = rand.nextInt(k.length - rowLen + 1);</span>
-<span class="source-line-no">195</span><span id="line-195">      KeyValue kv = new KeyValue(k, 0, rowLen, k, rowLen, cfLen, k, rowLen + cfLen,</span>
-<span class="source-line-no">196</span><span id="line-196">        k.length - rowLen - cfLen, rand.nextLong(), generateKeyType(rand), v, 0, v.length);</span>
-<span class="source-line-no">197</span><span id="line-197">      sfw.append(kv);</span>
-<span class="source-line-no">198</span><span id="line-198">    }</span>
-<span class="source-line-no">199</span><span id="line-199"></span>
-<span class="source-line-no">200</span><span id="line-200">    sfw.close();</span>
-<span class="source-line-no">201</span><span id="line-201">    return sfw.getPath();</span>
-<span class="source-line-no">202</span><span id="line-202">  }</span>
-<span class="source-line-no">203</span><span id="line-203"></span>
-<span class="source-line-no">204</span><span id="line-204">  private static KeyValue.Type generateKeyType(Random rand) {</span>
-<span class="source-line-no">205</span><span id="line-205">    if (rand.nextBoolean()) {</span>
-<span class="source-line-no">206</span><span id="line-206">      // Let's make half of KVs puts.</span>
-<span class="source-line-no">207</span><span id="line-207">      return KeyValue.Type.Put;</span>
-<span class="source-line-no">208</span><span id="line-208">    } else {</span>
-<span class="source-line-no">209</span><span id="line-209">      KeyValue.Type keyType = KeyValue.Type.values()[1 + rand.nextInt(NUM_VALID_KEY_TYPES)];</span>
-<span class="source-line-no">210</span><span id="line-210">      if (keyType == KeyValue.Type.Minimum || keyType == KeyValue.Type.Maximum) {</span>
-<span class="source-line-no">211</span><span id="line-211">        throw new RuntimeException("Generated an invalid key type: " + keyType + ". "</span>
-<span class="source-line-no">212</span><span id="line-212">          + "Probably the layout of KeyValue.Type has changed.");</span>
-<span class="source-line-no">213</span><span id="line-213">      }</span>
-<span class="source-line-no">214</span><span id="line-214">      return keyType;</span>
-<span class="source-line-no">215</span><span id="line-215">    }</span>
-<span class="source-line-no">216</span><span id="line-216">  }</span>
-<span class="source-line-no">217</span><span id="line-217"></span>
-<span class="source-line-no">218</span><span id="line-218">  private HStoreFile readStoreFile(Path storeFilePath, Configuration conf) throws Exception {</span>
-<span class="source-line-no">219</span><span id="line-219">    // Open the file reader with block cache disabled.</span>
-<span class="source-line-no">220</span><span id="line-220">    HStoreFile file = new HStoreFile(fs, storeFilePath, conf, cacheConf, BloomType.NONE, true);</span>
-<span class="source-line-no">221</span><span id="line-221">    return file;</span>
-<span class="source-line-no">222</span><span id="line-222">  }</span>
-<span class="source-line-no">223</span><span id="line-223"></span>
-<span class="source-line-no">224</span><span id="line-224">  private void testScannerCloseAndUpdateReaderInternal(boolean awaitUpdate, boolean awaitClose)</span>
-<span class="source-line-no">225</span><span id="line-225">    throws IOException, InterruptedException {</span>
-<span class="source-line-no">226</span><span id="line-226">    // start write to store file.</span>
-<span class="source-line-no">227</span><span id="line-227">    Path path = writeStoreFile();</span>
-<span class="source-line-no">228</span><span id="line-228">    HStoreFile file = null;</span>
-<span class="source-line-no">229</span><span id="line-229">    List&lt;HStoreFile&gt; files = new ArrayList&lt;HStoreFile&gt;();</span>
-<span class="source-line-no">230</span><span id="line-230">    try {</span>
-<span class="source-line-no">231</span><span id="line-231">      file = readStoreFile(path, CONF);</span>
-<span class="source-line-no">232</span><span id="line-232">      files.add(file);</span>
-<span class="source-line-no">233</span><span id="line-233">    } catch (Exception e) {</span>
-<span class="source-line-no">234</span><span id="line-234">      // fail test</span>
-<span class="source-line-no">235</span><span id="line-235">      assertTrue(false);</span>
-<span class="source-line-no">236</span><span id="line-236">    }</span>
-<span class="source-line-no">237</span><span id="line-237">    scanFixture(kvs);</span>
-<span class="source-line-no">238</span><span id="line-238">    // scanners.add(storeFileScanner);</span>
-<span class="source-line-no">239</span><span id="line-239">    try (ExtendedStoreScanner scan = new ExtendedStoreScanner(region.getStore(fam), scanInfo,</span>
-<span class="source-line-no">240</span><span id="line-240">      new Scan(), getCols("a", "d"), 100L)) {</span>
-<span class="source-line-no">241</span><span id="line-241">      Thread closeThread = new Thread() {</span>
-<span class="source-line-no">242</span><span id="line-242">        public void run() {</span>
-<span class="source-line-no">243</span><span id="line-243">          scan.close(awaitClose, true);</span>
-<span class="source-line-no">244</span><span id="line-244">        }</span>
-<span class="source-line-no">245</span><span id="line-245">      };</span>
-<span class="source-line-no">246</span><span id="line-246">      closeThread.start();</span>
-<span class="source-line-no">247</span><span id="line-247">      Thread updateThread = new Thread() {</span>
-<span class="source-line-no">248</span><span id="line-248">        public void run() {</span>
-<span class="source-line-no">249</span><span id="line-249">          try {</span>
-<span class="source-line-no">250</span><span id="line-250">            scan.updateReaders(awaitUpdate, files, Collections.emptyList());</span>
-<span class="source-line-no">251</span><span id="line-251">          } catch (IOException e) {</span>
-<span class="source-line-no">252</span><span id="line-252">            e.printStackTrace();</span>
-<span class="source-line-no">253</span><span id="line-253">          }</span>
-<span class="source-line-no">254</span><span id="line-254">        }</span>
-<span class="source-line-no">255</span><span id="line-255">      };</span>
-<span class="source-line-no">256</span><span id="line-256">      updateThread.start();</span>
-<span class="source-line-no">257</span><span id="line-257">      // complete both the threads</span>
-<span class="source-line-no">258</span><span id="line-258">      closeThread.join();</span>
+<span class="source-line-no">133</span><span id="line-133">      // HStore#notifyChangedReadersObservers does under the lock.(lock is not needed</span>
+<span class="source-line-no">134</span><span id="line-134">      // here</span>
+<span class="source-line-no">135</span><span id="line-135">      // since it is just a testcase).</span>
+<span class="source-line-no">136</span><span id="line-136">      store.getStoreEngine().readLock();</span>
+<span class="source-line-no">137</span><span id="line-137">      final List&lt;KeyValueScanner&gt; memScanners = store.memstore.getScanners(Long.MAX_VALUE);</span>
+<span class="source-line-no">138</span><span id="line-138">      store.getStoreEngine().readUnlock();</span>
+<span class="source-line-no">139</span><span id="line-139">      Thread closeThread = new Thread() {</span>
+<span class="source-line-no">140</span><span id="line-140">        public void run() {</span>
+<span class="source-line-no">141</span><span id="line-141">          // close should be completed</span>
+<span class="source-line-no">142</span><span id="line-142">          scan.close(false, true);</span>
+<span class="source-line-no">143</span><span id="line-143">        }</span>
+<span class="source-line-no">144</span><span id="line-144">      };</span>
+<span class="source-line-no">145</span><span id="line-145">      closeThread.start();</span>
+<span class="source-line-no">146</span><span id="line-146">      Thread updateThread = new Thread() {</span>
+<span class="source-line-no">147</span><span id="line-147">        public void run() {</span>
+<span class="source-line-no">148</span><span id="line-148">          try {</span>
+<span class="source-line-no">149</span><span id="line-149">            // use the updated memstoreScanners and pass it to updateReaders</span>
+<span class="source-line-no">150</span><span id="line-150">            scan.updateReaders(true, Collections.emptyList(), memScanners);</span>
+<span class="source-line-no">151</span><span id="line-151">          } catch (IOException e) {</span>
+<span class="source-line-no">152</span><span id="line-152">            e.printStackTrace();</span>
+<span class="source-line-no">153</span><span id="line-153">          }</span>
+<span class="source-line-no">154</span><span id="line-154">        }</span>
+<span class="source-line-no">155</span><span id="line-155">      };</span>
+<span class="source-line-no">156</span><span id="line-156">      updateThread.start();</span>
+<span class="source-line-no">157</span><span id="line-157">      // wait for close and updateThread to complete</span>
+<span class="source-line-no">158</span><span id="line-158">      closeThread.join();</span>
+<span class="source-line-no">159</span><span id="line-159">      updateThread.join();</span>
+<span class="source-line-no">160</span><span id="line-160">      MemStoreLAB memStoreLAB;</span>
+<span class="source-line-no">161</span><span id="line-161">      for (KeyValueScanner scanner : memScanners) {</span>
+<span class="source-line-no">162</span><span id="line-162">        if (scanner instanceof SegmentScanner) {</span>
+<span class="source-line-no">163</span><span id="line-163">          memStoreLAB = ((SegmentScanner) scanner).segment.getMemStoreLAB();</span>
+<span class="source-line-no">164</span><span id="line-164">          if (memStoreLAB != null) {</span>
+<span class="source-line-no">165</span><span id="line-165">            // There should be no unpooled chunks</span>
+<span class="source-line-no">166</span><span id="line-166">            int refCount = ((MemStoreLABImpl) memStoreLAB).getRefCntValue();</span>
+<span class="source-line-no">167</span><span id="line-167">            assertTrue("The memstore should not have unpooled chunks", refCount == 0);</span>
+<span class="source-line-no">168</span><span id="line-168">          }</span>
+<span class="source-line-no">169</span><span id="line-169">        }</span>
+<span class="source-line-no">170</span><span id="line-170">      }</span>
+<span class="source-line-no">171</span><span id="line-171">    }</span>
+<span class="source-line-no">172</span><span id="line-172">  }</span>
+<span class="source-line-no">173</span><span id="line-173"></span>
+<span class="source-line-no">174</span><span id="line-174">  @Test</span>
+<span class="source-line-no">175</span><span id="line-175">  public void testScannerCloseAndUpdateReaders1() throws Exception {</span>
+<span class="source-line-no">176</span><span id="line-176">    testScannerCloseAndUpdateReaderInternal(true, false);</span>
+<span class="source-line-no">177</span><span id="line-177">  }</span>
+<span class="source-line-no">178</span><span id="line-178"></span>
+<span class="source-line-no">179</span><span id="line-179">  @Test</span>
+<span class="source-line-no">180</span><span id="line-180">  public void testScannerCloseAndUpdateReaders2() throws Exception {</span>
+<span class="source-line-no">181</span><span id="line-181">    testScannerCloseAndUpdateReaderInternal(false, true);</span>
+<span class="source-line-no">182</span><span id="line-182">  }</span>
+<span class="source-line-no">183</span><span id="line-183"></span>
+<span class="source-line-no">184</span><span id="line-184">  private Path writeStoreFile() throws IOException {</span>
+<span class="source-line-no">185</span><span id="line-185">    Path storeFileParentDir = new Path(TEST_UTIL.getDataTestDir(), "TestHFile");</span>
+<span class="source-line-no">186</span><span id="line-186">    HFileContext meta = new HFileContextBuilder().withBlockSize(64 * 1024).build();</span>
+<span class="source-line-no">187</span><span id="line-187">    StoreFileWriter sfw = new StoreFileWriter.Builder(CONF, fs).withOutputDir(storeFileParentDir)</span>
+<span class="source-line-no">188</span><span id="line-188">      .withFileContext(meta).build();</span>
+<span class="source-line-no">189</span><span id="line-189"></span>
+<span class="source-line-no">190</span><span id="line-190">    final int rowLen = 32;</span>
+<span class="source-line-no">191</span><span id="line-191">    Random rand = ThreadLocalRandom.current();</span>
+<span class="source-line-no">192</span><span id="line-192">    for (int i = 0; i &lt; 1000; ++i) {</span>
+<span class="source-line-no">193</span><span id="line-193">      byte[] k = RandomKeyValueUtil.randomOrderedKey(rand, i);</span>
+<span class="source-line-no">194</span><span id="line-194">      byte[] v = RandomKeyValueUtil.randomValue(rand);</span>
+<span class="source-line-no">195</span><span id="line-195">      int cfLen = rand.nextInt(k.length - rowLen + 1);</span>
+<span class="source-line-no">196</span><span id="line-196">      KeyValue kv = new KeyValue(k, 0, rowLen, k, rowLen, cfLen, k, rowLen + cfLen,</span>
+<span class="source-line-no">197</span><span id="line-197">        k.length - rowLen - cfLen, rand.nextLong(), generateKeyType(rand), v, 0, v.length);</span>
+<span class="source-line-no">198</span><span id="line-198">      sfw.append(kv);</span>
+<span class="source-line-no">199</span><span id="line-199">    }</span>
+<span class="source-line-no">200</span><span id="line-200"></span>
+<span class="source-line-no">201</span><span id="line-201">    sfw.close();</span>
+<span class="source-line-no">202</span><span id="line-202">    return sfw.getPath();</span>
+<span class="source-line-no">203</span><span id="line-203">  }</span>
+<span class="source-line-no">204</span><span id="line-204"></span>
+<span class="source-line-no">205</span><span id="line-205">  private static KeyValue.Type generateKeyType(Random rand) {</span>
+<span class="source-line-no">206</span><span id="line-206">    if (rand.nextBoolean()) {</span>
+<span class="source-line-no">207</span><span id="line-207">      // Let's make half of KVs puts.</span>
+<span class="source-line-no">208</span><span id="line-208">      return KeyValue.Type.Put;</span>
+<span class="source-line-no">209</span><span id="line-209">    } else {</span>
+<span class="source-line-no">210</span><span id="line-210">      KeyValue.Type keyType = KeyValue.Type.values()[1 + rand.nextInt(NUM_VALID_KEY_TYPES)];</span>
+<span class="source-line-no">211</span><span id="line-211">      if (keyType == KeyValue.Type.Minimum || keyType == KeyValue.Type.Maximum) {</span>
+<span class="source-line-no">212</span><span id="line-212">        throw new RuntimeException("Generated an invalid key type: " + keyType + ". "</span>
+<span class="source-line-no">213</span><span id="line-213">          + "Probably the layout of KeyValue.Type has changed.");</span>
+<span class="source-line-no">214</span><span id="line-214">      }</span>
+<span class="source-line-no">215</span><span id="line-215">      return keyType;</span>
+<span class="source-line-no">216</span><span id="line-216">    }</span>
+<span class="source-line-no">217</span><span id="line-217">  }</span>
+<span class="source-line-no">218</span><span id="line-218"></span>
+<span class="source-line-no">219</span><span id="line-219">  private HStoreFile readStoreFile(StoreFileInfo fileinfo) throws Exception {</span>
+<span class="source-line-no">220</span><span id="line-220">    // Open the file reader with block cache disabled.</span>
+<span class="source-line-no">221</span><span id="line-221">    HStoreFile file = new HStoreFile(fileinfo, BloomType.NONE, cacheConf);</span>
+<span class="source-line-no">222</span><span id="line-222">    return file;</span>
+<span class="source-line-no">223</span><span id="line-223">  }</span>
+<span class="source-line-no">224</span><span id="line-224"></span>
+<span class="source-line-no">225</span><span id="line-225">  private void testScannerCloseAndUpdateReaderInternal(boolean awaitUpdate, boolean awaitClose)</span>
+<span class="source-line-no">226</span><span id="line-226">    throws IOException, InterruptedException {</span>
+<span class="source-line-no">227</span><span id="line-227">    // start write to store file.</span>
+<span class="source-line-no">228</span><span id="line-228">    Path path = writeStoreFile();</span>
+<span class="source-line-no">229</span><span id="line-229">    HStoreFile file = null;</span>
+<span class="source-line-no">230</span><span id="line-230">    List&lt;HStoreFile&gt; files = new ArrayList&lt;HStoreFile&gt;();</span>
+<span class="source-line-no">231</span><span id="line-231">    try {</span>
+<span class="source-line-no">232</span><span id="line-232">      StoreFileInfo storeFileInfo = StoreFileInfo.createStoreFileInfoForHFile(CONF, fs, path, true);</span>
+<span class="source-line-no">233</span><span id="line-233">      file = readStoreFile(storeFileInfo);</span>
+<span class="source-line-no">234</span><span id="line-234">      files.add(file);</span>
+<span class="source-line-no">235</span><span id="line-235">    } catch (Exception e) {</span>
+<span class="source-line-no">236</span><span id="line-236">      // fail test</span>
+<span class="source-line-no">237</span><span id="line-237">      assertTrue(false);</span>
+<span class="source-line-no">238</span><span id="line-238">    }</span>
+<span class="source-line-no">239</span><span id="line-239">    scanFixture(kvs);</span>
+<span class="source-line-no">240</span><span id="line-240">    // scanners.add(storeFileScanner);</span>
+<span class="source-line-no">241</span><span id="line-241">    try (ExtendedStoreScanner scan = new ExtendedStoreScanner(region.getStore(fam), scanInfo,</span>
+<span class="source-line-no">242</span><span id="line-242">      new Scan(), getCols("a", "d"), 100L)) {</span>
+<span class="source-line-no">243</span><span id="line-243">      Thread closeThread = new Thread() {</span>
+<span class="source-line-no">244</span><span id="line-244">        public void run() {</span>
+<span class="source-line-no">245</span><span id="line-245">          scan.close(awaitClose, true);</span>
+<span class="source-line-no">246</span><span id="line-246">        }</span>
+<span class="source-line-no">247</span><span id="line-247">      };</span>
+<span class="source-line-no">248</span><span id="line-248">      closeThread.start();</span>
+<span class="source-line-no">249</span><span id="line-249">      Thread updateThread = new Thread() {</span>
+<span class="source-line-no">250</span><span id="line-250">        public void run() {</span>
+<span class="source-line-no">251</span><span id="line-251">          try {</span>
+<span class="source-line-no">252</span><span id="line-252">            scan.updateReaders(awaitUpdate, files, Collections.emptyList());</span>
+<span class="source-line-no">253</span><span id="line-253">          } catch (IOException e) {</span>
+<span class="source-line-no">254</span><span id="line-254">            e.printStackTrace();</span>
+<span class="source-line-no">255</span><span id="line-255">          }</span>
+<span class="source-line-no">256</span><span id="line-256">        }</span>
+<span class="source-line-no">257</span><span id="line-257">      };</span>
+<span class="source-line-no">258</span><span id="line-258">      updateThread.start();</span>
 <span class="source-line-no">259</span><span id="line-259">      // complete both the threads</span>
-<span class="source-line-no">260</span><span id="line-260">      updateThread.join();</span>
-<span class="source-line-no">261</span><span id="line-261">      if (file.getReader() != null) {</span>
-<span class="source-line-no">262</span><span id="line-262">        // the fileReader is not null when the updateReaders has completed first.</span>
-<span class="source-line-no">263</span><span id="line-263">        // in the other case the fileReader will be null.</span>
-<span class="source-line-no">264</span><span id="line-264">        int refCount = file.getReader().getRefCount();</span>
-<span class="source-line-no">265</span><span id="line-265">        LOG.info("the store scanner count is " + refCount);</span>
-<span class="source-line-no">266</span><span id="line-266">        assertTrue("The store scanner count should be 0", refCount == 0);</span>
-<span class="source-line-no">267</span><span id="line-267">      }</span>
-<span class="source-line-no">268</span><span id="line-268">    }</span>
-<span class="source-line-no">269</span><span id="line-269">  }</span>
-<span class="source-line-no">270</span><span id="line-270"></span>
-<span class="source-line-no">271</span><span id="line-271">  private static class ExtendedStoreScanner extends StoreScanner {</span>
-<span class="source-line-no">272</span><span id="line-272">    private CountDownLatch latch = new CountDownLatch(1);</span>
-<span class="source-line-no">273</span><span id="line-273"></span>
-<span class="source-line-no">274</span><span id="line-274">    public ExtendedStoreScanner(HStore store, ScanInfo scanInfo, Scan scan,</span>
-<span class="source-line-no">275</span><span id="line-275">      NavigableSet&lt;byte[]&gt; columns, long readPt) throws IOException {</span>
-<span class="source-line-no">276</span><span id="line-276">      super(store, scanInfo, scan, columns, readPt);</span>
-<span class="source-line-no">277</span><span id="line-277">    }</span>
-<span class="source-line-no">278</span><span id="line-278"></span>
-<span class="source-line-no">279</span><span id="line-279">    public void updateReaders(boolean await, List&lt;HStoreFile&gt; sfs,</span>
-<span class="source-line-no">280</span><span id="line-280">      List&lt;KeyValueScanner&gt; memStoreScanners) throws IOException {</span>
-<span class="source-line-no">281</span><span id="line-281">      if (await) {</span>
-<span class="source-line-no">282</span><span id="line-282">        try {</span>
-<span class="source-line-no">283</span><span id="line-283">          latch.await();</span>
-<span class="source-line-no">284</span><span id="line-284">        } catch (InterruptedException e) {</span>
-<span class="source-line-no">285</span><span id="line-285">          // TODO Auto-generated catch block</span>
-<span class="source-line-no">286</span><span id="line-286">          e.printStackTrace();</span>
-<span class="source-line-no">287</span><span id="line-287">        }</span>
-<span class="source-line-no">288</span><span id="line-288">      }</span>
-<span class="source-line-no">289</span><span id="line-289">      super.updateReaders(sfs, memStoreScanners);</span>
-<span class="source-line-no">290</span><span id="line-290">      if (!await) {</span>
-<span class="source-line-no">291</span><span id="line-291">        latch.countDown();</span>
-<span class="source-line-no">292</span><span id="line-292">      }</span>
-<span class="source-line-no">293</span><span id="line-293">    }</span>
-<span class="source-line-no">294</span><span id="line-294"></span>
-<span class="source-line-no">295</span><span id="line-295">    // creating a dummy close</span>
-<span class="source-line-no">296</span><span id="line-296">    public void close(boolean await, boolean dummy) {</span>
-<span class="source-line-no">297</span><span id="line-297">      if (await) {</span>
-<span class="source-line-no">298</span><span id="line-298">        try {</span>
-<span class="source-line-no">299</span><span id="line-299">          latch.await();</span>
-<span class="source-line-no">300</span><span id="line-300">        } catch (InterruptedException e) {</span>
-<span class="source-line-no">301</span><span id="line-301">          // TODO Auto-generated catch block</span>
-<span class="source-line-no">302</span><span id="line-302">          e.printStackTrace();</span>
-<span class="source-line-no">303</span><span id="line-303">        }</span>
-<span class="source-line-no">304</span><span id="line-304">      }</span>
-<span class="source-line-no">305</span><span id="line-305">      super.close();</span>
-<span class="source-line-no">306</span><span id="line-306">      if (!await) {</span>
-<span class="source-line-no">307</span><span id="line-307">        latch.countDown();</span>
-<span class="source-line-no">308</span><span id="line-308">      }</span>
-<span class="source-line-no">309</span><span id="line-309">    }</span>
-<span class="source-line-no">310</span><span id="line-310">  }</span>
-<span class="source-line-no">311</span><span id="line-311"></span>
-<span class="source-line-no">312</span><span id="line-312">  NavigableSet&lt;byte[]&gt; getCols(String... strCols) {</span>
-<span class="source-line-no">313</span><span id="line-313">    NavigableSet&lt;byte[]&gt; cols = new TreeSet&lt;&gt;(Bytes.BYTES_COMPARATOR);</span>
-<span class="source-line-no">314</span><span id="line-314">    for (String col : strCols) {</span>
-<span class="source-line-no">315</span><span id="line-315">      byte[] bytes = Bytes.toBytes(col);</span>
-<span class="source-line-no">316</span><span id="line-316">      cols.add(bytes);</span>
-<span class="source-line-no">317</span><span id="line-317">    }</span>
-<span class="source-line-no">318</span><span id="line-318">    return cols;</span>
-<span class="source-line-no">319</span><span id="line-319">  }</span>
-<span class="source-line-no">320</span><span id="line-320">}</span>
+<span class="source-line-no">260</span><span id="line-260">      closeThread.join();</span>
+<span class="source-line-no">261</span><span id="line-261">      // complete both the threads</span>
+<span class="source-line-no">262</span><span id="line-262">      updateThread.join();</span>
+<span class="source-line-no">263</span><span id="line-263">      if (file.getReader() != null) {</span>
+<span class="source-line-no">264</span><span id="line-264">        // the fileReader is not null when the updateReaders has completed first.</span>
+<span class="source-line-no">265</span><span id="line-265">        // in the other case the fileReader will be null.</span>
+<span class="source-line-no">266</span><span id="line-266">        int refCount = file.getReader().getRefCount();</span>
+<span class="source-line-no">267</span><span id="line-267">        LOG.info("the store scanner count is " + refCount);</span>
+<span class="source-line-no">268</span><span id="line-268">        assertTrue("The store scanner count should be 0", refCount == 0);</span>
+<span class="source-line-no">269</span><span id="line-269">      }</span>
+<span class="source-line-no">270</span><span id="line-270">    }</span>
+<span class="source-line-no">271</span><span id="line-271">  }</span>
+<span class="source-line-no">272</span><span id="line-272"></span>
+<span class="source-line-no">273</span><span id="line-273">  private static class ExtendedStoreScanner extends StoreScanner {</span>
+<span class="source-line-no">274</span><span id="line-274">    private CountDownLatch latch = new CountDownLatch(1);</span>
+<span class="source-line-no">275</span><span id="line-275"></span>
+<span class="source-line-no">276</span><span id="line-276">    public ExtendedStoreScanner(HStore store, ScanInfo scanInfo, Scan scan,</span>
+<span class="source-line-no">277</span><span id="line-277">      NavigableSet&lt;byte[]&gt; columns, long readPt) throws IOException {</span>
+<span class="source-line-no">278</span><span id="line-278">      super(store, scanInfo, scan, columns, readPt);</span>
+<span class="source-line-no">279</span><span id="line-279">    }</span>
+<span class="source-line-no">280</span><span id="line-280"></span>
+<span class="source-line-no">281</span><span id="line-281">    public void updateReaders(boolean await, List&lt;HStoreFile&gt; sfs,</span>
+<span class="source-line-no">282</span><span id="line-282">      List&lt;KeyValueScanner&gt; memStoreScanners) throws IOException {</span>
+<span class="source-line-no">283</span><span id="line-283">      if (await) {</span>
+<span class="source-line-no">284</span><span id="line-284">        try {</span>
+<span class="source-line-no">285</span><span id="line-285">          latch.await();</span>
+<span class="source-line-no">286</span><span id="line-286">        } catch (InterruptedException e) {</span>
+<span class="source-line-no">287</span><span id="line-287">          // TODO Auto-generated catch block</span>
+<span class="source-line-no">288</span><span id="line-288">          e.printStackTrace();</span>
+<span class="source-line-no">289</span><span id="line-289">        }</span>
+<span class="source-line-no">290</span><span id="line-290">      }</span>
+<span class="source-line-no">291</span><span id="line-291">      super.updateReaders(sfs, memStoreScanners);</span>
+<span class="source-line-no">292</span><span id="line-292">      if (!await) {</span>
+<span class="source-line-no">293</span><span id="line-293">        latch.countDown();</span>
+<span class="source-line-no">294</span><span id="line-294">      }</span>
+<span class="source-line-no">295</span><span id="line-295">    }</span>
+<span class="source-line-no">296</span><span id="line-296"></span>
+<span class="source-line-no">297</span><span id="line-297">    // creating a dummy close</span>
+<span class="source-line-no">298</span><span id="line-298">    public void close(boolean await, boolean dummy) {</span>
+<span class="source-line-no">299</span><span id="line-299">      if (await) {</span>
+<span class="source-line-no">300</span><span id="line-300">        try {</span>
+<span class="source-line-no">301</span><span id="line-301">          latch.await();</span>
+<span class="source-line-no">302</span><span id="line-302">        } catch (InterruptedException e) {</span>
+<span class="source-line-no">303</span><span id="line-303">          // TODO Auto-generated catch block</span>
+<span class="source-line-no">304</span><span id="line-304">          e.printStackTrace();</span>
+<span class="source-line-no">305</span><span id="line-305">        }</span>
+<span class="source-line-no">306</span><span id="line-306">      }</span>
+<span class="source-line-no">307</span><span id="line-307">      super.close();</span>
+<span class="source-line-no">308</span><span id="line-308">      if (!await) {</span>
+<span class="source-line-no">309</span><span id="line-309">        latch.countDown();</span>
+<span class="source-line-no">310</span><span id="line-310">      }</span>
+<span class="source-line-no">311</span><span id="line-311">    }</span>
+<span class="source-line-no">312</span><span id="line-312">  }</span>
+<span class="source-line-no">313</span><span id="line-313"></span>
+<span class="source-line-no">314</span><span id="line-314">  NavigableSet&lt;byte[]&gt; getCols(String... strCols) {</span>
+<span class="source-line-no">315</span><span id="line-315">    NavigableSet&lt;byte[]&gt; cols = new TreeSet&lt;&gt;(Bytes.BYTES_COMPARATOR);</span>
+<span class="source-line-no">316</span><span id="line-316">    for (String col : strCols) {</span>
+<span class="source-line-no">317</span><span id="line-317">      byte[] bytes = Bytes.toBytes(col);</span>
+<span class="source-line-no">318</span><span id="line-318">      cols.add(bytes);</span>
+<span class="source-line-no">319</span><span id="line-319">    }</span>
+<span class="source-line-no">320</span><span id="line-320">    return cols;</span>
+<span class="source-line-no">321</span><span id="line-321">  }</span>
+<span class="source-line-no">322</span><span id="line-322">}</span>
 
 
 

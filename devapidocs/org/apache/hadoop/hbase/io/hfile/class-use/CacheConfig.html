@@ -299,9 +299,9 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>static void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">MobUtils.</span><code><a href="../../../mob/MobUtils.html#cleanExpiredMobFiles(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.TableName,org.apache.hadoop.hbase.client.ColumnFamilyDescriptor,org.apache.hadoop.hbase.io.hfile.CacheConfig,long)" class="member-name-link">cleanExpiredMobFiles</a><wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fs,
+<div class="col-second even-row-color"><span class="type-name-label">MobUtils.</span><code><a href="../../../mob/MobUtils.html#cleanExpiredMobFiles(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.hbase.client.ColumnFamilyDescriptor,org.apache.hadoop.hbase.io.hfile.CacheConfig,long)" class="member-name-link">cleanExpiredMobFiles</a><wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.conf.Configuration&nbsp;conf,
- <a href="../../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName,
+ <a href="../../../client/TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;htd,
  <a href="../../../client/ColumnFamilyDescriptor.html" title="interface in org.apache.hadoop.hbase.client">ColumnFamilyDescriptor</a>&nbsp;columnDescriptor,
  <a href="../CacheConfig.html" title="class in org.apache.hadoop.hbase.io.hfile">CacheConfig</a>&nbsp;cacheConfig,
  long&nbsp;current)</code></div>
@@ -309,16 +309,18 @@ loadScripts(document, 'script');</script>
 <div class="block">Cleans the expired mob files.</div>
 </div>
 <div class="col-first odd-row-color"><code>static <a href="../../../mob/CachedMobFile.html" title="class in org.apache.hadoop.hbase.mob">CachedMobFile</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">CachedMobFile.</span><code><a href="../../../mob/CachedMobFile.html#create(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.io.hfile.CacheConfig)" class="member-name-link">create</a><wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fs,
+<div class="col-second odd-row-color"><span class="type-name-label">CachedMobFile.</span><code><a href="../../../mob/CachedMobFile.html#create(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.io.hfile.CacheConfig,org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker)" class="member-name-link">create</a><wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.Path&nbsp;path,
  org.apache.hadoop.conf.Configuration&nbsp;conf,
- <a href="../CacheConfig.html" title="class in org.apache.hadoop.hbase.io.hfile">CacheConfig</a>&nbsp;cacheConf)</code></div>
+ <a href="../CacheConfig.html" title="class in org.apache.hadoop.hbase.io.hfile">CacheConfig</a>&nbsp;cacheConf,
+ <a href="../../../regionserver/storefiletracker/StoreFileTracker.html" title="interface in org.apache.hadoop.hbase.regionserver.storefiletracker">StoreFileTracker</a>&nbsp;sft)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>static <a href="../../../mob/MobFile.html" title="class in org.apache.hadoop.hbase.mob">MobFile</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">MobFile.</span><code><a href="../../../mob/MobFile.html#create(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.io.hfile.CacheConfig)" class="member-name-link">create</a><wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fs,
+<div class="col-second even-row-color"><span class="type-name-label">MobFile.</span><code><a href="../../../mob/MobFile.html#create(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.io.hfile.CacheConfig,org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker)" class="member-name-link">create</a><wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.Path&nbsp;path,
  org.apache.hadoop.conf.Configuration&nbsp;conf,
- <a href="../CacheConfig.html" title="class in org.apache.hadoop.hbase.io.hfile">CacheConfig</a>&nbsp;cacheConf)</code></div>
+ <a href="../CacheConfig.html" title="class in org.apache.hadoop.hbase.io.hfile">CacheConfig</a>&nbsp;cacheConf,
+ <a href="../../../regionserver/storefiletracker/StoreFileTracker.html" title="interface in org.apache.hadoop.hbase.regionserver.storefiletracker">StoreFileTracker</a>&nbsp;sft)</code></div>
 <div class="col-last even-row-color">
 <div class="block">Creates an instance of the MobFile.</div>
 </div>
@@ -388,9 +390,10 @@ loadScripts(document, 'script');</script>
 <div class="block">Creates a writer for the mob file in temp directory.</div>
 </div>
 <div class="col-first odd-row-color"><code><a href="../../../mob/MobFile.html" title="class in org.apache.hadoop.hbase.mob">MobFile</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">MobFileCache.</span><code><a href="../../../mob/MobFileCache.html#openFile(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.io.hfile.CacheConfig)" class="member-name-link">openFile</a><wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fs,
+<div class="col-second odd-row-color"><span class="type-name-label">MobFileCache.</span><code><a href="../../../mob/MobFileCache.html#openFile(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.io.hfile.CacheConfig,org.apache.hadoop.hbase.regionserver.StoreContext)" class="member-name-link">openFile</a><wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.Path&nbsp;path,
- <a href="../CacheConfig.html" title="class in org.apache.hadoop.hbase.io.hfile">CacheConfig</a>&nbsp;cacheConf)</code></div>
+ <a href="../CacheConfig.html" title="class in org.apache.hadoop.hbase.io.hfile">CacheConfig</a>&nbsp;cacheConf,
+ <a href="../../../regionserver/StoreContext.html" title="class in org.apache.hadoop.hbase.regionserver">StoreContext</a>&nbsp;storeContext)</code></div>
 <div class="col-last odd-row-color">
 <div class="block">Opens a mob file.</div>
 </div>
@@ -493,12 +496,13 @@ loadScripts(document, 'script');</script>
  org.apache.hadoop.fs.FileSystem&nbsp;fs)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>&nbsp;</code></div>
-<div class="col-second odd-row-color"><code><a href="../../../regionserver/HStoreFile.html#%3Cinit%3E(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.io.hfile.CacheConfig,org.apache.hadoop.hbase.regionserver.BloomType,boolean)" class="member-name-link">HStoreFile</a><wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fs,
+<div class="col-second odd-row-color"><code><a href="../../../regionserver/HStoreFile.html#%3Cinit%3E(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.io.hfile.CacheConfig,org.apache.hadoop.hbase.regionserver.BloomType,boolean,org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker)" class="member-name-link">HStoreFile</a><wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.Path&nbsp;p,
  org.apache.hadoop.conf.Configuration&nbsp;conf,
  <a href="../CacheConfig.html" title="class in org.apache.hadoop.hbase.io.hfile">CacheConfig</a>&nbsp;cacheConf,
  <a href="../../../regionserver/BloomType.html" title="enum class in org.apache.hadoop.hbase.regionserver">BloomType</a>&nbsp;cfBloomType,
- boolean&nbsp;primaryReplica)</code></div>
+ boolean&nbsp;primaryReplica,
+ <a href="../../../regionserver/storefiletracker/StoreFileTracker.html" title="interface in org.apache.hadoop.hbase.regionserver.storefiletracker">StoreFileTracker</a>&nbsp;sft)</code></div>
 <div class="col-last odd-row-color">
 <div class="block">Constructor, loads a reader and it's indices, etc.</div>
 </div>

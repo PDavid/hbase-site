@@ -55,11 +55,93 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Package</div>
 <div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.mob">org.apache.hadoop.hbase.mob</a></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.regionserver">org.apache.hadoop.hbase.regionserver</a></div>
+<div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.regionserver.storefiletracker">org.apache.hadoop.hbase.regionserver.storefiletracker</a></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.snapshot">org.apache.hadoop.hbase.snapshot</a></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.util">org.apache.hadoop.hbase.util</a></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 <section class="class-uses">
 <ul class="block-list">
+<li>
+<section class="detail" id="org.apache.hadoop.hbase.mob">
+<h2>Uses of org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker in <a href="../../../mob/package-summary.html">org.apache.hadoop.hbase.mob</a></h2>
+<div class="caption"><span>Methods in <a href="../../../mob/package-summary.html">org.apache.hadoop.hbase.mob</a> with parameters of type org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker in  in </span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>static org.apache.hadoop.hbase.mob.CachedMobFile</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">CachedMobFile.</span><code>create<wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fs,
+ org.apache.hadoop.fs.Path&nbsp;path,
+ org.apache.hadoop.conf.Configuration&nbsp;conf,
+ org.apache.hadoop.hbase.io.hfile.CacheConfig&nbsp;cacheConf,
+ org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker&nbsp;sft)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static org.apache.hadoop.hbase.mob.MobFile</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">MobFile.</span><code>create<wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fs,
+ org.apache.hadoop.fs.Path&nbsp;path,
+ org.apache.hadoop.conf.Configuration&nbsp;conf,
+ org.apache.hadoop.hbase.io.hfile.CacheConfig&nbsp;cacheConf,
+ org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker&nbsp;sft)</code></div>
+<div class="col-last odd-row-color">
+<div class="block">Creates an instance of the MobFile.</div>
+</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="org.apache.hadoop.hbase.regionserver">
+<h2>Uses of org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker in <a href="../../package-summary.html">org.apache.hadoop.hbase.regionserver</a></h2>
+<div class="caption"><span>Methods in <a href="../../package-summary.html">org.apache.hadoop.hbase.regionserver</a> with parameters of type org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker in  in </span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>org.apache.hadoop.fs.Path</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">HRegionFileSystem.</span><code>mergeStoreFile<wbr>(org.apache.hadoop.hbase.client.RegionInfo&nbsp;mergingRegion,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;familyName,
+ org.apache.hadoop.hbase.regionserver.HStoreFile&nbsp;f,
+ org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker&nbsp;tracker)</code></div>
+<div class="col-last even-row-color">
+<div class="block">Write out a merge reference under the given merges directory.</div>
+</div>
+<div class="col-first odd-row-color"><code>org.apache.hadoop.fs.Path</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">HRegionFileSystem.</span><code>splitStoreFile<wbr>(org.apache.hadoop.hbase.client.RegionInfo&nbsp;hri,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;familyName,
+ org.apache.hadoop.hbase.regionserver.HStoreFile&nbsp;f,
+ byte[]&nbsp;splitRow,
+ boolean&nbsp;top,
+ org.apache.hadoop.hbase.regionserver.RegionSplitPolicy&nbsp;splitPolicy,
+ org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker&nbsp;tracker)</code></div>
+<div class="col-last odd-row-color">
+<div class="block">Write out a split reference.</div>
+</div>
+</div>
+<div class="caption"><span>Constructors in <a href="../../package-summary.html">org.apache.hadoop.hbase.regionserver</a> with parameters of type org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker in  in </span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier</div>
+<div class="table-header col-second">Constructor</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>&nbsp;</code></div>
+<div class="col-second even-row-color"><code>HStoreFile<wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fs,
+ org.apache.hadoop.fs.Path&nbsp;p,
+ org.apache.hadoop.conf.Configuration&nbsp;conf,
+ org.apache.hadoop.hbase.io.hfile.CacheConfig&nbsp;cacheConf,
+ org.apache.hadoop.hbase.regionserver.BloomType&nbsp;cfBloomType,
+ boolean&nbsp;primaryReplica,
+ org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker&nbsp;sft)</code></div>
+<div class="col-last even-row-color">
+<div class="block">Constructor, loads a reader and it's indices, etc.</div>
+</div>
+</div>
+</section>
+</li>
 <li>
 <section class="detail" id="org.apache.hadoop.hbase.regionserver.storefiletracker">
 <h2>Uses of org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker in <a href="../package-summary.html">org.apache.hadoop.hbase.regionserver.storefiletracker</a></h2>
@@ -82,6 +164,13 @@ loadScripts(document, 'script');</script>
 <div class="block">Used at master side when splitting/merging regions, as we do not have a Store, thus no
  StoreContext at master side.</div>
 </div>
+<div class="col-first even-row-color"><code>static org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">StoreFileTrackerFactory.</span><code>create<wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+ org.apache.hadoop.hbase.client.TableDescriptor&nbsp;td,
+ org.apache.hadoop.hbase.client.ColumnFamilyDescriptor&nbsp;cfd,
+ org.apache.hadoop.hbase.regionserver.HRegionFileSystem&nbsp;regionFs,
+ boolean&nbsp;isPrimaryReplica)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
 </div>
 <div class="caption"><span>Methods in <a href="../package-summary.html">org.apache.hadoop.hbase.regionserver.storefiletracker</a> that return types with arguments of type org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker in  in </span></div>
 <div class="summary-table three-column-summary">
@@ -103,6 +192,45 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color"><span class="type-name-label">StoreFileTrackerFactory.</span><code>getStoreFileTrackerName<wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;? extends org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker&gt;&nbsp;clazz)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="org.apache.hadoop.hbase.snapshot">
+<h2>Uses of org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker in <a href="../../../snapshot/package-summary.html">org.apache.hadoop.hbase.snapshot</a></h2>
+<div class="caption"><span>Methods in <a href="../../../snapshot/package-summary.html">org.apache.hadoop.hbase.snapshot</a> with parameters of type org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker in  in </span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;org.apache.hadoop.hbase.regionserver.StoreFileInfo&gt;</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">SnapshotManifestV1.</span><code>getStoreFiles<wbr>(org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker&nbsp;sft,
+ org.apache.hadoop.hbase.regionserver.HRegionFileSystem&nbsp;regionFS,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;familyName,
+ boolean&nbsp;validate)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="org.apache.hadoop.hbase.util">
+<h2>Uses of org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker in <a href="../../../util/package-summary.html">org.apache.hadoop.hbase.util</a></h2>
+<div class="caption"><span>Methods in <a href="../../../util/package-summary.html">org.apache.hadoop.hbase.util</a> with parameters of type org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker in  in </span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>static org.apache.hadoop.hbase.regionserver.StoreFileInfo</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">ServerRegionReplicaUtil.</span><code>getStoreFileInfo<wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+ org.apache.hadoop.fs.FileSystem&nbsp;fs,
+ org.apache.hadoop.hbase.client.RegionInfo&nbsp;regionInfo,
+ org.apache.hadoop.hbase.client.RegionInfo&nbsp;regionInfoForFs,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;familyName,
+ org.apache.hadoop.fs.Path&nbsp;path,
+ org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker&nbsp;tracker)</code></div>
+<div class="col-last even-row-color">
+<div class="block">Returns a StoreFileInfo from the given FileStatus.</div>
+</div>
 </div>
 </section>
 </li>

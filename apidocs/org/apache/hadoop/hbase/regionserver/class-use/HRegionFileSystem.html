@@ -59,8 +59,10 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.regionserver.storefiletracker">org.apache.hadoop.hbase.regionserver.storefiletracker</a></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.util.compaction">org.apache.hadoop.hbase.util.compaction</a></div>
+<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.snapshot">org.apache.hadoop.hbase.snapshot</a></div>
 <div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.util.compaction">org.apache.hadoop.hbase.util.compaction</a></div>
+<div class="col-last odd-row-color">&nbsp;</div>
 </div>
 <section class="class-uses">
 <ul class="block-list">
@@ -84,38 +86,44 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>static org.apache.hadoop.hbase.regionserver.HRegionFileSystem</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">HRegion.</span><code>createRegionDir<wbr>(org.apache.hadoop.conf.Configuration&nbsp;configuration,
- org.apache.hadoop.hbase.client.RegionInfo&nbsp;ri,
- org.apache.hadoop.fs.Path&nbsp;rootDir)</code></div>
-<div class="col-last even-row-color">
-<div class="block">Create the region directory in the filesystem.</div>
-</div>
-<div class="col-first odd-row-color"><code>static org.apache.hadoop.hbase.regionserver.HRegionFileSystem</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">HRegionFileSystem.</span><code>createRegionOnFileSystem<wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="col-second even-row-color"><span class="type-name-label">HRegionFileSystem.</span><code>create<wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.Path&nbsp;tableDir,
  org.apache.hadoop.hbase.client.RegionInfo&nbsp;regionInfo)</code></div>
-<div class="col-last odd-row-color">
-<div class="block">Create a new Region on file-system.</div>
-</div>
-<div class="col-first even-row-color"><code>org.apache.hadoop.hbase.regionserver.HRegionFileSystem</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">HRegion.</span><code>getRegionFileSystem()</code></div>
-<div class="col-last even-row-color">
-<div class="block">Returns the <code>HRegionFileSystem</code> used by this region</div>
-</div>
-<div class="col-first odd-row-color"><code>org.apache.hadoop.hbase.regionserver.HRegionFileSystem</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">HStore.</span><code>getRegionFileSystem()</code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>org.apache.hadoop.hbase.regionserver.HRegionFileSystem</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">StoreContext.</span><code>getRegionFileSystem()</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>static org.apache.hadoop.hbase.regionserver.HRegionFileSystem</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">HRegionFileSystem.</span><code>openRegionFromFileSystem<wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="col-second odd-row-color"><span class="type-name-label">HRegion.</span><code>createRegionDir<wbr>(org.apache.hadoop.conf.Configuration&nbsp;configuration,
+ org.apache.hadoop.hbase.client.RegionInfo&nbsp;ri,
+ org.apache.hadoop.fs.Path&nbsp;rootDir)</code></div>
+<div class="col-last odd-row-color">
+<div class="block">Create the region directory in the filesystem.</div>
+</div>
+<div class="col-first even-row-color"><code>static org.apache.hadoop.hbase.regionserver.HRegionFileSystem</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">HRegionFileSystem.</span><code>createRegionOnFileSystem<wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+ org.apache.hadoop.fs.FileSystem&nbsp;fs,
+ org.apache.hadoop.fs.Path&nbsp;tableDir,
+ org.apache.hadoop.hbase.client.RegionInfo&nbsp;regionInfo)</code></div>
+<div class="col-last even-row-color">
+<div class="block">Create a new Region on file-system.</div>
+</div>
+<div class="col-first odd-row-color"><code>org.apache.hadoop.hbase.regionserver.HRegionFileSystem</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">HRegion.</span><code>getRegionFileSystem()</code></div>
+<div class="col-last odd-row-color">
+<div class="block">Returns the <code>HRegionFileSystem</code> used by this region</div>
+</div>
+<div class="col-first even-row-color"><code>org.apache.hadoop.hbase.regionserver.HRegionFileSystem</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">HStore.</span><code>getRegionFileSystem()</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>org.apache.hadoop.hbase.regionserver.HRegionFileSystem</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">StoreContext.</span><code>getRegionFileSystem()</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static org.apache.hadoop.hbase.regionserver.HRegionFileSystem</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">HRegionFileSystem.</span><code>openRegionFromFileSystem<wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.Path&nbsp;tableDir,
  org.apache.hadoop.hbase.client.RegionInfo&nbsp;regionInfo,
  boolean&nbsp;readOnly)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-last even-row-color">
 <div class="block">Open Region from file-system.</div>
 </div>
 </div>
@@ -169,6 +177,30 @@ loadScripts(document, 'script');</script>
 <div class="block">Used at master side when splitting/merging regions, as we do not have a Store, thus no
  StoreContext at master side.</div>
 </div>
+<div class="col-first odd-row-color"><code>static org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">StoreFileTrackerFactory.</span><code>create<wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+ org.apache.hadoop.hbase.client.TableDescriptor&nbsp;td,
+ org.apache.hadoop.hbase.client.ColumnFamilyDescriptor&nbsp;cfd,
+ org.apache.hadoop.hbase.regionserver.HRegionFileSystem&nbsp;regionFs,
+ boolean&nbsp;isPrimaryReplica)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="org.apache.hadoop.hbase.snapshot">
+<h2>Uses of org.apache.hadoop.hbase.regionserver.HRegionFileSystem in <a href="../../snapshot/package-summary.html">org.apache.hadoop.hbase.snapshot</a></h2>
+<div class="caption"><span>Methods in <a href="../../snapshot/package-summary.html">org.apache.hadoop.hbase.snapshot</a> with parameters of type org.apache.hadoop.hbase.regionserver.HRegionFileSystem in  in </span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;org.apache.hadoop.hbase.regionserver.StoreFileInfo&gt;</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">SnapshotManifestV1.</span><code>getStoreFiles<wbr>(org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker&nbsp;sft,
+ org.apache.hadoop.hbase.regionserver.HRegionFileSystem&nbsp;regionFS,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;familyName,
+ boolean&nbsp;validate)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
 </li>

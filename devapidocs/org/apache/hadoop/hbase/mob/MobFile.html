@@ -82,7 +82,7 @@ loadScripts(document, 'script');</script>
 </dl>
 <hr>
 <div class="type-signature"><span class="annotations">@Private
-</span><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFile.html#line-37">MobFile</a></span>
+</span><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFile.html#line-38">MobFile</a></span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
 <div class="block">The mob file.</div>
 </section>
@@ -138,10 +138,11 @@ loadScripts(document, 'script');</script>
 <div class="block">Closes the underlying reader, but do no evict blocks belonging to this file.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="MobFile.html" title="class in org.apache.hadoop.hbase.mob">MobFile</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#create(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.io.hfile.CacheConfig)" class="member-name-link">create</a><wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fs,
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#create(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.io.hfile.CacheConfig,org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker)" class="member-name-link">create</a><wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.Path&nbsp;path,
  org.apache.hadoop.conf.Configuration&nbsp;conf,
- <a href="../io/hfile/CacheConfig.html" title="class in org.apache.hadoop.hbase.io.hfile">CacheConfig</a>&nbsp;cacheConf)</code></div>
+ <a href="../io/hfile/CacheConfig.html" title="class in org.apache.hadoop.hbase.io.hfile">CacheConfig</a>&nbsp;cacheConf,
+ <a href="../regionserver/storefiletracker/StoreFileTracker.html" title="interface in org.apache.hadoop.hbase.regionserver.storefiletracker">StoreFileTracker</a>&nbsp;sft)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Creates an instance of the MobFile.</div>
 </div>
@@ -193,7 +194,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="sf">
 <h3>sf</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../regionserver/HStoreFile.html" title="class in org.apache.hadoop.hbase.regionserver">HStoreFile</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFile.html#line-40">sf</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../regionserver/HStoreFile.html" title="class in org.apache.hadoop.hbase.regionserver">HStoreFile</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFile.html#line-41">sf</a></span></div>
 </section>
 </li>
 </ul>
@@ -207,13 +208,13 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;()">
 <h3>MobFile</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFile.html#line-43">MobFile</a></span>()</div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFile.html#line-44">MobFile</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="&lt;init&gt;(org.apache.hadoop.hbase.regionserver.HStoreFile)">
 <h3>MobFile</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFile.html#line-46">MobFile</a></span><wbr><span class="parameters">(<a href="../regionserver/HStoreFile.html" title="class in org.apache.hadoop.hbase.regionserver">HStoreFile</a>&nbsp;sf)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFile.html#line-47">MobFile</a></span><wbr><span class="parameters">(<a href="../regionserver/HStoreFile.html" title="class in org.apache.hadoop.hbase.regionserver">HStoreFile</a>&nbsp;sf)</span></div>
 </section>
 </li>
 </ul>
@@ -227,7 +228,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getScanner()">
 <h3>getScanner</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../regionserver/StoreFileScanner.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileScanner</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFile.html#line-54">getScanner</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../regionserver/StoreFileScanner.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileScanner</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFile.html#line-55">getScanner</a></span>()
                             throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Internal use only. This is used by the sweeper.</div>
 <dl class="notes">
@@ -241,7 +242,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="readCell(org.apache.hadoop.hbase.ExtendedCell,boolean)">
 <h3>readCell</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="MobCell.html" title="class in org.apache.hadoop.hbase.mob">MobCell</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFile.html#line-69">readCell</a></span><wbr><span class="parameters">(<a href="../ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;search,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="MobCell.html" title="class in org.apache.hadoop.hbase.mob">MobCell</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFile.html#line-70">readCell</a></span><wbr><span class="parameters">(<a href="../ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;search,
  boolean&nbsp;cacheMobBlocks)</span>
                  throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Reads a cell from the mob file.</div>
@@ -259,7 +260,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="readCell(org.apache.hadoop.hbase.ExtendedCell,boolean,long)">
 <h3>readCell</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="MobCell.html" title="class in org.apache.hadoop.hbase.mob">MobCell</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFile.html#line-80">readCell</a></span><wbr><span class="parameters">(<a href="../ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;search,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="MobCell.html" title="class in org.apache.hadoop.hbase.mob">MobCell</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFile.html#line-81">readCell</a></span><wbr><span class="parameters">(<a href="../ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;search,
  boolean&nbsp;cacheMobBlocks,
  long&nbsp;readPt)</span>
                  throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
@@ -279,7 +280,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getFileName()">
 <h3>getFileName</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFile.html#line-107">getFileName</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFile.html#line-108">getFileName</a></span>()</div>
 <div class="block">Gets the file name.</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -290,7 +291,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="open()">
 <h3>open</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFile.html#line-114">open</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFile.html#line-115">open</a></span>()
           throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Opens the underlying reader. It's not thread-safe. Use MobFileCache.openFile() instead.</div>
 <dl class="notes">
@@ -302,7 +303,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="close()">
 <h3>close</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFile.html#line-122">close</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFile.html#line-123">close</a></span>()
            throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Closes the underlying reader, but do no evict blocks belonging to this file. It's not
  thread-safe. Use MobFileCache.closeFile() instead.</div>
@@ -313,12 +314,13 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="create(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.io.hfile.CacheConfig)">
+<section class="detail" id="create(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.io.hfile.CacheConfig,org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker)">
 <h3>create</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="MobFile.html" title="class in org.apache.hadoop.hbase.mob">MobFile</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFile.html#line-137">create</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.FileSystem&nbsp;fs,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="MobFile.html" title="class in org.apache.hadoop.hbase.mob">MobFile</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/MobFile.html#line-138">create</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.Path&nbsp;path,
  org.apache.hadoop.conf.Configuration&nbsp;conf,
- <a href="../io/hfile/CacheConfig.html" title="class in org.apache.hadoop.hbase.io.hfile">CacheConfig</a>&nbsp;cacheConf)</span>
+ <a href="../io/hfile/CacheConfig.html" title="class in org.apache.hadoop.hbase.io.hfile">CacheConfig</a>&nbsp;cacheConf,
+ <a href="../regionserver/storefiletracker/StoreFileTracker.html" title="interface in org.apache.hadoop.hbase.regionserver.storefiletracker">StoreFileTracker</a>&nbsp;sft)</span>
                       throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Creates an instance of the MobFile.</div>
 <dl class="notes">

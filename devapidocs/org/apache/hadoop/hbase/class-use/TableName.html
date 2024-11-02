@@ -6801,46 +6801,40 @@ PRESP&gt;<br><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.ba
  long&nbsp;maxCreationTimeToArchive)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>static void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">MobUtils.</span><code><a href="../mob/MobUtils.html#cleanExpiredMobFiles(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.TableName,org.apache.hadoop.hbase.client.ColumnFamilyDescriptor,org.apache.hadoop.hbase.io.hfile.CacheConfig,long)" class="member-name-link">cleanExpiredMobFiles</a><wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fs,
- org.apache.hadoop.conf.Configuration&nbsp;conf,
- <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName,
- <a href="../client/ColumnFamilyDescriptor.html" title="interface in org.apache.hadoop.hbase.client">ColumnFamilyDescriptor</a>&nbsp;columnDescriptor,
- <a href="../io/hfile/CacheConfig.html" title="class in org.apache.hadoop.hbase.io.hfile">CacheConfig</a>&nbsp;cacheConfig,
- long&nbsp;current)</code></div>
-<div class="col-last odd-row-color">
-<div class="block">Cleans the expired mob files.</div>
-</div>
-<div class="col-first even-row-color"><code>static void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">MobFileCleanupUtil.</span><code><a href="../mob/MobFileCleanupUtil.html#cleanupObsoleteMobFiles(org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.TableName,org.apache.hadoop.hbase.client.Admin)" class="member-name-link">cleanupObsoleteMobFiles</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="col-second odd-row-color"><span class="type-name-label">MobFileCleanupUtil.</span><code><a href="../mob/MobFileCleanupUtil.html#cleanupObsoleteMobFiles(org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.TableName,org.apache.hadoop.hbase.client.Admin)" class="member-name-link">cleanupObsoleteMobFiles</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
  <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;table,
  <a href="../client/Admin.html" title="interface in org.apache.hadoop.hbase.client">Admin</a>&nbsp;admin)</code></div>
-<div class="col-last even-row-color">
+<div class="col-last odd-row-color">
 <div class="block">Performs housekeeping file cleaning (called by MOB Cleaner chore)</div>
 </div>
-<div class="col-first odd-row-color"><code>static org.apache.hadoop.fs.Path</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">MobUtils.</span><code><a href="../mob/MobUtils.html#getMobFamilyPath(org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.TableName,java.lang.String)" class="member-name-link">getMobFamilyPath</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="col-first even-row-color"><code>static org.apache.hadoop.fs.Path</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">MobUtils.</span><code><a href="../mob/MobUtils.html#getMobFamilyPath(org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.TableName,java.lang.String)" class="member-name-link">getMobFamilyPath</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
  <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;familyName)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-last even-row-color">
 <div class="block">Gets the family dir of the mob files.</div>
 </div>
-<div class="col-first even-row-color"><code>static <a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">MobUtils.</span><code><a href="../mob/MobUtils.html#getMobRegionInfo(org.apache.hadoop.hbase.TableName)" class="member-name-link">getMobRegionInfo</a><wbr>(<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName)</code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code>static <a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a></code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">MobUtils.</span><code><a href="../mob/MobUtils.html#getMobRegionInfo(org.apache.hadoop.hbase.TableName)" class="member-name-link">getMobRegionInfo</a><wbr>(<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName)</code></div>
+<div class="col-last odd-row-color">
 <div class="block">Gets the RegionInfo of the mob files.</div>
 </div>
-<div class="col-first odd-row-color"><code>static org.apache.hadoop.fs.Path</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">MobUtils.</span><code><a href="../mob/MobUtils.html#getMobRegionPath(org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.TableName)" class="member-name-link">getMobRegionPath</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
- <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName)</code></div>
-<div class="col-last odd-row-color">
-<div class="block">Gets the region dir of the mob files.</div>
-</div>
 <div class="col-first even-row-color"><code>static org.apache.hadoop.fs.Path</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">MobUtils.</span><code><a href="../mob/MobUtils.html#getMobRegionPath(org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.TableName)" class="member-name-link">getMobRegionPath</a><wbr>(org.apache.hadoop.fs.Path&nbsp;rootDir,
+<div class="col-second even-row-color"><span class="type-name-label">MobUtils.</span><code><a href="../mob/MobUtils.html#getMobRegionPath(org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.TableName)" class="member-name-link">getMobRegionPath</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
  <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName)</code></div>
 <div class="col-last even-row-color">
+<div class="block">Gets the region dir of the mob files.</div>
+</div>
+<div class="col-first odd-row-color"><code>static org.apache.hadoop.fs.Path</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">MobUtils.</span><code><a href="../mob/MobUtils.html#getMobRegionPath(org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.TableName)" class="member-name-link">getMobRegionPath</a><wbr>(org.apache.hadoop.fs.Path&nbsp;rootDir,
+ <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName)</code></div>
+<div class="col-last odd-row-color">
 <div class="block">Gets the region dir of the mob files under the specified root dir.</div>
 </div>
+<div class="col-first even-row-color"><code>static org.apache.hadoop.fs.Path</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">MobUtils.</span><code><a href="../mob/MobUtils.html#getMobTableDir(org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.TableName)" class="member-name-link">getMobTableDir</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+ <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>static org.apache.hadoop.fs.Path</code></div>
 <div class="col-second odd-row-color"><span class="type-name-label">MobUtils.</span><code><a href="../mob/MobUtils.html#getMobTableDir(org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.TableName)" class="member-name-link">getMobTableDir</a><wbr>(org.apache.hadoop.fs.Path&nbsp;rootDir,
  <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName)</code></div>

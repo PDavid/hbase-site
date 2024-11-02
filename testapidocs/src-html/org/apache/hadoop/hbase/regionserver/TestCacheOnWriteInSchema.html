@@ -232,67 +232,68 @@
 <span class="source-line-no">219</span><span id="line-219">  private void readStoreFile(Path path) throws IOException {</span>
 <span class="source-line-no">220</span><span id="line-220">    CacheConfig cacheConf = store.getCacheConfig();</span>
 <span class="source-line-no">221</span><span id="line-221">    BlockCache cache = cacheConf.getBlockCache().get();</span>
-<span class="source-line-no">222</span><span id="line-222">    HStoreFile sf = new HStoreFile(fs, path, conf, cacheConf, BloomType.ROWCOL, true);</span>
-<span class="source-line-no">223</span><span id="line-223">    sf.initReader();</span>
-<span class="source-line-no">224</span><span id="line-224">    HFile.Reader reader = sf.getReader().getHFileReader();</span>
-<span class="source-line-no">225</span><span id="line-225">    try {</span>
-<span class="source-line-no">226</span><span id="line-226">      // Open a scanner with (on read) caching disabled</span>
-<span class="source-line-no">227</span><span id="line-227">      HFileScanner scanner = reader.getScanner(conf, false, false);</span>
-<span class="source-line-no">228</span><span id="line-228">      assertTrue(testDescription, scanner.seekTo());</span>
-<span class="source-line-no">229</span><span id="line-229">      // Cribbed from io.hfile.TestCacheOnWrite</span>
-<span class="source-line-no">230</span><span id="line-230">      long offset = 0;</span>
-<span class="source-line-no">231</span><span id="line-231">      while (offset &lt; reader.getTrailer().getLoadOnOpenDataOffset()) {</span>
-<span class="source-line-no">232</span><span id="line-232">        // Flags: don't cache the block, use pread, this is not a compaction.</span>
-<span class="source-line-no">233</span><span id="line-233">        // Also, pass null for expected block type to avoid checking it.</span>
-<span class="source-line-no">234</span><span id="line-234">        HFileBlock block =</span>
-<span class="source-line-no">235</span><span id="line-235">          reader.readBlock(offset, -1, false, true, false, true, null, DataBlockEncoding.NONE);</span>
-<span class="source-line-no">236</span><span id="line-236">        BlockCacheKey blockCacheKey = new BlockCacheKey(reader.getName(), offset);</span>
-<span class="source-line-no">237</span><span id="line-237">        boolean isCached = cache.getBlock(blockCacheKey, true, false, true) != null;</span>
-<span class="source-line-no">238</span><span id="line-238">        boolean shouldBeCached = cowType.shouldBeCached(block.getBlockType());</span>
-<span class="source-line-no">239</span><span id="line-239">        final BlockType blockType = block.getBlockType();</span>
-<span class="source-line-no">240</span><span id="line-240"></span>
-<span class="source-line-no">241</span><span id="line-241">        if (</span>
-<span class="source-line-no">242</span><span id="line-242">          shouldBeCached != isCached</span>
-<span class="source-line-no">243</span><span id="line-243">            &amp;&amp; (cowType.blockType1.equals(blockType) || cowType.blockType2.equals(blockType))</span>
-<span class="source-line-no">244</span><span id="line-244">        ) {</span>
-<span class="source-line-no">245</span><span id="line-245">          throw new AssertionError("shouldBeCached: " + shouldBeCached + "\n" + "isCached: "</span>
-<span class="source-line-no">246</span><span id="line-246">            + isCached + "\n" + "Test description: " + testDescription + "\n" + "block: " + block</span>
-<span class="source-line-no">247</span><span id="line-247">            + "\n" + "blockCacheKey: " + blockCacheKey);</span>
-<span class="source-line-no">248</span><span id="line-248">        }</span>
-<span class="source-line-no">249</span><span id="line-249">        offset += block.getOnDiskSizeWithHeader();</span>
-<span class="source-line-no">250</span><span id="line-250">      }</span>
-<span class="source-line-no">251</span><span id="line-251">    } finally {</span>
-<span class="source-line-no">252</span><span id="line-252">      reader.close();</span>
-<span class="source-line-no">253</span><span id="line-253">    }</span>
-<span class="source-line-no">254</span><span id="line-254">  }</span>
-<span class="source-line-no">255</span><span id="line-255"></span>
-<span class="source-line-no">256</span><span id="line-256">  private static KeyValue.Type generateKeyType(Random rand) {</span>
-<span class="source-line-no">257</span><span id="line-257">    if (rand.nextBoolean()) {</span>
-<span class="source-line-no">258</span><span id="line-258">      // Let's make half of KVs puts.</span>
-<span class="source-line-no">259</span><span id="line-259">      return KeyValue.Type.Put;</span>
-<span class="source-line-no">260</span><span id="line-260">    } else {</span>
-<span class="source-line-no">261</span><span id="line-261">      KeyValue.Type keyType = KeyValue.Type.values()[1 + rand.nextInt(NUM_VALID_KEY_TYPES)];</span>
-<span class="source-line-no">262</span><span id="line-262">      if (keyType == KeyValue.Type.Minimum || keyType == KeyValue.Type.Maximum) {</span>
-<span class="source-line-no">263</span><span id="line-263">        throw new RuntimeException("Generated an invalid key type: " + keyType + ". "</span>
-<span class="source-line-no">264</span><span id="line-264">          + "Probably the layout of KeyValue.Type has changed.");</span>
-<span class="source-line-no">265</span><span id="line-265">      }</span>
-<span class="source-line-no">266</span><span id="line-266">      return keyType;</span>
-<span class="source-line-no">267</span><span id="line-267">    }</span>
-<span class="source-line-no">268</span><span id="line-268">  }</span>
-<span class="source-line-no">269</span><span id="line-269"></span>
-<span class="source-line-no">270</span><span id="line-270">  private void writeStoreFile(StoreFileWriter writer) throws IOException {</span>
-<span class="source-line-no">271</span><span id="line-271">    final int rowLen = 32;</span>
-<span class="source-line-no">272</span><span id="line-272">    for (int i = 0; i &lt; NUM_KV; ++i) {</span>
-<span class="source-line-no">273</span><span id="line-273">      byte[] k = RandomKeyValueUtil.randomOrderedKey(rand, i);</span>
-<span class="source-line-no">274</span><span id="line-274">      byte[] v = RandomKeyValueUtil.randomValue(rand);</span>
-<span class="source-line-no">275</span><span id="line-275">      int cfLen = rand.nextInt(k.length - rowLen + 1);</span>
-<span class="source-line-no">276</span><span id="line-276">      KeyValue kv = new KeyValue(k, 0, rowLen, k, rowLen, cfLen, k, rowLen + cfLen,</span>
-<span class="source-line-no">277</span><span id="line-277">        k.length - rowLen - cfLen, rand.nextLong(), generateKeyType(rand), v, 0, v.length);</span>
-<span class="source-line-no">278</span><span id="line-278">      writer.append(kv);</span>
-<span class="source-line-no">279</span><span id="line-279">    }</span>
-<span class="source-line-no">280</span><span id="line-280">  }</span>
-<span class="source-line-no">281</span><span id="line-281"></span>
-<span class="source-line-no">282</span><span id="line-282">}</span>
+<span class="source-line-no">222</span><span id="line-222">    StoreFileInfo storeFileInfo = StoreFileInfo.createStoreFileInfoForHFile(conf, fs, path, true);</span>
+<span class="source-line-no">223</span><span id="line-223">    HStoreFile sf = new HStoreFile(storeFileInfo, BloomType.ROWCOL, cacheConf);</span>
+<span class="source-line-no">224</span><span id="line-224">    sf.initReader();</span>
+<span class="source-line-no">225</span><span id="line-225">    HFile.Reader reader = sf.getReader().getHFileReader();</span>
+<span class="source-line-no">226</span><span id="line-226">    try {</span>
+<span class="source-line-no">227</span><span id="line-227">      // Open a scanner with (on read) caching disabled</span>
+<span class="source-line-no">228</span><span id="line-228">      HFileScanner scanner = reader.getScanner(conf, false, false);</span>
+<span class="source-line-no">229</span><span id="line-229">      assertTrue(testDescription, scanner.seekTo());</span>
+<span class="source-line-no">230</span><span id="line-230">      // Cribbed from io.hfile.TestCacheOnWrite</span>
+<span class="source-line-no">231</span><span id="line-231">      long offset = 0;</span>
+<span class="source-line-no">232</span><span id="line-232">      while (offset &lt; reader.getTrailer().getLoadOnOpenDataOffset()) {</span>
+<span class="source-line-no">233</span><span id="line-233">        // Flags: don't cache the block, use pread, this is not a compaction.</span>
+<span class="source-line-no">234</span><span id="line-234">        // Also, pass null for expected block type to avoid checking it.</span>
+<span class="source-line-no">235</span><span id="line-235">        HFileBlock block =</span>
+<span class="source-line-no">236</span><span id="line-236">          reader.readBlock(offset, -1, false, true, false, true, null, DataBlockEncoding.NONE);</span>
+<span class="source-line-no">237</span><span id="line-237">        BlockCacheKey blockCacheKey = new BlockCacheKey(reader.getName(), offset);</span>
+<span class="source-line-no">238</span><span id="line-238">        boolean isCached = cache.getBlock(blockCacheKey, true, false, true) != null;</span>
+<span class="source-line-no">239</span><span id="line-239">        boolean shouldBeCached = cowType.shouldBeCached(block.getBlockType());</span>
+<span class="source-line-no">240</span><span id="line-240">        final BlockType blockType = block.getBlockType();</span>
+<span class="source-line-no">241</span><span id="line-241"></span>
+<span class="source-line-no">242</span><span id="line-242">        if (</span>
+<span class="source-line-no">243</span><span id="line-243">          shouldBeCached != isCached</span>
+<span class="source-line-no">244</span><span id="line-244">            &amp;&amp; (cowType.blockType1.equals(blockType) || cowType.blockType2.equals(blockType))</span>
+<span class="source-line-no">245</span><span id="line-245">        ) {</span>
+<span class="source-line-no">246</span><span id="line-246">          throw new AssertionError("shouldBeCached: " + shouldBeCached + "\n" + "isCached: "</span>
+<span class="source-line-no">247</span><span id="line-247">            + isCached + "\n" + "Test description: " + testDescription + "\n" + "block: " + block</span>
+<span class="source-line-no">248</span><span id="line-248">            + "\n" + "blockCacheKey: " + blockCacheKey);</span>
+<span class="source-line-no">249</span><span id="line-249">        }</span>
+<span class="source-line-no">250</span><span id="line-250">        offset += block.getOnDiskSizeWithHeader();</span>
+<span class="source-line-no">251</span><span id="line-251">      }</span>
+<span class="source-line-no">252</span><span id="line-252">    } finally {</span>
+<span class="source-line-no">253</span><span id="line-253">      reader.close();</span>
+<span class="source-line-no">254</span><span id="line-254">    }</span>
+<span class="source-line-no">255</span><span id="line-255">  }</span>
+<span class="source-line-no">256</span><span id="line-256"></span>
+<span class="source-line-no">257</span><span id="line-257">  private static KeyValue.Type generateKeyType(Random rand) {</span>
+<span class="source-line-no">258</span><span id="line-258">    if (rand.nextBoolean()) {</span>
+<span class="source-line-no">259</span><span id="line-259">      // Let's make half of KVs puts.</span>
+<span class="source-line-no">260</span><span id="line-260">      return KeyValue.Type.Put;</span>
+<span class="source-line-no">261</span><span id="line-261">    } else {</span>
+<span class="source-line-no">262</span><span id="line-262">      KeyValue.Type keyType = KeyValue.Type.values()[1 + rand.nextInt(NUM_VALID_KEY_TYPES)];</span>
+<span class="source-line-no">263</span><span id="line-263">      if (keyType == KeyValue.Type.Minimum || keyType == KeyValue.Type.Maximum) {</span>
+<span class="source-line-no">264</span><span id="line-264">        throw new RuntimeException("Generated an invalid key type: " + keyType + ". "</span>
+<span class="source-line-no">265</span><span id="line-265">          + "Probably the layout of KeyValue.Type has changed.");</span>
+<span class="source-line-no">266</span><span id="line-266">      }</span>
+<span class="source-line-no">267</span><span id="line-267">      return keyType;</span>
+<span class="source-line-no">268</span><span id="line-268">    }</span>
+<span class="source-line-no">269</span><span id="line-269">  }</span>
+<span class="source-line-no">270</span><span id="line-270"></span>
+<span class="source-line-no">271</span><span id="line-271">  private void writeStoreFile(StoreFileWriter writer) throws IOException {</span>
+<span class="source-line-no">272</span><span id="line-272">    final int rowLen = 32;</span>
+<span class="source-line-no">273</span><span id="line-273">    for (int i = 0; i &lt; NUM_KV; ++i) {</span>
+<span class="source-line-no">274</span><span id="line-274">      byte[] k = RandomKeyValueUtil.randomOrderedKey(rand, i);</span>
+<span class="source-line-no">275</span><span id="line-275">      byte[] v = RandomKeyValueUtil.randomValue(rand);</span>
+<span class="source-line-no">276</span><span id="line-276">      int cfLen = rand.nextInt(k.length - rowLen + 1);</span>
+<span class="source-line-no">277</span><span id="line-277">      KeyValue kv = new KeyValue(k, 0, rowLen, k, rowLen, cfLen, k, rowLen + cfLen,</span>
+<span class="source-line-no">278</span><span id="line-278">        k.length - rowLen - cfLen, rand.nextLong(), generateKeyType(rand), v, 0, v.length);</span>
+<span class="source-line-no">279</span><span id="line-279">      writer.append(kv);</span>
+<span class="source-line-no">280</span><span id="line-280">    }</span>
+<span class="source-line-no">281</span><span id="line-281">  }</span>
+<span class="source-line-no">282</span><span id="line-282"></span>
+<span class="source-line-no">283</span><span id="line-283">}</span>
 
 
 

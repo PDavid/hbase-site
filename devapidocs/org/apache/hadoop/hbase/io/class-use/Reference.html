@@ -63,8 +63,10 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.regionserver">org.apache.hadoop.hbase.regionserver</a></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.tool">org.apache.hadoop.hbase.tool</a></div>
+<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.regionserver.storefiletracker">org.apache.hadoop.hbase.regionserver.storefiletracker</a></div>
 <div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.tool">org.apache.hadoop.hbase.tool</a></div>
+<div class="col-last even-row-color">&nbsp;</div>
 </div>
 <section class="class-uses">
 <ul class="block-list">
@@ -211,22 +213,75 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>&nbsp;</code></div>
-<div class="col-second even-row-color"><code><a href="../../regionserver/StoreFileInfo.html#%3Cinit%3E(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.FileStatus,org.apache.hadoop.hbase.io.Reference)" class="member-name-link">StoreFileInfo</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="col-second even-row-color"><code><a href="../../regionserver/StoreFileInfo.html#%3Cinit%3E(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,long,org.apache.hadoop.fs.Path,long,org.apache.hadoop.hbase.io.Reference,org.apache.hadoop.hbase.io.HFileLink,boolean)" class="member-name-link">StoreFileInfo</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+ org.apache.hadoop.fs.FileSystem&nbsp;fs,
+ long&nbsp;createdTimestamp,
+ org.apache.hadoop.fs.Path&nbsp;initialPath,
+ long&nbsp;size,
+ <a href="../Reference.html" title="class in org.apache.hadoop.hbase.io">Reference</a>&nbsp;reference,
+ <a href="../HFileLink.html" title="class in org.apache.hadoop.hbase.io">HFileLink</a>&nbsp;link,
+ boolean&nbsp;primaryReplica)</code></div>
+<div class="col-last even-row-color">
+<div class="block">Create a Store File Info from an HFileLink and a Reference</div>
+</div>
+<div class="col-first odd-row-color"><code>&nbsp;</code></div>
+<div class="col-second odd-row-color"><code><a href="../../regionserver/StoreFileInfo.html#%3Cinit%3E(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.FileStatus,org.apache.hadoop.hbase.io.Reference)" class="member-name-link">StoreFileInfo</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.FileStatus&nbsp;fileStatus,
  <a href="../Reference.html" title="class in org.apache.hadoop.hbase.io">Reference</a>&nbsp;reference)</code></div>
-<div class="col-last even-row-color">
+<div class="col-last odd-row-color">
 <div class="block">Create a Store File Info from an HFileLink</div>
 </div>
-<div class="col-first odd-row-color"><code>&nbsp;</code></div>
-<div class="col-second odd-row-color"><code><a href="../../regionserver/StoreFileInfo.html#%3Cinit%3E(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.FileStatus,org.apache.hadoop.hbase.io.Reference,org.apache.hadoop.hbase.io.HFileLink)" class="member-name-link">StoreFileInfo</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="col-first even-row-color"><code>&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="../../regionserver/StoreFileInfo.html#%3Cinit%3E(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.FileStatus,org.apache.hadoop.hbase.io.Reference,org.apache.hadoop.hbase.io.HFileLink)" class="member-name-link">StoreFileInfo</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.FileStatus&nbsp;fileStatus,
  <a href="../Reference.html" title="class in org.apache.hadoop.hbase.io">Reference</a>&nbsp;reference,
  <a href="../HFileLink.html" title="class in org.apache.hadoop.hbase.io">HFileLink</a>&nbsp;link)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-last even-row-color">
 <div class="block">Create a Store File Info from an HFileLink and a Reference</div>
 </div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="org.apache.hadoop.hbase.regionserver.storefiletracker">
+<h2>Uses of <a href="../Reference.html" title="class in org.apache.hadoop.hbase.io">Reference</a> in <a href="../../regionserver/storefiletracker/package-summary.html">org.apache.hadoop.hbase.regionserver.storefiletracker</a></h2>
+<div class="caption"><span>Methods in <a href="../../regionserver/storefiletracker/package-summary.html">org.apache.hadoop.hbase.regionserver.storefiletracker</a> that return <a href="../Reference.html" title="class in org.apache.hadoop.hbase.io">Reference</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code><a href="../Reference.html" title="class in org.apache.hadoop.hbase.io">Reference</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">StoreFileTracker.</span><code><a href="../../regionserver/storefiletracker/StoreFileTracker.html#createReference(org.apache.hadoop.hbase.io.Reference,org.apache.hadoop.fs.Path)" class="member-name-link">createReference</a><wbr>(<a href="../Reference.html" title="class in org.apache.hadoop.hbase.io">Reference</a>&nbsp;reference,
+ org.apache.hadoop.fs.Path&nbsp;path)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code><a href="../Reference.html" title="class in org.apache.hadoop.hbase.io">Reference</a></code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">StoreFileTrackerBase.</span><code><a href="../../regionserver/storefiletracker/StoreFileTrackerBase.html#createReference(org.apache.hadoop.hbase.io.Reference,org.apache.hadoop.fs.Path)" class="member-name-link">createReference</a><wbr>(<a href="../Reference.html" title="class in org.apache.hadoop.hbase.io">Reference</a>&nbsp;reference,
+ org.apache.hadoop.fs.Path&nbsp;path)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code><a href="../Reference.html" title="class in org.apache.hadoop.hbase.io">Reference</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">StoreFileTracker.</span><code><a href="../../regionserver/storefiletracker/StoreFileTracker.html#readReference(org.apache.hadoop.fs.Path)" class="member-name-link">readReference</a><wbr>(org.apache.hadoop.fs.Path&nbsp;path)</code></div>
+<div class="col-last even-row-color">
+<div class="block">Reads the reference file from the given path.</div>
+</div>
+<div class="col-first odd-row-color"><code><a href="../Reference.html" title="class in org.apache.hadoop.hbase.io">Reference</a></code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">StoreFileTrackerBase.</span><code><a href="../../regionserver/storefiletracker/StoreFileTrackerBase.html#readReference(org.apache.hadoop.fs.Path)" class="member-name-link">readReference</a><wbr>(org.apache.hadoop.fs.Path&nbsp;p)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+</div>
+<div class="caption"><span>Methods in <a href="../../regionserver/storefiletracker/package-summary.html">org.apache.hadoop.hbase.regionserver.storefiletracker</a> with parameters of type <a href="../Reference.html" title="class in org.apache.hadoop.hbase.io">Reference</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code><a href="../Reference.html" title="class in org.apache.hadoop.hbase.io">Reference</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">StoreFileTracker.</span><code><a href="../../regionserver/storefiletracker/StoreFileTracker.html#createReference(org.apache.hadoop.hbase.io.Reference,org.apache.hadoop.fs.Path)" class="member-name-link">createReference</a><wbr>(<a href="../Reference.html" title="class in org.apache.hadoop.hbase.io">Reference</a>&nbsp;reference,
+ org.apache.hadoop.fs.Path&nbsp;path)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code><a href="../Reference.html" title="class in org.apache.hadoop.hbase.io">Reference</a></code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">StoreFileTrackerBase.</span><code><a href="../../regionserver/storefiletracker/StoreFileTrackerBase.html#createReference(org.apache.hadoop.hbase.io.Reference,org.apache.hadoop.fs.Path)" class="member-name-link">createReference</a><wbr>(<a href="../Reference.html" title="class in org.apache.hadoop.hbase.io">Reference</a>&nbsp;reference,
+ org.apache.hadoop.fs.Path&nbsp;path)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
 </div>
 </section>
 </li>

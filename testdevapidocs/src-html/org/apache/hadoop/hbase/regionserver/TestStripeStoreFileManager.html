@@ -587,58 +587,61 @@
 <span class="source-line-no">574</span><span id="line-574">    FileSystem fs = TEST_UTIL.getTestFileSystem();</span>
 <span class="source-line-no">575</span><span id="line-575">    Path testFilePath = StoreFileWriter.getUniqueFile(fs, CFDIR);</span>
 <span class="source-line-no">576</span><span id="line-576">    fs.create(testFilePath).close();</span>
-<span class="source-line-no">577</span><span id="line-577">    MockHStoreFile sf = new MockHStoreFile(TEST_UTIL, testFilePath, size, 0, false, seqNum);</span>
-<span class="source-line-no">578</span><span id="line-578">    if (startKey != null) {</span>
-<span class="source-line-no">579</span><span id="line-579">      sf.setMetadataValue(StripeStoreFileManager.STRIPE_START_KEY, startKey);</span>
-<span class="source-line-no">580</span><span id="line-580">    }</span>
-<span class="source-line-no">581</span><span id="line-581">    if (endKey != null) {</span>
-<span class="source-line-no">582</span><span id="line-582">      sf.setMetadataValue(StripeStoreFileManager.STRIPE_END_KEY, endKey);</span>
+<span class="source-line-no">577</span><span id="line-577">    StoreFileInfo storeFileInfo = StoreFileInfo</span>
+<span class="source-line-no">578</span><span id="line-578">      .createStoreFileInfoForHFile(TEST_UTIL.getConfiguration(), fs, testFilePath, true);</span>
+<span class="source-line-no">579</span><span id="line-579">    MockHStoreFile sf =</span>
+<span class="source-line-no">580</span><span id="line-580">      new MockHStoreFile(TEST_UTIL, testFilePath, size, 0, false, seqNum, storeFileInfo);</span>
+<span class="source-line-no">581</span><span id="line-581">    if (startKey != null) {</span>
+<span class="source-line-no">582</span><span id="line-582">      sf.setMetadataValue(StripeStoreFileManager.STRIPE_START_KEY, startKey);</span>
 <span class="source-line-no">583</span><span id="line-583">    }</span>
-<span class="source-line-no">584</span><span id="line-584">    return sf;</span>
-<span class="source-line-no">585</span><span id="line-585">  }</span>
-<span class="source-line-no">586</span><span id="line-586"></span>
-<span class="source-line-no">587</span><span id="line-587">  private static MockHStoreFile createFile(long size, long seqNum) throws Exception {</span>
-<span class="source-line-no">588</span><span id="line-588">    return createFile(size, seqNum, null, null);</span>
-<span class="source-line-no">589</span><span id="line-589">  }</span>
-<span class="source-line-no">590</span><span id="line-590"></span>
-<span class="source-line-no">591</span><span id="line-591">  private static MockHStoreFile createFile(byte[] startKey, byte[] endKey) throws Exception {</span>
-<span class="source-line-no">592</span><span id="line-592">    return createFile(0, 0, startKey, endKey);</span>
-<span class="source-line-no">593</span><span id="line-593">  }</span>
-<span class="source-line-no">594</span><span id="line-594"></span>
-<span class="source-line-no">595</span><span id="line-595">  private static MockHStoreFile createFile() throws Exception {</span>
-<span class="source-line-no">596</span><span id="line-596">    return createFile(null, null);</span>
-<span class="source-line-no">597</span><span id="line-597">  }</span>
-<span class="source-line-no">598</span><span id="line-598"></span>
-<span class="source-line-no">599</span><span id="line-599">  private static StripeStoreFileManager createManager() throws Exception {</span>
-<span class="source-line-no">600</span><span id="line-600">    return createManager(new ArrayList&lt;&gt;());</span>
-<span class="source-line-no">601</span><span id="line-601">  }</span>
-<span class="source-line-no">602</span><span id="line-602"></span>
-<span class="source-line-no">603</span><span id="line-603">  private static StripeStoreFileManager createManager(ArrayList&lt;HStoreFile&gt; sfs) throws Exception {</span>
-<span class="source-line-no">604</span><span id="line-604">    return createManager(sfs, TEST_UTIL.getConfiguration());</span>
-<span class="source-line-no">605</span><span id="line-605">  }</span>
-<span class="source-line-no">606</span><span id="line-606"></span>
-<span class="source-line-no">607</span><span id="line-607">  private static StripeStoreFileManager createManager(ArrayList&lt;HStoreFile&gt; sfs, Configuration conf)</span>
-<span class="source-line-no">608</span><span id="line-608">    throws Exception {</span>
-<span class="source-line-no">609</span><span id="line-609">    StripeStoreConfig config =</span>
-<span class="source-line-no">610</span><span id="line-610">      new StripeStoreConfig(conf, Mockito.mock(StoreConfigInformation.class));</span>
-<span class="source-line-no">611</span><span id="line-611">    StripeStoreFileManager result =</span>
-<span class="source-line-no">612</span><span id="line-612">      new StripeStoreFileManager(CellComparatorImpl.COMPARATOR, conf, config);</span>
-<span class="source-line-no">613</span><span id="line-613">    result.loadFiles(sfs);</span>
-<span class="source-line-no">614</span><span id="line-614">    return result;</span>
-<span class="source-line-no">615</span><span id="line-615">  }</span>
-<span class="source-line-no">616</span><span id="line-616"></span>
-<span class="source-line-no">617</span><span id="line-617">  private static ArrayList&lt;HStoreFile&gt; al(HStoreFile... sfs) {</span>
-<span class="source-line-no">618</span><span id="line-618">    return new ArrayList&lt;&gt;(Arrays.asList(sfs));</span>
-<span class="source-line-no">619</span><span id="line-619">  }</span>
-<span class="source-line-no">620</span><span id="line-620"></span>
-<span class="source-line-no">621</span><span id="line-621">  private static ArrayList&lt;HStoreFile&gt; flattenLists(ArrayList&lt;HStoreFile&gt;... sfls) {</span>
-<span class="source-line-no">622</span><span id="line-622">    ArrayList&lt;HStoreFile&gt; result = new ArrayList&lt;&gt;();</span>
-<span class="source-line-no">623</span><span id="line-623">    for (ArrayList&lt;HStoreFile&gt; sfl : sfls) {</span>
-<span class="source-line-no">624</span><span id="line-624">      result.addAll(sfl);</span>
-<span class="source-line-no">625</span><span id="line-625">    }</span>
-<span class="source-line-no">626</span><span id="line-626">    return result;</span>
-<span class="source-line-no">627</span><span id="line-627">  }</span>
-<span class="source-line-no">628</span><span id="line-628">}</span>
+<span class="source-line-no">584</span><span id="line-584">    if (endKey != null) {</span>
+<span class="source-line-no">585</span><span id="line-585">      sf.setMetadataValue(StripeStoreFileManager.STRIPE_END_KEY, endKey);</span>
+<span class="source-line-no">586</span><span id="line-586">    }</span>
+<span class="source-line-no">587</span><span id="line-587">    return sf;</span>
+<span class="source-line-no">588</span><span id="line-588">  }</span>
+<span class="source-line-no">589</span><span id="line-589"></span>
+<span class="source-line-no">590</span><span id="line-590">  private static MockHStoreFile createFile(long size, long seqNum) throws Exception {</span>
+<span class="source-line-no">591</span><span id="line-591">    return createFile(size, seqNum, null, null);</span>
+<span class="source-line-no">592</span><span id="line-592">  }</span>
+<span class="source-line-no">593</span><span id="line-593"></span>
+<span class="source-line-no">594</span><span id="line-594">  private static MockHStoreFile createFile(byte[] startKey, byte[] endKey) throws Exception {</span>
+<span class="source-line-no">595</span><span id="line-595">    return createFile(0, 0, startKey, endKey);</span>
+<span class="source-line-no">596</span><span id="line-596">  }</span>
+<span class="source-line-no">597</span><span id="line-597"></span>
+<span class="source-line-no">598</span><span id="line-598">  private static MockHStoreFile createFile() throws Exception {</span>
+<span class="source-line-no">599</span><span id="line-599">    return createFile(null, null);</span>
+<span class="source-line-no">600</span><span id="line-600">  }</span>
+<span class="source-line-no">601</span><span id="line-601"></span>
+<span class="source-line-no">602</span><span id="line-602">  private static StripeStoreFileManager createManager() throws Exception {</span>
+<span class="source-line-no">603</span><span id="line-603">    return createManager(new ArrayList&lt;&gt;());</span>
+<span class="source-line-no">604</span><span id="line-604">  }</span>
+<span class="source-line-no">605</span><span id="line-605"></span>
+<span class="source-line-no">606</span><span id="line-606">  private static StripeStoreFileManager createManager(ArrayList&lt;HStoreFile&gt; sfs) throws Exception {</span>
+<span class="source-line-no">607</span><span id="line-607">    return createManager(sfs, TEST_UTIL.getConfiguration());</span>
+<span class="source-line-no">608</span><span id="line-608">  }</span>
+<span class="source-line-no">609</span><span id="line-609"></span>
+<span class="source-line-no">610</span><span id="line-610">  private static StripeStoreFileManager createManager(ArrayList&lt;HStoreFile&gt; sfs, Configuration conf)</span>
+<span class="source-line-no">611</span><span id="line-611">    throws Exception {</span>
+<span class="source-line-no">612</span><span id="line-612">    StripeStoreConfig config =</span>
+<span class="source-line-no">613</span><span id="line-613">      new StripeStoreConfig(conf, Mockito.mock(StoreConfigInformation.class));</span>
+<span class="source-line-no">614</span><span id="line-614">    StripeStoreFileManager result =</span>
+<span class="source-line-no">615</span><span id="line-615">      new StripeStoreFileManager(CellComparatorImpl.COMPARATOR, conf, config);</span>
+<span class="source-line-no">616</span><span id="line-616">    result.loadFiles(sfs);</span>
+<span class="source-line-no">617</span><span id="line-617">    return result;</span>
+<span class="source-line-no">618</span><span id="line-618">  }</span>
+<span class="source-line-no">619</span><span id="line-619"></span>
+<span class="source-line-no">620</span><span id="line-620">  private static ArrayList&lt;HStoreFile&gt; al(HStoreFile... sfs) {</span>
+<span class="source-line-no">621</span><span id="line-621">    return new ArrayList&lt;&gt;(Arrays.asList(sfs));</span>
+<span class="source-line-no">622</span><span id="line-622">  }</span>
+<span class="source-line-no">623</span><span id="line-623"></span>
+<span class="source-line-no">624</span><span id="line-624">  private static ArrayList&lt;HStoreFile&gt; flattenLists(ArrayList&lt;HStoreFile&gt;... sfls) {</span>
+<span class="source-line-no">625</span><span id="line-625">    ArrayList&lt;HStoreFile&gt; result = new ArrayList&lt;&gt;();</span>
+<span class="source-line-no">626</span><span id="line-626">    for (ArrayList&lt;HStoreFile&gt; sfl : sfls) {</span>
+<span class="source-line-no">627</span><span id="line-627">      result.addAll(sfl);</span>
+<span class="source-line-no">628</span><span id="line-628">    }</span>
+<span class="source-line-no">629</span><span id="line-629">    return result;</span>
+<span class="source-line-no">630</span><span id="line-630">  }</span>
+<span class="source-line-no">631</span><span id="line-631">}</span>
 
 
 

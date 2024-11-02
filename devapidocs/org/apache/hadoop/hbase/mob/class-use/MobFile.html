@@ -80,17 +80,19 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>static <a href="../MobFile.html" title="class in org.apache.hadoop.hbase.mob">MobFile</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">MobFile.</span><code><a href="../MobFile.html#create(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.io.hfile.CacheConfig)" class="member-name-link">create</a><wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fs,
+<div class="col-second even-row-color"><span class="type-name-label">MobFile.</span><code><a href="../MobFile.html#create(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.io.hfile.CacheConfig,org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker)" class="member-name-link">create</a><wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.Path&nbsp;path,
  org.apache.hadoop.conf.Configuration&nbsp;conf,
- <a href="../../io/hfile/CacheConfig.html" title="class in org.apache.hadoop.hbase.io.hfile">CacheConfig</a>&nbsp;cacheConf)</code></div>
+ <a href="../../io/hfile/CacheConfig.html" title="class in org.apache.hadoop.hbase.io.hfile">CacheConfig</a>&nbsp;cacheConf,
+ <a href="../../regionserver/storefiletracker/StoreFileTracker.html" title="interface in org.apache.hadoop.hbase.regionserver.storefiletracker">StoreFileTracker</a>&nbsp;sft)</code></div>
 <div class="col-last even-row-color">
 <div class="block">Creates an instance of the MobFile.</div>
 </div>
 <div class="col-first odd-row-color"><code><a href="../MobFile.html" title="class in org.apache.hadoop.hbase.mob">MobFile</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">MobFileCache.</span><code><a href="../MobFileCache.html#openFile(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.io.hfile.CacheConfig)" class="member-name-link">openFile</a><wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fs,
+<div class="col-second odd-row-color"><span class="type-name-label">MobFileCache.</span><code><a href="../MobFileCache.html#openFile(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.io.hfile.CacheConfig,org.apache.hadoop.hbase.regionserver.StoreContext)" class="member-name-link">openFile</a><wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.Path&nbsp;path,
- <a href="../../io/hfile/CacheConfig.html" title="class in org.apache.hadoop.hbase.io.hfile">CacheConfig</a>&nbsp;cacheConf)</code></div>
+ <a href="../../io/hfile/CacheConfig.html" title="class in org.apache.hadoop.hbase.io.hfile">CacheConfig</a>&nbsp;cacheConf,
+ <a href="../../regionserver/StoreContext.html" title="class in org.apache.hadoop.hbase.regionserver">StoreContext</a>&nbsp;storeContext)</code></div>
 <div class="col-last odd-row-color">
 <div class="block">Opens a mob file.</div>
 </div>

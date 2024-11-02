@@ -42,119 +42,120 @@
 <span class="source-line-no">029</span><span id="line-29">import org.apache.hadoop.hbase.regionserver.BloomType;</span>
 <span class="source-line-no">030</span><span id="line-30">import org.apache.hadoop.hbase.regionserver.HStoreFile;</span>
 <span class="source-line-no">031</span><span id="line-31">import org.apache.hadoop.hbase.regionserver.StoreFileScanner;</span>
-<span class="source-line-no">032</span><span id="line-32">import org.apache.yetus.audience.InterfaceAudience;</span>
-<span class="source-line-no">033</span><span id="line-33"></span>
-<span class="source-line-no">034</span><span id="line-34">/**</span>
-<span class="source-line-no">035</span><span id="line-35"> * The mob file.</span>
-<span class="source-line-no">036</span><span id="line-36"> */</span>
-<span class="source-line-no">037</span><span id="line-37">@InterfaceAudience.Private</span>
-<span class="source-line-no">038</span><span id="line-38">public class MobFile {</span>
-<span class="source-line-no">039</span><span id="line-39"></span>
-<span class="source-line-no">040</span><span id="line-40">  private HStoreFile sf;</span>
-<span class="source-line-no">041</span><span id="line-41"></span>
-<span class="source-line-no">042</span><span id="line-42">  // internal use only for sub classes</span>
-<span class="source-line-no">043</span><span id="line-43">  protected MobFile() {</span>
-<span class="source-line-no">044</span><span id="line-44">  }</span>
-<span class="source-line-no">045</span><span id="line-45"></span>
-<span class="source-line-no">046</span><span id="line-46">  protected MobFile(HStoreFile sf) {</span>
-<span class="source-line-no">047</span><span id="line-47">    this.sf = sf;</span>
-<span class="source-line-no">048</span><span id="line-48">  }</span>
-<span class="source-line-no">049</span><span id="line-49"></span>
-<span class="source-line-no">050</span><span id="line-50">  /**</span>
-<span class="source-line-no">051</span><span id="line-51">   * Internal use only. This is used by the sweeper.</span>
-<span class="source-line-no">052</span><span id="line-52">   * @return The store file scanner.</span>
-<span class="source-line-no">053</span><span id="line-53">   */</span>
-<span class="source-line-no">054</span><span id="line-54">  public StoreFileScanner getScanner() throws IOException {</span>
-<span class="source-line-no">055</span><span id="line-55">    List&lt;HStoreFile&gt; sfs = new ArrayList&lt;&gt;();</span>
-<span class="source-line-no">056</span><span id="line-56">    sfs.add(sf);</span>
-<span class="source-line-no">057</span><span id="line-57">    List&lt;StoreFileScanner&gt; sfScanners = StoreFileScanner.getScannersForStoreFiles(sfs, false, true,</span>
-<span class="source-line-no">058</span><span id="line-58">      false, false, sf.getMaxMemStoreTS());</span>
-<span class="source-line-no">059</span><span id="line-59"></span>
-<span class="source-line-no">060</span><span id="line-60">    return sfScanners.get(0);</span>
-<span class="source-line-no">061</span><span id="line-61">  }</span>
-<span class="source-line-no">062</span><span id="line-62"></span>
-<span class="source-line-no">063</span><span id="line-63">  /**</span>
-<span class="source-line-no">064</span><span id="line-64">   * Reads a cell from the mob file.</span>
-<span class="source-line-no">065</span><span id="line-65">   * @param search         The cell need to be searched in the mob file.</span>
-<span class="source-line-no">066</span><span id="line-66">   * @param cacheMobBlocks Should this scanner cache blocks.</span>
-<span class="source-line-no">067</span><span id="line-67">   * @return The cell in the mob file.</span>
-<span class="source-line-no">068</span><span id="line-68">   */</span>
-<span class="source-line-no">069</span><span id="line-69">  public MobCell readCell(ExtendedCell search, boolean cacheMobBlocks) throws IOException {</span>
-<span class="source-line-no">070</span><span id="line-70">    return readCell(search, cacheMobBlocks, sf.getMaxMemStoreTS());</span>
-<span class="source-line-no">071</span><span id="line-71">  }</span>
-<span class="source-line-no">072</span><span id="line-72"></span>
-<span class="source-line-no">073</span><span id="line-73">  /**</span>
-<span class="source-line-no">074</span><span id="line-74">   * Reads a cell from the mob file.</span>
-<span class="source-line-no">075</span><span id="line-75">   * @param search         The cell need to be searched in the mob file.</span>
-<span class="source-line-no">076</span><span id="line-76">   * @param cacheMobBlocks Should this scanner cache blocks.</span>
-<span class="source-line-no">077</span><span id="line-77">   * @param readPt         the read point.</span>
-<span class="source-line-no">078</span><span id="line-78">   * @return The cell in the mob file.</span>
-<span class="source-line-no">079</span><span id="line-79">   */</span>
-<span class="source-line-no">080</span><span id="line-80">  public MobCell readCell(ExtendedCell search, boolean cacheMobBlocks, long readPt)</span>
-<span class="source-line-no">081</span><span id="line-81">    throws IOException {</span>
-<span class="source-line-no">082</span><span id="line-82">    StoreFileScanner scanner = null;</span>
-<span class="source-line-no">083</span><span id="line-83">    boolean succ = false;</span>
-<span class="source-line-no">084</span><span id="line-84">    try {</span>
-<span class="source-line-no">085</span><span id="line-85">      List&lt;StoreFileScanner&gt; sfScanners = StoreFileScanner.getScannersForStoreFiles(</span>
-<span class="source-line-no">086</span><span id="line-86">        Collections.singletonList(sf), cacheMobBlocks, true, false, false, readPt);</span>
-<span class="source-line-no">087</span><span id="line-87">      if (!sfScanners.isEmpty()) {</span>
-<span class="source-line-no">088</span><span id="line-88">        scanner = sfScanners.get(0);</span>
-<span class="source-line-no">089</span><span id="line-89">        if (scanner.seek(search)) {</span>
-<span class="source-line-no">090</span><span id="line-90">          MobCell mobCell = new MobCell(scanner.peek(), scanner);</span>
-<span class="source-line-no">091</span><span id="line-91">          succ = true;</span>
-<span class="source-line-no">092</span><span id="line-92">          return mobCell;</span>
-<span class="source-line-no">093</span><span id="line-93">        }</span>
-<span class="source-line-no">094</span><span id="line-94">      }</span>
-<span class="source-line-no">095</span><span id="line-95">      return null;</span>
-<span class="source-line-no">096</span><span id="line-96">    } finally {</span>
-<span class="source-line-no">097</span><span id="line-97">      if (scanner != null &amp;&amp; !succ) {</span>
-<span class="source-line-no">098</span><span id="line-98">        scanner.close();</span>
-<span class="source-line-no">099</span><span id="line-99">      }</span>
-<span class="source-line-no">100</span><span id="line-100">    }</span>
-<span class="source-line-no">101</span><span id="line-101">  }</span>
-<span class="source-line-no">102</span><span id="line-102"></span>
-<span class="source-line-no">103</span><span id="line-103">  /**</span>
-<span class="source-line-no">104</span><span id="line-104">   * Gets the file name.</span>
-<span class="source-line-no">105</span><span id="line-105">   * @return The file name.</span>
-<span class="source-line-no">106</span><span id="line-106">   */</span>
-<span class="source-line-no">107</span><span id="line-107">  public String getFileName() {</span>
-<span class="source-line-no">108</span><span id="line-108">    return sf.getPath().getName();</span>
-<span class="source-line-no">109</span><span id="line-109">  }</span>
-<span class="source-line-no">110</span><span id="line-110"></span>
-<span class="source-line-no">111</span><span id="line-111">  /**</span>
-<span class="source-line-no">112</span><span id="line-112">   * Opens the underlying reader. It's not thread-safe. Use MobFileCache.openFile() instead.</span>
-<span class="source-line-no">113</span><span id="line-113">   */</span>
-<span class="source-line-no">114</span><span id="line-114">  public void open() throws IOException {</span>
-<span class="source-line-no">115</span><span id="line-115">    sf.initReader();</span>
-<span class="source-line-no">116</span><span id="line-116">  }</span>
-<span class="source-line-no">117</span><span id="line-117"></span>
-<span class="source-line-no">118</span><span id="line-118">  /**</span>
-<span class="source-line-no">119</span><span id="line-119">   * Closes the underlying reader, but do no evict blocks belonging to this file. It's not</span>
-<span class="source-line-no">120</span><span id="line-120">   * thread-safe. Use MobFileCache.closeFile() instead.</span>
-<span class="source-line-no">121</span><span id="line-121">   */</span>
-<span class="source-line-no">122</span><span id="line-122">  public void close() throws IOException {</span>
-<span class="source-line-no">123</span><span id="line-123">    if (sf != null) {</span>
-<span class="source-line-no">124</span><span id="line-124">      sf.closeStoreFile(false);</span>
-<span class="source-line-no">125</span><span id="line-125">      sf = null;</span>
-<span class="source-line-no">126</span><span id="line-126">    }</span>
-<span class="source-line-no">127</span><span id="line-127">  }</span>
-<span class="source-line-no">128</span><span id="line-128"></span>
-<span class="source-line-no">129</span><span id="line-129">  /**</span>
-<span class="source-line-no">130</span><span id="line-130">   * Creates an instance of the MobFile.</span>
-<span class="source-line-no">131</span><span id="line-131">   * @param fs        The file system.</span>
-<span class="source-line-no">132</span><span id="line-132">   * @param path      The path of the underlying StoreFile.</span>
-<span class="source-line-no">133</span><span id="line-133">   * @param conf      The configuration.</span>
-<span class="source-line-no">134</span><span id="line-134">   * @param cacheConf The CacheConfig.</span>
-<span class="source-line-no">135</span><span id="line-135">   * @return An instance of the MobFile.</span>
-<span class="source-line-no">136</span><span id="line-136">   */</span>
-<span class="source-line-no">137</span><span id="line-137">  public static MobFile create(FileSystem fs, Path path, Configuration conf, CacheConfig cacheConf)</span>
-<span class="source-line-no">138</span><span id="line-138">    throws IOException {</span>
-<span class="source-line-no">139</span><span id="line-139">    // XXX: primaryReplica is only used for constructing the key of block cache so it is not a</span>
-<span class="source-line-no">140</span><span id="line-140">    // critical problem if we pass the wrong value, so here we always pass true. Need to fix later.</span>
-<span class="source-line-no">141</span><span id="line-141">    HStoreFile sf = new HStoreFile(fs, path, conf, cacheConf, BloomType.NONE, true);</span>
-<span class="source-line-no">142</span><span id="line-142">    return new MobFile(sf);</span>
-<span class="source-line-no">143</span><span id="line-143">  }</span>
-<span class="source-line-no">144</span><span id="line-144">}</span>
+<span class="source-line-no">032</span><span id="line-32">import org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker;</span>
+<span class="source-line-no">033</span><span id="line-33">import org.apache.yetus.audience.InterfaceAudience;</span>
+<span class="source-line-no">034</span><span id="line-34"></span>
+<span class="source-line-no">035</span><span id="line-35">/**</span>
+<span class="source-line-no">036</span><span id="line-36"> * The mob file.</span>
+<span class="source-line-no">037</span><span id="line-37"> */</span>
+<span class="source-line-no">038</span><span id="line-38">@InterfaceAudience.Private</span>
+<span class="source-line-no">039</span><span id="line-39">public class MobFile {</span>
+<span class="source-line-no">040</span><span id="line-40"></span>
+<span class="source-line-no">041</span><span id="line-41">  private HStoreFile sf;</span>
+<span class="source-line-no">042</span><span id="line-42"></span>
+<span class="source-line-no">043</span><span id="line-43">  // internal use only for sub classes</span>
+<span class="source-line-no">044</span><span id="line-44">  protected MobFile() {</span>
+<span class="source-line-no">045</span><span id="line-45">  }</span>
+<span class="source-line-no">046</span><span id="line-46"></span>
+<span class="source-line-no">047</span><span id="line-47">  protected MobFile(HStoreFile sf) {</span>
+<span class="source-line-no">048</span><span id="line-48">    this.sf = sf;</span>
+<span class="source-line-no">049</span><span id="line-49">  }</span>
+<span class="source-line-no">050</span><span id="line-50"></span>
+<span class="source-line-no">051</span><span id="line-51">  /**</span>
+<span class="source-line-no">052</span><span id="line-52">   * Internal use only. This is used by the sweeper.</span>
+<span class="source-line-no">053</span><span id="line-53">   * @return The store file scanner.</span>
+<span class="source-line-no">054</span><span id="line-54">   */</span>
+<span class="source-line-no">055</span><span id="line-55">  public StoreFileScanner getScanner() throws IOException {</span>
+<span class="source-line-no">056</span><span id="line-56">    List&lt;HStoreFile&gt; sfs = new ArrayList&lt;&gt;();</span>
+<span class="source-line-no">057</span><span id="line-57">    sfs.add(sf);</span>
+<span class="source-line-no">058</span><span id="line-58">    List&lt;StoreFileScanner&gt; sfScanners = StoreFileScanner.getScannersForStoreFiles(sfs, false, true,</span>
+<span class="source-line-no">059</span><span id="line-59">      false, false, sf.getMaxMemStoreTS());</span>
+<span class="source-line-no">060</span><span id="line-60"></span>
+<span class="source-line-no">061</span><span id="line-61">    return sfScanners.get(0);</span>
+<span class="source-line-no">062</span><span id="line-62">  }</span>
+<span class="source-line-no">063</span><span id="line-63"></span>
+<span class="source-line-no">064</span><span id="line-64">  /**</span>
+<span class="source-line-no">065</span><span id="line-65">   * Reads a cell from the mob file.</span>
+<span class="source-line-no">066</span><span id="line-66">   * @param search         The cell need to be searched in the mob file.</span>
+<span class="source-line-no">067</span><span id="line-67">   * @param cacheMobBlocks Should this scanner cache blocks.</span>
+<span class="source-line-no">068</span><span id="line-68">   * @return The cell in the mob file.</span>
+<span class="source-line-no">069</span><span id="line-69">   */</span>
+<span class="source-line-no">070</span><span id="line-70">  public MobCell readCell(ExtendedCell search, boolean cacheMobBlocks) throws IOException {</span>
+<span class="source-line-no">071</span><span id="line-71">    return readCell(search, cacheMobBlocks, sf.getMaxMemStoreTS());</span>
+<span class="source-line-no">072</span><span id="line-72">  }</span>
+<span class="source-line-no">073</span><span id="line-73"></span>
+<span class="source-line-no">074</span><span id="line-74">  /**</span>
+<span class="source-line-no">075</span><span id="line-75">   * Reads a cell from the mob file.</span>
+<span class="source-line-no">076</span><span id="line-76">   * @param search         The cell need to be searched in the mob file.</span>
+<span class="source-line-no">077</span><span id="line-77">   * @param cacheMobBlocks Should this scanner cache blocks.</span>
+<span class="source-line-no">078</span><span id="line-78">   * @param readPt         the read point.</span>
+<span class="source-line-no">079</span><span id="line-79">   * @return The cell in the mob file.</span>
+<span class="source-line-no">080</span><span id="line-80">   */</span>
+<span class="source-line-no">081</span><span id="line-81">  public MobCell readCell(ExtendedCell search, boolean cacheMobBlocks, long readPt)</span>
+<span class="source-line-no">082</span><span id="line-82">    throws IOException {</span>
+<span class="source-line-no">083</span><span id="line-83">    StoreFileScanner scanner = null;</span>
+<span class="source-line-no">084</span><span id="line-84">    boolean succ = false;</span>
+<span class="source-line-no">085</span><span id="line-85">    try {</span>
+<span class="source-line-no">086</span><span id="line-86">      List&lt;StoreFileScanner&gt; sfScanners = StoreFileScanner.getScannersForStoreFiles(</span>
+<span class="source-line-no">087</span><span id="line-87">        Collections.singletonList(sf), cacheMobBlocks, true, false, false, readPt);</span>
+<span class="source-line-no">088</span><span id="line-88">      if (!sfScanners.isEmpty()) {</span>
+<span class="source-line-no">089</span><span id="line-89">        scanner = sfScanners.get(0);</span>
+<span class="source-line-no">090</span><span id="line-90">        if (scanner.seek(search)) {</span>
+<span class="source-line-no">091</span><span id="line-91">          MobCell mobCell = new MobCell(scanner.peek(), scanner);</span>
+<span class="source-line-no">092</span><span id="line-92">          succ = true;</span>
+<span class="source-line-no">093</span><span id="line-93">          return mobCell;</span>
+<span class="source-line-no">094</span><span id="line-94">        }</span>
+<span class="source-line-no">095</span><span id="line-95">      }</span>
+<span class="source-line-no">096</span><span id="line-96">      return null;</span>
+<span class="source-line-no">097</span><span id="line-97">    } finally {</span>
+<span class="source-line-no">098</span><span id="line-98">      if (scanner != null &amp;&amp; !succ) {</span>
+<span class="source-line-no">099</span><span id="line-99">        scanner.close();</span>
+<span class="source-line-no">100</span><span id="line-100">      }</span>
+<span class="source-line-no">101</span><span id="line-101">    }</span>
+<span class="source-line-no">102</span><span id="line-102">  }</span>
+<span class="source-line-no">103</span><span id="line-103"></span>
+<span class="source-line-no">104</span><span id="line-104">  /**</span>
+<span class="source-line-no">105</span><span id="line-105">   * Gets the file name.</span>
+<span class="source-line-no">106</span><span id="line-106">   * @return The file name.</span>
+<span class="source-line-no">107</span><span id="line-107">   */</span>
+<span class="source-line-no">108</span><span id="line-108">  public String getFileName() {</span>
+<span class="source-line-no">109</span><span id="line-109">    return sf.getPath().getName();</span>
+<span class="source-line-no">110</span><span id="line-110">  }</span>
+<span class="source-line-no">111</span><span id="line-111"></span>
+<span class="source-line-no">112</span><span id="line-112">  /**</span>
+<span class="source-line-no">113</span><span id="line-113">   * Opens the underlying reader. It's not thread-safe. Use MobFileCache.openFile() instead.</span>
+<span class="source-line-no">114</span><span id="line-114">   */</span>
+<span class="source-line-no">115</span><span id="line-115">  public void open() throws IOException {</span>
+<span class="source-line-no">116</span><span id="line-116">    sf.initReader();</span>
+<span class="source-line-no">117</span><span id="line-117">  }</span>
+<span class="source-line-no">118</span><span id="line-118"></span>
+<span class="source-line-no">119</span><span id="line-119">  /**</span>
+<span class="source-line-no">120</span><span id="line-120">   * Closes the underlying reader, but do no evict blocks belonging to this file. It's not</span>
+<span class="source-line-no">121</span><span id="line-121">   * thread-safe. Use MobFileCache.closeFile() instead.</span>
+<span class="source-line-no">122</span><span id="line-122">   */</span>
+<span class="source-line-no">123</span><span id="line-123">  public void close() throws IOException {</span>
+<span class="source-line-no">124</span><span id="line-124">    if (sf != null) {</span>
+<span class="source-line-no">125</span><span id="line-125">      sf.closeStoreFile(false);</span>
+<span class="source-line-no">126</span><span id="line-126">      sf = null;</span>
+<span class="source-line-no">127</span><span id="line-127">    }</span>
+<span class="source-line-no">128</span><span id="line-128">  }</span>
+<span class="source-line-no">129</span><span id="line-129"></span>
+<span class="source-line-no">130</span><span id="line-130">  /**</span>
+<span class="source-line-no">131</span><span id="line-131">   * Creates an instance of the MobFile.</span>
+<span class="source-line-no">132</span><span id="line-132">   * @param fs        The file system.</span>
+<span class="source-line-no">133</span><span id="line-133">   * @param path      The path of the underlying StoreFile.</span>
+<span class="source-line-no">134</span><span id="line-134">   * @param conf      The configuration.</span>
+<span class="source-line-no">135</span><span id="line-135">   * @param cacheConf The CacheConfig.</span>
+<span class="source-line-no">136</span><span id="line-136">   * @return An instance of the MobFile.</span>
+<span class="source-line-no">137</span><span id="line-137">   */</span>
+<span class="source-line-no">138</span><span id="line-138">  public static MobFile create(FileSystem fs, Path path, Configuration conf, CacheConfig cacheConf,</span>
+<span class="source-line-no">139</span><span id="line-139">    StoreFileTracker sft) throws IOException {</span>
+<span class="source-line-no">140</span><span id="line-140">    // XXX: primaryReplica is only used for constructing the key of block cache so it is not a</span>
+<span class="source-line-no">141</span><span id="line-141">    // critical problem if we pass the wrong value, so here we always pass true. Need to fix later.</span>
+<span class="source-line-no">142</span><span id="line-142">    HStoreFile sf = new HStoreFile(fs, path, conf, cacheConf, BloomType.NONE, true, sft);</span>
+<span class="source-line-no">143</span><span id="line-143">    return new MobFile(sf);</span>
+<span class="source-line-no">144</span><span id="line-144">  }</span>
+<span class="source-line-no">145</span><span id="line-145">}</span>
 
 
 

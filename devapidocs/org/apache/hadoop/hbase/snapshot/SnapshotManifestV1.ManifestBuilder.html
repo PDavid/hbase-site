@@ -85,7 +85,7 @@ loadScripts(document, 'script');</script>
 <dd><a href="SnapshotManifestV1.html" title="class in org.apache.hadoop.hbase.snapshot">SnapshotManifestV1</a></dd>
 </dl>
 <hr>
-<div class="type-signature"><span class="modifiers">static class </span><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifestV1.html#line-64">SnapshotManifestV1.ManifestBuilder</a></span>
+<div class="type-signature"><span class="modifiers">static class </span><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifestV1.html#line-68">SnapshotManifestV1.ManifestBuilder</a></span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
 implements <a href="SnapshotManifest.RegionVisitor.html" title="interface in org.apache.hadoop.hbase.snapshot">SnapshotManifest.RegionVisitor</a>&lt;<a href="../regionserver/HRegionFileSystem.html" title="class in org.apache.hadoop.hbase.regionserver">HRegionFileSystem</a>,<wbr>org.apache.hadoop.fs.Path&gt;</span></div>
 </section>
@@ -180,25 +180,25 @@ implements <a href="SnapshotManifest.RegionVisitor.html" title="interface in org
 <li>
 <section class="detail" id="conf">
 <h3>conf</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">org.apache.hadoop.conf.Configuration</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifestV1.ManifestBuilder.html#line-65">conf</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">org.apache.hadoop.conf.Configuration</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifestV1.ManifestBuilder.html#line-69">conf</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="snapshotDir">
 <h3>snapshotDir</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifestV1.ManifestBuilder.html#line-66">snapshotDir</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifestV1.ManifestBuilder.html#line-70">snapshotDir</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="rootFs">
 <h3>rootFs</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.FileSystem</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifestV1.ManifestBuilder.html#line-67">rootFs</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.FileSystem</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifestV1.ManifestBuilder.html#line-71">rootFs</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="workingDirFs">
 <h3>workingDirFs</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.FileSystem</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifestV1.ManifestBuilder.html#line-68">workingDirFs</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.FileSystem</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifestV1.ManifestBuilder.html#line-72">workingDirFs</a></span></div>
 </section>
 </li>
 </ul>
@@ -212,7 +212,7 @@ implements <a href="SnapshotManifest.RegionVisitor.html" title="interface in org
 <li>
 <section class="detail" id="&lt;init&gt;(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path)">
 <h3>ManifestBuilder</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifestV1.ManifestBuilder.html#line-70">ManifestBuilder</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifestV1.ManifestBuilder.html#line-74">ManifestBuilder</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.fs.FileSystem&nbsp;rootFs,
  org.apache.hadoop.fs.Path&nbsp;snapshotDir)</span>
                 throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
@@ -233,7 +233,7 @@ implements <a href="SnapshotManifest.RegionVisitor.html" title="interface in org
 <li>
 <section class="detail" id="regionOpen(org.apache.hadoop.hbase.client.RegionInfo)">
 <h3>regionOpen</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../regionserver/HRegionFileSystem.html" title="class in org.apache.hadoop.hbase.regionserver">HRegionFileSystem</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifestV1.ManifestBuilder.html#line-78">regionOpen</a></span><wbr><span class="parameters">(<a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;regionInfo)</span>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../regionserver/HRegionFileSystem.html" title="class in org.apache.hadoop.hbase.regionserver">HRegionFileSystem</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifestV1.ManifestBuilder.html#line-82">regionOpen</a></span><wbr><span class="parameters">(<a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;regionInfo)</span>
                              throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
@@ -246,7 +246,7 @@ implements <a href="SnapshotManifest.RegionVisitor.html" title="interface in org
 <li>
 <section class="detail" id="regionClose(org.apache.hadoop.hbase.regionserver.HRegionFileSystem)">
 <h3>regionClose</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifestV1.ManifestBuilder.html#line-85">regionClose</a></span><wbr><span class="parameters">(<a href="../regionserver/HRegionFileSystem.html" title="class in org.apache.hadoop.hbase.regionserver">HRegionFileSystem</a>&nbsp;region)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifestV1.ManifestBuilder.html#line-89">regionClose</a></span><wbr><span class="parameters">(<a href="../regionserver/HRegionFileSystem.html" title="class in org.apache.hadoop.hbase.regionserver">HRegionFileSystem</a>&nbsp;region)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="SnapshotManifest.RegionVisitor.html#regionClose(TRegion)">regionClose</a></code>&nbsp;in interface&nbsp;<code><a href="SnapshotManifest.RegionVisitor.html" title="interface in org.apache.hadoop.hbase.snapshot">SnapshotManifest.RegionVisitor</a>&lt;<a href="../regionserver/HRegionFileSystem.html" title="class in org.apache.hadoop.hbase.regionserver">HRegionFileSystem</a>,<wbr>org.apache.hadoop.fs.Path&gt;</code></dd>
@@ -256,7 +256,7 @@ implements <a href="SnapshotManifest.RegionVisitor.html" title="interface in org
 <li>
 <section class="detail" id="familyOpen(org.apache.hadoop.hbase.regionserver.HRegionFileSystem,byte[])">
 <h3>familyOpen</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifestV1.ManifestBuilder.html#line-89">familyOpen</a></span><wbr><span class="parameters">(<a href="../regionserver/HRegionFileSystem.html" title="class in org.apache.hadoop.hbase.regionserver">HRegionFileSystem</a>&nbsp;snapshotRegionFs,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifestV1.ManifestBuilder.html#line-93">familyOpen</a></span><wbr><span class="parameters">(<a href="../regionserver/HRegionFileSystem.html" title="class in org.apache.hadoop.hbase.regionserver">HRegionFileSystem</a>&nbsp;snapshotRegionFs,
  byte[]&nbsp;familyName)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
@@ -267,7 +267,7 @@ implements <a href="SnapshotManifest.RegionVisitor.html" title="interface in org
 <li>
 <section class="detail" id="familyClose(org.apache.hadoop.hbase.regionserver.HRegionFileSystem,org.apache.hadoop.fs.Path)">
 <h3>familyClose</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifestV1.ManifestBuilder.html#line-95">familyClose</a></span><wbr><span class="parameters">(<a href="../regionserver/HRegionFileSystem.html" title="class in org.apache.hadoop.hbase.regionserver">HRegionFileSystem</a>&nbsp;region,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifestV1.ManifestBuilder.html#line-99">familyClose</a></span><wbr><span class="parameters">(<a href="../regionserver/HRegionFileSystem.html" title="class in org.apache.hadoop.hbase.regionserver">HRegionFileSystem</a>&nbsp;region,
  org.apache.hadoop.fs.Path&nbsp;family)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
@@ -278,7 +278,7 @@ implements <a href="SnapshotManifest.RegionVisitor.html" title="interface in org
 <li>
 <section class="detail" id="storeFile(org.apache.hadoop.hbase.regionserver.HRegionFileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.regionserver.StoreFileInfo)">
 <h3>storeFile</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifestV1.ManifestBuilder.html#line-99">storeFile</a></span><wbr><span class="parameters">(<a href="../regionserver/HRegionFileSystem.html" title="class in org.apache.hadoop.hbase.regionserver">HRegionFileSystem</a>&nbsp;region,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifestV1.ManifestBuilder.html#line-103">storeFile</a></span><wbr><span class="parameters">(<a href="../regionserver/HRegionFileSystem.html" title="class in org.apache.hadoop.hbase.regionserver">HRegionFileSystem</a>&nbsp;region,
  org.apache.hadoop.fs.Path&nbsp;familyDir,
  <a href="../regionserver/StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a>&nbsp;storeFile)</span>
                throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>

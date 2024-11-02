@@ -3445,46 +3445,40 @@ Input/OutputFormats, a table indexing MapReduce job, and utility methods.</div>
 <div class="block">Archives the mob files.</div>
 </div>
 <div class="col-first odd-row-color"><code>static void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">MobUtils.</span><code>cleanExpiredMobFiles<wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fs,
- org.apache.hadoop.conf.Configuration&nbsp;conf,
- org.apache.hadoop.hbase.TableName&nbsp;tableName,
- org.apache.hadoop.hbase.client.ColumnFamilyDescriptor&nbsp;columnDescriptor,
- org.apache.hadoop.hbase.io.hfile.CacheConfig&nbsp;cacheConfig,
- long&nbsp;current)</code></div>
-<div class="col-last odd-row-color">
-<div class="block">Cleans the expired mob files.</div>
-</div>
-<div class="col-first even-row-color"><code>static void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">MobFileCleanupUtil.</span><code>cleanupObsoleteMobFiles<wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="col-second odd-row-color"><span class="type-name-label">MobFileCleanupUtil.</span><code>cleanupObsoleteMobFiles<wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.hbase.TableName&nbsp;table,
  org.apache.hadoop.hbase.client.Admin&nbsp;admin)</code></div>
-<div class="col-last even-row-color">
+<div class="col-last odd-row-color">
 <div class="block">Performs housekeeping file cleaning (called by MOB Cleaner chore)</div>
 </div>
-<div class="col-first odd-row-color"><code>static org.apache.hadoop.fs.Path</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">MobUtils.</span><code>getMobFamilyPath<wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="col-first even-row-color"><code>static org.apache.hadoop.fs.Path</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">MobUtils.</span><code>getMobFamilyPath<wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.hbase.TableName&nbsp;tableName,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;familyName)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-last even-row-color">
 <div class="block">Gets the family dir of the mob files.</div>
 </div>
-<div class="col-first even-row-color"><code>static org.apache.hadoop.hbase.client.RegionInfo</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">MobUtils.</span><code>getMobRegionInfo<wbr>(org.apache.hadoop.hbase.TableName&nbsp;tableName)</code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code>static org.apache.hadoop.hbase.client.RegionInfo</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">MobUtils.</span><code>getMobRegionInfo<wbr>(org.apache.hadoop.hbase.TableName&nbsp;tableName)</code></div>
+<div class="col-last odd-row-color">
 <div class="block">Gets the RegionInfo of the mob files.</div>
 </div>
-<div class="col-first odd-row-color"><code>static org.apache.hadoop.fs.Path</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">MobUtils.</span><code>getMobRegionPath<wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
- org.apache.hadoop.hbase.TableName&nbsp;tableName)</code></div>
-<div class="col-last odd-row-color">
-<div class="block">Gets the region dir of the mob files.</div>
-</div>
 <div class="col-first even-row-color"><code>static org.apache.hadoop.fs.Path</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">MobUtils.</span><code>getMobRegionPath<wbr>(org.apache.hadoop.fs.Path&nbsp;rootDir,
+<div class="col-second even-row-color"><span class="type-name-label">MobUtils.</span><code>getMobRegionPath<wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.hbase.TableName&nbsp;tableName)</code></div>
 <div class="col-last even-row-color">
+<div class="block">Gets the region dir of the mob files.</div>
+</div>
+<div class="col-first odd-row-color"><code>static org.apache.hadoop.fs.Path</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">MobUtils.</span><code>getMobRegionPath<wbr>(org.apache.hadoop.fs.Path&nbsp;rootDir,
+ org.apache.hadoop.hbase.TableName&nbsp;tableName)</code></div>
+<div class="col-last odd-row-color">
 <div class="block">Gets the region dir of the mob files under the specified root dir.</div>
 </div>
+<div class="col-first even-row-color"><code>static org.apache.hadoop.fs.Path</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">MobUtils.</span><code>getMobTableDir<wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+ org.apache.hadoop.hbase.TableName&nbsp;tableName)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>static org.apache.hadoop.fs.Path</code></div>
 <div class="col-second odd-row-color"><span class="type-name-label">MobUtils.</span><code>getMobTableDir<wbr>(org.apache.hadoop.fs.Path&nbsp;rootDir,
  org.apache.hadoop.hbase.TableName&nbsp;tableName)</code></div>

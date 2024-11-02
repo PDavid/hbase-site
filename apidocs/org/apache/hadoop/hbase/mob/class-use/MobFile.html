@@ -83,14 +83,16 @@ loadScripts(document, 'script');</script>
 <div class="col-second even-row-color"><span class="type-name-label">MobFile.</span><code>create<wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.Path&nbsp;path,
  org.apache.hadoop.conf.Configuration&nbsp;conf,
- org.apache.hadoop.hbase.io.hfile.CacheConfig&nbsp;cacheConf)</code></div>
+ org.apache.hadoop.hbase.io.hfile.CacheConfig&nbsp;cacheConf,
+ org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker&nbsp;sft)</code></div>
 <div class="col-last even-row-color">
 <div class="block">Creates an instance of the MobFile.</div>
 </div>
 <div class="col-first odd-row-color"><code>org.apache.hadoop.hbase.mob.MobFile</code></div>
 <div class="col-second odd-row-color"><span class="type-name-label">MobFileCache.</span><code>openFile<wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.Path&nbsp;path,
- org.apache.hadoop.hbase.io.hfile.CacheConfig&nbsp;cacheConf)</code></div>
+ org.apache.hadoop.hbase.io.hfile.CacheConfig&nbsp;cacheConf,
+ org.apache.hadoop.hbase.regionserver.StoreContext&nbsp;storeContext)</code></div>
 <div class="col-last odd-row-color">
 <div class="block">Opens a mob file.</div>
 </div>

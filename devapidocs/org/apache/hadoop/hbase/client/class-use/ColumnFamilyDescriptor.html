@@ -83,24 +83,26 @@ Input/OutputFormats, a table indexing MapReduce job, and utility methods.</div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.security">org.apache.hadoop.hbase.security</a></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.thrift">org.apache.hadoop.hbase.thrift</a></div>
-<div class="col-last even-row-color">
+<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.snapshot">org.apache.hadoop.hbase.snapshot</a></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.thrift">org.apache.hadoop.hbase.thrift</a></div>
+<div class="col-last odd-row-color">
 <div class="block">Provides an HBase <a href="http://incubator.apache.org/thrift/">Thrift</a>
 service.</div>
 </div>
-<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.thrift2">org.apache.hadoop.hbase.thrift2</a></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.thrift2">org.apache.hadoop.hbase.thrift2</a></div>
+<div class="col-last even-row-color">
 <div class="block">Provides an HBase <a href="http://thrift.apache.org/">Thrift</a>
 service.</div>
 </div>
-<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.thrift2.client">org.apache.hadoop.hbase.thrift2.client</a></div>
-<div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.tool">org.apache.hadoop.hbase.tool</a></div>
+<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.thrift2.client">org.apache.hadoop.hbase.thrift2.client</a></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.util">org.apache.hadoop.hbase.util</a></div>
+<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.tool">org.apache.hadoop.hbase.tool</a></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.util.compaction">org.apache.hadoop.hbase.util.compaction</a></div>
+<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.util">org.apache.hadoop.hbase.util</a></div>
 <div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.util.compaction">org.apache.hadoop.hbase.util.compaction</a></div>
+<div class="col-last even-row-color">&nbsp;</div>
 </div>
 <section class="class-uses">
 <ul class="block-list">
@@ -557,15 +559,15 @@ service.</div>
  long&nbsp;maxCreationTimeToArchive)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">ExpiredMobFileCleaner.</span><code><a href="../../mob/ExpiredMobFileCleaner.html#cleanExpiredMobFiles(java.lang.String,org.apache.hadoop.hbase.client.ColumnFamilyDescriptor)" class="member-name-link">cleanExpiredMobFiles</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;tableName,
+<div class="col-second odd-row-color"><span class="type-name-label">ExpiredMobFileCleaner.</span><code><a href="../../mob/ExpiredMobFileCleaner.html#cleanExpiredMobFiles(org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.hbase.client.ColumnFamilyDescriptor)" class="member-name-link">cleanExpiredMobFiles</a><wbr>(<a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;htd,
  <a href="../ColumnFamilyDescriptor.html" title="interface in org.apache.hadoop.hbase.client">ColumnFamilyDescriptor</a>&nbsp;family)</code></div>
 <div class="col-last odd-row-color">
 <div class="block">Cleans the MOB files when they're expired and their min versions are 0.</div>
 </div>
 <div class="col-first even-row-color"><code>static void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">MobUtils.</span><code><a href="../../mob/MobUtils.html#cleanExpiredMobFiles(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.TableName,org.apache.hadoop.hbase.client.ColumnFamilyDescriptor,org.apache.hadoop.hbase.io.hfile.CacheConfig,long)" class="member-name-link">cleanExpiredMobFiles</a><wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fs,
+<div class="col-second even-row-color"><span class="type-name-label">MobUtils.</span><code><a href="../../mob/MobUtils.html#cleanExpiredMobFiles(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.hbase.client.ColumnFamilyDescriptor,org.apache.hadoop.hbase.io.hfile.CacheConfig,long)" class="member-name-link">cleanExpiredMobFiles</a><wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.conf.Configuration&nbsp;conf,
- <a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName,
+ <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;htd,
  <a href="../ColumnFamilyDescriptor.html" title="interface in org.apache.hadoop.hbase.client">ColumnFamilyDescriptor</a>&nbsp;columnDescriptor,
  <a href="../../io/hfile/CacheConfig.html" title="class in org.apache.hadoop.hbase.io.hfile">CacheConfig</a>&nbsp;cacheConfig,
  long&nbsp;current)</code></div>
@@ -764,11 +766,18 @@ service.</div>
 <div class="block">Used at master side when splitting/merging regions, as we do not have a Store, thus no
  StoreContext at master side.</div>
 </div>
-<div class="col-first even-row-color"><code>private static org.apache.hadoop.conf.Configuration</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">StoreFileTrackerFactory.</span><code><a href="../../regionserver/storefiletracker/StoreFileTrackerFactory.html#mergeConfigurations(org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.hbase.client.ColumnFamilyDescriptor)" class="member-name-link">mergeConfigurations</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;global,
+<div class="col-first even-row-color"><code>static <a href="../../regionserver/storefiletracker/StoreFileTracker.html" title="interface in org.apache.hadoop.hbase.regionserver.storefiletracker">StoreFileTracker</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">StoreFileTrackerFactory.</span><code><a href="../../regionserver/storefiletracker/StoreFileTrackerFactory.html#create(org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.hbase.client.ColumnFamilyDescriptor,org.apache.hadoop.hbase.regionserver.HRegionFileSystem,boolean)" class="member-name-link">create</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+ <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;td,
+ <a href="../ColumnFamilyDescriptor.html" title="interface in org.apache.hadoop.hbase.client">ColumnFamilyDescriptor</a>&nbsp;cfd,
+ <a href="../../regionserver/HRegionFileSystem.html" title="class in org.apache.hadoop.hbase.regionserver">HRegionFileSystem</a>&nbsp;regionFs,
+ boolean&nbsp;isPrimaryReplica)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static org.apache.hadoop.conf.Configuration</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">StoreFileTrackerFactory.</span><code><a href="../../regionserver/storefiletracker/StoreFileTrackerFactory.html#mergeConfigurations(org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.hbase.client.ColumnFamilyDescriptor)" class="member-name-link">mergeConfigurations</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;global,
  <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;table,
  <a href="../ColumnFamilyDescriptor.html" title="interface in org.apache.hadoop.hbase.client">ColumnFamilyDescriptor</a>&nbsp;family)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last odd-row-color">&nbsp;</div>
 </div>
 </section>
 </li>
@@ -786,6 +795,23 @@ service.</div>
 <div class="col-last even-row-color">
 <div class="block">Helper to create an encyption context.</div>
 </div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="org.apache.hadoop.hbase.snapshot">
+<h2>Uses of <a href="../ColumnFamilyDescriptor.html" title="interface in org.apache.hadoop.hbase.client">ColumnFamilyDescriptor</a> in <a href="../../snapshot/package-summary.html">org.apache.hadoop.hbase.snapshot</a></h2>
+<div class="caption"><span>Methods in <a href="../../snapshot/package-summary.html">org.apache.hadoop.hbase.snapshot</a> with parameters of type <a href="../ColumnFamilyDescriptor.html" title="interface in org.apache.hadoop.hbase.client">ColumnFamilyDescriptor</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>private <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../regionserver/StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a>&gt;</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">SnapshotManifest.</span><code><a href="../../snapshot/SnapshotManifest.html#getStoreFiles(org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.hbase.client.ColumnFamilyDescriptor,org.apache.hadoop.hbase.client.RegionInfo)" class="member-name-link">getStoreFiles</a><wbr>(org.apache.hadoop.fs.Path&nbsp;storePath,
+ <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;htd,
+ <a href="../ColumnFamilyDescriptor.html" title="interface in org.apache.hadoop.hbase.client">ColumnFamilyDescriptor</a>&nbsp;hcd,
+ <a href="../RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;regionInfo)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
 </li>

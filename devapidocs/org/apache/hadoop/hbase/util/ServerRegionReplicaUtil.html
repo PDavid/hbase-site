@@ -80,7 +80,7 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <hr>
 <div class="type-signature"><span class="annotations">@Private
-</span><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/ServerRegionReplicaUtil.html#line-37">ServerRegionReplicaUtil</a></span>
+</span><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/ServerRegionReplicaUtil.html#line-38">ServerRegionReplicaUtil</a></span>
 <span class="extends-implements">extends <a href="../client/RegionReplicaUtil.html" title="class in org.apache.hadoop.hbase.client">RegionReplicaUtil</a></span></div>
 <div class="block">Similar to <a href="../client/RegionReplicaUtil.html" title="class in org.apache.hadoop.hbase.client"><code>RegionReplicaUtil</code></a> but for the server side</div>
 </section>
@@ -175,12 +175,13 @@ loadScripts(document, 'script');</script>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getRegionReplicaStoreFileRefreshMultiplier(org.apache.hadoop.conf.Configuration)" class="member-name-link">getRegionReplicaStoreFileRefreshMultiplier</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../regionserver/StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getStoreFileInfo(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.hbase.client.RegionInfo,org.apache.hadoop.hbase.client.RegionInfo,java.lang.String,org.apache.hadoop.fs.Path)" class="member-name-link">getStoreFileInfo</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getStoreFileInfo(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.hbase.client.RegionInfo,org.apache.hadoop.hbase.client.RegionInfo,java.lang.String,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker)" class="member-name-link">getStoreFileInfo</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.fs.FileSystem&nbsp;fs,
  <a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;regionInfo,
  <a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;regionInfoForFs,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;familyName,
- org.apache.hadoop.fs.Path&nbsp;path)</code></div>
+ org.apache.hadoop.fs.Path&nbsp;path,
+ <a href="../regionserver/storefiletracker/StoreFileTracker.html" title="interface in org.apache.hadoop.hbase.regionserver.storefiletracker">StoreFileTracker</a>&nbsp;tracker)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Returns a StoreFileInfo from the given FileStatus.</div>
 </div>
@@ -242,7 +243,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="REGION_REPLICA_REPLICATION_CONF_KEY">
 <h3>REGION_REPLICA_REPLICATION_CONF_KEY</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/ServerRegionReplicaUtil.html#line-48">REGION_REPLICA_REPLICATION_CONF_KEY</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/ServerRegionReplicaUtil.html#line-49">REGION_REPLICA_REPLICATION_CONF_KEY</a></span></div>
 <div class="block">Whether asynchronous WAL replication to the secondary region replicas is enabled or not. If
  this is enabled, a replication peer named "region_replica_replication" will be created which
  will tail the logs and replicate the mutatations to region replicas for tables that have region
@@ -262,7 +263,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="DEFAULT_REGION_REPLICA_REPLICATION">
 <h3>DEFAULT_REGION_REPLICA_REPLICATION</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/ServerRegionReplicaUtil.html#line-50">DEFAULT_REGION_REPLICA_REPLICATION</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/ServerRegionReplicaUtil.html#line-51">DEFAULT_REGION_REPLICA_REPLICATION</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -277,7 +278,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="REGION_REPLICA_REPLICATION_PEER">
 <h3>REGION_REPLICA_REPLICATION_PEER</h3>
 <div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>
-</span><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/ServerRegionReplicaUtil.html#line-55">REGION_REPLICA_REPLICATION_PEER</a></span></div>
+</span><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/ServerRegionReplicaUtil.html#line-56">REGION_REPLICA_REPLICATION_PEER</a></span></div>
 <div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
 <div class="deprecation-comment">Since 3.0.0, leave here only for implementing compatibility code.</div>
 </div>
@@ -294,7 +295,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="REGION_REPLICA_REPLICATION_CATALOG_CONF_KEY">
 <h3>REGION_REPLICA_REPLICATION_CATALOG_CONF_KEY</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/ServerRegionReplicaUtil.html#line-61">REGION_REPLICA_REPLICATION_CATALOG_CONF_KEY</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/ServerRegionReplicaUtil.html#line-62">REGION_REPLICA_REPLICATION_CATALOG_CONF_KEY</a></span></div>
 <div class="block">Same as for <a href="#REGION_REPLICA_REPLICATION_CONF_KEY"><code>REGION_REPLICA_REPLICATION_CONF_KEY</code></a> but for catalog replication.</div>
 <dl class="notes">
 <dt>See Also:</dt>
@@ -309,7 +310,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="DEFAULT_REGION_REPLICA_REPLICATION_CATALOG">
 <h3>DEFAULT_REGION_REPLICA_REPLICATION_CATALOG</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/ServerRegionReplicaUtil.html#line-63">DEFAULT_REGION_REPLICA_REPLICATION_CATALOG</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/ServerRegionReplicaUtil.html#line-64">DEFAULT_REGION_REPLICA_REPLICATION_CATALOG</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -323,7 +324,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="REGION_REPLICA_STORE_FILE_REFRESH">
 <h3>REGION_REPLICA_STORE_FILE_REFRESH</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/ServerRegionReplicaUtil.html#line-71">REGION_REPLICA_STORE_FILE_REFRESH</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/ServerRegionReplicaUtil.html#line-72">REGION_REPLICA_STORE_FILE_REFRESH</a></span></div>
 <div class="block">Enables or disables refreshing store files of secondary region replicas when the memory is
  above the global memstore lower limit. Refreshing the store files means that we will do a file
  list of the primary regions store files, and pick up new files. Also depending on the store
@@ -341,7 +342,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="DEFAULT_REGION_REPLICA_STORE_FILE_REFRESH">
 <h3>DEFAULT_REGION_REPLICA_STORE_FILE_REFRESH</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/ServerRegionReplicaUtil.html#line-73">DEFAULT_REGION_REPLICA_STORE_FILE_REFRESH</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/ServerRegionReplicaUtil.html#line-74">DEFAULT_REGION_REPLICA_STORE_FILE_REFRESH</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -355,7 +356,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="REGION_REPLICA_STORE_FILE_REFRESH_MEMSTORE_MULTIPLIER">
 <h3>REGION_REPLICA_STORE_FILE_REFRESH_MEMSTORE_MULTIPLIER</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/ServerRegionReplicaUtil.html#line-80">REGION_REPLICA_STORE_FILE_REFRESH_MEMSTORE_MULTIPLIER</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/ServerRegionReplicaUtil.html#line-81">REGION_REPLICA_STORE_FILE_REFRESH_MEMSTORE_MULTIPLIER</a></span></div>
 <div class="block">The multiplier to use when we want to refresh a secondary region instead of flushing a primary
  region. Default value assumes that for doing the file refresh, the biggest secondary should be
  4 times bigger than the biggest primary.</div>
@@ -372,7 +373,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="DEFAULT_REGION_REPLICA_STORE_FILE_REFRESH_MEMSTORE_MULTIPLIER">
 <h3>DEFAULT_REGION_REPLICA_STORE_FILE_REFRESH_MEMSTORE_MULTIPLIER</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/ServerRegionReplicaUtil.html#line-82">DEFAULT_REGION_REPLICA_STORE_FILE_REFRESH_MEMSTORE_MULTIPLIER</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/ServerRegionReplicaUtil.html#line-83">DEFAULT_REGION_REPLICA_STORE_FILE_REFRESH_MEMSTORE_MULTIPLIER</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -394,7 +395,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;()">
 <h3>ServerRegionReplicaUtil</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/ServerRegionReplicaUtil.html#line-38">ServerRegionReplicaUtil</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/ServerRegionReplicaUtil.html#line-39">ServerRegionReplicaUtil</a></span>()</div>
 </section>
 </li>
 </ul>
@@ -408,7 +409,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getRegionInfoForFs(org.apache.hadoop.hbase.client.RegionInfo)">
 <h3>getRegionInfoForFs</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/ServerRegionReplicaUtil.html#line-88">getRegionInfoForFs</a></span><wbr><span class="parameters">(<a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;regionInfo)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/ServerRegionReplicaUtil.html#line-89">getRegionInfoForFs</a></span><wbr><span class="parameters">(<a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;regionInfo)</span></div>
 <div class="block">Returns the regionInfo object to use for interacting with the file system.</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -419,7 +420,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="isReadOnly(org.apache.hadoop.hbase.regionserver.HRegion)">
 <h3>isReadOnly</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/ServerRegionReplicaUtil.html#line-100">isReadOnly</a></span><wbr><span class="parameters">(<a href="../regionserver/HRegion.html" title="class in org.apache.hadoop.hbase.regionserver">HRegion</a>&nbsp;region)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/ServerRegionReplicaUtil.html#line-101">isReadOnly</a></span><wbr><span class="parameters">(<a href="../regionserver/HRegion.html" title="class in org.apache.hadoop.hbase.regionserver">HRegion</a>&nbsp;region)</span></div>
 <div class="block">Returns whether this region replica can accept writes.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -432,7 +433,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="shouldReplayRecoveredEdits(org.apache.hadoop.hbase.regionserver.HRegion)">
 <h3>shouldReplayRecoveredEdits</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/ServerRegionReplicaUtil.html#line-111">shouldReplayRecoveredEdits</a></span><wbr><span class="parameters">(<a href="../regionserver/HRegion.html" title="class in org.apache.hadoop.hbase.regionserver">HRegion</a>&nbsp;region)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/ServerRegionReplicaUtil.html#line-112">shouldReplayRecoveredEdits</a></span><wbr><span class="parameters">(<a href="../regionserver/HRegion.html" title="class in org.apache.hadoop.hbase.regionserver">HRegion</a>&nbsp;region)</span></div>
 <div class="block">Returns whether to replay the recovered edits to flush the results. Currently secondary region
  replicas do not replay the edits, since it would cause flushes which might affect the primary
  region. Primary regions even opened in read only mode should replay the edits.</div>
@@ -445,14 +446,15 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="getStoreFileInfo(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.hbase.client.RegionInfo,org.apache.hadoop.hbase.client.RegionInfo,java.lang.String,org.apache.hadoop.fs.Path)">
+<section class="detail" id="getStoreFileInfo(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.hbase.client.RegionInfo,org.apache.hadoop.hbase.client.RegionInfo,java.lang.String,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker)">
 <h3>getStoreFileInfo</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../regionserver/StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/ServerRegionReplicaUtil.html#line-121">getStoreFileInfo</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../regionserver/StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/ServerRegionReplicaUtil.html#line-122">getStoreFileInfo</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.fs.FileSystem&nbsp;fs,
  <a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;regionInfo,
  <a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;regionInfoForFs,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;familyName,
- org.apache.hadoop.fs.Path&nbsp;path)</span>
+ org.apache.hadoop.fs.Path&nbsp;path,
+ <a href="../regionserver/storefiletracker/StoreFileTracker.html" title="interface in org.apache.hadoop.hbase.regionserver.storefiletracker">StoreFileTracker</a>&nbsp;tracker)</span>
                                       throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Returns a StoreFileInfo from the given FileStatus. Secondary replicas refer to the files of the
  primary region, so an HFileLink is used to construct the StoreFileInfo. This way ensures that
@@ -467,7 +469,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="isRegionReplicaReplicationEnabled(org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.TableName)">
 <h3>isRegionReplicaReplicationEnabled</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/ServerRegionReplicaUtil.html#line-157">isRegionReplicaReplicationEnabled</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/ServerRegionReplicaUtil.html#line-158">isRegionReplicaReplicationEnabled</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
  <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tn)</span></div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -479,14 +481,14 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="isRegionReplicaReplicationEnabled(org.apache.hadoop.conf.Configuration)">
 <h3>isRegionReplicaReplicationEnabled</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/ServerRegionReplicaUtil.html#line-163">isRegionReplicaReplicationEnabled</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf)</span></div>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/ServerRegionReplicaUtil.html#line-164">isRegionReplicaReplicationEnabled</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf)</span></div>
 <div class="block">Returns True if Region Read Replica is enabled for user-space tables.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="isMetaRegionReplicaReplicationEnabled(org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.TableName)">
 <h3>isMetaRegionReplicaReplicationEnabled</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/ServerRegionReplicaUtil.html#line-168">isMetaRegionReplicaReplicationEnabled</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/ServerRegionReplicaUtil.html#line-169">isMetaRegionReplicaReplicationEnabled</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
  <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tn)</span></div>
 <div class="block">Returns True if hbase:meta Region Read Replica is enabled.</div>
 </section>
@@ -494,21 +496,21 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="isRegionReplicaWaitForPrimaryFlushEnabled(org.apache.hadoop.conf.Configuration)">
 <h3>isRegionReplicaWaitForPrimaryFlushEnabled</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/ServerRegionReplicaUtil.html#line-174">isRegionReplicaWaitForPrimaryFlushEnabled</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/ServerRegionReplicaUtil.html#line-175">isRegionReplicaWaitForPrimaryFlushEnabled</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf)</span></div>
 <div class="block">Returns True if wait for primary to flush is enabled for user-space tables.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="isRegionReplicaStoreFileRefreshEnabled(org.apache.hadoop.conf.Configuration)">
 <h3>isRegionReplicaStoreFileRefreshEnabled</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/ServerRegionReplicaUtil.html#line-180">isRegionReplicaStoreFileRefreshEnabled</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/ServerRegionReplicaUtil.html#line-181">isRegionReplicaStoreFileRefreshEnabled</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf)</span></div>
 <div class="block">Returns True if we are to refresh user-space hfiles in Region Read Replicas.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getRegionReplicaStoreFileRefreshMultiplier(org.apache.hadoop.conf.Configuration)">
 <h3>getRegionReplicaStoreFileRefreshMultiplier</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/ServerRegionReplicaUtil.html#line-185">getRegionReplicaStoreFileRefreshMultiplier</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/ServerRegionReplicaUtil.html#line-186">getRegionReplicaStoreFileRefreshMultiplier</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf)</span></div>
 </section>
 </li>
 </ul>

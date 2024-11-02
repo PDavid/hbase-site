@@ -180,7 +180,7 @@ loadScripts(document, 'script');</script>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#skipStoreFileRangeCheck(java.lang.String)" class="member-name-link">skipStoreFileRangeCheck</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;familyName)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">In
- <a href="HRegionFileSystem.html#splitStoreFile(org.apache.hadoop.hbase.client.RegionInfo,java.lang.String,org.apache.hadoop.hbase.regionserver.HStoreFile,byte%5B%5D,boolean,org.apache.hadoop.hbase.regionserver.RegionSplitPolicy)"><code>HRegionFileSystem.splitStoreFile(org.apache.hadoop.hbase.client.RegionInfo, String, HStoreFile, byte[], boolean, RegionSplitPolicy)</code></a>
+ <code>HRegionFileSystem#splitStoreFile(org.apache.hadoop.hbase.client.RegionInfo, String, HStoreFile, byte[], boolean, RegionSplitPolicy)</code>
  we are not creating the split reference if split row does not lie inside the StoreFile range.</div>
 </div>
 </div>
@@ -305,7 +305,7 @@ loadScripts(document, 'script');</script>
 <h3>skipStoreFileRangeCheck</h3>
 <div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/RegionSplitPolicy.html#line-140">skipStoreFileRangeCheck</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;familyName)</span></div>
 <div class="block">In
- <a href="HRegionFileSystem.html#splitStoreFile(org.apache.hadoop.hbase.client.RegionInfo,java.lang.String,org.apache.hadoop.hbase.regionserver.HStoreFile,byte%5B%5D,boolean,org.apache.hadoop.hbase.regionserver.RegionSplitPolicy)"><code>HRegionFileSystem.splitStoreFile(org.apache.hadoop.hbase.client.RegionInfo, String, HStoreFile, byte[], boolean, RegionSplitPolicy)</code></a>
+ <code>HRegionFileSystem#splitStoreFile(org.apache.hadoop.hbase.client.RegionInfo, String, HStoreFile, byte[], boolean, RegionSplitPolicy)</code>
  we are not creating the split reference if split row does not lie inside the StoreFile range.
  But in some use cases we may need to create the split reference even when the split row does
  not lie inside the StoreFile range. This method can be used to decide, whether to skip the the

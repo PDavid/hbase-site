@@ -77,7 +77,7 @@ loadScripts(document, 'script');</script>
 </div>
 <section class="class-description" id="class-description">
 <hr>
-<div class="type-signature"><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestStoreFileRefresherChore.html#line-62">TestStoreFileRefresherChore</a></span>
+<div class="type-signature"><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestStoreFileRefresherChore.html#line-64">TestStoreFileRefresherChore</a></span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
 </section>
 <section class="summary">
@@ -91,7 +91,7 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Class</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code>(package private) static class&nbsp;</code></div>
+<div class="col-first even-row-color"><code>static class&nbsp;</code></div>
 <div class="col-second even-row-color"><code><a href="TestStoreFileRefresherChore.FailingHRegionFileSystem.html" class="type-name-link" title="class in org.apache.hadoop.hbase.regionserver">TestStoreFileRefresherChore.FailingHRegionFileSystem</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>(package private) static class&nbsp;</code></div>
@@ -149,14 +149,16 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private org.apache.hadoop.hbase.client.TableDescriptor</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTableDesc(org.apache.hadoop.hbase.TableName,int,boolean,byte%5B%5D...)" class="member-name-link">getTableDesc</a><wbr>(org.apache.hadoop.hbase.TableName&nbsp;tableName,
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTableDesc(org.apache.hadoop.hbase.TableName,int,boolean,java.lang.String,byte%5B%5D...)" class="member-name-link">getTableDesc</a><wbr>(org.apache.hadoop.hbase.TableName&nbsp;tableName,
  int&nbsp;regionReplication,
  boolean&nbsp;readOnly,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;trackerName,
  byte[]...&nbsp;families)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private org.apache.hadoop.hbase.client.TableDescriptor</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTableDesc(org.apache.hadoop.hbase.TableName,int,byte%5B%5D...)" class="member-name-link">getTableDesc</a><wbr>(org.apache.hadoop.hbase.TableName&nbsp;tableName,
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTableDesc(org.apache.hadoop.hbase.TableName,int,java.lang.String,byte%5B%5D...)" class="member-name-link">getTableDesc</a><wbr>(org.apache.hadoop.hbase.TableName&nbsp;tableName,
  int&nbsp;regionReplication,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;trackerName,
  byte[]...&nbsp;families)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private org.apache.hadoop.hbase.regionserver.HRegion</code></div>
@@ -215,25 +217,25 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="CLASS_RULE">
 <h3>CLASS_RULE</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../HBaseClassTestRule.html" title="class in org.apache.hadoop.hbase">HBaseClassTestRule</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestStoreFileRefresherChore.html#line-65">CLASS_RULE</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../HBaseClassTestRule.html" title="class in org.apache.hadoop.hbase">HBaseClassTestRule</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestStoreFileRefresherChore.html#line-67">CLASS_RULE</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="TEST_UTIL">
 <h3>TEST_UTIL</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../HBaseTestingUtil.html" title="class in org.apache.hadoop.hbase">HBaseTestingUtil</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestStoreFileRefresherChore.html#line-69">TEST_UTIL</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../HBaseTestingUtil.html" title="class in org.apache.hadoop.hbase">HBaseTestingUtil</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestStoreFileRefresherChore.html#line-71">TEST_UTIL</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="testDir">
 <h3>testDir</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestStoreFileRefresherChore.html#line-70">testDir</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestStoreFileRefresherChore.html#line-72">testDir</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="name">
 <h3>name</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.junit.rules.TestName</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestStoreFileRefresherChore.html#line-72">name</a></span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.junit.rules.TestName</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestStoreFileRefresherChore.html#line-74">name</a></span></div>
 </section>
 </li>
 </ul>
@@ -247,7 +249,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;()">
 <h3>TestStoreFileRefresherChore</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestStoreFileRefresherChore.html#line-63">TestStoreFileRefresherChore</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestStoreFileRefresherChore.html#line-65">TestStoreFileRefresherChore</a></span>()</div>
 </section>
 </li>
 </ul>
@@ -261,7 +263,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="setUp()">
 <h3>setUp</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestStoreFileRefresherChore.html#line-75">setUp</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestStoreFileRefresherChore.html#line-77">setUp</a></span>()
            throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -270,26 +272,28 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="getTableDesc(org.apache.hadoop.hbase.TableName,int,byte[]...)">
+<section class="detail" id="getTableDesc(org.apache.hadoop.hbase.TableName,int,java.lang.String,byte[]...)">
 <h3>getTableDesc</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.client.TableDescriptor</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestStoreFileRefresherChore.html#line-82">getTableDesc</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.TableName&nbsp;tableName,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.client.TableDescriptor</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestStoreFileRefresherChore.html#line-84">getTableDesc</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.TableName&nbsp;tableName,
  int&nbsp;regionReplication,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;trackerName,
  byte[]...&nbsp;families)</span></div>
 </section>
 </li>
 <li>
-<section class="detail" id="getTableDesc(org.apache.hadoop.hbase.TableName,int,boolean,byte[]...)">
+<section class="detail" id="getTableDesc(org.apache.hadoop.hbase.TableName,int,boolean,java.lang.String,byte[]...)">
 <h3>getTableDesc</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.client.TableDescriptor</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestStoreFileRefresherChore.html#line-87">getTableDesc</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.TableName&nbsp;tableName,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.client.TableDescriptor</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestStoreFileRefresherChore.html#line-89">getTableDesc</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.TableName&nbsp;tableName,
  int&nbsp;regionReplication,
  boolean&nbsp;readOnly,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;trackerName,
  byte[]...&nbsp;families)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="initHRegion(org.apache.hadoop.hbase.client.TableDescriptor,byte[],byte[],int)">
 <h3>initHRegion</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.regionserver.HRegion</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestStoreFileRefresherChore.html#line-113">initHRegion</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.client.TableDescriptor&nbsp;htd,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.regionserver.HRegion</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestStoreFileRefresherChore.html#line-111">initHRegion</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.client.TableDescriptor&nbsp;htd,
  byte[]&nbsp;startKey,
  byte[]&nbsp;stopKey,
  int&nbsp;replicaId)</span>
@@ -303,7 +307,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="putData(org.apache.hadoop.hbase.regionserver.Region,int,int,byte[],byte[]...)">
 <h3>putData</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestStoreFileRefresherChore.html#line-134">putData</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.regionserver.Region&nbsp;region,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestStoreFileRefresherChore.html#line-131">putData</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.regionserver.Region&nbsp;region,
  int&nbsp;startRow,
  int&nbsp;numRows,
  byte[]&nbsp;qf,
@@ -318,7 +322,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="verifyDataExpectFail(org.apache.hadoop.hbase.regionserver.Region,int,int,byte[],byte[]...)">
 <h3>verifyDataExpectFail</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestStoreFileRefresherChore.html#line-146">verifyDataExpectFail</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.regionserver.Region&nbsp;newReg,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestStoreFileRefresherChore.html#line-143">verifyDataExpectFail</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.regionserver.Region&nbsp;newReg,
  int&nbsp;startRow,
  int&nbsp;numRows,
  byte[]&nbsp;qf,
@@ -333,7 +337,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="verifyData(org.apache.hadoop.hbase.regionserver.Region,int,int,byte[],byte[]...)">
 <h3>verifyData</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestStoreFileRefresherChore.html#line-159">verifyData</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.regionserver.Region&nbsp;newReg,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestStoreFileRefresherChore.html#line-156">verifyData</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.regionserver.Region&nbsp;newReg,
  int&nbsp;startRow,
  int&nbsp;numRows,
  byte[]&nbsp;qf,
@@ -348,7 +352,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testIsStale()">
 <h3>testIsStale</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestStoreFileRefresherChore.html#line-192">testIsStale</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestStoreFileRefresherChore.html#line-189">testIsStale</a></span>()
                  throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -359,7 +363,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testRefreshReadOnlyTable()">
 <h3>testRefreshReadOnlyTable</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestStoreFileRefresherChore.html#line-244">testRefreshReadOnlyTable</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestStoreFileRefresherChore.html#line-243">testRefreshReadOnlyTable</a></span>()
                               throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>

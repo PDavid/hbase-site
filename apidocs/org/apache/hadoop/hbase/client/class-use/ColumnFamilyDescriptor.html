@@ -367,7 +367,7 @@ service.</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">ExpiredMobFileCleaner.</span><code>cleanExpiredMobFiles<wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;tableName,
+<div class="col-second even-row-color"><span class="type-name-label">ExpiredMobFileCleaner.</span><code>cleanExpiredMobFiles<wbr>(org.apache.hadoop.hbase.client.TableDescriptor&nbsp;htd,
  org.apache.hadoop.hbase.client.ColumnFamilyDescriptor&nbsp;family)</code></div>
 <div class="col-last even-row-color">
 <div class="block">Cleans the MOB files when they're expired and their min versions are 0.</div>
@@ -375,7 +375,7 @@ service.</div>
 <div class="col-first odd-row-color"><code>static void</code></div>
 <div class="col-second odd-row-color"><span class="type-name-label">MobUtils.</span><code>cleanExpiredMobFiles<wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.conf.Configuration&nbsp;conf,
- org.apache.hadoop.hbase.TableName&nbsp;tableName,
+ org.apache.hadoop.hbase.client.TableDescriptor&nbsp;htd,
  org.apache.hadoop.hbase.client.ColumnFamilyDescriptor&nbsp;columnDescriptor,
  org.apache.hadoop.hbase.io.hfile.CacheConfig&nbsp;cacheConfig,
  long&nbsp;current)</code></div>
@@ -554,6 +554,13 @@ service.</div>
 <div class="block">Used at master side when splitting/merging regions, as we do not have a Store, thus no
  StoreContext at master side.</div>
 </div>
+<div class="col-first odd-row-color"><code>static org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">StoreFileTrackerFactory.</span><code>create<wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+ org.apache.hadoop.hbase.client.TableDescriptor&nbsp;td,
+ org.apache.hadoop.hbase.client.ColumnFamilyDescriptor&nbsp;cfd,
+ org.apache.hadoop.hbase.regionserver.HRegionFileSystem&nbsp;regionFs,
+ boolean&nbsp;isPrimaryReplica)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
 </div>
 </section>
 </li>

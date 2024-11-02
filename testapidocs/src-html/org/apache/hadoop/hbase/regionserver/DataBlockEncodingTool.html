@@ -595,129 +595,130 @@
 <span class="source-line-no">582</span><span id="line-582">    Path path = new Path(hfilePath);</span>
 <span class="source-line-no">583</span><span id="line-583">    CacheConfig cacheConf = new CacheConfig(conf);</span>
 <span class="source-line-no">584</span><span id="line-584">    FileSystem fs = FileSystem.get(conf);</span>
-<span class="source-line-no">585</span><span id="line-585">    HStoreFile hsf = new HStoreFile(fs, path, conf, cacheConf, BloomType.NONE, true);</span>
-<span class="source-line-no">586</span><span id="line-586">    hsf.initReader();</span>
-<span class="source-line-no">587</span><span id="line-587">    StoreFileReader reader = hsf.getReader();</span>
-<span class="source-line-no">588</span><span id="line-588">    reader.loadFileInfo();</span>
-<span class="source-line-no">589</span><span id="line-589">    KeyValueScanner scanner =</span>
-<span class="source-line-no">590</span><span id="line-590">      reader.getStoreFileScanner(true, true, false, hsf.getMaxMemStoreTS(), 0, false);</span>
-<span class="source-line-no">591</span><span id="line-591">    USE_TAG = reader.getHFileReader().getFileContext().isIncludesTags();</span>
-<span class="source-line-no">592</span><span id="line-592">    // run the utilities</span>
-<span class="source-line-no">593</span><span id="line-593">    DataBlockEncodingTool comp = new DataBlockEncodingTool(conf, compressionName);</span>
-<span class="source-line-no">594</span><span id="line-594">    int majorVersion = reader.getHFileVersion();</span>
-<span class="source-line-no">595</span><span id="line-595">    comp.useHBaseChecksum = majorVersion &gt; 2 || (majorVersion == 2</span>
-<span class="source-line-no">596</span><span id="line-596">      &amp;&amp; reader.getHFileMinorVersion() &gt;= HFileReaderImpl.MINOR_VERSION_WITH_CHECKSUM);</span>
-<span class="source-line-no">597</span><span id="line-597">    comp.checkStatistics(scanner, kvLimit);</span>
-<span class="source-line-no">598</span><span id="line-598">    if (doVerify) {</span>
-<span class="source-line-no">599</span><span id="line-599">      comp.verifyCodecs(scanner, kvLimit);</span>
-<span class="source-line-no">600</span><span id="line-600">    }</span>
-<span class="source-line-no">601</span><span id="line-601">    if (doBenchmark) {</span>
-<span class="source-line-no">602</span><span id="line-602">      comp.benchmarkCodecs();</span>
-<span class="source-line-no">603</span><span id="line-603">    }</span>
-<span class="source-line-no">604</span><span id="line-604">    comp.displayStatistics();</span>
-<span class="source-line-no">605</span><span id="line-605"></span>
-<span class="source-line-no">606</span><span id="line-606">    // cleanup</span>
-<span class="source-line-no">607</span><span id="line-607">    scanner.close();</span>
-<span class="source-line-no">608</span><span id="line-608">    reader.close(cacheConf.shouldEvictOnClose());</span>
-<span class="source-line-no">609</span><span id="line-609">  }</span>
-<span class="source-line-no">610</span><span id="line-610"></span>
-<span class="source-line-no">611</span><span id="line-611">  private static void printUsage(Options options) {</span>
-<span class="source-line-no">612</span><span id="line-612">    System.err.println("Usage:");</span>
-<span class="source-line-no">613</span><span id="line-613">    System.err</span>
-<span class="source-line-no">614</span><span id="line-614">      .println(String.format("./hbase %s &lt;options&gt;", DataBlockEncodingTool.class.getName()));</span>
-<span class="source-line-no">615</span><span id="line-615">    System.err.println("Options:");</span>
-<span class="source-line-no">616</span><span id="line-616">    for (Object it : options.getOptions()) {</span>
-<span class="source-line-no">617</span><span id="line-617">      Option opt = (Option) it;</span>
-<span class="source-line-no">618</span><span id="line-618">      if (opt.hasArg()) {</span>
-<span class="source-line-no">619</span><span id="line-619">        System.err.println(</span>
-<span class="source-line-no">620</span><span id="line-620">          String.format("-%s %s: %s", opt.getOpt(), opt.getArgName(), opt.getDescription()));</span>
-<span class="source-line-no">621</span><span id="line-621">      } else {</span>
-<span class="source-line-no">622</span><span id="line-622">        System.err.println(String.format("-%s: %s", opt.getOpt(), opt.getDescription()));</span>
-<span class="source-line-no">623</span><span id="line-623">      }</span>
-<span class="source-line-no">624</span><span id="line-624">    }</span>
-<span class="source-line-no">625</span><span id="line-625">  }</span>
-<span class="source-line-no">626</span><span id="line-626"></span>
-<span class="source-line-no">627</span><span id="line-627">  /**</span>
-<span class="source-line-no">628</span><span id="line-628">   * A command line interface to benchmarks. Parses command-line arguments and runs the appropriate</span>
-<span class="source-line-no">629</span><span id="line-629">   * benchmarks.</span>
-<span class="source-line-no">630</span><span id="line-630">   * @param args Should have length at least 1 and holds the file path to HFile.</span>
-<span class="source-line-no">631</span><span id="line-631">   * @throws IOException If you specified the wrong file.</span>
-<span class="source-line-no">632</span><span id="line-632">   */</span>
-<span class="source-line-no">633</span><span id="line-633">  public static void main(final String[] args) throws IOException {</span>
-<span class="source-line-no">634</span><span id="line-634">    // set up user arguments</span>
-<span class="source-line-no">635</span><span id="line-635">    Options options = new Options();</span>
-<span class="source-line-no">636</span><span id="line-636">    options.addOption(OPT_HFILE_NAME, true, "HFile to analyse (REQUIRED)");</span>
-<span class="source-line-no">637</span><span id="line-637">    options.getOption(OPT_HFILE_NAME).setArgName("FILENAME");</span>
-<span class="source-line-no">638</span><span id="line-638">    options.addOption(OPT_KV_LIMIT, true,</span>
-<span class="source-line-no">639</span><span id="line-639">      "Maximum number of KeyValues to process. A benchmark stops running "</span>
-<span class="source-line-no">640</span><span id="line-640">        + "after iterating over this many KV pairs.");</span>
-<span class="source-line-no">641</span><span id="line-641">    options.getOption(OPT_KV_LIMIT).setArgName("NUMBER");</span>
-<span class="source-line-no">642</span><span id="line-642">    options.addOption(OPT_MEASURE_THROUGHPUT, false, "Measure read throughput");</span>
-<span class="source-line-no">643</span><span id="line-643">    options.addOption(OPT_OMIT_CORRECTNESS_TEST, false, "Omit corectness tests.");</span>
-<span class="source-line-no">644</span><span id="line-644">    options.addOption(OPT_COMPRESSION_ALGORITHM, true,</span>
-<span class="source-line-no">645</span><span id="line-645">      "What kind of compression algorithm use for comparison.");</span>
-<span class="source-line-no">646</span><span id="line-646">    options.addOption(OPT_BENCHMARK_N_TIMES, true,</span>
-<span class="source-line-no">647</span><span id="line-647">      "Number of times to run each benchmark. Default value: " + DEFAULT_BENCHMARK_N_TIMES);</span>
-<span class="source-line-no">648</span><span id="line-648">    options.addOption(OPT_BENCHMARK_N_OMIT, true,</span>
-<span class="source-line-no">649</span><span id="line-649">      "Number of first runs of every benchmark to exclude from " + "statistics ("</span>
-<span class="source-line-no">650</span><span id="line-650">        + DEFAULT_BENCHMARK_N_OMIT + " by default, so that " + "only the last "</span>
-<span class="source-line-no">651</span><span id="line-651">        + (DEFAULT_BENCHMARK_N_TIMES - DEFAULT_BENCHMARK_N_OMIT)</span>
-<span class="source-line-no">652</span><span id="line-652">        + " times are included in statistics.)");</span>
-<span class="source-line-no">653</span><span id="line-653"></span>
-<span class="source-line-no">654</span><span id="line-654">    // parse arguments</span>
-<span class="source-line-no">655</span><span id="line-655">    CommandLineParser parser = new PosixParser();</span>
-<span class="source-line-no">656</span><span id="line-656">    CommandLine cmd = null;</span>
-<span class="source-line-no">657</span><span id="line-657">    try {</span>
-<span class="source-line-no">658</span><span id="line-658">      cmd = parser.parse(options, args);</span>
-<span class="source-line-no">659</span><span id="line-659">    } catch (ParseException e) {</span>
-<span class="source-line-no">660</span><span id="line-660">      System.err.println("Could not parse arguments!");</span>
-<span class="source-line-no">661</span><span id="line-661">      System.exit(-1);</span>
-<span class="source-line-no">662</span><span id="line-662">      return; // avoid warning</span>
-<span class="source-line-no">663</span><span id="line-663">    }</span>
-<span class="source-line-no">664</span><span id="line-664"></span>
-<span class="source-line-no">665</span><span id="line-665">    int kvLimit = Integer.MAX_VALUE;</span>
-<span class="source-line-no">666</span><span id="line-666">    if (cmd.hasOption(OPT_KV_LIMIT)) {</span>
-<span class="source-line-no">667</span><span id="line-667">      kvLimit = Integer.parseInt(cmd.getOptionValue(OPT_KV_LIMIT));</span>
-<span class="source-line-no">668</span><span id="line-668">      if (kvLimit &lt;= 0) {</span>
-<span class="source-line-no">669</span><span id="line-669">        LOG.error("KV_LIMIT should not less than 1.");</span>
-<span class="source-line-no">670</span><span id="line-670">      }</span>
-<span class="source-line-no">671</span><span id="line-671">    }</span>
-<span class="source-line-no">672</span><span id="line-672"></span>
-<span class="source-line-no">673</span><span id="line-673">    // basic argument sanity checks</span>
-<span class="source-line-no">674</span><span id="line-674">    if (!cmd.hasOption(OPT_HFILE_NAME)) {</span>
-<span class="source-line-no">675</span><span id="line-675">      LOG.error("Please specify HFile name using the " + OPT_HFILE_NAME + " option");</span>
-<span class="source-line-no">676</span><span id="line-676">      printUsage(options);</span>
-<span class="source-line-no">677</span><span id="line-677">      System.exit(-1);</span>
-<span class="source-line-no">678</span><span id="line-678">    }</span>
-<span class="source-line-no">679</span><span id="line-679"></span>
-<span class="source-line-no">680</span><span id="line-680">    String pathName = cmd.getOptionValue(OPT_HFILE_NAME);</span>
-<span class="source-line-no">681</span><span id="line-681">    String compressionName = DEFAULT_COMPRESSION.getName();</span>
-<span class="source-line-no">682</span><span id="line-682">    if (cmd.hasOption(OPT_COMPRESSION_ALGORITHM)) {</span>
-<span class="source-line-no">683</span><span id="line-683">      compressionName = cmd.getOptionValue(OPT_COMPRESSION_ALGORITHM).toLowerCase(Locale.ROOT);</span>
-<span class="source-line-no">684</span><span id="line-684">    }</span>
-<span class="source-line-no">685</span><span id="line-685">    boolean doBenchmark = cmd.hasOption(OPT_MEASURE_THROUGHPUT);</span>
-<span class="source-line-no">686</span><span id="line-686">    boolean doVerify = !cmd.hasOption(OPT_OMIT_CORRECTNESS_TEST);</span>
-<span class="source-line-no">687</span><span id="line-687"></span>
-<span class="source-line-no">688</span><span id="line-688">    if (cmd.hasOption(OPT_BENCHMARK_N_TIMES)) {</span>
-<span class="source-line-no">689</span><span id="line-689">      benchmarkNTimes = Integer.valueOf(cmd.getOptionValue(OPT_BENCHMARK_N_TIMES));</span>
-<span class="source-line-no">690</span><span id="line-690">    }</span>
-<span class="source-line-no">691</span><span id="line-691">    if (cmd.hasOption(OPT_BENCHMARK_N_OMIT)) {</span>
-<span class="source-line-no">692</span><span id="line-692">      benchmarkNOmit = Integer.valueOf(cmd.getOptionValue(OPT_BENCHMARK_N_OMIT));</span>
-<span class="source-line-no">693</span><span id="line-693">    }</span>
-<span class="source-line-no">694</span><span id="line-694">    if (benchmarkNTimes &lt; benchmarkNOmit) {</span>
-<span class="source-line-no">695</span><span id="line-695">      LOG.error("The number of times to run each benchmark (" + benchmarkNTimes</span>
-<span class="source-line-no">696</span><span id="line-696">        + ") must be greater than the number of benchmark runs to exclude " + "from statistics ("</span>
-<span class="source-line-no">697</span><span id="line-697">        + benchmarkNOmit + ")");</span>
-<span class="source-line-no">698</span><span id="line-698">      System.exit(1);</span>
-<span class="source-line-no">699</span><span id="line-699">    }</span>
-<span class="source-line-no">700</span><span id="line-700">    LOG.info("Running benchmark " + benchmarkNTimes + " times. " + "Excluding the first "</span>
-<span class="source-line-no">701</span><span id="line-701">      + benchmarkNOmit + " times from statistics.");</span>
-<span class="source-line-no">702</span><span id="line-702"></span>
-<span class="source-line-no">703</span><span id="line-703">    final Configuration conf = HBaseConfiguration.create();</span>
-<span class="source-line-no">704</span><span id="line-704">    testCodecs(conf, kvLimit, pathName, compressionName, doBenchmark, doVerify);</span>
-<span class="source-line-no">705</span><span id="line-705">  }</span>
-<span class="source-line-no">706</span><span id="line-706"></span>
-<span class="source-line-no">707</span><span id="line-707">}</span>
+<span class="source-line-no">585</span><span id="line-585">    StoreFileInfo storeFileInfo = StoreFileInfo.createStoreFileInfoForHFile(conf, fs, path, true);</span>
+<span class="source-line-no">586</span><span id="line-586">    HStoreFile hsf = new HStoreFile(storeFileInfo, BloomType.NONE, cacheConf);</span>
+<span class="source-line-no">587</span><span id="line-587">    hsf.initReader();</span>
+<span class="source-line-no">588</span><span id="line-588">    StoreFileReader reader = hsf.getReader();</span>
+<span class="source-line-no">589</span><span id="line-589">    reader.loadFileInfo();</span>
+<span class="source-line-no">590</span><span id="line-590">    KeyValueScanner scanner =</span>
+<span class="source-line-no">591</span><span id="line-591">      reader.getStoreFileScanner(true, true, false, hsf.getMaxMemStoreTS(), 0, false);</span>
+<span class="source-line-no">592</span><span id="line-592">    USE_TAG = reader.getHFileReader().getFileContext().isIncludesTags();</span>
+<span class="source-line-no">593</span><span id="line-593">    // run the utilities</span>
+<span class="source-line-no">594</span><span id="line-594">    DataBlockEncodingTool comp = new DataBlockEncodingTool(conf, compressionName);</span>
+<span class="source-line-no">595</span><span id="line-595">    int majorVersion = reader.getHFileVersion();</span>
+<span class="source-line-no">596</span><span id="line-596">    comp.useHBaseChecksum = majorVersion &gt; 2 || (majorVersion == 2</span>
+<span class="source-line-no">597</span><span id="line-597">      &amp;&amp; reader.getHFileMinorVersion() &gt;= HFileReaderImpl.MINOR_VERSION_WITH_CHECKSUM);</span>
+<span class="source-line-no">598</span><span id="line-598">    comp.checkStatistics(scanner, kvLimit);</span>
+<span class="source-line-no">599</span><span id="line-599">    if (doVerify) {</span>
+<span class="source-line-no">600</span><span id="line-600">      comp.verifyCodecs(scanner, kvLimit);</span>
+<span class="source-line-no">601</span><span id="line-601">    }</span>
+<span class="source-line-no">602</span><span id="line-602">    if (doBenchmark) {</span>
+<span class="source-line-no">603</span><span id="line-603">      comp.benchmarkCodecs();</span>
+<span class="source-line-no">604</span><span id="line-604">    }</span>
+<span class="source-line-no">605</span><span id="line-605">    comp.displayStatistics();</span>
+<span class="source-line-no">606</span><span id="line-606"></span>
+<span class="source-line-no">607</span><span id="line-607">    // cleanup</span>
+<span class="source-line-no">608</span><span id="line-608">    scanner.close();</span>
+<span class="source-line-no">609</span><span id="line-609">    reader.close(cacheConf.shouldEvictOnClose());</span>
+<span class="source-line-no">610</span><span id="line-610">  }</span>
+<span class="source-line-no">611</span><span id="line-611"></span>
+<span class="source-line-no">612</span><span id="line-612">  private static void printUsage(Options options) {</span>
+<span class="source-line-no">613</span><span id="line-613">    System.err.println("Usage:");</span>
+<span class="source-line-no">614</span><span id="line-614">    System.err</span>
+<span class="source-line-no">615</span><span id="line-615">      .println(String.format("./hbase %s &lt;options&gt;", DataBlockEncodingTool.class.getName()));</span>
+<span class="source-line-no">616</span><span id="line-616">    System.err.println("Options:");</span>
+<span class="source-line-no">617</span><span id="line-617">    for (Object it : options.getOptions()) {</span>
+<span class="source-line-no">618</span><span id="line-618">      Option opt = (Option) it;</span>
+<span class="source-line-no">619</span><span id="line-619">      if (opt.hasArg()) {</span>
+<span class="source-line-no">620</span><span id="line-620">        System.err.println(</span>
+<span class="source-line-no">621</span><span id="line-621">          String.format("-%s %s: %s", opt.getOpt(), opt.getArgName(), opt.getDescription()));</span>
+<span class="source-line-no">622</span><span id="line-622">      } else {</span>
+<span class="source-line-no">623</span><span id="line-623">        System.err.println(String.format("-%s: %s", opt.getOpt(), opt.getDescription()));</span>
+<span class="source-line-no">624</span><span id="line-624">      }</span>
+<span class="source-line-no">625</span><span id="line-625">    }</span>
+<span class="source-line-no">626</span><span id="line-626">  }</span>
+<span class="source-line-no">627</span><span id="line-627"></span>
+<span class="source-line-no">628</span><span id="line-628">  /**</span>
+<span class="source-line-no">629</span><span id="line-629">   * A command line interface to benchmarks. Parses command-line arguments and runs the appropriate</span>
+<span class="source-line-no">630</span><span id="line-630">   * benchmarks.</span>
+<span class="source-line-no">631</span><span id="line-631">   * @param args Should have length at least 1 and holds the file path to HFile.</span>
+<span class="source-line-no">632</span><span id="line-632">   * @throws IOException If you specified the wrong file.</span>
+<span class="source-line-no">633</span><span id="line-633">   */</span>
+<span class="source-line-no">634</span><span id="line-634">  public static void main(final String[] args) throws IOException {</span>
+<span class="source-line-no">635</span><span id="line-635">    // set up user arguments</span>
+<span class="source-line-no">636</span><span id="line-636">    Options options = new Options();</span>
+<span class="source-line-no">637</span><span id="line-637">    options.addOption(OPT_HFILE_NAME, true, "HFile to analyse (REQUIRED)");</span>
+<span class="source-line-no">638</span><span id="line-638">    options.getOption(OPT_HFILE_NAME).setArgName("FILENAME");</span>
+<span class="source-line-no">639</span><span id="line-639">    options.addOption(OPT_KV_LIMIT, true,</span>
+<span class="source-line-no">640</span><span id="line-640">      "Maximum number of KeyValues to process. A benchmark stops running "</span>
+<span class="source-line-no">641</span><span id="line-641">        + "after iterating over this many KV pairs.");</span>
+<span class="source-line-no">642</span><span id="line-642">    options.getOption(OPT_KV_LIMIT).setArgName("NUMBER");</span>
+<span class="source-line-no">643</span><span id="line-643">    options.addOption(OPT_MEASURE_THROUGHPUT, false, "Measure read throughput");</span>
+<span class="source-line-no">644</span><span id="line-644">    options.addOption(OPT_OMIT_CORRECTNESS_TEST, false, "Omit corectness tests.");</span>
+<span class="source-line-no">645</span><span id="line-645">    options.addOption(OPT_COMPRESSION_ALGORITHM, true,</span>
+<span class="source-line-no">646</span><span id="line-646">      "What kind of compression algorithm use for comparison.");</span>
+<span class="source-line-no">647</span><span id="line-647">    options.addOption(OPT_BENCHMARK_N_TIMES, true,</span>
+<span class="source-line-no">648</span><span id="line-648">      "Number of times to run each benchmark. Default value: " + DEFAULT_BENCHMARK_N_TIMES);</span>
+<span class="source-line-no">649</span><span id="line-649">    options.addOption(OPT_BENCHMARK_N_OMIT, true,</span>
+<span class="source-line-no">650</span><span id="line-650">      "Number of first runs of every benchmark to exclude from " + "statistics ("</span>
+<span class="source-line-no">651</span><span id="line-651">        + DEFAULT_BENCHMARK_N_OMIT + " by default, so that " + "only the last "</span>
+<span class="source-line-no">652</span><span id="line-652">        + (DEFAULT_BENCHMARK_N_TIMES - DEFAULT_BENCHMARK_N_OMIT)</span>
+<span class="source-line-no">653</span><span id="line-653">        + " times are included in statistics.)");</span>
+<span class="source-line-no">654</span><span id="line-654"></span>
+<span class="source-line-no">655</span><span id="line-655">    // parse arguments</span>
+<span class="source-line-no">656</span><span id="line-656">    CommandLineParser parser = new PosixParser();</span>
+<span class="source-line-no">657</span><span id="line-657">    CommandLine cmd = null;</span>
+<span class="source-line-no">658</span><span id="line-658">    try {</span>
+<span class="source-line-no">659</span><span id="line-659">      cmd = parser.parse(options, args);</span>
+<span class="source-line-no">660</span><span id="line-660">    } catch (ParseException e) {</span>
+<span class="source-line-no">661</span><span id="line-661">      System.err.println("Could not parse arguments!");</span>
+<span class="source-line-no">662</span><span id="line-662">      System.exit(-1);</span>
+<span class="source-line-no">663</span><span id="line-663">      return; // avoid warning</span>
+<span class="source-line-no">664</span><span id="line-664">    }</span>
+<span class="source-line-no">665</span><span id="line-665"></span>
+<span class="source-line-no">666</span><span id="line-666">    int kvLimit = Integer.MAX_VALUE;</span>
+<span class="source-line-no">667</span><span id="line-667">    if (cmd.hasOption(OPT_KV_LIMIT)) {</span>
+<span class="source-line-no">668</span><span id="line-668">      kvLimit = Integer.parseInt(cmd.getOptionValue(OPT_KV_LIMIT));</span>
+<span class="source-line-no">669</span><span id="line-669">      if (kvLimit &lt;= 0) {</span>
+<span class="source-line-no">670</span><span id="line-670">        LOG.error("KV_LIMIT should not less than 1.");</span>
+<span class="source-line-no">671</span><span id="line-671">      }</span>
+<span class="source-line-no">672</span><span id="line-672">    }</span>
+<span class="source-line-no">673</span><span id="line-673"></span>
+<span class="source-line-no">674</span><span id="line-674">    // basic argument sanity checks</span>
+<span class="source-line-no">675</span><span id="line-675">    if (!cmd.hasOption(OPT_HFILE_NAME)) {</span>
+<span class="source-line-no">676</span><span id="line-676">      LOG.error("Please specify HFile name using the " + OPT_HFILE_NAME + " option");</span>
+<span class="source-line-no">677</span><span id="line-677">      printUsage(options);</span>
+<span class="source-line-no">678</span><span id="line-678">      System.exit(-1);</span>
+<span class="source-line-no">679</span><span id="line-679">    }</span>
+<span class="source-line-no">680</span><span id="line-680"></span>
+<span class="source-line-no">681</span><span id="line-681">    String pathName = cmd.getOptionValue(OPT_HFILE_NAME);</span>
+<span class="source-line-no">682</span><span id="line-682">    String compressionName = DEFAULT_COMPRESSION.getName();</span>
+<span class="source-line-no">683</span><span id="line-683">    if (cmd.hasOption(OPT_COMPRESSION_ALGORITHM)) {</span>
+<span class="source-line-no">684</span><span id="line-684">      compressionName = cmd.getOptionValue(OPT_COMPRESSION_ALGORITHM).toLowerCase(Locale.ROOT);</span>
+<span class="source-line-no">685</span><span id="line-685">    }</span>
+<span class="source-line-no">686</span><span id="line-686">    boolean doBenchmark = cmd.hasOption(OPT_MEASURE_THROUGHPUT);</span>
+<span class="source-line-no">687</span><span id="line-687">    boolean doVerify = !cmd.hasOption(OPT_OMIT_CORRECTNESS_TEST);</span>
+<span class="source-line-no">688</span><span id="line-688"></span>
+<span class="source-line-no">689</span><span id="line-689">    if (cmd.hasOption(OPT_BENCHMARK_N_TIMES)) {</span>
+<span class="source-line-no">690</span><span id="line-690">      benchmarkNTimes = Integer.valueOf(cmd.getOptionValue(OPT_BENCHMARK_N_TIMES));</span>
+<span class="source-line-no">691</span><span id="line-691">    }</span>
+<span class="source-line-no">692</span><span id="line-692">    if (cmd.hasOption(OPT_BENCHMARK_N_OMIT)) {</span>
+<span class="source-line-no">693</span><span id="line-693">      benchmarkNOmit = Integer.valueOf(cmd.getOptionValue(OPT_BENCHMARK_N_OMIT));</span>
+<span class="source-line-no">694</span><span id="line-694">    }</span>
+<span class="source-line-no">695</span><span id="line-695">    if (benchmarkNTimes &lt; benchmarkNOmit) {</span>
+<span class="source-line-no">696</span><span id="line-696">      LOG.error("The number of times to run each benchmark (" + benchmarkNTimes</span>
+<span class="source-line-no">697</span><span id="line-697">        + ") must be greater than the number of benchmark runs to exclude " + "from statistics ("</span>
+<span class="source-line-no">698</span><span id="line-698">        + benchmarkNOmit + ")");</span>
+<span class="source-line-no">699</span><span id="line-699">      System.exit(1);</span>
+<span class="source-line-no">700</span><span id="line-700">    }</span>
+<span class="source-line-no">701</span><span id="line-701">    LOG.info("Running benchmark " + benchmarkNTimes + " times. " + "Excluding the first "</span>
+<span class="source-line-no">702</span><span id="line-702">      + benchmarkNOmit + " times from statistics.");</span>
+<span class="source-line-no">703</span><span id="line-703"></span>
+<span class="source-line-no">704</span><span id="line-704">    final Configuration conf = HBaseConfiguration.create();</span>
+<span class="source-line-no">705</span><span id="line-705">    testCodecs(conf, kvLimit, pathName, compressionName, doBenchmark, doVerify);</span>
+<span class="source-line-no">706</span><span id="line-706">  }</span>
+<span class="source-line-no">707</span><span id="line-707"></span>
+<span class="source-line-no">708</span><span id="line-708">}</span>
 
 
 

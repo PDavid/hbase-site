@@ -100,7 +100,7 @@
 <span class="source-line-no">087</span><span id="line-87">      for (ColumnFamilyDescriptor hcd : htd.getColumnFamilies()) {</span>
 <span class="source-line-no">088</span><span id="line-88">        if (hcd.isMobEnabled() &amp;&amp; hcd.getMinVersions() == 0) {</span>
 <span class="source-line-no">089</span><span id="line-89">          try {</span>
-<span class="source-line-no">090</span><span id="line-90">            cleaner.cleanExpiredMobFiles(htd.getTableName().getNameAsString(), hcd);</span>
+<span class="source-line-no">090</span><span id="line-90">            cleaner.cleanExpiredMobFiles(htd, hcd);</span>
 <span class="source-line-no">091</span><span id="line-91">          } catch (IOException e) {</span>
 <span class="source-line-no">092</span><span id="line-92">            LOG.error("Failed to clean the expired mob files table={} family={}",</span>
 <span class="source-line-no">093</span><span id="line-93">              htd.getTableName().getNameAsString(), hcd.getNameAsString(), e);</span>

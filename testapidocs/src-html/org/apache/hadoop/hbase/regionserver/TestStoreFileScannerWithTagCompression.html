@@ -97,7 +97,7 @@
 <span class="source-line-no">084</span><span id="line-84">    writer.close();</span>
 <span class="source-line-no">085</span><span id="line-85"></span>
 <span class="source-line-no">086</span><span id="line-86">    ReaderContext context = new ReaderContextBuilder().withFileSystemAndPath(fs, f).build();</span>
-<span class="source-line-no">087</span><span id="line-87">    StoreFileInfo storeFileInfo = new StoreFileInfo(conf, fs, f, true);</span>
+<span class="source-line-no">087</span><span id="line-87">    StoreFileInfo storeFileInfo = StoreFileInfo.createStoreFileInfoForHFile(conf, fs, f, true);</span>
 <span class="source-line-no">088</span><span id="line-88">    storeFileInfo.initHFileInfo(context);</span>
 <span class="source-line-no">089</span><span id="line-89">    StoreFileReader reader = storeFileInfo.createReader(context, cacheConf);</span>
 <span class="source-line-no">090</span><span id="line-90">    storeFileInfo.getHFileInfo().initMetaAndIndex(reader.getHFileReader());</span>

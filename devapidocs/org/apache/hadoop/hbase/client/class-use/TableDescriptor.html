@@ -1973,6 +1973,22 @@ service.</div>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>void</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">ExpiredMobFileCleaner.</span><code><a href="../../mob/ExpiredMobFileCleaner.html#cleanExpiredMobFiles(org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.hbase.client.ColumnFamilyDescriptor)" class="member-name-link">cleanExpiredMobFiles</a><wbr>(<a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;htd,
+ <a href="../ColumnFamilyDescriptor.html" title="interface in org.apache.hadoop.hbase.client">ColumnFamilyDescriptor</a>&nbsp;family)</code></div>
+<div class="col-last even-row-color">
+<div class="block">Cleans the MOB files when they're expired and their min versions are 0.</div>
+</div>
+<div class="col-first odd-row-color"><code>static void</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">MobUtils.</span><code><a href="../../mob/MobUtils.html#cleanExpiredMobFiles(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.hbase.client.ColumnFamilyDescriptor,org.apache.hadoop.hbase.io.hfile.CacheConfig,long)" class="member-name-link">cleanExpiredMobFiles</a><wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fs,
+ org.apache.hadoop.conf.Configuration&nbsp;conf,
+ <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;htd,
+ <a href="../ColumnFamilyDescriptor.html" title="interface in org.apache.hadoop.hbase.client">ColumnFamilyDescriptor</a>&nbsp;columnDescriptor,
+ <a href="../../io/hfile/CacheConfig.html" title="class in org.apache.hadoop.hbase.io.hfile">CacheConfig</a>&nbsp;cacheConfig,
+ long&nbsp;current)</code></div>
+<div class="col-last odd-row-color">
+<div class="block">Cleans the expired mob files.</div>
+</div>
 <div class="col-first even-row-color"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../ColumnFamilyDescriptor.html" title="interface in org.apache.hadoop.hbase.client">ColumnFamilyDescriptor</a>&gt;</code></div>
 <div class="col-second even-row-color"><span class="type-name-label">MobUtils.</span><code><a href="../../mob/MobUtils.html#getMobColumnFamilies(org.apache.hadoop.hbase.client.TableDescriptor)" class="member-name-link">getMobColumnFamilies</a><wbr>(<a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;htd)</code></div>
 <div class="col-last even-row-color">
@@ -2140,53 +2156,48 @@ service.</div>
 <div class="col-second odd-row-color"><span class="type-name-label">RegionCoprocessorHost.</span><code><a href="../../regionserver/RegionCoprocessorHost.html#getTableCoprocessorAttrsFromSchema(org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.client.TableDescriptor)" class="member-name-link">getTableCoprocessorAttrsFromSchema</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
  <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;htd)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>boolean</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">HRegionFileSystem.</span><code><a href="../../regionserver/HRegionFileSystem.html#hasReferences(org.apache.hadoop.hbase.client.TableDescriptor)" class="member-name-link">hasReferences</a><wbr>(<a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;htd)</code></div>
-<div class="col-last even-row-color">
-<div class="block">Check whether region has Reference file</div>
-</div>
-<div class="col-first odd-row-color"><code>void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">DelimitedKeyPrefixRegionSplitRestriction.</span><code><a href="../../regionserver/DelimitedKeyPrefixRegionSplitRestriction.html#initialize(org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.conf.Configuration)" class="member-name-link">initialize</a><wbr>(<a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;tableDescriptor,
- org.apache.hadoop.conf.Configuration&nbsp;conf)</code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">KeyPrefixRegionSplitRestriction.</span><code><a href="../../regionserver/KeyPrefixRegionSplitRestriction.html#initialize(org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.conf.Configuration)" class="member-name-link">initialize</a><wbr>(<a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;tableDescriptor,
+<div class="col-second even-row-color"><span class="type-name-label">DelimitedKeyPrefixRegionSplitRestriction.</span><code><a href="../../regionserver/DelimitedKeyPrefixRegionSplitRestriction.html#initialize(org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.conf.Configuration)" class="member-name-link">initialize</a><wbr>(<a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;tableDescriptor,
  org.apache.hadoop.conf.Configuration&nbsp;conf)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">NoRegionSplitRestriction.</span><code><a href="../../regionserver/NoRegionSplitRestriction.html#initialize(org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.conf.Configuration)" class="member-name-link">initialize</a><wbr>(<a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;tableDescriptor,
+<div class="col-second odd-row-color"><span class="type-name-label">KeyPrefixRegionSplitRestriction.</span><code><a href="../../regionserver/KeyPrefixRegionSplitRestriction.html#initialize(org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.conf.Configuration)" class="member-name-link">initialize</a><wbr>(<a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;tableDescriptor,
  org.apache.hadoop.conf.Configuration&nbsp;conf)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>abstract void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">RegionSplitRestriction.</span><code><a href="../../regionserver/RegionSplitRestriction.html#initialize(org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.conf.Configuration)" class="member-name-link">initialize</a><wbr>(<a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;tableDescriptor,
+<div class="col-first even-row-color"><code>void</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">NoRegionSplitRestriction.</span><code><a href="../../regionserver/NoRegionSplitRestriction.html#initialize(org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.conf.Configuration)" class="member-name-link">initialize</a><wbr>(<a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;tableDescriptor,
  org.apache.hadoop.conf.Configuration&nbsp;conf)</code></div>
-<div class="col-last even-row-color">
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>abstract void</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">RegionSplitRestriction.</span><code><a href="../../regionserver/RegionSplitRestriction.html#initialize(org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.conf.Configuration)" class="member-name-link">initialize</a><wbr>(<a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;tableDescriptor,
+ org.apache.hadoop.conf.Configuration&nbsp;conf)</code></div>
+<div class="col-last odd-row-color">
 <div class="block">Initialize the RegionSplitRestriction instance</div>
 </div>
-<div class="col-first odd-row-color"><code>static <a href="../../regionserver/HRegion.html" title="class in org.apache.hadoop.hbase.regionserver">HRegion</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">HRegion.</span><code><a href="../../regionserver/HRegion.html#newHRegion(org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.wal.WAL,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.client.RegionInfo,org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.hbase.regionserver.RegionServerServices)" class="member-name-link">newHRegion</a><wbr>(org.apache.hadoop.fs.Path&nbsp;tableDir,
+<div class="col-first even-row-color"><code>static <a href="../../regionserver/HRegion.html" title="class in org.apache.hadoop.hbase.regionserver">HRegion</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">HRegion.</span><code><a href="../../regionserver/HRegion.html#newHRegion(org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.wal.WAL,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.client.RegionInfo,org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.hbase.regionserver.RegionServerServices)" class="member-name-link">newHRegion</a><wbr>(org.apache.hadoop.fs.Path&nbsp;tableDir,
  <a href="../../wal/WAL.html" title="interface in org.apache.hadoop.hbase.wal">WAL</a>&nbsp;wal,
  org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.conf.Configuration&nbsp;conf,
  <a href="../RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;regionInfo,
  <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;htd,
  <a href="../../regionserver/RegionServerServices.html" title="interface in org.apache.hadoop.hbase.regionserver">RegionServerServices</a>&nbsp;rsServices)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-last even-row-color">
 <div class="block">A utility method to create new instances of HRegion based on the <a href="../../HConstants.html#REGION_IMPL"><code>HConstants.REGION_IMPL</code></a>
  configuration property.</div>
 </div>
-<div class="col-first even-row-color"><code>static <a href="../../regionserver/HRegion.html" title="class in org.apache.hadoop.hbase.regionserver">HRegion</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">HRegion.</span><code><a href="../../regionserver/HRegion.html#openHRegion(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.client.RegionInfo,org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.hbase.wal.WAL)" class="member-name-link">openHRegion</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="col-first odd-row-color"><code>static <a href="../../regionserver/HRegion.html" title="class in org.apache.hadoop.hbase.regionserver">HRegion</a></code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">HRegion.</span><code><a href="../../regionserver/HRegion.html#openHRegion(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.client.RegionInfo,org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.hbase.wal.WAL)" class="member-name-link">openHRegion</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.Path&nbsp;rootDir,
  <a href="../RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;info,
  <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;htd,
  <a href="../../wal/WAL.html" title="interface in org.apache.hadoop.hbase.wal">WAL</a>&nbsp;wal)</code></div>
-<div class="col-last even-row-color">
+<div class="col-last odd-row-color">
 <div class="block">Open a Region.</div>
 </div>
-<div class="col-first odd-row-color"><code>static <a href="../../regionserver/HRegion.html" title="class in org.apache.hadoop.hbase.regionserver">HRegion</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">HRegion.</span><code><a href="../../regionserver/HRegion.html#openHRegion(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.client.RegionInfo,org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.hbase.wal.WAL,org.apache.hadoop.hbase.regionserver.RegionServerServices,org.apache.hadoop.hbase.util.CancelableProgressable)" class="member-name-link">openHRegion</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="col-first even-row-color"><code>static <a href="../../regionserver/HRegion.html" title="class in org.apache.hadoop.hbase.regionserver">HRegion</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">HRegion.</span><code><a href="../../regionserver/HRegion.html#openHRegion(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.client.RegionInfo,org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.hbase.wal.WAL,org.apache.hadoop.hbase.regionserver.RegionServerServices,org.apache.hadoop.hbase.util.CancelableProgressable)" class="member-name-link">openHRegion</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.Path&nbsp;rootDir,
  <a href="../RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;info,
@@ -2194,49 +2205,49 @@ service.</div>
  <a href="../../wal/WAL.html" title="interface in org.apache.hadoop.hbase.wal">WAL</a>&nbsp;wal,
  <a href="../../regionserver/RegionServerServices.html" title="interface in org.apache.hadoop.hbase.regionserver">RegionServerServices</a>&nbsp;rsServices,
  <a href="../../util/CancelableProgressable.html" title="interface in org.apache.hadoop.hbase.util">CancelableProgressable</a>&nbsp;reporter)</code></div>
-<div class="col-last odd-row-color">
-<div class="block">Open a Region.</div>
-</div>
-<div class="col-first even-row-color"><code>static <a href="../../regionserver/HRegion.html" title="class in org.apache.hadoop.hbase.regionserver">HRegion</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">HRegion.</span><code><a href="../../regionserver/HRegion.html#openHRegion(org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.client.RegionInfo,org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.hbase.wal.WAL,org.apache.hadoop.conf.Configuration)" class="member-name-link">openHRegion</a><wbr>(org.apache.hadoop.fs.Path&nbsp;rootDir,
- <a href="../RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;info,
- <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;htd,
- <a href="../../wal/WAL.html" title="interface in org.apache.hadoop.hbase.wal">WAL</a>&nbsp;wal,
- org.apache.hadoop.conf.Configuration&nbsp;conf)</code></div>
 <div class="col-last even-row-color">
 <div class="block">Open a Region.</div>
 </div>
 <div class="col-first odd-row-color"><code>static <a href="../../regionserver/HRegion.html" title="class in org.apache.hadoop.hbase.regionserver">HRegion</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">HRegion.</span><code><a href="../../regionserver/HRegion.html#openHRegion(org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.client.RegionInfo,org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.hbase.wal.WAL,org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.regionserver.RegionServerServices,org.apache.hadoop.hbase.util.CancelableProgressable)" class="member-name-link">openHRegion</a><wbr>(org.apache.hadoop.fs.Path&nbsp;rootDir,
+<div class="col-second odd-row-color"><span class="type-name-label">HRegion.</span><code><a href="../../regionserver/HRegion.html#openHRegion(org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.client.RegionInfo,org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.hbase.wal.WAL,org.apache.hadoop.conf.Configuration)" class="member-name-link">openHRegion</a><wbr>(org.apache.hadoop.fs.Path&nbsp;rootDir,
+ <a href="../RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;info,
+ <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;htd,
+ <a href="../../wal/WAL.html" title="interface in org.apache.hadoop.hbase.wal">WAL</a>&nbsp;wal,
+ org.apache.hadoop.conf.Configuration&nbsp;conf)</code></div>
+<div class="col-last odd-row-color">
+<div class="block">Open a Region.</div>
+</div>
+<div class="col-first even-row-color"><code>static <a href="../../regionserver/HRegion.html" title="class in org.apache.hadoop.hbase.regionserver">HRegion</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">HRegion.</span><code><a href="../../regionserver/HRegion.html#openHRegion(org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.client.RegionInfo,org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.hbase.wal.WAL,org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.regionserver.RegionServerServices,org.apache.hadoop.hbase.util.CancelableProgressable)" class="member-name-link">openHRegion</a><wbr>(org.apache.hadoop.fs.Path&nbsp;rootDir,
  <a href="../RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;info,
  <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;htd,
  <a href="../../wal/WAL.html" title="interface in org.apache.hadoop.hbase.wal">WAL</a>&nbsp;wal,
  org.apache.hadoop.conf.Configuration&nbsp;conf,
  <a href="../../regionserver/RegionServerServices.html" title="interface in org.apache.hadoop.hbase.regionserver">RegionServerServices</a>&nbsp;rsServices,
  <a href="../../util/CancelableProgressable.html" title="interface in org.apache.hadoop.hbase.util">CancelableProgressable</a>&nbsp;reporter)</code></div>
-<div class="col-last odd-row-color">
-<div class="block">Open a Region.</div>
-</div>
-<div class="col-first even-row-color"><code>static <a href="../../regionserver/HRegion.html" title="class in org.apache.hadoop.hbase.regionserver">HRegion</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">HRegion.</span><code><a href="../../regionserver/HRegion.html#openHRegion(org.apache.hadoop.hbase.client.RegionInfo,org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.hbase.wal.WAL,org.apache.hadoop.conf.Configuration)" class="member-name-link">openHRegion</a><wbr>(<a href="../RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;info,
- <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;htd,
- <a href="../../wal/WAL.html" title="interface in org.apache.hadoop.hbase.wal">WAL</a>&nbsp;wal,
- org.apache.hadoop.conf.Configuration&nbsp;conf)</code></div>
 <div class="col-last even-row-color">
 <div class="block">Open a Region.</div>
 </div>
 <div class="col-first odd-row-color"><code>static <a href="../../regionserver/HRegion.html" title="class in org.apache.hadoop.hbase.regionserver">HRegion</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">HRegion.</span><code><a href="../../regionserver/HRegion.html#openHRegion(org.apache.hadoop.hbase.client.RegionInfo,org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.hbase.wal.WAL,org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.regionserver.RegionServerServices,org.apache.hadoop.hbase.util.CancelableProgressable)" class="member-name-link">openHRegion</a><wbr>(<a href="../RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;info,
+<div class="col-second odd-row-color"><span class="type-name-label">HRegion.</span><code><a href="../../regionserver/HRegion.html#openHRegion(org.apache.hadoop.hbase.client.RegionInfo,org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.hbase.wal.WAL,org.apache.hadoop.conf.Configuration)" class="member-name-link">openHRegion</a><wbr>(<a href="../RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;info,
+ <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;htd,
+ <a href="../../wal/WAL.html" title="interface in org.apache.hadoop.hbase.wal">WAL</a>&nbsp;wal,
+ org.apache.hadoop.conf.Configuration&nbsp;conf)</code></div>
+<div class="col-last odd-row-color">
+<div class="block">Open a Region.</div>
+</div>
+<div class="col-first even-row-color"><code>static <a href="../../regionserver/HRegion.html" title="class in org.apache.hadoop.hbase.regionserver">HRegion</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">HRegion.</span><code><a href="../../regionserver/HRegion.html#openHRegion(org.apache.hadoop.hbase.client.RegionInfo,org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.hbase.wal.WAL,org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.regionserver.RegionServerServices,org.apache.hadoop.hbase.util.CancelableProgressable)" class="member-name-link">openHRegion</a><wbr>(<a href="../RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;info,
  <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;htd,
  <a href="../../wal/WAL.html" title="interface in org.apache.hadoop.hbase.wal">WAL</a>&nbsp;wal,
  org.apache.hadoop.conf.Configuration&nbsp;conf,
  <a href="../../regionserver/RegionServerServices.html" title="interface in org.apache.hadoop.hbase.regionserver">RegionServerServices</a>&nbsp;rsServices,
  <a href="../../util/CancelableProgressable.html" title="interface in org.apache.hadoop.hbase.util">CancelableProgressable</a>&nbsp;reporter)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-last even-row-color">
 <div class="block">Open a Region.</div>
 </div>
-<div class="col-first even-row-color"><code>static <a href="../../regionserver/HRegion.html" title="class in org.apache.hadoop.hbase.regionserver">HRegion</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">HRegion.</span><code><a href="../../regionserver/HRegion.html#openHRegionFromTableDir(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.client.RegionInfo,org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.hbase.wal.WAL,org.apache.hadoop.hbase.regionserver.RegionServerServices,org.apache.hadoop.hbase.util.CancelableProgressable)" class="member-name-link">openHRegionFromTableDir</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="col-first odd-row-color"><code>static <a href="../../regionserver/HRegion.html" title="class in org.apache.hadoop.hbase.regionserver">HRegion</a></code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">HRegion.</span><code><a href="../../regionserver/HRegion.html#openHRegionFromTableDir(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.client.RegionInfo,org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.hbase.wal.WAL,org.apache.hadoop.hbase.regionserver.RegionServerServices,org.apache.hadoop.hbase.util.CancelableProgressable)" class="member-name-link">openHRegionFromTableDir</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.Path&nbsp;tableDir,
  <a href="../RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;info,
@@ -2244,35 +2255,35 @@ service.</div>
  <a href="../../wal/WAL.html" title="interface in org.apache.hadoop.hbase.wal">WAL</a>&nbsp;wal,
  <a href="../../regionserver/RegionServerServices.html" title="interface in org.apache.hadoop.hbase.regionserver">RegionServerServices</a>&nbsp;rsServices,
  <a href="../../util/CancelableProgressable.html" title="interface in org.apache.hadoop.hbase.util">CancelableProgressable</a>&nbsp;reporter)</code></div>
-<div class="col-last even-row-color">
+<div class="col-last odd-row-color">
 <div class="block">Open a Region.</div>
 </div>
-<div class="col-first odd-row-color"><code>static <a href="../../regionserver/HRegion.html" title="class in org.apache.hadoop.hbase.regionserver">HRegion</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">HRegion.</span><code><a href="../../regionserver/HRegion.html#openReadOnlyFileSystemHRegion(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.client.RegionInfo,org.apache.hadoop.hbase.client.TableDescriptor)" class="member-name-link">openReadOnlyFileSystemHRegion</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="col-first even-row-color"><code>static <a href="../../regionserver/HRegion.html" title="class in org.apache.hadoop.hbase.regionserver">HRegion</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">HRegion.</span><code><a href="../../regionserver/HRegion.html#openReadOnlyFileSystemHRegion(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.client.RegionInfo,org.apache.hadoop.hbase.client.TableDescriptor)" class="member-name-link">openReadOnlyFileSystemHRegion</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.Path&nbsp;tableDir,
  <a href="../RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;info,
  <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;htd)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-last even-row-color">
 <div class="block">Open a Region on a read-only file-system (like hdfs snapshots)</div>
 </div>
-<div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">HRegion.</span><code><a href="../../regionserver/HRegion.html#setTableDescriptor(org.apache.hadoop.hbase.client.TableDescriptor)" class="member-name-link">setTableDescriptor</a><wbr>(<a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;desc)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>static void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">RegionCoprocessorHost.</span><code><a href="../../regionserver/RegionCoprocessorHost.html#testTableCoprocessorAttrs(org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.client.TableDescriptor)" class="member-name-link">testTableCoprocessorAttrs</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="col-first odd-row-color"><code>void</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">HRegion.</span><code><a href="../../regionserver/HRegion.html#setTableDescriptor(org.apache.hadoop.hbase.client.TableDescriptor)" class="member-name-link">setTableDescriptor</a><wbr>(<a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;desc)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static void</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">RegionCoprocessorHost.</span><code><a href="../../regionserver/RegionCoprocessorHost.html#testTableCoprocessorAttrs(org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.client.TableDescriptor)" class="member-name-link">testTableCoprocessorAttrs</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
  <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;htd)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-last even-row-color">
 <div class="block">Sanity check the table coprocessor attributes of the supplied schema.</div>
 </div>
-<div class="col-first even-row-color"><code>static <a href="../../regionserver/HRegion.html" title="class in org.apache.hadoop.hbase.regionserver">HRegion</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">HRegion.</span><code><a href="../../regionserver/HRegion.html#warmupHRegion(org.apache.hadoop.hbase.client.RegionInfo,org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.hbase.wal.WAL,org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.regionserver.RegionServerServices,org.apache.hadoop.hbase.util.CancelableProgressable)" class="member-name-link">warmupHRegion</a><wbr>(<a href="../RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;info,
+<div class="col-first odd-row-color"><code>static <a href="../../regionserver/HRegion.html" title="class in org.apache.hadoop.hbase.regionserver">HRegion</a></code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">HRegion.</span><code><a href="../../regionserver/HRegion.html#warmupHRegion(org.apache.hadoop.hbase.client.RegionInfo,org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.hbase.wal.WAL,org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.regionserver.RegionServerServices,org.apache.hadoop.hbase.util.CancelableProgressable)" class="member-name-link">warmupHRegion</a><wbr>(<a href="../RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;info,
  <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;htd,
  <a href="../../wal/WAL.html" title="interface in org.apache.hadoop.hbase.wal">WAL</a>&nbsp;wal,
  org.apache.hadoop.conf.Configuration&nbsp;conf,
  <a href="../../regionserver/RegionServerServices.html" title="interface in org.apache.hadoop.hbase.regionserver">RegionServerServices</a>&nbsp;rsServices,
  <a href="../../util/CancelableProgressable.html" title="interface in org.apache.hadoop.hbase.util">CancelableProgressable</a>&nbsp;reporter)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last odd-row-color">&nbsp;</div>
 </div>
 <div class="caption"><span>Method parameters in <a href="../../regionserver/package-summary.html">org.apache.hadoop.hbase.regionserver</a> with type arguments of type <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a></span></div>
 <div class="summary-table three-column-summary">
@@ -2512,78 +2523,85 @@ service.</div>
 <div class="block">Used at master side when splitting/merging regions, as we do not have a Store, thus no
  StoreContext at master side.</div>
 </div>
-<div class="col-first even-row-color"><code>protected org.apache.hadoop.conf.Configuration</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">ModifyColumnFamilyStoreFileTrackerProcedure.</span><code><a href="../../regionserver/storefiletracker/ModifyColumnFamilyStoreFileTrackerProcedure.html#createConf(org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.client.TableDescriptor)" class="member-name-link">createConf</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
- <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;current)</code></div>
+<div class="col-first even-row-color"><code>static <a href="../../regionserver/storefiletracker/StoreFileTracker.html" title="interface in org.apache.hadoop.hbase.regionserver.storefiletracker">StoreFileTracker</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">StoreFileTrackerFactory.</span><code><a href="../../regionserver/storefiletracker/StoreFileTrackerFactory.html#create(org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.hbase.client.ColumnFamilyDescriptor,org.apache.hadoop.hbase.regionserver.HRegionFileSystem,boolean)" class="member-name-link">create</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+ <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;td,
+ <a href="../ColumnFamilyDescriptor.html" title="interface in org.apache.hadoop.hbase.client">ColumnFamilyDescriptor</a>&nbsp;cfd,
+ <a href="../../regionserver/HRegionFileSystem.html" title="class in org.apache.hadoop.hbase.regionserver">HRegionFileSystem</a>&nbsp;regionFs,
+ boolean&nbsp;isPrimaryReplica)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>protected abstract org.apache.hadoop.conf.Configuration</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">ModifyStoreFileTrackerProcedure.</span><code><a href="../../regionserver/storefiletracker/ModifyStoreFileTrackerProcedure.html#createConf(org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.client.TableDescriptor)" class="member-name-link">createConf</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="col-first odd-row-color"><code>protected org.apache.hadoop.conf.Configuration</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">ModifyColumnFamilyStoreFileTrackerProcedure.</span><code><a href="../../regionserver/storefiletracker/ModifyColumnFamilyStoreFileTrackerProcedure.html#createConf(org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.client.TableDescriptor)" class="member-name-link">createConf</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
  <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;current)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>protected org.apache.hadoop.conf.Configuration</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">ModifyTableStoreFileTrackerProcedure.</span><code><a href="../../regionserver/storefiletracker/ModifyTableStoreFileTrackerProcedure.html#createConf(org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.client.TableDescriptor)" class="member-name-link">createConf</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="col-first even-row-color"><code>protected abstract org.apache.hadoop.conf.Configuration</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">ModifyStoreFileTrackerProcedure.</span><code><a href="../../regionserver/storefiletracker/ModifyStoreFileTrackerProcedure.html#createConf(org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.client.TableDescriptor)" class="member-name-link">createConf</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
  <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;current)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>protected <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">ModifyColumnFamilyStoreFileTrackerProcedure.</span><code><a href="../../regionserver/storefiletracker/ModifyColumnFamilyStoreFileTrackerProcedure.html#createFinishTableDescriptor(org.apache.hadoop.hbase.client.TableDescriptor)" class="member-name-link">createFinishTableDescriptor</a><wbr>(<a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;current)</code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>protected abstract <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">ModifyStoreFileTrackerProcedure.</span><code><a href="../../regionserver/storefiletracker/ModifyStoreFileTrackerProcedure.html#createFinishTableDescriptor(org.apache.hadoop.hbase.client.TableDescriptor)" class="member-name-link">createFinishTableDescriptor</a><wbr>(<a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;current)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>protected <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">ModifyTableStoreFileTrackerProcedure.</span><code><a href="../../regionserver/storefiletracker/ModifyTableStoreFileTrackerProcedure.html#createFinishTableDescriptor(org.apache.hadoop.hbase.client.TableDescriptor)" class="member-name-link">createFinishTableDescriptor</a><wbr>(<a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;current)</code></div>
+<div class="col-first odd-row-color"><code>protected org.apache.hadoop.conf.Configuration</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">ModifyTableStoreFileTrackerProcedure.</span><code><a href="../../regionserver/storefiletracker/ModifyTableStoreFileTrackerProcedure.html#createConf(org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.client.TableDescriptor)" class="member-name-link">createConf</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+ <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;current)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>protected <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">ModifyColumnFamilyStoreFileTrackerProcedure.</span><code><a href="../../regionserver/storefiletracker/ModifyColumnFamilyStoreFileTrackerProcedure.html#createMigrationTableDescriptor(org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.client.TableDescriptor)" class="member-name-link">createMigrationTableDescriptor</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
- <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;current)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">ModifyColumnFamilyStoreFileTrackerProcedure.</span><code><a href="../../regionserver/storefiletracker/ModifyColumnFamilyStoreFileTrackerProcedure.html#createFinishTableDescriptor(org.apache.hadoop.hbase.client.TableDescriptor)" class="member-name-link">createFinishTableDescriptor</a><wbr>(<a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;current)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>protected abstract <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">ModifyStoreFileTrackerProcedure.</span><code><a href="../../regionserver/storefiletracker/ModifyStoreFileTrackerProcedure.html#createMigrationTableDescriptor(org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.client.TableDescriptor)" class="member-name-link">createMigrationTableDescriptor</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="col-second odd-row-color"><span class="type-name-label">ModifyStoreFileTrackerProcedure.</span><code><a href="../../regionserver/storefiletracker/ModifyStoreFileTrackerProcedure.html#createFinishTableDescriptor(org.apache.hadoop.hbase.client.TableDescriptor)" class="member-name-link">createFinishTableDescriptor</a><wbr>(<a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;current)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>protected <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">ModifyTableStoreFileTrackerProcedure.</span><code><a href="../../regionserver/storefiletracker/ModifyTableStoreFileTrackerProcedure.html#createFinishTableDescriptor(org.apache.hadoop.hbase.client.TableDescriptor)" class="member-name-link">createFinishTableDescriptor</a><wbr>(<a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;current)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>protected <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a></code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">ModifyColumnFamilyStoreFileTrackerProcedure.</span><code><a href="../../regionserver/storefiletracker/ModifyColumnFamilyStoreFileTrackerProcedure.html#createMigrationTableDescriptor(org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.client.TableDescriptor)" class="member-name-link">createMigrationTableDescriptor</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+ <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;current)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>protected abstract <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">ModifyStoreFileTrackerProcedure.</span><code><a href="../../regionserver/storefiletracker/ModifyStoreFileTrackerProcedure.html#createMigrationTableDescriptor(org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.client.TableDescriptor)" class="member-name-link">createMigrationTableDescriptor</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+ <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;current)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>protected <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a></code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">ModifyTableStoreFileTrackerProcedure.</span><code><a href="../../regionserver/storefiletracker/ModifyTableStoreFileTrackerProcedure.html#createMigrationTableDescriptor(org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.client.TableDescriptor)" class="member-name-link">createMigrationTableDescriptor</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
  <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;current)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>protected <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">ModifyTableStoreFileTrackerProcedure.</span><code><a href="../../regionserver/storefiletracker/ModifyTableStoreFileTrackerProcedure.html#createMigrationTableDescriptor(org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.client.TableDescriptor)" class="member-name-link">createMigrationTableDescriptor</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
- <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;current)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>protected <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">ModifyColumnFamilyStoreFileTrackerProcedure.</span><code><a href="../../regionserver/storefiletracker/ModifyColumnFamilyStoreFileTrackerProcedure.html#createRestoreTableDescriptor(org.apache.hadoop.hbase.client.TableDescriptor,java.lang.String)" class="member-name-link">createRestoreTableDescriptor</a><wbr>(<a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;current,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;restoreSFT)</code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>protected abstract <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">ModifyStoreFileTrackerProcedure.</span><code><a href="../../regionserver/storefiletracker/ModifyStoreFileTrackerProcedure.html#createRestoreTableDescriptor(org.apache.hadoop.hbase.client.TableDescriptor,java.lang.String)" class="member-name-link">createRestoreTableDescriptor</a><wbr>(<a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;current,
+<div class="col-second even-row-color"><span class="type-name-label">ModifyColumnFamilyStoreFileTrackerProcedure.</span><code><a href="../../regionserver/storefiletracker/ModifyColumnFamilyStoreFileTrackerProcedure.html#createRestoreTableDescriptor(org.apache.hadoop.hbase.client.TableDescriptor,java.lang.String)" class="member-name-link">createRestoreTableDescriptor</a><wbr>(<a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;current,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;restoreSFT)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>protected <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">ModifyTableStoreFileTrackerProcedure.</span><code><a href="../../regionserver/storefiletracker/ModifyTableStoreFileTrackerProcedure.html#createRestoreTableDescriptor(org.apache.hadoop.hbase.client.TableDescriptor,java.lang.String)" class="member-name-link">createRestoreTableDescriptor</a><wbr>(<a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;current,
+<div class="col-first odd-row-color"><code>protected abstract <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a></code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">ModifyStoreFileTrackerProcedure.</span><code><a href="../../regionserver/storefiletracker/ModifyStoreFileTrackerProcedure.html#createRestoreTableDescriptor(org.apache.hadoop.hbase.client.TableDescriptor,java.lang.String)" class="member-name-link">createRestoreTableDescriptor</a><wbr>(<a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;current,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;restoreSFT)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>private static org.apache.hadoop.conf.Configuration</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">StoreFileTrackerFactory.</span><code><a href="../../regionserver/storefiletracker/StoreFileTrackerFactory.html#mergeConfigurations(org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.hbase.client.ColumnFamilyDescriptor)" class="member-name-link">mergeConfigurations</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;global,
+<div class="col-first even-row-color"><code>protected <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">ModifyTableStoreFileTrackerProcedure.</span><code><a href="../../regionserver/storefiletracker/ModifyTableStoreFileTrackerProcedure.html#createRestoreTableDescriptor(org.apache.hadoop.hbase.client.TableDescriptor,java.lang.String)" class="member-name-link">createRestoreTableDescriptor</a><wbr>(<a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;current,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;restoreSFT)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static org.apache.hadoop.conf.Configuration</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">StoreFileTrackerFactory.</span><code><a href="../../regionserver/storefiletracker/StoreFileTrackerFactory.html#mergeConfigurations(org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.hbase.client.ColumnFamilyDescriptor)" class="member-name-link">mergeConfigurations</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;global,
  <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;table,
  <a href="../ColumnFamilyDescriptor.html" title="interface in org.apache.hadoop.hbase.client">ColumnFamilyDescriptor</a>&nbsp;family)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&gt;</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">InitializeStoreFileTrackerProcedure.</span><code><a href="../../regionserver/storefiletracker/InitializeStoreFileTrackerProcedure.html#modify(org.apache.hadoop.hbase.master.procedure.MasterProcedureEnv,org.apache.hadoop.hbase.client.TableDescriptor)" class="member-name-link">modify</a><wbr>(<a href="../../master/procedure/MasterProcedureEnv.html" title="class in org.apache.hadoop.hbase.master.procedure">MasterProcedureEnv</a>&nbsp;env,
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&gt;</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">InitializeStoreFileTrackerProcedure.</span><code><a href="../../regionserver/storefiletracker/InitializeStoreFileTrackerProcedure.html#modify(org.apache.hadoop.hbase.master.procedure.MasterProcedureEnv,org.apache.hadoop.hbase.client.TableDescriptor)" class="member-name-link">modify</a><wbr>(<a href="../../master/procedure/MasterProcedureEnv.html" title="class in org.apache.hadoop.hbase.master.procedure">MasterProcedureEnv</a>&nbsp;env,
  <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;current)</code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>protected void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">ModifyColumnFamilyStoreFileTrackerProcedure.</span><code><a href="../../regionserver/storefiletracker/ModifyColumnFamilyStoreFileTrackerProcedure.html#preCheck(org.apache.hadoop.hbase.client.TableDescriptor)" class="member-name-link">preCheck</a><wbr>(<a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;current)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>protected abstract void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">ModifyStoreFileTrackerProcedure.</span><code><a href="../../regionserver/storefiletracker/ModifyStoreFileTrackerProcedure.html#preCheck(org.apache.hadoop.hbase.client.TableDescriptor)" class="member-name-link">preCheck</a><wbr>(<a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;current)</code></div>
+<div class="col-first odd-row-color"><code>protected void</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">ModifyColumnFamilyStoreFileTrackerProcedure.</span><code><a href="../../regionserver/storefiletracker/ModifyColumnFamilyStoreFileTrackerProcedure.html#preCheck(org.apache.hadoop.hbase.client.TableDescriptor)" class="member-name-link">preCheck</a><wbr>(<a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;current)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>protected void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">ModifyTableStoreFileTrackerProcedure.</span><code><a href="../../regionserver/storefiletracker/ModifyTableStoreFileTrackerProcedure.html#preCheck(org.apache.hadoop.hbase.client.TableDescriptor)" class="member-name-link">preCheck</a><wbr>(<a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;current)</code></div>
+<div class="col-first even-row-color"><code>protected abstract void</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">ModifyStoreFileTrackerProcedure.</span><code><a href="../../regionserver/storefiletracker/ModifyStoreFileTrackerProcedure.html#preCheck(org.apache.hadoop.hbase.client.TableDescriptor)" class="member-name-link">preCheck</a><wbr>(<a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;current)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>static <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">StoreFileTrackerFactory.</span><code><a href="../../regionserver/storefiletracker/StoreFileTrackerFactory.html#updateWithTrackerConfigs(org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.client.TableDescriptor)" class="member-name-link">updateWithTrackerConfigs</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="col-first odd-row-color"><code>protected void</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">ModifyTableStoreFileTrackerProcedure.</span><code><a href="../../regionserver/storefiletracker/ModifyTableStoreFileTrackerProcedure.html#preCheck(org.apache.hadoop.hbase.client.TableDescriptor)" class="member-name-link">preCheck</a><wbr>(<a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;current)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">StoreFileTrackerFactory.</span><code><a href="../../regionserver/storefiletracker/StoreFileTrackerFactory.html#updateWithTrackerConfigs(org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.client.TableDescriptor)" class="member-name-link">updateWithTrackerConfigs</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
  <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;descriptor)</code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>static void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">StoreFileTrackerValidationUtils.</span><code><a href="../../regionserver/storefiletracker/StoreFileTrackerValidationUtils.html#validatePreRestoreSnapshot(org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.conf.Configuration)" class="member-name-link">validatePreRestoreSnapshot</a><wbr>(<a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;currentTableDesc,
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static void</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">StoreFileTrackerValidationUtils.</span><code><a href="../../regionserver/storefiletracker/StoreFileTrackerValidationUtils.html#validatePreRestoreSnapshot(org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.conf.Configuration)" class="member-name-link">validatePreRestoreSnapshot</a><wbr>(<a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;currentTableDesc,
  <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;snapshotTableDesc,
  org.apache.hadoop.conf.Configuration&nbsp;baseConf)</code></div>
-<div class="col-last even-row-color">
+<div class="col-last odd-row-color">
 <div class="block">Makes sure restoring a snapshot does not break the current SFT setup follows
  StoreUtils.createStoreConfiguration</div>
 </div>
@@ -2889,6 +2907,27 @@ service.</div>
 <div class="col-last even-row-color">
 <div class="block">Add the table descriptor to the snapshot manifest</div>
 </div>
+<div class="col-first odd-row-color"><code>(package private) static org.apache.hadoop.hbase.shaded.protobuf.generated.SnapshotProtos.SnapshotRegionManifest</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">SnapshotManifestV1.</span><code><a href="../../snapshot/SnapshotManifestV1.html#buildManifestFromDisk(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.client.RegionInfo,org.apache.hadoop.hbase.client.TableDescriptor)" class="member-name-link">buildManifestFromDisk</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+ org.apache.hadoop.fs.FileSystem&nbsp;fs,
+ org.apache.hadoop.fs.Path&nbsp;tableDir,
+ <a href="../RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;regionInfo,
+ <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;htd)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../regionserver/StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a>&gt;</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">SnapshotManifest.</span><code><a href="../../snapshot/SnapshotManifest.html#getStoreFiles(org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.hbase.client.ColumnFamilyDescriptor,org.apache.hadoop.hbase.client.RegionInfo)" class="member-name-link">getStoreFiles</a><wbr>(org.apache.hadoop.fs.Path&nbsp;storePath,
+ <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;htd,
+ <a href="../ColumnFamilyDescriptor.html" title="interface in org.apache.hadoop.hbase.client">ColumnFamilyDescriptor</a>&nbsp;hcd,
+ <a href="../RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;regionInfo)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>(package private) static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;org.apache.hadoop.hbase.shaded.protobuf.generated.SnapshotProtos.SnapshotRegionManifest&gt;</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">SnapshotManifestV1.</span><code><a href="../../snapshot/SnapshotManifestV1.html#loadRegionManifests(org.apache.hadoop.conf.Configuration,java.util.concurrent.Executor,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.shaded.protobuf.generated.SnapshotProtos.SnapshotDescription,org.apache.hadoop.hbase.client.TableDescriptor)" class="member-name-link">loadRegionManifests</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/Executor.html" title="class or interface in java.util.concurrent" class="external-link">Executor</a>&nbsp;executor,
+ org.apache.hadoop.fs.FileSystem&nbsp;fs,
+ org.apache.hadoop.fs.Path&nbsp;snapshotDir,
+ org.apache.hadoop.hbase.shaded.protobuf.generated.SnapshotProtos.SnapshotDescription&nbsp;desc,
+ <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;htd)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
 </div>
 <div class="caption"><span>Constructors in <a href="../../snapshot/package-summary.html">org.apache.hadoop.hbase.snapshot</a> with parameters of type <a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a></span></div>
 <div class="summary-table three-column-summary">

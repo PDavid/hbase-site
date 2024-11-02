@@ -78,7 +78,7 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <hr>
 <div class="type-signature"><span class="annotations">@Private
-</span><span class="modifiers">public final class </span><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-73">SnapshotManifest</a></span>
+</span><span class="modifiers">public final class </span><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-74">SnapshotManifest</a></span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
 <div class="block">Utility class to help read/write the Snapshot Manifest. The snapshot format is transparent for
  the users of this class, once the snapshot is written, it will never be modified. On open() the
@@ -284,7 +284,10 @@ loadScripts(document, 'script');</script>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getSnapshotFormat(org.apache.hadoop.hbase.shaded.protobuf.generated.SnapshotProtos.SnapshotDescription)" class="member-name-link">getSnapshotFormat</a><wbr>(org.apache.hadoop.hbase.shaded.protobuf.generated.SnapshotProtos.SnapshotDescription&nbsp;desc)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../regionserver/StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getStoreFiles(org.apache.hadoop.fs.Path)" class="member-name-link">getStoreFiles</a><wbr>(org.apache.hadoop.fs.Path&nbsp;storeDir)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getStoreFiles(org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.hbase.client.ColumnFamilyDescriptor,org.apache.hadoop.hbase.client.RegionInfo)" class="member-name-link">getStoreFiles</a><wbr>(org.apache.hadoop.fs.Path&nbsp;storePath,
+ <a href="../client/TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;htd,
+ <a href="../client/ColumnFamilyDescriptor.html" title="interface in org.apache.hadoop.hbase.client">ColumnFamilyDescriptor</a>&nbsp;hcd,
+ <a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;regionInfo)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../client/TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTableDescriptor()" class="member-name-link">getTableDescriptor</a>()</code></div>
@@ -333,13 +336,13 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="LOG">
 <h3>LOG</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-75">LOG</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-76">LOG</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="SNAPSHOT_MANIFEST_SIZE_LIMIT_CONF_KEY">
 <h3>SNAPSHOT_MANIFEST_SIZE_LIMIT_CONF_KEY</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-77">SNAPSHOT_MANIFEST_SIZE_LIMIT_CONF_KEY</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-78">SNAPSHOT_MANIFEST_SIZE_LIMIT_CONF_KEY</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -353,7 +356,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="DATA_MANIFEST_NAME">
 <h3>DATA_MANIFEST_NAME</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-79">DATA_MANIFEST_NAME</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-80">DATA_MANIFEST_NAME</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -367,61 +370,61 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="regionManifests">
 <h3>regionManifests</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;org.apache.hadoop.hbase.shaded.protobuf.generated.SnapshotProtos.SnapshotRegionManifest&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-81">regionManifests</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;org.apache.hadoop.hbase.shaded.protobuf.generated.SnapshotProtos.SnapshotRegionManifest&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-82">regionManifests</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="desc">
 <h3>desc</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.shaded.protobuf.generated.SnapshotProtos.SnapshotDescription</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-82">desc</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.shaded.protobuf.generated.SnapshotProtos.SnapshotDescription</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-83">desc</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="htd">
 <h3>htd</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../client/TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-83">htd</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../client/TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-84">htd</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="monitor">
 <h3>monitor</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../errorhandling/ForeignExceptionSnare.html" title="interface in org.apache.hadoop.hbase.errorhandling">ForeignExceptionSnare</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-85">monitor</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../errorhandling/ForeignExceptionSnare.html" title="interface in org.apache.hadoop.hbase.errorhandling">ForeignExceptionSnare</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-86">monitor</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="conf">
 <h3>conf</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">org.apache.hadoop.conf.Configuration</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-86">conf</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">org.apache.hadoop.conf.Configuration</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-87">conf</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="workingDir">
 <h3>workingDir</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-87">workingDir</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-88">workingDir</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="rootFs">
 <h3>rootFs</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.FileSystem</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-88">rootFs</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.FileSystem</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-89">rootFs</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="workingDirFs">
 <h3>workingDirFs</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.FileSystem</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-89">workingDirFs</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.FileSystem</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-90">workingDirFs</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="manifestSizeLimit">
 <h3>manifestSizeLimit</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-90">manifestSizeLimit</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-91">manifestSizeLimit</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="statusTask">
 <h3>statusTask</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../monitoring/MonitoredTask.html" title="interface in org.apache.hadoop.hbase.monitoring">MonitoredTask</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-91">statusTask</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../monitoring/MonitoredTask.html" title="interface in org.apache.hadoop.hbase.monitoring">MonitoredTask</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-92">statusTask</a></span></div>
 </section>
 </li>
 </ul>
@@ -435,7 +438,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.shaded.protobuf.generated.SnapshotProtos.SnapshotDescription,org.apache.hadoop.hbase.errorhandling.ForeignExceptionSnare,org.apache.hadoop.hbase.monitoring.MonitoredTask)">
 <h3>SnapshotManifest</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-102">SnapshotManifest</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-103">SnapshotManifest</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.fs.FileSystem&nbsp;rootFs,
  org.apache.hadoop.fs.Path&nbsp;workingDir,
  org.apache.hadoop.hbase.shaded.protobuf.generated.SnapshotProtos.SnapshotDescription&nbsp;desc,
@@ -466,7 +469,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="create(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.shaded.protobuf.generated.SnapshotProtos.SnapshotDescription,org.apache.hadoop.hbase.errorhandling.ForeignExceptionSnare)">
 <h3>create</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="SnapshotManifest.html" title="class in org.apache.hadoop.hbase.snapshot">SnapshotManifest</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-122">create</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="SnapshotManifest.html" title="class in org.apache.hadoop.hbase.snapshot">SnapshotManifest</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-123">create</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.Path&nbsp;workingDir,
  org.apache.hadoop.hbase.shaded.protobuf.generated.SnapshotProtos.SnapshotDescription&nbsp;desc,
@@ -486,7 +489,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="create(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.shaded.protobuf.generated.SnapshotProtos.SnapshotDescription,org.apache.hadoop.hbase.errorhandling.ForeignExceptionSnare,org.apache.hadoop.hbase.monitoring.MonitoredTask)">
 <h3>create</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="SnapshotManifest.html" title="class in org.apache.hadoop.hbase.snapshot">SnapshotManifest</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-129">create</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="SnapshotManifest.html" title="class in org.apache.hadoop.hbase.snapshot">SnapshotManifest</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-130">create</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.Path&nbsp;workingDir,
  org.apache.hadoop.hbase.shaded.protobuf.generated.SnapshotProtos.SnapshotDescription&nbsp;desc,
@@ -502,7 +505,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="open(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.shaded.protobuf.generated.SnapshotProtos.SnapshotDescription)">
 <h3>open</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="SnapshotManifest.html" title="class in org.apache.hadoop.hbase.snapshot">SnapshotManifest</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-143">open</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="SnapshotManifest.html" title="class in org.apache.hadoop.hbase.snapshot">SnapshotManifest</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-144">open</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.Path&nbsp;workingDir,
  org.apache.hadoop.hbase.shaded.protobuf.generated.SnapshotProtos.SnapshotDescription&nbsp;desc)</span>
@@ -521,7 +524,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="addTableDescriptor(org.apache.hadoop.hbase.client.TableDescriptor)">
 <h3>addTableDescriptor</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-153">addTableDescriptor</a></span><wbr><span class="parameters">(<a href="../client/TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;htd)</span>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-154">addTableDescriptor</a></span><wbr><span class="parameters">(<a href="../client/TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;htd)</span>
                         throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Add the table descriptor to the snapshot manifest</div>
 <dl class="notes">
@@ -533,7 +536,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="createRegionVisitor(org.apache.hadoop.hbase.shaded.protobuf.generated.SnapshotProtos.SnapshotDescription)">
 <h3>createRegionVisitor</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="SnapshotManifest.RegionVisitor.html" title="interface in org.apache.hadoop.hbase.snapshot">SnapshotManifest.RegionVisitor</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-170">createRegionVisitor</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.shaded.protobuf.generated.SnapshotProtos.SnapshotDescription&nbsp;desc)</span>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="SnapshotManifest.RegionVisitor.html" title="interface in org.apache.hadoop.hbase.snapshot">SnapshotManifest.RegionVisitor</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-171">createRegionVisitor</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.shaded.protobuf.generated.SnapshotProtos.SnapshotDescription&nbsp;desc)</span>
                                                     throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -544,7 +547,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="addMobRegion(org.apache.hadoop.hbase.client.RegionInfo)">
 <h3>addMobRegion</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-182">addMobRegion</a></span><wbr><span class="parameters">(<a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;regionInfo)</span>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-183">addMobRegion</a></span><wbr><span class="parameters">(<a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;regionInfo)</span>
                   throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -555,7 +558,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="addMobRegion(org.apache.hadoop.hbase.client.RegionInfo,org.apache.hadoop.hbase.snapshot.SnapshotManifest.RegionVisitor)">
 <h3>addMobRegion</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-190">addMobRegion</a></span><wbr><span class="parameters">(<a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;regionInfo,
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-191">addMobRegion</a></span><wbr><span class="parameters">(<a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;regionInfo,
  <a href="SnapshotManifest.RegionVisitor.html" title="interface in org.apache.hadoop.hbase.snapshot">SnapshotManifest.RegionVisitor</a>&nbsp;visitor)</span>
                      throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
@@ -567,7 +570,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="addRegion(org.apache.hadoop.hbase.regionserver.HRegion)">
 <h3>addRegion</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-229">addRegion</a></span><wbr><span class="parameters">(<a href="../regionserver/HRegion.html" title="class in org.apache.hadoop.hbase.regionserver">HRegion</a>&nbsp;region)</span>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-230">addRegion</a></span><wbr><span class="parameters">(<a href="../regionserver/HRegion.html" title="class in org.apache.hadoop.hbase.regionserver">HRegion</a>&nbsp;region)</span>
                throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Creates a 'manifest' for the specified region, by reading directly from the HRegion object.
  This is used by the "online snapshot" when the table is enabled.</div>
@@ -580,7 +583,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="addRegion(org.apache.hadoop.hbase.regionserver.HRegion,org.apache.hadoop.hbase.snapshot.SnapshotManifest.RegionVisitor)">
 <h3>addRegion</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-237">addRegion</a></span><wbr><span class="parameters">(<a href="../regionserver/HRegion.html" title="class in org.apache.hadoop.hbase.regionserver">HRegion</a>&nbsp;region,
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-238">addRegion</a></span><wbr><span class="parameters">(<a href="../regionserver/HRegion.html" title="class in org.apache.hadoop.hbase.regionserver">HRegion</a>&nbsp;region,
  <a href="SnapshotManifest.RegionVisitor.html" title="interface in org.apache.hadoop.hbase.snapshot">SnapshotManifest.RegionVisitor</a>&nbsp;visitor)</span>
                   throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
@@ -592,7 +595,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="addRegion(org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.client.RegionInfo)">
 <h3>addRegion</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-277">addRegion</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;tableDir,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-278">addRegion</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;tableDir,
  <a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;regionInfo)</span>
                throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Creates a 'manifest' for the specified region, by reading directly from the disk. This is used
@@ -606,7 +609,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="addRegion(org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.client.RegionInfo,org.apache.hadoop.hbase.snapshot.SnapshotManifest.RegionVisitor)">
 <h3>addRegion</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-285">addRegion</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;tableDir,
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-286">addRegion</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;tableDir,
  <a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;regionInfo,
  <a href="SnapshotManifest.RegionVisitor.html" title="interface in org.apache.hadoop.hbase.snapshot">SnapshotManifest.RegionVisitor</a>&nbsp;visitor)</span>
                   throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
@@ -617,9 +620,12 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="getStoreFiles(org.apache.hadoop.fs.Path)">
+<section class="detail" id="getStoreFiles(org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.hbase.client.ColumnFamilyDescriptor,org.apache.hadoop.hbase.client.RegionInfo)">
 <h3>getStoreFiles</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../regionserver/StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-344">getStoreFiles</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;storeDir)</span>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../regionserver/StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-345">getStoreFiles</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;storePath,
+ <a href="../client/TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;htd,
+ <a href="../client/ColumnFamilyDescriptor.html" title="interface in org.apache.hadoop.hbase.client">ColumnFamilyDescriptor</a>&nbsp;hcd,
+ <a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;regionInfo)</span>
                                    throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -630,7 +636,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="addReferenceFiles(org.apache.hadoop.hbase.snapshot.SnapshotManifest.RegionVisitor,java.lang.Object,java.lang.Object,java.util.Collection,boolean)">
 <h3>addReferenceFiles</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-355">addReferenceFiles</a></span><wbr><span class="parameters">(<a href="SnapshotManifest.RegionVisitor.html" title="interface in org.apache.hadoop.hbase.snapshot">SnapshotManifest.RegionVisitor</a>&nbsp;visitor,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-361">addReferenceFiles</a></span><wbr><span class="parameters">(<a href="SnapshotManifest.RegionVisitor.html" title="interface in org.apache.hadoop.hbase.snapshot">SnapshotManifest.RegionVisitor</a>&nbsp;visitor,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;regionData,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;familyData,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="../regionserver/StoreFileInfo.html" title="class in org.apache.hadoop.hbase.regionserver">StoreFileInfo</a>&gt;&nbsp;storeFiles,
@@ -645,7 +651,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="load()">
 <h3>load</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-381">load</a></span>()
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-387">load</a></span>()
            throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Load the information in the SnapshotManifest. Called by SnapshotManifest.open() If the format
  is v2 and there is no data-manifest, means that we are loading an in-progress snapshot. Since
@@ -659,41 +665,41 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getSnapshotDir()">
 <h3>getSnapshotDir</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-436">getSnapshotDir</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-442">getSnapshotDir</a></span>()</div>
 <div class="block">Get the current snapshot working dir</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getSnapshotDescription()">
 <h3>getSnapshotDescription</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.shaded.protobuf.generated.SnapshotProtos.SnapshotDescription</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-443">getSnapshotDescription</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.shaded.protobuf.generated.SnapshotProtos.SnapshotDescription</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-449">getSnapshotDescription</a></span>()</div>
 <div class="block">Get the SnapshotDescription</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getTableDescriptor()">
 <h3>getTableDescriptor</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../client/TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-450">getTableDescriptor</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../client/TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-456">getTableDescriptor</a></span>()</div>
 <div class="block">Get the table descriptor from the Snapshot</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getRegionManifests()">
 <h3>getRegionManifests</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;org.apache.hadoop.hbase.shaded.protobuf.generated.SnapshotProtos.SnapshotRegionManifest&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-457">getRegionManifests</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;org.apache.hadoop.hbase.shaded.protobuf.generated.SnapshotProtos.SnapshotRegionManifest&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-463">getRegionManifests</a></span>()</div>
 <div class="block">Get all the Region Manifest from the snapshot</div>
 </section>
 </li>
 <li>
 <section class="detail" id="setStatusMsg(java.lang.String)">
 <h3>setStatusMsg</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-461">setStatusMsg</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;msg)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-467">setStatusMsg</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;msg)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getRegionManifestsMap()">
 <h3>getRegionManifestsMap</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr>org.apache.hadoop.hbase.shaded.protobuf.generated.SnapshotProtos.SnapshotRegionManifest&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-471">getRegionManifestsMap</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr>org.apache.hadoop.hbase.shaded.protobuf.generated.SnapshotProtos.SnapshotRegionManifest&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-477">getRegionManifestsMap</a></span>()</div>
 <div class="block">Get all the Region Manifest from the snapshot. This is an helper to get a map with the region
  encoded name</div>
 </section>
@@ -701,7 +707,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="consolidate()">
 <h3>consolidate</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-482">consolidate</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-488">consolidate</a></span>()
                  throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -712,7 +718,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="convertToV2SingleManifest()">
 <h3>convertToV2SingleManifest</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-498">convertToV2SingleManifest</a></span>()
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-504">convertToV2SingleManifest</a></span>()
                                 throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -723,7 +729,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="writeDataManifest(org.apache.hadoop.hbase.shaded.protobuf.generated.SnapshotProtos.SnapshotDataManifest)">
 <h3>writeDataManifest</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-571">writeDataManifest</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.shaded.protobuf.generated.SnapshotProtos.SnapshotDataManifest&nbsp;manifest)</span>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-577">writeDataManifest</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.shaded.protobuf.generated.SnapshotProtos.SnapshotDataManifest&nbsp;manifest)</span>
                         throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -734,7 +740,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="readDataManifest()">
 <h3>readDataManifest</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.shaded.protobuf.generated.SnapshotProtos.SnapshotDataManifest</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-581">readDataManifest</a></span>()
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.shaded.protobuf.generated.SnapshotProtos.SnapshotDataManifest</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-587">readDataManifest</a></span>()
                                                                                                         throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -745,27 +751,27 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="createExecutor(java.lang.String)">
 <h3>createExecutor</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ThreadPoolExecutor.html" title="class or interface in java.util.concurrent" class="external-link">ThreadPoolExecutor</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-593">createExecutor</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ThreadPoolExecutor.html" title="class or interface in java.util.concurrent" class="external-link">ThreadPoolExecutor</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-599">createExecutor</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="createExecutor(org.apache.hadoop.conf.Configuration,java.lang.String)">
 <h3>createExecutor</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ThreadPoolExecutor.html" title="class or interface in java.util.concurrent" class="external-link">ThreadPoolExecutor</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-597">createExecutor</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ThreadPoolExecutor.html" title="class or interface in java.util.concurrent" class="external-link">ThreadPoolExecutor</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-603">createExecutor</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getRegionNameFromManifest(org.apache.hadoop.hbase.shaded.protobuf.generated.SnapshotProtos.SnapshotRegionManifest)">
 <h3>getRegionNameFromManifest</h3>
-<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-607">getRegionNameFromManifest</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.shaded.protobuf.generated.SnapshotProtos.SnapshotRegionManifest&nbsp;manifest)</span></div>
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-613">getRegionNameFromManifest</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.shaded.protobuf.generated.SnapshotProtos.SnapshotRegionManifest&nbsp;manifest)</span></div>
 <div class="block">Extract the region encoded name from the region manifest</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getSnapshotFormat(org.apache.hadoop.hbase.shaded.protobuf.generated.SnapshotProtos.SnapshotDescription)">
 <h3>getSnapshotFormat</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-618">getSnapshotFormat</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.shaded.protobuf.generated.SnapshotProtos.SnapshotDescription&nbsp;desc)</span></div>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotManifest.html#line-624">getSnapshotFormat</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.shaded.protobuf.generated.SnapshotProtos.SnapshotDescription&nbsp;desc)</span></div>
 </section>
 </li>
 </ul>
