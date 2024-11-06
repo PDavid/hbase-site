@@ -83,6 +83,10 @@ loadScripts(document, 'script');</script>
 </div>
 <section class="class-description" id="class-description">
 <dl class="notes">
+<dt>All Implemented Interfaces:</dt>
+<dd><code>org.apache.hadoop.hbase.filter.HintingFilter</code></dd>
+</dl>
+<dl class="notes">
 <dt>Enclosing class:</dt>
 <dd><a href="TestTableScan.html" title="class in org.apache.hadoop.hbase.rest">TestTableScan</a></dd>
 </dl>
@@ -116,7 +120,7 @@ loadScripts(document, 'script');</script>
 </div>
 <div class="inherited-list">
 <h3 id="fields-inherited-from-class-org.apache.hadoop.hbase.filter.PrefixFilter">Fields inherited from class&nbsp;org.apache.hadoop.hbase.filter.PrefixFilter</h3>
-<code>filterRow, passedPrefix, prefix</code></div>
+<code>filterRow, forwardNextCellHint, passedPrefix, prefix, provideHint, reversedNextCellHint</code></div>
 <div class="inherited-list">
 <h3 id="fields-inherited-from-class-org.apache.hadoop.hbase.filter.Filter">Fields inherited from class&nbsp;org.apache.hadoop.hbase.filter.Filter</h3>
 <code>reversed</code></div>
@@ -157,10 +161,10 @@ loadScripts(document, 'script');</script>
 </div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-org.apache.hadoop.hbase.filter.PrefixFilter">Methods inherited from class&nbsp;org.apache.hadoop.hbase.filter.PrefixFilter</h3>
-<code>equals, filterAllRemaining, filterCell, filterRow, getPrefix, hashCode, parseFrom, reset, toByteArray, toString</code></div>
+<code>equals, filterAllRemaining, filterCell, filterRow, getNextCellHint, getPrefix, hashCode, parseFrom, reset, toByteArray, toString</code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-org.apache.hadoop.hbase.filter.FilterBase">Methods inherited from class&nbsp;org.apache.hadoop.hbase.filter.FilterBase</h3>
-<code>filterRowCells, getNextCellHint, hasFilterRow, isFamilyEssential, transformCell</code></div>
+<code>filterRowCells, hasFilterRow, isFamilyEssential, transformCell</code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-org.apache.hadoop.hbase.filter.Filter">Methods inherited from class&nbsp;org.apache.hadoop.hbase.filter.Filter</h3>
 <code>isReversed, setReversed</code></div>

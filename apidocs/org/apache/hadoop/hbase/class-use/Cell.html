@@ -1344,6 +1344,18 @@ service.</div>
 <li>
 <section class="detail" id="org.apache.hadoop.hbase.filter">
 <h2>Uses of org.apache.hadoop.hbase.Cell in <a href="../filter/package-summary.html">org.apache.hadoop.hbase.filter</a></h2>
+<div class="caption"><span>Fields in <a href="../filter/package-summary.html">org.apache.hadoop.hbase.filter</a> declared as org.apache.hadoop.hbase.Cell in  in </span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Field</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>protected org.apache.hadoop.hbase.Cell</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">PrefixFilter.</span><code>forwardNextCellHint</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>protected org.apache.hadoop.hbase.Cell</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">PrefixFilter.</span><code>reversedNextCellHint</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+</div>
 <div class="caption"><span>Methods in <a href="../filter/package-summary.html">org.apache.hadoop.hbase.filter</a> that return org.apache.hadoop.hbase.Cell in  in </span></div>
 <div class="summary-table three-column-summary">
 <div class="table-header col-first">Modifier and Type</div>
@@ -1392,40 +1404,43 @@ service.</div>
 <div class="col-second odd-row-color"><span class="type-name-label">MultiRowRangeFilter.</span><code>getNextCellHint<wbr>(org.apache.hadoop.hbase.Cell&nbsp;currentKV)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>org.apache.hadoop.hbase.Cell</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">TimestampsFilter.</span><code>getNextCellHint<wbr>(org.apache.hadoop.hbase.Cell&nbsp;currentCell)</code></div>
-<div class="col-last even-row-color">
+<div class="col-second even-row-color"><span class="type-name-label">PrefixFilter.</span><code>getNextCellHint<wbr>(org.apache.hadoop.hbase.Cell&nbsp;cell)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>org.apache.hadoop.hbase.Cell</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">TimestampsFilter.</span><code>getNextCellHint<wbr>(org.apache.hadoop.hbase.Cell&nbsp;currentCell)</code></div>
+<div class="col-last odd-row-color">
 <div class="block">Pick the next cell that the scanner should seek to.</div>
 </div>
-<div class="col-first odd-row-color"><code>abstract org.apache.hadoop.hbase.Cell</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">Filter.</span><code>transformCell<wbr>(org.apache.hadoop.hbase.Cell&nbsp;v)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code>abstract org.apache.hadoop.hbase.Cell</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">Filter.</span><code>transformCell<wbr>(org.apache.hadoop.hbase.Cell&nbsp;v)</code></div>
+<div class="col-last even-row-color">
 <div class="block">Give the filter a chance to transform the passed Cell.</div>
 </div>
-<div class="col-first even-row-color"><code>org.apache.hadoop.hbase.Cell</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">FilterBase.</span><code>transformCell<wbr>(org.apache.hadoop.hbase.Cell&nbsp;v)</code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code>org.apache.hadoop.hbase.Cell</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">FilterBase.</span><code>transformCell<wbr>(org.apache.hadoop.hbase.Cell&nbsp;v)</code></div>
+<div class="col-last odd-row-color">
 <div class="block">By default no transformation takes place Give the filter a chance to transform the passed Cell.</div>
 </div>
-<div class="col-first odd-row-color"><code>org.apache.hadoop.hbase.Cell</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">FilterList.</span><code>transformCell<wbr>(org.apache.hadoop.hbase.Cell&nbsp;c)</code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>org.apache.hadoop.hbase.Cell</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">FilterListBase.</span><code>transformCell<wbr>(org.apache.hadoop.hbase.Cell&nbsp;c)</code></div>
-<div class="col-last even-row-color">
+<div class="col-second even-row-color"><span class="type-name-label">FilterList.</span><code>transformCell<wbr>(org.apache.hadoop.hbase.Cell&nbsp;c)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>org.apache.hadoop.hbase.Cell</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">FilterListBase.</span><code>transformCell<wbr>(org.apache.hadoop.hbase.Cell&nbsp;c)</code></div>
+<div class="col-last odd-row-color">
 <div class="block">For FilterList, we can consider a filter list as a node in a tree.</div>
 </div>
-<div class="col-first odd-row-color"><code>org.apache.hadoop.hbase.Cell</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">FilterWrapper.</span><code>transformCell<wbr>(org.apache.hadoop.hbase.Cell&nbsp;v)</code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>org.apache.hadoop.hbase.Cell</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">KeyOnlyFilter.</span><code>transformCell<wbr>(org.apache.hadoop.hbase.Cell&nbsp;cell)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">FilterWrapper.</span><code>transformCell<wbr>(org.apache.hadoop.hbase.Cell&nbsp;v)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>org.apache.hadoop.hbase.Cell</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">SkipFilter.</span><code>transformCell<wbr>(org.apache.hadoop.hbase.Cell&nbsp;v)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">KeyOnlyFilter.</span><code>transformCell<wbr>(org.apache.hadoop.hbase.Cell&nbsp;cell)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>org.apache.hadoop.hbase.Cell</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">WhileMatchFilter.</span><code>transformCell<wbr>(org.apache.hadoop.hbase.Cell&nbsp;v)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">SkipFilter.</span><code>transformCell<wbr>(org.apache.hadoop.hbase.Cell&nbsp;v)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>org.apache.hadoop.hbase.Cell</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">WhileMatchFilter.</span><code>transformCell<wbr>(org.apache.hadoop.hbase.Cell&nbsp;v)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
 </div>
 <div class="caption"><span>Methods in <a href="../filter/package-summary.html">org.apache.hadoop.hbase.filter</a> with parameters of type org.apache.hadoop.hbase.Cell in  in </span></div>
 <div class="summary-table three-column-summary">
@@ -1674,40 +1689,43 @@ service.</div>
 <div class="col-second odd-row-color"><span class="type-name-label">MultiRowRangeFilter.</span><code>getNextCellHint<wbr>(org.apache.hadoop.hbase.Cell&nbsp;currentKV)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>org.apache.hadoop.hbase.Cell</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">TimestampsFilter.</span><code>getNextCellHint<wbr>(org.apache.hadoop.hbase.Cell&nbsp;currentCell)</code></div>
-<div class="col-last even-row-color">
+<div class="col-second even-row-color"><span class="type-name-label">PrefixFilter.</span><code>getNextCellHint<wbr>(org.apache.hadoop.hbase.Cell&nbsp;cell)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>org.apache.hadoop.hbase.Cell</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">TimestampsFilter.</span><code>getNextCellHint<wbr>(org.apache.hadoop.hbase.Cell&nbsp;currentCell)</code></div>
+<div class="col-last odd-row-color">
 <div class="block">Pick the next cell that the scanner should seek to.</div>
 </div>
-<div class="col-first odd-row-color"><code>abstract org.apache.hadoop.hbase.Cell</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">Filter.</span><code>transformCell<wbr>(org.apache.hadoop.hbase.Cell&nbsp;v)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code>abstract org.apache.hadoop.hbase.Cell</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">Filter.</span><code>transformCell<wbr>(org.apache.hadoop.hbase.Cell&nbsp;v)</code></div>
+<div class="col-last even-row-color">
 <div class="block">Give the filter a chance to transform the passed Cell.</div>
 </div>
-<div class="col-first even-row-color"><code>org.apache.hadoop.hbase.Cell</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">FilterBase.</span><code>transformCell<wbr>(org.apache.hadoop.hbase.Cell&nbsp;v)</code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code>org.apache.hadoop.hbase.Cell</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">FilterBase.</span><code>transformCell<wbr>(org.apache.hadoop.hbase.Cell&nbsp;v)</code></div>
+<div class="col-last odd-row-color">
 <div class="block">By default no transformation takes place Give the filter a chance to transform the passed Cell.</div>
 </div>
-<div class="col-first odd-row-color"><code>org.apache.hadoop.hbase.Cell</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">FilterList.</span><code>transformCell<wbr>(org.apache.hadoop.hbase.Cell&nbsp;c)</code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>org.apache.hadoop.hbase.Cell</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">FilterListBase.</span><code>transformCell<wbr>(org.apache.hadoop.hbase.Cell&nbsp;c)</code></div>
-<div class="col-last even-row-color">
+<div class="col-second even-row-color"><span class="type-name-label">FilterList.</span><code>transformCell<wbr>(org.apache.hadoop.hbase.Cell&nbsp;c)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>org.apache.hadoop.hbase.Cell</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">FilterListBase.</span><code>transformCell<wbr>(org.apache.hadoop.hbase.Cell&nbsp;c)</code></div>
+<div class="col-last odd-row-color">
 <div class="block">For FilterList, we can consider a filter list as a node in a tree.</div>
 </div>
-<div class="col-first odd-row-color"><code>org.apache.hadoop.hbase.Cell</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">FilterWrapper.</span><code>transformCell<wbr>(org.apache.hadoop.hbase.Cell&nbsp;v)</code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>org.apache.hadoop.hbase.Cell</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">KeyOnlyFilter.</span><code>transformCell<wbr>(org.apache.hadoop.hbase.Cell&nbsp;cell)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">FilterWrapper.</span><code>transformCell<wbr>(org.apache.hadoop.hbase.Cell&nbsp;v)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>org.apache.hadoop.hbase.Cell</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">SkipFilter.</span><code>transformCell<wbr>(org.apache.hadoop.hbase.Cell&nbsp;v)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">KeyOnlyFilter.</span><code>transformCell<wbr>(org.apache.hadoop.hbase.Cell&nbsp;cell)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>org.apache.hadoop.hbase.Cell</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">WhileMatchFilter.</span><code>transformCell<wbr>(org.apache.hadoop.hbase.Cell&nbsp;v)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">SkipFilter.</span><code>transformCell<wbr>(org.apache.hadoop.hbase.Cell&nbsp;v)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>org.apache.hadoop.hbase.Cell</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">WhileMatchFilter.</span><code>transformCell<wbr>(org.apache.hadoop.hbase.Cell&nbsp;v)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
 </div>
 <div class="caption"><span>Method parameters in <a href="../filter/package-summary.html">org.apache.hadoop.hbase.filter</a> with type arguments of type org.apache.hadoop.hbase.Cell in  in </span></div>
 <div class="summary-table three-column-summary">

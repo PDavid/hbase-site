@@ -98,8 +98,13 @@ loadScripts(document, 'script');</script>
 <div class="block">Filter to support scan multiple row key ranges.</div>
 </div>
 <div class="col-first odd-row-color"><code>class&nbsp;</code></div>
-<div class="col-second odd-row-color"><code>org.apache.hadoop.hbase.filter.TimestampsFilter</code></div>
+<div class="col-second odd-row-color"><code>org.apache.hadoop.hbase.filter.PrefixFilter</code></div>
 <div class="col-last odd-row-color">
+<div class="block">Pass results that have same row prefix.</div>
+</div>
+<div class="col-first even-row-color"><code>class&nbsp;</code></div>
+<div class="col-second even-row-color"><code>org.apache.hadoop.hbase.filter.TimestampsFilter</code></div>
+<div class="col-last even-row-color">
 <div class="block">Filter that returns only cells whose timestamp (version) is in the specified list of timestamps
  (versions).</div>
 </div>

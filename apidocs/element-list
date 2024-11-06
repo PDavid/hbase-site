@@ -90,6 +90,7 @@ org.apache.hadoop.hbase.util.compaction
 org.apache.hadoop.hbase.util.hbck
 org.apache.hadoop.hbase.wal
 org.apache.hadoop.hbase.zookeeper
+org.apache.hadoop.hdfs
 org.apache.hadoop.metrics2
 org.apache.hbase.archetypes.exemplars.client
 org.apache.hbase.archetypes.exemplars.shaded_client

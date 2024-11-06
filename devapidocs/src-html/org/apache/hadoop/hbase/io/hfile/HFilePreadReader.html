@@ -52,16 +52,16 @@
 <span class="source-line-no">039</span><span id="line-39">  public HFilePreadReader(ReaderContext context, HFileInfo fileInfo, CacheConfig cacheConf,</span>
 <span class="source-line-no">040</span><span id="line-40">    Configuration conf) throws IOException {</span>
 <span class="source-line-no">041</span><span id="line-41">    super(context, fileInfo, cacheConf, conf);</span>
-<span class="source-line-no">042</span><span id="line-42"></span>
-<span class="source-line-no">043</span><span id="line-43">    // Prefetch file blocks upon open if requested</span>
-<span class="source-line-no">044</span><span id="line-44">    if (cacheConf.shouldPrefetchOnOpen()) {</span>
-<span class="source-line-no">045</span><span id="line-45">      PrefetchExecutor.request(path, new Runnable() {</span>
-<span class="source-line-no">046</span><span id="line-46">        @Override</span>
-<span class="source-line-no">047</span><span id="line-47">        public void run() {</span>
-<span class="source-line-no">048</span><span id="line-48">          long offset = 0;</span>
-<span class="source-line-no">049</span><span id="line-49">          long end = 0;</span>
-<span class="source-line-no">050</span><span id="line-50">          HFile.Reader prefetchStreamReader = null;</span>
-<span class="source-line-no">051</span><span id="line-51">          final MutableBoolean shouldCache = new MutableBoolean(true);</span>
+<span class="source-line-no">042</span><span id="line-42">    // master hosted regions, like the master procedures store wouldn't have a block cache</span>
+<span class="source-line-no">043</span><span id="line-43">    final MutableBoolean shouldCache = new MutableBoolean(cacheConf.getBlockCache().isPresent());</span>
+<span class="source-line-no">044</span><span id="line-44">    // Prefetch file blocks upon open if requested</span>
+<span class="source-line-no">045</span><span id="line-45">    if (shouldCache.booleanValue() &amp;&amp; cacheConf.shouldPrefetchOnOpen()) {</span>
+<span class="source-line-no">046</span><span id="line-46">      PrefetchExecutor.request(path, new Runnable() {</span>
+<span class="source-line-no">047</span><span id="line-47">        @Override</span>
+<span class="source-line-no">048</span><span id="line-48">        public void run() {</span>
+<span class="source-line-no">049</span><span id="line-49">          long offset = 0;</span>
+<span class="source-line-no">050</span><span id="line-50">          long end = 0;</span>
+<span class="source-line-no">051</span><span id="line-51">          HFile.Reader prefetchStreamReader = null;</span>
 <span class="source-line-no">052</span><span id="line-52">          try {</span>
 <span class="source-line-no">053</span><span id="line-53">            cacheConf.getBlockCache().ifPresent(cache -&gt; {</span>
 <span class="source-line-no">054</span><span id="line-54">              cache.waitForCacheInitialization(WAIT_TIME_FOR_CACHE_INITIALIZATION);</span>
@@ -69,7 +69,7 @@
 <span class="source-line-no">056</span><span id="line-56">              shouldCache.setValue(result.isPresent() ? result.get().booleanValue() : true);</span>
 <span class="source-line-no">057</span><span id="line-57">            });</span>
 <span class="source-line-no">058</span><span id="line-58">            if (!shouldCache.booleanValue()) {</span>
-<span class="source-line-no">059</span><span id="line-59">              LOG.info("Prefetch skipped for the file: " + path.getName());</span>
+<span class="source-line-no">059</span><span id="line-59">              LOG.info("Prefetch skipped for file: {}", path);</span>
 <span class="source-line-no">060</span><span id="line-60">              return;</span>
 <span class="source-line-no">061</span><span id="line-61">            }</span>
 <span class="source-line-no">062</span><span id="line-62"></span>

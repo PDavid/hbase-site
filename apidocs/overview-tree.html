@@ -144,6 +144,7 @@ loadScripts(document, 'script');</script>
 <li><a href="org/apache/hadoop/hbase/util/hbck/package-tree.html">org.apache.hadoop.hbase.util.hbck</a>, </li>
 <li><a href="org/apache/hadoop/hbase/wal/package-tree.html">org.apache.hadoop.hbase.wal</a>, </li>
 <li><a href="org/apache/hadoop/hbase/zookeeper/package-tree.html">org.apache.hadoop.hbase.zookeeper</a>, </li>
+<li><a href="org/apache/hadoop/hdfs/package-tree.html">org.apache.hadoop.hdfs</a>, </li>
 <li><a href="org/apache/hadoop/metrics2/package-tree.html">org.apache.hadoop.metrics2</a>, </li>
 <li><a href="org/apache/hbase/archetypes/exemplars/client/package-tree.html">org.apache.hbase.archetypes.exemplars.client</a>, </li>
 <li><a href="org/apache/hbase/archetypes/exemplars/shaded_client/package-tree.html">org.apache.hbase.archetypes.exemplars.shaded_client</a></li>
@@ -1012,7 +1013,7 @@ loadScripts(document, 'script');</script>
 <li class="circle">org.apache.hadoop.hbase.filter.MultipleColumnPrefixFilter (implements org.apache.hadoop.hbase.filter.HintingFilter)</li>
 <li class="circle">org.apache.hadoop.hbase.filter.MultiRowRangeFilter (implements org.apache.hadoop.hbase.filter.HintingFilter)</li>
 <li class="circle">org.apache.hadoop.hbase.filter.PageFilter</li>
-<li class="circle">org.apache.hadoop.hbase.filter.PrefixFilter</li>
+<li class="circle">org.apache.hadoop.hbase.filter.PrefixFilter (implements org.apache.hadoop.hbase.filter.HintingFilter)</li>
 <li class="circle">org.apache.hadoop.hbase.filter.RandomRowFilter</li>
 <li class="circle">org.apache.hadoop.hbase.filter.SingleColumnValueFilter
 <ul>
@@ -1741,6 +1742,15 @@ loadScripts(document, 'script');</script>
 <li class="circle">java.io.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/DataOutputStream.html" class="type-name-link external-link" title="class or interface in java.io">DataOutputStream</a> (implements java.io.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/DataOutput.html" title="class or interface in java.io" class="external-link">DataOutput</a>)
 <ul>
 <li class="circle">org.apache.hadoop.hbase.io.ByteBufferWriterDataOutputStream (implements org.apache.hadoop.hbase.io.ByteBufferWriter)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="circle">org.apache.hadoop.fs.FSOutputSummer (implements org.apache.hadoop.fs.StreamCapabilities)
+<ul>
+<li class="circle">org.apache.hadoop.hdfs.DFSOutputStream (implements org.apache.hadoop.fs.CanSetDropBehind, org.apache.hadoop.fs.StreamCapabilities, org.apache.hadoop.fs.Syncable)
+<ul>
+<li class="circle">org.apache.hadoop.hdfs.DummyDFSOutputStream</li>
 </ul>
 </li>
 </ul>

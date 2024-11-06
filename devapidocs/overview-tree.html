@@ -218,6 +218,7 @@ loadScripts(document, 'script');</script>
 <li><a href="org/apache/hadoop/hbase/util/test/package-tree.html">org.apache.hadoop.hbase.util.test</a>, </li>
 <li><a href="org/apache/hadoop/hbase/wal/package-tree.html">org.apache.hadoop.hbase.wal</a>, </li>
 <li><a href="org/apache/hadoop/hbase/zookeeper/package-tree.html">org.apache.hadoop.hbase.zookeeper</a>, </li>
+<li><a href="org/apache/hadoop/hdfs/package-tree.html">org.apache.hadoop.hdfs</a>, </li>
 <li><a href="org/apache/hadoop/metrics2/package-tree.html">org.apache.hadoop.metrics2</a>, </li>
 <li><a href="org/apache/hadoop/metrics2/impl/package-tree.html">org.apache.hadoop.metrics2.impl</a>, </li>
 <li><a href="org/apache/hadoop/metrics2/lib/package-tree.html">org.apache.hadoop.metrics2.lib</a>, </li>
@@ -1911,7 +1912,7 @@ loadScripts(document, 'script');</script>
 <li class="circle">org.apache.hadoop.hbase.filter.<a href="org/apache/hadoop/hbase/filter/MultipleColumnPrefixFilter.html" class="type-name-link" title="class in org.apache.hadoop.hbase.filter">MultipleColumnPrefixFilter</a> (implements org.apache.hadoop.hbase.filter.<a href="org/apache/hadoop/hbase/filter/HintingFilter.html" title="interface in org.apache.hadoop.hbase.filter">HintingFilter</a>)</li>
 <li class="circle">org.apache.hadoop.hbase.filter.<a href="org/apache/hadoop/hbase/filter/MultiRowRangeFilter.html" class="type-name-link" title="class in org.apache.hadoop.hbase.filter">MultiRowRangeFilter</a> (implements org.apache.hadoop.hbase.filter.<a href="org/apache/hadoop/hbase/filter/HintingFilter.html" title="interface in org.apache.hadoop.hbase.filter">HintingFilter</a>)</li>
 <li class="circle">org.apache.hadoop.hbase.filter.<a href="org/apache/hadoop/hbase/filter/PageFilter.html" class="type-name-link" title="class in org.apache.hadoop.hbase.filter">PageFilter</a></li>
-<li class="circle">org.apache.hadoop.hbase.filter.<a href="org/apache/hadoop/hbase/filter/PrefixFilter.html" class="type-name-link" title="class in org.apache.hadoop.hbase.filter">PrefixFilter</a></li>
+<li class="circle">org.apache.hadoop.hbase.filter.<a href="org/apache/hadoop/hbase/filter/PrefixFilter.html" class="type-name-link" title="class in org.apache.hadoop.hbase.filter">PrefixFilter</a> (implements org.apache.hadoop.hbase.filter.<a href="org/apache/hadoop/hbase/filter/HintingFilter.html" title="interface in org.apache.hadoop.hbase.filter">HintingFilter</a>)</li>
 <li class="circle">org.apache.hadoop.hbase.filter.<a href="org/apache/hadoop/hbase/filter/RandomRowFilter.html" class="type-name-link" title="class in org.apache.hadoop.hbase.filter">RandomRowFilter</a></li>
 <li class="circle">org.apache.hadoop.hbase.filter.<a href="org/apache/hadoop/hbase/filter/SingleColumnValueFilter.html" class="type-name-link" title="class in org.apache.hadoop.hbase.filter">SingleColumnValueFilter</a>
 <ul>
@@ -3041,6 +3042,15 @@ loadScripts(document, 'script');</script>
 </ul>
 </li>
 <li class="circle">org.apache.hadoop.hbase.security.<a href="org/apache/hadoop/hbase/security/HBaseSaslRpcClient.WrappedOutputStream.html" class="type-name-link" title="class in org.apache.hadoop.hbase.security">HBaseSaslRpcClient.WrappedOutputStream</a></li>
+</ul>
+</li>
+<li class="circle">org.apache.hadoop.fs.FSOutputSummer (implements org.apache.hadoop.fs.StreamCapabilities)
+<ul>
+<li class="circle">org.apache.hadoop.hdfs.DFSOutputStream (implements org.apache.hadoop.fs.CanSetDropBehind, org.apache.hadoop.fs.StreamCapabilities, org.apache.hadoop.fs.Syncable)
+<ul>
+<li class="circle">org.apache.hadoop.hdfs.<a href="org/apache/hadoop/hdfs/DummyDFSOutputStream.html" class="type-name-link" title="class in org.apache.hadoop.hdfs">DummyDFSOutputStream</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="circle">javax.servlet.ServletOutputStream

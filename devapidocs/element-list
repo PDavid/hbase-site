@@ -164,6 +164,7 @@ org.apache.hadoop.hbase.util.hbck
 org.apache.hadoop.hbase.util.test
 org.apache.hadoop.hbase.wal
 org.apache.hadoop.hbase.zookeeper
+org.apache.hadoop.hdfs
 org.apache.hadoop.metrics2
 org.apache.hadoop.metrics2.impl
 org.apache.hadoop.metrics2.lib
