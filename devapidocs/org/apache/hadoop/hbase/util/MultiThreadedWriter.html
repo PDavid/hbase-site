@@ -85,7 +85,8 @@ loadScripts(document, 'script');</script>
 <dd><code><a href="MultiThreadedWriterWithACL.html" title="class in org.apache.hadoop.hbase.util">MultiThreadedWriterWithACL</a></code></dd>
 </dl>
 <hr>
-<div class="type-signature"><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/MultiThreadedWriter.html#line-41">MultiThreadedWriter</a></span>
+<div class="type-signature"><span class="annotations">@Private
+</span><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/MultiThreadedWriter.html#line-42">MultiThreadedWriter</a></span>
 <span class="extends-implements">extends <a href="MultiThreadedWriterBase.html" title="class in org.apache.hadoop.hbase.util">MultiThreadedWriterBase</a></span></div>
 <div class="block">Creates multiple threads that write key/values into the</div>
 </section>
@@ -204,19 +205,19 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="LOG">
 <h3>LOG</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/MultiThreadedWriter.html#line-42">LOG</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/MultiThreadedWriter.html#line-44">LOG</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="writers">
 <h3>writers</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="MultiThreadedWriter.HBaseWriterThread.html" title="class in org.apache.hadoop.hbase.util">MultiThreadedWriter.HBaseWriterThread</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/MultiThreadedWriter.html#line-44">writers</a></span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="MultiThreadedWriter.HBaseWriterThread.html" title="class in org.apache.hadoop.hbase.util">MultiThreadedWriter.HBaseWriterThread</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/MultiThreadedWriter.html#line-46">writers</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="isMultiPut">
 <h3>isMultiPut</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/MultiThreadedWriter.html#line-46">isMultiPut</a></span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/MultiThreadedWriter.html#line-48">isMultiPut</a></span></div>
 </section>
 </li>
 </ul>
@@ -230,7 +231,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;(org.apache.hadoop.hbase.util.test.LoadTestDataGenerator,org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.TableName)">
 <h3>MultiThreadedWriter</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/MultiThreadedWriter.html#line-48">MultiThreadedWriter</a></span><wbr><span class="parameters">(<a href="test/LoadTestDataGenerator.html" title="class in org.apache.hadoop.hbase.util.test">LoadTestDataGenerator</a>&nbsp;dataGen,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/MultiThreadedWriter.html#line-50">MultiThreadedWriter</a></span><wbr><span class="parameters">(<a href="test/LoadTestDataGenerator.html" title="class in org.apache.hadoop.hbase.util.test">LoadTestDataGenerator</a>&nbsp;dataGen,
  org.apache.hadoop.conf.Configuration&nbsp;conf,
  <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName)</span>
                     throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
@@ -251,14 +252,14 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="setMultiPut(boolean)">
 <h3>setMultiPut</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/MultiThreadedWriter.html#line-54">setMultiPut</a></span><wbr><span class="parameters">(boolean&nbsp;isMultiPut)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/MultiThreadedWriter.html#line-56">setMultiPut</a></span><wbr><span class="parameters">(boolean&nbsp;isMultiPut)</span></div>
 <div class="block">Use multi-puts vs. separate puts for every column in a row</div>
 </section>
 </li>
 <li>
 <section class="detail" id="start(long,long,int)">
 <h3>start</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/MultiThreadedWriter.html#line-58">start</a></span><wbr><span class="parameters">(long&nbsp;startKey,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/MultiThreadedWriter.html#line-60">start</a></span><wbr><span class="parameters">(long&nbsp;startKey,
  long&nbsp;endKey,
  int&nbsp;numThreads)</span>
            throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
@@ -273,7 +274,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="createWriterThreads(int)">
 <h3>createWriterThreads</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/MultiThreadedWriter.html#line-71">createWriterThreads</a></span><wbr><span class="parameters">(int&nbsp;numThreads)</span>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/MultiThreadedWriter.html#line-73">createWriterThreads</a></span><wbr><span class="parameters">(int&nbsp;numThreads)</span>
                             throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -284,7 +285,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="waitForFinish()">
 <h3>waitForFinish</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/MultiThreadedWriter.html#line-176">waitForFinish</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/util/MultiThreadedWriter.html#line-178">waitForFinish</a></span>()</div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="MultiThreadedAction.html#waitForFinish()">waitForFinish</a></code>&nbsp;in class&nbsp;<code><a href="MultiThreadedAction.html" title="class in org.apache.hadoop.hbase.util">MultiThreadedAction</a></code></dd>
