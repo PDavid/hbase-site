@@ -78,7 +78,7 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <hr>
 <div class="type-signature"><span class="annotations">@Private
-</span><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/namequeues/LogHandlerUtils.html#line-31">LogHandlerUtils</a></span>
+</span><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/namequeues/LogHandlerUtils.html#line-32">LogHandlerUtils</a></span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
 <div class="block">Event Handler utility class</div>
 </section>
@@ -120,6 +120,10 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static int</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getTotalFiltersCount(org.apache.hadoop.hbase.shaded.protobuf.generated.AdminProtos.SlowLogResponseRequest)" class="member-name-link">getTotalFiltersCount</a><wbr>(org.apache.hadoop.hbase.shaded.protobuf.generated.AdminProtos.SlowLogResponseRequest&nbsp;request)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isClientAddressMatched(org.apache.hadoop.hbase.shaded.protobuf.generated.TooSlowLog.SlowLogPayload,java.lang.String)" class="member-name-link">isClientAddressMatched</a><wbr>(org.apache.hadoop.hbase.shaded.protobuf.generated.TooSlowLog.SlowLogPayload&nbsp;slowLogPayload,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;clientAddress)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
 </div>
@@ -140,7 +144,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;()">
 <h3>LogHandlerUtils</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/namequeues/LogHandlerUtils.html#line-32">LogHandlerUtils</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/namequeues/LogHandlerUtils.html#line-33">LogHandlerUtils</a></span>()</div>
 </section>
 </li>
 </ul>
@@ -154,21 +158,28 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getTotalFiltersCount(org.apache.hadoop.hbase.shaded.protobuf.generated.AdminProtos.SlowLogResponseRequest)">
 <h3>getTotalFiltersCount</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/namequeues/LogHandlerUtils.html#line-34">getTotalFiltersCount</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.shaded.protobuf.generated.AdminProtos.SlowLogResponseRequest&nbsp;request)</span></div>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/namequeues/LogHandlerUtils.html#line-35">getTotalFiltersCount</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.shaded.protobuf.generated.AdminProtos.SlowLogResponseRequest&nbsp;request)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="filterLogs(org.apache.hadoop.hbase.shaded.protobuf.generated.AdminProtos.SlowLogResponseRequest,java.util.List,int)">
 <h3>filterLogs</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;org.apache.hadoop.hbase.shaded.protobuf.generated.TooSlowLog.SlowLogPayload&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/namequeues/LogHandlerUtils.html#line-51">filterLogs</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.shaded.protobuf.generated.AdminProtos.SlowLogResponseRequest&nbsp;request,
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;org.apache.hadoop.hbase.shaded.protobuf.generated.TooSlowLog.SlowLogPayload&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/namequeues/LogHandlerUtils.html#line-52">filterLogs</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.shaded.protobuf.generated.AdminProtos.SlowLogResponseRequest&nbsp;request,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;org.apache.hadoop.hbase.shaded.protobuf.generated.TooSlowLog.SlowLogPayload&gt;&nbsp;slowLogPayloadList,
  int&nbsp;totalFilters)</span></div>
 </section>
 </li>
 <li>
+<section class="detail" id="isClientAddressMatched(org.apache.hadoop.hbase.shaded.protobuf.generated.TooSlowLog.SlowLogPayload,java.lang.String)">
+<h3>isClientAddressMatched</h3>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/namequeues/LogHandlerUtils.html#line-96">isClientAddressMatched</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.shaded.protobuf.generated.TooSlowLog.SlowLogPayload&nbsp;slowLogPayload,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;clientAddress)</span></div>
+</section>
+</li>
+<li>
 <section class="detail" id="getFilteredLogs(org.apache.hadoop.hbase.shaded.protobuf.generated.AdminProtos.SlowLogResponseRequest,java.util.List)">
 <h3>getFilteredLogs</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;org.apache.hadoop.hbase.shaded.protobuf.generated.TooSlowLog.SlowLogPayload&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/namequeues/LogHandlerUtils.html#line-95">getFilteredLogs</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.shaded.protobuf.generated.AdminProtos.SlowLogResponseRequest&nbsp;request,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;org.apache.hadoop.hbase.shaded.protobuf.generated.TooSlowLog.SlowLogPayload&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/namequeues/LogHandlerUtils.html#line-107">getFilteredLogs</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.shaded.protobuf.generated.AdminProtos.SlowLogResponseRequest&nbsp;request,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;org.apache.hadoop.hbase.shaded.protobuf.generated.TooSlowLog.SlowLogPayload&gt;&nbsp;logPayloadList)</span></div>
 </section>
 </li>

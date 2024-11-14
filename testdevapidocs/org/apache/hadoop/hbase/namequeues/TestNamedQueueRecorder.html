@@ -229,8 +229,11 @@ loadScripts(document, 'script');</script>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#testSlowLogFilters()" class="member-name-link">testSlowLogFilters</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#testSlowLogMixedFilters()" class="member-name-link">testSlowLogMixedFilters</a>()</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#testSlowLogFilterWithClientAddress()" class="member-name-link">testSlowLogFilterWithClientAddress</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#testSlowLogMixedFilters()" class="member-name-link">testSlowLogMixedFilters</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
 </div>
@@ -398,9 +401,20 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
+<section class="detail" id="testSlowLogFilterWithClientAddress()">
+<h3>testSlowLogFilterWithClientAddress</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/namequeues/TestNamedQueueRecorder.html#line-384">testSlowLogFilterWithClientAddress</a></span>()
+                                        throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
+<dl class="notes">
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></code></dd>
+</dl>
+</section>
+</li>
+<li>
 <section class="detail" id="testConcurrentSlowLogEvents()">
 <h3>testConcurrentSlowLogEvents</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/namequeues/TestNamedQueueRecorder.html#line-384">testConcurrentSlowLogEvents</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/namequeues/TestNamedQueueRecorder.html#line-438">testConcurrentSlowLogEvents</a></span>()
                                  throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -411,7 +425,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testSlowLargeLogEvents()">
 <h3>testSlowLargeLogEvents</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/namequeues/TestNamedQueueRecorder.html#line-420">testSlowLargeLogEvents</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/namequeues/TestNamedQueueRecorder.html#line-474">testSlowLargeLogEvents</a></span>()
                             throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -422,7 +436,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testSlowLogMixedFilters()">
 <h3>testSlowLogMixedFilters</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/namequeues/TestNamedQueueRecorder.html#line-501">testSlowLogMixedFilters</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/namequeues/TestNamedQueueRecorder.html#line-555">testSlowLogMixedFilters</a></span>()
                              throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -433,7 +447,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testOnlineSlowLogScanPayloadDefaultDisabled()">
 <h3>testOnlineSlowLogScanPayloadDefaultDisabled</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/namequeues/TestNamedQueueRecorder.html#line-548">testOnlineSlowLogScanPayloadDefaultDisabled</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/namequeues/TestNamedQueueRecorder.html#line-602">testOnlineSlowLogScanPayloadDefaultDisabled</a></span>()
                                                  throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -444,7 +458,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testOnlineSlowLogScanPayloadExplicitlyDisabled()">
 <h3>testOnlineSlowLogScanPayloadExplicitlyDisabled</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/namequeues/TestNamedQueueRecorder.html#line-572">testOnlineSlowLogScanPayloadExplicitlyDisabled</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/namequeues/TestNamedQueueRecorder.html#line-626">testOnlineSlowLogScanPayloadExplicitlyDisabled</a></span>()
                                                     throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -455,7 +469,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testOnlineSlowLogScanPayloadExplicitlyEnabled()">
 <h3>testOnlineSlowLogScanPayloadExplicitlyEnabled</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/namequeues/TestNamedQueueRecorder.html#line-596">testOnlineSlowLogScanPayloadExplicitlyEnabled</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/namequeues/TestNamedQueueRecorder.html#line-650">testOnlineSlowLogScanPayloadExplicitlyEnabled</a></span>()
                                                    throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -466,7 +480,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testOnlineSlowLogRequestAttributes()">
 <h3>testOnlineSlowLogRequestAttributes</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/namequeues/TestNamedQueueRecorder.html#line-620">testOnlineSlowLogRequestAttributes</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/namequeues/TestNamedQueueRecorder.html#line-674">testOnlineSlowLogRequestAttributes</a></span>()
                                         throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -477,7 +491,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testOnlineSlowLogConnectionAttributes()">
 <h3>testOnlineSlowLogConnectionAttributes</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/namequeues/TestNamedQueueRecorder.html#line-643">testOnlineSlowLogConnectionAttributes</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/namequeues/TestNamedQueueRecorder.html#line-697">testOnlineSlowLogConnectionAttributes</a></span>()
                                            throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -488,7 +502,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getRpcLogDetails(java.lang.String,java.lang.String,java.lang.String,int)">
 <h3>getRpcLogDetails</h3>
-<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.namequeues.RpcLogDetails</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/namequeues/TestNamedQueueRecorder.html#line-668">getRpcLogDetails</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;userName,
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.namequeues.RpcLogDetails</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/namequeues/TestNamedQueueRecorder.html#line-722">getRpcLogDetails</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;userName,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;clientAddress,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;className,
  int&nbsp;forcedParamIndex)</span></div>
@@ -497,7 +511,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getRpcLogDetails(java.lang.String,java.lang.String,java.lang.String)">
 <h3>getRpcLogDetails</h3>
-<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.namequeues.RpcLogDetails</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/namequeues/TestNamedQueueRecorder.html#line-675">getRpcLogDetails</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;userName,
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.namequeues.RpcLogDetails</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/namequeues/TestNamedQueueRecorder.html#line-729">getRpcLogDetails</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;userName,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;clientAddress,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;className)</span></div>
 </section>
@@ -505,13 +519,13 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getRpcLogDetailsOfScan()">
 <h3>getRpcLogDetailsOfScan</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.namequeues.RpcLogDetails</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/namequeues/TestNamedQueueRecorder.html#line-681">getRpcLogDetailsOfScan</a></span>()</div>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.namequeues.RpcLogDetails</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/namequeues/TestNamedQueueRecorder.html#line-735">getRpcLogDetailsOfScan</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getRpcLogDetails(java.lang.String,java.lang.String,java.lang.String,boolean,boolean)">
 <h3>getRpcLogDetails</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.namequeues.RpcLogDetails</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/namequeues/TestNamedQueueRecorder.html#line-686">getRpcLogDetails</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;userName,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.namequeues.RpcLogDetails</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/namequeues/TestNamedQueueRecorder.html#line-740">getRpcLogDetails</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;userName,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;clientAddress,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;className,
  boolean&nbsp;isSlowLog,
@@ -521,33 +535,33 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getRpcCall(java.lang.String)">
 <h3>getRpcCall</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.ipc.RpcCall</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/namequeues/TestNamedQueueRecorder.html#line-693">getRpcCall</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;userName)</span></div>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.ipc.RpcCall</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/namequeues/TestNamedQueueRecorder.html#line-747">getRpcCall</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;userName)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getRpcCall(java.lang.String,int)">
 <h3>getRpcCall</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.ipc.RpcCall</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/namequeues/TestNamedQueueRecorder.html#line-697">getRpcCall</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;userName,
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.ipc.RpcCall</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/namequeues/TestNamedQueueRecorder.html#line-751">getRpcCall</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;userName,
  int&nbsp;forcedParamIndex)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getRpcCall(java.lang.String,java.util.Optional)">
 <h3>getRpcCall</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.ipc.RpcCall</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/namequeues/TestNamedQueueRecorder.html#line-701">getRpcCall</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;userName,
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.ipc.RpcCall</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/namequeues/TestNamedQueueRecorder.html#line-755">getRpcCall</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;userName,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;forcedParamIndex)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getMessage(java.util.Optional)">
 <h3>getMessage</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">org.apache.hbase.thirdparty.com.google.protobuf.Message</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/namequeues/TestNamedQueueRecorder.html#line-882">getMessage</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;forcedParamIndex)</span></div>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">org.apache.hbase.thirdparty.com.google.protobuf.Message</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/namequeues/TestNamedQueueRecorder.html#line-936">getMessage</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;forcedParamIndex)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getUser(java.lang.String)">
 <h3>getUser</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;org.apache.hadoop.hbase.security.User&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/namequeues/TestNamedQueueRecorder.html#line-925">getUser</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;userName)</span></div>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;org.apache.hadoop.hbase.security.User&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/namequeues/TestNamedQueueRecorder.html#line-979">getUser</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;userName)</span></div>
 </section>
 </li>
 </ul>

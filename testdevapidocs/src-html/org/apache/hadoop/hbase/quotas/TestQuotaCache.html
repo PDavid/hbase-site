@@ -53,7 +53,7 @@
 <span class="source-line-no">040</span><span id="line-40">    HBaseClassTestRule.forClass(TestQuotaCache.class);</span>
 <span class="source-line-no">041</span><span id="line-41"></span>
 <span class="source-line-no">042</span><span id="line-42">  private static final HBaseTestingUtil TEST_UTIL = new HBaseTestingUtil();</span>
-<span class="source-line-no">043</span><span id="line-43">  private static final int REFRESH_TIME = 30_000;</span>
+<span class="source-line-no">043</span><span id="line-43">  private static final int REFRESH_TIME_MS = 1000;</span>
 <span class="source-line-no">044</span><span id="line-44"></span>
 <span class="source-line-no">045</span><span id="line-45">  @After</span>
 <span class="source-line-no">046</span><span id="line-46">  public void tearDown() throws Exception {</span>
@@ -65,7 +65,7 @@
 <span class="source-line-no">052</span><span id="line-52">  @BeforeClass</span>
 <span class="source-line-no">053</span><span id="line-53">  public static void setUpBeforeClass() throws Exception {</span>
 <span class="source-line-no">054</span><span id="line-54">    TEST_UTIL.getConfiguration().setBoolean(QuotaUtil.QUOTA_CONF_KEY, true);</span>
-<span class="source-line-no">055</span><span id="line-55">    TEST_UTIL.getConfiguration().setInt(QuotaCache.REFRESH_CONF_KEY, REFRESH_TIME);</span>
+<span class="source-line-no">055</span><span id="line-55">    TEST_UTIL.getConfiguration().setInt(QuotaCache.REFRESH_CONF_KEY, REFRESH_TIME_MS);</span>
 <span class="source-line-no">056</span><span id="line-56">    TEST_UTIL.getConfiguration().setInt(QuotaUtil.QUOTA_DEFAULT_USER_MACHINE_READ_NUM, 1000);</span>
 <span class="source-line-no">057</span><span id="line-57"></span>
 <span class="source-line-no">058</span><span id="line-58">    TEST_UTIL.startMiniCluster(1);</span>

@@ -83,7 +83,7 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="annotations">@Private
 @Evolving
-</span><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-58">QuotaCache</a></span>
+</span><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-64">QuotaCache</a></span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
 implements <a href="../Stoppable.html" title="interface in org.apache.hadoop.hbase">Stoppable</a></span></div>
 <div class="block">Cache that keeps track of the quota settings for the users and tables that are interacting with
@@ -108,6 +108,12 @@ implements <a href="../Stoppable.html" title="interface in org.apache.hadoop.hba
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>private class&nbsp;</code></div>
 <div class="col-second odd-row-color"><code><a href="QuotaCache.QuotaRefresherChore.html" class="type-name-link" title="class in org.apache.hadoop.hbase.quotas">QuotaCache.QuotaRefresherChore</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>(package private) static class&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="QuotaCache.RefreshableExpiringValueCache.html" class="type-name-link" title="class in org.apache.hadoop.hbase.quotas">QuotaCache.RefreshableExpiringValueCache</a>&lt;<a href="QuotaCache.RefreshableExpiringValueCache.html" title="type parameter in QuotaCache.RefreshableExpiringValueCache">T</a>&gt;</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>(package private) static interface&nbsp;</code></div>
+<div class="col-second odd-row-color"><code><a href="QuotaCache.ThrowingSupplier.html" class="type-name-link" title="interface in org.apache.hadoop.hbase.quotas">QuotaCache.ThrowingSupplier</a>&lt;<a href="QuotaCache.ThrowingSupplier.html" title="type parameter in QuotaCache.ThrowingSupplier">T</a>&gt;</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 </div>
 </section>
@@ -148,14 +154,20 @@ implements <a href="../Stoppable.html" title="interface in org.apache.hadoop.hba
 <div class="col-first even-row-color"><code>private <a href="QuotaCache.QuotaRefresherChore.html" title="class in org.apache.hadoop.hbase.quotas">QuotaCache.QuotaRefresherChore</a></code></div>
 <div class="col-second even-row-color"><code><a href="#refreshChore" class="member-name-link">refreshChore</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html" title="class or interface in java.util.concurrent" class="external-link">ConcurrentMap</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="QuotaState.html" title="class in org.apache.hadoop.hbase.quotas">QuotaState</a>&gt;</code></div>
-<div class="col-second odd-row-color"><code><a href="#regionServerQuotaCache" class="member-name-link">regionServerQuotaCache</a></code></div>
+<div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#REGION_SERVERS_SIZE_CACHE_TTL_MS" class="member-name-link">REGION_SERVERS_SIZE_CACHE_TTL_MS</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>private final <a href="../regionserver/RegionServerServices.html" title="interface in org.apache.hadoop.hbase.regionserver">RegionServerServices</a></code></div>
-<div class="col-second even-row-color"><code><a href="#rsServices" class="member-name-link">rsServices</a></code></div>
+<div class="col-first even-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html" title="class or interface in java.util.concurrent" class="external-link">ConcurrentMap</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="QuotaState.html" title="class in org.apache.hadoop.hbase.quotas">QuotaState</a>&gt;</code></div>
+<div class="col-second even-row-color"><code><a href="#regionServerQuotaCache" class="member-name-link">regionServerQuotaCache</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>private boolean</code></div>
-<div class="col-second odd-row-color"><code><a href="#stopped" class="member-name-link">stopped</a></code></div>
+<div class="col-first odd-row-color"><code>private final <a href="../regionserver/RegionServerServices.html" title="interface in org.apache.hadoop.hbase.regionserver">RegionServerServices</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#rsServices" class="member-name-link">rsServices</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private boolean</code></div>
+<div class="col-second even-row-color"><code><a href="#stopped" class="member-name-link">stopped</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#TABLE_REGION_STATES_CACHE_TTL_MS" class="member-name-link">TABLE_REGION_STATES_CACHE_TTL_MS</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html" title="class or interface in java.util.concurrent" class="external-link">ConcurrentHashMap</a>&lt;<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&gt;</code></div>
 <div class="col-second even-row-color"><code><a href="#tableMachineQuotaFactors" class="member-name-link">tableMachineQuotaFactors</a></code></div>
@@ -294,13 +306,13 @@ implements <a href="../Stoppable.html" title="interface in org.apache.hadoop.hba
 <li>
 <section class="detail" id="LOG">
 <h3>LOG</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-61">LOG</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-67">LOG</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="REFRESH_CONF_KEY">
 <h3>REFRESH_CONF_KEY</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-63">REFRESH_CONF_KEY</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-69">REFRESH_CONF_KEY</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -312,9 +324,37 @@ implements <a href="../Stoppable.html" title="interface in org.apache.hadoop.hba
 </section>
 </li>
 <li>
+<section class="detail" id="TABLE_REGION_STATES_CACHE_TTL_MS">
+<h3>TABLE_REGION_STATES_CACHE_TTL_MS</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-70">TABLE_REGION_STATES_CACHE_TTL_MS</a></span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="see-list">
+<li><a href="../../../../../constant-values.html#org.apache.hadoop.hbase.quotas.QuotaCache.TABLE_REGION_STATES_CACHE_TTL_MS">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="REGION_SERVERS_SIZE_CACHE_TTL_MS">
+<h3>REGION_SERVERS_SIZE_CACHE_TTL_MS</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-72">REGION_SERVERS_SIZE_CACHE_TTL_MS</a></span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="see-list">
+<li><a href="../../../../../constant-values.html#org.apache.hadoop.hbase.quotas.QuotaCache.REGION_SERVERS_SIZE_CACHE_TTL_MS">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</section>
+</li>
+<li>
 <section class="detail" id="QUOTA_USER_REQUEST_ATTRIBUTE_OVERRIDE_KEY">
 <h3>QUOTA_USER_REQUEST_ATTRIBUTE_OVERRIDE_KEY</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-67">QUOTA_USER_REQUEST_ATTRIBUTE_OVERRIDE_KEY</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-77">QUOTA_USER_REQUEST_ATTRIBUTE_OVERRIDE_KEY</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -328,7 +368,7 @@ implements <a href="../Stoppable.html" title="interface in org.apache.hadoop.hba
 <li>
 <section class="detail" id="REFRESH_DEFAULT_PERIOD">
 <h3>REFRESH_DEFAULT_PERIOD</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-69">REFRESH_DEFAULT_PERIOD</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-79">REFRESH_DEFAULT_PERIOD</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -342,7 +382,7 @@ implements <a href="../Stoppable.html" title="interface in org.apache.hadoop.hba
 <li>
 <section class="detail" id="EVICT_PERIOD_FACTOR">
 <h3>EVICT_PERIOD_FACTOR</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-70">EVICT_PERIOD_FACTOR</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-80">EVICT_PERIOD_FACTOR</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -356,79 +396,79 @@ implements <a href="../Stoppable.html" title="interface in org.apache.hadoop.hba
 <li>
 <section class="detail" id="TEST_FORCE_REFRESH">
 <h3>TEST_FORCE_REFRESH</h3>
-<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-73">TEST_FORCE_REFRESH</a></span></div>
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-83">TEST_FORCE_REFRESH</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="TEST_BLOCK_REFRESH">
 <h3>TEST_BLOCK_REFRESH</h3>
-<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-75">TEST_BLOCK_REFRESH</a></span></div>
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-85">TEST_BLOCK_REFRESH</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="namespaceQuotaCache">
 <h3>namespaceQuotaCache</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html" title="class or interface in java.util.concurrent" class="external-link">ConcurrentMap</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="QuotaState.html" title="class in org.apache.hadoop.hbase.quotas">QuotaState</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-77">namespaceQuotaCache</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html" title="class or interface in java.util.concurrent" class="external-link">ConcurrentMap</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="QuotaState.html" title="class in org.apache.hadoop.hbase.quotas">QuotaState</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-87">namespaceQuotaCache</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="tableQuotaCache">
 <h3>tableQuotaCache</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html" title="class or interface in java.util.concurrent" class="external-link">ConcurrentMap</a>&lt;<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>,<wbr><a href="QuotaState.html" title="class in org.apache.hadoop.hbase.quotas">QuotaState</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-78">tableQuotaCache</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html" title="class or interface in java.util.concurrent" class="external-link">ConcurrentMap</a>&lt;<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>,<wbr><a href="QuotaState.html" title="class in org.apache.hadoop.hbase.quotas">QuotaState</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-88">tableQuotaCache</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="userQuotaCache">
 <h3>userQuotaCache</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html" title="class or interface in java.util.concurrent" class="external-link">ConcurrentMap</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="UserQuotaState.html" title="class in org.apache.hadoop.hbase.quotas">UserQuotaState</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-79">userQuotaCache</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html" title="class or interface in java.util.concurrent" class="external-link">ConcurrentMap</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="UserQuotaState.html" title="class in org.apache.hadoop.hbase.quotas">UserQuotaState</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-89">userQuotaCache</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="regionServerQuotaCache">
 <h3>regionServerQuotaCache</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html" title="class or interface in java.util.concurrent" class="external-link">ConcurrentMap</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="QuotaState.html" title="class in org.apache.hadoop.hbase.quotas">QuotaState</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-80">regionServerQuotaCache</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html" title="class or interface in java.util.concurrent" class="external-link">ConcurrentMap</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="QuotaState.html" title="class in org.apache.hadoop.hbase.quotas">QuotaState</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-90">regionServerQuotaCache</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="exceedThrottleQuotaEnabled">
 <h3>exceedThrottleQuotaEnabled</h3>
-<div class="member-signature"><span class="modifiers">private volatile</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-82">exceedThrottleQuotaEnabled</a></span></div>
+<div class="member-signature"><span class="modifiers">private volatile</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-92">exceedThrottleQuotaEnabled</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="machineQuotaFactor">
 <h3>machineQuotaFactor</h3>
-<div class="member-signature"><span class="modifiers">private volatile</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-84">machineQuotaFactor</a></span></div>
+<div class="member-signature"><span class="modifiers">private volatile</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-94">machineQuotaFactor</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="tableMachineQuotaFactors">
 <h3>tableMachineQuotaFactors</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html" title="class or interface in java.util.concurrent" class="external-link">ConcurrentHashMap</a>&lt;<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-85">tableMachineQuotaFactors</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html" title="class or interface in java.util.concurrent" class="external-link">ConcurrentHashMap</a>&lt;<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-95">tableMachineQuotaFactors</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="rsServices">
 <h3>rsServices</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../regionserver/RegionServerServices.html" title="interface in org.apache.hadoop.hbase.regionserver">RegionServerServices</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-87">rsServices</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../regionserver/RegionServerServices.html" title="interface in org.apache.hadoop.hbase.regionserver">RegionServerServices</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-97">rsServices</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="userOverrideRequestAttributeKey">
 <h3>userOverrideRequestAttributeKey</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-88">userOverrideRequestAttributeKey</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-98">userOverrideRequestAttributeKey</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="refreshChore">
 <h3>refreshChore</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="QuotaCache.QuotaRefresherChore.html" title="class in org.apache.hadoop.hbase.quotas">QuotaCache.QuotaRefresherChore</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-90">refreshChore</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="QuotaCache.QuotaRefresherChore.html" title="class in org.apache.hadoop.hbase.quotas">QuotaCache.QuotaRefresherChore</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-100">refreshChore</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="stopped">
 <h3>stopped</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-91">stopped</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-101">stopped</a></span></div>
 </section>
 </li>
 </ul>
@@ -442,7 +482,7 @@ implements <a href="../Stoppable.html" title="interface in org.apache.hadoop.hba
 <li>
 <section class="detail" id="&lt;init&gt;(org.apache.hadoop.hbase.regionserver.RegionServerServices)">
 <h3>QuotaCache</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-93">QuotaCache</a></span><wbr><span class="parameters">(<a href="../regionserver/RegionServerServices.html" title="interface in org.apache.hadoop.hbase.regionserver">RegionServerServices</a>&nbsp;rsServices)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-103">QuotaCache</a></span><wbr><span class="parameters">(<a href="../regionserver/RegionServerServices.html" title="interface in org.apache.hadoop.hbase.regionserver">RegionServerServices</a>&nbsp;rsServices)</span></div>
 </section>
 </li>
 </ul>
@@ -456,7 +496,7 @@ implements <a href="../Stoppable.html" title="interface in org.apache.hadoop.hba
 <li>
 <section class="detail" id="start()">
 <h3>start</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-99">start</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-109">start</a></span>()
            throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -467,7 +507,7 @@ implements <a href="../Stoppable.html" title="interface in org.apache.hadoop.hba
 <li>
 <section class="detail" id="stop(java.lang.String)">
 <h3>stop</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-109">stop</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;why)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-119">stop</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;why)</span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../Stoppable.html#stop(java.lang.String)">Stoppable</a></code></span></div>
 <div class="block">Stop this service. Implementers should favor logging errors over throwing RuntimeExceptions.</div>
 <dl class="notes">
@@ -481,7 +521,7 @@ implements <a href="../Stoppable.html" title="interface in org.apache.hadoop.hba
 <li>
 <section class="detail" id="isStopped()">
 <h3>isStopped</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-118">isStopped</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-128">isStopped</a></span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../Stoppable.html#isStopped()">Stoppable</a></code></span></div>
 <div class="block">Returns True if <a href="../Stoppable.html#stop(java.lang.String)"><code>Stoppable.stop(String)</code></a> has been closed.</div>
 <dl class="notes">
@@ -493,7 +533,7 @@ implements <a href="../Stoppable.html" title="interface in org.apache.hadoop.hba
 <li>
 <section class="detail" id="getUserLimiter(org.apache.hadoop.security.UserGroupInformation,org.apache.hadoop.hbase.TableName)">
 <h3>getUserLimiter</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="QuotaLimiter.html" title="interface in org.apache.hadoop.hbase.quotas">QuotaLimiter</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-129">getUserLimiter</a></span><wbr><span class="parameters">(org.apache.hadoop.security.UserGroupInformation&nbsp;ugi,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="QuotaLimiter.html" title="interface in org.apache.hadoop.hbase.quotas">QuotaLimiter</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-139">getUserLimiter</a></span><wbr><span class="parameters">(org.apache.hadoop.security.UserGroupInformation&nbsp;ugi,
  <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;table)</span></div>
 <div class="block">Returns the limiter associated to the specified user/table.</div>
 <dl class="notes">
@@ -508,7 +548,7 @@ implements <a href="../Stoppable.html" title="interface in org.apache.hadoop.hba
 <li>
 <section class="detail" id="getUserQuotaState(org.apache.hadoop.security.UserGroupInformation)">
 <h3>getUserQuotaState</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="UserQuotaState.html" title="class in org.apache.hadoop.hbase.quotas">UserQuotaState</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-141">getUserQuotaState</a></span><wbr><span class="parameters">(org.apache.hadoop.security.UserGroupInformation&nbsp;ugi)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="UserQuotaState.html" title="class in org.apache.hadoop.hbase.quotas">UserQuotaState</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-151">getUserQuotaState</a></span><wbr><span class="parameters">(org.apache.hadoop.security.UserGroupInformation&nbsp;ugi)</span></div>
 <div class="block">Returns the QuotaState associated to the specified user.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -521,7 +561,7 @@ implements <a href="../Stoppable.html" title="interface in org.apache.hadoop.hba
 <li>
 <section class="detail" id="getTableLimiter(org.apache.hadoop.hbase.TableName)">
 <h3>getTableLimiter</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="QuotaLimiter.html" title="interface in org.apache.hadoop.hbase.quotas">QuotaLimiter</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-152">getTableLimiter</a></span><wbr><span class="parameters">(<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;table)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="QuotaLimiter.html" title="interface in org.apache.hadoop.hbase.quotas">QuotaLimiter</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-161">getTableLimiter</a></span><wbr><span class="parameters">(<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;table)</span></div>
 <div class="block">Returns the limiter associated to the specified table.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -534,7 +574,7 @@ implements <a href="../Stoppable.html" title="interface in org.apache.hadoop.hba
 <li>
 <section class="detail" id="getNamespaceLimiter(java.lang.String)">
 <h3>getNamespaceLimiter</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="QuotaLimiter.html" title="interface in org.apache.hadoop.hbase.quotas">QuotaLimiter</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-161">getNamespaceLimiter</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;namespace)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="QuotaLimiter.html" title="interface in org.apache.hadoop.hbase.quotas">QuotaLimiter</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-170">getNamespaceLimiter</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;namespace)</span></div>
 <div class="block">Returns the limiter associated to the specified namespace.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -547,7 +587,7 @@ implements <a href="../Stoppable.html" title="interface in org.apache.hadoop.hba
 <li>
 <section class="detail" id="getRegionServerQuotaLimiter(java.lang.String)">
 <h3>getRegionServerQuotaLimiter</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="QuotaLimiter.html" title="interface in org.apache.hadoop.hbase.quotas">QuotaLimiter</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-170">getRegionServerQuotaLimiter</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;regionServer)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="QuotaLimiter.html" title="interface in org.apache.hadoop.hbase.quotas">QuotaLimiter</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-179">getRegionServerQuotaLimiter</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;regionServer)</span></div>
 <div class="block">Returns the limiter associated to the specified region server.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -560,13 +600,13 @@ implements <a href="../Stoppable.html" title="interface in org.apache.hadoop.hba
 <li>
 <section class="detail" id="isExceedThrottleQuotaEnabled()">
 <h3>isExceedThrottleQuotaEnabled</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-174">isExceedThrottleQuotaEnabled</a></span>()</div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-183">isExceedThrottleQuotaEnabled</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getQuotaUserName(org.apache.hadoop.security.UserGroupInformation)">
 <h3>getQuotaUserName</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-183">getQuotaUserName</a></span><wbr><span class="parameters">(org.apache.hadoop.security.UserGroupInformation&nbsp;ugi)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-192">getQuotaUserName</a></span><wbr><span class="parameters">(org.apache.hadoop.security.UserGroupInformation&nbsp;ugi)</span></div>
 <div class="block">Applies a request attribute user override if available, otherwise returns the UGI's short
  username</div>
 <dl class="notes">
@@ -578,7 +618,7 @@ implements <a href="../Stoppable.html" title="interface in org.apache.hadoop.hba
 <li>
 <section class="detail" id="getQuotaState(java.util.concurrent.ConcurrentMap,K)">
 <h3 id="getQuotaState(java.util.concurrent.ConcurrentMap,java.lang.Object)">getQuotaState</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="type-parameters">&lt;K&gt;</span>&nbsp;<span class="return-type"><a href="QuotaState.html" title="class in org.apache.hadoop.hbase.quotas">QuotaState</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-204">getQuotaState</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html" title="class or interface in java.util.concurrent" class="external-link">ConcurrentMap</a>&lt;K,<wbr><a href="QuotaState.html" title="class in org.apache.hadoop.hbase.quotas">QuotaState</a>&gt;&nbsp;quotasMap,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="type-parameters">&lt;K&gt;</span>&nbsp;<span class="return-type"><a href="QuotaState.html" title="class in org.apache.hadoop.hbase.quotas">QuotaState</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-213">getQuotaState</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentMap.html" title="class or interface in java.util.concurrent" class="external-link">ConcurrentMap</a>&lt;K,<wbr><a href="QuotaState.html" title="class in org.apache.hadoop.hbase.quotas">QuotaState</a>&gt;&nbsp;quotasMap,
  K&nbsp;key)</span></div>
 <div class="block">Returns the QuotaState requested. If the quota info is not in cache an empty one will be
  returned and the quota request will be enqueued for the next cache refresh.</div>
@@ -587,37 +627,37 @@ implements <a href="../Stoppable.html" title="interface in org.apache.hadoop.hba
 <li>
 <section class="detail" id="triggerCacheRefresh()">
 <h3>triggerCacheRefresh</h3>
-<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-208">triggerCacheRefresh</a></span>()</div>
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-217">triggerCacheRefresh</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getLastUpdate()">
 <h3>getLastUpdate</h3>
-<div class="member-signature"><span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-212">getLastUpdate</a></span>()</div>
+<div class="member-signature"><span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-221">getLastUpdate</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getNamespaceQuotaCache()">
 <h3>getNamespaceQuotaCache</h3>
-<div class="member-signature"><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="QuotaState.html" title="class in org.apache.hadoop.hbase.quotas">QuotaState</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-216">getNamespaceQuotaCache</a></span>()</div>
+<div class="member-signature"><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="QuotaState.html" title="class in org.apache.hadoop.hbase.quotas">QuotaState</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-225">getNamespaceQuotaCache</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getRegionServerQuotaCache()">
 <h3>getRegionServerQuotaCache</h3>
-<div class="member-signature"><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="QuotaState.html" title="class in org.apache.hadoop.hbase.quotas">QuotaState</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-220">getRegionServerQuotaCache</a></span>()</div>
+<div class="member-signature"><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="QuotaState.html" title="class in org.apache.hadoop.hbase.quotas">QuotaState</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-229">getRegionServerQuotaCache</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getTableQuotaCache()">
 <h3>getTableQuotaCache</h3>
-<div class="member-signature"><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>,<wbr><a href="QuotaState.html" title="class in org.apache.hadoop.hbase.quotas">QuotaState</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-224">getTableQuotaCache</a></span>()</div>
+<div class="member-signature"><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>,<wbr><a href="QuotaState.html" title="class in org.apache.hadoop.hbase.quotas">QuotaState</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-233">getTableQuotaCache</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getUserQuotaCache()">
 <h3>getUserQuotaCache</h3>
-<div class="member-signature"><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="UserQuotaState.html" title="class in org.apache.hadoop.hbase.quotas">UserQuotaState</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-228">getUserQuotaCache</a></span>()</div>
+<div class="member-signature"><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="UserQuotaState.html" title="class in org.apache.hadoop.hbase.quotas">UserQuotaState</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/quotas/QuotaCache.html#line-237">getUserQuotaCache</a></span>()</div>
 </section>
 </li>
 </ul>

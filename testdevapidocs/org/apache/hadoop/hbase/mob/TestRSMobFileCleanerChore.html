@@ -77,7 +77,7 @@ loadScripts(document, 'script');</script>
 </div>
 <section class="class-description" id="class-description">
 <hr>
-<div class="type-signature"><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/TestRSMobFileCleanerChore.html#line-62">TestRSMobFileCleanerChore</a></span>
+<div class="type-signature"><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/TestRSMobFileCleanerChore.html#line-69">TestRSMobFileCleanerChore</a></span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
 <div class="block">Mob file cleaner chore test. 1. Creates MOB table 2. Load MOB data and flushes it N times 3. Runs
  major MOB compaction 4. Verifies that number of MOB files in a mob directory is N+1 5. Waits for
@@ -176,7 +176,8 @@ loadScripts(document, 'script');</script>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#initConf()" class="member-name-link">initConf</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#loadData(int,int)" class="member-name-link">loadData</a><wbr>(int&nbsp;start,
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#loadData(org.apache.hadoop.hbase.client.Table,int,int)" class="member-name-link">loadData</a><wbr>(org.apache.hadoop.hbase.client.Table&nbsp;t,
+ int&nbsp;start,
  int&nbsp;num)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private long</code></div>
@@ -189,8 +190,11 @@ loadScripts(document, 'script');</script>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#tearDown()" class="member-name-link">tearDown</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#testMobFileCleanerChore()" class="member-name-link">testMobFileCleanerChore</a>()</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#testCleaningAndStoreFileReaderCreatedByOtherThreads()" class="member-name-link">testCleaningAndStoreFileReaderCreatedByOtherThreads</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#testMobFileCleanerChore()" class="member-name-link">testMobFileCleanerChore</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
 </div>
@@ -211,25 +215,25 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="LOG">
 <h3>LOG</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/TestRSMobFileCleanerChore.html#line-64">LOG</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/TestRSMobFileCleanerChore.html#line-71">LOG</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="CLASS_RULE">
 <h3>CLASS_RULE</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../HBaseClassTestRule.html" title="class in org.apache.hadoop.hbase">HBaseClassTestRule</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/TestRSMobFileCleanerChore.html#line-65">CLASS_RULE</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../HBaseClassTestRule.html" title="class in org.apache.hadoop.hbase">HBaseClassTestRule</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/TestRSMobFileCleanerChore.html#line-72">CLASS_RULE</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="HTU">
 <h3>HTU</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../HBaseTestingUtil.html" title="class in org.apache.hadoop.hbase">HBaseTestingUtil</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/TestRSMobFileCleanerChore.html#line-69">HTU</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../HBaseTestingUtil.html" title="class in org.apache.hadoop.hbase">HBaseTestingUtil</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/TestRSMobFileCleanerChore.html#line-76">HTU</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="famStr">
 <h3>famStr</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/TestRSMobFileCleanerChore.html#line-71">famStr</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/TestRSMobFileCleanerChore.html#line-78">famStr</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -243,19 +247,19 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="fam">
 <h3>fam</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">byte[]</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/TestRSMobFileCleanerChore.html#line-72">fam</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">byte[]</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/TestRSMobFileCleanerChore.html#line-79">fam</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="qualifier">
 <h3>qualifier</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">byte[]</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/TestRSMobFileCleanerChore.html#line-73">qualifier</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">byte[]</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/TestRSMobFileCleanerChore.html#line-80">qualifier</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="mobLen">
 <h3>mobLen</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/TestRSMobFileCleanerChore.html#line-74">mobLen</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/TestRSMobFileCleanerChore.html#line-81">mobLen</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -269,49 +273,49 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="mobVal">
 <h3>mobVal</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">byte[]</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/TestRSMobFileCleanerChore.html#line-75">mobVal</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">byte[]</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/TestRSMobFileCleanerChore.html#line-82">mobVal</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="conf">
 <h3>conf</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.conf.Configuration</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/TestRSMobFileCleanerChore.html#line-78">conf</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.conf.Configuration</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/TestRSMobFileCleanerChore.html#line-85">conf</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="tableDescriptor">
 <h3>tableDescriptor</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.client.TableDescriptor</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/TestRSMobFileCleanerChore.html#line-79">tableDescriptor</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.client.TableDescriptor</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/TestRSMobFileCleanerChore.html#line-86">tableDescriptor</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="familyDescriptor">
 <h3>familyDescriptor</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.client.ColumnFamilyDescriptor</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/TestRSMobFileCleanerChore.html#line-80">familyDescriptor</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.client.ColumnFamilyDescriptor</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/TestRSMobFileCleanerChore.html#line-87">familyDescriptor</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="admin">
 <h3>admin</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.client.Admin</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/TestRSMobFileCleanerChore.html#line-81">admin</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.client.Admin</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/TestRSMobFileCleanerChore.html#line-88">admin</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="table">
 <h3>table</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.client.Table</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/TestRSMobFileCleanerChore.html#line-82">table</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.client.Table</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/TestRSMobFileCleanerChore.html#line-89">table</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="chore">
 <h3>chore</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.mob.RSMobFileCleanerChore</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/TestRSMobFileCleanerChore.html#line-83">chore</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.mob.RSMobFileCleanerChore</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/TestRSMobFileCleanerChore.html#line-90">chore</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="minAgeToArchive">
 <h3>minAgeToArchive</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/TestRSMobFileCleanerChore.html#line-84">minAgeToArchive</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/TestRSMobFileCleanerChore.html#line-91">minAgeToArchive</a></span></div>
 </section>
 </li>
 </ul>
@@ -325,7 +329,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;()">
 <h3>TestRSMobFileCleanerChore</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/TestRSMobFileCleanerChore.html#line-86">TestRSMobFileCleanerChore</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/TestRSMobFileCleanerChore.html#line-93">TestRSMobFileCleanerChore</a></span>()</div>
 </section>
 </li>
 </ul>
@@ -339,7 +343,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="setUp()">
 <h3>setUp</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/TestRSMobFileCleanerChore.html#line-89">setUp</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/TestRSMobFileCleanerChore.html#line-96">setUp</a></span>()
            throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -350,20 +354,21 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="initConf()">
 <h3>initConf</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/TestRSMobFileCleanerChore.html#line-105">initConf</a></span>()</div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/TestRSMobFileCleanerChore.html#line-112">initConf</a></span>()</div>
 </section>
 </li>
 <li>
-<section class="detail" id="loadData(int,int)">
+<section class="detail" id="loadData(org.apache.hadoop.hbase.client.Table,int,int)">
 <h3>loadData</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/TestRSMobFileCleanerChore.html#line-127">loadData</a></span><wbr><span class="parameters">(int&nbsp;start,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/TestRSMobFileCleanerChore.html#line-134">loadData</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.client.Table&nbsp;t,
+ int&nbsp;start,
  int&nbsp;num)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="tearDown()">
 <h3>tearDown</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/TestRSMobFileCleanerChore.html#line-142">tearDown</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/TestRSMobFileCleanerChore.html#line-149">tearDown</a></span>()
               throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -374,7 +379,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testMobFileCleanerChore()">
 <h3>testMobFileCleanerChore</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/TestRSMobFileCleanerChore.html#line-149">testMobFileCleanerChore</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/TestRSMobFileCleanerChore.html#line-156">testMobFileCleanerChore</a></span>()
                              throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/InterruptedException.html" title="class or interface in java.lang" class="external-link">InterruptedException</a>,
 <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
@@ -385,9 +390,22 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
+<section class="detail" id="testCleaningAndStoreFileReaderCreatedByOtherThreads()">
+<h3>testCleaningAndStoreFileReaderCreatedByOtherThreads</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/TestRSMobFileCleanerChore.html#line-235">testCleaningAndStoreFileReaderCreatedByOtherThreads</a></span>()
+                                                         throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a>,
+<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/InterruptedException.html" title="class or interface in java.lang" class="external-link">InterruptedException</a></span></div>
+<dl class="notes">
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/InterruptedException.html" title="class or interface in java.lang" class="external-link">InterruptedException</a></code></dd>
+</dl>
+</section>
+</li>
+<li>
 <section class="detail" id="getNumberOfMobFiles(org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.TableName,java.lang.String)">
 <h3>getNumberOfMobFiles</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/TestRSMobFileCleanerChore.html#line-228">getNumberOfMobFiles</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/TestRSMobFileCleanerChore.html#line-291">getNumberOfMobFiles</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.hbase.TableName&nbsp;tableName,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;family)</span>
                           throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
@@ -400,7 +418,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="scanTable()">
 <h3>scanTable</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/TestRSMobFileCleanerChore.html#line-241">scanTable</a></span>()</div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mob/TestRSMobFileCleanerChore.html#line-304">scanTable</a></span>()</div>
 </section>
 </li>
 </ul>
