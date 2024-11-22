@@ -45,7 +45,7 @@
 <span class="source-line-no">032</span><span id="line-32">import org.junit.experimental.categories.Category;</span>
 <span class="source-line-no">033</span><span id="line-33"></span>
 <span class="source-line-no">034</span><span id="line-34">/**</span>
-<span class="source-line-no">035</span><span id="line-35"> * See HBASE-24513.</span>
+<span class="source-line-no">035</span><span id="line-35"> * See HBASE-24513, HBASE-28608.</span>
 <span class="source-line-no">036</span><span id="line-36"> */</span>
 <span class="source-line-no">037</span><span id="line-37">@Category({ ClientTests.class, SmallTests.class })</span>
 <span class="source-line-no">038</span><span id="line-38">public class TestAsyncConnectionConfiguration {</span>
@@ -82,7 +82,19 @@
 <span class="source-line-no">069</span><span id="line-69">    assertEquals(expected, config.getReadRpcTimeoutNs());</span>
 <span class="source-line-no">070</span><span id="line-70">    assertEquals(expected, config.getWriteRpcTimeoutNs());</span>
 <span class="source-line-no">071</span><span id="line-71">  }</span>
-<span class="source-line-no">072</span><span id="line-72">}</span>
+<span class="source-line-no">072</span><span id="line-72"></span>
+<span class="source-line-no">073</span><span id="line-73">  @Test</span>
+<span class="source-line-no">074</span><span id="line-74">  public void testDefaultMetaOperationTimeout() {</span>
+<span class="source-line-no">075</span><span id="line-75">    Configuration conf = HBaseConfiguration.create();</span>
+<span class="source-line-no">076</span><span id="line-76">    long timeoutMs = 1000;</span>
+<span class="source-line-no">077</span><span id="line-77">    conf.setLong(HConstants.HBASE_CLIENT_OPERATION_TIMEOUT, timeoutMs);</span>
+<span class="source-line-no">078</span><span id="line-78">    AsyncConnectionConfiguration config = new AsyncConnectionConfiguration(conf);</span>
+<span class="source-line-no">079</span><span id="line-79">    long expected = TimeUnit.MILLISECONDS.toNanos(timeoutMs);</span>
+<span class="source-line-no">080</span><span id="line-80">    assertEquals(expected, config.getOperationTimeoutNs());</span>
+<span class="source-line-no">081</span><span id="line-81">    assertEquals(expected, config.getMetaOperationTimeoutNs());</span>
+<span class="source-line-no">082</span><span id="line-82">  }</span>
+<span class="source-line-no">083</span><span id="line-83"></span>
+<span class="source-line-no">084</span><span id="line-84">}</span>
 
 
 
