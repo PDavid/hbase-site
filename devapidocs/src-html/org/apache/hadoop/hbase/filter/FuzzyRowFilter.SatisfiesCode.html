@@ -80,7 +80,7 @@
 <span class="source-line-no">067</span><span id="line-67">@InterfaceAudience.Public</span>
 <span class="source-line-no">068</span><span id="line-68">public class FuzzyRowFilter extends FilterBase implements HintingFilter {</span>
 <span class="source-line-no">069</span><span id="line-69">  private static final boolean UNSAFE_UNALIGNED = HBasePlatformDependent.unaligned();</span>
-<span class="source-line-no">070</span><span id="line-70">  private List&lt;Pair&lt;byte[], byte[]&gt;&gt; fuzzyKeysData;</span>
+<span class="source-line-no">070</span><span id="line-70">  private final List&lt;Pair&lt;byte[], byte[]&gt;&gt; fuzzyKeysData;</span>
 <span class="source-line-no">071</span><span id="line-71">  // Used to record whether we want to skip the current row.</span>
 <span class="source-line-no">072</span><span id="line-72">  // Usually we should use filterRowKey here but in the current scan implementation, if filterRowKey</span>
 <span class="source-line-no">073</span><span id="line-73">  // returns true, we will just skip to next row, instead of calling getNextCellHint to determine</span>
@@ -102,7 +102,7 @@
 <span class="source-line-no">089</span><span id="line-89">  /**</span>
 <span class="source-line-no">090</span><span id="line-90">   * Row tracker (keeps all next rows after SEEK_NEXT_USING_HINT was returned)</span>
 <span class="source-line-no">091</span><span id="line-91">   */</span>
-<span class="source-line-no">092</span><span id="line-92">  private RowTracker tracker;</span>
+<span class="source-line-no">092</span><span id="line-92">  private final RowTracker tracker;</span>
 <span class="source-line-no">093</span><span id="line-93"></span>
 <span class="source-line-no">094</span><span id="line-94">  public FuzzyRowFilter(List&lt;Pair&lt;byte[], byte[]&gt;&gt; fuzzyKeysData) {</span>
 <span class="source-line-no">095</span><span id="line-95">    List&lt;Pair&lt;byte[], byte[]&gt;&gt; fuzzyKeyDataCopy = new ArrayList&lt;&gt;(fuzzyKeysData.size());</span>
@@ -213,7 +213,7 @@
 <span class="source-line-no">200</span><span id="line-200"></span>
 <span class="source-line-no">201</span><span id="line-201">  @Override</span>
 <span class="source-line-no">202</span><span id="line-202">  public ReturnCode filterCell(final Cell c) {</span>
-<span class="source-line-no">203</span><span id="line-203">    final int startIndex = lastFoundIndex &gt;= 0 ? lastFoundIndex : 0;</span>
+<span class="source-line-no">203</span><span id="line-203">    final int startIndex = Math.max(lastFoundIndex, 0);</span>
 <span class="source-line-no">204</span><span id="line-204">    final int size = fuzzyKeysData.size();</span>
 <span class="source-line-no">205</span><span id="line-205">    for (int i = startIndex; i &lt; size + startIndex; i++) {</span>
 <span class="source-line-no">206</span><span id="line-206">      final int index = i % size;</span>
@@ -239,7 +239,7 @@
 <span class="source-line-no">226</span><span id="line-226">  @Override</span>
 <span class="source-line-no">227</span><span id="line-227">  public Cell getNextCellHint(Cell currentCell) {</span>
 <span class="source-line-no">228</span><span id="line-228">    boolean result = tracker.updateTracker(currentCell);</span>
-<span class="source-line-no">229</span><span id="line-229">    if (result == false) {</span>
+<span class="source-line-no">229</span><span id="line-229">    if (!result) {</span>
 <span class="source-line-no">230</span><span id="line-230">      done = true;</span>
 <span class="source-line-no">231</span><span id="line-231">      return null;</span>
 <span class="source-line-no">232</span><span id="line-232">    }</span>
@@ -587,128 +587,139 @@
 <span class="source-line-no">574</span><span id="line-574">  }</span>
 <span class="source-line-no">575</span><span id="line-575"></span>
 <span class="source-line-no">576</span><span id="line-576">  /**</span>
-<span class="source-line-no">577</span><span id="line-577">   * @return greater byte array than given (row) which satisfies the fuzzy rule if it exists, null</span>
-<span class="source-line-no">578</span><span id="line-578">   *         otherwise</span>
-<span class="source-line-no">579</span><span id="line-579">   */</span>
-<span class="source-line-no">580</span><span id="line-580">  static byte[] getNextForFuzzyRule(boolean reverse, byte[] row, int offset, int length,</span>
-<span class="source-line-no">581</span><span id="line-581">    byte[] fuzzyKeyBytes, byte[] fuzzyKeyMeta) {</span>
-<span class="source-line-no">582</span><span id="line-582">    // To find out the next "smallest" byte array that satisfies fuzzy rule and "greater" than</span>
-<span class="source-line-no">583</span><span id="line-583">    // the given one we do the following:</span>
-<span class="source-line-no">584</span><span id="line-584">    // 1. setting values on all "fixed" positions to the values from fuzzyKeyBytes</span>
-<span class="source-line-no">585</span><span id="line-585">    // 2. if during the first step given row did not increase, then we increase the value at</span>
-<span class="source-line-no">586</span><span id="line-586">    // the first "non-fixed" position (where it is not maximum already)</span>
-<span class="source-line-no">587</span><span id="line-587"></span>
-<span class="source-line-no">588</span><span id="line-588">    // It is easier to perform this by using fuzzyKeyBytes copy and setting "non-fixed" position</span>
-<span class="source-line-no">589</span><span id="line-589">    // values than otherwise.</span>
-<span class="source-line-no">590</span><span id="line-590">    byte[] result =</span>
-<span class="source-line-no">591</span><span id="line-591">      Arrays.copyOf(fuzzyKeyBytes, length &gt; fuzzyKeyBytes.length ? length : fuzzyKeyBytes.length);</span>
-<span class="source-line-no">592</span><span id="line-592">    if (reverse &amp;&amp; length &gt; fuzzyKeyBytes.length) {</span>
-<span class="source-line-no">593</span><span id="line-593">      // we need trailing 0xff's instead of trailing 0x00's</span>
-<span class="source-line-no">594</span><span id="line-594">      for (int i = fuzzyKeyBytes.length; i &lt; result.length; i++) {</span>
-<span class="source-line-no">595</span><span id="line-595">        result[i] = (byte) 0xFF;</span>
-<span class="source-line-no">596</span><span id="line-596">      }</span>
-<span class="source-line-no">597</span><span id="line-597">    }</span>
-<span class="source-line-no">598</span><span id="line-598">    int toInc = -1;</span>
-<span class="source-line-no">599</span><span id="line-599">    final Order order = Order.orderFor(reverse);</span>
-<span class="source-line-no">600</span><span id="line-600"></span>
-<span class="source-line-no">601</span><span id="line-601">    boolean increased = false;</span>
-<span class="source-line-no">602</span><span id="line-602">    for (int i = 0; i &lt; result.length; i++) {</span>
-<span class="source-line-no">603</span><span id="line-603">      if (i &gt;= fuzzyKeyMeta.length || fuzzyKeyMeta[i] == 0 /* non-fixed */) {</span>
-<span class="source-line-no">604</span><span id="line-604">        result[i] = row[offset + i];</span>
-<span class="source-line-no">605</span><span id="line-605">        if (!order.isMax(row[offset + i])) {</span>
-<span class="source-line-no">606</span><span id="line-606">          // this is "non-fixed" position and is not at max value, hence we can increase it</span>
-<span class="source-line-no">607</span><span id="line-607">          toInc = i;</span>
-<span class="source-line-no">608</span><span id="line-608">        }</span>
-<span class="source-line-no">609</span><span id="line-609">      } else if (i &lt; fuzzyKeyMeta.length &amp;&amp; fuzzyKeyMeta[i] == -1 /* fixed */) {</span>
-<span class="source-line-no">610</span><span id="line-610">        if (order.lt((row[i + offset] &amp; 0xFF), (fuzzyKeyBytes[i] &amp; 0xFF))) {</span>
-<span class="source-line-no">611</span><span id="line-611">          // if setting value for any fixed position increased the original array,</span>
-<span class="source-line-no">612</span><span id="line-612">          // we are OK</span>
-<span class="source-line-no">613</span><span id="line-613">          increased = true;</span>
-<span class="source-line-no">614</span><span id="line-614">          break;</span>
-<span class="source-line-no">615</span><span id="line-615">        }</span>
-<span class="source-line-no">616</span><span id="line-616"></span>
-<span class="source-line-no">617</span><span id="line-617">        if (order.gt((row[i + offset] &amp; 0xFF), (fuzzyKeyBytes[i] &amp; 0xFF))) {</span>
-<span class="source-line-no">618</span><span id="line-618">          // if setting value for any fixed position makes array "smaller", then just stop:</span>
-<span class="source-line-no">619</span><span id="line-619">          // in case we found some non-fixed position to increase we will do it, otherwise</span>
-<span class="source-line-no">620</span><span id="line-620">          // there's no "next" row key that satisfies fuzzy rule and "greater" than given row</span>
-<span class="source-line-no">621</span><span id="line-621">          break;</span>
-<span class="source-line-no">622</span><span id="line-622">        }</span>
-<span class="source-line-no">623</span><span id="line-623">      }</span>
-<span class="source-line-no">624</span><span id="line-624">    }</span>
-<span class="source-line-no">625</span><span id="line-625"></span>
-<span class="source-line-no">626</span><span id="line-626">    if (!increased) {</span>
-<span class="source-line-no">627</span><span id="line-627">      if (toInc &lt; 0) {</span>
-<span class="source-line-no">628</span><span id="line-628">        return null;</span>
-<span class="source-line-no">629</span><span id="line-629">      }</span>
-<span class="source-line-no">630</span><span id="line-630">      result[toInc] = order.inc(result[toInc]);</span>
-<span class="source-line-no">631</span><span id="line-631"></span>
-<span class="source-line-no">632</span><span id="line-632">      // Setting all "non-fixed" positions to zeroes to the right of the one we increased so</span>
-<span class="source-line-no">633</span><span id="line-633">      // that found "next" row key is the smallest possible</span>
-<span class="source-line-no">634</span><span id="line-634">      for (int i = toInc + 1; i &lt; result.length; i++) {</span>
-<span class="source-line-no">635</span><span id="line-635">        if (i &gt;= fuzzyKeyMeta.length || fuzzyKeyMeta[i] == 0 /* non-fixed */) {</span>
-<span class="source-line-no">636</span><span id="line-636">          result[i] = order.min();</span>
-<span class="source-line-no">637</span><span id="line-637">        }</span>
-<span class="source-line-no">638</span><span id="line-638">      }</span>
-<span class="source-line-no">639</span><span id="line-639">    }</span>
-<span class="source-line-no">640</span><span id="line-640"></span>
-<span class="source-line-no">641</span><span id="line-641">    return reverse ? result : trimTrailingZeroes(result, fuzzyKeyMeta, toInc);</span>
-<span class="source-line-no">642</span><span id="line-642">  }</span>
-<span class="source-line-no">643</span><span id="line-643"></span>
-<span class="source-line-no">644</span><span id="line-644">  /**</span>
-<span class="source-line-no">645</span><span id="line-645">   * For forward scanner, next cell hint should not contain any trailing zeroes unless they are part</span>
-<span class="source-line-no">646</span><span id="line-646">   * of fuzzyKeyMeta hint = '\x01\x01\x01\x00\x00' will skip valid row '\x01\x01\x01'</span>
-<span class="source-line-no">647</span><span id="line-647">   * @param toInc - position of incremented byte</span>
-<span class="source-line-no">648</span><span id="line-648">   * @return trimmed version of result</span>
-<span class="source-line-no">649</span><span id="line-649">   */</span>
-<span class="source-line-no">650</span><span id="line-650"></span>
-<span class="source-line-no">651</span><span id="line-651">  private static byte[] trimTrailingZeroes(byte[] result, byte[] fuzzyKeyMeta, int toInc) {</span>
-<span class="source-line-no">652</span><span id="line-652">    int off = fuzzyKeyMeta.length &gt;= result.length ? result.length - 1 : fuzzyKeyMeta.length - 1;</span>
-<span class="source-line-no">653</span><span id="line-653">    for (; off &gt;= 0; off--) {</span>
-<span class="source-line-no">654</span><span id="line-654">      if (fuzzyKeyMeta[off] != 0) break;</span>
-<span class="source-line-no">655</span><span id="line-655">    }</span>
-<span class="source-line-no">656</span><span id="line-656">    if (off &lt; toInc) off = toInc;</span>
-<span class="source-line-no">657</span><span id="line-657">    byte[] retValue = new byte[off + 1];</span>
-<span class="source-line-no">658</span><span id="line-658">    System.arraycopy(result, 0, retValue, 0, retValue.length);</span>
-<span class="source-line-no">659</span><span id="line-659">    return retValue;</span>
-<span class="source-line-no">660</span><span id="line-660">  }</span>
+<span class="source-line-no">577</span><span id="line-577">   * Find out the closes next byte array that satisfies fuzzy rule and is after the given one. In</span>
+<span class="source-line-no">578</span><span id="line-578">   * the reverse case it returns increased byte array to make sure that the proper row is selected</span>
+<span class="source-line-no">579</span><span id="line-579">   * next.</span>
+<span class="source-line-no">580</span><span id="line-580">   * @return byte array which is after the given row and which satisfies the fuzzy rule if it</span>
+<span class="source-line-no">581</span><span id="line-581">   *         exists, null otherwise</span>
+<span class="source-line-no">582</span><span id="line-582">   */</span>
+<span class="source-line-no">583</span><span id="line-583">  static byte[] getNextForFuzzyRule(boolean reverse, byte[] row, int offset, int length,</span>
+<span class="source-line-no">584</span><span id="line-584">    byte[] fuzzyKeyBytes, byte[] fuzzyKeyMeta) {</span>
+<span class="source-line-no">585</span><span id="line-585">    // To find out the closest next byte array that satisfies fuzzy rule and is after the given one</span>
+<span class="source-line-no">586</span><span id="line-586">    // we do the following:</span>
+<span class="source-line-no">587</span><span id="line-587">    // 1. setting values on all "fixed" positions to the values from fuzzyKeyBytes</span>
+<span class="source-line-no">588</span><span id="line-588">    // 2. if during the first step given row did not increase, then we increase the value at</span>
+<span class="source-line-no">589</span><span id="line-589">    // the first "non-fixed" position (where it is not maximum already)</span>
+<span class="source-line-no">590</span><span id="line-590"></span>
+<span class="source-line-no">591</span><span id="line-591">    // It is easier to perform this by using fuzzyKeyBytes copy and setting "non-fixed" position</span>
+<span class="source-line-no">592</span><span id="line-592">    // values than otherwise.</span>
+<span class="source-line-no">593</span><span id="line-593">    byte[] result = Arrays.copyOf(fuzzyKeyBytes, Math.max(length, fuzzyKeyBytes.length));</span>
+<span class="source-line-no">594</span><span id="line-594">    if (reverse) {</span>
+<span class="source-line-no">595</span><span id="line-595">      // we need 0xff's instead of 0x00's</span>
+<span class="source-line-no">596</span><span id="line-596">      for (int i = 0; i &lt; result.length; i++) {</span>
+<span class="source-line-no">597</span><span id="line-597">        if (result[i] == 0) {</span>
+<span class="source-line-no">598</span><span id="line-598">          result[i] = (byte) 0xFF;</span>
+<span class="source-line-no">599</span><span id="line-599">        }</span>
+<span class="source-line-no">600</span><span id="line-600">      }</span>
+<span class="source-line-no">601</span><span id="line-601">    }</span>
+<span class="source-line-no">602</span><span id="line-602">    int toInc = -1;</span>
+<span class="source-line-no">603</span><span id="line-603">    final Order order = Order.orderFor(reverse);</span>
+<span class="source-line-no">604</span><span id="line-604"></span>
+<span class="source-line-no">605</span><span id="line-605">    boolean increased = false;</span>
+<span class="source-line-no">606</span><span id="line-606">    for (int i = 0; i &lt; result.length; i++) {</span>
+<span class="source-line-no">607</span><span id="line-607">      if (i &gt;= fuzzyKeyMeta.length || fuzzyKeyMeta[i] == 0 /* non-fixed */) {</span>
+<span class="source-line-no">608</span><span id="line-608">        result[i] = row[offset + i];</span>
+<span class="source-line-no">609</span><span id="line-609">        if (!order.isMax(row[offset + i])) {</span>
+<span class="source-line-no">610</span><span id="line-610">          // this is "non-fixed" position and is not at max value, hence we can increase it</span>
+<span class="source-line-no">611</span><span id="line-611">          toInc = i;</span>
+<span class="source-line-no">612</span><span id="line-612">        }</span>
+<span class="source-line-no">613</span><span id="line-613">      } else if (i &lt; fuzzyKeyMeta.length &amp;&amp; fuzzyKeyMeta[i] == -1 /* fixed */) {</span>
+<span class="source-line-no">614</span><span id="line-614">        if (order.lt((row[i + offset] &amp; 0xFF), (fuzzyKeyBytes[i] &amp; 0xFF))) {</span>
+<span class="source-line-no">615</span><span id="line-615">          // if setting value for any fixed position increased the original array,</span>
+<span class="source-line-no">616</span><span id="line-616">          // we are OK</span>
+<span class="source-line-no">617</span><span id="line-617">          increased = true;</span>
+<span class="source-line-no">618</span><span id="line-618">          break;</span>
+<span class="source-line-no">619</span><span id="line-619">        }</span>
+<span class="source-line-no">620</span><span id="line-620"></span>
+<span class="source-line-no">621</span><span id="line-621">        if (order.gt((row[i + offset] &amp; 0xFF), (fuzzyKeyBytes[i] &amp; 0xFF))) {</span>
+<span class="source-line-no">622</span><span id="line-622">          // if setting value for any fixed position makes array "smaller", then just stop:</span>
+<span class="source-line-no">623</span><span id="line-623">          // in case we found some non-fixed position to increase we will do it, otherwise</span>
+<span class="source-line-no">624</span><span id="line-624">          // there's no "next" row key that satisfies fuzzy rule and "greater" than given row</span>
+<span class="source-line-no">625</span><span id="line-625">          break;</span>
+<span class="source-line-no">626</span><span id="line-626">        }</span>
+<span class="source-line-no">627</span><span id="line-627">      }</span>
+<span class="source-line-no">628</span><span id="line-628">    }</span>
+<span class="source-line-no">629</span><span id="line-629"></span>
+<span class="source-line-no">630</span><span id="line-630">    if (!increased) {</span>
+<span class="source-line-no">631</span><span id="line-631">      if (toInc &lt; 0) {</span>
+<span class="source-line-no">632</span><span id="line-632">        return null;</span>
+<span class="source-line-no">633</span><span id="line-633">      }</span>
+<span class="source-line-no">634</span><span id="line-634">      result[toInc] = order.inc(result[toInc]);</span>
+<span class="source-line-no">635</span><span id="line-635"></span>
+<span class="source-line-no">636</span><span id="line-636">      // Setting all "non-fixed" positions to zeroes to the right of the one we increased so</span>
+<span class="source-line-no">637</span><span id="line-637">      // that found "next" row key is the smallest possible</span>
+<span class="source-line-no">638</span><span id="line-638">      for (int i = toInc + 1; i &lt; result.length; i++) {</span>
+<span class="source-line-no">639</span><span id="line-639">        if (i &gt;= fuzzyKeyMeta.length || fuzzyKeyMeta[i] == 0 /* non-fixed */) {</span>
+<span class="source-line-no">640</span><span id="line-640">          result[i] = order.min();</span>
+<span class="source-line-no">641</span><span id="line-641">        }</span>
+<span class="source-line-no">642</span><span id="line-642">      }</span>
+<span class="source-line-no">643</span><span id="line-643">    }</span>
+<span class="source-line-no">644</span><span id="line-644"></span>
+<span class="source-line-no">645</span><span id="line-645">    byte[] trailingZerosTrimmed = trimTrailingZeroes(result, fuzzyKeyMeta, toInc);</span>
+<span class="source-line-no">646</span><span id="line-646">    if (reverse) {</span>
+<span class="source-line-no">647</span><span id="line-647">      // In the reverse case we increase last non-max byte to make sure that the proper row is</span>
+<span class="source-line-no">648</span><span id="line-648">      // selected next.</span>
+<span class="source-line-no">649</span><span id="line-649">      return PrivateCellUtil.increaseLastNonMaxByte(trailingZerosTrimmed);</span>
+<span class="source-line-no">650</span><span id="line-650">    } else {</span>
+<span class="source-line-no">651</span><span id="line-651">      return trailingZerosTrimmed;</span>
+<span class="source-line-no">652</span><span id="line-652">    }</span>
+<span class="source-line-no">653</span><span id="line-653">  }</span>
+<span class="source-line-no">654</span><span id="line-654"></span>
+<span class="source-line-no">655</span><span id="line-655">  /**</span>
+<span class="source-line-no">656</span><span id="line-656">   * For forward scanner, next cell hint should not contain any trailing zeroes unless they are part</span>
+<span class="source-line-no">657</span><span id="line-657">   * of fuzzyKeyMeta hint = '\x01\x01\x01\x00\x00' will skip valid row '\x01\x01\x01'</span>
+<span class="source-line-no">658</span><span id="line-658">   * @param toInc - position of incremented byte</span>
+<span class="source-line-no">659</span><span id="line-659">   * @return trimmed version of result</span>
+<span class="source-line-no">660</span><span id="line-660">   */</span>
 <span class="source-line-no">661</span><span id="line-661"></span>
-<span class="source-line-no">662</span><span id="line-662">  /**</span>
-<span class="source-line-no">663</span><span id="line-663">   * Returns true if and only if the fields of the filter that are serialized are equal to the</span>
-<span class="source-line-no">664</span><span id="line-664">   * corresponding fields in other. Used for testing.</span>
-<span class="source-line-no">665</span><span id="line-665">   */</span>
-<span class="source-line-no">666</span><span id="line-666">  @Override</span>
-<span class="source-line-no">667</span><span id="line-667">  boolean areSerializedFieldsEqual(Filter o) {</span>
-<span class="source-line-no">668</span><span id="line-668">    if (o == this) {</span>
-<span class="source-line-no">669</span><span id="line-669">      return true;</span>
-<span class="source-line-no">670</span><span id="line-670">    }</span>
-<span class="source-line-no">671</span><span id="line-671">    if (!(o instanceof FuzzyRowFilter)) {</span>
-<span class="source-line-no">672</span><span id="line-672">      return false;</span>
-<span class="source-line-no">673</span><span id="line-673">    }</span>
-<span class="source-line-no">674</span><span id="line-674">    FuzzyRowFilter other = (FuzzyRowFilter) o;</span>
-<span class="source-line-no">675</span><span id="line-675">    if (this.fuzzyKeysData.size() != other.fuzzyKeysData.size()) return false;</span>
-<span class="source-line-no">676</span><span id="line-676">    for (int i = 0; i &lt; fuzzyKeysData.size(); ++i) {</span>
-<span class="source-line-no">677</span><span id="line-677">      Pair&lt;byte[], byte[]&gt; thisData = this.fuzzyKeysData.get(i);</span>
-<span class="source-line-no">678</span><span id="line-678">      Pair&lt;byte[], byte[]&gt; otherData = other.fuzzyKeysData.get(i);</span>
-<span class="source-line-no">679</span><span id="line-679">      if (</span>
-<span class="source-line-no">680</span><span id="line-680">        !(Bytes.equals(thisData.getFirst(), otherData.getFirst())</span>
-<span class="source-line-no">681</span><span id="line-681">          &amp;&amp; Bytes.equals(thisData.getSecond(), otherData.getSecond()))</span>
-<span class="source-line-no">682</span><span id="line-682">      ) {</span>
-<span class="source-line-no">683</span><span id="line-683">        return false;</span>
-<span class="source-line-no">684</span><span id="line-684">      }</span>
-<span class="source-line-no">685</span><span id="line-685">    }</span>
-<span class="source-line-no">686</span><span id="line-686">    return true;</span>
-<span class="source-line-no">687</span><span id="line-687">  }</span>
-<span class="source-line-no">688</span><span id="line-688"></span>
-<span class="source-line-no">689</span><span id="line-689">  @Override</span>
-<span class="source-line-no">690</span><span id="line-690">  public boolean equals(Object obj) {</span>
-<span class="source-line-no">691</span><span id="line-691">    return obj instanceof Filter &amp;&amp; areSerializedFieldsEqual((Filter) obj);</span>
-<span class="source-line-no">692</span><span id="line-692">  }</span>
-<span class="source-line-no">693</span><span id="line-693"></span>
-<span class="source-line-no">694</span><span id="line-694">  @Override</span>
-<span class="source-line-no">695</span><span id="line-695">  public int hashCode() {</span>
-<span class="source-line-no">696</span><span id="line-696">    return Objects.hash(this.fuzzyKeysData);</span>
-<span class="source-line-no">697</span><span id="line-697">  }</span>
-<span class="source-line-no">698</span><span id="line-698">}</span>
+<span class="source-line-no">662</span><span id="line-662">  private static byte[] trimTrailingZeroes(byte[] result, byte[] fuzzyKeyMeta, int toInc) {</span>
+<span class="source-line-no">663</span><span id="line-663">    int off = fuzzyKeyMeta.length &gt;= result.length ? result.length - 1 : fuzzyKeyMeta.length - 1;</span>
+<span class="source-line-no">664</span><span id="line-664">    for (; off &gt;= 0; off--) {</span>
+<span class="source-line-no">665</span><span id="line-665">      if (fuzzyKeyMeta[off] != 0) break;</span>
+<span class="source-line-no">666</span><span id="line-666">    }</span>
+<span class="source-line-no">667</span><span id="line-667">    if (off &lt; toInc) off = toInc;</span>
+<span class="source-line-no">668</span><span id="line-668">    byte[] retValue = new byte[off + 1];</span>
+<span class="source-line-no">669</span><span id="line-669">    System.arraycopy(result, 0, retValue, 0, retValue.length);</span>
+<span class="source-line-no">670</span><span id="line-670">    return retValue;</span>
+<span class="source-line-no">671</span><span id="line-671">  }</span>
+<span class="source-line-no">672</span><span id="line-672"></span>
+<span class="source-line-no">673</span><span id="line-673">  /**</span>
+<span class="source-line-no">674</span><span id="line-674">   * Returns true if and only if the fields of the filter that are serialized are equal to the</span>
+<span class="source-line-no">675</span><span id="line-675">   * corresponding fields in other. Used for testing.</span>
+<span class="source-line-no">676</span><span id="line-676">   */</span>
+<span class="source-line-no">677</span><span id="line-677">  @Override</span>
+<span class="source-line-no">678</span><span id="line-678">  boolean areSerializedFieldsEqual(Filter o) {</span>
+<span class="source-line-no">679</span><span id="line-679">    if (o == this) {</span>
+<span class="source-line-no">680</span><span id="line-680">      return true;</span>
+<span class="source-line-no">681</span><span id="line-681">    }</span>
+<span class="source-line-no">682</span><span id="line-682">    if (!(o instanceof FuzzyRowFilter)) {</span>
+<span class="source-line-no">683</span><span id="line-683">      return false;</span>
+<span class="source-line-no">684</span><span id="line-684">    }</span>
+<span class="source-line-no">685</span><span id="line-685">    FuzzyRowFilter other = (FuzzyRowFilter) o;</span>
+<span class="source-line-no">686</span><span id="line-686">    if (this.fuzzyKeysData.size() != other.fuzzyKeysData.size()) return false;</span>
+<span class="source-line-no">687</span><span id="line-687">    for (int i = 0; i &lt; fuzzyKeysData.size(); ++i) {</span>
+<span class="source-line-no">688</span><span id="line-688">      Pair&lt;byte[], byte[]&gt; thisData = this.fuzzyKeysData.get(i);</span>
+<span class="source-line-no">689</span><span id="line-689">      Pair&lt;byte[], byte[]&gt; otherData = other.fuzzyKeysData.get(i);</span>
+<span class="source-line-no">690</span><span id="line-690">      if (</span>
+<span class="source-line-no">691</span><span id="line-691">        !(Bytes.equals(thisData.getFirst(), otherData.getFirst())</span>
+<span class="source-line-no">692</span><span id="line-692">          &amp;&amp; Bytes.equals(thisData.getSecond(), otherData.getSecond()))</span>
+<span class="source-line-no">693</span><span id="line-693">      ) {</span>
+<span class="source-line-no">694</span><span id="line-694">        return false;</span>
+<span class="source-line-no">695</span><span id="line-695">      }</span>
+<span class="source-line-no">696</span><span id="line-696">    }</span>
+<span class="source-line-no">697</span><span id="line-697">    return true;</span>
+<span class="source-line-no">698</span><span id="line-698">  }</span>
+<span class="source-line-no">699</span><span id="line-699"></span>
+<span class="source-line-no">700</span><span id="line-700">  @Override</span>
+<span class="source-line-no">701</span><span id="line-701">  public boolean equals(Object obj) {</span>
+<span class="source-line-no">702</span><span id="line-702">    return obj instanceof Filter &amp;&amp; areSerializedFieldsEqual((Filter) obj);</span>
+<span class="source-line-no">703</span><span id="line-703">  }</span>
+<span class="source-line-no">704</span><span id="line-704"></span>
+<span class="source-line-no">705</span><span id="line-705">  @Override</span>
+<span class="source-line-no">706</span><span id="line-706">  public int hashCode() {</span>
+<span class="source-line-no">707</span><span id="line-707">    return Objects.hash(this.fuzzyKeysData);</span>
+<span class="source-line-no">708</span><span id="line-708">  }</span>
+<span class="source-line-no">709</span><span id="line-709">}</span>
 
 
 

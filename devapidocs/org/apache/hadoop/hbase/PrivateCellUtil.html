@@ -78,7 +78,7 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <hr>
 <div class="type-signature"><span class="annotations">@Private
-</span><span class="modifiers">public final class </span><span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-51">PrivateCellUtil</a></span>
+</span><span class="modifiers">public final class </span><span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-52">PrivateCellUtil</a></span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
 <div class="block">Utility methods helpful slinging <a href="Cell.html" title="interface in org.apache.hadoop.hbase"><code>Cell</code></a> instances. It has more powerful and rich set of
  APIs than those in <a href="CellUtil.html" title="class in org.apache.hadoop.hbase"><code>CellUtil</code></a> for internal usage.</div>
@@ -551,213 +551,216 @@ loadScripts(document, 'script');</script>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getValueBufferShallowCopy(org.apache.hadoop.hbase.Cell)" class="member-name-link">getValueBufferShallowCopy</a><wbr>(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isDelete(byte)" class="member-name-link">isDelete</a><wbr>(byte&nbsp;type)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static byte[]</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#increaseLastNonMaxByte(byte%5B%5D)" class="member-name-link">increaseLastNonMaxByte</a><wbr>(byte[]&nbsp;bytes)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isDelete(byte)" class="member-name-link">isDelete</a><wbr>(byte&nbsp;type)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Return true if a delete type, a <a href="KeyValue.Type.html#Delete"><code>KeyValue.Type.Delete</code></a> or a {KeyValue.Type#DeleteFamily}
  or a <a href="KeyValue.Type.html#DeleteColumn"><code>KeyValue.Type.DeleteColumn</code></a> KeyValue type.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isDeleteColumnOrFamily(org.apache.hadoop.hbase.ExtendedCell)" class="member-name-link">isDeleteColumnOrFamily</a><wbr>(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isDeleteColumnOrFamily(org.apache.hadoop.hbase.ExtendedCell)" class="member-name-link">isDeleteColumnOrFamily</a><wbr>(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Returns True if this cell is a delete family or column type.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isDeleteColumns(org.apache.hadoop.hbase.ExtendedCell)" class="member-name-link">isDeleteColumns</a><wbr>(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isDeleteColumnVersion(org.apache.hadoop.hbase.ExtendedCell)" class="member-name-link">isDeleteColumnVersion</a><wbr>(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isDeleteColumns(org.apache.hadoop.hbase.ExtendedCell)" class="member-name-link">isDeleteColumns</a><wbr>(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isDeleteFamily(org.apache.hadoop.hbase.ExtendedCell)" class="member-name-link">isDeleteFamily</a><wbr>(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isDeleteColumnVersion(org.apache.hadoop.hbase.ExtendedCell)" class="member-name-link">isDeleteColumnVersion</a><wbr>(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isDeleteFamilyVersion(org.apache.hadoop.hbase.ExtendedCell)" class="member-name-link">isDeleteFamilyVersion</a><wbr>(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isDeleteFamily(org.apache.hadoop.hbase.ExtendedCell)" class="member-name-link">isDeleteFamily</a><wbr>(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isDeleteType(org.apache.hadoop.hbase.ExtendedCell)" class="member-name-link">isDeleteType</a><wbr>(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isDeleteFamilyVersion(org.apache.hadoop.hbase.ExtendedCell)" class="member-name-link">isDeleteFamilyVersion</a><wbr>(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isDeleteType(org.apache.hadoop.hbase.ExtendedCell)" class="member-name-link">isDeleteType</a><wbr>(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Returns True if this cell is a <a href="KeyValue.Type.html#Delete"><code>KeyValue.Type.Delete</code></a> type.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#matchingColumn(org.apache.hadoop.hbase.Cell,byte%5B%5D,int,int,byte%5B%5D,int,int)" class="member-name-link">matchingColumn</a><wbr>(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;left,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#matchingColumn(org.apache.hadoop.hbase.Cell,byte%5B%5D,int,int,byte%5B%5D,int,int)" class="member-name-link">matchingColumn</a><wbr>(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;left,
  byte[]&nbsp;fam,
  int&nbsp;foffset,
  int&nbsp;flength,
  byte[]&nbsp;qual,
  int&nbsp;qoffset,
  int&nbsp;qlength)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#matchingFamily(org.apache.hadoop.hbase.Cell,byte%5B%5D,int,int)" class="member-name-link">matchingFamily</a><wbr>(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;left,
- byte[]&nbsp;buf,
- int&nbsp;offset,
- int&nbsp;length)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#matchingQualifier(org.apache.hadoop.hbase.Cell,byte%5B%5D,int,int)" class="member-name-link">matchingQualifier</a><wbr>(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;left,
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#matchingFamily(org.apache.hadoop.hbase.Cell,byte%5B%5D,int,int)" class="member-name-link">matchingFamily</a><wbr>(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;left,
  byte[]&nbsp;buf,
  int&nbsp;offset,
  int&nbsp;length)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#matchingQualifier(org.apache.hadoop.hbase.Cell,byte%5B%5D,int,int)" class="member-name-link">matchingQualifier</a><wbr>(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;left,
+ byte[]&nbsp;buf,
+ int&nbsp;offset,
+ int&nbsp;length)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Finds if the qualifier part of the cell and the KV serialized byte[] are equal</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#matchingRows(org.apache.hadoop.hbase.Cell,byte%5B%5D,int,int)" class="member-name-link">matchingRows</a><wbr>(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;left,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#matchingRows(org.apache.hadoop.hbase.Cell,byte%5B%5D,int,int)" class="member-name-link">matchingRows</a><wbr>(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;left,
  byte[]&nbsp;buf,
  int&nbsp;offset,
  int&nbsp;length)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#matchingTags(org.apache.hadoop.hbase.ExtendedCell,org.apache.hadoop.hbase.ExtendedCell)" class="member-name-link">matchingTags</a><wbr>(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;left,
- <a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;right)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#matchingTags(org.apache.hadoop.hbase.ExtendedCell,org.apache.hadoop.hbase.ExtendedCell,int,int)" class="member-name-link">matchingTags</a><wbr>(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;left,
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#matchingTags(org.apache.hadoop.hbase.ExtendedCell,org.apache.hadoop.hbase.ExtendedCell)" class="member-name-link">matchingTags</a><wbr>(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;left,
+ <a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;right)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#matchingTags(org.apache.hadoop.hbase.ExtendedCell,org.apache.hadoop.hbase.ExtendedCell,int,int)" class="member-name-link">matchingTags</a><wbr>(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;left,
  <a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;right,
  int&nbsp;llength,
  int&nbsp;rlength)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#matchingType(org.apache.hadoop.hbase.ExtendedCell,org.apache.hadoop.hbase.ExtendedCell)" class="member-name-link">matchingType</a><wbr>(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;a,
- <a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;b)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#matchingValue(org.apache.hadoop.hbase.Cell,org.apache.hadoop.hbase.Cell,int,int)" class="member-name-link">matchingValue</a><wbr>(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;left,
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#matchingType(org.apache.hadoop.hbase.ExtendedCell,org.apache.hadoop.hbase.ExtendedCell)" class="member-name-link">matchingType</a><wbr>(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;a,
+ <a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;b)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#matchingValue(org.apache.hadoop.hbase.Cell,org.apache.hadoop.hbase.Cell,int,int)" class="member-name-link">matchingValue</a><wbr>(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;left,
  <a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;right,
  int&nbsp;lvlength,
  int&nbsp;rvlength)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#overlappingKeys(byte%5B%5D,byte%5B%5D,byte%5B%5D,byte%5B%5D)" class="member-name-link">overlappingKeys</a><wbr>(byte[]&nbsp;start1,
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#overlappingKeys(byte%5B%5D,byte%5B%5D,byte%5B%5D,byte%5B%5D)" class="member-name-link">overlappingKeys</a><wbr>(byte[]&nbsp;start1,
  byte[]&nbsp;end1,
  byte[]&nbsp;start2,
  byte[]&nbsp;end2)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Returns true if the first range start1...end1 overlaps with the second range start2...end2,
  assuming the byte arrays represent row keys</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#qualifierStartsWith(org.apache.hadoop.hbase.Cell,byte%5B%5D)" class="member-name-link">qualifierStartsWith</a><wbr>(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;left,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#qualifierStartsWith(org.apache.hadoop.hbase.Cell,byte%5B%5D)" class="member-name-link">qualifierStartsWith</a><wbr>(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;left,
  byte[]&nbsp;startsWith)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Finds if the start of the qualifier part of the Cell matches <code>buf</code></div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#setSequenceId(org.apache.hadoop.hbase.Cell,long)" class="member-name-link">setSequenceId</a><wbr>(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#setSequenceId(org.apache.hadoop.hbase.Cell,long)" class="member-name-link">setSequenceId</a><wbr>(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
  long&nbsp;seqId)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Sets the given seqId to the cell.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#setTimestamp(org.apache.hadoop.hbase.Cell,byte%5B%5D)" class="member-name-link">setTimestamp</a><wbr>(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
- byte[]&nbsp;ts)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Sets the given timestamp to the cell.</div>
-</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#setTimestamp(org.apache.hadoop.hbase.Cell,long)" class="member-name-link">setTimestamp</a><wbr>(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
- long&nbsp;ts)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#setTimestamp(org.apache.hadoop.hbase.Cell,byte%5B%5D)" class="member-name-link">setTimestamp</a><wbr>(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
+ byte[]&nbsp;ts)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Sets the given timestamp to the cell.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Iterator.html" title="class or interface in java.util" class="external-link">Iterator</a>&lt;<a href="Tag.html" title="interface in org.apache.hadoop.hbase">Tag</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#tagsIterator(java.nio.ByteBuffer,int,int)" class="member-name-link">tagsIterator</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a>&nbsp;tags,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#setTimestamp(org.apache.hadoop.hbase.Cell,long)" class="member-name-link">setTimestamp</a><wbr>(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
+ long&nbsp;ts)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Sets the given timestamp to the cell.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Iterator.html" title="class or interface in java.util" class="external-link">Iterator</a>&lt;<a href="Tag.html" title="interface in org.apache.hadoop.hbase">Tag</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#tagsIterator(java.nio.ByteBuffer,int,int)" class="member-name-link">tagsIterator</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a>&nbsp;tags,
  int&nbsp;offset,
  int&nbsp;length)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Iterator.html" title="class or interface in java.util" class="external-link">Iterator</a>&lt;<a href="Tag.html" title="interface in org.apache.hadoop.hbase">Tag</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#tagsIterator(org.apache.hadoop.hbase.ExtendedCell)" class="member-name-link">tagsIterator</a><wbr>(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Iterator.html" title="class or interface in java.util" class="external-link">Iterator</a>&lt;<a href="Tag.html" title="interface in org.apache.hadoop.hbase">Tag</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#tagsIterator(org.apache.hadoop.hbase.ExtendedCell)" class="member-name-link">tagsIterator</a><wbr>(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Utility method to iterate through the tags in the given cell.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="Cell.Type.html" title="enum class in org.apache.hadoop.hbase">Cell.Type</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#toType(byte)" class="member-name-link">toType</a><wbr>(byte&nbsp;type)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="KeyValue.Type.html" title="enum class in org.apache.hadoop.hbase">KeyValue.Type</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#toTypeByte(org.apache.hadoop.hbase.Cell.Type)" class="member-name-link">toTypeByte</a><wbr>(<a href="Cell.Type.html" title="enum class in org.apache.hadoop.hbase">Cell.Type</a>&nbsp;type)</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="Cell.Type.html" title="enum class in org.apache.hadoop.hbase">Cell.Type</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#toType(byte)" class="member-name-link">toType</a><wbr>(byte&nbsp;type)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#updateLatestStamp(org.apache.hadoop.hbase.Cell,byte%5B%5D)" class="member-name-link">updateLatestStamp</a><wbr>(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
- byte[]&nbsp;ts)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Sets the given timestamp to the cell iff current timestamp is
- <a href="HConstants.html#LATEST_TIMESTAMP"><code>HConstants.LATEST_TIMESTAMP</code></a>.</div>
-</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="KeyValue.Type.html" title="enum class in org.apache.hadoop.hbase">KeyValue.Type</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#toTypeByte(org.apache.hadoop.hbase.Cell.Type)" class="member-name-link">toTypeByte</a><wbr>(<a href="Cell.Type.html" title="enum class in org.apache.hadoop.hbase">Cell.Type</a>&nbsp;type)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#updateLatestStamp(org.apache.hadoop.hbase.ExtendedCell,long)" class="member-name-link">updateLatestStamp</a><wbr>(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell,
- long&nbsp;ts)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#updateLatestStamp(org.apache.hadoop.hbase.Cell,byte%5B%5D)" class="member-name-link">updateLatestStamp</a><wbr>(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
+ byte[]&nbsp;ts)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Sets the given timestamp to the cell iff current timestamp is
  <a href="HConstants.html#LATEST_TIMESTAMP"><code>HConstants.LATEST_TIMESTAMP</code></a>.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#writeFamily(java.io.OutputStream,org.apache.hadoop.hbase.Cell,byte)" class="member-name-link">writeFamily</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStream.html" title="class or interface in java.io" class="external-link">OutputStream</a>&nbsp;out,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#updateLatestStamp(org.apache.hadoop.hbase.ExtendedCell,long)" class="member-name-link">updateLatestStamp</a><wbr>(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell,
+ long&nbsp;ts)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Sets the given timestamp to the cell iff current timestamp is
+ <a href="HConstants.html#LATEST_TIMESTAMP"><code>HConstants.LATEST_TIMESTAMP</code></a>.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#writeFamily(java.io.OutputStream,org.apache.hadoop.hbase.Cell,byte)" class="member-name-link">writeFamily</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStream.html" title="class or interface in java.io" class="external-link">OutputStream</a>&nbsp;out,
  <a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
  byte&nbsp;flength)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Writes the family from the given cell to the output stream</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#writeFlatKey(org.apache.hadoop.hbase.ExtendedCell,java.io.DataOutput)" class="member-name-link">writeFlatKey</a><wbr>(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#writeFlatKey(org.apache.hadoop.hbase.ExtendedCell,java.io.DataOutput)" class="member-name-link">writeFlatKey</a><wbr>(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/DataOutput.html" title="class or interface in java.io" class="external-link">DataOutput</a>&nbsp;out)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Writes the Cell's key part as it would have serialized in a KeyValue.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static int</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#writeFlatKey(org.apache.hadoop.hbase.ExtendedCell,java.io.OutputStream)" class="member-name-link">writeFlatKey</a><wbr>(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#writeFlatKey(org.apache.hadoop.hbase.ExtendedCell,java.io.OutputStream)" class="member-name-link">writeFlatKey</a><wbr>(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStream.html" title="class or interface in java.io" class="external-link">OutputStream</a>&nbsp;out)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#writeQualifier(java.io.OutputStream,org.apache.hadoop.hbase.Cell,int)" class="member-name-link">writeQualifier</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStream.html" title="class or interface in java.io" class="external-link">OutputStream</a>&nbsp;out,
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#writeQualifier(java.io.OutputStream,org.apache.hadoop.hbase.Cell,int)" class="member-name-link">writeQualifier</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStream.html" title="class or interface in java.io" class="external-link">OutputStream</a>&nbsp;out,
  <a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
  int&nbsp;qlength)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Writes the qualifier from the given cell to the output stream</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#writeQualifierSkippingBytes(java.io.DataOutputStream,org.apache.hadoop.hbase.Cell,int,int)" class="member-name-link">writeQualifierSkippingBytes</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/DataOutputStream.html" title="class or interface in java.io" class="external-link">DataOutputStream</a>&nbsp;out,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#writeQualifierSkippingBytes(java.io.DataOutputStream,org.apache.hadoop.hbase.Cell,int,int)" class="member-name-link">writeQualifierSkippingBytes</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/DataOutputStream.html" title="class or interface in java.io" class="external-link">DataOutputStream</a>&nbsp;out,
  <a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
  int&nbsp;qlength,
  int&nbsp;commonPrefix)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Writes the qualifier from the given cell to the output stream excluding the common prefix</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#writeRow(java.io.OutputStream,org.apache.hadoop.hbase.Cell,short)" class="member-name-link">writeRow</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStream.html" title="class or interface in java.io" class="external-link">OutputStream</a>&nbsp;out,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#writeRow(java.io.OutputStream,org.apache.hadoop.hbase.Cell,short)" class="member-name-link">writeRow</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStream.html" title="class or interface in java.io" class="external-link">OutputStream</a>&nbsp;out,
  <a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
  short&nbsp;rlength)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Writes the row from the given cell to the output stream</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#writeRowKeyExcludingCommon(org.apache.hadoop.hbase.Cell,short,int,java.io.DataOutputStream)" class="member-name-link">writeRowKeyExcludingCommon</a><wbr>(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#writeRowKeyExcludingCommon(org.apache.hadoop.hbase.Cell,short,int,java.io.DataOutputStream)" class="member-name-link">writeRowKeyExcludingCommon</a><wbr>(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
  short&nbsp;rLen,
  int&nbsp;commonPrefix,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/DataOutputStream.html" title="class or interface in java.io" class="external-link">DataOutputStream</a>&nbsp;out)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Write rowkey excluding the common part.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#writeRowSkippingBytes(java.io.DataOutputStream,org.apache.hadoop.hbase.Cell,short,int)" class="member-name-link">writeRowSkippingBytes</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/DataOutputStream.html" title="class or interface in java.io" class="external-link">DataOutputStream</a>&nbsp;out,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#writeRowSkippingBytes(java.io.DataOutputStream,org.apache.hadoop.hbase.Cell,short,int)" class="member-name-link">writeRowSkippingBytes</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/DataOutputStream.html" title="class or interface in java.io" class="external-link">DataOutputStream</a>&nbsp;out,
  <a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
  short&nbsp;rlength,
  int&nbsp;commonPrefix)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Writes the row from the given cell to the output stream excluding the common prefix</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#writeTags(java.io.OutputStream,org.apache.hadoop.hbase.ExtendedCell,int)" class="member-name-link">writeTags</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStream.html" title="class or interface in java.io" class="external-link">OutputStream</a>&nbsp;out,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#writeTags(java.io.OutputStream,org.apache.hadoop.hbase.ExtendedCell,int)" class="member-name-link">writeTags</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStream.html" title="class or interface in java.io" class="external-link">OutputStream</a>&nbsp;out,
  <a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell,
  int&nbsp;tagsLength)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Writes the tag from the given cell to the output stream</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#writeValue(java.io.OutputStream,org.apache.hadoop.hbase.ExtendedCell,int)" class="member-name-link">writeValue</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStream.html" title="class or interface in java.io" class="external-link">OutputStream</a>&nbsp;out,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#writeValue(java.io.OutputStream,org.apache.hadoop.hbase.ExtendedCell,int)" class="member-name-link">writeValue</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStream.html" title="class or interface in java.io" class="external-link">OutputStream</a>&nbsp;out,
  <a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell,
  int&nbsp;vlength)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Writes the value from the given cell to the output stream</div>
 </div>
 </div>
@@ -780,7 +783,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="CELL_TYPE_CODE_ARRAY">
 <h3>CELL_TYPE_CODE_ARRAY</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="Cell.Type.html" title="enum class in org.apache.hadoop.hbase">Cell.Type</a>[]</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-3067">CELL_TYPE_CODE_ARRAY</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="Cell.Type.html" title="enum class in org.apache.hadoop.hbase">Cell.Type</a>[]</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-3068">CELL_TYPE_CODE_ARRAY</a></span></div>
 </section>
 </li>
 </ul>
@@ -794,7 +797,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;()">
 <h3>PrivateCellUtil</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-57">PrivateCellUtil</a></span>()</div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-58">PrivateCellUtil</a></span>()</div>
 <div class="block">Private constructor to keep this class from being instantiated.</div>
 </section>
 </li>
@@ -809,7 +812,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="fillRowRange(org.apache.hadoop.hbase.Cell,org.apache.hadoop.hbase.util.ByteRange)">
 <h3>fillRowRange</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="util/ByteRange.html" title="interface in org.apache.hadoop.hbase.util">ByteRange</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-62">fillRowRange</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="util/ByteRange.html" title="interface in org.apache.hadoop.hbase.util">ByteRange</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-63">fillRowRange</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
  <a href="util/ByteRange.html" title="interface in org.apache.hadoop.hbase.util">ByteRange</a>&nbsp;range)</span></div>
 <div class="block">ByteRange</div>
 </section>
@@ -817,35 +820,35 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="fillFamilyRange(org.apache.hadoop.hbase.Cell,org.apache.hadoop.hbase.util.ByteRange)">
 <h3>fillFamilyRange</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="util/ByteRange.html" title="interface in org.apache.hadoop.hbase.util">ByteRange</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-66">fillFamilyRange</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="util/ByteRange.html" title="interface in org.apache.hadoop.hbase.util">ByteRange</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-67">fillFamilyRange</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
  <a href="util/ByteRange.html" title="interface in org.apache.hadoop.hbase.util">ByteRange</a>&nbsp;range)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="fillQualifierRange(org.apache.hadoop.hbase.Cell,org.apache.hadoop.hbase.util.ByteRange)">
 <h3>fillQualifierRange</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="util/ByteRange.html" title="interface in org.apache.hadoop.hbase.util">ByteRange</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-70">fillQualifierRange</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="util/ByteRange.html" title="interface in org.apache.hadoop.hbase.util">ByteRange</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-71">fillQualifierRange</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
  <a href="util/ByteRange.html" title="interface in org.apache.hadoop.hbase.util">ByteRange</a>&nbsp;range)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="fillValueRange(org.apache.hadoop.hbase.Cell,org.apache.hadoop.hbase.util.ByteRange)">
 <h3>fillValueRange</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="util/ByteRange.html" title="interface in org.apache.hadoop.hbase.util">ByteRange</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-75">fillValueRange</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="util/ByteRange.html" title="interface in org.apache.hadoop.hbase.util">ByteRange</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-76">fillValueRange</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
  <a href="util/ByteRange.html" title="interface in org.apache.hadoop.hbase.util">ByteRange</a>&nbsp;range)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="fillTagRange(org.apache.hadoop.hbase.ExtendedCell,org.apache.hadoop.hbase.util.ByteRange)">
 <h3>fillTagRange</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="util/ByteRange.html" title="interface in org.apache.hadoop.hbase.util">ByteRange</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-79">fillTagRange</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="util/ByteRange.html" title="interface in org.apache.hadoop.hbase.util">ByteRange</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-80">fillTagRange</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell,
  <a href="util/ByteRange.html" title="interface in org.apache.hadoop.hbase.util">ByteRange</a>&nbsp;range)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getRowByte(org.apache.hadoop.hbase.Cell,int)">
 <h3>getRowByte</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">byte</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-85">getRowByte</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">byte</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-86">getRowByte</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
  int&nbsp;index)</span></div>
 <div class="block">misc</div>
 </section>
@@ -853,20 +856,20 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getQualifierByte(org.apache.hadoop.hbase.Cell,int)">
 <h3>getQualifierByte</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">byte</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-93">getQualifierByte</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">byte</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-94">getQualifierByte</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
  int&nbsp;index)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getValueBufferShallowCopy(org.apache.hadoop.hbase.Cell)">
 <h3>getValueBufferShallowCopy</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-101">getValueBufferShallowCopy</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-102">getValueBufferShallowCopy</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="createCell(org.apache.hadoop.hbase.ExtendedCell,java.util.List)">
 <h3>createCell</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-108">createCell</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-109">createCell</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Tag.html" title="interface in org.apache.hadoop.hbase">Tag</a>&gt;&nbsp;tags)</span></div>
 <div class="block">Returns A new cell which is having the extra tags also added to it.</div>
 </section>
@@ -874,7 +877,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="createCell(org.apache.hadoop.hbase.ExtendedCell,byte[])">
 <h3>createCell</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-113">createCell</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-114">createCell</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell,
  byte[]&nbsp;tags)</span></div>
 <div class="block">Returns A new cell which is having the extra tags also added to it.</div>
 </section>
@@ -882,7 +885,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="createCell(org.apache.hadoop.hbase.ExtendedCell,byte[],byte[])">
 <h3>createCell</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-120">createCell</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-121">createCell</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell,
  byte[]&nbsp;value,
  byte[]&nbsp;tags)</span></div>
 </section>
@@ -890,7 +893,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="matchingRows(org.apache.hadoop.hbase.Cell,byte[],int,int)">
 <h3>matchingRows</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-714">matchingRows</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;left,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-715">matchingRows</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;left,
  byte[]&nbsp;buf,
  int&nbsp;offset,
  int&nbsp;length)</span></div>
@@ -899,7 +902,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="matchingFamily(org.apache.hadoop.hbase.Cell,byte[],int,int)">
 <h3>matchingFamily</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-724">matchingFamily</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;left,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-725">matchingFamily</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;left,
  byte[]&nbsp;buf,
  int&nbsp;offset,
  int&nbsp;length)</span></div>
@@ -908,7 +911,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="matchingQualifier(org.apache.hadoop.hbase.Cell,byte[],int,int)">
 <h3>matchingQualifier</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-743">matchingQualifier</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;left,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-744">matchingQualifier</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;left,
  byte[]&nbsp;buf,
  int&nbsp;offset,
  int&nbsp;length)</span></div>
@@ -927,7 +930,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="qualifierStartsWith(org.apache.hadoop.hbase.Cell,byte[])">
 <h3>qualifierStartsWith</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-763">qualifierStartsWith</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;left,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-764">qualifierStartsWith</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;left,
  byte[]&nbsp;startsWith)</span></div>
 <div class="block">Finds if the start of the qualifier part of the Cell matches <code>buf</code></div>
 <dl class="notes">
@@ -942,7 +945,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="matchingColumn(org.apache.hadoop.hbase.Cell,byte[],int,int,byte[],int,int)">
 <h3>matchingColumn</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-779">matchingColumn</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;left,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-780">matchingColumn</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;left,
  byte[]&nbsp;fam,
  int&nbsp;foffset,
  int&nbsp;flength,
@@ -954,7 +957,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="matchingValue(org.apache.hadoop.hbase.Cell,org.apache.hadoop.hbase.Cell,int,int)">
 <h3>matchingValue</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-787">matchingValue</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;left,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-788">matchingValue</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;left,
  <a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;right,
  int&nbsp;lvlength,
  int&nbsp;rvlength)</span></div>
@@ -963,21 +966,21 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="matchingType(org.apache.hadoop.hbase.ExtendedCell,org.apache.hadoop.hbase.ExtendedCell)">
 <h3>matchingType</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-809">matchingType</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;a,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-810">matchingType</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;a,
  <a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;b)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="matchingTags(org.apache.hadoop.hbase.ExtendedCell,org.apache.hadoop.hbase.ExtendedCell)">
 <h3>matchingTags</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-813">matchingTags</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;left,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-814">matchingTags</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;left,
  <a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;right)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="matchingTags(org.apache.hadoop.hbase.ExtendedCell,org.apache.hadoop.hbase.ExtendedCell,int,int)">
 <h3>matchingTags</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-817">matchingTags</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;left,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-818">matchingTags</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;left,
  <a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;right,
  int&nbsp;llength,
  int&nbsp;rlength)</span></div>
@@ -986,7 +989,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="isDelete(byte)">
 <h3>isDelete</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-843">isDelete</a></span><wbr><span class="parameters">(byte&nbsp;type)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-844">isDelete</a></span><wbr><span class="parameters">(byte&nbsp;type)</span></div>
 <div class="block">Return true if a delete type, a <a href="KeyValue.Type.html#Delete"><code>KeyValue.Type.Delete</code></a> or a {KeyValue.Type#DeleteFamily}
  or a <a href="KeyValue.Type.html#DeleteColumn"><code>KeyValue.Type.DeleteColumn</code></a> KeyValue type.</div>
 </section>
@@ -994,51 +997,51 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="isDeleteType(org.apache.hadoop.hbase.ExtendedCell)">
 <h3>isDeleteType</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-848">isDeleteType</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-849">isDeleteType</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</span></div>
 <div class="block">Returns True if this cell is a <a href="KeyValue.Type.html#Delete"><code>KeyValue.Type.Delete</code></a> type.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="isDeleteFamily(org.apache.hadoop.hbase.ExtendedCell)">
 <h3>isDeleteFamily</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-852">isDeleteFamily</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-853">isDeleteFamily</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="isDeleteFamilyVersion(org.apache.hadoop.hbase.ExtendedCell)">
 <h3>isDeleteFamilyVersion</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-856">isDeleteFamilyVersion</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-857">isDeleteFamilyVersion</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="isDeleteColumns(org.apache.hadoop.hbase.ExtendedCell)">
 <h3>isDeleteColumns</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-860">isDeleteColumns</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-861">isDeleteColumns</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="isDeleteColumnVersion(org.apache.hadoop.hbase.ExtendedCell)">
 <h3>isDeleteColumnVersion</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-864">isDeleteColumnVersion</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-865">isDeleteColumnVersion</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="isDeleteColumnOrFamily(org.apache.hadoop.hbase.ExtendedCell)">
 <h3>isDeleteColumnOrFamily</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-869">isDeleteColumnOrFamily</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-870">isDeleteColumnOrFamily</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</span></div>
 <div class="block">Returns True if this cell is a delete family or column type.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="cloneTags(org.apache.hadoop.hbase.ExtendedCell)">
 <h3>cloneTags</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">byte[]</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-874">cloneTags</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">byte[]</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-875">cloneTags</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="copyTagsTo(org.apache.hadoop.hbase.ExtendedCell,byte[],int)">
 <h3>copyTagsTo</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-881">copyTagsTo</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-882">copyTagsTo</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell,
  byte[]&nbsp;destination,
  int&nbsp;destinationOffset)</span></div>
 <div class="block">Copies the tags info into the tag portion of the cell</div>
@@ -1047,7 +1050,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="copyTagsTo(org.apache.hadoop.hbase.ExtendedCell,java.nio.ByteBuffer,int)">
 <h3>copyTagsTo</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-895">copyTagsTo</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-896">copyTagsTo</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a>&nbsp;destination,
  int&nbsp;destinationOffset)</span></div>
 <div class="block">Copies the tags info into the tag portion of the cell</div>
@@ -1056,7 +1059,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getTags(org.apache.hadoop.hbase.ExtendedCell)">
 <h3>getTags</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Tag.html" title="interface in org.apache.hadoop.hbase">Tag</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-912">getTags</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Tag.html" title="interface in org.apache.hadoop.hbase">Tag</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-913">getTags</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</span></div>
 <div class="block">Return tags in the given Cell as a List</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -1069,7 +1072,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getTag(org.apache.hadoop.hbase.ExtendedCell,byte)">
 <h3>getTag</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="Tag.html" title="interface in org.apache.hadoop.hbase">Tag</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-927">getTag</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="Tag.html" title="interface in org.apache.hadoop.hbase">Tag</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-928">getTag</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell,
  byte&nbsp;type)</span></div>
 <div class="block">Retrieve Cell's first tag, matching the passed in type</div>
 <dl class="notes">
@@ -1084,7 +1087,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="tagsIterator(org.apache.hadoop.hbase.ExtendedCell)">
 <h3>tagsIterator</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Iterator.html" title="class or interface in java.util" class="external-link">Iterator</a>&lt;<a href="Tag.html" title="interface in org.apache.hadoop.hbase">Tag</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-958">tagsIterator</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Iterator.html" title="class or interface in java.util" class="external-link">Iterator</a>&lt;<a href="Tag.html" title="interface in org.apache.hadoop.hbase">Tag</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-959">tagsIterator</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</span></div>
 <div class="block">Utility method to iterate through the tags in the given cell.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -1097,7 +1100,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="tagsIterator(java.nio.ByteBuffer,int,int)">
 <h3>tagsIterator</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Iterator.html" title="class or interface in java.util" class="external-link">Iterator</a>&lt;<a href="Tag.html" title="interface in org.apache.hadoop.hbase">Tag</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-998">tagsIterator</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a>&nbsp;tags,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Iterator.html" title="class or interface in java.util" class="external-link">Iterator</a>&lt;<a href="Tag.html" title="interface in org.apache.hadoop.hbase">Tag</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-999">tagsIterator</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a>&nbsp;tags,
  int&nbsp;offset,
  int&nbsp;length)</span></div>
 </section>
@@ -1105,7 +1108,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="overlappingKeys(byte[],byte[],byte[],byte[])">
 <h3>overlappingKeys</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-1031">overlappingKeys</a></span><wbr><span class="parameters">(byte[]&nbsp;start1,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-1032">overlappingKeys</a></span><wbr><span class="parameters">(byte[]&nbsp;start1,
  byte[]&nbsp;end1,
  byte[]&nbsp;start2,
  byte[]&nbsp;end2)</span></div>
@@ -1116,7 +1119,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="writeRowKeyExcludingCommon(org.apache.hadoop.hbase.Cell,short,int,java.io.DataOutputStream)">
 <h3>writeRowKeyExcludingCommon</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-1038">writeRowKeyExcludingCommon</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-1039">writeRowKeyExcludingCommon</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
  short&nbsp;rLen,
  int&nbsp;commonPrefix,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/DataOutputStream.html" title="class or interface in java.io" class="external-link">DataOutputStream</a>&nbsp;out)</span>
@@ -1131,7 +1134,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="writeRowSkippingBytes(java.io.DataOutputStream,org.apache.hadoop.hbase.Cell,short,int)">
 <h3>writeRowSkippingBytes</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-1059">writeRowSkippingBytes</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/DataOutputStream.html" title="class or interface in java.io" class="external-link">DataOutputStream</a>&nbsp;out,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-1060">writeRowSkippingBytes</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/DataOutputStream.html" title="class or interface in java.io" class="external-link">DataOutputStream</a>&nbsp;out,
  <a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
  short&nbsp;rlength,
  int&nbsp;commonPrefix)</span>
@@ -1150,7 +1153,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="findCommonPrefixInFlatKey(org.apache.hadoop.hbase.ExtendedCell,org.apache.hadoop.hbase.ExtendedCell,boolean,boolean)">
 <h3>findCommonPrefixInFlatKey</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-1081">findCommonPrefixInFlatKey</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;c1,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-1082">findCommonPrefixInFlatKey</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;c1,
  <a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;c2,
  boolean&nbsp;bypassFamilyCheck,
  boolean&nbsp;withTsType)</span></div>
@@ -1172,7 +1175,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="compareKeyBasedOnColHint(org.apache.hadoop.hbase.CellComparator,org.apache.hadoop.hbase.ExtendedCell,org.apache.hadoop.hbase.ExtendedCell,int,int,byte[],int,int,long,byte)">
 <h3>compareKeyBasedOnColHint</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-1196">compareKeyBasedOnColHint</a></span><wbr><span class="parameters">(<a href="CellComparator.html" title="interface in org.apache.hadoop.hbase">CellComparator</a>&nbsp;comparator,
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-1197">compareKeyBasedOnColHint</a></span><wbr><span class="parameters">(<a href="CellComparator.html" title="interface in org.apache.hadoop.hbase">CellComparator</a>&nbsp;comparator,
  <a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;nextIndexedCell,
  <a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;currentCell,
  int&nbsp;foff,
@@ -1207,7 +1210,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="compareKeyIgnoresMvcc(org.apache.hadoop.hbase.CellComparator,org.apache.hadoop.hbase.Cell,org.apache.hadoop.hbase.Cell)">
 <h3>compareKeyIgnoresMvcc</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-1249">compareKeyIgnoresMvcc</a></span><wbr><span class="parameters">(<a href="CellComparator.html" title="interface in org.apache.hadoop.hbase">CellComparator</a>&nbsp;comparator,
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-1250">compareKeyIgnoresMvcc</a></span><wbr><span class="parameters">(<a href="CellComparator.html" title="interface in org.apache.hadoop.hbase">CellComparator</a>&nbsp;comparator,
  <a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;left,
  <a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;right)</span></div>
 <div class="block">Compares only the key portion of a cell. It does not include the sequence id/mvcc of the cell</div>
@@ -1221,7 +1224,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="compareRow(org.apache.hadoop.hbase.Cell,org.apache.hadoop.hbase.filter.ByteArrayComparable)">
 <h3>compareRow</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-1259">compareRow</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-1260">compareRow</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
  <a href="filter/ByteArrayComparable.html" title="class in org.apache.hadoop.hbase.filter">ByteArrayComparable</a>&nbsp;comparator)</span></div>
 <div class="block">Compare cell's row against given comparator</div>
 <dl class="notes">
@@ -1236,7 +1239,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="compareFamily(org.apache.hadoop.hbase.Cell,org.apache.hadoop.hbase.filter.ByteArrayComparable)">
 <h3>compareFamily</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-1273">compareFamily</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-1274">compareFamily</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
  <a href="filter/ByteArrayComparable.html" title="class in org.apache.hadoop.hbase.filter">ByteArrayComparable</a>&nbsp;comparator)</span></div>
 <div class="block">Compare cell's column family against given comparator</div>
 <dl class="notes">
@@ -1251,7 +1254,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="compareQualifier(org.apache.hadoop.hbase.Cell,org.apache.hadoop.hbase.filter.ByteArrayComparable)">
 <h3>compareQualifier</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-1288">compareQualifier</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-1289">compareQualifier</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
  <a href="filter/ByteArrayComparable.html" title="class in org.apache.hadoop.hbase.filter">ByteArrayComparable</a>&nbsp;comparator)</span></div>
 <div class="block">Compare cell's qualifier against given comparator</div>
 <dl class="notes">
@@ -1266,19 +1269,19 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="toType(byte)">
 <h3>toType</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="Cell.Type.html" title="enum class in org.apache.hadoop.hbase">Cell.Type</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-1297">toType</a></span><wbr><span class="parameters">(byte&nbsp;type)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="Cell.Type.html" title="enum class in org.apache.hadoop.hbase">Cell.Type</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-1298">toType</a></span><wbr><span class="parameters">(byte&nbsp;type)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="toTypeByte(org.apache.hadoop.hbase.Cell.Type)">
 <h3>toTypeByte</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="KeyValue.Type.html" title="enum class in org.apache.hadoop.hbase">KeyValue.Type</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-1315">toTypeByte</a></span><wbr><span class="parameters">(<a href="Cell.Type.html" title="enum class in org.apache.hadoop.hbase">Cell.Type</a>&nbsp;type)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="KeyValue.Type.html" title="enum class in org.apache.hadoop.hbase">KeyValue.Type</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-1316">toTypeByte</a></span><wbr><span class="parameters">(<a href="Cell.Type.html" title="enum class in org.apache.hadoop.hbase">Cell.Type</a>&nbsp;type)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="compareValue(org.apache.hadoop.hbase.Cell,org.apache.hadoop.hbase.filter.ByteArrayComparable)">
 <h3>compareValue</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-1338">compareValue</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-1339">compareValue</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
  <a href="filter/ByteArrayComparable.html" title="class in org.apache.hadoop.hbase.filter">ByteArrayComparable</a>&nbsp;comparator)</span></div>
 <div class="block">Compare cell's value against given comparator</div>
 <dl class="notes">
@@ -1293,7 +1296,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="writeFlatKey(org.apache.hadoop.hbase.ExtendedCell,java.io.DataOutput)">
 <h3>writeFlatKey</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2208">writeFlatKey</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2209">writeFlatKey</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/DataOutput.html" title="class or interface in java.io" class="external-link">DataOutput</a>&nbsp;out)</span>
                          throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Writes the Cell's key part as it would have serialized in a KeyValue. The format is &lt;2 bytes
@@ -1308,7 +1311,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="writeFlatKey(org.apache.hadoop.hbase.ExtendedCell,java.io.OutputStream)">
 <h3>writeFlatKey</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2235">writeFlatKey</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2236">writeFlatKey</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStream.html" title="class or interface in java.io" class="external-link">OutputStream</a>&nbsp;out)</span>
                         throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
@@ -1320,7 +1323,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="setSequenceId(org.apache.hadoop.hbase.Cell,long)">
 <h3>setSequenceId</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2269">setSequenceId</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2270">setSequenceId</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
  long&nbsp;seqId)</span>
                           throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Sets the given seqId to the cell. Marked as audience Private as of 1.2.0. Setting a Cell
@@ -1334,7 +1337,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="setTimestamp(org.apache.hadoop.hbase.Cell,long)">
 <h3>setTimestamp</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2282">setTimestamp</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2283">setTimestamp</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
  long&nbsp;ts)</span>
                          throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Sets the given timestamp to the cell.</div>
@@ -1347,7 +1350,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="setTimestamp(org.apache.hadoop.hbase.Cell,byte[])">
 <h3>setTimestamp</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2295">setTimestamp</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2296">setTimestamp</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
  byte[]&nbsp;ts)</span>
                          throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Sets the given timestamp to the cell.</div>
@@ -1360,7 +1363,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="updateLatestStamp(org.apache.hadoop.hbase.ExtendedCell,long)">
 <h3>updateLatestStamp</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2310">updateLatestStamp</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2311">updateLatestStamp</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell,
  long&nbsp;ts)</span>
                                  throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Sets the given timestamp to the cell iff current timestamp is
@@ -1376,7 +1379,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="updateLatestStamp(org.apache.hadoop.hbase.Cell,byte[])">
 <h3>updateLatestStamp</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2324">updateLatestStamp</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2325">updateLatestStamp</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
  byte[]&nbsp;ts)</span>
                                  throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Sets the given timestamp to the cell iff current timestamp is
@@ -1392,7 +1395,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="writeRow(java.io.OutputStream,org.apache.hadoop.hbase.Cell,short)">
 <h3>writeRow</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2338">writeRow</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStream.html" title="class or interface in java.io" class="external-link">OutputStream</a>&nbsp;out,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2339">writeRow</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStream.html" title="class or interface in java.io" class="external-link">OutputStream</a>&nbsp;out,
  <a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
  short&nbsp;rlength)</span>
                      throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
@@ -1410,7 +1413,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="writeFamily(java.io.OutputStream,org.apache.hadoop.hbase.Cell,byte)">
 <h3>writeFamily</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2353">writeFamily</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStream.html" title="class or interface in java.io" class="external-link">OutputStream</a>&nbsp;out,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2354">writeFamily</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStream.html" title="class or interface in java.io" class="external-link">OutputStream</a>&nbsp;out,
  <a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
  byte&nbsp;flength)</span>
                         throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
@@ -1428,7 +1431,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="writeQualifier(java.io.OutputStream,org.apache.hadoop.hbase.Cell,int)">
 <h3>writeQualifier</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2368">writeQualifier</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStream.html" title="class or interface in java.io" class="external-link">OutputStream</a>&nbsp;out,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2369">writeQualifier</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStream.html" title="class or interface in java.io" class="external-link">OutputStream</a>&nbsp;out,
  <a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
  int&nbsp;qlength)</span>
                            throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
@@ -1446,7 +1449,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="writeQualifierSkippingBytes(java.io.DataOutputStream,org.apache.hadoop.hbase.Cell,int,int)">
 <h3>writeQualifierSkippingBytes</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2384">writeQualifierSkippingBytes</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/DataOutputStream.html" title="class or interface in java.io" class="external-link">DataOutputStream</a>&nbsp;out,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2385">writeQualifierSkippingBytes</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/DataOutputStream.html" title="class or interface in java.io" class="external-link">DataOutputStream</a>&nbsp;out,
  <a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
  int&nbsp;qlength,
  int&nbsp;commonPrefix)</span>
@@ -1465,7 +1468,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="writeValue(java.io.OutputStream,org.apache.hadoop.hbase.ExtendedCell,int)">
 <h3>writeValue</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2403">writeValue</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStream.html" title="class or interface in java.io" class="external-link">OutputStream</a>&nbsp;out,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2404">writeValue</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStream.html" title="class or interface in java.io" class="external-link">OutputStream</a>&nbsp;out,
  <a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell,
  int&nbsp;vlength)</span>
                        throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
@@ -1483,7 +1486,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="writeTags(java.io.OutputStream,org.apache.hadoop.hbase.ExtendedCell,int)">
 <h3>writeTags</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2419">writeTags</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStream.html" title="class or interface in java.io" class="external-link">OutputStream</a>&nbsp;out,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2420">writeTags</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStream.html" title="class or interface in java.io" class="external-link">OutputStream</a>&nbsp;out,
  <a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell,
  int&nbsp;tagsLength)</span>
                       throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
@@ -1501,7 +1504,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="equalsIgnoreMvccVersion(org.apache.hadoop.hbase.ExtendedCell,org.apache.hadoop.hbase.ExtendedCell)">
 <h3>equalsIgnoreMvccVersion</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2432">equalsIgnoreMvccVersion</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;a,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2433">equalsIgnoreMvccVersion</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;a,
  <a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;b)</span></div>
 <div class="block">special case for Cell.equals</div>
 </section>
@@ -1509,7 +1512,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getRowAsInt(org.apache.hadoop.hbase.Cell)">
 <h3>getRowAsInt</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2463">getRowAsInt</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2464">getRowAsInt</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell)</span></div>
 <div class="block">Converts the rowkey bytes of the given cell into an int value</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -1520,7 +1523,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getValueAsLong(org.apache.hadoop.hbase.Cell)">
 <h3>getValueAsLong</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2475">getValueAsLong</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2476">getValueAsLong</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell)</span></div>
 <div class="block">Converts the value bytes of the given cell into a long value</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -1531,7 +1534,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getValueAsInt(org.apache.hadoop.hbase.Cell)">
 <h3>getValueAsInt</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2487">getValueAsInt</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2488">getValueAsInt</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell)</span></div>
 <div class="block">Converts the value bytes of the given cell into a int value</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -1542,7 +1545,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getValueAsDouble(org.apache.hadoop.hbase.Cell)">
 <h3>getValueAsDouble</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2499">getValueAsDouble</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2500">getValueAsDouble</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell)</span></div>
 <div class="block">Converts the value bytes of the given cell into a double value</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -1553,7 +1556,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getValueAsBigDecimal(org.apache.hadoop.hbase.Cell)">
 <h3>getValueAsBigDecimal</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/math/BigDecimal.html" title="class or interface in java.math" class="external-link">BigDecimal</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2511">getValueAsBigDecimal</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/math/BigDecimal.html" title="class or interface in java.math" class="external-link">BigDecimal</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2512">getValueAsBigDecimal</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell)</span></div>
 <div class="block">Converts the value bytes of the given cell into a BigDecimal</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -1564,7 +1567,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="compressTags(java.io.OutputStream,org.apache.hadoop.hbase.ExtendedCell,org.apache.hadoop.hbase.io.TagCompressionContext)">
 <h3>compressTags</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2526">compressTags</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStream.html" title="class or interface in java.io" class="external-link">OutputStream</a>&nbsp;out,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2527">compressTags</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStream.html" title="class or interface in java.io" class="external-link">OutputStream</a>&nbsp;out,
  <a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell,
  <a href="io/TagCompressionContext.html" title="class in org.apache.hadoop.hbase.io">TagCompressionContext</a>&nbsp;tagCompressionContext)</span>
                          throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
@@ -1582,7 +1585,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="compressRow(java.io.OutputStream,org.apache.hadoop.hbase.Cell,org.apache.hadoop.hbase.io.util.Dictionary)">
 <h3>compressRow</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2537">compressRow</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStream.html" title="class or interface in java.io" class="external-link">OutputStream</a>&nbsp;out,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2538">compressRow</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStream.html" title="class or interface in java.io" class="external-link">OutputStream</a>&nbsp;out,
  <a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
  <a href="io/util/Dictionary.html" title="interface in org.apache.hadoop.hbase.io.util">Dictionary</a>&nbsp;dict)</span>
                         throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
@@ -1595,7 +1598,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="compressFamily(java.io.OutputStream,org.apache.hadoop.hbase.Cell,org.apache.hadoop.hbase.io.util.Dictionary)">
 <h3>compressFamily</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2546">compressFamily</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStream.html" title="class or interface in java.io" class="external-link">OutputStream</a>&nbsp;out,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2547">compressFamily</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStream.html" title="class or interface in java.io" class="external-link">OutputStream</a>&nbsp;out,
  <a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
  <a href="io/util/Dictionary.html" title="interface in org.apache.hadoop.hbase.io.util">Dictionary</a>&nbsp;dict)</span>
                            throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
@@ -1608,7 +1611,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="compressQualifier(java.io.OutputStream,org.apache.hadoop.hbase.Cell,org.apache.hadoop.hbase.io.util.Dictionary)">
 <h3>compressQualifier</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2557">compressQualifier</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStream.html" title="class or interface in java.io" class="external-link">OutputStream</a>&nbsp;out,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2558">compressQualifier</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStream.html" title="class or interface in java.io" class="external-link">OutputStream</a>&nbsp;out,
  <a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
  <a href="io/util/Dictionary.html" title="interface in org.apache.hadoop.hbase.io.util">Dictionary</a>&nbsp;dict)</span>
                               throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
@@ -1621,7 +1624,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="compare(org.apache.hadoop.hbase.CellComparator,org.apache.hadoop.hbase.ExtendedCell,byte[],int,int)">
 <h3>compare</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2581">compare</a></span><wbr><span class="parameters">(<a href="CellComparator.html" title="interface in org.apache.hadoop.hbase">CellComparator</a>&nbsp;comparator,
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2582">compare</a></span><wbr><span class="parameters">(<a href="CellComparator.html" title="interface in org.apache.hadoop.hbase">CellComparator</a>&nbsp;comparator,
  <a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;left,
  byte[]&nbsp;key,
  int&nbsp;offset,
@@ -1646,7 +1649,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="compareWithoutRow(org.apache.hadoop.hbase.CellComparator,org.apache.hadoop.hbase.ExtendedCell,byte[],int,int,short)">
 <h3>compareWithoutRow</h3>
-<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2608">compareWithoutRow</a></span><wbr><span class="parameters">(<a href="CellComparator.html" title="interface in org.apache.hadoop.hbase">CellComparator</a>&nbsp;comparator,
+<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2609">compareWithoutRow</a></span><wbr><span class="parameters">(<a href="CellComparator.html" title="interface in org.apache.hadoop.hbase">CellComparator</a>&nbsp;comparator,
  <a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;left,
  byte[]&nbsp;right,
  int&nbsp;roffset,
@@ -1673,7 +1676,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="createNextOnRowCol(org.apache.hadoop.hbase.ExtendedCell)">
 <h3>createNextOnRowCol</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2678">createNextOnRowCol</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2679">createNextOnRowCol</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</span></div>
 <div class="block">Return a new cell is located following input cell. If both of type and timestamp are minimum,
  the input cell will be returned directly.</div>
 </section>
@@ -1681,7 +1684,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="createNextOnRowCol(org.apache.hadoop.hbase.ExtendedCell,long,byte)">
 <h3>createNextOnRowCol</h3>
-<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type"><a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2692">createNextOnRowCol</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell,
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type"><a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2693">createNextOnRowCol</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell,
  long&nbsp;ts,
  byte&nbsp;type)</span></div>
 </section>
@@ -1689,7 +1692,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="estimatedSerializedSizeOf(org.apache.hadoop.hbase.Cell)">
 <h3>estimatedSerializedSizeOf</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2734">estimatedSerializedSizeOf</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2735">estimatedSerializedSizeOf</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell)</span></div>
 <div class="block">Estimate based on keyvalue's serialization format in the RPC layer. Note that there is an extra
  SIZEOF_INT added to the size here that indicates the actual length of the cell for cases where
  cell's are serialized in a contiguous format (For eg in RPCs).</div>
@@ -1703,7 +1706,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="estimatedSerializedSizeOfKey(org.apache.hadoop.hbase.Cell)">
 <h3>estimatedSerializedSizeOfKey</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2743">estimatedSerializedSizeOfKey</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2744">estimatedSerializedSizeOfKey</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell)</span></div>
 <div class="block">Calculates the serialized key size. We always serialize in the KeyValue's serialization format.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -1716,7 +1719,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getCellKeySerializedAsKeyValueKey(org.apache.hadoop.hbase.ExtendedCell)">
 <h3>getCellKeySerializedAsKeyValueKey</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">byte[]</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2756">getCellKeySerializedAsKeyValueKey</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">byte[]</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2757">getCellKeySerializedAsKeyValueKey</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</span></div>
 <div class="block">This method exists just to encapsulate how we serialize keys. To be replaced by a factory that
  we query to figure what the Cell implementation is and then, what serialization engine to use
  and further, how to serialize the key for inclusion in hfile index. TODO.</div>
@@ -1730,7 +1733,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="createFirstOnRow(org.apache.hadoop.hbase.Cell)">
 <h3>createFirstOnRow</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2767">createFirstOnRow</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2768">createFirstOnRow</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell)</span></div>
 <div class="block">Create a Cell that is smaller than all other possible Cells for the given Cell's row.</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -1741,7 +1744,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="createFirstOnRow(byte[],int,short)">
 <h3>createFirstOnRow</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2776">createFirstOnRow</a></span><wbr><span class="parameters">(byte[]&nbsp;row,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2777">createFirstOnRow</a></span><wbr><span class="parameters">(byte[]&nbsp;row,
  int&nbsp;roffset,
  short&nbsp;rlength)</span></div>
 </section>
@@ -1749,7 +1752,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="createFirstOnRow(byte[],byte[],byte[])">
 <h3>createFirstOnRow</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2780">createFirstOnRow</a></span><wbr><span class="parameters">(byte[]&nbsp;row,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2781">createFirstOnRow</a></span><wbr><span class="parameters">(byte[]&nbsp;row,
  byte[]&nbsp;family,
  byte[]&nbsp;col)</span></div>
 </section>
@@ -1757,7 +1760,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="createFirstOnRow(byte[],int,short,byte[],int,byte,byte[],int,int)">
 <h3>createFirstOnRow</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2786">createFirstOnRow</a></span><wbr><span class="parameters">(byte[]&nbsp;row,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2787">createFirstOnRow</a></span><wbr><span class="parameters">(byte[]&nbsp;row,
  int&nbsp;roffset,
  short&nbsp;rlength,
  byte[]&nbsp;family,
@@ -1771,13 +1774,13 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="createFirstOnRow(byte[])">
 <h3>createFirstOnRow</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2792">createFirstOnRow</a></span><wbr><span class="parameters">(byte[]&nbsp;row)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2793">createFirstOnRow</a></span><wbr><span class="parameters">(byte[]&nbsp;row)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="createFirstOnRowFamily(org.apache.hadoop.hbase.Cell,byte[],int,int)">
 <h3>createFirstOnRowFamily</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2796">createFirstOnRowFamily</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2797">createFirstOnRowFamily</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
  byte[]&nbsp;fArray,
  int&nbsp;foff,
  int&nbsp;flen)</span></div>
@@ -1786,19 +1789,19 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="createFirstOnRowCol(org.apache.hadoop.hbase.Cell)">
 <h3>createFirstOnRowCol</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2807">createFirstOnRowCol</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2808">createFirstOnRowCol</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="createFirstOnNextRow(org.apache.hadoop.hbase.Cell)">
 <h3>createFirstOnNextRow</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2821">createFirstOnNextRow</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2822">createFirstOnNextRow</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="createFirstOnRowCol(org.apache.hadoop.hbase.Cell,byte[],int,int)">
 <h3>createFirstOnRowCol</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2833">createFirstOnRowCol</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2834">createFirstOnRowCol</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
  byte[]&nbsp;qArray,
  int&nbsp;qoffest,
  int&nbsp;qlength)</span></div>
@@ -1813,7 +1816,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="createFirstOnRowColTS(org.apache.hadoop.hbase.Cell,long)">
 <h3>createFirstOnRowColTS</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2854">createFirstOnRowColTS</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2855">createFirstOnRowColTS</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell,
  long&nbsp;ts)</span></div>
 <div class="block">Creates the first cell with the row/family/qualifier of this cell and the given timestamp. Uses
  the "maximum" type that guarantees that the new cell is the lowest possible for this
@@ -1827,7 +1830,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="createLastOnRow(org.apache.hadoop.hbase.Cell)">
 <h3>createLastOnRow</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2873">createLastOnRow</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2874">createLastOnRow</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell)</span></div>
 <div class="block">Create a Cell that is larger than all other possible Cells for the given Cell's row.</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -1838,13 +1841,13 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="createLastOnRow(byte[])">
 <h3>createLastOnRow</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2881">createLastOnRow</a></span><wbr><span class="parameters">(byte[]&nbsp;row)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2882">createLastOnRow</a></span><wbr><span class="parameters">(byte[]&nbsp;row)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="createLastOnRowCol(org.apache.hadoop.hbase.Cell)">
 <h3>createLastOnRowCol</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2891">createLastOnRowCol</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2892">createLastOnRowCol</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell)</span></div>
 <div class="block">Create a Cell that is larger than all other possible Cells for the given Cell's rk:cf:q. Used
  in creating "fake keys" for the multi-column Bloom filter optimization to skip the row/column
  we already know is not in the file.</div>
@@ -1857,7 +1860,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="createFirstDeleteFamilyCellOnRow(byte[],byte[])">
 <h3>createFirstDeleteFamilyCellOnRow</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2913">createFirstDeleteFamilyCellOnRow</a></span><wbr><span class="parameters">(byte[]&nbsp;row,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2914">createFirstDeleteFamilyCellOnRow</a></span><wbr><span class="parameters">(byte[]&nbsp;row,
  byte[]&nbsp;fam)</span></div>
 <div class="block">Create a Delete Family Cell for the specified row and family that would be smaller than all
  other possible Delete Family KeyValues that have the same row and family. Used for seeking.</div>
@@ -1873,7 +1876,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="ensureExtendedCell(org.apache.hadoop.hbase.Cell)">
 <h3>ensureExtendedCell</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2924">ensureExtendedCell</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2925">ensureExtendedCell</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell)</span></div>
 <div class="block">In fact, in HBase, all <a href="Cell.html" title="interface in org.apache.hadoop.hbase"><code>Cell</code></a>s are <a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase"><code>ExtendedCell</code></a>s. We do not expect users to
  implement their own <a href="Cell.html" title="interface in org.apache.hadoop.hbase"><code>Cell</code></a> types, except some special projects like Phoenix, where they
  just use <a href="KeyValue.html" title="class in org.apache.hadoop.hbase"><code>KeyValue</code></a> and <a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase"><code>ExtendedCell</code></a> directly.</div>
@@ -1888,21 +1891,21 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="equals(org.apache.hadoop.hbase.ExtendedCell,org.apache.hadoop.hbase.ExtendedCell)">
 <h3>equals</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2933">equals</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;a,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2934">equals</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;a,
  <a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;b)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="createExtendedCellScanner(java.util.List)">
 <h3>createExtendedCellScanner</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ExtendedCellScanner.html" title="interface in org.apache.hadoop.hbase">ExtendedCellScanner</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2940">createExtendedCellScanner</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;? extends <a href="ExtendedCellScannable.html" title="interface in org.apache.hadoop.hbase">ExtendedCellScannable</a>&gt;&nbsp;cellScannerables)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ExtendedCellScanner.html" title="interface in org.apache.hadoop.hbase">ExtendedCellScanner</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2941">createExtendedCellScanner</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;? extends <a href="ExtendedCellScannable.html" title="interface in org.apache.hadoop.hbase">ExtendedCellScannable</a>&gt;&nbsp;cellScannerables)</span></div>
 <div class="block">Returns ExtendedCellScanner interface over <code>cellIterables</code></div>
 </section>
 </li>
 <li>
 <section class="detail" id="createExtendedCellScanner(java.util.NavigableMap)">
 <h3>createExtendedCellScanner</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ExtendedCellScanner.html" title="interface in org.apache.hadoop.hbase">ExtendedCellScanner</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2976">createExtendedCellScanner</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/NavigableMap.html" title="class or interface in java.util" class="external-link">NavigableMap</a>&lt;byte[],<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&gt;&gt;&nbsp;map)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ExtendedCellScanner.html" title="interface in org.apache.hadoop.hbase">ExtendedCellScanner</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-2977">createExtendedCellScanner</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/NavigableMap.html" title="class or interface in java.util" class="external-link">NavigableMap</a>&lt;byte[],<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&gt;&gt;&nbsp;map)</span></div>
 <div class="block">Flatten the map of cells out under the ExtendedCellScanner</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -1916,21 +1919,21 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="createExtendedCellScanner(org.apache.hadoop.hbase.ExtendedCell[])">
 <h3>createExtendedCellScanner</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ExtendedCellScanner.html" title="interface in org.apache.hadoop.hbase">ExtendedCellScanner</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-3009">createExtendedCellScanner</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>[]&nbsp;cellArray)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ExtendedCellScanner.html" title="interface in org.apache.hadoop.hbase">ExtendedCellScanner</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-3010">createExtendedCellScanner</a></span><wbr><span class="parameters">(<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>[]&nbsp;cellArray)</span></div>
 <div class="block">Returns CellScanner interface over <code>cellArray</code></div>
 </section>
 </li>
 <li>
 <section class="detail" id="createExtendedCellScanner(java.lang.Iterable)">
 <h3>createExtendedCellScanner</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ExtendedCellScanner.html" title="interface in org.apache.hadoop.hbase">ExtendedCellScanner</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-3033">createExtendedCellScanner</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Iterable.html" title="class or interface in java.lang" class="external-link">Iterable</a>&lt;<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&gt;&nbsp;cellIterable)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ExtendedCellScanner.html" title="interface in org.apache.hadoop.hbase">ExtendedCellScanner</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-3034">createExtendedCellScanner</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Iterable.html" title="class or interface in java.lang" class="external-link">Iterable</a>&lt;<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&gt;&nbsp;cellIterable)</span></div>
 <div class="block">Returns ExtendedCellScanner interface over <code>cellIterable</code></div>
 </section>
 </li>
 <li>
 <section class="detail" id="createExtendedCellScanner(java.util.Iterator)">
 <h3>createExtendedCellScanner</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ExtendedCellScanner.html" title="interface in org.apache.hadoop.hbase">ExtendedCellScanner</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-3045">createExtendedCellScanner</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Iterator.html" title="class or interface in java.util" class="external-link">Iterator</a>&lt;<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&gt;&nbsp;cells)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ExtendedCellScanner.html" title="interface in org.apache.hadoop.hbase">ExtendedCellScanner</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-3046">createExtendedCellScanner</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Iterator.html" title="class or interface in java.util" class="external-link">Iterator</a>&lt;<a href="ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&gt;&nbsp;cells)</span></div>
 <div class="block">Returns ExtendedCellScanner interface over <code>cellIterable</code> or null if
  <code>cells</code> is null</div>
 </section>
@@ -1938,19 +1941,25 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="code2Type(byte)">
 <h3>code2Type</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="Cell.Type.html" title="enum class in org.apache.hadoop.hbase">Cell.Type</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-3075">code2Type</a></span><wbr><span class="parameters">(byte&nbsp;code)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="Cell.Type.html" title="enum class in org.apache.hadoop.hbase">Cell.Type</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-3076">code2Type</a></span><wbr><span class="parameters">(byte&nbsp;code)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getTypeByte(org.apache.hadoop.hbase.Cell)">
 <h3>getTypeByte</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">byte</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-3083">getTypeByte</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;c)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">byte</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-3084">getTypeByte</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;c)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getSequenceId(org.apache.hadoop.hbase.Cell)">
 <h3>getSequenceId</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-3091">getSequenceId</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;c)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-3092">getSequenceId</a></span><wbr><span class="parameters">(<a href="Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;c)</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="increaseLastNonMaxByte(byte[])">
+<h3>increaseLastNonMaxByte</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">byte[]</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PrivateCellUtil.html#line-3100">increaseLastNonMaxByte</a></span><wbr><span class="parameters">(byte[]&nbsp;bytes)</span></div>
 </section>
 </li>
 </ul>
