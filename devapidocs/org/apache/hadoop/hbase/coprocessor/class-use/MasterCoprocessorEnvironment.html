@@ -61,14 +61,16 @@ loadScripts(document, 'script');</script>
 </div>
 <div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.coprocessor.example">org.apache.hadoop.hbase.coprocessor.example</a></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.master">org.apache.hadoop.hbase.master</a></div>
+<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.coprocessor.example.row.stats">org.apache.hadoop.hbase.coprocessor.example.row.stats</a></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.quotas">org.apache.hadoop.hbase.quotas</a></div>
+<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.master">org.apache.hadoop.hbase.master</a></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.security.access">org.apache.hadoop.hbase.security.access</a></div>
+<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.quotas">org.apache.hadoop.hbase.quotas</a></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.security.visibility">org.apache.hadoop.hbase.security.visibility</a></div>
+<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.security.access">org.apache.hadoop.hbase.security.access</a></div>
 <div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.security.visibility">org.apache.hadoop.hbase.security.visibility</a></div>
+<div class="col-last even-row-color">&nbsp;</div>
 </div>
 <section class="class-uses">
 <ul class="block-list">
@@ -1330,6 +1332,20 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color"><code>void</code></div>
 <div class="col-second even-row-color"><span class="type-name-label">ExampleMasterObserverWithMetrics.</span><code><a href="../example/ExampleMasterObserverWithMetrics.html#preDisableTable(org.apache.hadoop.hbase.coprocessor.ObserverContext,org.apache.hadoop.hbase.TableName)" class="member-name-link">preDisableTable</a><wbr>(<a href="../ObserverContext.html" title="interface in org.apache.hadoop.hbase.coprocessor">ObserverContext</a>&lt;<a href="../MasterCoprocessorEnvironment.html" title="interface in org.apache.hadoop.hbase.coprocessor">MasterCoprocessorEnvironment</a>&gt;&nbsp;ctx,
  <a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="org.apache.hadoop.hbase.coprocessor.example.row.stats">
+<h2>Uses of <a href="../MasterCoprocessorEnvironment.html" title="interface in org.apache.hadoop.hbase.coprocessor">MasterCoprocessorEnvironment</a> in <a href="../example/row/stats/package-summary.html">org.apache.hadoop.hbase.coprocessor.example.row.stats</a></h2>
+<div class="caption"><span>Method parameters in <a href="../example/row/stats/package-summary.html">org.apache.hadoop.hbase.coprocessor.example.row.stats</a> with type arguments of type <a href="../MasterCoprocessorEnvironment.html" title="interface in org.apache.hadoop.hbase.coprocessor">MasterCoprocessorEnvironment</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>void</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">RowStatisticsCompactionObserver.</span><code><a href="../example/row/stats/RowStatisticsCompactionObserver.html#postStartMaster(org.apache.hadoop.hbase.coprocessor.ObserverContext)" class="member-name-link">postStartMaster</a><wbr>(<a href="../ObserverContext.html" title="interface in org.apache.hadoop.hbase.coprocessor">ObserverContext</a>&lt;<a href="../MasterCoprocessorEnvironment.html" title="interface in org.apache.hadoop.hbase.coprocessor">MasterCoprocessorEnvironment</a>&gt;&nbsp;ctx)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>

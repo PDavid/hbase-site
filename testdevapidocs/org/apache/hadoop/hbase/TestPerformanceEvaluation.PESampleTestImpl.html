@@ -81,7 +81,7 @@ loadScripts(document, 'script');</script>
 <dd><a href="TestPerformanceEvaluation.html" title="class in org.apache.hadoop.hbase">TestPerformanceEvaluation</a></dd>
 </dl>
 <hr>
-<div class="type-signature"><span class="modifiers">class </span><span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/TestPerformanceEvaluation.html#line-390">TestPerformanceEvaluation.PESampleTestImpl</a></span>
+<div class="type-signature"><span class="modifiers">class </span><span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/TestPerformanceEvaluation.html#line-387">TestPerformanceEvaluation.PESampleTestImpl</a></span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
 </section>
 <section class="summary">
@@ -107,12 +107,9 @@ loadScripts(document, 'script');</script>
 <div class="col-first odd-row-color"><code>protected final org.apache.hadoop.hbase.PerformanceEvaluation.TestOptions</code></div>
 <div class="col-second odd-row-color"><code><a href="#opts" class="member-name-link">opts</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>protected final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Random.html" title="class or interface in java.util" class="external-link">Random</a></code></div>
-<div class="col-second even-row-color"><code><a href="#rand" class="member-name-link">rand</a></code></div>
+<div class="col-first even-row-color"><code>protected final org.apache.hadoop.hbase.PerformanceEvaluation.Status</code></div>
+<div class="col-second even-row-color"><code><a href="#status" class="member-name-link">status</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>protected final org.apache.hadoop.hbase.PerformanceEvaluation.Status</code></div>
-<div class="col-second odd-row-color"><code><a href="#status" class="member-name-link">status</a></code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
 </div>
 </section>
 </li>
@@ -143,17 +140,17 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#generateStatus(int,int,int)" class="member-name-link">generateStatus</a><wbr>(int&nbsp;arg0,
- int&nbsp;arg1,
- int&nbsp;arg2)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#generateStatus(long,long,long)" class="member-name-link">generateStatus</a><wbr>(long&nbsp;arg0,
+ long&nbsp;arg1,
+ long&nbsp;arg2)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) int</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) long</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getLastRow()" class="member-name-link">getLastRow</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>com.codahale.metrics.Histogram</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getLatencyHistogram()" class="member-name-link">getLatencyHistogram</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected int</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected long</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getReportingPeriod()" class="member-name-link">getReportingPeriod</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
@@ -162,11 +159,11 @@ loadScripts(document, 'script');</script>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getShortValueSizeReport()" class="member-name-link">getShortValueSizeReport</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) int</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) long</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getStartRow()" class="member-name-link">getStartRow</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) int</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getValueLength(java.util.Random)" class="member-name-link">getValueLength</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Random.html" title="class or interface in java.util" class="external-link">Random</a>&nbsp;arg0)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getValueLength()" class="member-name-link">getValueLength</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) boolean</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isRandomValueSize()" class="member-name-link">isRandomValueSize</a>()</code></div>
@@ -181,7 +178,7 @@ loadScripts(document, 'script');</script>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#test()" class="member-name-link">test</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#testRow(int,long)" class="member-name-link">testRow</a><wbr>(int&nbsp;i,
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#testRow(long,long)" class="member-name-link">testRow</a><wbr>(long&nbsp;i,
  long&nbsp;startTime)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) void</code></div>
@@ -237,12 +234,6 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="rand">
-<h3>rand</h3>
-<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Random.html" title="class or interface in java.util" class="external-link">Random</a></span>&nbsp;<span class="element-name">rand</span></div>
-</section>
-</li>
-<li>
 <section class="detail" id="conf">
 <h3>conf</h3>
 <div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type">org.apache.hadoop.conf.Configuration</span>&nbsp;<span class="element-name">conf</span></div>
@@ -277,7 +268,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;(org.apache.hadoop.hbase.client.Connection,org.apache.hadoop.hbase.PerformanceEvaluation.TestOptions,org.apache.hadoop.hbase.PerformanceEvaluation.Status)">
 <h3>PESampleTestImpl</h3>
-<div class="member-signature"><span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/TestPerformanceEvaluation.PESampleTestImpl.html#line-392">PESampleTestImpl</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.client.Connection&nbsp;con,
+<div class="member-signature"><span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/TestPerformanceEvaluation.PESampleTestImpl.html#line-389">PESampleTestImpl</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.client.Connection&nbsp;con,
  org.apache.hadoop.hbase.PerformanceEvaluation.TestOptions&nbsp;options,
  org.apache.hadoop.hbase.PerformanceEvaluation.Status&nbsp;status)</span></div>
 </section>
@@ -293,7 +284,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="onStartup()">
 <h3>onStartup</h3>
-<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/TestPerformanceEvaluation.PESampleTestImpl.html#line-396">onStartup</a></span>()
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/TestPerformanceEvaluation.PESampleTestImpl.html#line-393">onStartup</a></span>()
         throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -304,7 +295,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="onTakedown()">
 <h3>onTakedown</h3>
-<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/TestPerformanceEvaluation.PESampleTestImpl.html#line-400">onTakedown</a></span>()
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/TestPerformanceEvaluation.PESampleTestImpl.html#line-397">onTakedown</a></span>()
          throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -313,9 +304,9 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="testRow(int,long)">
+<section class="detail" id="testRow(long,long)">
 <h3>testRow</h3>
-<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/TestPerformanceEvaluation.PESampleTestImpl.html#line-404">testRow</a></span><wbr><span class="parameters">(int&nbsp;i,
+<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/TestPerformanceEvaluation.PESampleTestImpl.html#line-401">testRow</a></span><wbr><span class="parameters">(long&nbsp;i,
  long&nbsp;startTime)</span>
          throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a>,
 <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/InterruptedException.html" title="class or interface in java.lang" class="external-link">InterruptedException</a></span></div>
@@ -327,9 +318,9 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="getValueLength(java.util.Random)">
+<section class="detail" id="getValueLength()">
 <h3>getValueLength</h3>
-<div class="member-signature"><span class="return-type">int</span>&nbsp;<span class="element-name">getValueLength</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Random.html" title="class or interface in java.util" class="external-link">Random</a>&nbsp;arg0)</span></div>
+<div class="member-signature"><span class="return-type">int</span>&nbsp;<span class="element-name">getValueLength</span>()</div>
 </section>
 </li>
 <li>
@@ -391,11 +382,11 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="generateStatus(int,int,int)">
+<section class="detail" id="generateStatus(long,long,long)">
 <h3>generateStatus</h3>
-<div class="member-signature"><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">generateStatus</span><wbr><span class="parameters">(int&nbsp;arg0,
- int&nbsp;arg1,
- int&nbsp;arg2)</span></div>
+<div class="member-signature"><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">generateStatus</span><wbr><span class="parameters">(long&nbsp;arg0,
+ long&nbsp;arg1,
+ long&nbsp;arg2)</span></div>
 </section>
 </li>
 <li>
@@ -407,7 +398,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getReportingPeriod()">
 <h3>getReportingPeriod</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getReportingPeriod</span>()</div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name">getReportingPeriod</span>()</div>
 </section>
 </li>
 <li>
@@ -454,13 +445,13 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getStartRow()">
 <h3>getStartRow</h3>
-<div class="member-signature"><span class="return-type">int</span>&nbsp;<span class="element-name">getStartRow</span>()</div>
+<div class="member-signature"><span class="return-type">long</span>&nbsp;<span class="element-name">getStartRow</span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getLastRow()">
 <h3>getLastRow</h3>
-<div class="member-signature"><span class="return-type">int</span>&nbsp;<span class="element-name">getLastRow</span>()</div>
+<div class="member-signature"><span class="return-type">long</span>&nbsp;<span class="element-name">getLastRow</span>()</div>
 </section>
 </li>
 <li>

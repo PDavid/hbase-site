@@ -88,7 +88,7 @@ loadScripts(document, 'script');</script>
 </dl>
 <hr>
 <div class="type-signature"><span class="annotations">@LimitedPrivate("Configuration")
-</span><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/BackupHFileCleaner.html#line-47">BackupHFileCleaner</a></span>
+</span><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/BackupHFileCleaner.html#line-48">BackupHFileCleaner</a></span>
 <span class="extends-implements">extends <a href="../master/cleaner/BaseHFileCleanerDelegate.html" title="class in org.apache.hadoop.hbase.master.cleaner">BaseHFileCleanerDelegate</a>
 implements <a href="../Abortable.html" title="interface in org.apache.hadoop.hbase">Abortable</a></span></div>
 <div class="block">Implementation of a file cleaner that checks if an hfile is still referenced by backup before
@@ -237,55 +237,55 @@ implements <a href="../Abortable.html" title="interface in org.apache.hadoop.hba
 <li>
 <section class="detail" id="LOG">
 <h3>LOG</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/BackupHFileCleaner.html#line-49">LOG</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/BackupHFileCleaner.html#line-50">LOG</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="stopped">
 <h3>stopped</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/BackupHFileCleaner.html#line-50">stopped</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/BackupHFileCleaner.html#line-51">stopped</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="aborted">
 <h3>aborted</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/BackupHFileCleaner.html#line-51">aborted</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/BackupHFileCleaner.html#line-52">aborted</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="conf">
 <h3>conf</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.conf.Configuration</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/BackupHFileCleaner.html#line-52">conf</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.conf.Configuration</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/BackupHFileCleaner.html#line-53">conf</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="connection">
 <h3>connection</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/BackupHFileCleaner.html#line-53">connection</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/BackupHFileCleaner.html#line-54">connection</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="prevReadFromBackupTbl">
 <h3>prevReadFromBackupTbl</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/BackupHFileCleaner.html#line-54">prevReadFromBackupTbl</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/BackupHFileCleaner.html#line-55">prevReadFromBackupTbl</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="secondPrevReadFromBackupTbl">
 <h3>secondPrevReadFromBackupTbl</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/BackupHFileCleaner.html#line-54">secondPrevReadFromBackupTbl</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/BackupHFileCleaner.html#line-55">secondPrevReadFromBackupTbl</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="checkForFullyBackedUpTables">
 <h3>checkForFullyBackedUpTables</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/BackupHFileCleaner.html#line-57">checkForFullyBackedUpTables</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/BackupHFileCleaner.html#line-58">checkForFullyBackedUpTables</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="fullyBackedUpTables">
 <h3>fullyBackedUpTables</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/BackupHFileCleaner.html#line-58">fullyBackedUpTables</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/BackupHFileCleaner.html#line-59">fullyBackedUpTables</a></span></div>
 </section>
 </li>
 </ul>
@@ -299,7 +299,7 @@ implements <a href="../Abortable.html" title="interface in org.apache.hadoop.hba
 <li>
 <section class="detail" id="&lt;init&gt;()">
 <h3>BackupHFileCleaner</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/BackupHFileCleaner.html#line-48">BackupHFileCleaner</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/BackupHFileCleaner.html#line-49">BackupHFileCleaner</a></span>()</div>
 </section>
 </li>
 </ul>
@@ -313,13 +313,13 @@ implements <a href="../Abortable.html" title="interface in org.apache.hadoop.hba
 <li>
 <section class="detail" id="getFilenameFromBulkLoad(java.util.Map[])">
 <h3>getFilenameFromBulkLoad</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/BackupHFileCleaner.html#line-60">getFilenameFromBulkLoad</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;byte[],<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;org.apache.hadoop.fs.Path&gt;&gt;[]&nbsp;maps)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/BackupHFileCleaner.html#line-61">getFilenameFromBulkLoad</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;byte[],<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;org.apache.hadoop.fs.Path&gt;&gt;[]&nbsp;maps)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="loadHFileRefs(java.util.List)">
 <h3>loadHFileRefs</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/BackupHFileCleaner.html#line-76">loadHFileRefs</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&gt;&nbsp;tableList)</span>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/BackupHFileCleaner.html#line-77">loadHFileRefs</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&gt;&nbsp;tableList)</span>
                            throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -331,13 +331,13 @@ implements <a href="../Abortable.html" title="interface in org.apache.hadoop.hba
 <section class="detail" id="setCheckForFullyBackedUpTables(boolean)">
 <h3>setCheckForFullyBackedUpTables</h3>
 <div class="member-signature"><span class="annotations">@Private
-</span><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/BackupHFileCleaner.html#line-88">setCheckForFullyBackedUpTables</a></span><wbr><span class="parameters">(boolean&nbsp;b)</span></div>
+</span><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/BackupHFileCleaner.html#line-89">setCheckForFullyBackedUpTables</a></span><wbr><span class="parameters">(boolean&nbsp;b)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getDeletableFiles(java.lang.Iterable)">
 <h3>getDeletableFiles</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Iterable.html" title="class or interface in java.lang" class="external-link">Iterable</a>&lt;org.apache.hadoop.fs.FileStatus&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/BackupHFileCleaner.html#line-93">getDeletableFiles</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Iterable.html" title="class or interface in java.lang" class="external-link">Iterable</a>&lt;org.apache.hadoop.fs.FileStatus&gt;&nbsp;files)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Iterable.html" title="class or interface in java.lang" class="external-link">Iterable</a>&lt;org.apache.hadoop.fs.FileStatus&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/BackupHFileCleaner.html#line-94">getDeletableFiles</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Iterable.html" title="class or interface in java.lang" class="external-link">Iterable</a>&lt;org.apache.hadoop.fs.FileStatus&gt;&nbsp;files)</span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../master/cleaner/FileCleanerDelegate.html#getDeletableFiles(java.lang.Iterable)">FileCleanerDelegate</a></code></span></div>
 <div class="block">Determines which of the given files are safe to delete</div>
 <dl class="notes">
@@ -355,7 +355,7 @@ implements <a href="../Abortable.html" title="interface in org.apache.hadoop.hba
 <li>
 <section class="detail" id="isFileDeletable(org.apache.hadoop.fs.FileStatus)">
 <h3>isFileDeletable</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/BackupHFileCleaner.html#line-132">isFileDeletable</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.FileStatus&nbsp;fStat)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/BackupHFileCleaner.html#line-133">isFileDeletable</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.FileStatus&nbsp;fStat)</span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="../master/cleaner/BaseFileCleanerDelegate.html#isFileDeletable(org.apache.hadoop.fs.FileStatus)">BaseFileCleanerDelegate</a></code></span></div>
 <div class="block">Should the master delete the file or keep it?</div>
 <dl class="notes">
@@ -371,7 +371,7 @@ implements <a href="../Abortable.html" title="interface in org.apache.hadoop.hba
 <li>
 <section class="detail" id="setConf(org.apache.hadoop.conf.Configuration)">
 <h3>setConf</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/BackupHFileCleaner.html#line-138">setConf</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;config)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/BackupHFileCleaner.html#line-139">setConf</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;config)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>setConf</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.conf.Configurable</code></dd>
@@ -383,7 +383,7 @@ implements <a href="../Abortable.html" title="interface in org.apache.hadoop.hba
 <li>
 <section class="detail" id="stop(java.lang.String)">
 <h3>stop</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/BackupHFileCleaner.html#line-149">stop</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;why)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/BackupHFileCleaner.html#line-150">stop</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;why)</span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../Stoppable.html#stop(java.lang.String)">Stoppable</a></code></span></div>
 <div class="block">Stop this service. Implementers should favor logging errors over throwing RuntimeExceptions.</div>
 <dl class="notes">
@@ -399,7 +399,7 @@ implements <a href="../Abortable.html" title="interface in org.apache.hadoop.hba
 <li>
 <section class="detail" id="isStopped()">
 <h3>isStopped</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/BackupHFileCleaner.html#line-164">isStopped</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/BackupHFileCleaner.html#line-165">isStopped</a></span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../Stoppable.html#isStopped()">Stoppable</a></code></span></div>
 <div class="block">Returns True if <a href="../Stoppable.html#stop(java.lang.String)"><code>Stoppable.stop(String)</code></a> has been closed.</div>
 <dl class="notes">
@@ -413,7 +413,7 @@ implements <a href="../Abortable.html" title="interface in org.apache.hadoop.hba
 <li>
 <section class="detail" id="abort(java.lang.String,java.lang.Throwable)">
 <h3>abort</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/BackupHFileCleaner.html#line-169">abort</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;why,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/BackupHFileCleaner.html#line-170">abort</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;why,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&nbsp;e)</span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../Abortable.html#abort(java.lang.String,java.lang.Throwable)">Abortable</a></code></span></div>
 <div class="block">Abort the server or client.</div>
@@ -429,7 +429,7 @@ implements <a href="../Abortable.html" title="interface in org.apache.hadoop.hba
 <li>
 <section class="detail" id="isAborted()">
 <h3>isAborted</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/BackupHFileCleaner.html#line-176">isAborted</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/BackupHFileCleaner.html#line-177">isAborted</a></span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../Abortable.html#isAborted()">Abortable</a></code></span></div>
 <div class="block">Check if the server or client was aborted.</div>
 <dl class="notes">

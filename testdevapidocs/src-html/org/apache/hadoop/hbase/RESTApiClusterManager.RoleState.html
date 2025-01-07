@@ -277,331 +277,341 @@
 <span class="source-line-no">264</span><span id="line-264">    hBaseClusterManager.resume(service, hostname, port);</span>
 <span class="source-line-no">265</span><span id="line-265">  }</span>
 <span class="source-line-no">266</span><span id="line-266"></span>
-<span class="source-line-no">267</span><span id="line-267">  // Convenience method to execute command against role on hostname. Only graceful commands are</span>
-<span class="source-line-no">268</span><span id="line-268">  // supported since cluster management APIs don't tend to let you SIGKILL things.</span>
-<span class="source-line-no">269</span><span id="line-269">  private void performClusterManagerCommand(ServiceType role, String hostname,</span>
-<span class="source-line-no">270</span><span id="line-270">    RoleCommand command) {</span>
-<span class="source-line-no">271</span><span id="line-271">    // retry submitting the command until the submission succeeds.</span>
-<span class="source-line-no">272</span><span id="line-272">    final long commandId = executeWithRetries(() -&gt; {</span>
-<span class="source-line-no">273</span><span id="line-273">      final String serviceName = getServiceName(roleServiceType.get(role));</span>
-<span class="source-line-no">274</span><span id="line-274">      final String hostId = getHostId(hostname);</span>
-<span class="source-line-no">275</span><span id="line-275">      final String roleName = getRoleName(serviceName, role.toString(), hostId);</span>
-<span class="source-line-no">276</span><span id="line-276">      return doRoleCommand(serviceName, roleName, command);</span>
-<span class="source-line-no">277</span><span id="line-277">    });</span>
-<span class="source-line-no">278</span><span id="line-278">    LOG.debug("Command {} of {} on {} submitted as commandId {}", command, role, hostname,</span>
-<span class="source-line-no">279</span><span id="line-279">      commandId);</span>
-<span class="source-line-no">280</span><span id="line-280"></span>
-<span class="source-line-no">281</span><span id="line-281">    // assume the submitted command was asynchronous. wait on the commandId to be marked as</span>
-<span class="source-line-no">282</span><span id="line-282">    // successful.</span>
-<span class="source-line-no">283</span><span id="line-283">    waitFor(() -&gt; hasCommandCompleted(commandId));</span>
-<span class="source-line-no">284</span><span id="line-284">    if (!executeWithRetries(() -&gt; hasCommandCompletedSuccessfully(commandId))) {</span>
-<span class="source-line-no">285</span><span id="line-285">      final String msg = String.format("Command %s of %s on %s submitted as commandId %s failed.",</span>
-<span class="source-line-no">286</span><span id="line-286">        command, role, hostname, commandId);</span>
-<span class="source-line-no">287</span><span id="line-287">      // TODO: this does not interrupt the monkey. should it?</span>
-<span class="source-line-no">288</span><span id="line-288">      throw new RuntimeException(msg);</span>
-<span class="source-line-no">289</span><span id="line-289">    }</span>
-<span class="source-line-no">290</span><span id="line-290">    LOG.debug("Command {} of {} on {} submitted as commandId {} completed successfully.", command,</span>
-<span class="source-line-no">291</span><span id="line-291">      role, hostname, commandId);</span>
-<span class="source-line-no">292</span><span id="line-292">  }</span>
-<span class="source-line-no">293</span><span id="line-293"></span>
-<span class="source-line-no">294</span><span id="line-294">  /**</span>
-<span class="source-line-no">295</span><span id="line-295">   * Issues a command (e.g. starting or stopping a role).</span>
-<span class="source-line-no">296</span><span id="line-296">   * @return the commandId of a successfully submitted asynchronous command.</span>
-<span class="source-line-no">297</span><span id="line-297">   */</span>
-<span class="source-line-no">298</span><span id="line-298">  private long doRoleCommand(String serviceName, String roleName, RoleCommand roleCommand) {</span>
-<span class="source-line-no">299</span><span id="line-299">    URI uri = UriBuilder.fromUri(serverHostname).path("api").path(API_VERSION).path("clusters")</span>
-<span class="source-line-no">300</span><span id="line-300">      .path(clusterName).path("services").path(serviceName).path("roleCommands")</span>
-<span class="source-line-no">301</span><span id="line-301">      .path(roleCommand.toString()).build();</span>
-<span class="source-line-no">302</span><span id="line-302">    String body = "{ \"items\": [ \"" + roleName + "\" ] }";</span>
-<span class="source-line-no">303</span><span id="line-303">    LOG.trace("Executing POST against {} with body {} ...", uri, body);</span>
-<span class="source-line-no">304</span><span id="line-304">    WebTarget webTarget = client.target(uri);</span>
-<span class="source-line-no">305</span><span id="line-305">    Invocation.Builder invocationBuilder = webTarget.request(MediaType.APPLICATION_JSON);</span>
-<span class="source-line-no">306</span><span id="line-306">    Response response = invocationBuilder.post(Entity.json(body));</span>
-<span class="source-line-no">307</span><span id="line-307">    final int statusCode = response.getStatus();</span>
-<span class="source-line-no">308</span><span id="line-308">    final String responseBody = response.readEntity(String.class);</span>
-<span class="source-line-no">309</span><span id="line-309">    if (statusCode != Response.Status.OK.getStatusCode()) {</span>
-<span class="source-line-no">310</span><span id="line-310">      LOG.warn("RoleCommand failed with status code {} and response body {}", statusCode,</span>
-<span class="source-line-no">311</span><span id="line-311">        responseBody);</span>
-<span class="source-line-no">312</span><span id="line-312">      throw new HTTPException(statusCode);</span>
-<span class="source-line-no">313</span><span id="line-313">    }</span>
-<span class="source-line-no">314</span><span id="line-314"></span>
-<span class="source-line-no">315</span><span id="line-315">    LOG.trace("POST against {} completed with status code {} and response body {}", uri, statusCode,</span>
-<span class="source-line-no">316</span><span id="line-316">      responseBody);</span>
-<span class="source-line-no">317</span><span id="line-317">    return parser.parse(responseBody).getAsJsonObject().get("items").getAsJsonArray().get(0)</span>
-<span class="source-line-no">318</span><span id="line-318">      .getAsJsonObject().get("id").getAsLong();</span>
-<span class="source-line-no">319</span><span id="line-319">  }</span>
-<span class="source-line-no">320</span><span id="line-320"></span>
-<span class="source-line-no">321</span><span id="line-321">  private HealthSummary getHealthSummary(String serviceName, String roleType, String hostId) {</span>
-<span class="source-line-no">322</span><span id="line-322">    return HealthSummary</span>
-<span class="source-line-no">323</span><span id="line-323">      .fromString(getRolePropertyValue(serviceName, roleType, hostId, "healthSummary"));</span>
-<span class="source-line-no">324</span><span id="line-324">  }</span>
-<span class="source-line-no">325</span><span id="line-325"></span>
-<span class="source-line-no">326</span><span id="line-326">  // This API uses a hostId to execute host-specific commands; get one from a hostname.</span>
-<span class="source-line-no">327</span><span id="line-327">  private String getHostId(String hostname) {</span>
-<span class="source-line-no">328</span><span id="line-328">    String hostId = null;</span>
-<span class="source-line-no">329</span><span id="line-329">    URI uri =</span>
-<span class="source-line-no">330</span><span id="line-330">      UriBuilder.fromUri(serverHostname).path("api").path(API_VERSION).path("hosts").build();</span>
-<span class="source-line-no">331</span><span id="line-331">    JsonElement hosts = parser.parse(getFromURIGet(uri)).getAsJsonObject().get("items");</span>
-<span class="source-line-no">332</span><span id="line-332">    if (hosts != null) {</span>
-<span class="source-line-no">333</span><span id="line-333">      // Iterate through the list of hosts, stopping once you've reached the requested hostname.</span>
-<span class="source-line-no">334</span><span id="line-334">      for (JsonElement host : hosts.getAsJsonArray()) {</span>
-<span class="source-line-no">335</span><span id="line-335">        if (host.getAsJsonObject().get("hostname").getAsString().equals(hostname)) {</span>
-<span class="source-line-no">336</span><span id="line-336">          hostId = host.getAsJsonObject().get("hostId").getAsString();</span>
-<span class="source-line-no">337</span><span id="line-337">          break;</span>
-<span class="source-line-no">338</span><span id="line-338">        }</span>
-<span class="source-line-no">339</span><span id="line-339">      }</span>
-<span class="source-line-no">340</span><span id="line-340">    }</span>
-<span class="source-line-no">341</span><span id="line-341"></span>
-<span class="source-line-no">342</span><span id="line-342">    return hostId;</span>
-<span class="source-line-no">343</span><span id="line-343">  }</span>
-<span class="source-line-no">344</span><span id="line-344"></span>
-<span class="source-line-no">345</span><span id="line-345">  private String getFromURIGet(URI uri) {</span>
-<span class="source-line-no">346</span><span id="line-346">    LOG.trace("Executing GET against {} ...", uri);</span>
-<span class="source-line-no">347</span><span id="line-347">    final Response response = client.target(uri).request(MediaType.APPLICATION_JSON_TYPE).get();</span>
-<span class="source-line-no">348</span><span id="line-348">    int statusCode = response.getStatus();</span>
-<span class="source-line-no">349</span><span id="line-349">    final String responseBody = response.readEntity(String.class);</span>
-<span class="source-line-no">350</span><span id="line-350">    if (statusCode != Response.Status.OK.getStatusCode()) {</span>
-<span class="source-line-no">351</span><span id="line-351">      LOG.warn("request failed with status code {} and response body {}", statusCode, responseBody);</span>
-<span class="source-line-no">352</span><span id="line-352">      throw new HTTPException(statusCode);</span>
-<span class="source-line-no">353</span><span id="line-353">    }</span>
-<span class="source-line-no">354</span><span id="line-354">    // This API folds information as the value to an "items" attribute.</span>
-<span class="source-line-no">355</span><span id="line-355">    LOG.trace("GET against {} completed with status code {} and response body {}", uri, statusCode,</span>
-<span class="source-line-no">356</span><span id="line-356">      responseBody);</span>
-<span class="source-line-no">357</span><span id="line-357">    return responseBody;</span>
-<span class="source-line-no">358</span><span id="line-358">  }</span>
-<span class="source-line-no">359</span><span id="line-359"></span>
-<span class="source-line-no">360</span><span id="line-360">  // This API assigns a unique role name to each host's instance of a role.</span>
-<span class="source-line-no">361</span><span id="line-361">  private String getRoleName(String serviceName, String roleType, String hostId) {</span>
-<span class="source-line-no">362</span><span id="line-362">    return getRolePropertyValue(serviceName, roleType, hostId, "name");</span>
-<span class="source-line-no">363</span><span id="line-363">  }</span>
-<span class="source-line-no">364</span><span id="line-364"></span>
-<span class="source-line-no">365</span><span id="line-365">  // Get the value of a property from a role on a particular host.</span>
-<span class="source-line-no">366</span><span id="line-366">  private String getRolePropertyValue(String serviceName, String roleType, String hostId,</span>
-<span class="source-line-no">367</span><span id="line-367">    String property) {</span>
-<span class="source-line-no">368</span><span id="line-368">    String roleValue = null;</span>
-<span class="source-line-no">369</span><span id="line-369">    URI uri = UriBuilder.fromUri(serverHostname).path("api").path(API_VERSION).path("clusters")</span>
-<span class="source-line-no">370</span><span id="line-370">      .path(clusterName).path("services").path(serviceName).path("roles").build();</span>
-<span class="source-line-no">371</span><span id="line-371">    JsonElement roles = parser.parse(getFromURIGet(uri)).getAsJsonObject().get("items");</span>
-<span class="source-line-no">372</span><span id="line-372">    if (roles != null) {</span>
-<span class="source-line-no">373</span><span id="line-373">      // Iterate through the list of roles, stopping once the requested one is found.</span>
-<span class="source-line-no">374</span><span id="line-374">      for (JsonElement role : roles.getAsJsonArray()) {</span>
-<span class="source-line-no">375</span><span id="line-375">        JsonObject roleObj = role.getAsJsonObject();</span>
-<span class="source-line-no">376</span><span id="line-376">        if (</span>
-<span class="source-line-no">377</span><span id="line-377">          roleObj.get("hostRef").getAsJsonObject().get("hostId").getAsString().equals(hostId)</span>
-<span class="source-line-no">378</span><span id="line-378">            &amp;&amp; roleObj.get("type").getAsString().toLowerCase(Locale.ROOT)</span>
-<span class="source-line-no">379</span><span id="line-379">              .equals(roleType.toLowerCase(Locale.ROOT))</span>
-<span class="source-line-no">380</span><span id="line-380">        ) {</span>
-<span class="source-line-no">381</span><span id="line-381">          roleValue = roleObj.get(property).getAsString();</span>
-<span class="source-line-no">382</span><span id="line-382">          break;</span>
-<span class="source-line-no">383</span><span id="line-383">        }</span>
-<span class="source-line-no">384</span><span id="line-384">      }</span>
-<span class="source-line-no">385</span><span id="line-385">    }</span>
-<span class="source-line-no">386</span><span id="line-386"></span>
-<span class="source-line-no">387</span><span id="line-387">    return roleValue;</span>
-<span class="source-line-no">388</span><span id="line-388">  }</span>
-<span class="source-line-no">389</span><span id="line-389"></span>
-<span class="source-line-no">390</span><span id="line-390">  private RoleState getRoleState(ServiceType service, String hostname) {</span>
-<span class="source-line-no">391</span><span id="line-391">    return executeWithRetries(() -&gt; {</span>
-<span class="source-line-no">392</span><span id="line-392">      String serviceName = getServiceName(roleServiceType.get(service));</span>
-<span class="source-line-no">393</span><span id="line-393">      String hostId = getHostId(hostname);</span>
-<span class="source-line-no">394</span><span id="line-394">      RoleState state = getRoleState(serviceName, service.toString(), hostId);</span>
-<span class="source-line-no">395</span><span id="line-395">      // sometimes the response (usually the first) is null. retry those.</span>
-<span class="source-line-no">396</span><span id="line-396">      return Objects.requireNonNull(state);</span>
-<span class="source-line-no">397</span><span id="line-397">    });</span>
+<span class="source-line-no">267</span><span id="line-267">  @Override</span>
+<span class="source-line-no">268</span><span id="line-268">  public boolean isSuspended(ServiceType service, String hostname, int port) throws IOException {</span>
+<span class="source-line-no">269</span><span id="line-269">    return hBaseClusterManager.isSuspended(service, hostname, port);</span>
+<span class="source-line-no">270</span><span id="line-270">  }</span>
+<span class="source-line-no">271</span><span id="line-271"></span>
+<span class="source-line-no">272</span><span id="line-272">  @Override</span>
+<span class="source-line-no">273</span><span id="line-273">  public boolean isResumed(ServiceType service, String hostname, int port) throws IOException {</span>
+<span class="source-line-no">274</span><span id="line-274">    return hBaseClusterManager.isResumed(service, hostname, port);</span>
+<span class="source-line-no">275</span><span id="line-275">  }</span>
+<span class="source-line-no">276</span><span id="line-276"></span>
+<span class="source-line-no">277</span><span id="line-277">  // Convenience method to execute command against role on hostname. Only graceful commands are</span>
+<span class="source-line-no">278</span><span id="line-278">  // supported since cluster management APIs don't tend to let you SIGKILL things.</span>
+<span class="source-line-no">279</span><span id="line-279">  private void performClusterManagerCommand(ServiceType role, String hostname,</span>
+<span class="source-line-no">280</span><span id="line-280">    RoleCommand command) {</span>
+<span class="source-line-no">281</span><span id="line-281">    // retry submitting the command until the submission succeeds.</span>
+<span class="source-line-no">282</span><span id="line-282">    final long commandId = executeWithRetries(() -&gt; {</span>
+<span class="source-line-no">283</span><span id="line-283">      final String serviceName = getServiceName(roleServiceType.get(role));</span>
+<span class="source-line-no">284</span><span id="line-284">      final String hostId = getHostId(hostname);</span>
+<span class="source-line-no">285</span><span id="line-285">      final String roleName = getRoleName(serviceName, role.toString(), hostId);</span>
+<span class="source-line-no">286</span><span id="line-286">      return doRoleCommand(serviceName, roleName, command);</span>
+<span class="source-line-no">287</span><span id="line-287">    });</span>
+<span class="source-line-no">288</span><span id="line-288">    LOG.debug("Command {} of {} on {} submitted as commandId {}", command, role, hostname,</span>
+<span class="source-line-no">289</span><span id="line-289">      commandId);</span>
+<span class="source-line-no">290</span><span id="line-290"></span>
+<span class="source-line-no">291</span><span id="line-291">    // assume the submitted command was asynchronous. wait on the commandId to be marked as</span>
+<span class="source-line-no">292</span><span id="line-292">    // successful.</span>
+<span class="source-line-no">293</span><span id="line-293">    waitFor(() -&gt; hasCommandCompleted(commandId));</span>
+<span class="source-line-no">294</span><span id="line-294">    if (!executeWithRetries(() -&gt; hasCommandCompletedSuccessfully(commandId))) {</span>
+<span class="source-line-no">295</span><span id="line-295">      final String msg = String.format("Command %s of %s on %s submitted as commandId %s failed.",</span>
+<span class="source-line-no">296</span><span id="line-296">        command, role, hostname, commandId);</span>
+<span class="source-line-no">297</span><span id="line-297">      // TODO: this does not interrupt the monkey. should it?</span>
+<span class="source-line-no">298</span><span id="line-298">      throw new RuntimeException(msg);</span>
+<span class="source-line-no">299</span><span id="line-299">    }</span>
+<span class="source-line-no">300</span><span id="line-300">    LOG.debug("Command {} of {} on {} submitted as commandId {} completed successfully.", command,</span>
+<span class="source-line-no">301</span><span id="line-301">      role, hostname, commandId);</span>
+<span class="source-line-no">302</span><span id="line-302">  }</span>
+<span class="source-line-no">303</span><span id="line-303"></span>
+<span class="source-line-no">304</span><span id="line-304">  /**</span>
+<span class="source-line-no">305</span><span id="line-305">   * Issues a command (e.g. starting or stopping a role).</span>
+<span class="source-line-no">306</span><span id="line-306">   * @return the commandId of a successfully submitted asynchronous command.</span>
+<span class="source-line-no">307</span><span id="line-307">   */</span>
+<span class="source-line-no">308</span><span id="line-308">  private long doRoleCommand(String serviceName, String roleName, RoleCommand roleCommand) {</span>
+<span class="source-line-no">309</span><span id="line-309">    URI uri = UriBuilder.fromUri(serverHostname).path("api").path(API_VERSION).path("clusters")</span>
+<span class="source-line-no">310</span><span id="line-310">      .path(clusterName).path("services").path(serviceName).path("roleCommands")</span>
+<span class="source-line-no">311</span><span id="line-311">      .path(roleCommand.toString()).build();</span>
+<span class="source-line-no">312</span><span id="line-312">    String body = "{ \"items\": [ \"" + roleName + "\" ] }";</span>
+<span class="source-line-no">313</span><span id="line-313">    LOG.trace("Executing POST against {} with body {} ...", uri, body);</span>
+<span class="source-line-no">314</span><span id="line-314">    WebTarget webTarget = client.target(uri);</span>
+<span class="source-line-no">315</span><span id="line-315">    Invocation.Builder invocationBuilder = webTarget.request(MediaType.APPLICATION_JSON);</span>
+<span class="source-line-no">316</span><span id="line-316">    Response response = invocationBuilder.post(Entity.json(body));</span>
+<span class="source-line-no">317</span><span id="line-317">    final int statusCode = response.getStatus();</span>
+<span class="source-line-no">318</span><span id="line-318">    final String responseBody = response.readEntity(String.class);</span>
+<span class="source-line-no">319</span><span id="line-319">    if (statusCode != Response.Status.OK.getStatusCode()) {</span>
+<span class="source-line-no">320</span><span id="line-320">      LOG.warn("RoleCommand failed with status code {} and response body {}", statusCode,</span>
+<span class="source-line-no">321</span><span id="line-321">        responseBody);</span>
+<span class="source-line-no">322</span><span id="line-322">      throw new HTTPException(statusCode);</span>
+<span class="source-line-no">323</span><span id="line-323">    }</span>
+<span class="source-line-no">324</span><span id="line-324"></span>
+<span class="source-line-no">325</span><span id="line-325">    LOG.trace("POST against {} completed with status code {} and response body {}", uri, statusCode,</span>
+<span class="source-line-no">326</span><span id="line-326">      responseBody);</span>
+<span class="source-line-no">327</span><span id="line-327">    return parser.parse(responseBody).getAsJsonObject().get("items").getAsJsonArray().get(0)</span>
+<span class="source-line-no">328</span><span id="line-328">      .getAsJsonObject().get("id").getAsLong();</span>
+<span class="source-line-no">329</span><span id="line-329">  }</span>
+<span class="source-line-no">330</span><span id="line-330"></span>
+<span class="source-line-no">331</span><span id="line-331">  private HealthSummary getHealthSummary(String serviceName, String roleType, String hostId) {</span>
+<span class="source-line-no">332</span><span id="line-332">    return HealthSummary</span>
+<span class="source-line-no">333</span><span id="line-333">      .fromString(getRolePropertyValue(serviceName, roleType, hostId, "healthSummary"));</span>
+<span class="source-line-no">334</span><span id="line-334">  }</span>
+<span class="source-line-no">335</span><span id="line-335"></span>
+<span class="source-line-no">336</span><span id="line-336">  // This API uses a hostId to execute host-specific commands; get one from a hostname.</span>
+<span class="source-line-no">337</span><span id="line-337">  private String getHostId(String hostname) {</span>
+<span class="source-line-no">338</span><span id="line-338">    String hostId = null;</span>
+<span class="source-line-no">339</span><span id="line-339">    URI uri =</span>
+<span class="source-line-no">340</span><span id="line-340">      UriBuilder.fromUri(serverHostname).path("api").path(API_VERSION).path("hosts").build();</span>
+<span class="source-line-no">341</span><span id="line-341">    JsonElement hosts = parser.parse(getFromURIGet(uri)).getAsJsonObject().get("items");</span>
+<span class="source-line-no">342</span><span id="line-342">    if (hosts != null) {</span>
+<span class="source-line-no">343</span><span id="line-343">      // Iterate through the list of hosts, stopping once you've reached the requested hostname.</span>
+<span class="source-line-no">344</span><span id="line-344">      for (JsonElement host : hosts.getAsJsonArray()) {</span>
+<span class="source-line-no">345</span><span id="line-345">        if (host.getAsJsonObject().get("hostname").getAsString().equals(hostname)) {</span>
+<span class="source-line-no">346</span><span id="line-346">          hostId = host.getAsJsonObject().get("hostId").getAsString();</span>
+<span class="source-line-no">347</span><span id="line-347">          break;</span>
+<span class="source-line-no">348</span><span id="line-348">        }</span>
+<span class="source-line-no">349</span><span id="line-349">      }</span>
+<span class="source-line-no">350</span><span id="line-350">    }</span>
+<span class="source-line-no">351</span><span id="line-351"></span>
+<span class="source-line-no">352</span><span id="line-352">    return hostId;</span>
+<span class="source-line-no">353</span><span id="line-353">  }</span>
+<span class="source-line-no">354</span><span id="line-354"></span>
+<span class="source-line-no">355</span><span id="line-355">  private String getFromURIGet(URI uri) {</span>
+<span class="source-line-no">356</span><span id="line-356">    LOG.trace("Executing GET against {} ...", uri);</span>
+<span class="source-line-no">357</span><span id="line-357">    final Response response = client.target(uri).request(MediaType.APPLICATION_JSON_TYPE).get();</span>
+<span class="source-line-no">358</span><span id="line-358">    int statusCode = response.getStatus();</span>
+<span class="source-line-no">359</span><span id="line-359">    final String responseBody = response.readEntity(String.class);</span>
+<span class="source-line-no">360</span><span id="line-360">    if (statusCode != Response.Status.OK.getStatusCode()) {</span>
+<span class="source-line-no">361</span><span id="line-361">      LOG.warn("request failed with status code {} and response body {}", statusCode, responseBody);</span>
+<span class="source-line-no">362</span><span id="line-362">      throw new HTTPException(statusCode);</span>
+<span class="source-line-no">363</span><span id="line-363">    }</span>
+<span class="source-line-no">364</span><span id="line-364">    // This API folds information as the value to an "items" attribute.</span>
+<span class="source-line-no">365</span><span id="line-365">    LOG.trace("GET against {} completed with status code {} and response body {}", uri, statusCode,</span>
+<span class="source-line-no">366</span><span id="line-366">      responseBody);</span>
+<span class="source-line-no">367</span><span id="line-367">    return responseBody;</span>
+<span class="source-line-no">368</span><span id="line-368">  }</span>
+<span class="source-line-no">369</span><span id="line-369"></span>
+<span class="source-line-no">370</span><span id="line-370">  // This API assigns a unique role name to each host's instance of a role.</span>
+<span class="source-line-no">371</span><span id="line-371">  private String getRoleName(String serviceName, String roleType, String hostId) {</span>
+<span class="source-line-no">372</span><span id="line-372">    return getRolePropertyValue(serviceName, roleType, hostId, "name");</span>
+<span class="source-line-no">373</span><span id="line-373">  }</span>
+<span class="source-line-no">374</span><span id="line-374"></span>
+<span class="source-line-no">375</span><span id="line-375">  // Get the value of a property from a role on a particular host.</span>
+<span class="source-line-no">376</span><span id="line-376">  private String getRolePropertyValue(String serviceName, String roleType, String hostId,</span>
+<span class="source-line-no">377</span><span id="line-377">    String property) {</span>
+<span class="source-line-no">378</span><span id="line-378">    String roleValue = null;</span>
+<span class="source-line-no">379</span><span id="line-379">    URI uri = UriBuilder.fromUri(serverHostname).path("api").path(API_VERSION).path("clusters")</span>
+<span class="source-line-no">380</span><span id="line-380">      .path(clusterName).path("services").path(serviceName).path("roles").build();</span>
+<span class="source-line-no">381</span><span id="line-381">    JsonElement roles = parser.parse(getFromURIGet(uri)).getAsJsonObject().get("items");</span>
+<span class="source-line-no">382</span><span id="line-382">    if (roles != null) {</span>
+<span class="source-line-no">383</span><span id="line-383">      // Iterate through the list of roles, stopping once the requested one is found.</span>
+<span class="source-line-no">384</span><span id="line-384">      for (JsonElement role : roles.getAsJsonArray()) {</span>
+<span class="source-line-no">385</span><span id="line-385">        JsonObject roleObj = role.getAsJsonObject();</span>
+<span class="source-line-no">386</span><span id="line-386">        if (</span>
+<span class="source-line-no">387</span><span id="line-387">          roleObj.get("hostRef").getAsJsonObject().get("hostId").getAsString().equals(hostId)</span>
+<span class="source-line-no">388</span><span id="line-388">            &amp;&amp; roleObj.get("type").getAsString().toLowerCase(Locale.ROOT)</span>
+<span class="source-line-no">389</span><span id="line-389">              .equals(roleType.toLowerCase(Locale.ROOT))</span>
+<span class="source-line-no">390</span><span id="line-390">        ) {</span>
+<span class="source-line-no">391</span><span id="line-391">          roleValue = roleObj.get(property).getAsString();</span>
+<span class="source-line-no">392</span><span id="line-392">          break;</span>
+<span class="source-line-no">393</span><span id="line-393">        }</span>
+<span class="source-line-no">394</span><span id="line-394">      }</span>
+<span class="source-line-no">395</span><span id="line-395">    }</span>
+<span class="source-line-no">396</span><span id="line-396"></span>
+<span class="source-line-no">397</span><span id="line-397">    return roleValue;</span>
 <span class="source-line-no">398</span><span id="line-398">  }</span>
 <span class="source-line-no">399</span><span id="line-399"></span>
-<span class="source-line-no">400</span><span id="line-400">  private RoleState getRoleState(String serviceName, String roleType, String hostId) {</span>
-<span class="source-line-no">401</span><span id="line-401">    return RoleState.fromString(getRolePropertyValue(serviceName, roleType, hostId, "roleState"));</span>
-<span class="source-line-no">402</span><span id="line-402">  }</span>
-<span class="source-line-no">403</span><span id="line-403"></span>
-<span class="source-line-no">404</span><span id="line-404">  // Convert a service (e.g. "HBASE," "HDFS") into a service name (e.g. "HBASE-1," "HDFS-1").</span>
-<span class="source-line-no">405</span><span id="line-405">  private String getServiceName(Service service) {</span>
-<span class="source-line-no">406</span><span id="line-406">    String serviceName = null;</span>
-<span class="source-line-no">407</span><span id="line-407">    URI uri = UriBuilder.fromUri(serverHostname).path("api").path(API_VERSION).path("clusters")</span>
-<span class="source-line-no">408</span><span id="line-408">      .path(clusterName).path("services").build();</span>
-<span class="source-line-no">409</span><span id="line-409">    JsonElement services = parser.parse(getFromURIGet(uri)).getAsJsonObject().get("items");</span>
-<span class="source-line-no">410</span><span id="line-410">    if (services != null) {</span>
-<span class="source-line-no">411</span><span id="line-411">      // Iterate through the list of services, stopping once the requested one is found.</span>
-<span class="source-line-no">412</span><span id="line-412">      for (JsonElement serviceEntry : services.getAsJsonArray()) {</span>
-<span class="source-line-no">413</span><span id="line-413">        if (serviceEntry.getAsJsonObject().get("type").getAsString().equals(service.toString())) {</span>
-<span class="source-line-no">414</span><span id="line-414">          serviceName = serviceEntry.getAsJsonObject().get("name").getAsString();</span>
-<span class="source-line-no">415</span><span id="line-415">          break;</span>
-<span class="source-line-no">416</span><span id="line-416">        }</span>
-<span class="source-line-no">417</span><span id="line-417">      }</span>
-<span class="source-line-no">418</span><span id="line-418">    }</span>
-<span class="source-line-no">419</span><span id="line-419"></span>
-<span class="source-line-no">420</span><span id="line-420">    return serviceName;</span>
-<span class="source-line-no">421</span><span id="line-421">  }</span>
-<span class="source-line-no">422</span><span id="line-422"></span>
-<span class="source-line-no">423</span><span id="line-423">  private Optional&lt;JsonObject&gt; getCommand(final long commandId) {</span>
-<span class="source-line-no">424</span><span id="line-424">    final URI uri = UriBuilder.fromUri(serverHostname).path("api").path(API_VERSION)</span>
-<span class="source-line-no">425</span><span id="line-425">      .path("commands").path(Long.toString(commandId)).build();</span>
-<span class="source-line-no">426</span><span id="line-426">    return Optional.ofNullable(getFromURIGet(uri)).map(parser::parse)</span>
-<span class="source-line-no">427</span><span id="line-427">      .map(JsonElement::getAsJsonObject);</span>
-<span class="source-line-no">428</span><span id="line-428">  }</span>
+<span class="source-line-no">400</span><span id="line-400">  private RoleState getRoleState(ServiceType service, String hostname) {</span>
+<span class="source-line-no">401</span><span id="line-401">    return executeWithRetries(() -&gt; {</span>
+<span class="source-line-no">402</span><span id="line-402">      String serviceName = getServiceName(roleServiceType.get(service));</span>
+<span class="source-line-no">403</span><span id="line-403">      String hostId = getHostId(hostname);</span>
+<span class="source-line-no">404</span><span id="line-404">      RoleState state = getRoleState(serviceName, service.toString(), hostId);</span>
+<span class="source-line-no">405</span><span id="line-405">      // sometimes the response (usually the first) is null. retry those.</span>
+<span class="source-line-no">406</span><span id="line-406">      return Objects.requireNonNull(state);</span>
+<span class="source-line-no">407</span><span id="line-407">    });</span>
+<span class="source-line-no">408</span><span id="line-408">  }</span>
+<span class="source-line-no">409</span><span id="line-409"></span>
+<span class="source-line-no">410</span><span id="line-410">  private RoleState getRoleState(String serviceName, String roleType, String hostId) {</span>
+<span class="source-line-no">411</span><span id="line-411">    return RoleState.fromString(getRolePropertyValue(serviceName, roleType, hostId, "roleState"));</span>
+<span class="source-line-no">412</span><span id="line-412">  }</span>
+<span class="source-line-no">413</span><span id="line-413"></span>
+<span class="source-line-no">414</span><span id="line-414">  // Convert a service (e.g. "HBASE," "HDFS") into a service name (e.g. "HBASE-1," "HDFS-1").</span>
+<span class="source-line-no">415</span><span id="line-415">  private String getServiceName(Service service) {</span>
+<span class="source-line-no">416</span><span id="line-416">    String serviceName = null;</span>
+<span class="source-line-no">417</span><span id="line-417">    URI uri = UriBuilder.fromUri(serverHostname).path("api").path(API_VERSION).path("clusters")</span>
+<span class="source-line-no">418</span><span id="line-418">      .path(clusterName).path("services").build();</span>
+<span class="source-line-no">419</span><span id="line-419">    JsonElement services = parser.parse(getFromURIGet(uri)).getAsJsonObject().get("items");</span>
+<span class="source-line-no">420</span><span id="line-420">    if (services != null) {</span>
+<span class="source-line-no">421</span><span id="line-421">      // Iterate through the list of services, stopping once the requested one is found.</span>
+<span class="source-line-no">422</span><span id="line-422">      for (JsonElement serviceEntry : services.getAsJsonArray()) {</span>
+<span class="source-line-no">423</span><span id="line-423">        if (serviceEntry.getAsJsonObject().get("type").getAsString().equals(service.toString())) {</span>
+<span class="source-line-no">424</span><span id="line-424">          serviceName = serviceEntry.getAsJsonObject().get("name").getAsString();</span>
+<span class="source-line-no">425</span><span id="line-425">          break;</span>
+<span class="source-line-no">426</span><span id="line-426">        }</span>
+<span class="source-line-no">427</span><span id="line-427">      }</span>
+<span class="source-line-no">428</span><span id="line-428">    }</span>
 <span class="source-line-no">429</span><span id="line-429"></span>
-<span class="source-line-no">430</span><span id="line-430">  /**</span>
-<span class="source-line-no">431</span><span id="line-431">   * Return {@code true} if the {@code commandId} has finished processing.</span>
-<span class="source-line-no">432</span><span id="line-432">   */</span>
-<span class="source-line-no">433</span><span id="line-433">  private boolean hasCommandCompleted(final long commandId) {</span>
-<span class="source-line-no">434</span><span id="line-434">    return getCommand(commandId).map(val -&gt; {</span>
-<span class="source-line-no">435</span><span id="line-435">      final boolean isActive = val.get("active").getAsBoolean();</span>
-<span class="source-line-no">436</span><span id="line-436">      if (isActive) {</span>
-<span class="source-line-no">437</span><span id="line-437">        LOG.debug("command {} is still active.", commandId);</span>
-<span class="source-line-no">438</span><span id="line-438">      }</span>
-<span class="source-line-no">439</span><span id="line-439">      return !isActive;</span>
-<span class="source-line-no">440</span><span id="line-440">    }).orElse(false);</span>
-<span class="source-line-no">441</span><span id="line-441">  }</span>
-<span class="source-line-no">442</span><span id="line-442"></span>
-<span class="source-line-no">443</span><span id="line-443">  /**</span>
-<span class="source-line-no">444</span><span id="line-444">   * Return {@code true} if the {@code commandId} has finished successfully.</span>
-<span class="source-line-no">445</span><span id="line-445">   */</span>
-<span class="source-line-no">446</span><span id="line-446">  private boolean hasCommandCompletedSuccessfully(final long commandId) {</span>
-<span class="source-line-no">447</span><span id="line-447">    return getCommand(commandId).filter(val -&gt; {</span>
-<span class="source-line-no">448</span><span id="line-448">      final boolean isActive = val.get("active").getAsBoolean();</span>
-<span class="source-line-no">449</span><span id="line-449">      if (isActive) {</span>
-<span class="source-line-no">450</span><span id="line-450">        LOG.debug("command {} is still active.", commandId);</span>
-<span class="source-line-no">451</span><span id="line-451">      }</span>
-<span class="source-line-no">452</span><span id="line-452">      return !isActive;</span>
-<span class="source-line-no">453</span><span id="line-453">    }).map(val -&gt; {</span>
-<span class="source-line-no">454</span><span id="line-454">      final boolean isSuccess = val.get("success").getAsBoolean();</span>
-<span class="source-line-no">455</span><span id="line-455">      LOG.debug("command {} completed as {}.", commandId, isSuccess);</span>
-<span class="source-line-no">456</span><span id="line-456">      return isSuccess;</span>
-<span class="source-line-no">457</span><span id="line-457">    }).orElse(false);</span>
-<span class="source-line-no">458</span><span id="line-458">  }</span>
-<span class="source-line-no">459</span><span id="line-459"></span>
-<span class="source-line-no">460</span><span id="line-460">  /**</span>
-<span class="source-line-no">461</span><span id="line-461">   * Helper method for executing retryable work.</span>
-<span class="source-line-no">462</span><span id="line-462">   */</span>
-<span class="source-line-no">463</span><span id="line-463">  private &lt;T&gt; T executeWithRetries(final Callable&lt;T&gt; callable) {</span>
-<span class="source-line-no">464</span><span id="line-464">    final RetryCounter retryCounter = retryCounterFactory.create();</span>
-<span class="source-line-no">465</span><span id="line-465">    while (true) {</span>
-<span class="source-line-no">466</span><span id="line-466">      try {</span>
-<span class="source-line-no">467</span><span id="line-467">        return callable.call();</span>
-<span class="source-line-no">468</span><span id="line-468">      } catch (Exception e) {</span>
-<span class="source-line-no">469</span><span id="line-469">        if (retryCounter.shouldRetry()) {</span>
-<span class="source-line-no">470</span><span id="line-470">          LOG.debug("execution failed with exception. Retrying.", e);</span>
-<span class="source-line-no">471</span><span id="line-471">        } else {</span>
-<span class="source-line-no">472</span><span id="line-472">          throw new RuntimeException("retries exhausted", e);</span>
-<span class="source-line-no">473</span><span id="line-473">        }</span>
-<span class="source-line-no">474</span><span id="line-474">      }</span>
-<span class="source-line-no">475</span><span id="line-475">      try {</span>
-<span class="source-line-no">476</span><span id="line-476">        retryCounter.sleepUntilNextRetry();</span>
-<span class="source-line-no">477</span><span id="line-477">      } catch (InterruptedException e) {</span>
-<span class="source-line-no">478</span><span id="line-478">        throw new RuntimeException(e);</span>
-<span class="source-line-no">479</span><span id="line-479">      }</span>
-<span class="source-line-no">480</span><span id="line-480">    }</span>
-<span class="source-line-no">481</span><span id="line-481">  }</span>
-<span class="source-line-no">482</span><span id="line-482"></span>
-<span class="source-line-no">483</span><span id="line-483">  private void waitFor(final Callable&lt;Boolean&gt; predicate) {</span>
-<span class="source-line-no">484</span><span id="line-484">    final RetryCounter retryCounter = retryCounterFactory.create();</span>
-<span class="source-line-no">485</span><span id="line-485">    while (true) {</span>
-<span class="source-line-no">486</span><span id="line-486">      try {</span>
-<span class="source-line-no">487</span><span id="line-487">        if (Objects.equals(true, predicate.call())) {</span>
-<span class="source-line-no">488</span><span id="line-488">          return;</span>
-<span class="source-line-no">489</span><span id="line-489">        }</span>
-<span class="source-line-no">490</span><span id="line-490">      } catch (Exception e) {</span>
-<span class="source-line-no">491</span><span id="line-491">        if (retryCounter.shouldRetry()) {</span>
-<span class="source-line-no">492</span><span id="line-492">          LOG.debug("execution failed with exception. Retrying.", e);</span>
-<span class="source-line-no">493</span><span id="line-493">        } else {</span>
-<span class="source-line-no">494</span><span id="line-494">          throw new RuntimeException("retries exhausted", e);</span>
-<span class="source-line-no">495</span><span id="line-495">        }</span>
-<span class="source-line-no">496</span><span id="line-496">      }</span>
-<span class="source-line-no">497</span><span id="line-497">      try {</span>
-<span class="source-line-no">498</span><span id="line-498">        retryCounter.sleepUntilNextRetry();</span>
-<span class="source-line-no">499</span><span id="line-499">      } catch (InterruptedException e) {</span>
-<span class="source-line-no">500</span><span id="line-500">        throw new RuntimeException(e);</span>
-<span class="source-line-no">501</span><span id="line-501">      }</span>
-<span class="source-line-no">502</span><span id="line-502">    }</span>
-<span class="source-line-no">503</span><span id="line-503">  }</span>
-<span class="source-line-no">504</span><span id="line-504"></span>
-<span class="source-line-no">505</span><span id="line-505">  /*</span>
-<span class="source-line-no">506</span><span id="line-506">   * Some enums to guard against bad calls.</span>
-<span class="source-line-no">507</span><span id="line-507">   */</span>
-<span class="source-line-no">508</span><span id="line-508"></span>
-<span class="source-line-no">509</span><span id="line-509">  // The RoleCommand enum is used by the doRoleCommand method to guard against non-existent methods</span>
-<span class="source-line-no">510</span><span id="line-510">  // being invoked on a given role.</span>
-<span class="source-line-no">511</span><span id="line-511">  // TODO: Integrate zookeeper and hdfs related failure injections (Ref: HBASE-14261).</span>
-<span class="source-line-no">512</span><span id="line-512">  private enum RoleCommand {</span>
-<span class="source-line-no">513</span><span id="line-513">    START,</span>
-<span class="source-line-no">514</span><span id="line-514">    STOP,</span>
-<span class="source-line-no">515</span><span id="line-515">    RESTART;</span>
-<span class="source-line-no">516</span><span id="line-516"></span>
-<span class="source-line-no">517</span><span id="line-517">    // APIs tend to take commands in lowercase, so convert them to save the trouble later.</span>
-<span class="source-line-no">518</span><span id="line-518">    @Override</span>
-<span class="source-line-no">519</span><span id="line-519">    public String toString() {</span>
-<span class="source-line-no">520</span><span id="line-520">      return name().toLowerCase(Locale.ROOT);</span>
-<span class="source-line-no">521</span><span id="line-521">    }</span>
-<span class="source-line-no">522</span><span id="line-522">  }</span>
-<span class="source-line-no">523</span><span id="line-523"></span>
-<span class="source-line-no">524</span><span id="line-524">  /**</span>
-<span class="source-line-no">525</span><span id="line-525">   * Represents the configured run state of a role.</span>
-<span class="source-line-no">526</span><span id="line-526">   * @see &lt;a href=</span>
-<span class="source-line-no">527</span><span id="line-527">   *      "https://archive.cloudera.com/cm6/6.3.0/generic/jar/cm_api/apidocs/json_ApiRoleState.html"&gt;</span>
-<span class="source-line-no">528</span><span id="line-528">   *      https://archive.cloudera.com/cm6/6.3.0/generic/jar/cm_api/apidocs/json_ApiRoleState.html&lt;/a&gt;</span>
-<span class="source-line-no">529</span><span id="line-529">   */</span>
-<span class="source-line-no">530</span><span id="line-530">  private enum RoleState {</span>
-<span class="source-line-no">531</span><span id="line-531">    HISTORY_NOT_AVAILABLE,</span>
-<span class="source-line-no">532</span><span id="line-532">    UNKNOWN,</span>
-<span class="source-line-no">533</span><span id="line-533">    STARTING,</span>
-<span class="source-line-no">534</span><span id="line-534">    STARTED,</span>
-<span class="source-line-no">535</span><span id="line-535">    BUSY,</span>
-<span class="source-line-no">536</span><span id="line-536">    STOPPING,</span>
-<span class="source-line-no">537</span><span id="line-537">    STOPPED,</span>
-<span class="source-line-no">538</span><span id="line-538">    NA;</span>
-<span class="source-line-no">539</span><span id="line-539"></span>
-<span class="source-line-no">540</span><span id="line-540">    public static RoleState fromString(final String value) {</span>
-<span class="source-line-no">541</span><span id="line-541">      if (StringUtils.isBlank(value)) {</span>
-<span class="source-line-no">542</span><span id="line-542">        return null;</span>
-<span class="source-line-no">543</span><span id="line-543">      }</span>
-<span class="source-line-no">544</span><span id="line-544">      return RoleState.valueOf(value.toUpperCase());</span>
-<span class="source-line-no">545</span><span id="line-545">    }</span>
-<span class="source-line-no">546</span><span id="line-546">  }</span>
-<span class="source-line-no">547</span><span id="line-547"></span>
-<span class="source-line-no">548</span><span id="line-548">  /**</span>
-<span class="source-line-no">549</span><span id="line-549">   * Represents of the high-level health status of a subject in the cluster.</span>
-<span class="source-line-no">550</span><span id="line-550">   * @see &lt;a href=</span>
-<span class="source-line-no">551</span><span id="line-551">   *      "https://archive.cloudera.com/cm6/6.3.0/generic/jar/cm_api/apidocs/json_ApiHealthSummary.html"&gt;</span>
-<span class="source-line-no">552</span><span id="line-552">   *      https://archive.cloudera.com/cm6/6.3.0/generic/jar/cm_api/apidocs/json_ApiHealthSummary.html&lt;/a&gt;</span>
-<span class="source-line-no">553</span><span id="line-553">   */</span>
-<span class="source-line-no">554</span><span id="line-554">  private enum HealthSummary {</span>
-<span class="source-line-no">555</span><span id="line-555">    DISABLED,</span>
-<span class="source-line-no">556</span><span id="line-556">    HISTORY_NOT_AVAILABLE,</span>
-<span class="source-line-no">557</span><span id="line-557">    NOT_AVAILABLE,</span>
-<span class="source-line-no">558</span><span id="line-558">    GOOD,</span>
-<span class="source-line-no">559</span><span id="line-559">    CONCERNING,</span>
-<span class="source-line-no">560</span><span id="line-560">    BAD;</span>
-<span class="source-line-no">561</span><span id="line-561"></span>
-<span class="source-line-no">562</span><span id="line-562">    public static HealthSummary fromString(final String value) {</span>
-<span class="source-line-no">563</span><span id="line-563">      if (StringUtils.isBlank(value)) {</span>
-<span class="source-line-no">564</span><span id="line-564">        return null;</span>
-<span class="source-line-no">565</span><span id="line-565">      }</span>
-<span class="source-line-no">566</span><span id="line-566">      return HealthSummary.valueOf(value.toUpperCase());</span>
-<span class="source-line-no">567</span><span id="line-567">    }</span>
-<span class="source-line-no">568</span><span id="line-568">  }</span>
-<span class="source-line-no">569</span><span id="line-569"></span>
-<span class="source-line-no">570</span><span id="line-570">  // ClusterManager methods take a "ServiceType" object (e.g. "HBASE_MASTER," "HADOOP_NAMENODE").</span>
-<span class="source-line-no">571</span><span id="line-571">  // These "service types," which cluster managers call "roles" or "components," need to be mapped</span>
-<span class="source-line-no">572</span><span id="line-572">  // to their corresponding service (e.g. "HBase," "HDFS") in order to be controlled.</span>
-<span class="source-line-no">573</span><span id="line-573">  private static final Map&lt;ServiceType, Service&gt; roleServiceType = buildRoleServiceTypeMap();</span>
-<span class="source-line-no">574</span><span id="line-574"></span>
-<span class="source-line-no">575</span><span id="line-575">  private static Map&lt;ServiceType, Service&gt; buildRoleServiceTypeMap() {</span>
-<span class="source-line-no">576</span><span id="line-576">    final Map&lt;ServiceType, Service&gt; ret = new HashMap&lt;&gt;();</span>
-<span class="source-line-no">577</span><span id="line-577">    ret.put(ServiceType.HADOOP_NAMENODE, Service.HDFS);</span>
-<span class="source-line-no">578</span><span id="line-578">    ret.put(ServiceType.HADOOP_DATANODE, Service.HDFS);</span>
-<span class="source-line-no">579</span><span id="line-579">    ret.put(ServiceType.HADOOP_JOBTRACKER, Service.MAPREDUCE);</span>
-<span class="source-line-no">580</span><span id="line-580">    ret.put(ServiceType.HADOOP_TASKTRACKER, Service.MAPREDUCE);</span>
-<span class="source-line-no">581</span><span id="line-581">    ret.put(ServiceType.HBASE_MASTER, Service.HBASE);</span>
-<span class="source-line-no">582</span><span id="line-582">    ret.put(ServiceType.HBASE_REGIONSERVER, Service.HBASE);</span>
-<span class="source-line-no">583</span><span id="line-583">    return Collections.unmodifiableMap(ret);</span>
-<span class="source-line-no">584</span><span id="line-584">  }</span>
-<span class="source-line-no">585</span><span id="line-585"></span>
-<span class="source-line-no">586</span><span id="line-586">  enum Service {</span>
-<span class="source-line-no">587</span><span id="line-587">    HBASE,</span>
-<span class="source-line-no">588</span><span id="line-588">    HDFS,</span>
-<span class="source-line-no">589</span><span id="line-589">    MAPREDUCE</span>
-<span class="source-line-no">590</span><span id="line-590">  }</span>
-<span class="source-line-no">591</span><span id="line-591">}</span>
+<span class="source-line-no">430</span><span id="line-430">    return serviceName;</span>
+<span class="source-line-no">431</span><span id="line-431">  }</span>
+<span class="source-line-no">432</span><span id="line-432"></span>
+<span class="source-line-no">433</span><span id="line-433">  private Optional&lt;JsonObject&gt; getCommand(final long commandId) {</span>
+<span class="source-line-no">434</span><span id="line-434">    final URI uri = UriBuilder.fromUri(serverHostname).path("api").path(API_VERSION)</span>
+<span class="source-line-no">435</span><span id="line-435">      .path("commands").path(Long.toString(commandId)).build();</span>
+<span class="source-line-no">436</span><span id="line-436">    return Optional.ofNullable(getFromURIGet(uri)).map(parser::parse)</span>
+<span class="source-line-no">437</span><span id="line-437">      .map(JsonElement::getAsJsonObject);</span>
+<span class="source-line-no">438</span><span id="line-438">  }</span>
+<span class="source-line-no">439</span><span id="line-439"></span>
+<span class="source-line-no">440</span><span id="line-440">  /**</span>
+<span class="source-line-no">441</span><span id="line-441">   * Return {@code true} if the {@code commandId} has finished processing.</span>
+<span class="source-line-no">442</span><span id="line-442">   */</span>
+<span class="source-line-no">443</span><span id="line-443">  private boolean hasCommandCompleted(final long commandId) {</span>
+<span class="source-line-no">444</span><span id="line-444">    return getCommand(commandId).map(val -&gt; {</span>
+<span class="source-line-no">445</span><span id="line-445">      final boolean isActive = val.get("active").getAsBoolean();</span>
+<span class="source-line-no">446</span><span id="line-446">      if (isActive) {</span>
+<span class="source-line-no">447</span><span id="line-447">        LOG.debug("command {} is still active.", commandId);</span>
+<span class="source-line-no">448</span><span id="line-448">      }</span>
+<span class="source-line-no">449</span><span id="line-449">      return !isActive;</span>
+<span class="source-line-no">450</span><span id="line-450">    }).orElse(false);</span>
+<span class="source-line-no">451</span><span id="line-451">  }</span>
+<span class="source-line-no">452</span><span id="line-452"></span>
+<span class="source-line-no">453</span><span id="line-453">  /**</span>
+<span class="source-line-no">454</span><span id="line-454">   * Return {@code true} if the {@code commandId} has finished successfully.</span>
+<span class="source-line-no">455</span><span id="line-455">   */</span>
+<span class="source-line-no">456</span><span id="line-456">  private boolean hasCommandCompletedSuccessfully(final long commandId) {</span>
+<span class="source-line-no">457</span><span id="line-457">    return getCommand(commandId).filter(val -&gt; {</span>
+<span class="source-line-no">458</span><span id="line-458">      final boolean isActive = val.get("active").getAsBoolean();</span>
+<span class="source-line-no">459</span><span id="line-459">      if (isActive) {</span>
+<span class="source-line-no">460</span><span id="line-460">        LOG.debug("command {} is still active.", commandId);</span>
+<span class="source-line-no">461</span><span id="line-461">      }</span>
+<span class="source-line-no">462</span><span id="line-462">      return !isActive;</span>
+<span class="source-line-no">463</span><span id="line-463">    }).map(val -&gt; {</span>
+<span class="source-line-no">464</span><span id="line-464">      final boolean isSuccess = val.get("success").getAsBoolean();</span>
+<span class="source-line-no">465</span><span id="line-465">      LOG.debug("command {} completed as {}.", commandId, isSuccess);</span>
+<span class="source-line-no">466</span><span id="line-466">      return isSuccess;</span>
+<span class="source-line-no">467</span><span id="line-467">    }).orElse(false);</span>
+<span class="source-line-no">468</span><span id="line-468">  }</span>
+<span class="source-line-no">469</span><span id="line-469"></span>
+<span class="source-line-no">470</span><span id="line-470">  /**</span>
+<span class="source-line-no">471</span><span id="line-471">   * Helper method for executing retryable work.</span>
+<span class="source-line-no">472</span><span id="line-472">   */</span>
+<span class="source-line-no">473</span><span id="line-473">  private &lt;T&gt; T executeWithRetries(final Callable&lt;T&gt; callable) {</span>
+<span class="source-line-no">474</span><span id="line-474">    final RetryCounter retryCounter = retryCounterFactory.create();</span>
+<span class="source-line-no">475</span><span id="line-475">    while (true) {</span>
+<span class="source-line-no">476</span><span id="line-476">      try {</span>
+<span class="source-line-no">477</span><span id="line-477">        return callable.call();</span>
+<span class="source-line-no">478</span><span id="line-478">      } catch (Exception e) {</span>
+<span class="source-line-no">479</span><span id="line-479">        if (retryCounter.shouldRetry()) {</span>
+<span class="source-line-no">480</span><span id="line-480">          LOG.debug("execution failed with exception. Retrying.", e);</span>
+<span class="source-line-no">481</span><span id="line-481">        } else {</span>
+<span class="source-line-no">482</span><span id="line-482">          throw new RuntimeException("retries exhausted", e);</span>
+<span class="source-line-no">483</span><span id="line-483">        }</span>
+<span class="source-line-no">484</span><span id="line-484">      }</span>
+<span class="source-line-no">485</span><span id="line-485">      try {</span>
+<span class="source-line-no">486</span><span id="line-486">        retryCounter.sleepUntilNextRetry();</span>
+<span class="source-line-no">487</span><span id="line-487">      } catch (InterruptedException e) {</span>
+<span class="source-line-no">488</span><span id="line-488">        throw new RuntimeException(e);</span>
+<span class="source-line-no">489</span><span id="line-489">      }</span>
+<span class="source-line-no">490</span><span id="line-490">    }</span>
+<span class="source-line-no">491</span><span id="line-491">  }</span>
+<span class="source-line-no">492</span><span id="line-492"></span>
+<span class="source-line-no">493</span><span id="line-493">  private void waitFor(final Callable&lt;Boolean&gt; predicate) {</span>
+<span class="source-line-no">494</span><span id="line-494">    final RetryCounter retryCounter = retryCounterFactory.create();</span>
+<span class="source-line-no">495</span><span id="line-495">    while (true) {</span>
+<span class="source-line-no">496</span><span id="line-496">      try {</span>
+<span class="source-line-no">497</span><span id="line-497">        if (Objects.equals(true, predicate.call())) {</span>
+<span class="source-line-no">498</span><span id="line-498">          return;</span>
+<span class="source-line-no">499</span><span id="line-499">        }</span>
+<span class="source-line-no">500</span><span id="line-500">      } catch (Exception e) {</span>
+<span class="source-line-no">501</span><span id="line-501">        if (retryCounter.shouldRetry()) {</span>
+<span class="source-line-no">502</span><span id="line-502">          LOG.debug("execution failed with exception. Retrying.", e);</span>
+<span class="source-line-no">503</span><span id="line-503">        } else {</span>
+<span class="source-line-no">504</span><span id="line-504">          throw new RuntimeException("retries exhausted", e);</span>
+<span class="source-line-no">505</span><span id="line-505">        }</span>
+<span class="source-line-no">506</span><span id="line-506">      }</span>
+<span class="source-line-no">507</span><span id="line-507">      try {</span>
+<span class="source-line-no">508</span><span id="line-508">        retryCounter.sleepUntilNextRetry();</span>
+<span class="source-line-no">509</span><span id="line-509">      } catch (InterruptedException e) {</span>
+<span class="source-line-no">510</span><span id="line-510">        throw new RuntimeException(e);</span>
+<span class="source-line-no">511</span><span id="line-511">      }</span>
+<span class="source-line-no">512</span><span id="line-512">    }</span>
+<span class="source-line-no">513</span><span id="line-513">  }</span>
+<span class="source-line-no">514</span><span id="line-514"></span>
+<span class="source-line-no">515</span><span id="line-515">  /*</span>
+<span class="source-line-no">516</span><span id="line-516">   * Some enums to guard against bad calls.</span>
+<span class="source-line-no">517</span><span id="line-517">   */</span>
+<span class="source-line-no">518</span><span id="line-518"></span>
+<span class="source-line-no">519</span><span id="line-519">  // The RoleCommand enum is used by the doRoleCommand method to guard against non-existent methods</span>
+<span class="source-line-no">520</span><span id="line-520">  // being invoked on a given role.</span>
+<span class="source-line-no">521</span><span id="line-521">  // TODO: Integrate zookeeper and hdfs related failure injections (Ref: HBASE-14261).</span>
+<span class="source-line-no">522</span><span id="line-522">  private enum RoleCommand {</span>
+<span class="source-line-no">523</span><span id="line-523">    START,</span>
+<span class="source-line-no">524</span><span id="line-524">    STOP,</span>
+<span class="source-line-no">525</span><span id="line-525">    RESTART;</span>
+<span class="source-line-no">526</span><span id="line-526"></span>
+<span class="source-line-no">527</span><span id="line-527">    // APIs tend to take commands in lowercase, so convert them to save the trouble later.</span>
+<span class="source-line-no">528</span><span id="line-528">    @Override</span>
+<span class="source-line-no">529</span><span id="line-529">    public String toString() {</span>
+<span class="source-line-no">530</span><span id="line-530">      return name().toLowerCase(Locale.ROOT);</span>
+<span class="source-line-no">531</span><span id="line-531">    }</span>
+<span class="source-line-no">532</span><span id="line-532">  }</span>
+<span class="source-line-no">533</span><span id="line-533"></span>
+<span class="source-line-no">534</span><span id="line-534">  /**</span>
+<span class="source-line-no">535</span><span id="line-535">   * Represents the configured run state of a role.</span>
+<span class="source-line-no">536</span><span id="line-536">   * @see &lt;a href=</span>
+<span class="source-line-no">537</span><span id="line-537">   *      "https://archive.cloudera.com/cm6/6.3.0/generic/jar/cm_api/apidocs/json_ApiRoleState.html"&gt;</span>
+<span class="source-line-no">538</span><span id="line-538">   *      https://archive.cloudera.com/cm6/6.3.0/generic/jar/cm_api/apidocs/json_ApiRoleState.html&lt;/a&gt;</span>
+<span class="source-line-no">539</span><span id="line-539">   */</span>
+<span class="source-line-no">540</span><span id="line-540">  private enum RoleState {</span>
+<span class="source-line-no">541</span><span id="line-541">    HISTORY_NOT_AVAILABLE,</span>
+<span class="source-line-no">542</span><span id="line-542">    UNKNOWN,</span>
+<span class="source-line-no">543</span><span id="line-543">    STARTING,</span>
+<span class="source-line-no">544</span><span id="line-544">    STARTED,</span>
+<span class="source-line-no">545</span><span id="line-545">    BUSY,</span>
+<span class="source-line-no">546</span><span id="line-546">    STOPPING,</span>
+<span class="source-line-no">547</span><span id="line-547">    STOPPED,</span>
+<span class="source-line-no">548</span><span id="line-548">    NA;</span>
+<span class="source-line-no">549</span><span id="line-549"></span>
+<span class="source-line-no">550</span><span id="line-550">    public static RoleState fromString(final String value) {</span>
+<span class="source-line-no">551</span><span id="line-551">      if (StringUtils.isBlank(value)) {</span>
+<span class="source-line-no">552</span><span id="line-552">        return null;</span>
+<span class="source-line-no">553</span><span id="line-553">      }</span>
+<span class="source-line-no">554</span><span id="line-554">      return RoleState.valueOf(value.toUpperCase());</span>
+<span class="source-line-no">555</span><span id="line-555">    }</span>
+<span class="source-line-no">556</span><span id="line-556">  }</span>
+<span class="source-line-no">557</span><span id="line-557"></span>
+<span class="source-line-no">558</span><span id="line-558">  /**</span>
+<span class="source-line-no">559</span><span id="line-559">   * Represents of the high-level health status of a subject in the cluster.</span>
+<span class="source-line-no">560</span><span id="line-560">   * @see &lt;a href=</span>
+<span class="source-line-no">561</span><span id="line-561">   *      "https://archive.cloudera.com/cm6/6.3.0/generic/jar/cm_api/apidocs/json_ApiHealthSummary.html"&gt;</span>
+<span class="source-line-no">562</span><span id="line-562">   *      https://archive.cloudera.com/cm6/6.3.0/generic/jar/cm_api/apidocs/json_ApiHealthSummary.html&lt;/a&gt;</span>
+<span class="source-line-no">563</span><span id="line-563">   */</span>
+<span class="source-line-no">564</span><span id="line-564">  private enum HealthSummary {</span>
+<span class="source-line-no">565</span><span id="line-565">    DISABLED,</span>
+<span class="source-line-no">566</span><span id="line-566">    HISTORY_NOT_AVAILABLE,</span>
+<span class="source-line-no">567</span><span id="line-567">    NOT_AVAILABLE,</span>
+<span class="source-line-no">568</span><span id="line-568">    GOOD,</span>
+<span class="source-line-no">569</span><span id="line-569">    CONCERNING,</span>
+<span class="source-line-no">570</span><span id="line-570">    BAD;</span>
+<span class="source-line-no">571</span><span id="line-571"></span>
+<span class="source-line-no">572</span><span id="line-572">    public static HealthSummary fromString(final String value) {</span>
+<span class="source-line-no">573</span><span id="line-573">      if (StringUtils.isBlank(value)) {</span>
+<span class="source-line-no">574</span><span id="line-574">        return null;</span>
+<span class="source-line-no">575</span><span id="line-575">      }</span>
+<span class="source-line-no">576</span><span id="line-576">      return HealthSummary.valueOf(value.toUpperCase());</span>
+<span class="source-line-no">577</span><span id="line-577">    }</span>
+<span class="source-line-no">578</span><span id="line-578">  }</span>
+<span class="source-line-no">579</span><span id="line-579"></span>
+<span class="source-line-no">580</span><span id="line-580">  // ClusterManager methods take a "ServiceType" object (e.g. "HBASE_MASTER," "HADOOP_NAMENODE").</span>
+<span class="source-line-no">581</span><span id="line-581">  // These "service types," which cluster managers call "roles" or "components," need to be mapped</span>
+<span class="source-line-no">582</span><span id="line-582">  // to their corresponding service (e.g. "HBase," "HDFS") in order to be controlled.</span>
+<span class="source-line-no">583</span><span id="line-583">  private static final Map&lt;ServiceType, Service&gt; roleServiceType = buildRoleServiceTypeMap();</span>
+<span class="source-line-no">584</span><span id="line-584"></span>
+<span class="source-line-no">585</span><span id="line-585">  private static Map&lt;ServiceType, Service&gt; buildRoleServiceTypeMap() {</span>
+<span class="source-line-no">586</span><span id="line-586">    final Map&lt;ServiceType, Service&gt; ret = new HashMap&lt;&gt;();</span>
+<span class="source-line-no">587</span><span id="line-587">    ret.put(ServiceType.HADOOP_NAMENODE, Service.HDFS);</span>
+<span class="source-line-no">588</span><span id="line-588">    ret.put(ServiceType.HADOOP_DATANODE, Service.HDFS);</span>
+<span class="source-line-no">589</span><span id="line-589">    ret.put(ServiceType.HADOOP_JOBTRACKER, Service.MAPREDUCE);</span>
+<span class="source-line-no">590</span><span id="line-590">    ret.put(ServiceType.HADOOP_TASKTRACKER, Service.MAPREDUCE);</span>
+<span class="source-line-no">591</span><span id="line-591">    ret.put(ServiceType.HBASE_MASTER, Service.HBASE);</span>
+<span class="source-line-no">592</span><span id="line-592">    ret.put(ServiceType.HBASE_REGIONSERVER, Service.HBASE);</span>
+<span class="source-line-no">593</span><span id="line-593">    return Collections.unmodifiableMap(ret);</span>
+<span class="source-line-no">594</span><span id="line-594">  }</span>
+<span class="source-line-no">595</span><span id="line-595"></span>
+<span class="source-line-no">596</span><span id="line-596">  enum Service {</span>
+<span class="source-line-no">597</span><span id="line-597">    HBASE,</span>
+<span class="source-line-no">598</span><span id="line-598">    HDFS,</span>
+<span class="source-line-no">599</span><span id="line-599">    MAPREDUCE</span>
+<span class="source-line-no">600</span><span id="line-600">  }</span>
+<span class="source-line-no">601</span><span id="line-601">}</span>
 
 
 

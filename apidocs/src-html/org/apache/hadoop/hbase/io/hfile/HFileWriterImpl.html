@@ -569,9 +569,9 @@
 <span class="source-line-no">556</span><span id="line-556">  private void doCacheOnWrite(long offset) {</span>
 <span class="source-line-no">557</span><span id="line-557">    cacheConf.getBlockCache().ifPresent(cache -&gt; {</span>
 <span class="source-line-no">558</span><span id="line-558">      HFileBlock cacheFormatBlock = blockWriter.getBlockForCaching(cacheConf);</span>
-<span class="source-line-no">559</span><span id="line-559">      try {</span>
-<span class="source-line-no">560</span><span id="line-560">        cache.cacheBlock(new BlockCacheKey(name, offset, true, cacheFormatBlock.getBlockType()),</span>
-<span class="source-line-no">561</span><span id="line-561">          cacheFormatBlock, cacheConf.isInMemory(), true);</span>
+<span class="source-line-no">559</span><span id="line-559">      BlockCacheKey key = buildCacheBlockKey(offset, cacheFormatBlock.getBlockType());</span>
+<span class="source-line-no">560</span><span id="line-560">      try {</span>
+<span class="source-line-no">561</span><span id="line-561">        cache.cacheBlock(key, cacheFormatBlock, cacheConf.isInMemory(), true);</span>
 <span class="source-line-no">562</span><span id="line-562">      } finally {</span>
 <span class="source-line-no">563</span><span id="line-563">        // refCnt will auto increase when block add to Cache, see RAMCache#putIfAbsent</span>
 <span class="source-line-no">564</span><span id="line-564">        cacheFormatBlock.release();</span>
@@ -579,301 +579,308 @@
 <span class="source-line-no">566</span><span id="line-566">    });</span>
 <span class="source-line-no">567</span><span id="line-567">  }</span>
 <span class="source-line-no">568</span><span id="line-568"></span>
-<span class="source-line-no">569</span><span id="line-569">  /**</span>
-<span class="source-line-no">570</span><span id="line-570">   * Ready a new block for writing.</span>
-<span class="source-line-no">571</span><span id="line-571">   */</span>
-<span class="source-line-no">572</span><span id="line-572">  protected void newBlock() throws IOException {</span>
-<span class="source-line-no">573</span><span id="line-573">    // This is where the next block begins.</span>
-<span class="source-line-no">574</span><span id="line-574">    blockWriter.startWriting(BlockType.DATA);</span>
-<span class="source-line-no">575</span><span id="line-575">    firstCellInBlock = null;</span>
-<span class="source-line-no">576</span><span id="line-576">    if (lastCell != null) {</span>
-<span class="source-line-no">577</span><span id="line-577">      lastCellOfPreviousBlock = lastCell;</span>
-<span class="source-line-no">578</span><span id="line-578">    }</span>
-<span class="source-line-no">579</span><span id="line-579">  }</span>
-<span class="source-line-no">580</span><span id="line-580"></span>
-<span class="source-line-no">581</span><span id="line-581">  /**</span>
-<span class="source-line-no">582</span><span id="line-582">   * Add a meta block to the end of the file. Call before close(). Metadata blocks are expensive.</span>
-<span class="source-line-no">583</span><span id="line-583">   * Fill one with a bunch of serialized data rather than do a metadata block per metadata instance.</span>
-<span class="source-line-no">584</span><span id="line-584">   * If metadata is small, consider adding to file info using</span>
-<span class="source-line-no">585</span><span id="line-585">   * {@link #appendFileInfo(byte[], byte[])} name of the block will call readFields to get data</span>
-<span class="source-line-no">586</span><span id="line-586">   * later (DO NOT REUSE)</span>
-<span class="source-line-no">587</span><span id="line-587">   */</span>
-<span class="source-line-no">588</span><span id="line-588">  @Override</span>
-<span class="source-line-no">589</span><span id="line-589">  public void appendMetaBlock(String metaBlockName, Writable content) {</span>
-<span class="source-line-no">590</span><span id="line-590">    byte[] key = Bytes.toBytes(metaBlockName);</span>
-<span class="source-line-no">591</span><span id="line-591">    int i;</span>
-<span class="source-line-no">592</span><span id="line-592">    for (i = 0; i &lt; metaNames.size(); ++i) {</span>
-<span class="source-line-no">593</span><span id="line-593">      // stop when the current key is greater than our own</span>
-<span class="source-line-no">594</span><span id="line-594">      byte[] cur = metaNames.get(i);</span>
-<span class="source-line-no">595</span><span id="line-595">      if (Bytes.BYTES_RAWCOMPARATOR.compare(cur, 0, cur.length, key, 0, key.length) &gt; 0) {</span>
-<span class="source-line-no">596</span><span id="line-596">        break;</span>
-<span class="source-line-no">597</span><span id="line-597">      }</span>
-<span class="source-line-no">598</span><span id="line-598">    }</span>
-<span class="source-line-no">599</span><span id="line-599">    metaNames.add(i, key);</span>
-<span class="source-line-no">600</span><span id="line-600">    metaData.add(i, content);</span>
-<span class="source-line-no">601</span><span id="line-601">  }</span>
-<span class="source-line-no">602</span><span id="line-602"></span>
-<span class="source-line-no">603</span><span id="line-603">  @Override</span>
-<span class="source-line-no">604</span><span id="line-604">  public void close() throws IOException {</span>
-<span class="source-line-no">605</span><span id="line-605">    if (outputStream == null) {</span>
-<span class="source-line-no">606</span><span id="line-606">      return;</span>
-<span class="source-line-no">607</span><span id="line-607">    }</span>
-<span class="source-line-no">608</span><span id="line-608">    // Save data block encoder metadata in the file info.</span>
-<span class="source-line-no">609</span><span id="line-609">    blockEncoder.saveMetadata(this);</span>
-<span class="source-line-no">610</span><span id="line-610">    // Save index block encoder metadata in the file info.</span>
-<span class="source-line-no">611</span><span id="line-611">    indexBlockEncoder.saveMetadata(this);</span>
-<span class="source-line-no">612</span><span id="line-612">    // Write out the end of the data blocks, then write meta data blocks.</span>
-<span class="source-line-no">613</span><span id="line-613">    // followed by fileinfo, data block index and meta block index.</span>
-<span class="source-line-no">614</span><span id="line-614"></span>
-<span class="source-line-no">615</span><span id="line-615">    finishBlock();</span>
-<span class="source-line-no">616</span><span id="line-616">    writeInlineBlocks(true);</span>
-<span class="source-line-no">617</span><span id="line-617"></span>
-<span class="source-line-no">618</span><span id="line-618">    FixedFileTrailer trailer = new FixedFileTrailer(getMajorVersion(), getMinorVersion());</span>
-<span class="source-line-no">619</span><span id="line-619"></span>
-<span class="source-line-no">620</span><span id="line-620">    // Write out the metadata blocks if any.</span>
-<span class="source-line-no">621</span><span id="line-621">    if (!metaNames.isEmpty()) {</span>
-<span class="source-line-no">622</span><span id="line-622">      for (int i = 0; i &lt; metaNames.size(); ++i) {</span>
-<span class="source-line-no">623</span><span id="line-623">        // store the beginning offset</span>
-<span class="source-line-no">624</span><span id="line-624">        long offset = outputStream.getPos();</span>
-<span class="source-line-no">625</span><span id="line-625">        // write the metadata content</span>
-<span class="source-line-no">626</span><span id="line-626">        DataOutputStream dos = blockWriter.startWriting(BlockType.META);</span>
-<span class="source-line-no">627</span><span id="line-627">        metaData.get(i).write(dos);</span>
-<span class="source-line-no">628</span><span id="line-628"></span>
-<span class="source-line-no">629</span><span id="line-629">        blockWriter.writeHeaderAndData(outputStream);</span>
-<span class="source-line-no">630</span><span id="line-630">        totalUncompressedBytes += blockWriter.getUncompressedSizeWithHeader();</span>
-<span class="source-line-no">631</span><span id="line-631"></span>
-<span class="source-line-no">632</span><span id="line-632">        // Add the new meta block to the meta index.</span>
-<span class="source-line-no">633</span><span id="line-633">        metaBlockIndexWriter.addEntry(metaNames.get(i), offset,</span>
-<span class="source-line-no">634</span><span id="line-634">          blockWriter.getOnDiskSizeWithHeader());</span>
-<span class="source-line-no">635</span><span id="line-635">      }</span>
-<span class="source-line-no">636</span><span id="line-636">    }</span>
-<span class="source-line-no">637</span><span id="line-637"></span>
-<span class="source-line-no">638</span><span id="line-638">    // Load-on-open section.</span>
-<span class="source-line-no">639</span><span id="line-639"></span>
-<span class="source-line-no">640</span><span id="line-640">    // Data block index.</span>
-<span class="source-line-no">641</span><span id="line-641">    //</span>
-<span class="source-line-no">642</span><span id="line-642">    // In version 2, this section of the file starts with the root level data</span>
-<span class="source-line-no">643</span><span id="line-643">    // block index. We call a function that writes intermediate-level blocks</span>
-<span class="source-line-no">644</span><span id="line-644">    // first, then root level, and returns the offset of the root level block</span>
-<span class="source-line-no">645</span><span id="line-645">    // index.</span>
+<span class="source-line-no">569</span><span id="line-569">  private BlockCacheKey buildCacheBlockKey(long offset, BlockType blockType) {</span>
+<span class="source-line-no">570</span><span id="line-570">    if (path != null) {</span>
+<span class="source-line-no">571</span><span id="line-571">      return new BlockCacheKey(path, offset, true, blockType);</span>
+<span class="source-line-no">572</span><span id="line-572">    }</span>
+<span class="source-line-no">573</span><span id="line-573">    return new BlockCacheKey(name, offset, true, blockType);</span>
+<span class="source-line-no">574</span><span id="line-574">  }</span>
+<span class="source-line-no">575</span><span id="line-575"></span>
+<span class="source-line-no">576</span><span id="line-576">  /**</span>
+<span class="source-line-no">577</span><span id="line-577">   * Ready a new block for writing.</span>
+<span class="source-line-no">578</span><span id="line-578">   */</span>
+<span class="source-line-no">579</span><span id="line-579">  protected void newBlock() throws IOException {</span>
+<span class="source-line-no">580</span><span id="line-580">    // This is where the next block begins.</span>
+<span class="source-line-no">581</span><span id="line-581">    blockWriter.startWriting(BlockType.DATA);</span>
+<span class="source-line-no">582</span><span id="line-582">    firstCellInBlock = null;</span>
+<span class="source-line-no">583</span><span id="line-583">    if (lastCell != null) {</span>
+<span class="source-line-no">584</span><span id="line-584">      lastCellOfPreviousBlock = lastCell;</span>
+<span class="source-line-no">585</span><span id="line-585">    }</span>
+<span class="source-line-no">586</span><span id="line-586">  }</span>
+<span class="source-line-no">587</span><span id="line-587"></span>
+<span class="source-line-no">588</span><span id="line-588">  /**</span>
+<span class="source-line-no">589</span><span id="line-589">   * Add a meta block to the end of the file. Call before close(). Metadata blocks are expensive.</span>
+<span class="source-line-no">590</span><span id="line-590">   * Fill one with a bunch of serialized data rather than do a metadata block per metadata instance.</span>
+<span class="source-line-no">591</span><span id="line-591">   * If metadata is small, consider adding to file info using</span>
+<span class="source-line-no">592</span><span id="line-592">   * {@link #appendFileInfo(byte[], byte[])} name of the block will call readFields to get data</span>
+<span class="source-line-no">593</span><span id="line-593">   * later (DO NOT REUSE)</span>
+<span class="source-line-no">594</span><span id="line-594">   */</span>
+<span class="source-line-no">595</span><span id="line-595">  @Override</span>
+<span class="source-line-no">596</span><span id="line-596">  public void appendMetaBlock(String metaBlockName, Writable content) {</span>
+<span class="source-line-no">597</span><span id="line-597">    byte[] key = Bytes.toBytes(metaBlockName);</span>
+<span class="source-line-no">598</span><span id="line-598">    int i;</span>
+<span class="source-line-no">599</span><span id="line-599">    for (i = 0; i &lt; metaNames.size(); ++i) {</span>
+<span class="source-line-no">600</span><span id="line-600">      // stop when the current key is greater than our own</span>
+<span class="source-line-no">601</span><span id="line-601">      byte[] cur = metaNames.get(i);</span>
+<span class="source-line-no">602</span><span id="line-602">      if (Bytes.BYTES_RAWCOMPARATOR.compare(cur, 0, cur.length, key, 0, key.length) &gt; 0) {</span>
+<span class="source-line-no">603</span><span id="line-603">        break;</span>
+<span class="source-line-no">604</span><span id="line-604">      }</span>
+<span class="source-line-no">605</span><span id="line-605">    }</span>
+<span class="source-line-no">606</span><span id="line-606">    metaNames.add(i, key);</span>
+<span class="source-line-no">607</span><span id="line-607">    metaData.add(i, content);</span>
+<span class="source-line-no">608</span><span id="line-608">  }</span>
+<span class="source-line-no">609</span><span id="line-609"></span>
+<span class="source-line-no">610</span><span id="line-610">  @Override</span>
+<span class="source-line-no">611</span><span id="line-611">  public void close() throws IOException {</span>
+<span class="source-line-no">612</span><span id="line-612">    if (outputStream == null) {</span>
+<span class="source-line-no">613</span><span id="line-613">      return;</span>
+<span class="source-line-no">614</span><span id="line-614">    }</span>
+<span class="source-line-no">615</span><span id="line-615">    // Save data block encoder metadata in the file info.</span>
+<span class="source-line-no">616</span><span id="line-616">    blockEncoder.saveMetadata(this);</span>
+<span class="source-line-no">617</span><span id="line-617">    // Save index block encoder metadata in the file info.</span>
+<span class="source-line-no">618</span><span id="line-618">    indexBlockEncoder.saveMetadata(this);</span>
+<span class="source-line-no">619</span><span id="line-619">    // Write out the end of the data blocks, then write meta data blocks.</span>
+<span class="source-line-no">620</span><span id="line-620">    // followed by fileinfo, data block index and meta block index.</span>
+<span class="source-line-no">621</span><span id="line-621"></span>
+<span class="source-line-no">622</span><span id="line-622">    finishBlock();</span>
+<span class="source-line-no">623</span><span id="line-623">    writeInlineBlocks(true);</span>
+<span class="source-line-no">624</span><span id="line-624"></span>
+<span class="source-line-no">625</span><span id="line-625">    FixedFileTrailer trailer = new FixedFileTrailer(getMajorVersion(), getMinorVersion());</span>
+<span class="source-line-no">626</span><span id="line-626"></span>
+<span class="source-line-no">627</span><span id="line-627">    // Write out the metadata blocks if any.</span>
+<span class="source-line-no">628</span><span id="line-628">    if (!metaNames.isEmpty()) {</span>
+<span class="source-line-no">629</span><span id="line-629">      for (int i = 0; i &lt; metaNames.size(); ++i) {</span>
+<span class="source-line-no">630</span><span id="line-630">        // store the beginning offset</span>
+<span class="source-line-no">631</span><span id="line-631">        long offset = outputStream.getPos();</span>
+<span class="source-line-no">632</span><span id="line-632">        // write the metadata content</span>
+<span class="source-line-no">633</span><span id="line-633">        DataOutputStream dos = blockWriter.startWriting(BlockType.META);</span>
+<span class="source-line-no">634</span><span id="line-634">        metaData.get(i).write(dos);</span>
+<span class="source-line-no">635</span><span id="line-635"></span>
+<span class="source-line-no">636</span><span id="line-636">        blockWriter.writeHeaderAndData(outputStream);</span>
+<span class="source-line-no">637</span><span id="line-637">        totalUncompressedBytes += blockWriter.getUncompressedSizeWithHeader();</span>
+<span class="source-line-no">638</span><span id="line-638"></span>
+<span class="source-line-no">639</span><span id="line-639">        // Add the new meta block to the meta index.</span>
+<span class="source-line-no">640</span><span id="line-640">        metaBlockIndexWriter.addEntry(metaNames.get(i), offset,</span>
+<span class="source-line-no">641</span><span id="line-641">          blockWriter.getOnDiskSizeWithHeader());</span>
+<span class="source-line-no">642</span><span id="line-642">      }</span>
+<span class="source-line-no">643</span><span id="line-643">    }</span>
+<span class="source-line-no">644</span><span id="line-644"></span>
+<span class="source-line-no">645</span><span id="line-645">    // Load-on-open section.</span>
 <span class="source-line-no">646</span><span id="line-646"></span>
-<span class="source-line-no">647</span><span id="line-647">    long rootIndexOffset = dataBlockIndexWriter.writeIndexBlocks(outputStream);</span>
-<span class="source-line-no">648</span><span id="line-648">    trailer.setLoadOnOpenOffset(rootIndexOffset);</span>
-<span class="source-line-no">649</span><span id="line-649"></span>
-<span class="source-line-no">650</span><span id="line-650">    // Meta block index.</span>
-<span class="source-line-no">651</span><span id="line-651">    metaBlockIndexWriter.writeSingleLevelIndex(blockWriter.startWriting(BlockType.ROOT_INDEX),</span>
-<span class="source-line-no">652</span><span id="line-652">      "meta");</span>
-<span class="source-line-no">653</span><span id="line-653">    blockWriter.writeHeaderAndData(outputStream);</span>
-<span class="source-line-no">654</span><span id="line-654">    totalUncompressedBytes += blockWriter.getUncompressedSizeWithHeader();</span>
-<span class="source-line-no">655</span><span id="line-655"></span>
-<span class="source-line-no">656</span><span id="line-656">    if (this.hFileContext.isIncludesMvcc()) {</span>
-<span class="source-line-no">657</span><span id="line-657">      appendFileInfo(MAX_MEMSTORE_TS_KEY, Bytes.toBytes(maxMemstoreTS));</span>
-<span class="source-line-no">658</span><span id="line-658">      appendFileInfo(KEY_VALUE_VERSION, Bytes.toBytes(KEY_VALUE_VER_WITH_MEMSTORE));</span>
-<span class="source-line-no">659</span><span id="line-659">    }</span>
-<span class="source-line-no">660</span><span id="line-660"></span>
-<span class="source-line-no">661</span><span id="line-661">    // File info</span>
-<span class="source-line-no">662</span><span id="line-662">    writeFileInfo(trailer, blockWriter.startWriting(BlockType.FILE_INFO));</span>
-<span class="source-line-no">663</span><span id="line-663">    blockWriter.writeHeaderAndData(outputStream);</span>
-<span class="source-line-no">664</span><span id="line-664">    totalUncompressedBytes += blockWriter.getUncompressedSizeWithHeader();</span>
-<span class="source-line-no">665</span><span id="line-665"></span>
-<span class="source-line-no">666</span><span id="line-666">    // Load-on-open data supplied by higher levels, e.g. Bloom filters.</span>
-<span class="source-line-no">667</span><span id="line-667">    for (BlockWritable w : additionalLoadOnOpenData) {</span>
-<span class="source-line-no">668</span><span id="line-668">      blockWriter.writeBlock(w, outputStream);</span>
-<span class="source-line-no">669</span><span id="line-669">      totalUncompressedBytes += blockWriter.getUncompressedSizeWithHeader();</span>
-<span class="source-line-no">670</span><span id="line-670">    }</span>
-<span class="source-line-no">671</span><span id="line-671"></span>
-<span class="source-line-no">672</span><span id="line-672">    // Now finish off the trailer.</span>
-<span class="source-line-no">673</span><span id="line-673">    trailer.setNumDataIndexLevels(dataBlockIndexWriter.getNumLevels());</span>
-<span class="source-line-no">674</span><span id="line-674">    trailer.setUncompressedDataIndexSize(dataBlockIndexWriter.getTotalUncompressedSize());</span>
-<span class="source-line-no">675</span><span id="line-675">    trailer.setFirstDataBlockOffset(firstDataBlockOffset);</span>
-<span class="source-line-no">676</span><span id="line-676">    trailer.setLastDataBlockOffset(lastDataBlockOffset);</span>
-<span class="source-line-no">677</span><span id="line-677">    trailer.setComparatorClass(this.hFileContext.getCellComparator().getClass());</span>
-<span class="source-line-no">678</span><span id="line-678">    trailer.setDataIndexCount(dataBlockIndexWriter.getNumRootEntries());</span>
-<span class="source-line-no">679</span><span id="line-679"></span>
-<span class="source-line-no">680</span><span id="line-680">    finishClose(trailer);</span>
-<span class="source-line-no">681</span><span id="line-681"></span>
-<span class="source-line-no">682</span><span id="line-682">    blockWriter.release();</span>
-<span class="source-line-no">683</span><span id="line-683">  }</span>
-<span class="source-line-no">684</span><span id="line-684"></span>
-<span class="source-line-no">685</span><span id="line-685">  @Override</span>
-<span class="source-line-no">686</span><span id="line-686">  public void addInlineBlockWriter(InlineBlockWriter ibw) {</span>
-<span class="source-line-no">687</span><span id="line-687">    inlineBlockWriters.add(ibw);</span>
-<span class="source-line-no">688</span><span id="line-688">  }</span>
-<span class="source-line-no">689</span><span id="line-689"></span>
-<span class="source-line-no">690</span><span id="line-690">  @Override</span>
-<span class="source-line-no">691</span><span id="line-691">  public void addGeneralBloomFilter(final BloomFilterWriter bfw) {</span>
-<span class="source-line-no">692</span><span id="line-692">    this.addBloomFilter(bfw, BlockType.GENERAL_BLOOM_META);</span>
-<span class="source-line-no">693</span><span id="line-693">  }</span>
-<span class="source-line-no">694</span><span id="line-694"></span>
-<span class="source-line-no">695</span><span id="line-695">  @Override</span>
-<span class="source-line-no">696</span><span id="line-696">  public void addDeleteFamilyBloomFilter(final BloomFilterWriter bfw) {</span>
-<span class="source-line-no">697</span><span id="line-697">    this.addBloomFilter(bfw, BlockType.DELETE_FAMILY_BLOOM_META);</span>
-<span class="source-line-no">698</span><span id="line-698">  }</span>
-<span class="source-line-no">699</span><span id="line-699"></span>
-<span class="source-line-no">700</span><span id="line-700">  private void addBloomFilter(final BloomFilterWriter bfw, final BlockType blockType) {</span>
-<span class="source-line-no">701</span><span id="line-701">    if (bfw.getKeyCount() &lt;= 0) {</span>
-<span class="source-line-no">702</span><span id="line-702">      return;</span>
-<span class="source-line-no">703</span><span id="line-703">    }</span>
-<span class="source-line-no">704</span><span id="line-704"></span>
-<span class="source-line-no">705</span><span id="line-705">    if (</span>
-<span class="source-line-no">706</span><span id="line-706">      blockType != BlockType.GENERAL_BLOOM_META &amp;&amp; blockType != BlockType.DELETE_FAMILY_BLOOM_META</span>
-<span class="source-line-no">707</span><span id="line-707">    ) {</span>
-<span class="source-line-no">708</span><span id="line-708">      throw new RuntimeException("Block Type: " + blockType.toString() + "is not supported");</span>
-<span class="source-line-no">709</span><span id="line-709">    }</span>
-<span class="source-line-no">710</span><span id="line-710">    additionalLoadOnOpenData.add(new BlockWritable() {</span>
-<span class="source-line-no">711</span><span id="line-711">      @Override</span>
-<span class="source-line-no">712</span><span id="line-712">      public BlockType getBlockType() {</span>
-<span class="source-line-no">713</span><span id="line-713">        return blockType;</span>
-<span class="source-line-no">714</span><span id="line-714">      }</span>
-<span class="source-line-no">715</span><span id="line-715"></span>
-<span class="source-line-no">716</span><span id="line-716">      @Override</span>
-<span class="source-line-no">717</span><span id="line-717">      public void writeToBlock(DataOutput out) throws IOException {</span>
-<span class="source-line-no">718</span><span id="line-718">        bfw.getMetaWriter().write(out);</span>
-<span class="source-line-no">719</span><span id="line-719">        Writable dataWriter = bfw.getDataWriter();</span>
-<span class="source-line-no">720</span><span id="line-720">        if (dataWriter != null) {</span>
-<span class="source-line-no">721</span><span id="line-721">          dataWriter.write(out);</span>
-<span class="source-line-no">722</span><span id="line-722">        }</span>
-<span class="source-line-no">723</span><span id="line-723">      }</span>
-<span class="source-line-no">724</span><span id="line-724">    });</span>
-<span class="source-line-no">725</span><span id="line-725">  }</span>
-<span class="source-line-no">726</span><span id="line-726"></span>
-<span class="source-line-no">727</span><span id="line-727">  @Override</span>
-<span class="source-line-no">728</span><span id="line-728">  public HFileContext getFileContext() {</span>
-<span class="source-line-no">729</span><span id="line-729">    return hFileContext;</span>
-<span class="source-line-no">730</span><span id="line-730">  }</span>
-<span class="source-line-no">731</span><span id="line-731"></span>
-<span class="source-line-no">732</span><span id="line-732">  /**</span>
-<span class="source-line-no">733</span><span id="line-733">   * Add key/value to file. Keys must be added in an order that agrees with the Comparator passed on</span>
-<span class="source-line-no">734</span><span id="line-734">   * construction. Cell to add. Cannot be empty nor null.</span>
-<span class="source-line-no">735</span><span id="line-735">   */</span>
-<span class="source-line-no">736</span><span id="line-736">  @Override</span>
-<span class="source-line-no">737</span><span id="line-737">  public void append(final ExtendedCell cell) throws IOException {</span>
-<span class="source-line-no">738</span><span id="line-738">    // checkKey uses comparator to check we are writing in order.</span>
-<span class="source-line-no">739</span><span id="line-739">    boolean dupKey = checkKey(cell);</span>
-<span class="source-line-no">740</span><span id="line-740">    if (!dupKey) {</span>
-<span class="source-line-no">741</span><span id="line-741">      checkBlockBoundary();</span>
-<span class="source-line-no">742</span><span id="line-742">    }</span>
-<span class="source-line-no">743</span><span id="line-743"></span>
-<span class="source-line-no">744</span><span id="line-744">    if (!blockWriter.isWriting()) {</span>
-<span class="source-line-no">745</span><span id="line-745">      newBlock();</span>
-<span class="source-line-no">746</span><span id="line-746">    }</span>
-<span class="source-line-no">747</span><span id="line-747"></span>
-<span class="source-line-no">748</span><span id="line-748">    blockWriter.write(cell);</span>
-<span class="source-line-no">749</span><span id="line-749"></span>
-<span class="source-line-no">750</span><span id="line-750">    totalKeyLength += PrivateCellUtil.estimatedSerializedSizeOfKey(cell);</span>
-<span class="source-line-no">751</span><span id="line-751">    totalValueLength += cell.getValueLength();</span>
-<span class="source-line-no">752</span><span id="line-752">    if (lenOfBiggestCell &lt; PrivateCellUtil.estimatedSerializedSizeOf(cell)) {</span>
-<span class="source-line-no">753</span><span id="line-753">      lenOfBiggestCell = PrivateCellUtil.estimatedSerializedSizeOf(cell);</span>
-<span class="source-line-no">754</span><span id="line-754">      keyOfBiggestCell = PrivateCellUtil.getCellKeySerializedAsKeyValueKey(cell);</span>
-<span class="source-line-no">755</span><span id="line-755">    }</span>
-<span class="source-line-no">756</span><span id="line-756">    // Are we the first key in this block?</span>
-<span class="source-line-no">757</span><span id="line-757">    if (firstCellInBlock == null) {</span>
-<span class="source-line-no">758</span><span id="line-758">      // If cell is big, block will be closed and this firstCellInBlock reference will only last</span>
-<span class="source-line-no">759</span><span id="line-759">      // a short while.</span>
-<span class="source-line-no">760</span><span id="line-760">      firstCellInBlock = cell;</span>
-<span class="source-line-no">761</span><span id="line-761">    }</span>
-<span class="source-line-no">762</span><span id="line-762"></span>
-<span class="source-line-no">763</span><span id="line-763">    // TODO: What if cell is 10MB and we write infrequently? We hold on to cell here indefinitely?</span>
-<span class="source-line-no">764</span><span id="line-764">    lastCell = cell;</span>
-<span class="source-line-no">765</span><span id="line-765">    entryCount++;</span>
-<span class="source-line-no">766</span><span id="line-766">    this.maxMemstoreTS = Math.max(this.maxMemstoreTS, cell.getSequenceId());</span>
-<span class="source-line-no">767</span><span id="line-767">    int tagsLength = cell.getTagsLength();</span>
-<span class="source-line-no">768</span><span id="line-768">    if (tagsLength &gt; this.maxTagsLength) {</span>
-<span class="source-line-no">769</span><span id="line-769">      this.maxTagsLength = tagsLength;</span>
-<span class="source-line-no">770</span><span id="line-770">    }</span>
-<span class="source-line-no">771</span><span id="line-771">  }</span>
-<span class="source-line-no">772</span><span id="line-772"></span>
-<span class="source-line-no">773</span><span id="line-773">  @Override</span>
-<span class="source-line-no">774</span><span id="line-774">  public void beforeShipped() throws IOException {</span>
-<span class="source-line-no">775</span><span id="line-775">    this.blockWriter.beforeShipped();</span>
-<span class="source-line-no">776</span><span id="line-776">    // Add clone methods for every cell</span>
-<span class="source-line-no">777</span><span id="line-777">    if (this.lastCell != null) {</span>
-<span class="source-line-no">778</span><span id="line-778">      this.lastCell = KeyValueUtil.toNewKeyCell(this.lastCell);</span>
-<span class="source-line-no">779</span><span id="line-779">    }</span>
-<span class="source-line-no">780</span><span id="line-780">    if (this.firstCellInBlock != null) {</span>
-<span class="source-line-no">781</span><span id="line-781">      this.firstCellInBlock = KeyValueUtil.toNewKeyCell(this.firstCellInBlock);</span>
-<span class="source-line-no">782</span><span id="line-782">    }</span>
-<span class="source-line-no">783</span><span id="line-783">    if (this.lastCellOfPreviousBlock != null) {</span>
-<span class="source-line-no">784</span><span id="line-784">      this.lastCellOfPreviousBlock = KeyValueUtil.toNewKeyCell(this.lastCellOfPreviousBlock);</span>
-<span class="source-line-no">785</span><span id="line-785">    }</span>
-<span class="source-line-no">786</span><span id="line-786">  }</span>
-<span class="source-line-no">787</span><span id="line-787"></span>
-<span class="source-line-no">788</span><span id="line-788">  public Cell getLastCell() {</span>
-<span class="source-line-no">789</span><span id="line-789">    return lastCell;</span>
-<span class="source-line-no">790</span><span id="line-790">  }</span>
-<span class="source-line-no">791</span><span id="line-791"></span>
-<span class="source-line-no">792</span><span id="line-792">  protected void finishFileInfo() throws IOException {</span>
-<span class="source-line-no">793</span><span id="line-793">    if (lastCell != null) {</span>
-<span class="source-line-no">794</span><span id="line-794">      // Make a copy. The copy is stuffed into our fileinfo map. Needs a clean</span>
-<span class="source-line-no">795</span><span id="line-795">      // byte buffer. Won't take a tuple.</span>
-<span class="source-line-no">796</span><span id="line-796">      byte[] lastKey = PrivateCellUtil.getCellKeySerializedAsKeyValueKey(this.lastCell);</span>
-<span class="source-line-no">797</span><span id="line-797">      fileInfo.append(HFileInfo.LASTKEY, lastKey, false);</span>
-<span class="source-line-no">798</span><span id="line-798">    }</span>
-<span class="source-line-no">799</span><span id="line-799"></span>
-<span class="source-line-no">800</span><span id="line-800">    // Average key length.</span>
-<span class="source-line-no">801</span><span id="line-801">    int avgKeyLen = entryCount == 0 ? 0 : (int) (totalKeyLength / entryCount);</span>
-<span class="source-line-no">802</span><span id="line-802">    fileInfo.append(HFileInfo.AVG_KEY_LEN, Bytes.toBytes(avgKeyLen), false);</span>
-<span class="source-line-no">803</span><span id="line-803">    fileInfo.append(HFileInfo.CREATE_TIME_TS, Bytes.toBytes(hFileContext.getFileCreateTime()),</span>
-<span class="source-line-no">804</span><span id="line-804">      false);</span>
-<span class="source-line-no">805</span><span id="line-805"></span>
-<span class="source-line-no">806</span><span id="line-806">    // Average value length.</span>
-<span class="source-line-no">807</span><span id="line-807">    int avgValueLen = entryCount == 0 ? 0 : (int) (totalValueLength / entryCount);</span>
-<span class="source-line-no">808</span><span id="line-808">    fileInfo.append(HFileInfo.AVG_VALUE_LEN, Bytes.toBytes(avgValueLen), false);</span>
-<span class="source-line-no">809</span><span id="line-809"></span>
-<span class="source-line-no">810</span><span id="line-810">    // Biggest cell.</span>
-<span class="source-line-no">811</span><span id="line-811">    if (keyOfBiggestCell != null) {</span>
-<span class="source-line-no">812</span><span id="line-812">      fileInfo.append(HFileInfo.KEY_OF_BIGGEST_CELL, keyOfBiggestCell, false);</span>
-<span class="source-line-no">813</span><span id="line-813">      fileInfo.append(HFileInfo.LEN_OF_BIGGEST_CELL, Bytes.toBytes(lenOfBiggestCell), false);</span>
-<span class="source-line-no">814</span><span id="line-814">      LOG.debug("Len of the biggest cell in {} is {}, key is {}",</span>
-<span class="source-line-no">815</span><span id="line-815">        this.getPath() == null ? "" : this.getPath().toString(), lenOfBiggestCell,</span>
-<span class="source-line-no">816</span><span id="line-816">        CellUtil.toString(new KeyValue.KeyOnlyKeyValue(keyOfBiggestCell), false));</span>
-<span class="source-line-no">817</span><span id="line-817">    }</span>
-<span class="source-line-no">818</span><span id="line-818"></span>
-<span class="source-line-no">819</span><span id="line-819">    if (hFileContext.isIncludesTags()) {</span>
-<span class="source-line-no">820</span><span id="line-820">      // When tags are not being written in this file, MAX_TAGS_LEN is excluded</span>
-<span class="source-line-no">821</span><span id="line-821">      // from the FileInfo</span>
-<span class="source-line-no">822</span><span id="line-822">      fileInfo.append(HFileInfo.MAX_TAGS_LEN, Bytes.toBytes(this.maxTagsLength), false);</span>
-<span class="source-line-no">823</span><span id="line-823">      boolean tagsCompressed = (hFileContext.getDataBlockEncoding() != DataBlockEncoding.NONE)</span>
-<span class="source-line-no">824</span><span id="line-824">        &amp;&amp; hFileContext.isCompressTags();</span>
-<span class="source-line-no">825</span><span id="line-825">      fileInfo.append(HFileInfo.TAGS_COMPRESSED, Bytes.toBytes(tagsCompressed), false);</span>
-<span class="source-line-no">826</span><span id="line-826">    }</span>
-<span class="source-line-no">827</span><span id="line-827">  }</span>
-<span class="source-line-no">828</span><span id="line-828"></span>
-<span class="source-line-no">829</span><span id="line-829">  protected int getMajorVersion() {</span>
-<span class="source-line-no">830</span><span id="line-830">    return 3;</span>
-<span class="source-line-no">831</span><span id="line-831">  }</span>
-<span class="source-line-no">832</span><span id="line-832"></span>
-<span class="source-line-no">833</span><span id="line-833">  protected int getMinorVersion() {</span>
-<span class="source-line-no">834</span><span id="line-834">    return HFileReaderImpl.MAX_MINOR_VERSION;</span>
-<span class="source-line-no">835</span><span id="line-835">  }</span>
-<span class="source-line-no">836</span><span id="line-836"></span>
-<span class="source-line-no">837</span><span id="line-837">  protected void finishClose(FixedFileTrailer trailer) throws IOException {</span>
-<span class="source-line-no">838</span><span id="line-838">    // Write out encryption metadata before finalizing if we have a valid crypto context</span>
-<span class="source-line-no">839</span><span id="line-839">    Encryption.Context cryptoContext = hFileContext.getEncryptionContext();</span>
-<span class="source-line-no">840</span><span id="line-840">    if (cryptoContext != Encryption.Context.NONE) {</span>
-<span class="source-line-no">841</span><span id="line-841">      // Wrap the context's key and write it as the encryption metadata, the wrapper includes</span>
-<span class="source-line-no">842</span><span id="line-842">      // all information needed for decryption</span>
-<span class="source-line-no">843</span><span id="line-843">      trailer.setEncryptionKey(EncryptionUtil.wrapKey(</span>
-<span class="source-line-no">844</span><span id="line-844">        cryptoContext.getConf(), cryptoContext.getConf()</span>
-<span class="source-line-no">845</span><span id="line-845">          .get(HConstants.CRYPTO_MASTERKEY_NAME_CONF_KEY, User.getCurrent().getShortName()),</span>
-<span class="source-line-no">846</span><span id="line-846">        cryptoContext.getKey()));</span>
-<span class="source-line-no">847</span><span id="line-847">    }</span>
-<span class="source-line-no">848</span><span id="line-848">    // Now we can finish the close</span>
-<span class="source-line-no">849</span><span id="line-849">    trailer.setMetaIndexCount(metaNames.size());</span>
-<span class="source-line-no">850</span><span id="line-850">    trailer.setTotalUncompressedBytes(totalUncompressedBytes + trailer.getTrailerSize());</span>
-<span class="source-line-no">851</span><span id="line-851">    trailer.setEntryCount(entryCount);</span>
-<span class="source-line-no">852</span><span id="line-852">    trailer.setCompressionCodec(hFileContext.getCompression());</span>
-<span class="source-line-no">853</span><span id="line-853"></span>
-<span class="source-line-no">854</span><span id="line-854">    long startTime = EnvironmentEdgeManager.currentTime();</span>
-<span class="source-line-no">855</span><span id="line-855">    trailer.serialize(outputStream);</span>
-<span class="source-line-no">856</span><span id="line-856">    HFile.updateWriteLatency(EnvironmentEdgeManager.currentTime() - startTime);</span>
-<span class="source-line-no">857</span><span id="line-857"></span>
-<span class="source-line-no">858</span><span id="line-858">    if (closeOutputStream) {</span>
-<span class="source-line-no">859</span><span id="line-859">      outputStream.close();</span>
-<span class="source-line-no">860</span><span id="line-860">      outputStream = null;</span>
-<span class="source-line-no">861</span><span id="line-861">    }</span>
-<span class="source-line-no">862</span><span id="line-862">  }</span>
-<span class="source-line-no">863</span><span id="line-863">}</span>
+<span class="source-line-no">647</span><span id="line-647">    // Data block index.</span>
+<span class="source-line-no">648</span><span id="line-648">    //</span>
+<span class="source-line-no">649</span><span id="line-649">    // In version 2, this section of the file starts with the root level data</span>
+<span class="source-line-no">650</span><span id="line-650">    // block index. We call a function that writes intermediate-level blocks</span>
+<span class="source-line-no">651</span><span id="line-651">    // first, then root level, and returns the offset of the root level block</span>
+<span class="source-line-no">652</span><span id="line-652">    // index.</span>
+<span class="source-line-no">653</span><span id="line-653"></span>
+<span class="source-line-no">654</span><span id="line-654">    long rootIndexOffset = dataBlockIndexWriter.writeIndexBlocks(outputStream);</span>
+<span class="source-line-no">655</span><span id="line-655">    trailer.setLoadOnOpenOffset(rootIndexOffset);</span>
+<span class="source-line-no">656</span><span id="line-656"></span>
+<span class="source-line-no">657</span><span id="line-657">    // Meta block index.</span>
+<span class="source-line-no">658</span><span id="line-658">    metaBlockIndexWriter.writeSingleLevelIndex(blockWriter.startWriting(BlockType.ROOT_INDEX),</span>
+<span class="source-line-no">659</span><span id="line-659">      "meta");</span>
+<span class="source-line-no">660</span><span id="line-660">    blockWriter.writeHeaderAndData(outputStream);</span>
+<span class="source-line-no">661</span><span id="line-661">    totalUncompressedBytes += blockWriter.getUncompressedSizeWithHeader();</span>
+<span class="source-line-no">662</span><span id="line-662"></span>
+<span class="source-line-no">663</span><span id="line-663">    if (this.hFileContext.isIncludesMvcc()) {</span>
+<span class="source-line-no">664</span><span id="line-664">      appendFileInfo(MAX_MEMSTORE_TS_KEY, Bytes.toBytes(maxMemstoreTS));</span>
+<span class="source-line-no">665</span><span id="line-665">      appendFileInfo(KEY_VALUE_VERSION, Bytes.toBytes(KEY_VALUE_VER_WITH_MEMSTORE));</span>
+<span class="source-line-no">666</span><span id="line-666">    }</span>
+<span class="source-line-no">667</span><span id="line-667"></span>
+<span class="source-line-no">668</span><span id="line-668">    // File info</span>
+<span class="source-line-no">669</span><span id="line-669">    writeFileInfo(trailer, blockWriter.startWriting(BlockType.FILE_INFO));</span>
+<span class="source-line-no">670</span><span id="line-670">    blockWriter.writeHeaderAndData(outputStream);</span>
+<span class="source-line-no">671</span><span id="line-671">    totalUncompressedBytes += blockWriter.getUncompressedSizeWithHeader();</span>
+<span class="source-line-no">672</span><span id="line-672"></span>
+<span class="source-line-no">673</span><span id="line-673">    // Load-on-open data supplied by higher levels, e.g. Bloom filters.</span>
+<span class="source-line-no">674</span><span id="line-674">    for (BlockWritable w : additionalLoadOnOpenData) {</span>
+<span class="source-line-no">675</span><span id="line-675">      blockWriter.writeBlock(w, outputStream);</span>
+<span class="source-line-no">676</span><span id="line-676">      totalUncompressedBytes += blockWriter.getUncompressedSizeWithHeader();</span>
+<span class="source-line-no">677</span><span id="line-677">    }</span>
+<span class="source-line-no">678</span><span id="line-678"></span>
+<span class="source-line-no">679</span><span id="line-679">    // Now finish off the trailer.</span>
+<span class="source-line-no">680</span><span id="line-680">    trailer.setNumDataIndexLevels(dataBlockIndexWriter.getNumLevels());</span>
+<span class="source-line-no">681</span><span id="line-681">    trailer.setUncompressedDataIndexSize(dataBlockIndexWriter.getTotalUncompressedSize());</span>
+<span class="source-line-no">682</span><span id="line-682">    trailer.setFirstDataBlockOffset(firstDataBlockOffset);</span>
+<span class="source-line-no">683</span><span id="line-683">    trailer.setLastDataBlockOffset(lastDataBlockOffset);</span>
+<span class="source-line-no">684</span><span id="line-684">    trailer.setComparatorClass(this.hFileContext.getCellComparator().getClass());</span>
+<span class="source-line-no">685</span><span id="line-685">    trailer.setDataIndexCount(dataBlockIndexWriter.getNumRootEntries());</span>
+<span class="source-line-no">686</span><span id="line-686"></span>
+<span class="source-line-no">687</span><span id="line-687">    finishClose(trailer);</span>
+<span class="source-line-no">688</span><span id="line-688"></span>
+<span class="source-line-no">689</span><span id="line-689">    blockWriter.release();</span>
+<span class="source-line-no">690</span><span id="line-690">  }</span>
+<span class="source-line-no">691</span><span id="line-691"></span>
+<span class="source-line-no">692</span><span id="line-692">  @Override</span>
+<span class="source-line-no">693</span><span id="line-693">  public void addInlineBlockWriter(InlineBlockWriter ibw) {</span>
+<span class="source-line-no">694</span><span id="line-694">    inlineBlockWriters.add(ibw);</span>
+<span class="source-line-no">695</span><span id="line-695">  }</span>
+<span class="source-line-no">696</span><span id="line-696"></span>
+<span class="source-line-no">697</span><span id="line-697">  @Override</span>
+<span class="source-line-no">698</span><span id="line-698">  public void addGeneralBloomFilter(final BloomFilterWriter bfw) {</span>
+<span class="source-line-no">699</span><span id="line-699">    this.addBloomFilter(bfw, BlockType.GENERAL_BLOOM_META);</span>
+<span class="source-line-no">700</span><span id="line-700">  }</span>
+<span class="source-line-no">701</span><span id="line-701"></span>
+<span class="source-line-no">702</span><span id="line-702">  @Override</span>
+<span class="source-line-no">703</span><span id="line-703">  public void addDeleteFamilyBloomFilter(final BloomFilterWriter bfw) {</span>
+<span class="source-line-no">704</span><span id="line-704">    this.addBloomFilter(bfw, BlockType.DELETE_FAMILY_BLOOM_META);</span>
+<span class="source-line-no">705</span><span id="line-705">  }</span>
+<span class="source-line-no">706</span><span id="line-706"></span>
+<span class="source-line-no">707</span><span id="line-707">  private void addBloomFilter(final BloomFilterWriter bfw, final BlockType blockType) {</span>
+<span class="source-line-no">708</span><span id="line-708">    if (bfw.getKeyCount() &lt;= 0) {</span>
+<span class="source-line-no">709</span><span id="line-709">      return;</span>
+<span class="source-line-no">710</span><span id="line-710">    }</span>
+<span class="source-line-no">711</span><span id="line-711"></span>
+<span class="source-line-no">712</span><span id="line-712">    if (</span>
+<span class="source-line-no">713</span><span id="line-713">      blockType != BlockType.GENERAL_BLOOM_META &amp;&amp; blockType != BlockType.DELETE_FAMILY_BLOOM_META</span>
+<span class="source-line-no">714</span><span id="line-714">    ) {</span>
+<span class="source-line-no">715</span><span id="line-715">      throw new RuntimeException("Block Type: " + blockType.toString() + "is not supported");</span>
+<span class="source-line-no">716</span><span id="line-716">    }</span>
+<span class="source-line-no">717</span><span id="line-717">    additionalLoadOnOpenData.add(new BlockWritable() {</span>
+<span class="source-line-no">718</span><span id="line-718">      @Override</span>
+<span class="source-line-no">719</span><span id="line-719">      public BlockType getBlockType() {</span>
+<span class="source-line-no">720</span><span id="line-720">        return blockType;</span>
+<span class="source-line-no">721</span><span id="line-721">      }</span>
+<span class="source-line-no">722</span><span id="line-722"></span>
+<span class="source-line-no">723</span><span id="line-723">      @Override</span>
+<span class="source-line-no">724</span><span id="line-724">      public void writeToBlock(DataOutput out) throws IOException {</span>
+<span class="source-line-no">725</span><span id="line-725">        bfw.getMetaWriter().write(out);</span>
+<span class="source-line-no">726</span><span id="line-726">        Writable dataWriter = bfw.getDataWriter();</span>
+<span class="source-line-no">727</span><span id="line-727">        if (dataWriter != null) {</span>
+<span class="source-line-no">728</span><span id="line-728">          dataWriter.write(out);</span>
+<span class="source-line-no">729</span><span id="line-729">        }</span>
+<span class="source-line-no">730</span><span id="line-730">      }</span>
+<span class="source-line-no">731</span><span id="line-731">    });</span>
+<span class="source-line-no">732</span><span id="line-732">  }</span>
+<span class="source-line-no">733</span><span id="line-733"></span>
+<span class="source-line-no">734</span><span id="line-734">  @Override</span>
+<span class="source-line-no">735</span><span id="line-735">  public HFileContext getFileContext() {</span>
+<span class="source-line-no">736</span><span id="line-736">    return hFileContext;</span>
+<span class="source-line-no">737</span><span id="line-737">  }</span>
+<span class="source-line-no">738</span><span id="line-738"></span>
+<span class="source-line-no">739</span><span id="line-739">  /**</span>
+<span class="source-line-no">740</span><span id="line-740">   * Add key/value to file. Keys must be added in an order that agrees with the Comparator passed on</span>
+<span class="source-line-no">741</span><span id="line-741">   * construction. Cell to add. Cannot be empty nor null.</span>
+<span class="source-line-no">742</span><span id="line-742">   */</span>
+<span class="source-line-no">743</span><span id="line-743">  @Override</span>
+<span class="source-line-no">744</span><span id="line-744">  public void append(final ExtendedCell cell) throws IOException {</span>
+<span class="source-line-no">745</span><span id="line-745">    // checkKey uses comparator to check we are writing in order.</span>
+<span class="source-line-no">746</span><span id="line-746">    boolean dupKey = checkKey(cell);</span>
+<span class="source-line-no">747</span><span id="line-747">    if (!dupKey) {</span>
+<span class="source-line-no">748</span><span id="line-748">      checkBlockBoundary();</span>
+<span class="source-line-no">749</span><span id="line-749">    }</span>
+<span class="source-line-no">750</span><span id="line-750"></span>
+<span class="source-line-no">751</span><span id="line-751">    if (!blockWriter.isWriting()) {</span>
+<span class="source-line-no">752</span><span id="line-752">      newBlock();</span>
+<span class="source-line-no">753</span><span id="line-753">    }</span>
+<span class="source-line-no">754</span><span id="line-754"></span>
+<span class="source-line-no">755</span><span id="line-755">    blockWriter.write(cell);</span>
+<span class="source-line-no">756</span><span id="line-756"></span>
+<span class="source-line-no">757</span><span id="line-757">    totalKeyLength += PrivateCellUtil.estimatedSerializedSizeOfKey(cell);</span>
+<span class="source-line-no">758</span><span id="line-758">    totalValueLength += cell.getValueLength();</span>
+<span class="source-line-no">759</span><span id="line-759">    if (lenOfBiggestCell &lt; PrivateCellUtil.estimatedSerializedSizeOf(cell)) {</span>
+<span class="source-line-no">760</span><span id="line-760">      lenOfBiggestCell = PrivateCellUtil.estimatedSerializedSizeOf(cell);</span>
+<span class="source-line-no">761</span><span id="line-761">      keyOfBiggestCell = PrivateCellUtil.getCellKeySerializedAsKeyValueKey(cell);</span>
+<span class="source-line-no">762</span><span id="line-762">    }</span>
+<span class="source-line-no">763</span><span id="line-763">    // Are we the first key in this block?</span>
+<span class="source-line-no">764</span><span id="line-764">    if (firstCellInBlock == null) {</span>
+<span class="source-line-no">765</span><span id="line-765">      // If cell is big, block will be closed and this firstCellInBlock reference will only last</span>
+<span class="source-line-no">766</span><span id="line-766">      // a short while.</span>
+<span class="source-line-no">767</span><span id="line-767">      firstCellInBlock = cell;</span>
+<span class="source-line-no">768</span><span id="line-768">    }</span>
+<span class="source-line-no">769</span><span id="line-769"></span>
+<span class="source-line-no">770</span><span id="line-770">    // TODO: What if cell is 10MB and we write infrequently? We hold on to cell here indefinitely?</span>
+<span class="source-line-no">771</span><span id="line-771">    lastCell = cell;</span>
+<span class="source-line-no">772</span><span id="line-772">    entryCount++;</span>
+<span class="source-line-no">773</span><span id="line-773">    this.maxMemstoreTS = Math.max(this.maxMemstoreTS, cell.getSequenceId());</span>
+<span class="source-line-no">774</span><span id="line-774">    int tagsLength = cell.getTagsLength();</span>
+<span class="source-line-no">775</span><span id="line-775">    if (tagsLength &gt; this.maxTagsLength) {</span>
+<span class="source-line-no">776</span><span id="line-776">      this.maxTagsLength = tagsLength;</span>
+<span class="source-line-no">777</span><span id="line-777">    }</span>
+<span class="source-line-no">778</span><span id="line-778">  }</span>
+<span class="source-line-no">779</span><span id="line-779"></span>
+<span class="source-line-no">780</span><span id="line-780">  @Override</span>
+<span class="source-line-no">781</span><span id="line-781">  public void beforeShipped() throws IOException {</span>
+<span class="source-line-no">782</span><span id="line-782">    this.blockWriter.beforeShipped();</span>
+<span class="source-line-no">783</span><span id="line-783">    // Add clone methods for every cell</span>
+<span class="source-line-no">784</span><span id="line-784">    if (this.lastCell != null) {</span>
+<span class="source-line-no">785</span><span id="line-785">      this.lastCell = KeyValueUtil.toNewKeyCell(this.lastCell);</span>
+<span class="source-line-no">786</span><span id="line-786">    }</span>
+<span class="source-line-no">787</span><span id="line-787">    if (this.firstCellInBlock != null) {</span>
+<span class="source-line-no">788</span><span id="line-788">      this.firstCellInBlock = KeyValueUtil.toNewKeyCell(this.firstCellInBlock);</span>
+<span class="source-line-no">789</span><span id="line-789">    }</span>
+<span class="source-line-no">790</span><span id="line-790">    if (this.lastCellOfPreviousBlock != null) {</span>
+<span class="source-line-no">791</span><span id="line-791">      this.lastCellOfPreviousBlock = KeyValueUtil.toNewKeyCell(this.lastCellOfPreviousBlock);</span>
+<span class="source-line-no">792</span><span id="line-792">    }</span>
+<span class="source-line-no">793</span><span id="line-793">  }</span>
+<span class="source-line-no">794</span><span id="line-794"></span>
+<span class="source-line-no">795</span><span id="line-795">  public Cell getLastCell() {</span>
+<span class="source-line-no">796</span><span id="line-796">    return lastCell;</span>
+<span class="source-line-no">797</span><span id="line-797">  }</span>
+<span class="source-line-no">798</span><span id="line-798"></span>
+<span class="source-line-no">799</span><span id="line-799">  protected void finishFileInfo() throws IOException {</span>
+<span class="source-line-no">800</span><span id="line-800">    if (lastCell != null) {</span>
+<span class="source-line-no">801</span><span id="line-801">      // Make a copy. The copy is stuffed into our fileinfo map. Needs a clean</span>
+<span class="source-line-no">802</span><span id="line-802">      // byte buffer. Won't take a tuple.</span>
+<span class="source-line-no">803</span><span id="line-803">      byte[] lastKey = PrivateCellUtil.getCellKeySerializedAsKeyValueKey(this.lastCell);</span>
+<span class="source-line-no">804</span><span id="line-804">      fileInfo.append(HFileInfo.LASTKEY, lastKey, false);</span>
+<span class="source-line-no">805</span><span id="line-805">    }</span>
+<span class="source-line-no">806</span><span id="line-806"></span>
+<span class="source-line-no">807</span><span id="line-807">    // Average key length.</span>
+<span class="source-line-no">808</span><span id="line-808">    int avgKeyLen = entryCount == 0 ? 0 : (int) (totalKeyLength / entryCount);</span>
+<span class="source-line-no">809</span><span id="line-809">    fileInfo.append(HFileInfo.AVG_KEY_LEN, Bytes.toBytes(avgKeyLen), false);</span>
+<span class="source-line-no">810</span><span id="line-810">    fileInfo.append(HFileInfo.CREATE_TIME_TS, Bytes.toBytes(hFileContext.getFileCreateTime()),</span>
+<span class="source-line-no">811</span><span id="line-811">      false);</span>
+<span class="source-line-no">812</span><span id="line-812"></span>
+<span class="source-line-no">813</span><span id="line-813">    // Average value length.</span>
+<span class="source-line-no">814</span><span id="line-814">    int avgValueLen = entryCount == 0 ? 0 : (int) (totalValueLength / entryCount);</span>
+<span class="source-line-no">815</span><span id="line-815">    fileInfo.append(HFileInfo.AVG_VALUE_LEN, Bytes.toBytes(avgValueLen), false);</span>
+<span class="source-line-no">816</span><span id="line-816"></span>
+<span class="source-line-no">817</span><span id="line-817">    // Biggest cell.</span>
+<span class="source-line-no">818</span><span id="line-818">    if (keyOfBiggestCell != null) {</span>
+<span class="source-line-no">819</span><span id="line-819">      fileInfo.append(HFileInfo.KEY_OF_BIGGEST_CELL, keyOfBiggestCell, false);</span>
+<span class="source-line-no">820</span><span id="line-820">      fileInfo.append(HFileInfo.LEN_OF_BIGGEST_CELL, Bytes.toBytes(lenOfBiggestCell), false);</span>
+<span class="source-line-no">821</span><span id="line-821">      LOG.debug("Len of the biggest cell in {} is {}, key is {}",</span>
+<span class="source-line-no">822</span><span id="line-822">        this.getPath() == null ? "" : this.getPath().toString(), lenOfBiggestCell,</span>
+<span class="source-line-no">823</span><span id="line-823">        CellUtil.toString(new KeyValue.KeyOnlyKeyValue(keyOfBiggestCell), false));</span>
+<span class="source-line-no">824</span><span id="line-824">    }</span>
+<span class="source-line-no">825</span><span id="line-825"></span>
+<span class="source-line-no">826</span><span id="line-826">    if (hFileContext.isIncludesTags()) {</span>
+<span class="source-line-no">827</span><span id="line-827">      // When tags are not being written in this file, MAX_TAGS_LEN is excluded</span>
+<span class="source-line-no">828</span><span id="line-828">      // from the FileInfo</span>
+<span class="source-line-no">829</span><span id="line-829">      fileInfo.append(HFileInfo.MAX_TAGS_LEN, Bytes.toBytes(this.maxTagsLength), false);</span>
+<span class="source-line-no">830</span><span id="line-830">      boolean tagsCompressed = (hFileContext.getDataBlockEncoding() != DataBlockEncoding.NONE)</span>
+<span class="source-line-no">831</span><span id="line-831">        &amp;&amp; hFileContext.isCompressTags();</span>
+<span class="source-line-no">832</span><span id="line-832">      fileInfo.append(HFileInfo.TAGS_COMPRESSED, Bytes.toBytes(tagsCompressed), false);</span>
+<span class="source-line-no">833</span><span id="line-833">    }</span>
+<span class="source-line-no">834</span><span id="line-834">  }</span>
+<span class="source-line-no">835</span><span id="line-835"></span>
+<span class="source-line-no">836</span><span id="line-836">  protected int getMajorVersion() {</span>
+<span class="source-line-no">837</span><span id="line-837">    return 3;</span>
+<span class="source-line-no">838</span><span id="line-838">  }</span>
+<span class="source-line-no">839</span><span id="line-839"></span>
+<span class="source-line-no">840</span><span id="line-840">  protected int getMinorVersion() {</span>
+<span class="source-line-no">841</span><span id="line-841">    return HFileReaderImpl.MAX_MINOR_VERSION;</span>
+<span class="source-line-no">842</span><span id="line-842">  }</span>
+<span class="source-line-no">843</span><span id="line-843"></span>
+<span class="source-line-no">844</span><span id="line-844">  protected void finishClose(FixedFileTrailer trailer) throws IOException {</span>
+<span class="source-line-no">845</span><span id="line-845">    // Write out encryption metadata before finalizing if we have a valid crypto context</span>
+<span class="source-line-no">846</span><span id="line-846">    Encryption.Context cryptoContext = hFileContext.getEncryptionContext();</span>
+<span class="source-line-no">847</span><span id="line-847">    if (cryptoContext != Encryption.Context.NONE) {</span>
+<span class="source-line-no">848</span><span id="line-848">      // Wrap the context's key and write it as the encryption metadata, the wrapper includes</span>
+<span class="source-line-no">849</span><span id="line-849">      // all information needed for decryption</span>
+<span class="source-line-no">850</span><span id="line-850">      trailer.setEncryptionKey(EncryptionUtil.wrapKey(</span>
+<span class="source-line-no">851</span><span id="line-851">        cryptoContext.getConf(), cryptoContext.getConf()</span>
+<span class="source-line-no">852</span><span id="line-852">          .get(HConstants.CRYPTO_MASTERKEY_NAME_CONF_KEY, User.getCurrent().getShortName()),</span>
+<span class="source-line-no">853</span><span id="line-853">        cryptoContext.getKey()));</span>
+<span class="source-line-no">854</span><span id="line-854">    }</span>
+<span class="source-line-no">855</span><span id="line-855">    // Now we can finish the close</span>
+<span class="source-line-no">856</span><span id="line-856">    trailer.setMetaIndexCount(metaNames.size());</span>
+<span class="source-line-no">857</span><span id="line-857">    trailer.setTotalUncompressedBytes(totalUncompressedBytes + trailer.getTrailerSize());</span>
+<span class="source-line-no">858</span><span id="line-858">    trailer.setEntryCount(entryCount);</span>
+<span class="source-line-no">859</span><span id="line-859">    trailer.setCompressionCodec(hFileContext.getCompression());</span>
+<span class="source-line-no">860</span><span id="line-860"></span>
+<span class="source-line-no">861</span><span id="line-861">    long startTime = EnvironmentEdgeManager.currentTime();</span>
+<span class="source-line-no">862</span><span id="line-862">    trailer.serialize(outputStream);</span>
+<span class="source-line-no">863</span><span id="line-863">    HFile.updateWriteLatency(EnvironmentEdgeManager.currentTime() - startTime);</span>
+<span class="source-line-no">864</span><span id="line-864"></span>
+<span class="source-line-no">865</span><span id="line-865">    if (closeOutputStream) {</span>
+<span class="source-line-no">866</span><span id="line-866">      outputStream.close();</span>
+<span class="source-line-no">867</span><span id="line-867">      outputStream = null;</span>
+<span class="source-line-no">868</span><span id="line-868">    }</span>
+<span class="source-line-no">869</span><span id="line-869">  }</span>
+<span class="source-line-no">870</span><span id="line-870">}</span>
 
 
 

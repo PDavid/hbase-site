@@ -57,20 +57,26 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.coprocessor.example">org.apache.hadoop.hbase.coprocessor.example</a></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.metrics">org.apache.hadoop.hbase.metrics</a></div>
-<div class="col-last odd-row-color">
+<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.coprocessor.example.row.stats">org.apache.hadoop.hbase.coprocessor.example.row.stats</a></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.coprocessor.example.row.stats.recorder">org.apache.hadoop.hbase.coprocessor.example.row.stats.recorder</a></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.coprocessor.example.row.stats.ringbuffer">org.apache.hadoop.hbase.coprocessor.example.row.stats.ringbuffer</a></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.metrics">org.apache.hadoop.hbase.metrics</a></div>
+<div class="col-last even-row-color">
 <div class="block">Metrics API for HBase.</div>
 </div>
-<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.metrics.impl">org.apache.hadoop.hbase.metrics.impl</a></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.metrics.impl">org.apache.hadoop.hbase.metrics.impl</a></div>
+<div class="col-last odd-row-color">
 <div class="block">Implementation of the HBase Metrics framework.</div>
 </div>
-<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.procedure2">org.apache.hadoop.hbase.procedure2</a></div>
-<div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.regionserver">org.apache.hadoop.hbase.regionserver</a></div>
+<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.procedure2">org.apache.hadoop.hbase.procedure2</a></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.regionserver.metrics">org.apache.hadoop.hbase.regionserver.metrics</a></div>
+<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.regionserver">org.apache.hadoop.hbase.regionserver</a></div>
 <div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.regionserver.metrics">org.apache.hadoop.hbase.regionserver.metrics</a></div>
+<div class="col-last even-row-color">&nbsp;</div>
 </div>
 <section class="class-uses">
 <ul class="block-list">
@@ -96,6 +102,103 @@ loadScripts(document, 'script');</script>
 <div class="col-first odd-row-color"><code>private <a href="../Counter.html" title="interface in org.apache.hadoop.hbase.metrics">Counter</a></code></div>
 <div class="col-second odd-row-color"><span class="type-name-label">ExampleRegionObserverWithMetrics.</span><code><a href="../../coprocessor/example/ExampleRegionObserverWithMetrics.html#preGetCounter" class="member-name-link">preGetCounter</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="org.apache.hadoop.hbase.coprocessor.example.row.stats">
+<h2>Uses of <a href="../Counter.html" title="interface in org.apache.hadoop.hbase.metrics">Counter</a> in <a href="../../coprocessor/example/row/stats/package-summary.html">org.apache.hadoop.hbase.coprocessor.example.row.stats</a></h2>
+<div class="caption"><span>Fields in <a href="../../coprocessor/example/row/stats/package-summary.html">org.apache.hadoop.hbase.coprocessor.example.row.stats</a> declared as <a href="../Counter.html" title="interface in org.apache.hadoop.hbase.metrics">Counter</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Field</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>private <a href="../Counter.html" title="interface in org.apache.hadoop.hbase.metrics">Counter</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">RowStatisticsCompactionObserver.</span><code><a href="../../coprocessor/example/row/stats/RowStatisticsCompactionObserver.html#rowStatisticsDropped" class="member-name-link">rowStatisticsDropped</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private final <a href="../Counter.html" title="interface in org.apache.hadoop.hbase.metrics">Counter</a></code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">RowStatisticsCompactionObserver.RowStatisticsScanner.</span><code><a href="../../coprocessor/example/row/stats/RowStatisticsCompactionObserver.RowStatisticsScanner.html#rowStatisticsDropped" class="member-name-link">rowStatisticsDropped</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private <a href="../Counter.html" title="interface in org.apache.hadoop.hbase.metrics">Counter</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">RowStatisticsCompactionObserver.</span><code><a href="../../coprocessor/example/row/stats/RowStatisticsCompactionObserver.html#rowStatisticsPutFailed" class="member-name-link">rowStatisticsPutFailed</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private final <a href="../Counter.html" title="interface in org.apache.hadoop.hbase.metrics">Counter</a></code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">RowStatisticsCompactionObserver.RowStatisticsScanner.</span><code><a href="../../coprocessor/example/row/stats/RowStatisticsCompactionObserver.RowStatisticsScanner.html#rowStatisticsPutFailed" class="member-name-link">rowStatisticsPutFailed</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="org.apache.hadoop.hbase.coprocessor.example.row.stats.recorder">
+<h2>Uses of <a href="../Counter.html" title="interface in org.apache.hadoop.hbase.metrics">Counter</a> in <a href="../../coprocessor/example/row/stats/recorder/package-summary.html">org.apache.hadoop.hbase.coprocessor.example.row.stats.recorder</a></h2>
+<div class="caption"><span>Fields in <a href="../../coprocessor/example/row/stats/recorder/package-summary.html">org.apache.hadoop.hbase.coprocessor.example.row.stats.recorder</a> declared as <a href="../Counter.html" title="interface in org.apache.hadoop.hbase.metrics">Counter</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Field</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>private final <a href="../Counter.html" title="interface in org.apache.hadoop.hbase.metrics">Counter</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">RowStatisticsTableRecorder.</span><code><a href="../../coprocessor/example/row/stats/recorder/RowStatisticsTableRecorder.html#rowStatisticsDropped" class="member-name-link">rowStatisticsDropped</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private final <a href="../Counter.html" title="interface in org.apache.hadoop.hbase.metrics">Counter</a></code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">RowStatisticsTableRecorder.TableRecorderExceptionListener.</span><code><a href="../../coprocessor/example/row/stats/recorder/RowStatisticsTableRecorder.TableRecorderExceptionListener.html#rowStatisticsPutFailures" class="member-name-link">rowStatisticsPutFailures</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+</div>
+<div class="caption"><span>Methods in <a href="../../coprocessor/example/row/stats/recorder/package-summary.html">org.apache.hadoop.hbase.coprocessor.example.row.stats.recorder</a> with parameters of type <a href="../Counter.html" title="interface in org.apache.hadoop.hbase.metrics">Counter</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>static <a href="../../coprocessor/example/row/stats/recorder/RowStatisticsTableRecorder.html" title="class in org.apache.hadoop.hbase.coprocessor.example.row.stats.recorder">RowStatisticsTableRecorder</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">RowStatisticsTableRecorder.</span><code><a href="../../coprocessor/example/row/stats/recorder/RowStatisticsTableRecorder.html#forClusterConnection(org.apache.hadoop.hbase.client.Connection,org.apache.hadoop.hbase.metrics.Counter,org.apache.hadoop.hbase.metrics.Counter)" class="member-name-link">forClusterConnection</a><wbr>(<a href="../../client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;clusterConnection,
+ <a href="../Counter.html" title="interface in org.apache.hadoop.hbase.metrics">Counter</a>&nbsp;rowStatisticsDropped,
+ <a href="../Counter.html" title="interface in org.apache.hadoop.hbase.metrics">Counter</a>&nbsp;rowStatisticsPutFailed)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static <a href="../../client/BufferedMutator.html" title="interface in org.apache.hadoop.hbase.client">BufferedMutator</a></code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">RowStatisticsTableRecorder.</span><code><a href="../../coprocessor/example/row/stats/recorder/RowStatisticsTableRecorder.html#initializeBufferedMutator(org.apache.hadoop.hbase.client.Connection,org.apache.hadoop.hbase.metrics.Counter)" class="member-name-link">initializeBufferedMutator</a><wbr>(<a href="../../client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;conn,
+ <a href="../Counter.html" title="interface in org.apache.hadoop.hbase.metrics">Counter</a>&nbsp;rowStatisticsPutFailed)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private static com.lmax.disruptor.dsl.Disruptor&lt;<a href="../../coprocessor/example/row/stats/ringbuffer/RowStatisticsRingBufferEnvelope.html" title="class in org.apache.hadoop.hbase.coprocessor.example.row.stats.ringbuffer">RowStatisticsRingBufferEnvelope</a>&gt;</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">RowStatisticsTableRecorder.</span><code><a href="../../coprocessor/example/row/stats/recorder/RowStatisticsTableRecorder.html#initializeDisruptor(org.apache.hadoop.hbase.client.BufferedMutator,org.apache.hadoop.hbase.metrics.Counter)" class="member-name-link">initializeDisruptor</a><wbr>(<a href="../../client/BufferedMutator.html" title="interface in org.apache.hadoop.hbase.client">BufferedMutator</a>&nbsp;bufferedMutator,
+ <a href="../Counter.html" title="interface in org.apache.hadoop.hbase.metrics">Counter</a>&nbsp;rowStatisticsPutFailures)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+<div class="caption"><span>Constructors in <a href="../../coprocessor/example/row/stats/recorder/package-summary.html">org.apache.hadoop.hbase.coprocessor.example.row.stats.recorder</a> with parameters of type <a href="../Counter.html" title="interface in org.apache.hadoop.hbase.metrics">Counter</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier</div>
+<div class="table-header col-second">Constructor</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>private </code></div>
+<div class="col-second even-row-color"><code><a href="../../coprocessor/example/row/stats/recorder/RowStatisticsTableRecorder.html#%3Cinit%3E(org.apache.hadoop.hbase.client.BufferedMutator,com.lmax.disruptor.dsl.Disruptor,org.apache.hadoop.hbase.metrics.Counter)" class="member-name-link">RowStatisticsTableRecorder</a><wbr>(<a href="../../client/BufferedMutator.html" title="interface in org.apache.hadoop.hbase.client">BufferedMutator</a>&nbsp;bufferedMutator,
+ com.lmax.disruptor.dsl.Disruptor&lt;<a href="../../coprocessor/example/row/stats/ringbuffer/RowStatisticsRingBufferEnvelope.html" title="class in org.apache.hadoop.hbase.coprocessor.example.row.stats.ringbuffer">RowStatisticsRingBufferEnvelope</a>&gt;&nbsp;disruptor,
+ <a href="../Counter.html" title="interface in org.apache.hadoop.hbase.metrics">Counter</a>&nbsp;rowStatisticsDropped)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>(package private)</code></div>
+<div class="col-second odd-row-color"><code><a href="../../coprocessor/example/row/stats/recorder/RowStatisticsTableRecorder.TableRecorderExceptionListener.html#%3Cinit%3E(org.apache.hadoop.hbase.metrics.Counter)" class="member-name-link">TableRecorderExceptionListener</a><wbr>(<a href="../Counter.html" title="interface in org.apache.hadoop.hbase.metrics">Counter</a>&nbsp;counter)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="org.apache.hadoop.hbase.coprocessor.example.row.stats.ringbuffer">
+<h2>Uses of <a href="../Counter.html" title="interface in org.apache.hadoop.hbase.metrics">Counter</a> in <a href="../../coprocessor/example/row/stats/ringbuffer/package-summary.html">org.apache.hadoop.hbase.coprocessor.example.row.stats.ringbuffer</a></h2>
+<div class="caption"><span>Fields in <a href="../../coprocessor/example/row/stats/ringbuffer/package-summary.html">org.apache.hadoop.hbase.coprocessor.example.row.stats.ringbuffer</a> declared as <a href="../Counter.html" title="interface in org.apache.hadoop.hbase.metrics">Counter</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Field</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>private final <a href="../Counter.html" title="interface in org.apache.hadoop.hbase.metrics">Counter</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">RowStatisticsEventHandler.</span><code><a href="../../coprocessor/example/row/stats/ringbuffer/RowStatisticsEventHandler.html#rowStatisticsPutFailures" class="member-name-link">rowStatisticsPutFailures</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+<div class="caption"><span>Constructors in <a href="../../coprocessor/example/row/stats/ringbuffer/package-summary.html">org.apache.hadoop.hbase.coprocessor.example.row.stats.ringbuffer</a> with parameters of type <a href="../Counter.html" title="interface in org.apache.hadoop.hbase.metrics">Counter</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier</div>
+<div class="table-header col-second">Constructor</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="../../coprocessor/example/row/stats/ringbuffer/RowStatisticsEventHandler.html#%3Cinit%3E(org.apache.hadoop.hbase.client.BufferedMutator,org.apache.hadoop.hbase.metrics.Counter)" class="member-name-link">RowStatisticsEventHandler</a><wbr>(<a href="../../client/BufferedMutator.html" title="interface in org.apache.hadoop.hbase.client">BufferedMutator</a>&nbsp;bufferedMutator,
+ <a href="../Counter.html" title="interface in org.apache.hadoop.hbase.metrics">Counter</a>&nbsp;rowStatisticsPutFailures)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
 </li>

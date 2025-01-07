@@ -96,48 +96,50 @@
 <span class="source-line-no">083</span><span id="line-83">          Bytes.toBytes(Integer.toString(slowLogPayload.getProcessingTime())))</span>
 <span class="source-line-no">084</span><span id="line-84">        .addColumn(HConstants.SLOWLOG_INFO_FAMILY, Bytes.toBytes("queue_time"),</span>
 <span class="source-line-no">085</span><span id="line-85">          Bytes.toBytes(Integer.toString(slowLogPayload.getQueueTime())))</span>
-<span class="source-line-no">086</span><span id="line-86">        .addColumn(HConstants.SLOWLOG_INFO_FAMILY, Bytes.toBytes("region_name"),</span>
-<span class="source-line-no">087</span><span id="line-87">          Bytes.toBytes(slowLogPayload.getRegionName()))</span>
-<span class="source-line-no">088</span><span id="line-88">        .addColumn(HConstants.SLOWLOG_INFO_FAMILY, Bytes.toBytes("response_size"),</span>
-<span class="source-line-no">089</span><span id="line-89">          Bytes.toBytes(Long.toString(slowLogPayload.getResponseSize())))</span>
-<span class="source-line-no">090</span><span id="line-90">        .addColumn(HConstants.SLOWLOG_INFO_FAMILY, Bytes.toBytes("block_bytes_scanned"),</span>
-<span class="source-line-no">091</span><span id="line-91">          Bytes.toBytes(Long.toString(slowLogPayload.getBlockBytesScanned())))</span>
-<span class="source-line-no">092</span><span id="line-92">        .addColumn(HConstants.SLOWLOG_INFO_FAMILY, Bytes.toBytes("server_class"),</span>
-<span class="source-line-no">093</span><span id="line-93">          Bytes.toBytes(slowLogPayload.getServerClass()))</span>
-<span class="source-line-no">094</span><span id="line-94">        .addColumn(HConstants.SLOWLOG_INFO_FAMILY, Bytes.toBytes("start_time"),</span>
-<span class="source-line-no">095</span><span id="line-95">          Bytes.toBytes(Long.toString(slowLogPayload.getStartTime())))</span>
-<span class="source-line-no">096</span><span id="line-96">        .addColumn(HConstants.SLOWLOG_INFO_FAMILY, Bytes.toBytes("type"),</span>
-<span class="source-line-no">097</span><span id="line-97">          Bytes.toBytes(slowLogPayload.getType().name()))</span>
-<span class="source-line-no">098</span><span id="line-98">        .addColumn(HConstants.SLOWLOG_INFO_FAMILY, Bytes.toBytes("username"),</span>
-<span class="source-line-no">099</span><span id="line-99">          Bytes.toBytes(slowLogPayload.getUserName()));</span>
-<span class="source-line-no">100</span><span id="line-100">      puts.add(put);</span>
-<span class="source-line-no">101</span><span id="line-101">    }</span>
-<span class="source-line-no">102</span><span id="line-102">    try {</span>
-<span class="source-line-no">103</span><span id="line-103">      doPut(connection, puts);</span>
-<span class="source-line-no">104</span><span id="line-104">    } catch (Exception e) {</span>
-<span class="source-line-no">105</span><span id="line-105">      LOG.warn("Failed to add slow/large log records to hbase:slowlog table.", e);</span>
-<span class="source-line-no">106</span><span id="line-106">    }</span>
-<span class="source-line-no">107</span><span id="line-107">  }</span>
-<span class="source-line-no">108</span><span id="line-108"></span>
-<span class="source-line-no">109</span><span id="line-109">  /**</span>
-<span class="source-line-no">110</span><span id="line-110">   * Create rowKey: currentTime APPEND slowLogPayload.hashcode Scan on slowlog table should keep</span>
-<span class="source-line-no">111</span><span id="line-111">   * records with sorted order of time, however records added at the very same time could be in</span>
-<span class="source-line-no">112</span><span id="line-112">   * random order.</span>
-<span class="source-line-no">113</span><span id="line-113">   * @param slowLogPayload SlowLogPayload to process</span>
-<span class="source-line-no">114</span><span id="line-114">   * @return rowKey byte[]</span>
-<span class="source-line-no">115</span><span id="line-115">   */</span>
-<span class="source-line-no">116</span><span id="line-116">  private static byte[] getRowKey(final TooSlowLog.SlowLogPayload slowLogPayload) {</span>
-<span class="source-line-no">117</span><span id="line-117">    String hashcode = String.valueOf(slowLogPayload.hashCode());</span>
-<span class="source-line-no">118</span><span id="line-118">    String lastFiveDig = hashcode.substring((hashcode.length() &gt; 5) ? (hashcode.length() - 5) : 0);</span>
-<span class="source-line-no">119</span><span id="line-119">    if (lastFiveDig.startsWith("-")) {</span>
-<span class="source-line-no">120</span><span id="line-120">      lastFiveDig = String.valueOf(ThreadLocalRandom.current().nextInt(99999));</span>
-<span class="source-line-no">121</span><span id="line-121">    }</span>
-<span class="source-line-no">122</span><span id="line-122">    final long currentTime = EnvironmentEdgeManager.currentTime();</span>
-<span class="source-line-no">123</span><span id="line-123">    final String timeAndHashcode = currentTime + lastFiveDig;</span>
-<span class="source-line-no">124</span><span id="line-124">    final long rowKeyLong = Long.parseLong(timeAndHashcode);</span>
-<span class="source-line-no">125</span><span id="line-125">    return Bytes.toBytes(rowKeyLong);</span>
-<span class="source-line-no">126</span><span id="line-126">  }</span>
-<span class="source-line-no">127</span><span id="line-127">}</span>
+<span class="source-line-no">086</span><span id="line-86">        .addColumn(HConstants.SLOWLOG_INFO_FAMILY, Bytes.toBytes("fs_read_time"),</span>
+<span class="source-line-no">087</span><span id="line-87">          Bytes.toBytes(Long.toString(slowLogPayload.getFsReadTime())))</span>
+<span class="source-line-no">088</span><span id="line-88">        .addColumn(HConstants.SLOWLOG_INFO_FAMILY, Bytes.toBytes("region_name"),</span>
+<span class="source-line-no">089</span><span id="line-89">          Bytes.toBytes(slowLogPayload.getRegionName()))</span>
+<span class="source-line-no">090</span><span id="line-90">        .addColumn(HConstants.SLOWLOG_INFO_FAMILY, Bytes.toBytes("response_size"),</span>
+<span class="source-line-no">091</span><span id="line-91">          Bytes.toBytes(Long.toString(slowLogPayload.getResponseSize())))</span>
+<span class="source-line-no">092</span><span id="line-92">        .addColumn(HConstants.SLOWLOG_INFO_FAMILY, Bytes.toBytes("block_bytes_scanned"),</span>
+<span class="source-line-no">093</span><span id="line-93">          Bytes.toBytes(Long.toString(slowLogPayload.getBlockBytesScanned())))</span>
+<span class="source-line-no">094</span><span id="line-94">        .addColumn(HConstants.SLOWLOG_INFO_FAMILY, Bytes.toBytes("server_class"),</span>
+<span class="source-line-no">095</span><span id="line-95">          Bytes.toBytes(slowLogPayload.getServerClass()))</span>
+<span class="source-line-no">096</span><span id="line-96">        .addColumn(HConstants.SLOWLOG_INFO_FAMILY, Bytes.toBytes("start_time"),</span>
+<span class="source-line-no">097</span><span id="line-97">          Bytes.toBytes(Long.toString(slowLogPayload.getStartTime())))</span>
+<span class="source-line-no">098</span><span id="line-98">        .addColumn(HConstants.SLOWLOG_INFO_FAMILY, Bytes.toBytes("type"),</span>
+<span class="source-line-no">099</span><span id="line-99">          Bytes.toBytes(slowLogPayload.getType().name()))</span>
+<span class="source-line-no">100</span><span id="line-100">        .addColumn(HConstants.SLOWLOG_INFO_FAMILY, Bytes.toBytes("username"),</span>
+<span class="source-line-no">101</span><span id="line-101">          Bytes.toBytes(slowLogPayload.getUserName()));</span>
+<span class="source-line-no">102</span><span id="line-102">      puts.add(put);</span>
+<span class="source-line-no">103</span><span id="line-103">    }</span>
+<span class="source-line-no">104</span><span id="line-104">    try {</span>
+<span class="source-line-no">105</span><span id="line-105">      doPut(connection, puts);</span>
+<span class="source-line-no">106</span><span id="line-106">    } catch (Exception e) {</span>
+<span class="source-line-no">107</span><span id="line-107">      LOG.warn("Failed to add slow/large log records to hbase:slowlog table.", e);</span>
+<span class="source-line-no">108</span><span id="line-108">    }</span>
+<span class="source-line-no">109</span><span id="line-109">  }</span>
+<span class="source-line-no">110</span><span id="line-110"></span>
+<span class="source-line-no">111</span><span id="line-111">  /**</span>
+<span class="source-line-no">112</span><span id="line-112">   * Create rowKey: currentTime APPEND slowLogPayload.hashcode Scan on slowlog table should keep</span>
+<span class="source-line-no">113</span><span id="line-113">   * records with sorted order of time, however records added at the very same time could be in</span>
+<span class="source-line-no">114</span><span id="line-114">   * random order.</span>
+<span class="source-line-no">115</span><span id="line-115">   * @param slowLogPayload SlowLogPayload to process</span>
+<span class="source-line-no">116</span><span id="line-116">   * @return rowKey byte[]</span>
+<span class="source-line-no">117</span><span id="line-117">   */</span>
+<span class="source-line-no">118</span><span id="line-118">  private static byte[] getRowKey(final TooSlowLog.SlowLogPayload slowLogPayload) {</span>
+<span class="source-line-no">119</span><span id="line-119">    String hashcode = String.valueOf(slowLogPayload.hashCode());</span>
+<span class="source-line-no">120</span><span id="line-120">    String lastFiveDig = hashcode.substring((hashcode.length() &gt; 5) ? (hashcode.length() - 5) : 0);</span>
+<span class="source-line-no">121</span><span id="line-121">    if (lastFiveDig.startsWith("-")) {</span>
+<span class="source-line-no">122</span><span id="line-122">      lastFiveDig = String.valueOf(ThreadLocalRandom.current().nextInt(99999));</span>
+<span class="source-line-no">123</span><span id="line-123">    }</span>
+<span class="source-line-no">124</span><span id="line-124">    final long currentTime = EnvironmentEdgeManager.currentTime();</span>
+<span class="source-line-no">125</span><span id="line-125">    final String timeAndHashcode = currentTime + lastFiveDig;</span>
+<span class="source-line-no">126</span><span id="line-126">    final long rowKeyLong = Long.parseLong(timeAndHashcode);</span>
+<span class="source-line-no">127</span><span id="line-127">    return Bytes.toBytes(rowKeyLong);</span>
+<span class="source-line-no">128</span><span id="line-128">  }</span>
+<span class="source-line-no">129</span><span id="line-129">}</span>
 
 
 

@@ -108,6 +108,10 @@ loadScripts(document, 'script');</script>
 </div>
 <div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.coprocessor.example">org.apache.hadoop.hbase.coprocessor.example</a></div>
 <div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.coprocessor.example.row.stats">org.apache.hadoop.hbase.coprocessor.example.row.stats</a></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.coprocessor.example.row.stats.utils">org.apache.hadoop.hbase.coprocessor.example.row.stats.utils</a></div>
+<div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.exceptions">org.apache.hadoop.hbase.exceptions</a></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.executor">org.apache.hadoop.hbase.executor</a></div>
@@ -1344,6 +1348,65 @@ service.</div>
 </div>
 <div class="col-first odd-row-color"><a href="class-use/TableName.html#org.apache.hadoop.hbase.coprocessor.example">TableName</a></div>
 <div class="col-last odd-row-color">
+<div class="block">Immutable POJO class for representing a table name.</div>
+</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="org.apache.hadoop.hbase.coprocessor.example.row.stats">
+<div class="caption"><span>Classes in <a href="package-summary.html">org.apache.hadoop.hbase</a> used by <a href="coprocessor/example/row/stats/package-summary.html">org.apache.hadoop.hbase.coprocessor.example.row.stats</a></span></div>
+<div class="summary-table two-column-summary">
+<div class="table-header col-first">Class</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><a href="class-use/Cell.html#org.apache.hadoop.hbase.coprocessor.example.row.stats">Cell</a></div>
+<div class="col-last even-row-color">
+<div class="block">The unit of storage in HBase consisting of the following fields: <br></div>
+</div>
+<div class="col-first odd-row-color"><a href="class-use/Coprocessor.html#org.apache.hadoop.hbase.coprocessor.example.row.stats">Coprocessor</a></div>
+<div class="col-last odd-row-color">
+<div class="block">Base interface for the 4 coprocessors - MasterCoprocessor, RegionCoprocessor,
+ RegionServerCoprocessor, and WALCoprocessor.</div>
+</div>
+<div class="col-first even-row-color"><a href="class-use/CoprocessorEnvironment.html#org.apache.hadoop.hbase.coprocessor.example.row.stats">CoprocessorEnvironment</a></div>
+<div class="col-last even-row-color">
+<div class="block">Coprocessor environment state.</div>
+</div>
+<div class="col-first odd-row-color"><a href="class-use/ExtendedCell.html#org.apache.hadoop.hbase.coprocessor.example.row.stats">ExtendedCell</a></div>
+<div class="col-last odd-row-color">
+<div class="block">Extension to <a href="Cell.html" title="interface in org.apache.hadoop.hbase"><code>Cell</code></a> with server side required functions.</div>
+</div>
+<div class="col-first even-row-color"><a href="class-use/RawCellBuilder.html#org.apache.hadoop.hbase.coprocessor.example.row.stats">RawCellBuilder</a></div>
+<div class="col-last even-row-color">
+<div class="block">Allows creating a cell with <a href="Tag.html" title="interface in org.apache.hadoop.hbase"><code>Tag</code></a> An instance of this type can be acquired by using
+ RegionCoprocessorEnvironment#getCellBuilder (for prod code) and <a href="RawCellBuilderFactory.html" title="class in org.apache.hadoop.hbase"><code>RawCellBuilderFactory</code></a>
+ (for unit tests).</div>
+</div>
+<div class="col-first odd-row-color"><a href="class-use/TableName.html#org.apache.hadoop.hbase.coprocessor.example.row.stats">TableName</a></div>
+<div class="col-last odd-row-color">
+<div class="block">Immutable POJO class for representing a table name.</div>
+</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="org.apache.hadoop.hbase.coprocessor.example.row.stats.utils">
+<div class="caption"><span>Classes in <a href="package-summary.html">org.apache.hadoop.hbase</a> used by <a href="coprocessor/example/row/stats/utils/package-summary.html">org.apache.hadoop.hbase.coprocessor.example.row.stats.utils</a></span></div>
+<div class="summary-table two-column-summary">
+<div class="table-header col-first">Class</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><a href="class-use/Cell.html#org.apache.hadoop.hbase.coprocessor.example.row.stats.utils">Cell</a></div>
+<div class="col-last even-row-color">
+<div class="block">The unit of storage in HBase consisting of the following fields: <br></div>
+</div>
+<div class="col-first odd-row-color"><a href="class-use/RawCellBuilder.html#org.apache.hadoop.hbase.coprocessor.example.row.stats.utils">RawCellBuilder</a></div>
+<div class="col-last odd-row-color">
+<div class="block">Allows creating a cell with <a href="Tag.html" title="interface in org.apache.hadoop.hbase"><code>Tag</code></a> An instance of this type can be acquired by using
+ RegionCoprocessorEnvironment#getCellBuilder (for prod code) and <a href="RawCellBuilderFactory.html" title="class in org.apache.hadoop.hbase"><code>RawCellBuilderFactory</code></a>
+ (for unit tests).</div>
+</div>
+<div class="col-first even-row-color"><a href="class-use/TableName.html#org.apache.hadoop.hbase.coprocessor.example.row.stats.utils">TableName</a></div>
+<div class="col-last even-row-color">
 <div class="block">Immutable POJO class for representing a table name.</div>
 </div>
 </div>

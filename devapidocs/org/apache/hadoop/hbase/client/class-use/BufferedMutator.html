@@ -61,6 +61,10 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color">
 <div class="block">Provides HBase Client</div>
 </div>
+<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.coprocessor.example.row.stats.recorder">org.apache.hadoop.hbase.coprocessor.example.row.stats.recorder</a></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.coprocessor.example.row.stats.ringbuffer">org.apache.hadoop.hbase.coprocessor.example.row.stats.ringbuffer</a></div>
+<div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.mapred">org.apache.hadoop.hbase.mapred</a></div>
 <div class="col-last even-row-color">
 <div class="block">Provides HBase <a href="https://cwiki.apache.org/confluence/display/HADOOP2/HadoopMapReduce">MapReduce</a>
@@ -138,6 +142,79 @@ Input/OutputFormats, a table indexing MapReduce job, and utility methods.</div>
 <div class="col-first even-row-color"><code>void</code></div>
 <div class="col-second even-row-color"><span class="type-name-label">BufferedMutator.ExceptionListener.</span><code><a href="../BufferedMutator.ExceptionListener.html#onException(org.apache.hadoop.hbase.client.RetriesExhaustedWithDetailsException,org.apache.hadoop.hbase.client.BufferedMutator)" class="member-name-link">onException</a><wbr>(<a href="../RetriesExhaustedWithDetailsException.html" title="class in org.apache.hadoop.hbase.client">RetriesExhaustedWithDetailsException</a>&nbsp;exception,
  <a href="../BufferedMutator.html" title="interface in org.apache.hadoop.hbase.client">BufferedMutator</a>&nbsp;mutator)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="org.apache.hadoop.hbase.coprocessor.example.row.stats.recorder">
+<h2>Uses of <a href="../BufferedMutator.html" title="interface in org.apache.hadoop.hbase.client">BufferedMutator</a> in <a href="../../coprocessor/example/row/stats/recorder/package-summary.html">org.apache.hadoop.hbase.coprocessor.example.row.stats.recorder</a></h2>
+<div class="caption"><span>Fields in <a href="../../coprocessor/example/row/stats/recorder/package-summary.html">org.apache.hadoop.hbase.coprocessor.example.row.stats.recorder</a> declared as <a href="../BufferedMutator.html" title="interface in org.apache.hadoop.hbase.client">BufferedMutator</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Field</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>private final <a href="../BufferedMutator.html" title="interface in org.apache.hadoop.hbase.client">BufferedMutator</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">RowStatisticsTableRecorder.</span><code><a href="../../coprocessor/example/row/stats/recorder/RowStatisticsTableRecorder.html#bufferedMutator" class="member-name-link">bufferedMutator</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+<div class="caption"><span>Methods in <a href="../../coprocessor/example/row/stats/recorder/package-summary.html">org.apache.hadoop.hbase.coprocessor.example.row.stats.recorder</a> that return <a href="../BufferedMutator.html" title="interface in org.apache.hadoop.hbase.client">BufferedMutator</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>private static <a href="../BufferedMutator.html" title="interface in org.apache.hadoop.hbase.client">BufferedMutator</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">RowStatisticsTableRecorder.</span><code><a href="../../coprocessor/example/row/stats/recorder/RowStatisticsTableRecorder.html#initializeBufferedMutator(org.apache.hadoop.hbase.client.Connection,org.apache.hadoop.hbase.metrics.Counter)" class="member-name-link">initializeBufferedMutator</a><wbr>(<a href="../Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;conn,
+ <a href="../../metrics/Counter.html" title="interface in org.apache.hadoop.hbase.metrics">Counter</a>&nbsp;rowStatisticsPutFailed)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+<div class="caption"><span>Methods in <a href="../../coprocessor/example/row/stats/recorder/package-summary.html">org.apache.hadoop.hbase.coprocessor.example.row.stats.recorder</a> with parameters of type <a href="../BufferedMutator.html" title="interface in org.apache.hadoop.hbase.client">BufferedMutator</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>private static com.lmax.disruptor.dsl.Disruptor&lt;<a href="../../coprocessor/example/row/stats/ringbuffer/RowStatisticsRingBufferEnvelope.html" title="class in org.apache.hadoop.hbase.coprocessor.example.row.stats.ringbuffer">RowStatisticsRingBufferEnvelope</a>&gt;</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">RowStatisticsTableRecorder.</span><code><a href="../../coprocessor/example/row/stats/recorder/RowStatisticsTableRecorder.html#initializeDisruptor(org.apache.hadoop.hbase.client.BufferedMutator,org.apache.hadoop.hbase.metrics.Counter)" class="member-name-link">initializeDisruptor</a><wbr>(<a href="../BufferedMutator.html" title="interface in org.apache.hadoop.hbase.client">BufferedMutator</a>&nbsp;bufferedMutator,
+ <a href="../../metrics/Counter.html" title="interface in org.apache.hadoop.hbase.metrics">Counter</a>&nbsp;rowStatisticsPutFailures)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>void</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">RowStatisticsTableRecorder.TableRecorderExceptionListener.</span><code><a href="../../coprocessor/example/row/stats/recorder/RowStatisticsTableRecorder.TableRecorderExceptionListener.html#onException(org.apache.hadoop.hbase.client.RetriesExhaustedWithDetailsException,org.apache.hadoop.hbase.client.BufferedMutator)" class="member-name-link">onException</a><wbr>(<a href="../RetriesExhaustedWithDetailsException.html" title="class in org.apache.hadoop.hbase.client">RetriesExhaustedWithDetailsException</a>&nbsp;exception,
+ <a href="../BufferedMutator.html" title="interface in org.apache.hadoop.hbase.client">BufferedMutator</a>&nbsp;mutator)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+</div>
+<div class="caption"><span>Constructors in <a href="../../coprocessor/example/row/stats/recorder/package-summary.html">org.apache.hadoop.hbase.coprocessor.example.row.stats.recorder</a> with parameters of type <a href="../BufferedMutator.html" title="interface in org.apache.hadoop.hbase.client">BufferedMutator</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier</div>
+<div class="table-header col-second">Constructor</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>private </code></div>
+<div class="col-second even-row-color"><code><a href="../../coprocessor/example/row/stats/recorder/RowStatisticsTableRecorder.html#%3Cinit%3E(org.apache.hadoop.hbase.client.BufferedMutator,com.lmax.disruptor.dsl.Disruptor,org.apache.hadoop.hbase.metrics.Counter)" class="member-name-link">RowStatisticsTableRecorder</a><wbr>(<a href="../BufferedMutator.html" title="interface in org.apache.hadoop.hbase.client">BufferedMutator</a>&nbsp;bufferedMutator,
+ com.lmax.disruptor.dsl.Disruptor&lt;<a href="../../coprocessor/example/row/stats/ringbuffer/RowStatisticsRingBufferEnvelope.html" title="class in org.apache.hadoop.hbase.coprocessor.example.row.stats.ringbuffer">RowStatisticsRingBufferEnvelope</a>&gt;&nbsp;disruptor,
+ <a href="../../metrics/Counter.html" title="interface in org.apache.hadoop.hbase.metrics">Counter</a>&nbsp;rowStatisticsDropped)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="org.apache.hadoop.hbase.coprocessor.example.row.stats.ringbuffer">
+<h2>Uses of <a href="../BufferedMutator.html" title="interface in org.apache.hadoop.hbase.client">BufferedMutator</a> in <a href="../../coprocessor/example/row/stats/ringbuffer/package-summary.html">org.apache.hadoop.hbase.coprocessor.example.row.stats.ringbuffer</a></h2>
+<div class="caption"><span>Fields in <a href="../../coprocessor/example/row/stats/ringbuffer/package-summary.html">org.apache.hadoop.hbase.coprocessor.example.row.stats.ringbuffer</a> declared as <a href="../BufferedMutator.html" title="interface in org.apache.hadoop.hbase.client">BufferedMutator</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Field</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>private final <a href="../BufferedMutator.html" title="interface in org.apache.hadoop.hbase.client">BufferedMutator</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">RowStatisticsEventHandler.</span><code><a href="../../coprocessor/example/row/stats/ringbuffer/RowStatisticsEventHandler.html#bufferedMutator" class="member-name-link">bufferedMutator</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+<div class="caption"><span>Constructors in <a href="../../coprocessor/example/row/stats/ringbuffer/package-summary.html">org.apache.hadoop.hbase.coprocessor.example.row.stats.ringbuffer</a> with parameters of type <a href="../BufferedMutator.html" title="interface in org.apache.hadoop.hbase.client">BufferedMutator</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier</div>
+<div class="table-header col-second">Constructor</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="../../coprocessor/example/row/stats/ringbuffer/RowStatisticsEventHandler.html#%3Cinit%3E(org.apache.hadoop.hbase.client.BufferedMutator,org.apache.hadoop.hbase.metrics.Counter)" class="member-name-link">RowStatisticsEventHandler</a><wbr>(<a href="../BufferedMutator.html" title="interface in org.apache.hadoop.hbase.client">BufferedMutator</a>&nbsp;bufferedMutator,
+ <a href="../../metrics/Counter.html" title="interface in org.apache.hadoop.hbase.metrics">Counter</a>&nbsp;rowStatisticsPutFailures)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>

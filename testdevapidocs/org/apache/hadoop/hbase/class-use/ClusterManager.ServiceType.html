@@ -171,191 +171,243 @@ the order they are declared.</div>
 <div class="col-first even-row-color"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color"><span class="type-name-label">HBaseClusterManager.</span><code><a href="../HBaseClusterManager.html#getServiceUser(org.apache.hadoop.hbase.ClusterManager.ServiceType)" class="member-name-link">getServiceUser</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>boolean</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">ClusterManager.</span><code><a href="../ClusterManager.html#isRunning(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">isRunning</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
- int&nbsp;port)</code></div>
-<div class="col-last odd-row-color">
-<div class="block">Returns whether the service is running on the remote host.</div>
-</div>
-<div class="col-first even-row-color"><code>boolean</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">HBaseClusterManager.</span><code><a href="../HBaseClusterManager.html#isRunning(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">isRunning</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
- int&nbsp;port)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>boolean</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">RESTApiClusterManager.</span><code><a href="../RESTApiClusterManager.html#isRunning(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">isRunning</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
- int&nbsp;port)</code></div>
+<div class="col-first odd-row-color"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">HBaseClusterManager.CommandProvider.</span><code><a href="../HBaseClusterManager.CommandProvider.html#getStateCommand(org.apache.hadoop.hbase.ClusterManager.ServiceType)" class="member-name-link">getStateCommand</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>boolean</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">ZNodeClusterManager.</span><code><a href="../ZNodeClusterManager.html#isRunning(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">isRunning</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
- int&nbsp;port)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">HBaseClusterManager.CommandProvider.</span><code><a href="../HBaseClusterManager.CommandProvider.html#isRunningCommand(org.apache.hadoop.hbase.ClusterManager.ServiceType)" class="member-name-link">isRunningCommand</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service)</code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">ClusterManager.</span><code><a href="../ClusterManager.html#kill(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">kill</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+<div class="col-second even-row-color"><span class="type-name-label">ClusterManager.</span><code><a href="../ClusterManager.html#isResumed(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">isResumed</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
  int&nbsp;port)</code></div>
 <div class="col-last even-row-color">
+<div class="block">Returns whether the service is resumed on the remote host.</div>
+</div>
+<div class="col-first odd-row-color"><code>boolean</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">HBaseClusterManager.</span><code><a href="../HBaseClusterManager.html#isResumed(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">isResumed</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
+ int&nbsp;port)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>boolean</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">RESTApiClusterManager.</span><code><a href="../RESTApiClusterManager.html#isResumed(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">isResumed</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
+ int&nbsp;port)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>boolean</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">ZNodeClusterManager.</span><code><a href="../ZNodeClusterManager.html#isResumed(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">isResumed</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
+ int&nbsp;port)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>boolean</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">ClusterManager.</span><code><a href="../ClusterManager.html#isRunning(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">isRunning</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
+ int&nbsp;port)</code></div>
+<div class="col-last even-row-color">
+<div class="block">Returns whether the service is running on the remote host.</div>
+</div>
+<div class="col-first odd-row-color"><code>boolean</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">HBaseClusterManager.</span><code><a href="../HBaseClusterManager.html#isRunning(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">isRunning</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
+ int&nbsp;port)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>boolean</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">RESTApiClusterManager.</span><code><a href="../RESTApiClusterManager.html#isRunning(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">isRunning</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
+ int&nbsp;port)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>boolean</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">ZNodeClusterManager.</span><code><a href="../ZNodeClusterManager.html#isRunning(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">isRunning</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
+ int&nbsp;port)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">HBaseClusterManager.CommandProvider.</span><code><a href="../HBaseClusterManager.CommandProvider.html#isRunningCommand(org.apache.hadoop.hbase.ClusterManager.ServiceType)" class="member-name-link">isRunningCommand</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>boolean</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">ClusterManager.</span><code><a href="../ClusterManager.html#isSuspended(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">isSuspended</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
+ int&nbsp;port)</code></div>
+<div class="col-last odd-row-color">
+<div class="block">Returns whether the service is suspended on the remote host.</div>
+</div>
+<div class="col-first even-row-color"><code>boolean</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">HBaseClusterManager.</span><code><a href="../HBaseClusterManager.html#isSuspended(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">isSuspended</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
+ int&nbsp;port)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>boolean</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">RESTApiClusterManager.</span><code><a href="../RESTApiClusterManager.html#isSuspended(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">isSuspended</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
+ int&nbsp;port)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>boolean</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">ZNodeClusterManager.</span><code><a href="../ZNodeClusterManager.html#isSuspended(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">isSuspended</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
+ int&nbsp;port)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>void</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">ClusterManager.</span><code><a href="../ClusterManager.html#kill(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">kill</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
+ int&nbsp;port)</code></div>
+<div class="col-last odd-row-color">
 <div class="block">Kills the service running on the given host</div>
 </div>
+<div class="col-first even-row-color"><code>void</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">HBaseClusterManager.</span><code><a href="../HBaseClusterManager.html#kill(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">kill</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
+ int&nbsp;port)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">HBaseClusterManager.</span><code><a href="../HBaseClusterManager.html#kill(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">kill</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+<div class="col-second odd-row-color"><span class="type-name-label">RESTApiClusterManager.</span><code><a href="../RESTApiClusterManager.html#kill(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">kill</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
  int&nbsp;port)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">RESTApiClusterManager.</span><code><a href="../RESTApiClusterManager.html#kill(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">kill</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+<div class="col-second even-row-color"><span class="type-name-label">ZNodeClusterManager.</span><code><a href="../ZNodeClusterManager.html#kill(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">kill</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
  int&nbsp;port)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">ZNodeClusterManager.</span><code><a href="../ZNodeClusterManager.html#kill(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">kill</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
- int&nbsp;port)</code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>private void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">RESTApiClusterManager.</span><code><a href="../RESTApiClusterManager.html#performClusterManagerCommand(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,org.apache.hadoop.hbase.RESTApiClusterManager.RoleCommand)" class="member-name-link">performClusterManagerCommand</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;role,
+<div class="col-first odd-row-color"><code>private void</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">RESTApiClusterManager.</span><code><a href="../RESTApiClusterManager.html#performClusterManagerCommand(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,org.apache.hadoop.hbase.RESTApiClusterManager.RoleCommand)" class="member-name-link">performClusterManagerCommand</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;role,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
  <a href="../RESTApiClusterManager.RoleCommand.html" title="enum class in org.apache.hadoop.hbase">RESTApiClusterManager.RoleCommand</a>&nbsp;command)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>private static void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">TestRESTApiClusterManager.</span><code><a href="../TestRESTApiClusterManager.html#registerHostProperties(java.lang.String,java.lang.String,java.lang.String,org.apache.hadoop.hbase.ClusterManager.ServiceType,java.util.Map)" class="member-name-link">registerHostProperties</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;clusterName,
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private static void</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">TestRESTApiClusterManager.</span><code><a href="../TestRESTApiClusterManager.html#registerHostProperties(java.lang.String,java.lang.String,java.lang.String,org.apache.hadoop.hbase.ClusterManager.ServiceType,java.util.Map)" class="member-name-link">registerHostProperties</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;clusterName,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;serviceName,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostId,
  <a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;serviceType,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;properties)</code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">ClusterManager.</span><code><a href="../ClusterManager.html#restart(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">restart</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>void</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">ClusterManager.</span><code><a href="../ClusterManager.html#restart(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">restart</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
  int&nbsp;port)</code></div>
-<div class="col-last even-row-color">
+<div class="col-last odd-row-color">
 <div class="block">Restart the service on the given host</div>
 </div>
-<div class="col-first odd-row-color"><code>void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">HBaseClusterManager.</span><code><a href="../HBaseClusterManager.html#restart(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">restart</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
- int&nbsp;port)</code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">RESTApiClusterManager.</span><code><a href="../RESTApiClusterManager.html#restart(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">restart</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+<div class="col-second even-row-color"><span class="type-name-label">HBaseClusterManager.</span><code><a href="../HBaseClusterManager.html#restart(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">restart</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
  int&nbsp;port)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">ZNodeClusterManager.</span><code><a href="../ZNodeClusterManager.html#restart(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">restart</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+<div class="col-second odd-row-color"><span class="type-name-label">RESTApiClusterManager.</span><code><a href="../RESTApiClusterManager.html#restart(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">restart</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
  int&nbsp;port)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">ClusterManager.</span><code><a href="../ClusterManager.html#resume(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">resume</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+<div class="col-second even-row-color"><span class="type-name-label">ZNodeClusterManager.</span><code><a href="../ZNodeClusterManager.html#restart(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">restart</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
+ int&nbsp;port)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>void</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">ClusterManager.</span><code><a href="../ClusterManager.html#resume(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">resume</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
+ int&nbsp;port)</code></div>
+<div class="col-last odd-row-color">
+<div class="block">Resumes the services running on the given host</div>
+</div>
+<div class="col-first even-row-color"><code>void</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">HBaseClusterManager.</span><code><a href="../HBaseClusterManager.html#resume(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">resume</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
+ int&nbsp;port)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>void</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">RESTApiClusterManager.</span><code><a href="../RESTApiClusterManager.html#resume(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">resume</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
+ int&nbsp;port)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>void</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">ZNodeClusterManager.</span><code><a href="../ZNodeClusterManager.html#resume(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">resume</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
+ int&nbsp;port)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>void</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">HBaseClusterManager.</span><code><a href="../HBaseClusterManager.html#signal(org.apache.hadoop.hbase.ClusterManager.ServiceType,org.apache.hadoop.hbase.HBaseClusterManager.Signal,java.lang.String)" class="member-name-link">signal</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+ <a href="../HBaseClusterManager.Signal.html" title="enum class in org.apache.hadoop.hbase">HBaseClusterManager.Signal</a>&nbsp;signal,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>void</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">ZNodeClusterManager.</span><code><a href="../ZNodeClusterManager.html#signal(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,java.lang.String)" class="member-name-link">signal</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;signal,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">HBaseClusterManager.CommandProvider.</span><code><a href="../HBaseClusterManager.CommandProvider.html#signalCommand(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String)" class="member-name-link">signalCommand</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;signal)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>void</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">ClusterManager.</span><code><a href="../ClusterManager.html#start(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">start</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
  int&nbsp;port)</code></div>
 <div class="col-last even-row-color">
-<div class="block">Resumes the services running on the given host</div>
-</div>
-<div class="col-first odd-row-color"><code>void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">HBaseClusterManager.</span><code><a href="../HBaseClusterManager.html#resume(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">resume</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
- int&nbsp;port)</code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">RESTApiClusterManager.</span><code><a href="../RESTApiClusterManager.html#resume(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">resume</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
- int&nbsp;port)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">ZNodeClusterManager.</span><code><a href="../ZNodeClusterManager.html#resume(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">resume</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
- int&nbsp;port)</code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">HBaseClusterManager.</span><code><a href="../HBaseClusterManager.html#signal(org.apache.hadoop.hbase.ClusterManager.ServiceType,org.apache.hadoop.hbase.HBaseClusterManager.Signal,java.lang.String)" class="member-name-link">signal</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
- <a href="../HBaseClusterManager.Signal.html" title="enum class in org.apache.hadoop.hbase">HBaseClusterManager.Signal</a>&nbsp;signal,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">ZNodeClusterManager.</span><code><a href="../ZNodeClusterManager.html#signal(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,java.lang.String)" class="member-name-link">signal</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;signal,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname)</code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">HBaseClusterManager.CommandProvider.</span><code><a href="../HBaseClusterManager.CommandProvider.html#signalCommand(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String)" class="member-name-link">signalCommand</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;signal)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">ClusterManager.</span><code><a href="../ClusterManager.html#start(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">start</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
- int&nbsp;port)</code></div>
-<div class="col-last odd-row-color">
 <div class="block">Start the service on the given host</div>
 </div>
-<div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">HBaseClusterManager.</span><code><a href="../HBaseClusterManager.html#start(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">start</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
- int&nbsp;port)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">RESTApiClusterManager.</span><code><a href="../RESTApiClusterManager.html#start(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">start</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+<div class="col-second odd-row-color"><span class="type-name-label">HBaseClusterManager.</span><code><a href="../HBaseClusterManager.html#start(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">start</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
  int&nbsp;port)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">ZNodeClusterManager.</span><code><a href="../ZNodeClusterManager.html#start(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">start</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+<div class="col-second even-row-color"><span class="type-name-label">RESTApiClusterManager.</span><code><a href="../RESTApiClusterManager.html#start(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">start</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
  int&nbsp;port)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">ClusterManager.</span><code><a href="../ClusterManager.html#stop(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">stop</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+<div class="col-second odd-row-color"><span class="type-name-label">ZNodeClusterManager.</span><code><a href="../ZNodeClusterManager.html#start(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">start</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
  int&nbsp;port)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>void</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">ClusterManager.</span><code><a href="../ClusterManager.html#stop(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">stop</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
+ int&nbsp;port)</code></div>
+<div class="col-last even-row-color">
 <div class="block">Stop the service on the given host</div>
 </div>
-<div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">HBaseClusterManager.</span><code><a href="../HBaseClusterManager.html#stop(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">stop</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
- int&nbsp;port)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">RESTApiClusterManager.</span><code><a href="../RESTApiClusterManager.html#stop(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">stop</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+<div class="col-second odd-row-color"><span class="type-name-label">HBaseClusterManager.</span><code><a href="../HBaseClusterManager.html#stop(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">stop</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
  int&nbsp;port)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">ZNodeClusterManager.</span><code><a href="../ZNodeClusterManager.html#stop(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">stop</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+<div class="col-second even-row-color"><span class="type-name-label">RESTApiClusterManager.</span><code><a href="../RESTApiClusterManager.html#stop(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">stop</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
  int&nbsp;port)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">ClusterManager.</span><code><a href="../ClusterManager.html#suspend(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">suspend</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+<div class="col-second odd-row-color"><span class="type-name-label">ZNodeClusterManager.</span><code><a href="../ZNodeClusterManager.html#stop(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">stop</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
  int&nbsp;port)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>void</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">ClusterManager.</span><code><a href="../ClusterManager.html#suspend(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">suspend</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
+ int&nbsp;port)</code></div>
+<div class="col-last even-row-color">
 <div class="block">Suspends the service running on the given host</div>
 </div>
-<div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">HBaseClusterManager.</span><code><a href="../HBaseClusterManager.html#suspend(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">suspend</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
- int&nbsp;port)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">RESTApiClusterManager.</span><code><a href="../RESTApiClusterManager.html#suspend(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">suspend</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+<div class="col-second odd-row-color"><span class="type-name-label">HBaseClusterManager.</span><code><a href="../HBaseClusterManager.html#suspend(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">suspend</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
  int&nbsp;port)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">ZNodeClusterManager.</span><code><a href="../ZNodeClusterManager.html#suspend(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">suspend</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+<div class="col-second even-row-color"><span class="type-name-label">RESTApiClusterManager.</span><code><a href="../RESTApiClusterManager.html#suspend(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">suspend</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
  int&nbsp;port)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>private static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/RuntimeException.html" title="class or interface in java.lang" class="external-link">RuntimeException</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">CoprocClusterManager.</span><code><a href="../CoprocClusterManager.html#unsupportedServiceType(org.apache.hadoop.hbase.ClusterManager.ServiceType)" class="member-name-link">unsupportedServiceType</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;serviceType)</code></div>
+<div class="col-first odd-row-color"><code>void</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">ZNodeClusterManager.</span><code><a href="../ZNodeClusterManager.html#suspend(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">suspend</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
+ int&nbsp;port)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/RuntimeException.html" title="class or interface in java.lang" class="external-link">RuntimeException</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">CoprocClusterManager.</span><code><a href="../CoprocClusterManager.html#unsupportedServiceType(org.apache.hadoop.hbase.ClusterManager.ServiceType)" class="member-name-link">unsupportedServiceType</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;serviceType)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private void</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">DistributedHBaseCluster.</span><code><a href="../DistributedHBaseCluster.html#waitForServiceToResume(org.apache.hadoop.hbase.ClusterManager.ServiceType,org.apache.hadoop.hbase.ServerName,long)" class="member-name-link">waitForServiceToResume</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+ org.apache.hadoop.hbase.ServerName&nbsp;serverName,
+ long&nbsp;timeout)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>private void</code></div>
 <div class="col-second even-row-color"><span class="type-name-label">DistributedHBaseCluster.</span><code><a href="../DistributedHBaseCluster.html#waitForServiceToStart(org.apache.hadoop.hbase.ClusterManager.ServiceType,org.apache.hadoop.hbase.ServerName,long)" class="member-name-link">waitForServiceToStart</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
@@ -367,6 +419,11 @@ the order they are declared.</div>
  org.apache.hadoop.hbase.ServerName&nbsp;serverName,
  long&nbsp;timeout)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private void</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">DistributedHBaseCluster.</span><code><a href="../DistributedHBaseCluster.html#waitForServiceToSuspend(org.apache.hadoop.hbase.ClusterManager.ServiceType,org.apache.hadoop.hbase.ServerName,long)" class="member-name-link">waitForServiceToSuspend</a><wbr>(<a href="../ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+ org.apache.hadoop.hbase.ServerName&nbsp;serverName,
+ long&nbsp;timeout)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
 </li>

@@ -67,16 +67,18 @@ loadScripts(document, 'script');</script>
 </div>
 <div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.coprocessor.example">org.apache.hadoop.hbase.coprocessor.example</a></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.regionserver">org.apache.hadoop.hbase.regionserver</a></div>
+<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.coprocessor.example.row.stats">org.apache.hadoop.hbase.coprocessor.example.row.stats</a></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.replication.regionserver">org.apache.hadoop.hbase.replication.regionserver</a></div>
+<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.regionserver">org.apache.hadoop.hbase.regionserver</a></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.security.access">org.apache.hadoop.hbase.security.access</a></div>
+<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.replication.regionserver">org.apache.hadoop.hbase.replication.regionserver</a></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.security.visibility">org.apache.hadoop.hbase.security.visibility</a></div>
+<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.security.access">org.apache.hadoop.hbase.security.access</a></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.tool">org.apache.hadoop.hbase.tool</a></div>
+<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.security.visibility">org.apache.hadoop.hbase.security.visibility</a></div>
 <div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.tool">org.apache.hadoop.hbase.tool</a></div>
+<div class="col-last odd-row-color">&nbsp;</div>
 </div>
 <section class="class-uses">
 <ul class="block-list">
@@ -98,6 +100,10 @@ loadScripts(document, 'script');</script>
  byte[]&nbsp;family,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../util/Pair.html" title="class in org.apache.hadoop.hbase.util">Pair</a>&lt;org.apache.hadoop.fs.Path,<wbr>org.apache.hadoop.fs.Path&gt;&gt;&nbsp;pairs)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private void</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">BackupObserver.</span><code><a href="../../backup/BackupObserver.html#registerBulkLoad(org.apache.hadoop.hbase.coprocessor.ObserverContext,java.util.Map)" class="member-name-link">registerBulkLoad</a><wbr>(<a href="../ObserverContext.html" title="interface in org.apache.hadoop.hbase.coprocessor">ObserverContext</a>&lt;? extends <a href="../RegionCoprocessorEnvironment.html" title="interface in org.apache.hadoop.hbase.coprocessor">RegionCoprocessorEnvironment</a>&gt;&nbsp;ctx,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;byte[],<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;org.apache.hadoop.fs.Path&gt;&gt;&nbsp;cfToHFilePaths)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
 </li>
@@ -1012,6 +1018,46 @@ loadScripts(document, 'script');</script>
  <a href="../../regionserver/Store.html" title="interface in org.apache.hadoop.hbase.regionserver">Store</a>&nbsp;store,
  <a href="../../regionserver/ScanOptions.html" title="interface in org.apache.hadoop.hbase.regionserver">ScanOptions</a>&nbsp;options)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="org.apache.hadoop.hbase.coprocessor.example.row.stats">
+<h2>Uses of <a href="../RegionCoprocessorEnvironment.html" title="interface in org.apache.hadoop.hbase.coprocessor">RegionCoprocessorEnvironment</a> in <a href="../example/row/stats/package-summary.html">org.apache.hadoop.hbase.coprocessor.example.row.stats</a></h2>
+<div class="caption"><span>Fields in <a href="../example/row/stats/package-summary.html">org.apache.hadoop.hbase.coprocessor.example.row.stats</a> declared as <a href="../RegionCoprocessorEnvironment.html" title="interface in org.apache.hadoop.hbase.coprocessor">RegionCoprocessorEnvironment</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Field</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>private final <a href="../RegionCoprocessorEnvironment.html" title="interface in org.apache.hadoop.hbase.coprocessor">RegionCoprocessorEnvironment</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">RowStatisticsCompactionObserver.RowStatisticsScanner.</span><code><a href="../example/row/stats/RowStatisticsCompactionObserver.RowStatisticsScanner.html#regionEnv" class="member-name-link">regionEnv</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+<div class="caption"><span>Method parameters in <a href="../example/row/stats/package-summary.html">org.apache.hadoop.hbase.coprocessor.example.row.stats</a> with type arguments of type <a href="../RegionCoprocessorEnvironment.html" title="interface in org.apache.hadoop.hbase.coprocessor">RegionCoprocessorEnvironment</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code><a href="../../regionserver/InternalScanner.html" title="interface in org.apache.hadoop.hbase.regionserver">InternalScanner</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">RowStatisticsCompactionObserver.</span><code><a href="../example/row/stats/RowStatisticsCompactionObserver.html#preCompact(org.apache.hadoop.hbase.coprocessor.ObserverContext,org.apache.hadoop.hbase.regionserver.Store,org.apache.hadoop.hbase.regionserver.InternalScanner,org.apache.hadoop.hbase.regionserver.ScanType,org.apache.hadoop.hbase.regionserver.compactions.CompactionLifeCycleTracker,org.apache.hadoop.hbase.regionserver.compactions.CompactionRequest)" class="member-name-link">preCompact</a><wbr>(<a href="../ObserverContext.html" title="interface in org.apache.hadoop.hbase.coprocessor">ObserverContext</a>&lt;? extends <a href="../RegionCoprocessorEnvironment.html" title="interface in org.apache.hadoop.hbase.coprocessor">RegionCoprocessorEnvironment</a>&gt;&nbsp;context,
+ <a href="../../regionserver/Store.html" title="interface in org.apache.hadoop.hbase.regionserver">Store</a>&nbsp;store,
+ <a href="../../regionserver/InternalScanner.html" title="interface in org.apache.hadoop.hbase.regionserver">InternalScanner</a>&nbsp;scanner,
+ <a href="../../regionserver/ScanType.html" title="enum class in org.apache.hadoop.hbase.regionserver">ScanType</a>&nbsp;scanType,
+ <a href="../../regionserver/compactions/CompactionLifeCycleTracker.html" title="interface in org.apache.hadoop.hbase.regionserver.compactions">CompactionLifeCycleTracker</a>&nbsp;tracker,
+ <a href="../../regionserver/compactions/CompactionRequest.html" title="interface in org.apache.hadoop.hbase.regionserver.compactions">CompactionRequest</a>&nbsp;request)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+<div class="caption"><span>Constructors in <a href="../example/row/stats/package-summary.html">org.apache.hadoop.hbase.coprocessor.example.row.stats</a> with parameters of type <a href="../RegionCoprocessorEnvironment.html" title="interface in org.apache.hadoop.hbase.coprocessor">RegionCoprocessorEnvironment</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier</div>
+<div class="table-header col-second">Constructor</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="../example/row/stats/RowStatisticsCompactionObserver.RowStatisticsScanner.html#%3Cinit%3E(org.apache.hadoop.hbase.regionserver.InternalScanner,org.apache.hadoop.hbase.coprocessor.example.row.stats.RowStatisticsImpl,org.apache.hadoop.hbase.coprocessor.RegionCoprocessorEnvironment,org.apache.hadoop.hbase.coprocessor.example.row.stats.recorder.RowStatisticsRecorder)" class="member-name-link">RowStatisticsScanner</a><wbr>(<a href="../../regionserver/InternalScanner.html" title="interface in org.apache.hadoop.hbase.regionserver">InternalScanner</a>&nbsp;scanner,
+ <a href="../example/row/stats/RowStatisticsImpl.html" title="class in org.apache.hadoop.hbase.coprocessor.example.row.stats">RowStatisticsImpl</a>&nbsp;rowStatistics,
+ <a href="../RegionCoprocessorEnvironment.html" title="interface in org.apache.hadoop.hbase.coprocessor">RegionCoprocessorEnvironment</a>&nbsp;regionEnv,
+ <a href="../example/row/stats/recorder/RowStatisticsRecorder.html" title="interface in org.apache.hadoop.hbase.coprocessor.example.row.stats.recorder">RowStatisticsRecorder</a>&nbsp;customRecorder)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
 </li>

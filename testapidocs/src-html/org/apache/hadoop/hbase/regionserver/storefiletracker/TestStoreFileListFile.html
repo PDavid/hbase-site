@@ -252,7 +252,24 @@
 <span class="source-line-no">239</span><span id="line-239">    assertEquals("Higher store file list version detected, expected " + StoreFileListFile.VERSION</span>
 <span class="source-line-no">240</span><span id="line-240">      + ", got " + (StoreFileListFile.VERSION + 1), error.getMessage());</span>
 <span class="source-line-no">241</span><span id="line-241">  }</span>
-<span class="source-line-no">242</span><span id="line-242">}</span>
+<span class="source-line-no">242</span><span id="line-242"></span>
+<span class="source-line-no">243</span><span id="line-243">  @Test</span>
+<span class="source-line-no">244</span><span id="line-244">  public void testLoadOldPatternTrackFiles() throws IOException {</span>
+<span class="source-line-no">245</span><span id="line-245">    FileSystem fs = FileSystem.get(UTIL.getConfiguration());</span>
+<span class="source-line-no">246</span><span id="line-246">    StoreFileList storeFileList =</span>
+<span class="source-line-no">247</span><span id="line-247">      StoreFileList.newBuilder().setTimestamp(EnvironmentEdgeManager.currentTime())</span>
+<span class="source-line-no">248</span><span id="line-248">        .addStoreFile(StoreFileEntry.newBuilder().setName("hehe").setSize(10).build()).build();</span>
+<span class="source-line-no">249</span><span id="line-249">    Path trackFileDir = new Path(testDir, StoreFileListFile.TRACK_FILE_DIR);</span>
+<span class="source-line-no">250</span><span id="line-250">    StoreFileListFile.write(fs, new Path(trackFileDir, StoreFileListFile.TRACK_FILE_PREFIX),</span>
+<span class="source-line-no">251</span><span id="line-251">      storeFileList);</span>
+<span class="source-line-no">252</span><span id="line-252"></span>
+<span class="source-line-no">253</span><span id="line-253">    FileStatus trackerFileStatus = getOnlyTrackerFile(fs);</span>
+<span class="source-line-no">254</span><span id="line-254">    assertEquals(StoreFileListFile.TRACK_FILE_PREFIX, trackerFileStatus.getPath().getName());</span>
+<span class="source-line-no">255</span><span id="line-255"></span>
+<span class="source-line-no">256</span><span id="line-256">    StoreFileList list = storeFileListFile.load(true);</span>
+<span class="source-line-no">257</span><span id="line-257">    assertEquals(1, list.getStoreFileCount());</span>
+<span class="source-line-no">258</span><span id="line-258">  }</span>
+<span class="source-line-no">259</span><span id="line-259">}</span>
 
 
 

@@ -41,14 +41,14 @@
 <span class="source-line-no">028</span><span id="line-28">import org.apache.hadoop.hbase.ServerName;</span>
 <span class="source-line-no">029</span><span id="line-29">import org.apache.hadoop.hbase.client.AsyncRegionServerAdmin;</span>
 <span class="source-line-no">030</span><span id="line-30">import org.apache.hadoop.hbase.client.RegionInfo;</span>
-<span class="source-line-no">031</span><span id="line-31">import org.apache.hadoop.hbase.ipc.RpcConnectionConstants;</span>
-<span class="source-line-no">032</span><span id="line-32">import org.apache.hadoop.hbase.ipc.ServerNotRunningYetException;</span>
-<span class="source-line-no">033</span><span id="line-33">import org.apache.hadoop.hbase.master.MasterServices;</span>
-<span class="source-line-no">034</span><span id="line-34">import org.apache.hadoop.hbase.master.ServerListener;</span>
-<span class="source-line-no">035</span><span id="line-35">import org.apache.hadoop.hbase.master.ServerManager;</span>
-<span class="source-line-no">036</span><span id="line-36">import org.apache.hadoop.hbase.procedure2.ProcedureExecutor;</span>
-<span class="source-line-no">037</span><span id="line-37">import org.apache.hadoop.hbase.procedure2.RemoteProcedureDispatcher;</span>
-<span class="source-line-no">038</span><span id="line-38">import org.apache.hadoop.hbase.regionserver.RegionServerAbortedException;</span>
+<span class="source-line-no">031</span><span id="line-31">import org.apache.hadoop.hbase.exceptions.ConnectionClosedException;</span>
+<span class="source-line-no">032</span><span id="line-32">import org.apache.hadoop.hbase.ipc.RpcConnectionConstants;</span>
+<span class="source-line-no">033</span><span id="line-33">import org.apache.hadoop.hbase.ipc.ServerNotRunningYetException;</span>
+<span class="source-line-no">034</span><span id="line-34">import org.apache.hadoop.hbase.master.MasterServices;</span>
+<span class="source-line-no">035</span><span id="line-35">import org.apache.hadoop.hbase.master.ServerListener;</span>
+<span class="source-line-no">036</span><span id="line-36">import org.apache.hadoop.hbase.master.ServerManager;</span>
+<span class="source-line-no">037</span><span id="line-37">import org.apache.hadoop.hbase.procedure2.ProcedureExecutor;</span>
+<span class="source-line-no">038</span><span id="line-38">import org.apache.hadoop.hbase.procedure2.RemoteProcedureDispatcher;</span>
 <span class="source-line-no">039</span><span id="line-39">import org.apache.hadoop.hbase.regionserver.RegionServerStoppedException;</span>
 <span class="source-line-no">040</span><span id="line-40">import org.apache.hadoop.hbase.util.EnvironmentEdgeManager;</span>
 <span class="source-line-no">041</span><span id="line-41">import org.apache.hadoop.hbase.util.FutureUtils;</span>
@@ -262,284 +262,351 @@
 <span class="source-line-no">249</span><span id="line-249">      "hbase.regionserver.rpc.retry.interval";</span>
 <span class="source-line-no">250</span><span id="line-250">    private static final int DEFAULT_RS_RPC_RETRY_INTERVAL = 100;</span>
 <span class="source-line-no">251</span><span id="line-251"></span>
-<span class="source-line-no">252</span><span id="line-252">    private ExecuteProceduresRequest.Builder request = null;</span>
-<span class="source-line-no">253</span><span id="line-253"></span>
-<span class="source-line-no">254</span><span id="line-254">    public ExecuteProceduresRemoteCall(final ServerName serverName,</span>
-<span class="source-line-no">255</span><span id="line-255">      final Set&lt;RemoteProcedure&gt; remoteProcedures) {</span>
-<span class="source-line-no">256</span><span id="line-256">      this.serverName = serverName;</span>
-<span class="source-line-no">257</span><span id="line-257">      this.remoteProcedures = remoteProcedures;</span>
-<span class="source-line-no">258</span><span id="line-258">      this.rsRpcRetryInterval = master.getConfiguration().getLong(RS_RPC_RETRY_INTERVAL_CONF_KEY,</span>
-<span class="source-line-no">259</span><span id="line-259">        DEFAULT_RS_RPC_RETRY_INTERVAL);</span>
-<span class="source-line-no">260</span><span id="line-260">    }</span>
-<span class="source-line-no">261</span><span id="line-261"></span>
-<span class="source-line-no">262</span><span id="line-262">    private AsyncRegionServerAdmin getRsAdmin() throws IOException {</span>
-<span class="source-line-no">263</span><span id="line-263">      return master.getAsyncClusterConnection().getRegionServerAdmin(serverName);</span>
-<span class="source-line-no">264</span><span id="line-264">    }</span>
+<span class="source-line-no">252</span><span id="line-252">    /**</span>
+<span class="source-line-no">253</span><span id="line-253">     * Config to determine the retry limit while executing remote regionserver procedure. This retry</span>
+<span class="source-line-no">254</span><span id="line-254">     * limit applies to only specific errors. These errors could potentially get the remote</span>
+<span class="source-line-no">255</span><span id="line-255">     * procedure stuck for several minutes unless the retry limit is applied.</span>
+<span class="source-line-no">256</span><span id="line-256">     */</span>
+<span class="source-line-no">257</span><span id="line-257">    private static final String RS_REMOTE_PROC_FAIL_FAST_LIMIT =</span>
+<span class="source-line-no">258</span><span id="line-258">      "hbase.master.rs.remote.proc.fail.fast.limit";</span>
+<span class="source-line-no">259</span><span id="line-259">    /**</span>
+<span class="source-line-no">260</span><span id="line-260">     * The default retry limit. Waiting for more than {@value} attempts is not going to help much</span>
+<span class="source-line-no">261</span><span id="line-261">     * for genuine connectivity errors. Therefore, consider fail-fast after {@value} retries. Value</span>
+<span class="source-line-no">262</span><span id="line-262">     * = {@value}</span>
+<span class="source-line-no">263</span><span id="line-263">     */</span>
+<span class="source-line-no">264</span><span id="line-264">    private static final int DEFAULT_RS_REMOTE_PROC_RETRY_LIMIT = 5;</span>
 <span class="source-line-no">265</span><span id="line-265"></span>
-<span class="source-line-no">266</span><span id="line-266">    protected final ServerName getServerName() {</span>
-<span class="source-line-no">267</span><span id="line-267">      return serverName;</span>
-<span class="source-line-no">268</span><span id="line-268">    }</span>
+<span class="source-line-no">266</span><span id="line-266">    private final int failFastRetryLimit;</span>
+<span class="source-line-no">267</span><span id="line-267"></span>
+<span class="source-line-no">268</span><span id="line-268">    private ExecuteProceduresRequest.Builder request = null;</span>
 <span class="source-line-no">269</span><span id="line-269"></span>
-<span class="source-line-no">270</span><span id="line-270">    private boolean scheduleForRetry(IOException e) {</span>
-<span class="source-line-no">271</span><span id="line-271">      LOG.debug("Request to {} failed, try={}", serverName, numberOfAttemptsSoFar, e);</span>
-<span class="source-line-no">272</span><span id="line-272">      // Should we wait a little before retrying? If the server is starting it's yes.</span>
-<span class="source-line-no">273</span><span id="line-273">      if (e instanceof ServerNotRunningYetException) {</span>
-<span class="source-line-no">274</span><span id="line-274">        long remainingTime = getMaxWaitTime() - EnvironmentEdgeManager.currentTime();</span>
-<span class="source-line-no">275</span><span id="line-275">        if (remainingTime &gt; 0) {</span>
-<span class="source-line-no">276</span><span id="line-276">          LOG.warn("Waiting a little before retrying {}, try={}, can wait up to {}ms", serverName,</span>
-<span class="source-line-no">277</span><span id="line-277">            numberOfAttemptsSoFar, remainingTime);</span>
-<span class="source-line-no">278</span><span id="line-278">          numberOfAttemptsSoFar++;</span>
-<span class="source-line-no">279</span><span id="line-279">          // Retry every rsRpcRetryInterval millis up to maximum wait time.</span>
-<span class="source-line-no">280</span><span id="line-280">          submitTask(this, rsRpcRetryInterval, TimeUnit.MILLISECONDS);</span>
-<span class="source-line-no">281</span><span id="line-281">          return true;</span>
-<span class="source-line-no">282</span><span id="line-282">        }</span>
-<span class="source-line-no">283</span><span id="line-283">        LOG.warn("{} is throwing ServerNotRunningYetException for {}ms; trying another server",</span>
-<span class="source-line-no">284</span><span id="line-284">          serverName, getMaxWaitTime());</span>
-<span class="source-line-no">285</span><span id="line-285">        return false;</span>
-<span class="source-line-no">286</span><span id="line-286">      }</span>
-<span class="source-line-no">287</span><span id="line-287">      if (e instanceof DoNotRetryIOException) {</span>
-<span class="source-line-no">288</span><span id="line-288">        LOG.warn("{} tells us DoNotRetry due to {}, try={}, give up", serverName, e.toString(),</span>
-<span class="source-line-no">289</span><span id="line-289">          numberOfAttemptsSoFar);</span>
-<span class="source-line-no">290</span><span id="line-290">        return false;</span>
-<span class="source-line-no">291</span><span id="line-291">      }</span>
-<span class="source-line-no">292</span><span id="line-292">      // This category of exceptions is thrown in the rpc framework, where we can make sure</span>
-<span class="source-line-no">293</span><span id="line-293">      // that the call has not been executed yet, so it is safe to mark it as fail.</span>
-<span class="source-line-no">294</span><span id="line-294">      // Especially for open a region, we'd better choose another region server.</span>
-<span class="source-line-no">295</span><span id="line-295">      // Notice that, it is safe to quit only if this is the first time we send request to region</span>
-<span class="source-line-no">296</span><span id="line-296">      // server. Maybe the region server has accepted our request the first time, and then there is</span>
-<span class="source-line-no">297</span><span id="line-297">      // a network error which prevents we receive the response, and the second time we hit</span>
-<span class="source-line-no">298</span><span id="line-298">      // this category of exceptions, obviously it is not safe to quit here, otherwise it may lead</span>
-<span class="source-line-no">299</span><span id="line-299">      // to a double assign...</span>
-<span class="source-line-no">300</span><span id="line-300">      if (numberOfAttemptsSoFar == 0 &amp;&amp; unableToConnectToServer(e)) {</span>
-<span class="source-line-no">301</span><span id="line-301">        return false;</span>
-<span class="source-line-no">302</span><span id="line-302">      }</span>
-<span class="source-line-no">303</span><span id="line-303">      // Always retry for other exception types if the region server is not dead yet.</span>
-<span class="source-line-no">304</span><span id="line-304">      if (!master.getServerManager().isServerOnline(serverName)) {</span>
-<span class="source-line-no">305</span><span id="line-305">        LOG.warn("Request to {} failed due to {}, try={} and the server is not online, give up",</span>
-<span class="source-line-no">306</span><span id="line-306">          serverName, e.toString(), numberOfAttemptsSoFar);</span>
-<span class="source-line-no">307</span><span id="line-307">        return false;</span>
-<span class="source-line-no">308</span><span id="line-308">      }</span>
-<span class="source-line-no">309</span><span id="line-309">      if (e instanceof RegionServerAbortedException || e instanceof RegionServerStoppedException) {</span>
-<span class="source-line-no">310</span><span id="line-310">        // A better way is to return true here to let the upper layer quit, and then schedule a</span>
-<span class="source-line-no">311</span><span id="line-311">        // background task to check whether the region server is dead. And if it is dead, call</span>
-<span class="source-line-no">312</span><span id="line-312">        // remoteCallFailed to tell the upper layer. Keep retrying here does not lead to incorrect</span>
-<span class="source-line-no">313</span><span id="line-313">        // result, but waste some resources.</span>
-<span class="source-line-no">314</span><span id="line-314">        LOG.warn("{} is aborted or stopped, for safety we still need to"</span>
-<span class="source-line-no">315</span><span id="line-315">          + " wait until it is fully dead, try={}", serverName, numberOfAttemptsSoFar);</span>
-<span class="source-line-no">316</span><span id="line-316">      } else {</span>
-<span class="source-line-no">317</span><span id="line-317">        LOG.warn("request to {} failed due to {}, try={}, retrying... , request params: {}",</span>
-<span class="source-line-no">318</span><span id="line-318">          serverName, e.toString(), numberOfAttemptsSoFar, request.build());</span>
-<span class="source-line-no">319</span><span id="line-319">      }</span>
-<span class="source-line-no">320</span><span id="line-320">      numberOfAttemptsSoFar++;</span>
-<span class="source-line-no">321</span><span id="line-321">      // Add some backoff here as the attempts rise otherwise if a stuck condition, will fill logs</span>
-<span class="source-line-no">322</span><span id="line-322">      // with failed attempts. None of our backoff classes -- RetryCounter or ClientBackoffPolicy</span>
-<span class="source-line-no">323</span><span id="line-323">      // -- fit here nicely so just do something simple; increment by rsRpcRetryInterval millis *</span>
-<span class="source-line-no">324</span><span id="line-324">      // retry^2 on each try</span>
-<span class="source-line-no">325</span><span id="line-325">      // up to max of 10 seconds (don't want to back off too much in case of situation change).</span>
-<span class="source-line-no">326</span><span id="line-326">      submitTask(this,</span>
-<span class="source-line-no">327</span><span id="line-327">        Math.min(rsRpcRetryInterval * (this.numberOfAttemptsSoFar * this.numberOfAttemptsSoFar),</span>
-<span class="source-line-no">328</span><span id="line-328">          10 * 1000),</span>
-<span class="source-line-no">329</span><span id="line-329">        TimeUnit.MILLISECONDS);</span>
-<span class="source-line-no">330</span><span id="line-330">      return true;</span>
-<span class="source-line-no">331</span><span id="line-331">    }</span>
-<span class="source-line-no">332</span><span id="line-332"></span>
-<span class="source-line-no">333</span><span id="line-333">    /**</span>
-<span class="source-line-no">334</span><span id="line-334">     * The category of exceptions where we can ensure that the request has not yet been received</span>
-<span class="source-line-no">335</span><span id="line-335">     * and/or processed by the target regionserver yet and hence we can determine whether it is safe</span>
-<span class="source-line-no">336</span><span id="line-336">     * to choose different regionserver as the target.</span>
-<span class="source-line-no">337</span><span id="line-337">     * @param e IOException thrown by the underlying rpc framework.</span>
-<span class="source-line-no">338</span><span id="line-338">     * @return true if the exception belongs to the category where the regionserver has not yet</span>
-<span class="source-line-no">339</span><span id="line-339">     *         received the request yet.</span>
-<span class="source-line-no">340</span><span id="line-340">     */</span>
-<span class="source-line-no">341</span><span id="line-341">    private boolean unableToConnectToServer(IOException e) {</span>
-<span class="source-line-no">342</span><span id="line-342">      if (e instanceof CallQueueTooBigException) {</span>
-<span class="source-line-no">343</span><span id="line-343">        LOG.warn("request to {} failed due to {}, try={}, this usually because"</span>
-<span class="source-line-no">344</span><span id="line-344">          + " server is overloaded, give up", serverName, e, numberOfAttemptsSoFar);</span>
-<span class="source-line-no">345</span><span id="line-345">        return true;</span>
-<span class="source-line-no">346</span><span id="line-346">      }</span>
-<span class="source-line-no">347</span><span id="line-347">      if (isSaslError(e)) {</span>
-<span class="source-line-no">348</span><span id="line-348">        LOG.warn("{} is not reachable; give up after first attempt", serverName, e);</span>
-<span class="source-line-no">349</span><span id="line-349">        return true;</span>
-<span class="source-line-no">350</span><span id="line-350">      }</span>
-<span class="source-line-no">351</span><span id="line-351">      return false;</span>
-<span class="source-line-no">352</span><span id="line-352">    }</span>
-<span class="source-line-no">353</span><span id="line-353"></span>
-<span class="source-line-no">354</span><span id="line-354">    private boolean isSaslError(IOException e) {</span>
-<span class="source-line-no">355</span><span id="line-355">      Throwable cause = e;</span>
-<span class="source-line-no">356</span><span id="line-356">      while (true) {</span>
-<span class="source-line-no">357</span><span id="line-357">        if (cause instanceof IOException) {</span>
-<span class="source-line-no">358</span><span id="line-358">          IOException unwrappedCause = unwrapException((IOException) cause);</span>
-<span class="source-line-no">359</span><span id="line-359">          if (</span>
-<span class="source-line-no">360</span><span id="line-360">            unwrappedCause instanceof SaslException</span>
-<span class="source-line-no">361</span><span id="line-361">              || (unwrappedCause.getMessage() != null &amp;&amp; unwrappedCause.getMessage()</span>
-<span class="source-line-no">362</span><span id="line-362">                .contains(RpcConnectionConstants.RELOGIN_IS_IN_PROGRESS))</span>
-<span class="source-line-no">363</span><span id="line-363">          ) {</span>
-<span class="source-line-no">364</span><span id="line-364">            return true;</span>
-<span class="source-line-no">365</span><span id="line-365">          }</span>
-<span class="source-line-no">366</span><span id="line-366">        }</span>
-<span class="source-line-no">367</span><span id="line-367">        cause = cause.getCause();</span>
-<span class="source-line-no">368</span><span id="line-368">        if (cause == null) {</span>
-<span class="source-line-no">369</span><span id="line-369">          return false;</span>
-<span class="source-line-no">370</span><span id="line-370">        }</span>
-<span class="source-line-no">371</span><span id="line-371">      }</span>
-<span class="source-line-no">372</span><span id="line-372">    }</span>
-<span class="source-line-no">373</span><span id="line-373"></span>
-<span class="source-line-no">374</span><span id="line-374">    private long getMaxWaitTime() {</span>
-<span class="source-line-no">375</span><span id="line-375">      if (this.maxWaitTime &lt; 0) {</span>
-<span class="source-line-no">376</span><span id="line-376">        // This is the max attempts, not retries, so it should be at least 1.</span>
-<span class="source-line-no">377</span><span id="line-377">        this.maxWaitTime = EnvironmentEdgeManager.currentTime() + rsStartupWaitTime;</span>
-<span class="source-line-no">378</span><span id="line-378">      }</span>
-<span class="source-line-no">379</span><span id="line-379">      return this.maxWaitTime;</span>
-<span class="source-line-no">380</span><span id="line-380">    }</span>
-<span class="source-line-no">381</span><span id="line-381"></span>
-<span class="source-line-no">382</span><span id="line-382">    private IOException unwrapException(IOException e) {</span>
-<span class="source-line-no">383</span><span id="line-383">      if (e instanceof RemoteException) {</span>
-<span class="source-line-no">384</span><span id="line-384">        e = ((RemoteException) e).unwrapRemoteException();</span>
-<span class="source-line-no">385</span><span id="line-385">      }</span>
-<span class="source-line-no">386</span><span id="line-386">      return e;</span>
-<span class="source-line-no">387</span><span id="line-387">    }</span>
-<span class="source-line-no">388</span><span id="line-388"></span>
-<span class="source-line-no">389</span><span id="line-389">    @Override</span>
-<span class="source-line-no">390</span><span id="line-390">    public void run() {</span>
-<span class="source-line-no">391</span><span id="line-391">      request = ExecuteProceduresRequest.newBuilder();</span>
-<span class="source-line-no">392</span><span id="line-392">      if (LOG.isTraceEnabled()) {</span>
-<span class="source-line-no">393</span><span id="line-393">        LOG.trace("Building request with operations count=" + remoteProcedures.size());</span>
-<span class="source-line-no">394</span><span id="line-394">      }</span>
-<span class="source-line-no">395</span><span id="line-395">      splitAndResolveOperation(getServerName(), remoteProcedures, this);</span>
-<span class="source-line-no">396</span><span id="line-396"></span>
-<span class="source-line-no">397</span><span id="line-397">      try {</span>
-<span class="source-line-no">398</span><span id="line-398">        sendRequest(getServerName(), request.build());</span>
-<span class="source-line-no">399</span><span id="line-399">      } catch (IOException e) {</span>
-<span class="source-line-no">400</span><span id="line-400">        e = unwrapException(e);</span>
-<span class="source-line-no">401</span><span id="line-401">        // TODO: In the future some operation may want to bail out early.</span>
-<span class="source-line-no">402</span><span id="line-402">        // TODO: How many times should we retry (use numberOfAttemptsSoFar)</span>
-<span class="source-line-no">403</span><span id="line-403">        if (!scheduleForRetry(e)) {</span>
-<span class="source-line-no">404</span><span id="line-404">          remoteCallFailed(procedureEnv, e);</span>
-<span class="source-line-no">405</span><span id="line-405">        }</span>
-<span class="source-line-no">406</span><span id="line-406">      }</span>
-<span class="source-line-no">407</span><span id="line-407">    }</span>
-<span class="source-line-no">408</span><span id="line-408"></span>
-<span class="source-line-no">409</span><span id="line-409">    @Override</span>
-<span class="source-line-no">410</span><span id="line-410">    public void dispatchOpenRequests(final MasterProcedureEnv env,</span>
-<span class="source-line-no">411</span><span id="line-411">      final List&lt;RegionOpenOperation&gt; operations) {</span>
-<span class="source-line-no">412</span><span id="line-412">      request.addOpenRegion(buildOpenRegionRequest(env, getServerName(), operations));</span>
-<span class="source-line-no">413</span><span id="line-413">    }</span>
-<span class="source-line-no">414</span><span id="line-414"></span>
-<span class="source-line-no">415</span><span id="line-415">    @Override</span>
-<span class="source-line-no">416</span><span id="line-416">    public void dispatchCloseRequests(final MasterProcedureEnv env,</span>
-<span class="source-line-no">417</span><span id="line-417">      final List&lt;RegionCloseOperation&gt; operations) {</span>
-<span class="source-line-no">418</span><span id="line-418">      for (RegionCloseOperation op : operations) {</span>
-<span class="source-line-no">419</span><span id="line-419">        request.addCloseRegion(op.buildCloseRegionRequest(getServerName()));</span>
-<span class="source-line-no">420</span><span id="line-420">      }</span>
-<span class="source-line-no">421</span><span id="line-421">    }</span>
-<span class="source-line-no">422</span><span id="line-422"></span>
-<span class="source-line-no">423</span><span id="line-423">    @Override</span>
-<span class="source-line-no">424</span><span id="line-424">    public void dispatchServerOperations(MasterProcedureEnv env, List&lt;ServerOperation&gt; operations) {</span>
-<span class="source-line-no">425</span><span id="line-425">      operations.stream().map(ServerOperation::buildRequest).forEachOrdered(request::addProc);</span>
-<span class="source-line-no">426</span><span id="line-426">    }</span>
-<span class="source-line-no">427</span><span id="line-427"></span>
-<span class="source-line-no">428</span><span id="line-428">    // will be overridden in test.</span>
-<span class="source-line-no">429</span><span id="line-429">    protected ExecuteProceduresResponse sendRequest(final ServerName serverName,</span>
-<span class="source-line-no">430</span><span id="line-430">      final ExecuteProceduresRequest request) throws IOException {</span>
-<span class="source-line-no">431</span><span id="line-431">      return FutureUtils.get(getRsAdmin().executeProcedures(request));</span>
-<span class="source-line-no">432</span><span id="line-432">    }</span>
-<span class="source-line-no">433</span><span id="line-433"></span>
-<span class="source-line-no">434</span><span id="line-434">    protected final void remoteCallFailed(final MasterProcedureEnv env, final IOException e) {</span>
-<span class="source-line-no">435</span><span id="line-435">      for (RemoteProcedure proc : remoteProcedures) {</span>
-<span class="source-line-no">436</span><span id="line-436">        proc.remoteCallFailed(env, getServerName(), e);</span>
-<span class="source-line-no">437</span><span id="line-437">      }</span>
-<span class="source-line-no">438</span><span id="line-438">    }</span>
-<span class="source-line-no">439</span><span id="line-439">  }</span>
+<span class="source-line-no">270</span><span id="line-270">    public ExecuteProceduresRemoteCall(final ServerName serverName,</span>
+<span class="source-line-no">271</span><span id="line-271">      final Set&lt;RemoteProcedure&gt; remoteProcedures) {</span>
+<span class="source-line-no">272</span><span id="line-272">      this.serverName = serverName;</span>
+<span class="source-line-no">273</span><span id="line-273">      this.remoteProcedures = remoteProcedures;</span>
+<span class="source-line-no">274</span><span id="line-274">      this.rsRpcRetryInterval = master.getConfiguration().getLong(RS_RPC_RETRY_INTERVAL_CONF_KEY,</span>
+<span class="source-line-no">275</span><span id="line-275">        DEFAULT_RS_RPC_RETRY_INTERVAL);</span>
+<span class="source-line-no">276</span><span id="line-276">      this.failFastRetryLimit = master.getConfiguration().getInt(RS_REMOTE_PROC_FAIL_FAST_LIMIT,</span>
+<span class="source-line-no">277</span><span id="line-277">        DEFAULT_RS_REMOTE_PROC_RETRY_LIMIT);</span>
+<span class="source-line-no">278</span><span id="line-278">    }</span>
+<span class="source-line-no">279</span><span id="line-279"></span>
+<span class="source-line-no">280</span><span id="line-280">    private AsyncRegionServerAdmin getRsAdmin() throws IOException {</span>
+<span class="source-line-no">281</span><span id="line-281">      return master.getAsyncClusterConnection().getRegionServerAdmin(serverName);</span>
+<span class="source-line-no">282</span><span id="line-282">    }</span>
+<span class="source-line-no">283</span><span id="line-283"></span>
+<span class="source-line-no">284</span><span id="line-284">    protected final ServerName getServerName() {</span>
+<span class="source-line-no">285</span><span id="line-285">      return serverName;</span>
+<span class="source-line-no">286</span><span id="line-286">    }</span>
+<span class="source-line-no">287</span><span id="line-287"></span>
+<span class="source-line-no">288</span><span id="line-288">    private boolean scheduleForRetry(IOException e) {</span>
+<span class="source-line-no">289</span><span id="line-289">      LOG.debug("Request to {} failed, try={}", serverName, numberOfAttemptsSoFar, e);</span>
+<span class="source-line-no">290</span><span id="line-290">      // Should we wait a little before retrying? If the server is starting it's yes.</span>
+<span class="source-line-no">291</span><span id="line-291">      if (e instanceof ServerNotRunningYetException) {</span>
+<span class="source-line-no">292</span><span id="line-292">        long remainingTime = getMaxWaitTime() - EnvironmentEdgeManager.currentTime();</span>
+<span class="source-line-no">293</span><span id="line-293">        if (remainingTime &gt; 0) {</span>
+<span class="source-line-no">294</span><span id="line-294">          LOG.warn("Waiting a little before retrying {}, try={}, can wait up to {}ms", serverName,</span>
+<span class="source-line-no">295</span><span id="line-295">            numberOfAttemptsSoFar, remainingTime);</span>
+<span class="source-line-no">296</span><span id="line-296">          numberOfAttemptsSoFar++;</span>
+<span class="source-line-no">297</span><span id="line-297">          // Retry every rsRpcRetryInterval millis up to maximum wait time.</span>
+<span class="source-line-no">298</span><span id="line-298">          submitTask(this, rsRpcRetryInterval, TimeUnit.MILLISECONDS);</span>
+<span class="source-line-no">299</span><span id="line-299">          return true;</span>
+<span class="source-line-no">300</span><span id="line-300">        }</span>
+<span class="source-line-no">301</span><span id="line-301">        LOG.warn("{} is throwing ServerNotRunningYetException for {}ms; trying another server",</span>
+<span class="source-line-no">302</span><span id="line-302">          serverName, getMaxWaitTime());</span>
+<span class="source-line-no">303</span><span id="line-303">        return false;</span>
+<span class="source-line-no">304</span><span id="line-304">      }</span>
+<span class="source-line-no">305</span><span id="line-305">      if (e instanceof DoNotRetryIOException) {</span>
+<span class="source-line-no">306</span><span id="line-306">        LOG.warn("{} tells us DoNotRetry due to {}, try={}, give up", serverName, e.toString(),</span>
+<span class="source-line-no">307</span><span id="line-307">          numberOfAttemptsSoFar);</span>
+<span class="source-line-no">308</span><span id="line-308">        return false;</span>
+<span class="source-line-no">309</span><span id="line-309">      }</span>
+<span class="source-line-no">310</span><span id="line-310">      // This category of exceptions is thrown in the rpc framework, where we can make sure</span>
+<span class="source-line-no">311</span><span id="line-311">      // that the call has not been executed yet, so it is safe to mark it as fail.</span>
+<span class="source-line-no">312</span><span id="line-312">      // Especially for open a region, we'd better choose another region server.</span>
+<span class="source-line-no">313</span><span id="line-313">      // Notice that, it is safe to quit only if this is the first time we send request to region</span>
+<span class="source-line-no">314</span><span id="line-314">      // server. Maybe the region server has accepted our request the first time, and then there is</span>
+<span class="source-line-no">315</span><span id="line-315">      // a network error which prevents we receive the response, and the second time we hit</span>
+<span class="source-line-no">316</span><span id="line-316">      // this category of exceptions, obviously it is not safe to quit here, otherwise it may lead</span>
+<span class="source-line-no">317</span><span id="line-317">      // to a double assign...</span>
+<span class="source-line-no">318</span><span id="line-318">      if (numberOfAttemptsSoFar == 0 &amp;&amp; unableToConnectToServer(e)) {</span>
+<span class="source-line-no">319</span><span id="line-319">        return false;</span>
+<span class="source-line-no">320</span><span id="line-320">      }</span>
+<span class="source-line-no">321</span><span id="line-321"></span>
+<span class="source-line-no">322</span><span id="line-322">      // Check if the num of attempts have crossed the retry limit, and if the error type can</span>
+<span class="source-line-no">323</span><span id="line-323">      // fail-fast.</span>
+<span class="source-line-no">324</span><span id="line-324">      if (numberOfAttemptsSoFar &gt;= failFastRetryLimit - 1 &amp;&amp; isErrorTypeFailFast(e)) {</span>
+<span class="source-line-no">325</span><span id="line-325">        LOG</span>
+<span class="source-line-no">326</span><span id="line-326">          .warn("Number of retries {} exceeded limit {} for the given error type. Scheduling server"</span>
+<span class="source-line-no">327</span><span id="line-327">            + " crash for {}", numberOfAttemptsSoFar + 1, failFastRetryLimit, serverName, e);</span>
+<span class="source-line-no">328</span><span id="line-328">        // Expiring the server will schedule SCP and also reject the regionserver report from the</span>
+<span class="source-line-no">329</span><span id="line-329">        // regionserver if regionserver is somehow able to send the regionserver report to master.</span>
+<span class="source-line-no">330</span><span id="line-330">        // The master rejects the report by throwing YouAreDeadException, which would eventually</span>
+<span class="source-line-no">331</span><span id="line-331">        // result in the regionserver abort.</span>
+<span class="source-line-no">332</span><span id="line-332">        // This will also remove "serverName" from the ServerManager's onlineServers map.</span>
+<span class="source-line-no">333</span><span id="line-333">        master.getServerManager().expireServer(serverName);</span>
+<span class="source-line-no">334</span><span id="line-334">        return false;</span>
+<span class="source-line-no">335</span><span id="line-335">      }</span>
+<span class="source-line-no">336</span><span id="line-336">      // Always retry for other exception types if the region server is not dead yet.</span>
+<span class="source-line-no">337</span><span id="line-337">      if (!master.getServerManager().isServerOnline(serverName)) {</span>
+<span class="source-line-no">338</span><span id="line-338">        LOG.warn("Request to {} failed due to {}, try={} and the server is not online, give up",</span>
+<span class="source-line-no">339</span><span id="line-339">          serverName, e.toString(), numberOfAttemptsSoFar);</span>
+<span class="source-line-no">340</span><span id="line-340">        return false;</span>
+<span class="source-line-no">341</span><span id="line-341">      }</span>
+<span class="source-line-no">342</span><span id="line-342">      if (e instanceof RegionServerStoppedException) {</span>
+<span class="source-line-no">343</span><span id="line-343">        // A better way is to return true here to let the upper layer quit, and then schedule a</span>
+<span class="source-line-no">344</span><span id="line-344">        // background task to check whether the region server is dead. And if it is dead, call</span>
+<span class="source-line-no">345</span><span id="line-345">        // remoteCallFailed to tell the upper layer. Keep retrying here does not lead to incorrect</span>
+<span class="source-line-no">346</span><span id="line-346">        // result, but waste some resources.</span>
+<span class="source-line-no">347</span><span id="line-347">        LOG.warn("{} is aborted or stopped, for safety we still need to"</span>
+<span class="source-line-no">348</span><span id="line-348">          + " wait until it is fully dead, try={}", serverName, numberOfAttemptsSoFar);</span>
+<span class="source-line-no">349</span><span id="line-349">      } else {</span>
+<span class="source-line-no">350</span><span id="line-350">        LOG.warn("request to {} failed due to {}, try={}, retrying... , request params: {}",</span>
+<span class="source-line-no">351</span><span id="line-351">          serverName, e.toString(), numberOfAttemptsSoFar, request.build());</span>
+<span class="source-line-no">352</span><span id="line-352">      }</span>
+<span class="source-line-no">353</span><span id="line-353">      numberOfAttemptsSoFar++;</span>
+<span class="source-line-no">354</span><span id="line-354">      // Add some backoff here as the attempts rise otherwise if a stuck condition, will fill logs</span>
+<span class="source-line-no">355</span><span id="line-355">      // with failed attempts. None of our backoff classes -- RetryCounter or ClientBackoffPolicy</span>
+<span class="source-line-no">356</span><span id="line-356">      // -- fit here nicely so just do something simple; increment by rsRpcRetryInterval millis *</span>
+<span class="source-line-no">357</span><span id="line-357">      // retry^2 on each try</span>
+<span class="source-line-no">358</span><span id="line-358">      // up to max of 10 seconds (don't want to back off too much in case of situation change).</span>
+<span class="source-line-no">359</span><span id="line-359">      submitTask(this,</span>
+<span class="source-line-no">360</span><span id="line-360">        Math.min(</span>
+<span class="source-line-no">361</span><span id="line-361">          rsRpcRetryInterval * ((long) this.numberOfAttemptsSoFar * this.numberOfAttemptsSoFar),</span>
+<span class="source-line-no">362</span><span id="line-362">          10 * 1000),</span>
+<span class="source-line-no">363</span><span id="line-363">        TimeUnit.MILLISECONDS);</span>
+<span class="source-line-no">364</span><span id="line-364">      return true;</span>
+<span class="source-line-no">365</span><span id="line-365">    }</span>
+<span class="source-line-no">366</span><span id="line-366"></span>
+<span class="source-line-no">367</span><span id="line-367">    /**</span>
+<span class="source-line-no">368</span><span id="line-368">     * The category of exceptions where we can ensure that the request has not yet been received</span>
+<span class="source-line-no">369</span><span id="line-369">     * and/or processed by the target regionserver yet and hence we can determine whether it is safe</span>
+<span class="source-line-no">370</span><span id="line-370">     * to choose different regionserver as the target.</span>
+<span class="source-line-no">371</span><span id="line-371">     * @param e IOException thrown by the underlying rpc framework.</span>
+<span class="source-line-no">372</span><span id="line-372">     * @return true if the exception belongs to the category where the regionserver has not yet</span>
+<span class="source-line-no">373</span><span id="line-373">     *         received the request yet.</span>
+<span class="source-line-no">374</span><span id="line-374">     */</span>
+<span class="source-line-no">375</span><span id="line-375">    private boolean unableToConnectToServer(IOException e) {</span>
+<span class="source-line-no">376</span><span id="line-376">      if (e instanceof CallQueueTooBigException) {</span>
+<span class="source-line-no">377</span><span id="line-377">        LOG.warn("request to {} failed due to {}, try={}, this usually because"</span>
+<span class="source-line-no">378</span><span id="line-378">          + " server is overloaded, give up", serverName, e, numberOfAttemptsSoFar);</span>
+<span class="source-line-no">379</span><span id="line-379">        return true;</span>
+<span class="source-line-no">380</span><span id="line-380">      }</span>
+<span class="source-line-no">381</span><span id="line-381">      if (isSaslError(e)) {</span>
+<span class="source-line-no">382</span><span id="line-382">        LOG.warn("{} is not reachable; give up after first attempt", serverName, e);</span>
+<span class="source-line-no">383</span><span id="line-383">        return true;</span>
+<span class="source-line-no">384</span><span id="line-384">      }</span>
+<span class="source-line-no">385</span><span id="line-385">      return false;</span>
+<span class="source-line-no">386</span><span id="line-386">    }</span>
+<span class="source-line-no">387</span><span id="line-387"></span>
+<span class="source-line-no">388</span><span id="line-388">    private boolean isSaslError(IOException e) {</span>
+<span class="source-line-no">389</span><span id="line-389">      Throwable cause = e;</span>
+<span class="source-line-no">390</span><span id="line-390">      while (true) {</span>
+<span class="source-line-no">391</span><span id="line-391">        if (cause instanceof IOException) {</span>
+<span class="source-line-no">392</span><span id="line-392">          IOException unwrappedCause = unwrapException((IOException) cause);</span>
+<span class="source-line-no">393</span><span id="line-393">          if (</span>
+<span class="source-line-no">394</span><span id="line-394">            unwrappedCause instanceof SaslException</span>
+<span class="source-line-no">395</span><span id="line-395">              || (unwrappedCause.getMessage() != null &amp;&amp; unwrappedCause.getMessage()</span>
+<span class="source-line-no">396</span><span id="line-396">                .contains(RpcConnectionConstants.RELOGIN_IS_IN_PROGRESS))</span>
+<span class="source-line-no">397</span><span id="line-397">          ) {</span>
+<span class="source-line-no">398</span><span id="line-398">            return true;</span>
+<span class="source-line-no">399</span><span id="line-399">          }</span>
+<span class="source-line-no">400</span><span id="line-400">        }</span>
+<span class="source-line-no">401</span><span id="line-401">        cause = cause.getCause();</span>
+<span class="source-line-no">402</span><span id="line-402">        if (cause == null) {</span>
+<span class="source-line-no">403</span><span id="line-403">          return false;</span>
+<span class="source-line-no">404</span><span id="line-404">        }</span>
+<span class="source-line-no">405</span><span id="line-405">      }</span>
+<span class="source-line-no">406</span><span id="line-406">    }</span>
+<span class="source-line-no">407</span><span id="line-407"></span>
+<span class="source-line-no">408</span><span id="line-408">    /**</span>
+<span class="source-line-no">409</span><span id="line-409">     * Returns true if the error or its cause is of type ConnectionClosedException.</span>
+<span class="source-line-no">410</span><span id="line-410">     * @param e IOException thrown by the underlying rpc framework.</span>
+<span class="source-line-no">411</span><span id="line-411">     * @return True if the error or its cause is of type ConnectionClosedException.</span>
+<span class="source-line-no">412</span><span id="line-412">     */</span>
+<span class="source-line-no">413</span><span id="line-413">    private boolean isConnectionClosedError(IOException e) {</span>
+<span class="source-line-no">414</span><span id="line-414">      if (e instanceof ConnectionClosedException) {</span>
+<span class="source-line-no">415</span><span id="line-415">        return true;</span>
+<span class="source-line-no">416</span><span id="line-416">      }</span>
+<span class="source-line-no">417</span><span id="line-417">      Throwable cause = e;</span>
+<span class="source-line-no">418</span><span id="line-418">      while (true) {</span>
+<span class="source-line-no">419</span><span id="line-419">        if (cause instanceof IOException) {</span>
+<span class="source-line-no">420</span><span id="line-420">          IOException unwrappedCause = unwrapException((IOException) cause);</span>
+<span class="source-line-no">421</span><span id="line-421">          if (unwrappedCause instanceof ConnectionClosedException) {</span>
+<span class="source-line-no">422</span><span id="line-422">            return true;</span>
+<span class="source-line-no">423</span><span id="line-423">          }</span>
+<span class="source-line-no">424</span><span id="line-424">        }</span>
+<span class="source-line-no">425</span><span id="line-425">        cause = cause.getCause();</span>
+<span class="source-line-no">426</span><span id="line-426">        if (cause == null) {</span>
+<span class="source-line-no">427</span><span id="line-427">          return false;</span>
+<span class="source-line-no">428</span><span id="line-428">        }</span>
+<span class="source-line-no">429</span><span id="line-429">      }</span>
+<span class="source-line-no">430</span><span id="line-430">    }</span>
+<span class="source-line-no">431</span><span id="line-431"></span>
+<span class="source-line-no">432</span><span id="line-432">    /**</span>
+<span class="source-line-no">433</span><span id="line-433">     * Returns true if the error type can allow fail-fast.</span>
+<span class="source-line-no">434</span><span id="line-434">     * @param e IOException thrown by the underlying rpc framework.</span>
+<span class="source-line-no">435</span><span id="line-435">     * @return True if the error type can allow fail-fast.</span>
+<span class="source-line-no">436</span><span id="line-436">     */</span>
+<span class="source-line-no">437</span><span id="line-437">    private boolean isErrorTypeFailFast(IOException e) {</span>
+<span class="source-line-no">438</span><span id="line-438">      return e instanceof CallQueueTooBigException || isSaslError(e) || isConnectionClosedError(e);</span>
+<span class="source-line-no">439</span><span id="line-439">    }</span>
 <span class="source-line-no">440</span><span id="line-440"></span>
-<span class="source-line-no">441</span><span id="line-441">  private static OpenRegionRequest buildOpenRegionRequest(final MasterProcedureEnv env,</span>
-<span class="source-line-no">442</span><span id="line-442">    final ServerName serverName, final List&lt;RegionOpenOperation&gt; operations) {</span>
-<span class="source-line-no">443</span><span id="line-443">    final OpenRegionRequest.Builder builder = OpenRegionRequest.newBuilder();</span>
-<span class="source-line-no">444</span><span id="line-444">    builder.setServerStartCode(serverName.getStartCode());</span>
-<span class="source-line-no">445</span><span id="line-445">    operations.stream().map(RemoteOperation::getInitiatingMasterActiveTime).findAny()</span>
-<span class="source-line-no">446</span><span id="line-446">      .ifPresent(builder::setInitiatingMasterActiveTime);</span>
-<span class="source-line-no">447</span><span id="line-447">    builder.setMasterSystemTime(EnvironmentEdgeManager.currentTime());</span>
-<span class="source-line-no">448</span><span id="line-448">    for (RegionOpenOperation op : operations) {</span>
-<span class="source-line-no">449</span><span id="line-449">      builder.addOpenInfo(op.buildRegionOpenInfoRequest(env));</span>
-<span class="source-line-no">450</span><span id="line-450">    }</span>
-<span class="source-line-no">451</span><span id="line-451">    return builder.build();</span>
-<span class="source-line-no">452</span><span id="line-452">  }</span>
-<span class="source-line-no">453</span><span id="line-453"></span>
-<span class="source-line-no">454</span><span id="line-454">  // ==========================================================================</span>
-<span class="source-line-no">455</span><span id="line-455">  // RPC Messages</span>
-<span class="source-line-no">456</span><span id="line-456">  // - ServerOperation: refreshConfig, grant, revoke, ... (TODO)</span>
-<span class="source-line-no">457</span><span id="line-457">  // - RegionOperation: open, close, flush, snapshot, ...</span>
-<span class="source-line-no">458</span><span id="line-458">  // ==========================================================================</span>
-<span class="source-line-no">459</span><span id="line-459"></span>
-<span class="source-line-no">460</span><span id="line-460">  public static final class ServerOperation extends RemoteOperation {</span>
-<span class="source-line-no">461</span><span id="line-461"></span>
-<span class="source-line-no">462</span><span id="line-462">    private final long procId;</span>
+<span class="source-line-no">441</span><span id="line-441">    private long getMaxWaitTime() {</span>
+<span class="source-line-no">442</span><span id="line-442">      if (this.maxWaitTime &lt; 0) {</span>
+<span class="source-line-no">443</span><span id="line-443">        // This is the max attempts, not retries, so it should be at least 1.</span>
+<span class="source-line-no">444</span><span id="line-444">        this.maxWaitTime = EnvironmentEdgeManager.currentTime() + rsStartupWaitTime;</span>
+<span class="source-line-no">445</span><span id="line-445">      }</span>
+<span class="source-line-no">446</span><span id="line-446">      return this.maxWaitTime;</span>
+<span class="source-line-no">447</span><span id="line-447">    }</span>
+<span class="source-line-no">448</span><span id="line-448"></span>
+<span class="source-line-no">449</span><span id="line-449">    private IOException unwrapException(IOException e) {</span>
+<span class="source-line-no">450</span><span id="line-450">      if (e instanceof RemoteException) {</span>
+<span class="source-line-no">451</span><span id="line-451">        e = ((RemoteException) e).unwrapRemoteException();</span>
+<span class="source-line-no">452</span><span id="line-452">      }</span>
+<span class="source-line-no">453</span><span id="line-453">      return e;</span>
+<span class="source-line-no">454</span><span id="line-454">    }</span>
+<span class="source-line-no">455</span><span id="line-455"></span>
+<span class="source-line-no">456</span><span id="line-456">    @Override</span>
+<span class="source-line-no">457</span><span id="line-457">    public void run() {</span>
+<span class="source-line-no">458</span><span id="line-458">      request = ExecuteProceduresRequest.newBuilder();</span>
+<span class="source-line-no">459</span><span id="line-459">      if (LOG.isTraceEnabled()) {</span>
+<span class="source-line-no">460</span><span id="line-460">        LOG.trace("Building request with operations count=" + remoteProcedures.size());</span>
+<span class="source-line-no">461</span><span id="line-461">      }</span>
+<span class="source-line-no">462</span><span id="line-462">      splitAndResolveOperation(getServerName(), remoteProcedures, this);</span>
 <span class="source-line-no">463</span><span id="line-463"></span>
-<span class="source-line-no">464</span><span id="line-464">    private final Class&lt;?&gt; rsProcClass;</span>
-<span class="source-line-no">465</span><span id="line-465"></span>
-<span class="source-line-no">466</span><span id="line-466">    private final byte[] rsProcData;</span>
-<span class="source-line-no">467</span><span id="line-467"></span>
-<span class="source-line-no">468</span><span id="line-468">    public ServerOperation(RemoteProcedure remoteProcedure, long procId, Class&lt;?&gt; rsProcClass,</span>
-<span class="source-line-no">469</span><span id="line-469">      byte[] rsProcData, long initiatingMasterActiveTime) {</span>
-<span class="source-line-no">470</span><span id="line-470">      super(remoteProcedure, initiatingMasterActiveTime);</span>
-<span class="source-line-no">471</span><span id="line-471">      this.procId = procId;</span>
-<span class="source-line-no">472</span><span id="line-472">      this.rsProcClass = rsProcClass;</span>
-<span class="source-line-no">473</span><span id="line-473">      this.rsProcData = rsProcData;</span>
+<span class="source-line-no">464</span><span id="line-464">      try {</span>
+<span class="source-line-no">465</span><span id="line-465">        sendRequest(getServerName(), request.build());</span>
+<span class="source-line-no">466</span><span id="line-466">      } catch (IOException e) {</span>
+<span class="source-line-no">467</span><span id="line-467">        e = unwrapException(e);</span>
+<span class="source-line-no">468</span><span id="line-468">        // TODO: In the future some operation may want to bail out early.</span>
+<span class="source-line-no">469</span><span id="line-469">        // TODO: How many times should we retry (use numberOfAttemptsSoFar)</span>
+<span class="source-line-no">470</span><span id="line-470">        if (!scheduleForRetry(e)) {</span>
+<span class="source-line-no">471</span><span id="line-471">          remoteCallFailed(procedureEnv, e);</span>
+<span class="source-line-no">472</span><span id="line-472">        }</span>
+<span class="source-line-no">473</span><span id="line-473">      }</span>
 <span class="source-line-no">474</span><span id="line-474">    }</span>
 <span class="source-line-no">475</span><span id="line-475"></span>
-<span class="source-line-no">476</span><span id="line-476">    public RemoteProcedureRequest buildRequest() {</span>
-<span class="source-line-no">477</span><span id="line-477">      return RemoteProcedureRequest.newBuilder().setProcId(procId)</span>
-<span class="source-line-no">478</span><span id="line-478">        .setProcClass(rsProcClass.getName()).setProcData(ByteString.copyFrom(rsProcData))</span>
-<span class="source-line-no">479</span><span id="line-479">        .setInitiatingMasterActiveTime(getInitiatingMasterActiveTime()).build();</span>
+<span class="source-line-no">476</span><span id="line-476">    @Override</span>
+<span class="source-line-no">477</span><span id="line-477">    public void dispatchOpenRequests(final MasterProcedureEnv env,</span>
+<span class="source-line-no">478</span><span id="line-478">      final List&lt;RegionOpenOperation&gt; operations) {</span>
+<span class="source-line-no">479</span><span id="line-479">      request.addOpenRegion(buildOpenRegionRequest(env, getServerName(), operations));</span>
 <span class="source-line-no">480</span><span id="line-480">    }</span>
-<span class="source-line-no">481</span><span id="line-481">  }</span>
-<span class="source-line-no">482</span><span id="line-482"></span>
-<span class="source-line-no">483</span><span id="line-483">  public static abstract class RegionOperation extends RemoteOperation {</span>
-<span class="source-line-no">484</span><span id="line-484">    protected final RegionInfo regionInfo;</span>
-<span class="source-line-no">485</span><span id="line-485">    protected final long procId;</span>
-<span class="source-line-no">486</span><span id="line-486"></span>
-<span class="source-line-no">487</span><span id="line-487">    protected RegionOperation(RemoteProcedure remoteProcedure, RegionInfo regionInfo, long procId,</span>
-<span class="source-line-no">488</span><span id="line-488">      long initiatingMasterActiveTime) {</span>
-<span class="source-line-no">489</span><span id="line-489">      super(remoteProcedure, initiatingMasterActiveTime);</span>
-<span class="source-line-no">490</span><span id="line-490">      this.regionInfo = regionInfo;</span>
-<span class="source-line-no">491</span><span id="line-491">      this.procId = procId;</span>
-<span class="source-line-no">492</span><span id="line-492">    }</span>
-<span class="source-line-no">493</span><span id="line-493">  }</span>
+<span class="source-line-no">481</span><span id="line-481"></span>
+<span class="source-line-no">482</span><span id="line-482">    @Override</span>
+<span class="source-line-no">483</span><span id="line-483">    public void dispatchCloseRequests(final MasterProcedureEnv env,</span>
+<span class="source-line-no">484</span><span id="line-484">      final List&lt;RegionCloseOperation&gt; operations) {</span>
+<span class="source-line-no">485</span><span id="line-485">      for (RegionCloseOperation op : operations) {</span>
+<span class="source-line-no">486</span><span id="line-486">        request.addCloseRegion(op.buildCloseRegionRequest(getServerName()));</span>
+<span class="source-line-no">487</span><span id="line-487">      }</span>
+<span class="source-line-no">488</span><span id="line-488">    }</span>
+<span class="source-line-no">489</span><span id="line-489"></span>
+<span class="source-line-no">490</span><span id="line-490">    @Override</span>
+<span class="source-line-no">491</span><span id="line-491">    public void dispatchServerOperations(MasterProcedureEnv env, List&lt;ServerOperation&gt; operations) {</span>
+<span class="source-line-no">492</span><span id="line-492">      operations.stream().map(ServerOperation::buildRequest).forEachOrdered(request::addProc);</span>
+<span class="source-line-no">493</span><span id="line-493">    }</span>
 <span class="source-line-no">494</span><span id="line-494"></span>
-<span class="source-line-no">495</span><span id="line-495">  public static class RegionOpenOperation extends RegionOperation {</span>
-<span class="source-line-no">496</span><span id="line-496"></span>
-<span class="source-line-no">497</span><span id="line-497">    public RegionOpenOperation(RemoteProcedure remoteProcedure, RegionInfo regionInfo, long procId,</span>
-<span class="source-line-no">498</span><span id="line-498">      long initiatingMasterActiveTime) {</span>
-<span class="source-line-no">499</span><span id="line-499">      super(remoteProcedure, regionInfo, procId, initiatingMasterActiveTime);</span>
-<span class="source-line-no">500</span><span id="line-500">    }</span>
-<span class="source-line-no">501</span><span id="line-501"></span>
-<span class="source-line-no">502</span><span id="line-502">    public OpenRegionRequest.RegionOpenInfo</span>
-<span class="source-line-no">503</span><span id="line-503">      buildRegionOpenInfoRequest(final MasterProcedureEnv env) {</span>
-<span class="source-line-no">504</span><span id="line-504">      return RequestConverter.buildRegionOpenInfo(regionInfo,</span>
-<span class="source-line-no">505</span><span id="line-505">        env.getAssignmentManager().getFavoredNodes(regionInfo), procId);</span>
-<span class="source-line-no">506</span><span id="line-506">    }</span>
-<span class="source-line-no">507</span><span id="line-507">  }</span>
-<span class="source-line-no">508</span><span id="line-508"></span>
-<span class="source-line-no">509</span><span id="line-509">  public static class RegionCloseOperation extends RegionOperation {</span>
-<span class="source-line-no">510</span><span id="line-510">    private final ServerName destinationServer;</span>
-<span class="source-line-no">511</span><span id="line-511">    private boolean evictCache;</span>
-<span class="source-line-no">512</span><span id="line-512"></span>
-<span class="source-line-no">513</span><span id="line-513">    public RegionCloseOperation(RemoteProcedure remoteProcedure, RegionInfo regionInfo, long procId,</span>
-<span class="source-line-no">514</span><span id="line-514">      ServerName destinationServer, boolean evictCache, long initiatingMasterActiveTime) {</span>
-<span class="source-line-no">515</span><span id="line-515">      super(remoteProcedure, regionInfo, procId, initiatingMasterActiveTime);</span>
-<span class="source-line-no">516</span><span id="line-516">      this.destinationServer = destinationServer;</span>
-<span class="source-line-no">517</span><span id="line-517">      this.evictCache = evictCache;</span>
-<span class="source-line-no">518</span><span id="line-518">    }</span>
-<span class="source-line-no">519</span><span id="line-519"></span>
-<span class="source-line-no">520</span><span id="line-520">    public ServerName getDestinationServer() {</span>
-<span class="source-line-no">521</span><span id="line-521">      return destinationServer;</span>
-<span class="source-line-no">522</span><span id="line-522">    }</span>
-<span class="source-line-no">523</span><span id="line-523"></span>
-<span class="source-line-no">524</span><span id="line-524">    public CloseRegionRequest buildCloseRegionRequest(final ServerName serverName) {</span>
-<span class="source-line-no">525</span><span id="line-525">      return ProtobufUtil.buildCloseRegionRequest(serverName, regionInfo.getRegionName(),</span>
-<span class="source-line-no">526</span><span id="line-526">        getDestinationServer(), procId, evictCache, getInitiatingMasterActiveTime());</span>
-<span class="source-line-no">527</span><span id="line-527">    }</span>
-<span class="source-line-no">528</span><span id="line-528">  }</span>
-<span class="source-line-no">529</span><span id="line-529">}</span>
+<span class="source-line-no">495</span><span id="line-495">    // will be overridden in test.</span>
+<span class="source-line-no">496</span><span id="line-496">    protected ExecuteProceduresResponse sendRequest(final ServerName serverName,</span>
+<span class="source-line-no">497</span><span id="line-497">      final ExecuteProceduresRequest request) throws IOException {</span>
+<span class="source-line-no">498</span><span id="line-498">      return FutureUtils.get(getRsAdmin().executeProcedures(request));</span>
+<span class="source-line-no">499</span><span id="line-499">    }</span>
+<span class="source-line-no">500</span><span id="line-500"></span>
+<span class="source-line-no">501</span><span id="line-501">    protected final void remoteCallFailed(final MasterProcedureEnv env, final IOException e) {</span>
+<span class="source-line-no">502</span><span id="line-502">      for (RemoteProcedure proc : remoteProcedures) {</span>
+<span class="source-line-no">503</span><span id="line-503">        proc.remoteCallFailed(env, getServerName(), e);</span>
+<span class="source-line-no">504</span><span id="line-504">      }</span>
+<span class="source-line-no">505</span><span id="line-505">    }</span>
+<span class="source-line-no">506</span><span id="line-506">  }</span>
+<span class="source-line-no">507</span><span id="line-507"></span>
+<span class="source-line-no">508</span><span id="line-508">  private static OpenRegionRequest buildOpenRegionRequest(final MasterProcedureEnv env,</span>
+<span class="source-line-no">509</span><span id="line-509">    final ServerName serverName, final List&lt;RegionOpenOperation&gt; operations) {</span>
+<span class="source-line-no">510</span><span id="line-510">    final OpenRegionRequest.Builder builder = OpenRegionRequest.newBuilder();</span>
+<span class="source-line-no">511</span><span id="line-511">    builder.setServerStartCode(serverName.getStartCode());</span>
+<span class="source-line-no">512</span><span id="line-512">    operations.stream().map(RemoteOperation::getInitiatingMasterActiveTime).findAny()</span>
+<span class="source-line-no">513</span><span id="line-513">      .ifPresent(builder::setInitiatingMasterActiveTime);</span>
+<span class="source-line-no">514</span><span id="line-514">    builder.setMasterSystemTime(EnvironmentEdgeManager.currentTime());</span>
+<span class="source-line-no">515</span><span id="line-515">    for (RegionOpenOperation op : operations) {</span>
+<span class="source-line-no">516</span><span id="line-516">      builder.addOpenInfo(op.buildRegionOpenInfoRequest(env));</span>
+<span class="source-line-no">517</span><span id="line-517">    }</span>
+<span class="source-line-no">518</span><span id="line-518">    return builder.build();</span>
+<span class="source-line-no">519</span><span id="line-519">  }</span>
+<span class="source-line-no">520</span><span id="line-520"></span>
+<span class="source-line-no">521</span><span id="line-521">  // ==========================================================================</span>
+<span class="source-line-no">522</span><span id="line-522">  // RPC Messages</span>
+<span class="source-line-no">523</span><span id="line-523">  // - ServerOperation: refreshConfig, grant, revoke, ... (TODO)</span>
+<span class="source-line-no">524</span><span id="line-524">  // - RegionOperation: open, close, flush, snapshot, ...</span>
+<span class="source-line-no">525</span><span id="line-525">  // ==========================================================================</span>
+<span class="source-line-no">526</span><span id="line-526"></span>
+<span class="source-line-no">527</span><span id="line-527">  public static final class ServerOperation extends RemoteOperation {</span>
+<span class="source-line-no">528</span><span id="line-528"></span>
+<span class="source-line-no">529</span><span id="line-529">    private final long procId;</span>
+<span class="source-line-no">530</span><span id="line-530"></span>
+<span class="source-line-no">531</span><span id="line-531">    private final Class&lt;?&gt; rsProcClass;</span>
+<span class="source-line-no">532</span><span id="line-532"></span>
+<span class="source-line-no">533</span><span id="line-533">    private final byte[] rsProcData;</span>
+<span class="source-line-no">534</span><span id="line-534"></span>
+<span class="source-line-no">535</span><span id="line-535">    public ServerOperation(RemoteProcedure remoteProcedure, long procId, Class&lt;?&gt; rsProcClass,</span>
+<span class="source-line-no">536</span><span id="line-536">      byte[] rsProcData, long initiatingMasterActiveTime) {</span>
+<span class="source-line-no">537</span><span id="line-537">      super(remoteProcedure, initiatingMasterActiveTime);</span>
+<span class="source-line-no">538</span><span id="line-538">      this.procId = procId;</span>
+<span class="source-line-no">539</span><span id="line-539">      this.rsProcClass = rsProcClass;</span>
+<span class="source-line-no">540</span><span id="line-540">      this.rsProcData = rsProcData;</span>
+<span class="source-line-no">541</span><span id="line-541">    }</span>
+<span class="source-line-no">542</span><span id="line-542"></span>
+<span class="source-line-no">543</span><span id="line-543">    public RemoteProcedureRequest buildRequest() {</span>
+<span class="source-line-no">544</span><span id="line-544">      return RemoteProcedureRequest.newBuilder().setProcId(procId)</span>
+<span class="source-line-no">545</span><span id="line-545">        .setProcClass(rsProcClass.getName()).setProcData(ByteString.copyFrom(rsProcData))</span>
+<span class="source-line-no">546</span><span id="line-546">        .setInitiatingMasterActiveTime(getInitiatingMasterActiveTime()).build();</span>
+<span class="source-line-no">547</span><span id="line-547">    }</span>
+<span class="source-line-no">548</span><span id="line-548">  }</span>
+<span class="source-line-no">549</span><span id="line-549"></span>
+<span class="source-line-no">550</span><span id="line-550">  public static abstract class RegionOperation extends RemoteOperation {</span>
+<span class="source-line-no">551</span><span id="line-551">    protected final RegionInfo regionInfo;</span>
+<span class="source-line-no">552</span><span id="line-552">    protected final long procId;</span>
+<span class="source-line-no">553</span><span id="line-553"></span>
+<span class="source-line-no">554</span><span id="line-554">    protected RegionOperation(RemoteProcedure remoteProcedure, RegionInfo regionInfo, long procId,</span>
+<span class="source-line-no">555</span><span id="line-555">      long initiatingMasterActiveTime) {</span>
+<span class="source-line-no">556</span><span id="line-556">      super(remoteProcedure, initiatingMasterActiveTime);</span>
+<span class="source-line-no">557</span><span id="line-557">      this.regionInfo = regionInfo;</span>
+<span class="source-line-no">558</span><span id="line-558">      this.procId = procId;</span>
+<span class="source-line-no">559</span><span id="line-559">    }</span>
+<span class="source-line-no">560</span><span id="line-560">  }</span>
+<span class="source-line-no">561</span><span id="line-561"></span>
+<span class="source-line-no">562</span><span id="line-562">  public static class RegionOpenOperation extends RegionOperation {</span>
+<span class="source-line-no">563</span><span id="line-563"></span>
+<span class="source-line-no">564</span><span id="line-564">    public RegionOpenOperation(RemoteProcedure remoteProcedure, RegionInfo regionInfo, long procId,</span>
+<span class="source-line-no">565</span><span id="line-565">      long initiatingMasterActiveTime) {</span>
+<span class="source-line-no">566</span><span id="line-566">      super(remoteProcedure, regionInfo, procId, initiatingMasterActiveTime);</span>
+<span class="source-line-no">567</span><span id="line-567">    }</span>
+<span class="source-line-no">568</span><span id="line-568"></span>
+<span class="source-line-no">569</span><span id="line-569">    public OpenRegionRequest.RegionOpenInfo</span>
+<span class="source-line-no">570</span><span id="line-570">      buildRegionOpenInfoRequest(final MasterProcedureEnv env) {</span>
+<span class="source-line-no">571</span><span id="line-571">      return RequestConverter.buildRegionOpenInfo(regionInfo,</span>
+<span class="source-line-no">572</span><span id="line-572">        env.getAssignmentManager().getFavoredNodes(regionInfo), procId);</span>
+<span class="source-line-no">573</span><span id="line-573">    }</span>
+<span class="source-line-no">574</span><span id="line-574">  }</span>
+<span class="source-line-no">575</span><span id="line-575"></span>
+<span class="source-line-no">576</span><span id="line-576">  public static class RegionCloseOperation extends RegionOperation {</span>
+<span class="source-line-no">577</span><span id="line-577">    private final ServerName destinationServer;</span>
+<span class="source-line-no">578</span><span id="line-578">    private boolean evictCache;</span>
+<span class="source-line-no">579</span><span id="line-579"></span>
+<span class="source-line-no">580</span><span id="line-580">    public RegionCloseOperation(RemoteProcedure remoteProcedure, RegionInfo regionInfo, long procId,</span>
+<span class="source-line-no">581</span><span id="line-581">      ServerName destinationServer, boolean evictCache, long initiatingMasterActiveTime) {</span>
+<span class="source-line-no">582</span><span id="line-582">      super(remoteProcedure, regionInfo, procId, initiatingMasterActiveTime);</span>
+<span class="source-line-no">583</span><span id="line-583">      this.destinationServer = destinationServer;</span>
+<span class="source-line-no">584</span><span id="line-584">      this.evictCache = evictCache;</span>
+<span class="source-line-no">585</span><span id="line-585">    }</span>
+<span class="source-line-no">586</span><span id="line-586"></span>
+<span class="source-line-no">587</span><span id="line-587">    public ServerName getDestinationServer() {</span>
+<span class="source-line-no">588</span><span id="line-588">      return destinationServer;</span>
+<span class="source-line-no">589</span><span id="line-589">    }</span>
+<span class="source-line-no">590</span><span id="line-590"></span>
+<span class="source-line-no">591</span><span id="line-591">    public CloseRegionRequest buildCloseRegionRequest(final ServerName serverName) {</span>
+<span class="source-line-no">592</span><span id="line-592">      return ProtobufUtil.buildCloseRegionRequest(serverName, regionInfo.getRegionName(),</span>
+<span class="source-line-no">593</span><span id="line-593">        getDestinationServer(), procId, evictCache, getInitiatingMasterActiveTime());</span>
+<span class="source-line-no">594</span><span id="line-594">    }</span>
+<span class="source-line-no">595</span><span id="line-595">  }</span>
+<span class="source-line-no">596</span><span id="line-596">}</span>
 
 
 

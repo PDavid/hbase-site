@@ -339,7 +339,7 @@
 <span class="source-line-no">326</span><span id="line-326">      String[] readOnlyLogLevels = conf.getStrings(READONLY_LOGGERS_CONF_KEY);</span>
 <span class="source-line-no">327</span><span id="line-327"></span>
 <span class="source-line-no">328</span><span id="line-328">      if (logName != null) {</span>
-<span class="source-line-no">329</span><span id="line-329">        out.println("&lt;p&gt;Results:&lt;/p&gt;");</span>
+<span class="source-line-no">329</span><span id="line-329">        out.println("&lt;h2&gt;Results&lt;/h2&gt;");</span>
 <span class="source-line-no">330</span><span id="line-330">        out.println(MARKER + "Submitted Log Name: &lt;b&gt;" + logName + "&lt;/b&gt;&lt;br /&gt;");</span>
 <span class="source-line-no">331</span><span id="line-331"></span>
 <span class="source-line-no">332</span><span id="line-332">        Logger log = LoggerFactory.getLogger(logName);</span>
@@ -386,43 +386,48 @@
 <span class="source-line-no">373</span><span id="line-373"></span>
 <span class="source-line-no">374</span><span id="line-374">    static final String FORMS = "&lt;div class='container-fluid content'&gt;\n"</span>
 <span class="source-line-no">375</span><span id="line-375">      + "&lt;div class='row inner_header top_header'&gt;\n" + "&lt;div class='page-header'&gt;\n"</span>
-<span class="source-line-no">376</span><span id="line-376">      + "&lt;h1&gt;Get/Set Log Level&lt;/h1&gt;\n" + "&lt;/div&gt;\n" + "&lt;/div&gt;\n" + "Actions:" + "&lt;p&gt;" + "&lt;center&gt;\n"</span>
-<span class="source-line-no">377</span><span id="line-377">      + "&lt;table class='table' style='border: 0;' width='95%' &gt;\n" + "&lt;tr&gt;\n" + "&lt;form&gt;\n"</span>
-<span class="source-line-no">378</span><span id="line-378">      + "&lt;td class='centered'&gt;\n"</span>
-<span class="source-line-no">379</span><span id="line-379">      + "&lt;input style='font-size: 12pt; width: 10em' type='submit' value='Get Log Level'"</span>
-<span class="source-line-no">380</span><span id="line-380">      + " class='btn' /&gt;\n" + "&lt;/td&gt;\n" + "&lt;td style='text-align: center;'&gt;\n"</span>
-<span class="source-line-no">381</span><span id="line-381">      + "&lt;input type='text' name='log' size='50' required='required'"</span>
-<span class="source-line-no">382</span><span id="line-382">      + " placeholder='Log Name (required)' /&gt;\n" + "&lt;/td&gt;\n" + "&lt;td width=\"40%\"&gt;"</span>
-<span class="source-line-no">383</span><span id="line-383">      + "Get the current log level for the specified log name." + "&lt;/td&gt;\n" + "&lt;/form&gt;\n"</span>
-<span class="source-line-no">384</span><span id="line-384">      + "&lt;/tr&gt;\n" + "&lt;tr&gt;\n" + "&lt;form&gt;\n" + "&lt;td class='centered'&gt;\n"</span>
-<span class="source-line-no">385</span><span id="line-385">      + "&lt;input style='font-size: 12pt; width: 10em' type='submit'"</span>
-<span class="source-line-no">386</span><span id="line-386">      + " value='Set Log Level' class='btn' /&gt;\n" + "&lt;/td&gt;\n" + "&lt;td style='text-align: center;'&gt;\n"</span>
-<span class="source-line-no">387</span><span id="line-387">      + "&lt;input type='text' name='log' size='50' required='required'"</span>
-<span class="source-line-no">388</span><span id="line-388">      + " placeholder='Log Name (required)' /&gt;\n"</span>
-<span class="source-line-no">389</span><span id="line-389">      + "&lt;input type='text' name='level' size='50' required='required'"</span>
-<span class="source-line-no">390</span><span id="line-390">      + " placeholder='Log Level (required)' /&gt;\n" + "&lt;/td&gt;\n" + "&lt;td width=\"40%\" style=\"\"&gt;"</span>
-<span class="source-line-no">391</span><span id="line-391">      + "Set the specified log level for the specified log name." + "&lt;/td&gt;\n" + "&lt;/form&gt;\n"</span>
-<span class="source-line-no">392</span><span id="line-392">      + "&lt;/tr&gt;\n" + "&lt;/table&gt;\n" + "&lt;/center&gt;\n" + "&lt;/p&gt;\n" + "&lt;hr/&gt;\n";</span>
-<span class="source-line-no">393</span><span id="line-393"></span>
-<span class="source-line-no">394</span><span id="line-394">    private static void process(Logger logger, String levelName, PrintWriter out) {</span>
-<span class="source-line-no">395</span><span id="line-395">      if (levelName != null) {</span>
-<span class="source-line-no">396</span><span id="line-396">        try {</span>
-<span class="source-line-no">397</span><span id="line-397">          Log4jUtils.setLogLevel(logger.getName(), levelName);</span>
-<span class="source-line-no">398</span><span id="line-398">          out.println(MARKER + "&lt;div class='text-success'&gt;" + "Setting Level to &lt;strong&gt;"</span>
-<span class="source-line-no">399</span><span id="line-399">            + levelName + "&lt;/strong&gt; ...&lt;br /&gt;" + "&lt;/div&gt;");</span>
-<span class="source-line-no">400</span><span id="line-400">        } catch (IllegalArgumentException e) {</span>
-<span class="source-line-no">401</span><span id="line-401">          out.println(MARKER + "&lt;div class='text-danger'&gt;" + "Bad level : &lt;strong&gt;" + levelName</span>
-<span class="source-line-no">402</span><span id="line-402">            + "&lt;/strong&gt;&lt;br /&gt;" + "&lt;/div&gt;");</span>
-<span class="source-line-no">403</span><span id="line-403">        }</span>
-<span class="source-line-no">404</span><span id="line-404">      }</span>
-<span class="source-line-no">405</span><span id="line-405">      out.println(MARKER + "Effective level: &lt;b&gt;" + Log4jUtils.getEffectiveLevel(logger.getName())</span>
-<span class="source-line-no">406</span><span id="line-406">        + "&lt;/b&gt;&lt;br /&gt;");</span>
-<span class="source-line-no">407</span><span id="line-407">    }</span>
-<span class="source-line-no">408</span><span id="line-408">  }</span>
-<span class="source-line-no">409</span><span id="line-409"></span>
-<span class="source-line-no">410</span><span id="line-410">  private LogLevel() {</span>
-<span class="source-line-no">411</span><span id="line-411">  }</span>
-<span class="source-line-no">412</span><span id="line-412">}</span>
+<span class="source-line-no">376</span><span id="line-376">      + "&lt;h1&gt;Get/Set Log Level&lt;/h1&gt;\n" + "&lt;/div&gt;\n" + "&lt;/div&gt;\n" + "\n" + "&lt;h2&gt;Actions&lt;/h2&gt;\n"</span>
+<span class="source-line-no">377</span><span id="line-377">      + "\n" + "&lt;div class='row mb-4'&gt;\n" + "&lt;div class='col'&gt;\n"</span>
+<span class="source-line-no">378</span><span id="line-378">      + "&lt;form class='row g-3 align-items-center justify-content-center'&gt;\n"</span>
+<span class="source-line-no">379</span><span id="line-379">      + "&lt;div class='col-sm-auto'&gt;\n"</span>
+<span class="source-line-no">380</span><span id="line-380">      + "&lt;button type='submit' class='btn btn-primary'&gt;Get Log Level&lt;/button&gt;\n" + "&lt;/div&gt;\n"</span>
+<span class="source-line-no">381</span><span id="line-381">      + "  &lt;div class='col-sm-auto'&gt;\n"</span>
+<span class="source-line-no">382</span><span id="line-382">      + "&lt;input type='text' name='log' class='form-control' size='50'"</span>
+<span class="source-line-no">383</span><span id="line-383">      + " required='required' placeholder='Log Name (required)'&gt;\n" + "&lt;/div&gt;\n"</span>
+<span class="source-line-no">384</span><span id="line-384">      + "  &lt;div class='col-sm-auto'&gt;\n"</span>
+<span class="source-line-no">385</span><span id="line-385">      + "&lt;span&gt;Gets the current log level for the specified log name.&lt;/span&gt;\n" + "&lt;/div&gt;\n"</span>
+<span class="source-line-no">386</span><span id="line-386">      + "&lt;/form&gt;\n" + "&lt;/div&gt;\n" + "&lt;/div&gt;\n" + "\n" + "&lt;div class='row'&gt;\n" + "&lt;div class='col'&gt;\n"</span>
+<span class="source-line-no">387</span><span id="line-387">      + "\n" + "&lt;form class='row g-3 align-items-center justify-content-center'&gt;\n"</span>
+<span class="source-line-no">388</span><span id="line-388">      + "&lt;div class='col-sm-auto'&gt;\n"</span>
+<span class="source-line-no">389</span><span id="line-389">      + "&lt;button type='submit' class='btn btn-primary'&gt;Set Log Level&lt;/button&gt;\n" + "&lt;/div&gt;\n"</span>
+<span class="source-line-no">390</span><span id="line-390">      + "&lt;div class='col-sm-auto'&gt;\n"</span>
+<span class="source-line-no">391</span><span id="line-391">      + "&lt;input type='text' name='log' class='form-control mb-2' size='50'"</span>
+<span class="source-line-no">392</span><span id="line-392">      + " required='required' placeholder='Log Name (required)'&gt;\n"</span>
+<span class="source-line-no">393</span><span id="line-393">      + "&lt;input type='text' name='level' class='form-control' size='50'"</span>
+<span class="source-line-no">394</span><span id="line-394">      + " required='required' placeholder='Log Level (required)'&gt;\n" + "&lt;/div&gt;\n"</span>
+<span class="source-line-no">395</span><span id="line-395">      + "&lt;div class='col-sm-auto'&gt;\n"</span>
+<span class="source-line-no">396</span><span id="line-396">      + "&lt;span&gt;Sets the specified log level for the specified log name.&lt;/span&gt;\n" + "&lt;/div&gt;\n"</span>
+<span class="source-line-no">397</span><span id="line-397">      + "&lt;/form&gt;\n" + "\n" + "&lt;/div&gt;\n" + "&lt;/div&gt;" + "&lt;hr&gt;\n";</span>
+<span class="source-line-no">398</span><span id="line-398"></span>
+<span class="source-line-no">399</span><span id="line-399">    private static void process(Logger logger, String levelName, PrintWriter out) {</span>
+<span class="source-line-no">400</span><span id="line-400">      if (levelName != null) {</span>
+<span class="source-line-no">401</span><span id="line-401">        try {</span>
+<span class="source-line-no">402</span><span id="line-402">          Log4jUtils.setLogLevel(logger.getName(), levelName);</span>
+<span class="source-line-no">403</span><span id="line-403">          out.println(MARKER + "&lt;div class='text-success'&gt;" + "Setting Level to &lt;strong&gt;"</span>
+<span class="source-line-no">404</span><span id="line-404">            + levelName + "&lt;/strong&gt; ...&lt;br /&gt;" + "&lt;/div&gt;");</span>
+<span class="source-line-no">405</span><span id="line-405">        } catch (IllegalArgumentException e) {</span>
+<span class="source-line-no">406</span><span id="line-406">          out.println(MARKER + "&lt;div class='text-danger'&gt;" + "Bad level : &lt;strong&gt;" + levelName</span>
+<span class="source-line-no">407</span><span id="line-407">            + "&lt;/strong&gt;&lt;br /&gt;" + "&lt;/div&gt;");</span>
+<span class="source-line-no">408</span><span id="line-408">        }</span>
+<span class="source-line-no">409</span><span id="line-409">      }</span>
+<span class="source-line-no">410</span><span id="line-410">      out.println(MARKER + "Effective level: &lt;b&gt;" + Log4jUtils.getEffectiveLevel(logger.getName())</span>
+<span class="source-line-no">411</span><span id="line-411">        + "&lt;/b&gt;&lt;br /&gt;");</span>
+<span class="source-line-no">412</span><span id="line-412">    }</span>
+<span class="source-line-no">413</span><span id="line-413">  }</span>
+<span class="source-line-no">414</span><span id="line-414"></span>
+<span class="source-line-no">415</span><span id="line-415">  private LogLevel() {</span>
+<span class="source-line-no">416</span><span id="line-416">  }</span>
+<span class="source-line-no">417</span><span id="line-417">}</span>
 
 
 

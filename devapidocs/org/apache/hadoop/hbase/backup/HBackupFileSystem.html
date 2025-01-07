@@ -78,7 +78,7 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <hr>
 <div class="type-signature"><span class="annotations">@Private
-</span><span class="modifiers">public final class </span><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/HBackupFileSystem.html#line-34">HBackupFileSystem</a></span>
+</span><span class="modifiers">public final class </span><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/HBackupFileSystem.html#line-37">HBackupFileSystem</a></span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
 <div class="block">View to an on-disk Backup Image FileSytem Provides the set of methods necessary to interact with
  the on-disk Backup Image data.</div>
@@ -153,6 +153,16 @@ loadScripts(document, 'script');</script>
  org.apache.hadoop.fs.Path&nbsp;backupRootPath,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupId)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>(package private) static org.apache.hadoop.fs.Path</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getManifestPath(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.Path,java.lang.String,boolean)" class="member-name-link">getManifestPath</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+ org.apache.hadoop.fs.Path&nbsp;backupRootPath,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupId,
+ boolean&nbsp;throwIfNotFound)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static org.apache.hadoop.fs.Path</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getRootDirFromBackupPath(org.apache.hadoop.fs.Path,java.lang.String)" class="member-name-link">getRootDirFromBackupPath</a><wbr>(org.apache.hadoop.fs.Path&nbsp;backupPath,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupId)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getTableBackupDir(java.lang.String,java.lang.String,org.apache.hadoop.hbase.TableName)" class="member-name-link">getTableBackupDir</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupRootDir,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupId,
@@ -188,7 +198,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="LOG">
 <h3>LOG</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/HBackupFileSystem.html#line-36">LOG</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/HBackupFileSystem.html#line-39">LOG</a></span></div>
 </section>
 </li>
 </ul>
@@ -202,7 +212,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;()">
 <h3>HBackupFileSystem</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/HBackupFileSystem.html#line-41">HBackupFileSystem</a></span>()</div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/HBackupFileSystem.html#line-44">HBackupFileSystem</a></span>()</div>
 <div class="block">This is utility class.</div>
 </section>
 </li>
@@ -217,7 +227,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getTableBackupDir(java.lang.String,java.lang.String,org.apache.hadoop.hbase.TableName)">
 <h3>getTableBackupDir</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/HBackupFileSystem.html#line-54">getTableBackupDir</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupRootDir,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/HBackupFileSystem.html#line-57">getTableBackupDir</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupRootDir,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupId,
  <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName)</span></div>
 <div class="block">Given the backup root dir, backup id and the table name, return the backup image location.
@@ -237,7 +247,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getBackupTmpDirPath(java.lang.String)">
 <h3>getBackupTmpDirPath</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/HBackupFileSystem.html#line-66">getBackupTmpDirPath</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupRootDir)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/HBackupFileSystem.html#line-69">getBackupTmpDirPath</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupRootDir)</span></div>
 <div class="block">Get backup temporary directory</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -250,7 +260,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getBackupTmpDirPathForBackupId(java.lang.String,java.lang.String)">
 <h3>getBackupTmpDirPathForBackupId</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/HBackupFileSystem.html#line-76">getBackupTmpDirPathForBackupId</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupRoot,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/HBackupFileSystem.html#line-79">getBackupTmpDirPathForBackupId</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupRoot,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupId)</span></div>
 <div class="block">Get backup tmp directory for backupId</div>
 <dl class="notes">
@@ -265,14 +275,14 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getBackupPath(java.lang.String,java.lang.String)">
 <h3>getBackupPath</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/HBackupFileSystem.html#line-80">getBackupPath</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupRootDir,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/HBackupFileSystem.html#line-83">getBackupPath</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupRootDir,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupId)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getTableBackupPath(org.apache.hadoop.hbase.TableName,org.apache.hadoop.fs.Path,java.lang.String)">
 <h3>getTableBackupPath</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/HBackupFileSystem.html#line-94">getTableBackupPath</a></span><wbr><span class="parameters">(<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/HBackupFileSystem.html#line-97">getTableBackupPath</a></span><wbr><span class="parameters">(<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName,
  org.apache.hadoop.fs.Path&nbsp;backupRootPath,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupId)</span></div>
 <div class="block">Given the backup root dir, backup id and the table name, return the backup image location,
@@ -292,7 +302,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getManifestPath(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.Path,java.lang.String)">
 <h3>getManifestPath</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/HBackupFileSystem.html#line-98">getManifestPath</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/HBackupFileSystem.html#line-101">getManifestPath</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.fs.Path&nbsp;backupRootPath,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupId)</span>
                                                   throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
@@ -303,9 +313,30 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
+<section class="detail" id="getManifestPath(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.Path,java.lang.String,boolean)">
+<h3>getManifestPath</h3>
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/HBackupFileSystem.html#line-107">getManifestPath</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
+ org.apache.hadoop.fs.Path&nbsp;backupRootPath,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupId,
+ boolean&nbsp;throwIfNotFound)</span>
+                                          throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
+<dl class="notes">
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getRootDirFromBackupPath(org.apache.hadoop.fs.Path,java.lang.String)">
+<h3>getRootDirFromBackupPath</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/HBackupFileSystem.html#line-123">getRootDirFromBackupPath</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;backupPath,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupId)</span></div>
+</section>
+</li>
+<li>
 <section class="detail" id="getManifest(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.Path,java.lang.String)">
 <h3>getManifest</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="impl/BackupManifest.html" title="class in org.apache.hadoop.hbase.backup.impl">BackupManifest</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/HBackupFileSystem.html#line-112">getManifest</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="impl/BackupManifest.html" title="class in org.apache.hadoop.hbase.backup.impl">BackupManifest</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/HBackupFileSystem.html#line-132">getManifest</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.fs.Path&nbsp;backupRootPath,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupId)</span>
                                   throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>

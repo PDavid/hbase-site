@@ -23,9 +23,9 @@ under the License.
     <link>https://hbase.apache.org</link>
     <description>Apache HBase - Checkstyle report</description>
     <language>en-us</language>
-    <copyright>&#169;2007 - 2024 The Apache Software Foundation</copyright>
+    <copyright>&#169;2007 - 2025 The Apache Software Foundation</copyright>
     <item>
-      <title>File: 5013,
+      <title>File: 5037,
              Errors: 1707,
              Warnings: 0,
              Infos: 0
@@ -4619,7 +4619,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  1
+                  0
                 </td>
               </tr>
                           <tr>
@@ -7550,6 +7550,20 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.util.TestProcDispatcher.java">org/apache/hadoop/hbase/util/TestProcDispatcher.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.regionserver.TestRpcSchedulerFactory.java">org/apache/hadoop/hbase/regionserver/TestRpcSchedulerFactory.java</a>
                 </td>
                 <td>
@@ -9440,6 +9454,20 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.coprocessor.example.row.stats.RowStatisticsImpl.java">org/apache/hadoop/hbase/coprocessor/example/row/stats/RowStatisticsImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.regionserver.ReversedMobStoreScanner.java">org/apache/hadoop/hbase/regionserver/ReversedMobStoreScanner.java</a>
                 </td>
                 <td>
@@ -11107,6 +11135,20 @@ under the License.
                           <tr>
                 <td>
                   <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.tool.coprocessor.CoprocessorMethods.java">org/apache/hadoop/hbase/tool/coprocessor/CoprocessorMethods.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.TestSplitMergeQuotaTable.java">org/apache/hadoop/hbase/TestSplitMergeQuotaTable.java</a>
                 </td>
                 <td>
                   0
@@ -15096,6 +15138,20 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.coprocessor.example.row.stats.TestRowStatisticsCompactionObserver.java">org/apache/hadoop/hbase/coprocessor/example/row/stats/TestRowStatisticsCompactionObserver.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.executor.EventHandler.java">org/apache/hadoop/hbase/executor/EventHandler.java</a>
                 </td>
                 <td>
@@ -15853,6 +15909,20 @@ under the License.
                           <tr>
                 <td>
                   <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.replication.regionserver.MetricsReplicationSource.java">org/apache/hadoop/hbase/replication/regionserver/MetricsReplicationSource.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.coprocessor.example.row.stats.sizebucket.TestSizeBucketTracker.java">org/apache/hadoop/hbase/coprocessor/example/row/stats/sizebucket/TestSizeBucketTracker.java</a>
                 </td>
                 <td>
                   0
@@ -18988,6 +19058,20 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.coprocessor.example.row.stats.utils.RowStatisticsConfigurationUtil.java">org/apache/hadoop/hbase/coprocessor/example/row/stats/utils/RowStatisticsConfigurationUtil.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.io.compress.lz4.TestLz4Codec.java">org/apache/hadoop/hbase/io/compress/lz4/TestLz4Codec.java</a>
                 </td>
                 <td>
@@ -19473,7 +19557,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  0
+                  1
                 </td>
               </tr>
                           <tr>
@@ -19964,6 +20048,20 @@ under the License.
                 </td>
                 <td>
                   1
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.coprocessor.example.row.stats.recorder.RowStatisticsTableRecorder.java">org/apache/hadoop/hbase/coprocessor/example/row/stats/recorder/RowStatisticsTableRecorder.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
                 </td>
               </tr>
                           <tr>
@@ -20907,6 +21005,20 @@ under the License.
                           <tr>
                 <td>
                   <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.regionserver.TestRegionServerOnlineConfigChange.java">org/apache/hadoop/hbase/regionserver/TestRegionServerOnlineConfigChange.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.coprocessor.example.row.stats.ringbuffer.RowStatisticsDisruptorExceptionHandler.java">org/apache/hadoop/hbase/coprocessor/example/row/stats/ringbuffer/RowStatisticsDisruptorExceptionHandler.java</a>
                 </td>
                 <td>
                   0
@@ -29278,6 +29390,20 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.backup.impl.BulkLoad.java">org/apache/hadoop/hbase/backup/impl/BulkLoad.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.util.PrettyPrinter.java">org/apache/hadoop/hbase/util/PrettyPrinter.java</a>
                 </td>
                 <td>
@@ -30287,6 +30413,20 @@ under the License.
                           <tr>
                 <td>
                   <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.ipc.NettyServerRpcConnection.java">org/apache/hadoop/hbase/ipc/NettyServerRpcConnection.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.coprocessor.example.row.stats.utils.RowStatisticsUtil.java">org/apache/hadoop/hbase/coprocessor/example/row/stats/utils/RowStatisticsUtil.java</a>
                 </td>
                 <td>
                   0
@@ -32778,6 +32918,20 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.coprocessor.example.row.stats.ringbuffer.RowStatisticsEventHandler.java">org/apache/hadoop/hbase/coprocessor/example/row/stats/ringbuffer/RowStatisticsEventHandler.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.client.ShortCircuitConnectionRegistry.java">org/apache/hadoop/hbase/client/ShortCircuitConnectionRegistry.java</a>
                 </td>
                 <td>
@@ -33548,6 +33702,20 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.backup.TestHBackupFileSystem.java">org/apache/hadoop/hbase/backup/TestHBackupFileSystem.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.master.TestClientMetaServiceRPCs.java">org/apache/hadoop/hbase/master/TestClientMetaServiceRPCs.java</a>
                 </td>
                 <td>
@@ -33880,6 +34048,20 @@ under the License.
                 </td>
                 <td>
                   2
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.coprocessor.example.row.stats.SizeBucket.java">org/apache/hadoop/hbase/coprocessor/example/row/stats/SizeBucket.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
                 </td>
               </tr>
                           <tr>
@@ -37482,6 +37664,20 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.coprocessor.example.row.stats.TestRowStatisticsEventHandler.java">org/apache/hadoop/hbase/coprocessor/example/row/stats/TestRowStatisticsEventHandler.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.testclassification.IOTests.java">org/apache/hadoop/hbase/testclassification/IOTests.java</a>
                 </td>
                 <td>
@@ -40856,6 +41052,20 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.coprocessor.example.row.stats.RowStatistics.java">org/apache/hadoop/hbase/coprocessor/example/row/stats/RowStatistics.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.io.encoding.TestEncodedDataBlock.java">org/apache/hadoop/hbase/io/encoding/TestEncodedDataBlock.java</a>
                 </td>
                 <td>
@@ -42915,6 +43125,20 @@ under the License.
                           <tr>
                 <td>
                   <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.io.compress.zstd.ZstdCompressor.java">org/apache/hadoop/hbase/io/compress/zstd/ZstdCompressor.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.util.RSProcDispatcher.java">org/apache/hadoop/hbase/util/RSProcDispatcher.java</a>
                 </td>
                 <td>
                   0
@@ -45379,6 +45603,20 @@ under the License.
                           <tr>
                 <td>
                   <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.regionserver.TestMaxResultsPerColumnFamily.java">org/apache/hadoop/hbase/regionserver/TestMaxResultsPerColumnFamily.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.coprocessor.example.row.stats.ringbuffer.RowStatisticsRingBufferPayload.java">org/apache/hadoop/hbase/coprocessor/example/row/stats/ringbuffer/RowStatisticsRingBufferPayload.java</a>
                 </td>
                 <td>
                   0
@@ -52560,6 +52798,20 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.coprocessor.example.row.stats.SizeBucketTracker.java">org/apache/hadoop/hbase/coprocessor/example/row/stats/SizeBucketTracker.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.types.RawString.java">org/apache/hadoop/hbase/types/RawString.java</a>
                 </td>
                 <td>
@@ -56438,6 +56690,20 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.coprocessor.example.row.stats.TestRowStatisticsTableRecorder.java">org/apache/hadoop/hbase/coprocessor/example/row/stats/TestRowStatisticsTableRecorder.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.client.ClusterConnectionFactory.java">org/apache/hadoop/hbase/client/ClusterConnectionFactory.java</a>
                 </td>
                 <td>
@@ -58468,6 +58734,20 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.coprocessor.example.row.stats.ringbuffer.RowStatisticsRingBufferEnvelope.java">org/apache/hadoop/hbase/coprocessor/example/row/stats/ringbuffer/RowStatisticsRingBufferEnvelope.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.master.http.api_v1.cluster_metrics.resource.ClusterMetricsResource.java">org/apache/hadoop/hbase/master/http/api_v1/cluster_metrics/resource/ClusterMetricsResource.java</a>
                 </td>
                 <td>
@@ -59113,6 +59393,20 @@ under the License.
                           <tr>
                 <td>
                   <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.master.procedure.TestSchedulerQueueDeadLock.java">org/apache/hadoop/hbase/master/procedure/TestSchedulerQueueDeadLock.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.coprocessor.example.row.stats.recorder.RowStatisticsCombinedRecorder.java">org/apache/hadoop/hbase/coprocessor/example/row/stats/recorder/RowStatisticsCombinedRecorder.java</a>
                 </td>
                 <td>
                   0
@@ -61394,6 +61688,20 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.coprocessor.example.row.stats.RowStatisticsCompactionObserver.java">org/apache/hadoop/hbase/coprocessor/example/row/stats/RowStatisticsCompactionObserver.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.master.procedure.TestManageTableErasureCodingPolicy.java">org/apache/hadoop/hbase/master/procedure/TestManageTableErasureCodingPolicy.java</a>
                 </td>
                 <td>
@@ -63467,6 +63775,20 @@ under the License.
                           <tr>
                 <td>
                   <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.coprocessor.WALObserver.java">org/apache/hadoop/hbase/coprocessor/WALObserver.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.coprocessor.example.row.stats.utils.RowStatisticsTableUtil.java">org/apache/hadoop/hbase/coprocessor/example/row/stats/utils/RowStatisticsTableUtil.java</a>
                 </td>
                 <td>
                   0
@@ -65917,6 +66239,20 @@ under the License.
                           <tr>
                 <td>
                   <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.rest.model.TestModelBase.java">org/apache/hadoop/hbase/rest/model/TestModelBase.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.coprocessor.example.row.stats.recorder.RowStatisticsRecorder.java">org/apache/hadoop/hbase/coprocessor/example/row/stats/recorder/RowStatisticsRecorder.java</a>
                 </td>
                 <td>
                   0

@@ -61,6 +61,10 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color">
 <div class="block">Table of Contents</div>
 </div>
+<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.coprocessor.example.row.stats">org.apache.hadoop.hbase.coprocessor.example.row.stats</a></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.coprocessor.example.row.stats.utils">org.apache.hadoop.hbase.coprocessor.example.row.stats.utils</a></div>
+<div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.regionserver">org.apache.hadoop.hbase.regionserver</a></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
@@ -165,6 +169,46 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color">
 <div class="block">Returns a CellBuilder so that coprocessors can build cells.</div>
 </div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="org.apache.hadoop.hbase.coprocessor.example.row.stats">
+<h2>Uses of <a href="../RawCellBuilder.html" title="interface in org.apache.hadoop.hbase">RawCellBuilder</a> in <a href="../coprocessor/example/row/stats/package-summary.html">org.apache.hadoop.hbase.coprocessor.example.row.stats</a></h2>
+<div class="caption"><span>Fields in <a href="../coprocessor/example/row/stats/package-summary.html">org.apache.hadoop.hbase.coprocessor.example.row.stats</a> declared as <a href="../RawCellBuilder.html" title="interface in org.apache.hadoop.hbase">RawCellBuilder</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Field</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>private <a href="../RawCellBuilder.html" title="interface in org.apache.hadoop.hbase">RawCellBuilder</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">RowStatisticsCompactionObserver.RowStatisticsScanner.</span><code><a href="../coprocessor/example/row/stats/RowStatisticsCompactionObserver.RowStatisticsScanner.html#cellBuilder" class="member-name-link">cellBuilder</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+<div class="caption"><span>Methods in <a href="../coprocessor/example/row/stats/package-summary.html">org.apache.hadoop.hbase.coprocessor.example.row.stats</a> with parameters of type <a href="../RawCellBuilder.html" title="interface in org.apache.hadoop.hbase">RawCellBuilder</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>void</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">RowStatisticsImpl.</span><code><a href="../coprocessor/example/row/stats/RowStatisticsImpl.html#shipped(org.apache.hadoop.hbase.RawCellBuilder)" class="member-name-link">shipped</a><wbr>(<a href="../RawCellBuilder.html" title="interface in org.apache.hadoop.hbase">RawCellBuilder</a>&nbsp;cellBuilder)</code></div>
+<div class="col-last even-row-color">
+<div class="block">Clone the cell refs so they can be cleaned up by <a href="../regionserver/Shipper.html#shipped()"><code>Shipper.shipped()</code></a>.</div>
+</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="org.apache.hadoop.hbase.coprocessor.example.row.stats.utils">
+<h2>Uses of <a href="../RawCellBuilder.html" title="interface in org.apache.hadoop.hbase">RawCellBuilder</a> in <a href="../coprocessor/example/row/stats/utils/package-summary.html">org.apache.hadoop.hbase.coprocessor.example.row.stats.utils</a></h2>
+<div class="caption"><span>Methods in <a href="../coprocessor/example/row/stats/utils/package-summary.html">org.apache.hadoop.hbase.coprocessor.example.row.stats.utils</a> with parameters of type <a href="../RawCellBuilder.html" title="interface in org.apache.hadoop.hbase">RawCellBuilder</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>static <a href="../Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">RowStatisticsUtil.</span><code><a href="../coprocessor/example/row/stats/utils/RowStatisticsUtil.html#cloneWithoutValue(org.apache.hadoop.hbase.RawCellBuilder,org.apache.hadoop.hbase.Cell)" class="member-name-link">cloneWithoutValue</a><wbr>(<a href="../RawCellBuilder.html" title="interface in org.apache.hadoop.hbase">RawCellBuilder</a>&nbsp;cellBuilder,
+ <a href="../Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
 </li>

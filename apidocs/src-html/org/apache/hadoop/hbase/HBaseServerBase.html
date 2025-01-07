@@ -335,357 +335,359 @@
 <span class="source-line-no">322</span><span id="line-322">      this.conf.getInt(HConstants.REGIONSERVER_INFO_PORT, HConstants.DEFAULT_REGIONSERVER_INFOPORT);</span>
 <span class="source-line-no">323</span><span id="line-323">    String addr = this.conf.get("hbase.regionserver.info.bindAddress", "0.0.0.0");</span>
 <span class="source-line-no">324</span><span id="line-324"></span>
-<span class="source-line-no">325</span><span id="line-325">    if (this instanceof HMaster) {</span>
-<span class="source-line-no">326</span><span id="line-326">      port = conf.getInt(HConstants.MASTER_INFO_PORT, HConstants.DEFAULT_MASTER_INFOPORT);</span>
-<span class="source-line-no">327</span><span id="line-327">      addr = this.conf.get("hbase.master.info.bindAddress", "0.0.0.0");</span>
-<span class="source-line-no">328</span><span id="line-328">    }</span>
-<span class="source-line-no">329</span><span id="line-329">    // -1 is for disabling info server</span>
-<span class="source-line-no">330</span><span id="line-330">    if (port &lt; 0) {</span>
-<span class="source-line-no">331</span><span id="line-331">      return;</span>
-<span class="source-line-no">332</span><span id="line-332">    }</span>
-<span class="source-line-no">333</span><span id="line-333"></span>
-<span class="source-line-no">334</span><span id="line-334">    if (!Addressing.isLocalAddress(InetAddress.getByName(addr))) {</span>
-<span class="source-line-no">335</span><span id="line-335">      String msg = "Failed to start http info server. Address " + addr</span>
-<span class="source-line-no">336</span><span id="line-336">        + " does not belong to this host. Correct configuration parameter: "</span>
-<span class="source-line-no">337</span><span id="line-337">        + "hbase.regionserver.info.bindAddress";</span>
-<span class="source-line-no">338</span><span id="line-338">      LOG.error(msg);</span>
-<span class="source-line-no">339</span><span id="line-339">      throw new IOException(msg);</span>
-<span class="source-line-no">340</span><span id="line-340">    }</span>
-<span class="source-line-no">341</span><span id="line-341">    // check if auto port bind enabled</span>
-<span class="source-line-no">342</span><span id="line-342">    boolean auto = this.conf.getBoolean(HConstants.REGIONSERVER_INFO_PORT_AUTO, false);</span>
-<span class="source-line-no">343</span><span id="line-343">    while (true) {</span>
-<span class="source-line-no">344</span><span id="line-344">      try {</span>
-<span class="source-line-no">345</span><span id="line-345">        this.infoServer = new InfoServer(getProcessName(), addr, port, false, this.conf);</span>
-<span class="source-line-no">346</span><span id="line-346">        infoServer.addPrivilegedServlet("dump", "/dump", getDumpServlet());</span>
-<span class="source-line-no">347</span><span id="line-347">        configureInfoServer(infoServer);</span>
-<span class="source-line-no">348</span><span id="line-348">        this.infoServer.start();</span>
-<span class="source-line-no">349</span><span id="line-349">        break;</span>
-<span class="source-line-no">350</span><span id="line-350">      } catch (BindException e) {</span>
-<span class="source-line-no">351</span><span id="line-351">        if (!auto) {</span>
-<span class="source-line-no">352</span><span id="line-352">          // auto bind disabled throw BindException</span>
-<span class="source-line-no">353</span><span id="line-353">          LOG.error("Failed binding http info server to port: " + port);</span>
-<span class="source-line-no">354</span><span id="line-354">          throw e;</span>
-<span class="source-line-no">355</span><span id="line-355">        }</span>
-<span class="source-line-no">356</span><span id="line-356">        // auto bind enabled, try to use another port</span>
-<span class="source-line-no">357</span><span id="line-357">        LOG.info("Failed binding http info server to port: " + port);</span>
-<span class="source-line-no">358</span><span id="line-358">        port++;</span>
-<span class="source-line-no">359</span><span id="line-359">        LOG.info("Retry starting http info server with port: " + port);</span>
-<span class="source-line-no">360</span><span id="line-360">      }</span>
-<span class="source-line-no">361</span><span id="line-361">    }</span>
-<span class="source-line-no">362</span><span id="line-362">    port = this.infoServer.getPort();</span>
-<span class="source-line-no">363</span><span id="line-363">    conf.setInt(HConstants.REGIONSERVER_INFO_PORT, port);</span>
-<span class="source-line-no">364</span><span id="line-364">    int masterInfoPort =</span>
-<span class="source-line-no">365</span><span id="line-365">      conf.getInt(HConstants.MASTER_INFO_PORT, HConstants.DEFAULT_MASTER_INFOPORT);</span>
-<span class="source-line-no">366</span><span id="line-366">    conf.setInt("hbase.master.info.port.orig", masterInfoPort);</span>
-<span class="source-line-no">367</span><span id="line-367">    conf.setInt(HConstants.MASTER_INFO_PORT, port);</span>
-<span class="source-line-no">368</span><span id="line-368">  }</span>
-<span class="source-line-no">369</span><span id="line-369"></span>
-<span class="source-line-no">370</span><span id="line-370">  /**</span>
-<span class="source-line-no">371</span><span id="line-371">   * Sets the abort state if not already set.</span>
-<span class="source-line-no">372</span><span id="line-372">   * @return True if abortRequested set to True successfully, false if an abort is already in</span>
-<span class="source-line-no">373</span><span id="line-373">   *         progress.</span>
-<span class="source-line-no">374</span><span id="line-374">   */</span>
-<span class="source-line-no">375</span><span id="line-375">  protected final boolean setAbortRequested() {</span>
-<span class="source-line-no">376</span><span id="line-376">    return abortRequested.compareAndSet(false, true);</span>
-<span class="source-line-no">377</span><span id="line-377">  }</span>
-<span class="source-line-no">378</span><span id="line-378"></span>
-<span class="source-line-no">379</span><span id="line-379">  @Override</span>
-<span class="source-line-no">380</span><span id="line-380">  public boolean isStopped() {</span>
-<span class="source-line-no">381</span><span id="line-381">    return stopped;</span>
-<span class="source-line-no">382</span><span id="line-382">  }</span>
-<span class="source-line-no">383</span><span id="line-383"></span>
-<span class="source-line-no">384</span><span id="line-384">  @Override</span>
-<span class="source-line-no">385</span><span id="line-385">  public boolean isAborted() {</span>
-<span class="source-line-no">386</span><span id="line-386">    return abortRequested.get();</span>
-<span class="source-line-no">387</span><span id="line-387">  }</span>
-<span class="source-line-no">388</span><span id="line-388"></span>
-<span class="source-line-no">389</span><span id="line-389">  @Override</span>
-<span class="source-line-no">390</span><span id="line-390">  public Configuration getConfiguration() {</span>
-<span class="source-line-no">391</span><span id="line-391">    return conf;</span>
-<span class="source-line-no">392</span><span id="line-392">  }</span>
-<span class="source-line-no">393</span><span id="line-393"></span>
-<span class="source-line-no">394</span><span id="line-394">  @Override</span>
-<span class="source-line-no">395</span><span id="line-395">  public AsyncClusterConnection getAsyncClusterConnection() {</span>
-<span class="source-line-no">396</span><span id="line-396">    return asyncClusterConnection;</span>
-<span class="source-line-no">397</span><span id="line-397">  }</span>
-<span class="source-line-no">398</span><span id="line-398"></span>
-<span class="source-line-no">399</span><span id="line-399">  @Override</span>
-<span class="source-line-no">400</span><span id="line-400">  public ZKWatcher getZooKeeper() {</span>
-<span class="source-line-no">401</span><span id="line-401">    return zooKeeper;</span>
-<span class="source-line-no">402</span><span id="line-402">  }</span>
-<span class="source-line-no">403</span><span id="line-403"></span>
-<span class="source-line-no">404</span><span id="line-404">  protected final void shutdownChore(ScheduledChore chore) {</span>
-<span class="source-line-no">405</span><span id="line-405">    if (chore != null) {</span>
-<span class="source-line-no">406</span><span id="line-406">      chore.shutdown();</span>
-<span class="source-line-no">407</span><span id="line-407">    }</span>
-<span class="source-line-no">408</span><span id="line-408">  }</span>
-<span class="source-line-no">409</span><span id="line-409"></span>
-<span class="source-line-no">410</span><span id="line-410">  protected final void initializeMemStoreChunkCreator(HeapMemoryManager hMemManager) {</span>
-<span class="source-line-no">411</span><span id="line-411">    if (MemStoreLAB.isEnabled(conf)) {</span>
-<span class="source-line-no">412</span><span id="line-412">      // MSLAB is enabled. So initialize MemStoreChunkPool</span>
-<span class="source-line-no">413</span><span id="line-413">      // By this time, the MemstoreFlusher is already initialized. We can get the global limits from</span>
-<span class="source-line-no">414</span><span id="line-414">      // it.</span>
-<span class="source-line-no">415</span><span id="line-415">      Pair&lt;Long, MemoryType&gt; pair = MemorySizeUtil.getGlobalMemStoreSize(conf);</span>
-<span class="source-line-no">416</span><span id="line-416">      long globalMemStoreSize = pair.getFirst();</span>
-<span class="source-line-no">417</span><span id="line-417">      boolean offheap = pair.getSecond() == MemoryType.NON_HEAP;</span>
-<span class="source-line-no">418</span><span id="line-418">      // When off heap memstore in use, take full area for chunk pool.</span>
-<span class="source-line-no">419</span><span id="line-419">      float poolSizePercentage = offheap</span>
-<span class="source-line-no">420</span><span id="line-420">        ? 1.0F</span>
-<span class="source-line-no">421</span><span id="line-421">        : conf.getFloat(MemStoreLAB.CHUNK_POOL_MAXSIZE_KEY, MemStoreLAB.POOL_MAX_SIZE_DEFAULT);</span>
-<span class="source-line-no">422</span><span id="line-422">      float initialCountPercentage = conf.getFloat(MemStoreLAB.CHUNK_POOL_INITIALSIZE_KEY,</span>
-<span class="source-line-no">423</span><span id="line-423">        MemStoreLAB.POOL_INITIAL_SIZE_DEFAULT);</span>
-<span class="source-line-no">424</span><span id="line-424">      int chunkSize = conf.getInt(MemStoreLAB.CHUNK_SIZE_KEY, MemStoreLAB.CHUNK_SIZE_DEFAULT);</span>
-<span class="source-line-no">425</span><span id="line-425">      float indexChunkSizePercent = conf.getFloat(MemStoreLAB.INDEX_CHUNK_SIZE_PERCENTAGE_KEY,</span>
-<span class="source-line-no">426</span><span id="line-426">        MemStoreLAB.INDEX_CHUNK_SIZE_PERCENTAGE_DEFAULT);</span>
-<span class="source-line-no">427</span><span id="line-427">      // init the chunkCreator</span>
-<span class="source-line-no">428</span><span id="line-428">      ChunkCreator.initialize(chunkSize, offheap, globalMemStoreSize, poolSizePercentage,</span>
-<span class="source-line-no">429</span><span id="line-429">        initialCountPercentage, hMemManager, indexChunkSizePercent);</span>
-<span class="source-line-no">430</span><span id="line-430">    }</span>
-<span class="source-line-no">431</span><span id="line-431">  }</span>
-<span class="source-line-no">432</span><span id="line-432"></span>
-<span class="source-line-no">433</span><span id="line-433">  protected abstract void stopChores();</span>
+<span class="source-line-no">325</span><span id="line-325">    boolean isMaster = false;</span>
+<span class="source-line-no">326</span><span id="line-326">    if (this instanceof HMaster) {</span>
+<span class="source-line-no">327</span><span id="line-327">      port = conf.getInt(HConstants.MASTER_INFO_PORT, HConstants.DEFAULT_MASTER_INFOPORT);</span>
+<span class="source-line-no">328</span><span id="line-328">      addr = this.conf.get("hbase.master.info.bindAddress", "0.0.0.0");</span>
+<span class="source-line-no">329</span><span id="line-329">      isMaster = true;</span>
+<span class="source-line-no">330</span><span id="line-330">    }</span>
+<span class="source-line-no">331</span><span id="line-331">    // -1 is for disabling info server</span>
+<span class="source-line-no">332</span><span id="line-332">    if (port &lt; 0) {</span>
+<span class="source-line-no">333</span><span id="line-333">      return;</span>
+<span class="source-line-no">334</span><span id="line-334">    }</span>
+<span class="source-line-no">335</span><span id="line-335"></span>
+<span class="source-line-no">336</span><span id="line-336">    if (!Addressing.isLocalAddress(InetAddress.getByName(addr))) {</span>
+<span class="source-line-no">337</span><span id="line-337">      String msg = "Failed to start http info server. Address " + addr</span>
+<span class="source-line-no">338</span><span id="line-338">        + " does not belong to this host. Correct configuration parameter: "</span>
+<span class="source-line-no">339</span><span id="line-339">        + (isMaster ? "hbase.master.info.bindAddress" : "hbase.regionserver.info.bindAddress");</span>
+<span class="source-line-no">340</span><span id="line-340">      LOG.error(msg);</span>
+<span class="source-line-no">341</span><span id="line-341">      throw new IOException(msg);</span>
+<span class="source-line-no">342</span><span id="line-342">    }</span>
+<span class="source-line-no">343</span><span id="line-343">    // check if auto port bind enabled</span>
+<span class="source-line-no">344</span><span id="line-344">    boolean auto = this.conf.getBoolean(HConstants.REGIONSERVER_INFO_PORT_AUTO, false);</span>
+<span class="source-line-no">345</span><span id="line-345">    while (true) {</span>
+<span class="source-line-no">346</span><span id="line-346">      try {</span>
+<span class="source-line-no">347</span><span id="line-347">        this.infoServer = new InfoServer(getProcessName(), addr, port, false, this.conf);</span>
+<span class="source-line-no">348</span><span id="line-348">        infoServer.addPrivilegedServlet("dump", "/dump", getDumpServlet());</span>
+<span class="source-line-no">349</span><span id="line-349">        configureInfoServer(infoServer);</span>
+<span class="source-line-no">350</span><span id="line-350">        this.infoServer.start();</span>
+<span class="source-line-no">351</span><span id="line-351">        break;</span>
+<span class="source-line-no">352</span><span id="line-352">      } catch (BindException e) {</span>
+<span class="source-line-no">353</span><span id="line-353">        if (!auto) {</span>
+<span class="source-line-no">354</span><span id="line-354">          // auto bind disabled throw BindException</span>
+<span class="source-line-no">355</span><span id="line-355">          LOG.error("Failed binding http info server to port: " + port);</span>
+<span class="source-line-no">356</span><span id="line-356">          throw e;</span>
+<span class="source-line-no">357</span><span id="line-357">        }</span>
+<span class="source-line-no">358</span><span id="line-358">        // auto bind enabled, try to use another port</span>
+<span class="source-line-no">359</span><span id="line-359">        LOG.info("Failed binding http info server to port: " + port);</span>
+<span class="source-line-no">360</span><span id="line-360">        port++;</span>
+<span class="source-line-no">361</span><span id="line-361">        LOG.info("Retry starting http info server with port: " + port);</span>
+<span class="source-line-no">362</span><span id="line-362">      }</span>
+<span class="source-line-no">363</span><span id="line-363">    }</span>
+<span class="source-line-no">364</span><span id="line-364">    port = this.infoServer.getPort();</span>
+<span class="source-line-no">365</span><span id="line-365">    conf.setInt(HConstants.REGIONSERVER_INFO_PORT, port);</span>
+<span class="source-line-no">366</span><span id="line-366">    int masterInfoPort =</span>
+<span class="source-line-no">367</span><span id="line-367">      conf.getInt(HConstants.MASTER_INFO_PORT, HConstants.DEFAULT_MASTER_INFOPORT);</span>
+<span class="source-line-no">368</span><span id="line-368">    conf.setInt("hbase.master.info.port.orig", masterInfoPort);</span>
+<span class="source-line-no">369</span><span id="line-369">    conf.setInt(HConstants.MASTER_INFO_PORT, port);</span>
+<span class="source-line-no">370</span><span id="line-370">  }</span>
+<span class="source-line-no">371</span><span id="line-371"></span>
+<span class="source-line-no">372</span><span id="line-372">  /**</span>
+<span class="source-line-no">373</span><span id="line-373">   * Sets the abort state if not already set.</span>
+<span class="source-line-no">374</span><span id="line-374">   * @return True if abortRequested set to True successfully, false if an abort is already in</span>
+<span class="source-line-no">375</span><span id="line-375">   *         progress.</span>
+<span class="source-line-no">376</span><span id="line-376">   */</span>
+<span class="source-line-no">377</span><span id="line-377">  protected final boolean setAbortRequested() {</span>
+<span class="source-line-no">378</span><span id="line-378">    return abortRequested.compareAndSet(false, true);</span>
+<span class="source-line-no">379</span><span id="line-379">  }</span>
+<span class="source-line-no">380</span><span id="line-380"></span>
+<span class="source-line-no">381</span><span id="line-381">  @Override</span>
+<span class="source-line-no">382</span><span id="line-382">  public boolean isStopped() {</span>
+<span class="source-line-no">383</span><span id="line-383">    return stopped;</span>
+<span class="source-line-no">384</span><span id="line-384">  }</span>
+<span class="source-line-no">385</span><span id="line-385"></span>
+<span class="source-line-no">386</span><span id="line-386">  @Override</span>
+<span class="source-line-no">387</span><span id="line-387">  public boolean isAborted() {</span>
+<span class="source-line-no">388</span><span id="line-388">    return abortRequested.get();</span>
+<span class="source-line-no">389</span><span id="line-389">  }</span>
+<span class="source-line-no">390</span><span id="line-390"></span>
+<span class="source-line-no">391</span><span id="line-391">  @Override</span>
+<span class="source-line-no">392</span><span id="line-392">  public Configuration getConfiguration() {</span>
+<span class="source-line-no">393</span><span id="line-393">    return conf;</span>
+<span class="source-line-no">394</span><span id="line-394">  }</span>
+<span class="source-line-no">395</span><span id="line-395"></span>
+<span class="source-line-no">396</span><span id="line-396">  @Override</span>
+<span class="source-line-no">397</span><span id="line-397">  public AsyncClusterConnection getAsyncClusterConnection() {</span>
+<span class="source-line-no">398</span><span id="line-398">    return asyncClusterConnection;</span>
+<span class="source-line-no">399</span><span id="line-399">  }</span>
+<span class="source-line-no">400</span><span id="line-400"></span>
+<span class="source-line-no">401</span><span id="line-401">  @Override</span>
+<span class="source-line-no">402</span><span id="line-402">  public ZKWatcher getZooKeeper() {</span>
+<span class="source-line-no">403</span><span id="line-403">    return zooKeeper;</span>
+<span class="source-line-no">404</span><span id="line-404">  }</span>
+<span class="source-line-no">405</span><span id="line-405"></span>
+<span class="source-line-no">406</span><span id="line-406">  protected final void shutdownChore(ScheduledChore chore) {</span>
+<span class="source-line-no">407</span><span id="line-407">    if (chore != null) {</span>
+<span class="source-line-no">408</span><span id="line-408">      chore.shutdown();</span>
+<span class="source-line-no">409</span><span id="line-409">    }</span>
+<span class="source-line-no">410</span><span id="line-410">  }</span>
+<span class="source-line-no">411</span><span id="line-411"></span>
+<span class="source-line-no">412</span><span id="line-412">  protected final void initializeMemStoreChunkCreator(HeapMemoryManager hMemManager) {</span>
+<span class="source-line-no">413</span><span id="line-413">    if (MemStoreLAB.isEnabled(conf)) {</span>
+<span class="source-line-no">414</span><span id="line-414">      // MSLAB is enabled. So initialize MemStoreChunkPool</span>
+<span class="source-line-no">415</span><span id="line-415">      // By this time, the MemstoreFlusher is already initialized. We can get the global limits from</span>
+<span class="source-line-no">416</span><span id="line-416">      // it.</span>
+<span class="source-line-no">417</span><span id="line-417">      Pair&lt;Long, MemoryType&gt; pair = MemorySizeUtil.getGlobalMemStoreSize(conf);</span>
+<span class="source-line-no">418</span><span id="line-418">      long globalMemStoreSize = pair.getFirst();</span>
+<span class="source-line-no">419</span><span id="line-419">      boolean offheap = pair.getSecond() == MemoryType.NON_HEAP;</span>
+<span class="source-line-no">420</span><span id="line-420">      // When off heap memstore in use, take full area for chunk pool.</span>
+<span class="source-line-no">421</span><span id="line-421">      float poolSizePercentage = offheap</span>
+<span class="source-line-no">422</span><span id="line-422">        ? 1.0F</span>
+<span class="source-line-no">423</span><span id="line-423">        : conf.getFloat(MemStoreLAB.CHUNK_POOL_MAXSIZE_KEY, MemStoreLAB.POOL_MAX_SIZE_DEFAULT);</span>
+<span class="source-line-no">424</span><span id="line-424">      float initialCountPercentage = conf.getFloat(MemStoreLAB.CHUNK_POOL_INITIALSIZE_KEY,</span>
+<span class="source-line-no">425</span><span id="line-425">        MemStoreLAB.POOL_INITIAL_SIZE_DEFAULT);</span>
+<span class="source-line-no">426</span><span id="line-426">      int chunkSize = conf.getInt(MemStoreLAB.CHUNK_SIZE_KEY, MemStoreLAB.CHUNK_SIZE_DEFAULT);</span>
+<span class="source-line-no">427</span><span id="line-427">      float indexChunkSizePercent = conf.getFloat(MemStoreLAB.INDEX_CHUNK_SIZE_PERCENTAGE_KEY,</span>
+<span class="source-line-no">428</span><span id="line-428">        MemStoreLAB.INDEX_CHUNK_SIZE_PERCENTAGE_DEFAULT);</span>
+<span class="source-line-no">429</span><span id="line-429">      // init the chunkCreator</span>
+<span class="source-line-no">430</span><span id="line-430">      ChunkCreator.initialize(chunkSize, offheap, globalMemStoreSize, poolSizePercentage,</span>
+<span class="source-line-no">431</span><span id="line-431">        initialCountPercentage, hMemManager, indexChunkSizePercent);</span>
+<span class="source-line-no">432</span><span id="line-432">    }</span>
+<span class="source-line-no">433</span><span id="line-433">  }</span>
 <span class="source-line-no">434</span><span id="line-434"></span>
-<span class="source-line-no">435</span><span id="line-435">  protected final void stopChoreService() {</span>
-<span class="source-line-no">436</span><span id="line-436">    // clean up the scheduled chores</span>
-<span class="source-line-no">437</span><span id="line-437">    if (choreService != null) {</span>
-<span class="source-line-no">438</span><span id="line-438">      LOG.info("Shutdown chores and chore service");</span>
-<span class="source-line-no">439</span><span id="line-439">      stopChores();</span>
-<span class="source-line-no">440</span><span id="line-440">      // cancel the remaining scheduled chores (in case we missed out any)</span>
-<span class="source-line-no">441</span><span id="line-441">      // TODO: cancel will not cleanup the chores, so we need make sure we do not miss any</span>
-<span class="source-line-no">442</span><span id="line-442">      choreService.shutdown();</span>
-<span class="source-line-no">443</span><span id="line-443">    }</span>
-<span class="source-line-no">444</span><span id="line-444">  }</span>
-<span class="source-line-no">445</span><span id="line-445"></span>
-<span class="source-line-no">446</span><span id="line-446">  protected final void stopExecutorService() {</span>
-<span class="source-line-no">447</span><span id="line-447">    if (executorService != null) {</span>
-<span class="source-line-no">448</span><span id="line-448">      LOG.info("Shutdown executor service");</span>
-<span class="source-line-no">449</span><span id="line-449">      executorService.shutdown();</span>
-<span class="source-line-no">450</span><span id="line-450">    }</span>
-<span class="source-line-no">451</span><span id="line-451">  }</span>
-<span class="source-line-no">452</span><span id="line-452"></span>
-<span class="source-line-no">453</span><span id="line-453">  protected final void closeClusterConnection() {</span>
-<span class="source-line-no">454</span><span id="line-454">    if (asyncClusterConnection != null) {</span>
-<span class="source-line-no">455</span><span id="line-455">      LOG.info("Close async cluster connection");</span>
-<span class="source-line-no">456</span><span id="line-456">      try {</span>
-<span class="source-line-no">457</span><span id="line-457">        this.asyncClusterConnection.close();</span>
-<span class="source-line-no">458</span><span id="line-458">      } catch (IOException e) {</span>
-<span class="source-line-no">459</span><span id="line-459">        // Although the {@link Closeable} interface throws an {@link</span>
-<span class="source-line-no">460</span><span id="line-460">        // IOException}, in reality, the implementation would never do that.</span>
-<span class="source-line-no">461</span><span id="line-461">        LOG.warn("Attempt to close server's AsyncClusterConnection failed.", e);</span>
-<span class="source-line-no">462</span><span id="line-462">      }</span>
-<span class="source-line-no">463</span><span id="line-463">    }</span>
-<span class="source-line-no">464</span><span id="line-464">  }</span>
-<span class="source-line-no">465</span><span id="line-465"></span>
-<span class="source-line-no">466</span><span id="line-466">  protected final void stopInfoServer() {</span>
-<span class="source-line-no">467</span><span id="line-467">    if (this.infoServer != null) {</span>
-<span class="source-line-no">468</span><span id="line-468">      LOG.info("Stop info server");</span>
-<span class="source-line-no">469</span><span id="line-469">      try {</span>
-<span class="source-line-no">470</span><span id="line-470">        this.infoServer.stop();</span>
-<span class="source-line-no">471</span><span id="line-471">      } catch (Exception e) {</span>
-<span class="source-line-no">472</span><span id="line-472">        LOG.error("Failed to stop infoServer", e);</span>
-<span class="source-line-no">473</span><span id="line-473">      }</span>
-<span class="source-line-no">474</span><span id="line-474">    }</span>
-<span class="source-line-no">475</span><span id="line-475">  }</span>
-<span class="source-line-no">476</span><span id="line-476"></span>
-<span class="source-line-no">477</span><span id="line-477">  protected final void closeZooKeeper() {</span>
-<span class="source-line-no">478</span><span id="line-478">    if (this.zooKeeper != null) {</span>
-<span class="source-line-no">479</span><span id="line-479">      LOG.info("Close zookeeper");</span>
-<span class="source-line-no">480</span><span id="line-480">      this.zooKeeper.close();</span>
-<span class="source-line-no">481</span><span id="line-481">    }</span>
-<span class="source-line-no">482</span><span id="line-482">  }</span>
-<span class="source-line-no">483</span><span id="line-483"></span>
-<span class="source-line-no">484</span><span id="line-484">  protected final void closeTableDescriptors() {</span>
-<span class="source-line-no">485</span><span id="line-485">    if (this.tableDescriptors != null) {</span>
-<span class="source-line-no">486</span><span id="line-486">      LOG.info("Close table descriptors");</span>
-<span class="source-line-no">487</span><span id="line-487">      try {</span>
-<span class="source-line-no">488</span><span id="line-488">        this.tableDescriptors.close();</span>
-<span class="source-line-no">489</span><span id="line-489">      } catch (IOException e) {</span>
-<span class="source-line-no">490</span><span id="line-490">        LOG.debug("Failed to close table descriptors gracefully", e);</span>
-<span class="source-line-no">491</span><span id="line-491">      }</span>
-<span class="source-line-no">492</span><span id="line-492">    }</span>
-<span class="source-line-no">493</span><span id="line-493">  }</span>
-<span class="source-line-no">494</span><span id="line-494"></span>
-<span class="source-line-no">495</span><span id="line-495">  /**</span>
-<span class="source-line-no">496</span><span id="line-496">   * In order to register ShutdownHook, this method is called when HMaster and HRegionServer are</span>
-<span class="source-line-no">497</span><span id="line-497">   * started. For details, please refer to HBASE-26951</span>
-<span class="source-line-no">498</span><span id="line-498">   */</span>
-<span class="source-line-no">499</span><span id="line-499">  protected final void installShutdownHook() {</span>
-<span class="source-line-no">500</span><span id="line-500">    ShutdownHook.install(conf, dataFs, this, Thread.currentThread());</span>
-<span class="source-line-no">501</span><span id="line-501">    isShutdownHookInstalled = true;</span>
-<span class="source-line-no">502</span><span id="line-502">  }</span>
-<span class="source-line-no">503</span><span id="line-503"></span>
-<span class="source-line-no">504</span><span id="line-504">  @RestrictedApi(explanation = "Should only be called in tests", link = "",</span>
-<span class="source-line-no">505</span><span id="line-505">      allowedOnPath = ".*/src/test/.*")</span>
-<span class="source-line-no">506</span><span id="line-506">  public boolean isShutdownHookInstalled() {</span>
-<span class="source-line-no">507</span><span id="line-507">    return isShutdownHookInstalled;</span>
-<span class="source-line-no">508</span><span id="line-508">  }</span>
-<span class="source-line-no">509</span><span id="line-509"></span>
-<span class="source-line-no">510</span><span id="line-510">  @Override</span>
-<span class="source-line-no">511</span><span id="line-511">  public ServerName getServerName() {</span>
-<span class="source-line-no">512</span><span id="line-512">    return serverName;</span>
-<span class="source-line-no">513</span><span id="line-513">  }</span>
-<span class="source-line-no">514</span><span id="line-514"></span>
-<span class="source-line-no">515</span><span id="line-515">  @Override</span>
-<span class="source-line-no">516</span><span id="line-516">  public ChoreService getChoreService() {</span>
-<span class="source-line-no">517</span><span id="line-517">    return choreService;</span>
-<span class="source-line-no">518</span><span id="line-518">  }</span>
-<span class="source-line-no">519</span><span id="line-519"></span>
-<span class="source-line-no">520</span><span id="line-520">  /** Returns Return table descriptors implementation. */</span>
-<span class="source-line-no">521</span><span id="line-521">  public TableDescriptors getTableDescriptors() {</span>
-<span class="source-line-no">522</span><span id="line-522">    return this.tableDescriptors;</span>
-<span class="source-line-no">523</span><span id="line-523">  }</span>
-<span class="source-line-no">524</span><span id="line-524"></span>
-<span class="source-line-no">525</span><span id="line-525">  public ExecutorService getExecutorService() {</span>
-<span class="source-line-no">526</span><span id="line-526">    return executorService;</span>
-<span class="source-line-no">527</span><span id="line-527">  }</span>
-<span class="source-line-no">528</span><span id="line-528"></span>
-<span class="source-line-no">529</span><span id="line-529">  public AccessChecker getAccessChecker() {</span>
-<span class="source-line-no">530</span><span id="line-530">    return rpcServices.getAccessChecker();</span>
-<span class="source-line-no">531</span><span id="line-531">  }</span>
-<span class="source-line-no">532</span><span id="line-532"></span>
-<span class="source-line-no">533</span><span id="line-533">  public ZKPermissionWatcher getZKPermissionWatcher() {</span>
-<span class="source-line-no">534</span><span id="line-534">    return rpcServices.getZkPermissionWatcher();</span>
-<span class="source-line-no">535</span><span id="line-535">  }</span>
-<span class="source-line-no">536</span><span id="line-536"></span>
-<span class="source-line-no">537</span><span id="line-537">  @Override</span>
-<span class="source-line-no">538</span><span id="line-538">  public CoordinatedStateManager getCoordinatedStateManager() {</span>
-<span class="source-line-no">539</span><span id="line-539">    return csm;</span>
-<span class="source-line-no">540</span><span id="line-540">  }</span>
-<span class="source-line-no">541</span><span id="line-541"></span>
-<span class="source-line-no">542</span><span id="line-542">  @Override</span>
-<span class="source-line-no">543</span><span id="line-543">  public Connection createConnection(Configuration conf) throws IOException {</span>
-<span class="source-line-no">544</span><span id="line-544">    User user = UserProvider.instantiate(conf).getCurrent();</span>
-<span class="source-line-no">545</span><span id="line-545">    return ConnectionFactory.createConnection(conf, null, user);</span>
-<span class="source-line-no">546</span><span id="line-546">  }</span>
-<span class="source-line-no">547</span><span id="line-547"></span>
-<span class="source-line-no">548</span><span id="line-548">  /** Returns Return the rootDir. */</span>
-<span class="source-line-no">549</span><span id="line-549">  public Path getDataRootDir() {</span>
-<span class="source-line-no">550</span><span id="line-550">    return dataRootDir;</span>
-<span class="source-line-no">551</span><span id="line-551">  }</span>
-<span class="source-line-no">552</span><span id="line-552"></span>
-<span class="source-line-no">553</span><span id="line-553">  @Override</span>
-<span class="source-line-no">554</span><span id="line-554">  public FileSystem getFileSystem() {</span>
-<span class="source-line-no">555</span><span id="line-555">    return dataFs;</span>
-<span class="source-line-no">556</span><span id="line-556">  }</span>
-<span class="source-line-no">557</span><span id="line-557"></span>
-<span class="source-line-no">558</span><span id="line-558">  /** Returns Return the walRootDir. */</span>
-<span class="source-line-no">559</span><span id="line-559">  public Path getWALRootDir() {</span>
-<span class="source-line-no">560</span><span id="line-560">    return walRootDir;</span>
-<span class="source-line-no">561</span><span id="line-561">  }</span>
-<span class="source-line-no">562</span><span id="line-562"></span>
-<span class="source-line-no">563</span><span id="line-563">  /** Returns Return the walFs. */</span>
-<span class="source-line-no">564</span><span id="line-564">  public FileSystem getWALFileSystem() {</span>
-<span class="source-line-no">565</span><span id="line-565">    return walFs;</span>
-<span class="source-line-no">566</span><span id="line-566">  }</span>
-<span class="source-line-no">567</span><span id="line-567"></span>
-<span class="source-line-no">568</span><span id="line-568">  /** Returns True if the cluster is up. */</span>
-<span class="source-line-no">569</span><span id="line-569">  public boolean isClusterUp() {</span>
-<span class="source-line-no">570</span><span id="line-570">    return !clusterMode() || this.clusterStatusTracker.isClusterUp();</span>
-<span class="source-line-no">571</span><span id="line-571">  }</span>
-<span class="source-line-no">572</span><span id="line-572"></span>
-<span class="source-line-no">573</span><span id="line-573">  /** Returns time stamp in millis of when this server was started */</span>
-<span class="source-line-no">574</span><span id="line-574">  public long getStartcode() {</span>
-<span class="source-line-no">575</span><span id="line-575">    return this.startcode;</span>
-<span class="source-line-no">576</span><span id="line-576">  }</span>
-<span class="source-line-no">577</span><span id="line-577"></span>
-<span class="source-line-no">578</span><span id="line-578">  public InfoServer getInfoServer() {</span>
-<span class="source-line-no">579</span><span id="line-579">    return infoServer;</span>
-<span class="source-line-no">580</span><span id="line-580">  }</span>
-<span class="source-line-no">581</span><span id="line-581"></span>
-<span class="source-line-no">582</span><span id="line-582">  public int getMsgInterval() {</span>
-<span class="source-line-no">583</span><span id="line-583">    return msgInterval;</span>
-<span class="source-line-no">584</span><span id="line-584">  }</span>
-<span class="source-line-no">585</span><span id="line-585"></span>
-<span class="source-line-no">586</span><span id="line-586">  /**</span>
-<span class="source-line-no">587</span><span id="line-587">   * get NamedQueue Provider to add different logs to ringbuffer</span>
-<span class="source-line-no">588</span><span id="line-588">   */</span>
-<span class="source-line-no">589</span><span id="line-589">  public NamedQueueRecorder getNamedQueueRecorder() {</span>
-<span class="source-line-no">590</span><span id="line-590">    return this.namedQueueRecorder;</span>
-<span class="source-line-no">591</span><span id="line-591">  }</span>
-<span class="source-line-no">592</span><span id="line-592"></span>
-<span class="source-line-no">593</span><span id="line-593">  public RpcServerInterface getRpcServer() {</span>
-<span class="source-line-no">594</span><span id="line-594">    return rpcServices.getRpcServer();</span>
-<span class="source-line-no">595</span><span id="line-595">  }</span>
-<span class="source-line-no">596</span><span id="line-596"></span>
-<span class="source-line-no">597</span><span id="line-597">  public NettyEventLoopGroupConfig getEventLoopGroupConfig() {</span>
-<span class="source-line-no">598</span><span id="line-598">    return eventLoopGroupConfig;</span>
-<span class="source-line-no">599</span><span id="line-599">  }</span>
-<span class="source-line-no">600</span><span id="line-600"></span>
-<span class="source-line-no">601</span><span id="line-601">  public R getRpcServices() {</span>
-<span class="source-line-no">602</span><span id="line-602">    return rpcServices;</span>
-<span class="source-line-no">603</span><span id="line-603">  }</span>
-<span class="source-line-no">604</span><span id="line-604"></span>
-<span class="source-line-no">605</span><span id="line-605">  @RestrictedApi(explanation = "Should only be called in tests", link = "",</span>
-<span class="source-line-no">606</span><span id="line-606">      allowedOnPath = ".*/src/test/.*")</span>
-<span class="source-line-no">607</span><span id="line-607">  public MetaRegionLocationCache getMetaRegionLocationCache() {</span>
-<span class="source-line-no">608</span><span id="line-608">    return this.metaRegionLocationCache;</span>
-<span class="source-line-no">609</span><span id="line-609">  }</span>
-<span class="source-line-no">610</span><span id="line-610"></span>
-<span class="source-line-no">611</span><span id="line-611">  @RestrictedApi(explanation = "Should only be called in tests", link = "",</span>
-<span class="source-line-no">612</span><span id="line-612">      allowedOnPath = ".*/src/test/.*")</span>
-<span class="source-line-no">613</span><span id="line-613">  public ConfigurationManager getConfigurationManager() {</span>
-<span class="source-line-no">614</span><span id="line-614">    return configurationManager;</span>
-<span class="source-line-no">615</span><span id="line-615">  }</span>
-<span class="source-line-no">616</span><span id="line-616"></span>
-<span class="source-line-no">617</span><span id="line-617">  /**</span>
-<span class="source-line-no">618</span><span id="line-618">   * Reload the configuration from disk.</span>
-<span class="source-line-no">619</span><span id="line-619">   */</span>
-<span class="source-line-no">620</span><span id="line-620">  public void updateConfiguration() throws IOException {</span>
-<span class="source-line-no">621</span><span id="line-621">    LOG.info("Reloading the configuration from disk.");</span>
-<span class="source-line-no">622</span><span id="line-622">    // Reload the configuration from disk.</span>
-<span class="source-line-no">623</span><span id="line-623">    preUpdateConfiguration();</span>
-<span class="source-line-no">624</span><span id="line-624">    conf.reloadConfiguration();</span>
-<span class="source-line-no">625</span><span id="line-625">    configurationManager.notifyAllObservers(conf);</span>
-<span class="source-line-no">626</span><span id="line-626">    postUpdateConfiguration();</span>
-<span class="source-line-no">627</span><span id="line-627">  }</span>
-<span class="source-line-no">628</span><span id="line-628"></span>
-<span class="source-line-no">629</span><span id="line-629">  private void preUpdateConfiguration() throws IOException {</span>
-<span class="source-line-no">630</span><span id="line-630">    CoprocessorHost&lt;?, ?&gt; coprocessorHost = getCoprocessorHost();</span>
-<span class="source-line-no">631</span><span id="line-631">    if (coprocessorHost instanceof RegionServerCoprocessorHost) {</span>
-<span class="source-line-no">632</span><span id="line-632">      ((RegionServerCoprocessorHost) coprocessorHost).preUpdateConfiguration(conf);</span>
-<span class="source-line-no">633</span><span id="line-633">    } else if (coprocessorHost instanceof MasterCoprocessorHost) {</span>
-<span class="source-line-no">634</span><span id="line-634">      ((MasterCoprocessorHost) coprocessorHost).preUpdateConfiguration(conf);</span>
-<span class="source-line-no">635</span><span id="line-635">    }</span>
-<span class="source-line-no">636</span><span id="line-636">  }</span>
-<span class="source-line-no">637</span><span id="line-637"></span>
-<span class="source-line-no">638</span><span id="line-638">  private void postUpdateConfiguration() throws IOException {</span>
-<span class="source-line-no">639</span><span id="line-639">    CoprocessorHost&lt;?, ?&gt; coprocessorHost = getCoprocessorHost();</span>
-<span class="source-line-no">640</span><span id="line-640">    if (coprocessorHost instanceof RegionServerCoprocessorHost) {</span>
-<span class="source-line-no">641</span><span id="line-641">      ((RegionServerCoprocessorHost) coprocessorHost).postUpdateConfiguration(conf);</span>
-<span class="source-line-no">642</span><span id="line-642">    } else if (coprocessorHost instanceof MasterCoprocessorHost) {</span>
-<span class="source-line-no">643</span><span id="line-643">      ((MasterCoprocessorHost) coprocessorHost).postUpdateConfiguration(conf);</span>
-<span class="source-line-no">644</span><span id="line-644">    }</span>
-<span class="source-line-no">645</span><span id="line-645">  }</span>
-<span class="source-line-no">646</span><span id="line-646"></span>
-<span class="source-line-no">647</span><span id="line-647">  @Override</span>
-<span class="source-line-no">648</span><span id="line-648">  public String toString() {</span>
-<span class="source-line-no">649</span><span id="line-649">    return getServerName().toString();</span>
-<span class="source-line-no">650</span><span id="line-650">  }</span>
-<span class="source-line-no">651</span><span id="line-651"></span>
-<span class="source-line-no">652</span><span id="line-652">  protected abstract CoprocessorHost&lt;?, ?&gt; getCoprocessorHost();</span>
+<span class="source-line-no">435</span><span id="line-435">  protected abstract void stopChores();</span>
+<span class="source-line-no">436</span><span id="line-436"></span>
+<span class="source-line-no">437</span><span id="line-437">  protected final void stopChoreService() {</span>
+<span class="source-line-no">438</span><span id="line-438">    // clean up the scheduled chores</span>
+<span class="source-line-no">439</span><span id="line-439">    if (choreService != null) {</span>
+<span class="source-line-no">440</span><span id="line-440">      LOG.info("Shutdown chores and chore service");</span>
+<span class="source-line-no">441</span><span id="line-441">      stopChores();</span>
+<span class="source-line-no">442</span><span id="line-442">      // cancel the remaining scheduled chores (in case we missed out any)</span>
+<span class="source-line-no">443</span><span id="line-443">      // TODO: cancel will not cleanup the chores, so we need make sure we do not miss any</span>
+<span class="source-line-no">444</span><span id="line-444">      choreService.shutdown();</span>
+<span class="source-line-no">445</span><span id="line-445">    }</span>
+<span class="source-line-no">446</span><span id="line-446">  }</span>
+<span class="source-line-no">447</span><span id="line-447"></span>
+<span class="source-line-no">448</span><span id="line-448">  protected final void stopExecutorService() {</span>
+<span class="source-line-no">449</span><span id="line-449">    if (executorService != null) {</span>
+<span class="source-line-no">450</span><span id="line-450">      LOG.info("Shutdown executor service");</span>
+<span class="source-line-no">451</span><span id="line-451">      executorService.shutdown();</span>
+<span class="source-line-no">452</span><span id="line-452">    }</span>
+<span class="source-line-no">453</span><span id="line-453">  }</span>
+<span class="source-line-no">454</span><span id="line-454"></span>
+<span class="source-line-no">455</span><span id="line-455">  protected final void closeClusterConnection() {</span>
+<span class="source-line-no">456</span><span id="line-456">    if (asyncClusterConnection != null) {</span>
+<span class="source-line-no">457</span><span id="line-457">      LOG.info("Close async cluster connection");</span>
+<span class="source-line-no">458</span><span id="line-458">      try {</span>
+<span class="source-line-no">459</span><span id="line-459">        this.asyncClusterConnection.close();</span>
+<span class="source-line-no">460</span><span id="line-460">      } catch (IOException e) {</span>
+<span class="source-line-no">461</span><span id="line-461">        // Although the {@link Closeable} interface throws an {@link</span>
+<span class="source-line-no">462</span><span id="line-462">        // IOException}, in reality, the implementation would never do that.</span>
+<span class="source-line-no">463</span><span id="line-463">        LOG.warn("Attempt to close server's AsyncClusterConnection failed.", e);</span>
+<span class="source-line-no">464</span><span id="line-464">      }</span>
+<span class="source-line-no">465</span><span id="line-465">    }</span>
+<span class="source-line-no">466</span><span id="line-466">  }</span>
+<span class="source-line-no">467</span><span id="line-467"></span>
+<span class="source-line-no">468</span><span id="line-468">  protected final void stopInfoServer() {</span>
+<span class="source-line-no">469</span><span id="line-469">    if (this.infoServer != null) {</span>
+<span class="source-line-no">470</span><span id="line-470">      LOG.info("Stop info server");</span>
+<span class="source-line-no">471</span><span id="line-471">      try {</span>
+<span class="source-line-no">472</span><span id="line-472">        this.infoServer.stop();</span>
+<span class="source-line-no">473</span><span id="line-473">      } catch (Exception e) {</span>
+<span class="source-line-no">474</span><span id="line-474">        LOG.error("Failed to stop infoServer", e);</span>
+<span class="source-line-no">475</span><span id="line-475">      }</span>
+<span class="source-line-no">476</span><span id="line-476">    }</span>
+<span class="source-line-no">477</span><span id="line-477">  }</span>
+<span class="source-line-no">478</span><span id="line-478"></span>
+<span class="source-line-no">479</span><span id="line-479">  protected final void closeZooKeeper() {</span>
+<span class="source-line-no">480</span><span id="line-480">    if (this.zooKeeper != null) {</span>
+<span class="source-line-no">481</span><span id="line-481">      LOG.info("Close zookeeper");</span>
+<span class="source-line-no">482</span><span id="line-482">      this.zooKeeper.close();</span>
+<span class="source-line-no">483</span><span id="line-483">    }</span>
+<span class="source-line-no">484</span><span id="line-484">  }</span>
+<span class="source-line-no">485</span><span id="line-485"></span>
+<span class="source-line-no">486</span><span id="line-486">  protected final void closeTableDescriptors() {</span>
+<span class="source-line-no">487</span><span id="line-487">    if (this.tableDescriptors != null) {</span>
+<span class="source-line-no">488</span><span id="line-488">      LOG.info("Close table descriptors");</span>
+<span class="source-line-no">489</span><span id="line-489">      try {</span>
+<span class="source-line-no">490</span><span id="line-490">        this.tableDescriptors.close();</span>
+<span class="source-line-no">491</span><span id="line-491">      } catch (IOException e) {</span>
+<span class="source-line-no">492</span><span id="line-492">        LOG.debug("Failed to close table descriptors gracefully", e);</span>
+<span class="source-line-no">493</span><span id="line-493">      }</span>
+<span class="source-line-no">494</span><span id="line-494">    }</span>
+<span class="source-line-no">495</span><span id="line-495">  }</span>
+<span class="source-line-no">496</span><span id="line-496"></span>
+<span class="source-line-no">497</span><span id="line-497">  /**</span>
+<span class="source-line-no">498</span><span id="line-498">   * In order to register ShutdownHook, this method is called when HMaster and HRegionServer are</span>
+<span class="source-line-no">499</span><span id="line-499">   * started. For details, please refer to HBASE-26951</span>
+<span class="source-line-no">500</span><span id="line-500">   */</span>
+<span class="source-line-no">501</span><span id="line-501">  protected final void installShutdownHook() {</span>
+<span class="source-line-no">502</span><span id="line-502">    ShutdownHook.install(conf, dataFs, this, Thread.currentThread());</span>
+<span class="source-line-no">503</span><span id="line-503">    isShutdownHookInstalled = true;</span>
+<span class="source-line-no">504</span><span id="line-504">  }</span>
+<span class="source-line-no">505</span><span id="line-505"></span>
+<span class="source-line-no">506</span><span id="line-506">  @RestrictedApi(explanation = "Should only be called in tests", link = "",</span>
+<span class="source-line-no">507</span><span id="line-507">      allowedOnPath = ".*/src/test/.*")</span>
+<span class="source-line-no">508</span><span id="line-508">  public boolean isShutdownHookInstalled() {</span>
+<span class="source-line-no">509</span><span id="line-509">    return isShutdownHookInstalled;</span>
+<span class="source-line-no">510</span><span id="line-510">  }</span>
+<span class="source-line-no">511</span><span id="line-511"></span>
+<span class="source-line-no">512</span><span id="line-512">  @Override</span>
+<span class="source-line-no">513</span><span id="line-513">  public ServerName getServerName() {</span>
+<span class="source-line-no">514</span><span id="line-514">    return serverName;</span>
+<span class="source-line-no">515</span><span id="line-515">  }</span>
+<span class="source-line-no">516</span><span id="line-516"></span>
+<span class="source-line-no">517</span><span id="line-517">  @Override</span>
+<span class="source-line-no">518</span><span id="line-518">  public ChoreService getChoreService() {</span>
+<span class="source-line-no">519</span><span id="line-519">    return choreService;</span>
+<span class="source-line-no">520</span><span id="line-520">  }</span>
+<span class="source-line-no">521</span><span id="line-521"></span>
+<span class="source-line-no">522</span><span id="line-522">  /** Returns Return table descriptors implementation. */</span>
+<span class="source-line-no">523</span><span id="line-523">  public TableDescriptors getTableDescriptors() {</span>
+<span class="source-line-no">524</span><span id="line-524">    return this.tableDescriptors;</span>
+<span class="source-line-no">525</span><span id="line-525">  }</span>
+<span class="source-line-no">526</span><span id="line-526"></span>
+<span class="source-line-no">527</span><span id="line-527">  public ExecutorService getExecutorService() {</span>
+<span class="source-line-no">528</span><span id="line-528">    return executorService;</span>
+<span class="source-line-no">529</span><span id="line-529">  }</span>
+<span class="source-line-no">530</span><span id="line-530"></span>
+<span class="source-line-no">531</span><span id="line-531">  public AccessChecker getAccessChecker() {</span>
+<span class="source-line-no">532</span><span id="line-532">    return rpcServices.getAccessChecker();</span>
+<span class="source-line-no">533</span><span id="line-533">  }</span>
+<span class="source-line-no">534</span><span id="line-534"></span>
+<span class="source-line-no">535</span><span id="line-535">  public ZKPermissionWatcher getZKPermissionWatcher() {</span>
+<span class="source-line-no">536</span><span id="line-536">    return rpcServices.getZkPermissionWatcher();</span>
+<span class="source-line-no">537</span><span id="line-537">  }</span>
+<span class="source-line-no">538</span><span id="line-538"></span>
+<span class="source-line-no">539</span><span id="line-539">  @Override</span>
+<span class="source-line-no">540</span><span id="line-540">  public CoordinatedStateManager getCoordinatedStateManager() {</span>
+<span class="source-line-no">541</span><span id="line-541">    return csm;</span>
+<span class="source-line-no">542</span><span id="line-542">  }</span>
+<span class="source-line-no">543</span><span id="line-543"></span>
+<span class="source-line-no">544</span><span id="line-544">  @Override</span>
+<span class="source-line-no">545</span><span id="line-545">  public Connection createConnection(Configuration conf) throws IOException {</span>
+<span class="source-line-no">546</span><span id="line-546">    User user = UserProvider.instantiate(conf).getCurrent();</span>
+<span class="source-line-no">547</span><span id="line-547">    return ConnectionFactory.createConnection(conf, null, user);</span>
+<span class="source-line-no">548</span><span id="line-548">  }</span>
+<span class="source-line-no">549</span><span id="line-549"></span>
+<span class="source-line-no">550</span><span id="line-550">  /** Returns Return the rootDir. */</span>
+<span class="source-line-no">551</span><span id="line-551">  public Path getDataRootDir() {</span>
+<span class="source-line-no">552</span><span id="line-552">    return dataRootDir;</span>
+<span class="source-line-no">553</span><span id="line-553">  }</span>
+<span class="source-line-no">554</span><span id="line-554"></span>
+<span class="source-line-no">555</span><span id="line-555">  @Override</span>
+<span class="source-line-no">556</span><span id="line-556">  public FileSystem getFileSystem() {</span>
+<span class="source-line-no">557</span><span id="line-557">    return dataFs;</span>
+<span class="source-line-no">558</span><span id="line-558">  }</span>
+<span class="source-line-no">559</span><span id="line-559"></span>
+<span class="source-line-no">560</span><span id="line-560">  /** Returns Return the walRootDir. */</span>
+<span class="source-line-no">561</span><span id="line-561">  public Path getWALRootDir() {</span>
+<span class="source-line-no">562</span><span id="line-562">    return walRootDir;</span>
+<span class="source-line-no">563</span><span id="line-563">  }</span>
+<span class="source-line-no">564</span><span id="line-564"></span>
+<span class="source-line-no">565</span><span id="line-565">  /** Returns Return the walFs. */</span>
+<span class="source-line-no">566</span><span id="line-566">  public FileSystem getWALFileSystem() {</span>
+<span class="source-line-no">567</span><span id="line-567">    return walFs;</span>
+<span class="source-line-no">568</span><span id="line-568">  }</span>
+<span class="source-line-no">569</span><span id="line-569"></span>
+<span class="source-line-no">570</span><span id="line-570">  /** Returns True if the cluster is up. */</span>
+<span class="source-line-no">571</span><span id="line-571">  public boolean isClusterUp() {</span>
+<span class="source-line-no">572</span><span id="line-572">    return !clusterMode() || this.clusterStatusTracker.isClusterUp();</span>
+<span class="source-line-no">573</span><span id="line-573">  }</span>
+<span class="source-line-no">574</span><span id="line-574"></span>
+<span class="source-line-no">575</span><span id="line-575">  /** Returns time stamp in millis of when this server was started */</span>
+<span class="source-line-no">576</span><span id="line-576">  public long getStartcode() {</span>
+<span class="source-line-no">577</span><span id="line-577">    return this.startcode;</span>
+<span class="source-line-no">578</span><span id="line-578">  }</span>
+<span class="source-line-no">579</span><span id="line-579"></span>
+<span class="source-line-no">580</span><span id="line-580">  public InfoServer getInfoServer() {</span>
+<span class="source-line-no">581</span><span id="line-581">    return infoServer;</span>
+<span class="source-line-no">582</span><span id="line-582">  }</span>
+<span class="source-line-no">583</span><span id="line-583"></span>
+<span class="source-line-no">584</span><span id="line-584">  public int getMsgInterval() {</span>
+<span class="source-line-no">585</span><span id="line-585">    return msgInterval;</span>
+<span class="source-line-no">586</span><span id="line-586">  }</span>
+<span class="source-line-no">587</span><span id="line-587"></span>
+<span class="source-line-no">588</span><span id="line-588">  /**</span>
+<span class="source-line-no">589</span><span id="line-589">   * get NamedQueue Provider to add different logs to ringbuffer</span>
+<span class="source-line-no">590</span><span id="line-590">   */</span>
+<span class="source-line-no">591</span><span id="line-591">  public NamedQueueRecorder getNamedQueueRecorder() {</span>
+<span class="source-line-no">592</span><span id="line-592">    return this.namedQueueRecorder;</span>
+<span class="source-line-no">593</span><span id="line-593">  }</span>
+<span class="source-line-no">594</span><span id="line-594"></span>
+<span class="source-line-no">595</span><span id="line-595">  public RpcServerInterface getRpcServer() {</span>
+<span class="source-line-no">596</span><span id="line-596">    return rpcServices.getRpcServer();</span>
+<span class="source-line-no">597</span><span id="line-597">  }</span>
+<span class="source-line-no">598</span><span id="line-598"></span>
+<span class="source-line-no">599</span><span id="line-599">  public NettyEventLoopGroupConfig getEventLoopGroupConfig() {</span>
+<span class="source-line-no">600</span><span id="line-600">    return eventLoopGroupConfig;</span>
+<span class="source-line-no">601</span><span id="line-601">  }</span>
+<span class="source-line-no">602</span><span id="line-602"></span>
+<span class="source-line-no">603</span><span id="line-603">  public R getRpcServices() {</span>
+<span class="source-line-no">604</span><span id="line-604">    return rpcServices;</span>
+<span class="source-line-no">605</span><span id="line-605">  }</span>
+<span class="source-line-no">606</span><span id="line-606"></span>
+<span class="source-line-no">607</span><span id="line-607">  @RestrictedApi(explanation = "Should only be called in tests", link = "",</span>
+<span class="source-line-no">608</span><span id="line-608">      allowedOnPath = ".*/src/test/.*")</span>
+<span class="source-line-no">609</span><span id="line-609">  public MetaRegionLocationCache getMetaRegionLocationCache() {</span>
+<span class="source-line-no">610</span><span id="line-610">    return this.metaRegionLocationCache;</span>
+<span class="source-line-no">611</span><span id="line-611">  }</span>
+<span class="source-line-no">612</span><span id="line-612"></span>
+<span class="source-line-no">613</span><span id="line-613">  @RestrictedApi(explanation = "Should only be called in tests", link = "",</span>
+<span class="source-line-no">614</span><span id="line-614">      allowedOnPath = ".*/src/test/.*")</span>
+<span class="source-line-no">615</span><span id="line-615">  public ConfigurationManager getConfigurationManager() {</span>
+<span class="source-line-no">616</span><span id="line-616">    return configurationManager;</span>
+<span class="source-line-no">617</span><span id="line-617">  }</span>
+<span class="source-line-no">618</span><span id="line-618"></span>
+<span class="source-line-no">619</span><span id="line-619">  /**</span>
+<span class="source-line-no">620</span><span id="line-620">   * Reload the configuration from disk.</span>
+<span class="source-line-no">621</span><span id="line-621">   */</span>
+<span class="source-line-no">622</span><span id="line-622">  public void updateConfiguration() throws IOException {</span>
+<span class="source-line-no">623</span><span id="line-623">    LOG.info("Reloading the configuration from disk.");</span>
+<span class="source-line-no">624</span><span id="line-624">    // Reload the configuration from disk.</span>
+<span class="source-line-no">625</span><span id="line-625">    preUpdateConfiguration();</span>
+<span class="source-line-no">626</span><span id="line-626">    conf.reloadConfiguration();</span>
+<span class="source-line-no">627</span><span id="line-627">    configurationManager.notifyAllObservers(conf);</span>
+<span class="source-line-no">628</span><span id="line-628">    postUpdateConfiguration();</span>
+<span class="source-line-no">629</span><span id="line-629">  }</span>
+<span class="source-line-no">630</span><span id="line-630"></span>
+<span class="source-line-no">631</span><span id="line-631">  private void preUpdateConfiguration() throws IOException {</span>
+<span class="source-line-no">632</span><span id="line-632">    CoprocessorHost&lt;?, ?&gt; coprocessorHost = getCoprocessorHost();</span>
+<span class="source-line-no">633</span><span id="line-633">    if (coprocessorHost instanceof RegionServerCoprocessorHost) {</span>
+<span class="source-line-no">634</span><span id="line-634">      ((RegionServerCoprocessorHost) coprocessorHost).preUpdateConfiguration(conf);</span>
+<span class="source-line-no">635</span><span id="line-635">    } else if (coprocessorHost instanceof MasterCoprocessorHost) {</span>
+<span class="source-line-no">636</span><span id="line-636">      ((MasterCoprocessorHost) coprocessorHost).preUpdateConfiguration(conf);</span>
+<span class="source-line-no">637</span><span id="line-637">    }</span>
+<span class="source-line-no">638</span><span id="line-638">  }</span>
+<span class="source-line-no">639</span><span id="line-639"></span>
+<span class="source-line-no">640</span><span id="line-640">  private void postUpdateConfiguration() throws IOException {</span>
+<span class="source-line-no">641</span><span id="line-641">    CoprocessorHost&lt;?, ?&gt; coprocessorHost = getCoprocessorHost();</span>
+<span class="source-line-no">642</span><span id="line-642">    if (coprocessorHost instanceof RegionServerCoprocessorHost) {</span>
+<span class="source-line-no">643</span><span id="line-643">      ((RegionServerCoprocessorHost) coprocessorHost).postUpdateConfiguration(conf);</span>
+<span class="source-line-no">644</span><span id="line-644">    } else if (coprocessorHost instanceof MasterCoprocessorHost) {</span>
+<span class="source-line-no">645</span><span id="line-645">      ((MasterCoprocessorHost) coprocessorHost).postUpdateConfiguration(conf);</span>
+<span class="source-line-no">646</span><span id="line-646">    }</span>
+<span class="source-line-no">647</span><span id="line-647">  }</span>
+<span class="source-line-no">648</span><span id="line-648"></span>
+<span class="source-line-no">649</span><span id="line-649">  @Override</span>
+<span class="source-line-no">650</span><span id="line-650">  public String toString() {</span>
+<span class="source-line-no">651</span><span id="line-651">    return getServerName().toString();</span>
+<span class="source-line-no">652</span><span id="line-652">  }</span>
 <span class="source-line-no">653</span><span id="line-653"></span>
-<span class="source-line-no">654</span><span id="line-654">  protected abstract boolean canCreateBaseZNode();</span>
+<span class="source-line-no">654</span><span id="line-654">  protected abstract CoprocessorHost&lt;?, ?&gt; getCoprocessorHost();</span>
 <span class="source-line-no">655</span><span id="line-655"></span>
-<span class="source-line-no">656</span><span id="line-656">  protected abstract String getProcessName();</span>
+<span class="source-line-no">656</span><span id="line-656">  protected abstract boolean canCreateBaseZNode();</span>
 <span class="source-line-no">657</span><span id="line-657"></span>
-<span class="source-line-no">658</span><span id="line-658">  protected abstract R createRpcServices() throws IOException;</span>
+<span class="source-line-no">658</span><span id="line-658">  protected abstract String getProcessName();</span>
 <span class="source-line-no">659</span><span id="line-659"></span>
-<span class="source-line-no">660</span><span id="line-660">  protected abstract String getUseThisHostnameInstead(Configuration conf) throws IOException;</span>
+<span class="source-line-no">660</span><span id="line-660">  protected abstract R createRpcServices() throws IOException;</span>
 <span class="source-line-no">661</span><span id="line-661"></span>
-<span class="source-line-no">662</span><span id="line-662">  protected abstract void login(UserProvider user, String host) throws IOException;</span>
+<span class="source-line-no">662</span><span id="line-662">  protected abstract String getUseThisHostnameInstead(Configuration conf) throws IOException;</span>
 <span class="source-line-no">663</span><span id="line-663"></span>
-<span class="source-line-no">664</span><span id="line-664">  protected abstract NamedQueueRecorder createNamedQueueRecord();</span>
+<span class="source-line-no">664</span><span id="line-664">  protected abstract void login(UserProvider user, String host) throws IOException;</span>
 <span class="source-line-no">665</span><span id="line-665"></span>
-<span class="source-line-no">666</span><span id="line-666">  protected abstract void configureInfoServer(InfoServer infoServer);</span>
+<span class="source-line-no">666</span><span id="line-666">  protected abstract NamedQueueRecorder createNamedQueueRecord();</span>
 <span class="source-line-no">667</span><span id="line-667"></span>
-<span class="source-line-no">668</span><span id="line-668">  protected abstract Class&lt;? extends HttpServlet&gt; getDumpServlet();</span>
+<span class="source-line-no">668</span><span id="line-668">  protected abstract void configureInfoServer(InfoServer infoServer);</span>
 <span class="source-line-no">669</span><span id="line-669"></span>
-<span class="source-line-no">670</span><span id="line-670">  protected abstract boolean canUpdateTableDescriptor();</span>
+<span class="source-line-no">670</span><span id="line-670">  protected abstract Class&lt;? extends HttpServlet&gt; getDumpServlet();</span>
 <span class="source-line-no">671</span><span id="line-671"></span>
-<span class="source-line-no">672</span><span id="line-672">  protected abstract boolean cacheTableDescriptor();</span>
+<span class="source-line-no">672</span><span id="line-672">  protected abstract boolean canUpdateTableDescriptor();</span>
 <span class="source-line-no">673</span><span id="line-673"></span>
-<span class="source-line-no">674</span><span id="line-674">  protected abstract boolean clusterMode();</span>
-<span class="source-line-no">675</span><span id="line-675">}</span>
+<span class="source-line-no">674</span><span id="line-674">  protected abstract boolean cacheTableDescriptor();</span>
+<span class="source-line-no">675</span><span id="line-675"></span>
+<span class="source-line-no">676</span><span id="line-676">  protected abstract boolean clusterMode();</span>
+<span class="source-line-no">677</span><span id="line-677">}</span>
 
 
 

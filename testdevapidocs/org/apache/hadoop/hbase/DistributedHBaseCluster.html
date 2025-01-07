@@ -385,18 +385,40 @@ loadScripts(document, 'script');</script>
 <div class="block">Wait for the specified namenode to stop</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#waitForRegionServerToStop(org.apache.hadoop.hbase.ServerName,long)" class="member-name-link">waitForRegionServerToStop</a><wbr>(org.apache.hadoop.hbase.ServerName&nbsp;serverName,
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#waitForRegionServerToResume(org.apache.hadoop.hbase.ServerName,long)" class="member-name-link">waitForRegionServerToResume</a><wbr>(org.apache.hadoop.hbase.ServerName&nbsp;serverName,
  long&nbsp;timeout)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Wait for the specified region server to resume the thread / process.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#waitForRegionServerToStop(org.apache.hadoop.hbase.ServerName,long)" class="member-name-link">waitForRegionServerToStop</a><wbr>(org.apache.hadoop.hbase.ServerName&nbsp;serverName,
+ long&nbsp;timeout)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Wait for the specified region server to stop the thread / process.</div>
 </div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#waitForRegionServerToSuspend(org.apache.hadoop.hbase.ServerName,long)" class="member-name-link">waitForRegionServerToSuspend</a><wbr>(org.apache.hadoop.hbase.ServerName&nbsp;serverName,
+ long&nbsp;timeout)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Wait for the specified region server to suspend the thread / process.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#waitForServiceToStart(org.apache.hadoop.hbase.ClusterManager.ServiceType,org.apache.hadoop.hbase.ServerName,long)" class="member-name-link">waitForServiceToStart</a><wbr>(<a href="ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#waitForServiceToResume(org.apache.hadoop.hbase.ClusterManager.ServiceType,org.apache.hadoop.hbase.ServerName,long)" class="member-name-link">waitForServiceToResume</a><wbr>(<a href="ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
  org.apache.hadoop.hbase.ServerName&nbsp;serverName,
  long&nbsp;timeout)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#waitForServiceToStop(org.apache.hadoop.hbase.ClusterManager.ServiceType,org.apache.hadoop.hbase.ServerName,long)" class="member-name-link">waitForServiceToStop</a><wbr>(<a href="ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#waitForServiceToStart(org.apache.hadoop.hbase.ClusterManager.ServiceType,org.apache.hadoop.hbase.ServerName,long)" class="member-name-link">waitForServiceToStart</a><wbr>(<a href="ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+ org.apache.hadoop.hbase.ServerName&nbsp;serverName,
+ long&nbsp;timeout)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#waitForServiceToStop(org.apache.hadoop.hbase.ClusterManager.ServiceType,org.apache.hadoop.hbase.ServerName,long)" class="member-name-link">waitForServiceToStop</a><wbr>(<a href="ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+ org.apache.hadoop.hbase.ServerName&nbsp;serverName,
+ long&nbsp;timeout)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#waitForServiceToSuspend(org.apache.hadoop.hbase.ClusterManager.ServiceType,org.apache.hadoop.hbase.ServerName,long)" class="member-name-link">waitForServiceToSuspend</a><wbr>(<a href="ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
  org.apache.hadoop.hbase.ServerName&nbsp;serverName,
  long&nbsp;timeout)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
@@ -654,9 +676,41 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
+<section class="detail" id="waitForRegionServerToSuspend(org.apache.hadoop.hbase.ServerName,long)">
+<h3>waitForRegionServerToSuspend</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-134">waitForRegionServerToSuspend</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName,
+ long&nbsp;timeout)</span>
+                                  throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="HBaseClusterInterface.html#waitForRegionServerToSuspend(org.apache.hadoop.hbase.ServerName,long)">HBaseClusterInterface</a></code></span></div>
+<div class="block">Wait for the specified region server to suspend the thread / process.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="HBaseClusterInterface.html#waitForRegionServerToSuspend(org.apache.hadoop.hbase.ServerName,long)">waitForRegionServerToSuspend</a></code>&nbsp;in class&nbsp;<code><a href="HBaseClusterInterface.html" title="class in org.apache.hadoop.hbase">HBaseClusterInterface</a></code></dd>
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code> - if something goes wrong or timeout occurs</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="waitForRegionServerToResume(org.apache.hadoop.hbase.ServerName,long)">
+<h3>waitForRegionServerToResume</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-139">waitForRegionServerToResume</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName,
+ long&nbsp;timeout)</span>
+                                 throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="HBaseClusterInterface.html#waitForRegionServerToResume(org.apache.hadoop.hbase.ServerName,long)">HBaseClusterInterface</a></code></span></div>
+<div class="block">Wait for the specified region server to resume the thread / process.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="HBaseClusterInterface.html#waitForRegionServerToResume(org.apache.hadoop.hbase.ServerName,long)">waitForRegionServerToResume</a></code>&nbsp;in class&nbsp;<code><a href="HBaseClusterInterface.html" title="class in org.apache.hadoop.hbase">HBaseClusterInterface</a></code></dd>
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code> - if something goes wrong or timeout occurs</dd>
+</dl>
+</section>
+</li>
+<li>
 <section class="detail" id="suspendRegionServer(org.apache.hadoop.hbase.ServerName)">
 <h3>suspendRegionServer</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-134">suspendRegionServer</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName)</span>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-144">suspendRegionServer</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName)</span>
                          throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="HBaseClusterInterface.html#suspendRegionServer(org.apache.hadoop.hbase.ServerName)">HBaseClusterInterface</a></code></span></div>
 <div class="block">Suspend the region server</div>
@@ -673,7 +727,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="resumeRegionServer(org.apache.hadoop.hbase.ServerName)">
 <h3>resumeRegionServer</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-141">resumeRegionServer</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName)</span>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-151">resumeRegionServer</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName)</span>
                         throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="HBaseClusterInterface.html#resumeRegionServer(org.apache.hadoop.hbase.ServerName)">HBaseClusterInterface</a></code></span></div>
 <div class="block">Resume the region server</div>
@@ -690,7 +744,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="startZkNode(java.lang.String,int)">
 <h3>startZkNode</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-148">startZkNode</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-158">startZkNode</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
  int&nbsp;port)</span>
                  throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="HBaseClusterInterface.html#startZkNode(java.lang.String,int)">HBaseClusterInterface</a></code></span></div>
@@ -709,7 +763,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="killZkNode(org.apache.hadoop.hbase.ServerName)">
 <h3>killZkNode</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-154">killZkNode</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName)</span>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-164">killZkNode</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName)</span>
                 throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="HBaseClusterInterface.html#killZkNode(org.apache.hadoop.hbase.ServerName)">HBaseClusterInterface</a></code></span></div>
 <div class="block">Kills the zookeeper node process if this is a distributed cluster, otherwise, this causes
@@ -725,7 +779,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="stopZkNode(org.apache.hadoop.hbase.ServerName)">
 <h3>stopZkNode</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-161">stopZkNode</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName)</span>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-171">stopZkNode</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName)</span>
                 throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="HBaseClusterInterface.html#stopZkNode(org.apache.hadoop.hbase.ServerName)">HBaseClusterInterface</a></code></span></div>
 <div class="block">Stops the region zookeeper if this is a distributed cluster, otherwise silently logs warning
@@ -741,7 +795,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="waitForZkNodeToStart(org.apache.hadoop.hbase.ServerName,long)">
 <h3>waitForZkNodeToStart</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-168">waitForZkNodeToStart</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-178">waitForZkNodeToStart</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName,
  long&nbsp;timeout)</span>
                           throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="HBaseClusterInterface.html#waitForZkNodeToStart(org.apache.hadoop.hbase.ServerName,long)">HBaseClusterInterface</a></code></span></div>
@@ -757,7 +811,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="waitForZkNodeToStop(org.apache.hadoop.hbase.ServerName,long)">
 <h3>waitForZkNodeToStop</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-173">waitForZkNodeToStop</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-183">waitForZkNodeToStop</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName,
  long&nbsp;timeout)</span>
                          throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="HBaseClusterInterface.html#waitForZkNodeToStop(org.apache.hadoop.hbase.ServerName,long)">HBaseClusterInterface</a></code></span></div>
@@ -773,7 +827,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="startDataNode(org.apache.hadoop.hbase.ServerName)">
 <h3>startDataNode</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-178">startDataNode</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName)</span>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-188">startDataNode</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName)</span>
                    throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="HBaseClusterInterface.html#startDataNode(org.apache.hadoop.hbase.ServerName)">HBaseClusterInterface</a></code></span></div>
 <div class="block">Starts a new datanode on the given hostname or if this is a mini/local cluster, silently logs
@@ -789,7 +843,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="killDataNode(org.apache.hadoop.hbase.ServerName)">
 <h3>killDataNode</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-185">killDataNode</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName)</span>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-195">killDataNode</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName)</span>
                   throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="HBaseClusterInterface.html#killDataNode(org.apache.hadoop.hbase.ServerName)">HBaseClusterInterface</a></code></span></div>
 <div class="block">Kills the datanode process if this is a distributed cluster, otherwise, this causes master to
@@ -805,7 +859,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="stopDataNode(org.apache.hadoop.hbase.ServerName)">
 <h3>stopDataNode</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-192">stopDataNode</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName)</span>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-202">stopDataNode</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName)</span>
                   throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="HBaseClusterInterface.html#stopDataNode(org.apache.hadoop.hbase.ServerName)">HBaseClusterInterface</a></code></span></div>
 <div class="block">Stops the datanode if this is a distributed cluster, otherwise silently logs warning message.</div>
@@ -820,7 +874,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="waitForDataNodeToStart(org.apache.hadoop.hbase.ServerName,long)">
 <h3>waitForDataNodeToStart</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-199">waitForDataNodeToStart</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-209">waitForDataNodeToStart</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName,
  long&nbsp;timeout)</span>
                             throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="HBaseClusterInterface.html#waitForDataNodeToStart(org.apache.hadoop.hbase.ServerName,long)">HBaseClusterInterface</a></code></span></div>
@@ -836,7 +890,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="waitForDataNodeToStop(org.apache.hadoop.hbase.ServerName,long)">
 <h3>waitForDataNodeToStop</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-204">waitForDataNodeToStop</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-214">waitForDataNodeToStop</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName,
  long&nbsp;timeout)</span>
                            throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="HBaseClusterInterface.html#waitForDataNodeToStop(org.apache.hadoop.hbase.ServerName,long)">HBaseClusterInterface</a></code></span></div>
@@ -852,7 +906,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="startNameNode(org.apache.hadoop.hbase.ServerName)">
 <h3>startNameNode</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-209">startNameNode</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName)</span>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-219">startNameNode</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName)</span>
                    throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="HBaseClusterInterface.html#startNameNode(org.apache.hadoop.hbase.ServerName)">HBaseClusterInterface</a></code></span></div>
 <div class="block">Starts a new namenode on the given hostname or if this is a mini/local cluster, silently logs
@@ -868,7 +922,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="killNameNode(org.apache.hadoop.hbase.ServerName)">
 <h3>killNameNode</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-216">killNameNode</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName)</span>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-226">killNameNode</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName)</span>
                   throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="HBaseClusterInterface.html#killNameNode(org.apache.hadoop.hbase.ServerName)">HBaseClusterInterface</a></code></span></div>
 <div class="block">Kills the namenode process if this is a distributed cluster, otherwise, this causes master to
@@ -884,7 +938,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="stopNameNode(org.apache.hadoop.hbase.ServerName)">
 <h3>stopNameNode</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-223">stopNameNode</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName)</span>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-233">stopNameNode</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName)</span>
                   throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="HBaseClusterInterface.html#stopNameNode(org.apache.hadoop.hbase.ServerName)">HBaseClusterInterface</a></code></span></div>
 <div class="block">Stops the namenode if this is a distributed cluster, otherwise silently logs warning message.</div>
@@ -899,7 +953,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="waitForNameNodeToStart(org.apache.hadoop.hbase.ServerName,long)">
 <h3>waitForNameNodeToStart</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-230">waitForNameNodeToStart</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-240">waitForNameNodeToStart</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName,
  long&nbsp;timeout)</span>
                             throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="HBaseClusterInterface.html#waitForNameNodeToStart(org.apache.hadoop.hbase.ServerName,long)">HBaseClusterInterface</a></code></span></div>
@@ -915,7 +969,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="waitForNameNodeToStop(org.apache.hadoop.hbase.ServerName,long)">
 <h3>waitForNameNodeToStop</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-235">waitForNameNodeToStop</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-245">waitForNameNodeToStop</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName,
  long&nbsp;timeout)</span>
                            throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="HBaseClusterInterface.html#waitForNameNodeToStop(org.apache.hadoop.hbase.ServerName,long)">HBaseClusterInterface</a></code></span></div>
@@ -931,7 +985,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="startJournalNode(org.apache.hadoop.hbase.ServerName)">
 <h3>startJournalNode</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-240">startJournalNode</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName)</span>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-250">startJournalNode</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName)</span>
                       throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="HBaseClusterInterface.html#startJournalNode(org.apache.hadoop.hbase.ServerName)">HBaseClusterInterface</a></code></span></div>
 <div class="block">Starts a new journalnode on the given hostname or if this is a mini/local cluster, silently
@@ -947,7 +1001,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="killJournalNode(org.apache.hadoop.hbase.ServerName)">
 <h3>killJournalNode</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-247">killJournalNode</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName)</span>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-257">killJournalNode</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName)</span>
                      throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="HBaseClusterInterface.html#killJournalNode(org.apache.hadoop.hbase.ServerName)">HBaseClusterInterface</a></code></span></div>
 <div class="block">Kills the journalnode process if this is a distributed cluster, otherwise, this causes master
@@ -963,7 +1017,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="stopJournalNode(org.apache.hadoop.hbase.ServerName)">
 <h3>stopJournalNode</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-254">stopJournalNode</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName)</span>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-264">stopJournalNode</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName)</span>
                      throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="HBaseClusterInterface.html#stopJournalNode(org.apache.hadoop.hbase.ServerName)">HBaseClusterInterface</a></code></span></div>
 <div class="block">Stops the journalnode if this is a distributed cluster, otherwise silently logs warning
@@ -979,7 +1033,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="waitForJournalNodeToStart(org.apache.hadoop.hbase.ServerName,long)">
 <h3>waitForJournalNodeToStart</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-261">waitForJournalNodeToStart</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-271">waitForJournalNodeToStart</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName,
  long&nbsp;timeout)</span>
                                throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="HBaseClusterInterface.html#waitForJournalNodeToStart(org.apache.hadoop.hbase.ServerName,long)">HBaseClusterInterface</a></code></span></div>
@@ -995,7 +1049,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="waitForJournalNodeToStop(org.apache.hadoop.hbase.ServerName,long)">
 <h3>waitForJournalNodeToStop</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-266">waitForJournalNodeToStop</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-276">waitForJournalNodeToStop</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName,
  long&nbsp;timeout)</span>
                               throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="HBaseClusterInterface.html#waitForJournalNodeToStop(org.apache.hadoop.hbase.ServerName,long)">HBaseClusterInterface</a></code></span></div>
@@ -1011,7 +1065,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="waitForServiceToStop(org.apache.hadoop.hbase.ClusterManager.ServiceType,org.apache.hadoop.hbase.ServerName,long)">
 <h3>waitForServiceToStop</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-271">waitForServiceToStop</a></span><wbr><span class="parameters">(<a href="ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-281">waitForServiceToStop</a></span><wbr><span class="parameters">(<a href="ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
  org.apache.hadoop.hbase.ServerName&nbsp;serverName,
  long&nbsp;timeout)</span>
                            throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
@@ -1024,7 +1078,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="waitForServiceToStart(org.apache.hadoop.hbase.ClusterManager.ServiceType,org.apache.hadoop.hbase.ServerName,long)">
 <h3>waitForServiceToStart</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-285">waitForServiceToStart</a></span><wbr><span class="parameters">(<a href="ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-295">waitForServiceToStart</a></span><wbr><span class="parameters">(<a href="ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
  org.apache.hadoop.hbase.ServerName&nbsp;serverName,
  long&nbsp;timeout)</span>
                             throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
@@ -1035,9 +1089,35 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
+<section class="detail" id="waitForServiceToSuspend(org.apache.hadoop.hbase.ClusterManager.ServiceType,org.apache.hadoop.hbase.ServerName,long)">
+<h3>waitForServiceToSuspend</h3>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-309">waitForServiceToSuspend</a></span><wbr><span class="parameters">(<a href="ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+ org.apache.hadoop.hbase.ServerName&nbsp;serverName,
+ long&nbsp;timeout)</span>
+                              throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
+<dl class="notes">
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="waitForServiceToResume(org.apache.hadoop.hbase.ClusterManager.ServiceType,org.apache.hadoop.hbase.ServerName,long)">
+<h3>waitForServiceToResume</h3>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-323">waitForServiceToResume</a></span><wbr><span class="parameters">(<a href="ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+ org.apache.hadoop.hbase.ServerName&nbsp;serverName,
+ long&nbsp;timeout)</span>
+                             throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
+<dl class="notes">
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
+</dl>
+</section>
+</li>
+<li>
 <section class="detail" id="startMaster(java.lang.String,int)">
 <h3>startMaster</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-299">startMaster</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-337">startMaster</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
  int&nbsp;port)</span>
                  throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="HBaseClusterInterface.html#startMaster(java.lang.String,int)">HBaseClusterInterface</a></code></span></div>
@@ -1056,7 +1136,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="killMaster(org.apache.hadoop.hbase.ServerName)">
 <h3>killMaster</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-305">killMaster</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName)</span>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-343">killMaster</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName)</span>
                 throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="HBaseClusterInterface.html#killMaster(org.apache.hadoop.hbase.ServerName)">HBaseClusterInterface</a></code></span></div>
 <div class="block">Kills the master process if this is a distributed cluster, otherwise, this causes master to
@@ -1072,7 +1152,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="stopMaster(org.apache.hadoop.hbase.ServerName)">
 <h3>stopMaster</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-311">stopMaster</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName)</span>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-349">stopMaster</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName)</span>
                 throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="HBaseClusterInterface.html#stopMaster(org.apache.hadoop.hbase.ServerName)">HBaseClusterInterface</a></code></span></div>
 <div class="block">Stops the given master, by attempting a gradual stop.</div>
@@ -1087,7 +1167,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="waitForMasterToStop(org.apache.hadoop.hbase.ServerName,long)">
 <h3>waitForMasterToStop</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-317">waitForMasterToStop</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-355">waitForMasterToStop</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ServerName&nbsp;serverName,
  long&nbsp;timeout)</span>
                          throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="HBaseClusterInterface.html#waitForMasterToStop(org.apache.hadoop.hbase.ServerName,long)">HBaseClusterInterface</a></code></span></div>
@@ -1103,7 +1183,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="waitForActiveAndReadyMaster(long)">
 <h3>waitForActiveAndReadyMaster</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-322">waitForActiveAndReadyMaster</a></span><wbr><span class="parameters">(long&nbsp;timeout)</span>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-360">waitForActiveAndReadyMaster</a></span><wbr><span class="parameters">(long&nbsp;timeout)</span>
                                     throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="HBaseClusterInterface.html#waitForActiveAndReadyMaster(long)">HBaseClusterInterface</a></code></span></div>
 <div class="block">Blocks until there is an active master and that master has completed initialization.</div>
@@ -1122,7 +1202,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getServerHoldingRegion(org.apache.hadoop.hbase.TableName,byte[])">
 <h3>getServerHoldingRegion</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.ServerName</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-339">getServerHoldingRegion</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.TableName&nbsp;tn,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.ServerName</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-377">getServerHoldingRegion</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.TableName&nbsp;tn,
  byte[]&nbsp;regionName)</span>
                                                           throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="HBaseClusterInterface.html#getServerHoldingRegion(org.apache.hadoop.hbase.TableName,byte%5B%5D)">HBaseClusterInterface</a></code></span></div>
@@ -1143,7 +1223,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="waitUntilShutDown()">
 <h3>waitUntilShutDown</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-353">waitUntilShutDown</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-391">waitUntilShutDown</a></span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="HBaseClusterInterface.html#waitUntilShutDown()">HBaseClusterInterface</a></code></span></div>
 <div class="block">Wait for HBase Cluster to shut down.</div>
 <dl class="notes">
@@ -1155,7 +1235,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="shutdown()">
 <h3>shutdown</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-359">shutdown</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-397">shutdown</a></span>()
               throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="HBaseClusterInterface.html#shutdown()">HBaseClusterInterface</a></code></span></div>
 <div class="block">Shut down the HBase cluster</div>
@@ -1170,7 +1250,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="isDistributedCluster()">
 <h3>isDistributedCluster</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-365">isDistributedCluster</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-403">isDistributedCluster</a></span>()</div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="HBaseClusterInterface.html#isDistributedCluster()">isDistributedCluster</a></code>&nbsp;in class&nbsp;<code><a href="HBaseClusterInterface.html" title="class in org.apache.hadoop.hbase">HBaseClusterInterface</a></code></dd>
@@ -1183,7 +1263,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="restoreClusterMetrics(org.apache.hadoop.hbase.ClusterMetrics)">
 <h3>restoreClusterMetrics</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-370">restoreClusterMetrics</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ClusterMetrics&nbsp;initial)</span>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-408">restoreClusterMetrics</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ClusterMetrics&nbsp;initial)</span>
                               throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="HBaseClusterInterface.html#restoreClusterMetrics(org.apache.hadoop.hbase.ClusterMetrics)">HBaseClusterInterface</a></code></span></div>
 <div class="block">Restores the cluster to given state if this is a real cluster, otherwise does nothing. This is
@@ -1202,21 +1282,21 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="restoreMasters(org.apache.hadoop.hbase.ClusterMetrics,org.apache.hadoop.hbase.ClusterMetrics)">
 <h3>restoreMasters</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-385">restoreMasters</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ClusterMetrics&nbsp;initial,
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-423">restoreMasters</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ClusterMetrics&nbsp;initial,
  org.apache.hadoop.hbase.ClusterMetrics&nbsp;current)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="restoreRegionServers(org.apache.hadoop.hbase.ClusterMetrics,org.apache.hadoop.hbase.ClusterMetrics)">
 <h3>restoreRegionServers</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-495">restoreRegionServers</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ClusterMetrics&nbsp;initial,
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-533">restoreRegionServers</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.ClusterMetrics&nbsp;initial,
  org.apache.hadoop.hbase.ClusterMetrics&nbsp;current)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="restoreAdmin()">
 <h3>restoreAdmin</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-549">restoreAdmin</a></span>()
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/DistributedHBaseCluster.html#line-587">restoreAdmin</a></span>()
                         throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>

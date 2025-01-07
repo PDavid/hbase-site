@@ -290,11 +290,25 @@ implements <a href="ClusterManager.html" title="interface in org.apache.hadoop.h
 <div class="block">Return <code>true</code> if the <code>commandId</code> has finished successfully.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isRunning(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">isRunning</a><wbr>(<a href="ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isResumed(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">isResumed</a><wbr>(<a href="ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
  int&nbsp;port)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns whether the service is resumed on the remote host.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isRunning(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">isRunning</a><wbr>(<a href="ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
+ int&nbsp;port)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns whether the service is running on the remote host.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isSuspended(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">isSuspended</a><wbr>(<a href="ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
+ int&nbsp;port)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns whether the service is suspended on the remote host.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#kill(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">kill</a><wbr>(<a href="ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
@@ -557,7 +571,7 @@ implements <a href="ClusterManager.html" title="interface in org.apache.hadoop.h
 <li>
 <section class="detail" id="roleServiceType">
 <h3>roleServiceType</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>,<wbr><a href="RESTApiClusterManager.Service.html" title="enum class in org.apache.hadoop.hbase">RESTApiClusterManager.Service</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/RESTApiClusterManager.html#line-573">roleServiceType</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>,<wbr><a href="RESTApiClusterManager.Service.html" title="enum class in org.apache.hadoop.hbase">RESTApiClusterManager.Service</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/RESTApiClusterManager.html#line-583">roleServiceType</a></span></div>
 </section>
 </li>
 </ul>
@@ -703,9 +717,45 @@ implements <a href="ClusterManager.html" title="interface in org.apache.hadoop.h
 </section>
 </li>
 <li>
+<section class="detail" id="isSuspended(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)">
+<h3>isSuspended</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/RESTApiClusterManager.html#line-267">isSuspended</a></span><wbr><span class="parameters">(<a href="ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
+ int&nbsp;port)</span>
+                    throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="ClusterManager.html#isSuspended(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)">ClusterManager</a></code></span></div>
+<div class="block">Returns whether the service is suspended on the remote host. This only checks whether the
+ service status is suspended.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="ClusterManager.html#isSuspended(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)">isSuspended</a></code>&nbsp;in interface&nbsp;<code><a href="ClusterManager.html" title="interface in org.apache.hadoop.hbase">ClusterManager</a></code></dd>
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="isResumed(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)">
+<h3>isResumed</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/RESTApiClusterManager.html#line-272">isResumed</a></span><wbr><span class="parameters">(<a href="ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
+ int&nbsp;port)</span>
+                  throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="ClusterManager.html#isResumed(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)">ClusterManager</a></code></span></div>
+<div class="block">Returns whether the service is resumed on the remote host. This only checks whether the service
+ status is resumed.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="ClusterManager.html#isResumed(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)">isResumed</a></code>&nbsp;in interface&nbsp;<code><a href="ClusterManager.html" title="interface in org.apache.hadoop.hbase">ClusterManager</a></code></dd>
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
+</dl>
+</section>
+</li>
+<li>
 <section class="detail" id="performClusterManagerCommand(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,org.apache.hadoop.hbase.RESTApiClusterManager.RoleCommand)">
 <h3>performClusterManagerCommand</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/RESTApiClusterManager.html#line-269">performClusterManagerCommand</a></span><wbr><span class="parameters">(<a href="ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;role,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/RESTApiClusterManager.html#line-279">performClusterManagerCommand</a></span><wbr><span class="parameters">(<a href="ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;role,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
  <a href="RESTApiClusterManager.RoleCommand.html" title="enum class in org.apache.hadoop.hbase">RESTApiClusterManager.RoleCommand</a>&nbsp;command)</span></div>
 </section>
@@ -713,7 +763,7 @@ implements <a href="ClusterManager.html" title="interface in org.apache.hadoop.h
 <li>
 <section class="detail" id="doRoleCommand(java.lang.String,java.lang.String,org.apache.hadoop.hbase.RESTApiClusterManager.RoleCommand)">
 <h3>doRoleCommand</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/RESTApiClusterManager.html#line-298">doRoleCommand</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;serviceName,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/RESTApiClusterManager.html#line-308">doRoleCommand</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;serviceName,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;roleName,
  <a href="RESTApiClusterManager.RoleCommand.html" title="enum class in org.apache.hadoop.hbase">RESTApiClusterManager.RoleCommand</a>&nbsp;roleCommand)</span></div>
 <div class="block">Issues a command (e.g. starting or stopping a role).</div>
@@ -726,7 +776,7 @@ implements <a href="ClusterManager.html" title="interface in org.apache.hadoop.h
 <li>
 <section class="detail" id="getHealthSummary(java.lang.String,java.lang.String,java.lang.String)">
 <h3>getHealthSummary</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="RESTApiClusterManager.HealthSummary.html" title="enum class in org.apache.hadoop.hbase">RESTApiClusterManager.HealthSummary</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/RESTApiClusterManager.html#line-321">getHealthSummary</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;serviceName,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="RESTApiClusterManager.HealthSummary.html" title="enum class in org.apache.hadoop.hbase">RESTApiClusterManager.HealthSummary</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/RESTApiClusterManager.html#line-331">getHealthSummary</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;serviceName,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;roleType,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostId)</span></div>
 </section>
@@ -734,19 +784,19 @@ implements <a href="ClusterManager.html" title="interface in org.apache.hadoop.h
 <li>
 <section class="detail" id="getHostId(java.lang.String)">
 <h3>getHostId</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/RESTApiClusterManager.html#line-327">getHostId</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/RESTApiClusterManager.html#line-337">getHostId</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getFromURIGet(java.net.URI)">
 <h3>getFromURIGet</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/RESTApiClusterManager.html#line-345">getFromURIGet</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/URI.html" title="class or interface in java.net" class="external-link">URI</a>&nbsp;uri)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/RESTApiClusterManager.html#line-355">getFromURIGet</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/URI.html" title="class or interface in java.net" class="external-link">URI</a>&nbsp;uri)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getRoleName(java.lang.String,java.lang.String,java.lang.String)">
 <h3>getRoleName</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/RESTApiClusterManager.html#line-361">getRoleName</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;serviceName,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/RESTApiClusterManager.html#line-371">getRoleName</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;serviceName,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;roleType,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostId)</span></div>
 </section>
@@ -754,7 +804,7 @@ implements <a href="ClusterManager.html" title="interface in org.apache.hadoop.h
 <li>
 <section class="detail" id="getRolePropertyValue(java.lang.String,java.lang.String,java.lang.String,java.lang.String)">
 <h3>getRolePropertyValue</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/RESTApiClusterManager.html#line-366">getRolePropertyValue</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;serviceName,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/RESTApiClusterManager.html#line-376">getRolePropertyValue</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;serviceName,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;roleType,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostId,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;property)</span></div>
@@ -763,14 +813,14 @@ implements <a href="ClusterManager.html" title="interface in org.apache.hadoop.h
 <li>
 <section class="detail" id="getRoleState(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String)">
 <h3>getRoleState</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="RESTApiClusterManager.RoleState.html" title="enum class in org.apache.hadoop.hbase">RESTApiClusterManager.RoleState</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/RESTApiClusterManager.html#line-390">getRoleState</a></span><wbr><span class="parameters">(<a href="ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="RESTApiClusterManager.RoleState.html" title="enum class in org.apache.hadoop.hbase">RESTApiClusterManager.RoleState</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/RESTApiClusterManager.html#line-400">getRoleState</a></span><wbr><span class="parameters">(<a href="ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getRoleState(java.lang.String,java.lang.String,java.lang.String)">
 <h3>getRoleState</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="RESTApiClusterManager.RoleState.html" title="enum class in org.apache.hadoop.hbase">RESTApiClusterManager.RoleState</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/RESTApiClusterManager.html#line-400">getRoleState</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;serviceName,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="RESTApiClusterManager.RoleState.html" title="enum class in org.apache.hadoop.hbase">RESTApiClusterManager.RoleState</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/RESTApiClusterManager.html#line-410">getRoleState</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;serviceName,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;roleType,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostId)</span></div>
 </section>
@@ -778,46 +828,46 @@ implements <a href="ClusterManager.html" title="interface in org.apache.hadoop.h
 <li>
 <section class="detail" id="getServiceName(org.apache.hadoop.hbase.RESTApiClusterManager.Service)">
 <h3>getServiceName</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/RESTApiClusterManager.html#line-405">getServiceName</a></span><wbr><span class="parameters">(<a href="RESTApiClusterManager.Service.html" title="enum class in org.apache.hadoop.hbase">RESTApiClusterManager.Service</a>&nbsp;service)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/RESTApiClusterManager.html#line-415">getServiceName</a></span><wbr><span class="parameters">(<a href="RESTApiClusterManager.Service.html" title="enum class in org.apache.hadoop.hbase">RESTApiClusterManager.Service</a>&nbsp;service)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getCommand(long)">
 <h3>getCommand</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;org.apache.hbase.thirdparty.com.google.gson.JsonObject&gt;</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/RESTApiClusterManager.html#line-423">getCommand</a></span><wbr><span class="parameters">(long&nbsp;commandId)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;org.apache.hbase.thirdparty.com.google.gson.JsonObject&gt;</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/RESTApiClusterManager.html#line-433">getCommand</a></span><wbr><span class="parameters">(long&nbsp;commandId)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="hasCommandCompleted(long)">
 <h3>hasCommandCompleted</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/RESTApiClusterManager.html#line-433">hasCommandCompleted</a></span><wbr><span class="parameters">(long&nbsp;commandId)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/RESTApiClusterManager.html#line-443">hasCommandCompleted</a></span><wbr><span class="parameters">(long&nbsp;commandId)</span></div>
 <div class="block">Return <code>true</code> if the <code>commandId</code> has finished processing.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="hasCommandCompletedSuccessfully(long)">
 <h3>hasCommandCompletedSuccessfully</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/RESTApiClusterManager.html#line-446">hasCommandCompletedSuccessfully</a></span><wbr><span class="parameters">(long&nbsp;commandId)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/RESTApiClusterManager.html#line-456">hasCommandCompletedSuccessfully</a></span><wbr><span class="parameters">(long&nbsp;commandId)</span></div>
 <div class="block">Return <code>true</code> if the <code>commandId</code> has finished successfully.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="executeWithRetries(java.util.concurrent.Callable)">
 <h3>executeWithRetries</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/RESTApiClusterManager.html#line-463">executeWithRetries</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/Callable.html" title="class or interface in java.util.concurrent" class="external-link">Callable</a>&lt;T&gt;&nbsp;callable)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/RESTApiClusterManager.html#line-473">executeWithRetries</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/Callable.html" title="class or interface in java.util.concurrent" class="external-link">Callable</a>&lt;T&gt;&nbsp;callable)</span></div>
 <div class="block">Helper method for executing retryable work.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="waitFor(java.util.concurrent.Callable)">
 <h3>waitFor</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/RESTApiClusterManager.html#line-483">waitFor</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/Callable.html" title="class or interface in java.util.concurrent" class="external-link">Callable</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&gt;&nbsp;predicate)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/RESTApiClusterManager.html#line-493">waitFor</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/Callable.html" title="class or interface in java.util.concurrent" class="external-link">Callable</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&gt;&nbsp;predicate)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="buildRoleServiceTypeMap()">
 <h3>buildRoleServiceTypeMap</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>,<wbr><a href="RESTApiClusterManager.Service.html" title="enum class in org.apache.hadoop.hbase">RESTApiClusterManager.Service</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/RESTApiClusterManager.html#line-575">buildRoleServiceTypeMap</a></span>()</div>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>,<wbr><a href="RESTApiClusterManager.Service.html" title="enum class in org.apache.hadoop.hbase">RESTApiClusterManager.Service</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/RESTApiClusterManager.html#line-585">buildRoleServiceTypeMap</a></span>()</div>
 </section>
 </li>
 </ul>

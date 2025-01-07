@@ -22,6 +22,8 @@ org.apache.hadoop.hbase.conf
 org.apache.hadoop.hbase.constraint
 org.apache.hadoop.hbase.coprocessor
 org.apache.hadoop.hbase.coprocessor.example
+org.apache.hadoop.hbase.coprocessor.example.row.stats
+org.apache.hadoop.hbase.coprocessor.example.row.stats.sizebucket
 org.apache.hadoop.hbase.errorhandling
 org.apache.hadoop.hbase.exceptions
 org.apache.hadoop.hbase.executor

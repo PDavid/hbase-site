@@ -67,22 +67,24 @@ loadScripts(document, 'script');</script>
 </div>
 <div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.coprocessor.example">org.apache.hadoop.hbase.coprocessor.example</a></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.master">org.apache.hadoop.hbase.master</a></div>
+<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.coprocessor.example.row.stats">org.apache.hadoop.hbase.coprocessor.example.row.stats</a></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.quotas">org.apache.hadoop.hbase.quotas</a></div>
+<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.master">org.apache.hadoop.hbase.master</a></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.regionserver">org.apache.hadoop.hbase.regionserver</a></div>
+<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.quotas">org.apache.hadoop.hbase.quotas</a></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.regionserver.wal">org.apache.hadoop.hbase.regionserver.wal</a></div>
+<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.regionserver">org.apache.hadoop.hbase.regionserver</a></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.rsgroup">org.apache.hadoop.hbase.rsgroup</a></div>
+<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.regionserver.wal">org.apache.hadoop.hbase.regionserver.wal</a></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.security.access">org.apache.hadoop.hbase.security.access</a></div>
+<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.rsgroup">org.apache.hadoop.hbase.rsgroup</a></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.security.token">org.apache.hadoop.hbase.security.token</a></div>
+<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.security.access">org.apache.hadoop.hbase.security.access</a></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.security.visibility">org.apache.hadoop.hbase.security.visibility</a></div>
+<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.security.token">org.apache.hadoop.hbase.security.token</a></div>
 <div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.security.visibility">org.apache.hadoop.hbase.security.visibility</a></div>
+<div class="col-last even-row-color">&nbsp;</div>
 </div>
 <section class="class-uses">
 <ul class="block-list">
@@ -283,6 +285,23 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color"><code>void</code></div>
 <div class="col-second even-row-color"><span class="type-name-label">ZooKeeperScanPolicyObserver.</span><code><a href="../coprocessor/example/ZooKeeperScanPolicyObserver.html#stop(org.apache.hadoop.hbase.CoprocessorEnvironment)" class="member-name-link">stop</a><wbr>(<a href="../CoprocessorEnvironment.html" title="interface in org.apache.hadoop.hbase">CoprocessorEnvironment</a>&nbsp;env)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="org.apache.hadoop.hbase.coprocessor.example.row.stats">
+<h2>Uses of <a href="../CoprocessorEnvironment.html" title="interface in org.apache.hadoop.hbase">CoprocessorEnvironment</a> in <a href="../coprocessor/example/row/stats/package-summary.html">org.apache.hadoop.hbase.coprocessor.example.row.stats</a></h2>
+<div class="caption"><span>Methods in <a href="../coprocessor/example/row/stats/package-summary.html">org.apache.hadoop.hbase.coprocessor.example.row.stats</a> with parameters of type <a href="../CoprocessorEnvironment.html" title="interface in org.apache.hadoop.hbase">CoprocessorEnvironment</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>void</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">RowStatisticsCompactionObserver.</span><code><a href="../coprocessor/example/row/stats/RowStatisticsCompactionObserver.html#start(org.apache.hadoop.hbase.CoprocessorEnvironment)" class="member-name-link">start</a><wbr>(<a href="../CoprocessorEnvironment.html" title="interface in org.apache.hadoop.hbase">CoprocessorEnvironment</a>&nbsp;e)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>void</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">RowStatisticsCompactionObserver.</span><code><a href="../coprocessor/example/row/stats/RowStatisticsCompactionObserver.html#stop(org.apache.hadoop.hbase.CoprocessorEnvironment)" class="member-name-link">stop</a><wbr>(<a href="../CoprocessorEnvironment.html" title="interface in org.apache.hadoop.hbase">CoprocessorEnvironment</a>&nbsp;e)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
 </div>
 </section>
 </li>

@@ -78,7 +78,7 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <hr>
 <div class="type-signature"><span class="annotations">@Private
-</span><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/BackupManifest.html#line-54">BackupManifest</a></span>
+</span><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/BackupManifest.html#line-55">BackupManifest</a></span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
 <div class="block">Backup manifest contains all the meta data of a backup image. The manifest info will be bundled
  as manifest file together with data. So that each backup image will contain all the info needed
@@ -161,7 +161,7 @@ loadScripts(document, 'script');</script>
 <section class="method-summary" id="method-summary">
 <h2>Method Summary</h2>
 <div id="method-summary-table">
-<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button></div>
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab1" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab1', 3)" class="table-tab">Static Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button></div>
 <div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
 <div class="summary-table three-column-summary">
 <div class="table-header col-first">Modifier and Type</div>
@@ -199,19 +199,23 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../BackupType.html" title="enum class in org.apache.hadoop.hbase.backup">BackupType</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getType()" class="member-name-link">getType</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setIncrTimestampMap(java.util.Map)" class="member-name-link">setIncrTimestampMap</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;&gt;&nbsp;incrTimestampMap)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="BackupManifest.BackupImage.html" title="class in org.apache.hadoop.hbase.backup.impl">BackupManifest.BackupImage</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#hydrateRootDir(org.apache.hadoop.hbase.backup.impl.BackupManifest.BackupImage,org.apache.hadoop.fs.Path)" class="member-name-link">hydrateRootDir</a><wbr>(<a href="BackupManifest.BackupImage.html" title="class in org.apache.hadoop.hbase.backup.impl">BackupManifest.BackupImage</a>&nbsp;backupImage,
+ org.apache.hadoop.fs.Path&nbsp;backupPath)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setIncrTimestampMap(java.util.Map)" class="member-name-link">setIncrTimestampMap</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;&gt;&nbsp;incrTimestampMap)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Set the incremental timestamp map directly.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#store(org.apache.hadoop.conf.Configuration)" class="member-name-link">store</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#store(org.apache.hadoop.conf.Configuration)" class="member-name-link">store</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Persist the manifest file.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../BackupInfo.html" title="class in org.apache.hadoop.hbase.backup">BackupInfo</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toBackupInfo()" class="member-name-link">toBackupInfo</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../BackupInfo.html" title="class in org.apache.hadoop.hbase.backup">BackupInfo</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toBackupInfo()" class="member-name-link">toBackupInfo</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
 </div>
@@ -232,13 +236,13 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="LOG">
 <h3>LOG</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/BackupManifest.html#line-56">LOG</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/BackupManifest.html#line-57">LOG</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="MANIFEST_FILE_NAME">
 <h3>MANIFEST_FILE_NAME</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/BackupManifest.html#line-59">MANIFEST_FILE_NAME</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/BackupManifest.html#line-60">MANIFEST_FILE_NAME</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -252,7 +256,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="backupImage">
 <h3>backupImage</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="BackupManifest.BackupImage.html" title="class in org.apache.hadoop.hbase.backup.impl">BackupManifest.BackupImage</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/BackupManifest.html#line-369">backupImage</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="BackupManifest.BackupImage.html" title="class in org.apache.hadoop.hbase.backup.impl">BackupManifest.BackupImage</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/BackupManifest.html#line-375">backupImage</a></span></div>
 </section>
 </li>
 </ul>
@@ -266,7 +270,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;(org.apache.hadoop.hbase.backup.BackupInfo)">
 <h3>BackupManifest</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/BackupManifest.html#line-375">BackupManifest</a></span><wbr><span class="parameters">(<a href="../BackupInfo.html" title="class in org.apache.hadoop.hbase.backup">BackupInfo</a>&nbsp;backup)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/BackupManifest.html#line-381">BackupManifest</a></span><wbr><span class="parameters">(<a href="../BackupInfo.html" title="class in org.apache.hadoop.hbase.backup">BackupInfo</a>&nbsp;backup)</span></div>
 <div class="block">Construct manifest for a ongoing backup.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -277,7 +281,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;(org.apache.hadoop.hbase.backup.BackupInfo,org.apache.hadoop.hbase.TableName)">
 <h3>BackupManifest</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/BackupManifest.html#line-386">BackupManifest</a></span><wbr><span class="parameters">(<a href="../BackupInfo.html" title="class in org.apache.hadoop.hbase.backup">BackupInfo</a>&nbsp;backup,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/BackupManifest.html#line-392">BackupManifest</a></span><wbr><span class="parameters">(<a href="../BackupInfo.html" title="class in org.apache.hadoop.hbase.backup">BackupInfo</a>&nbsp;backup,
  <a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;table)</span></div>
 <div class="block">Construct a table level manifest for a backup of the named table.</div>
 <dl class="notes">
@@ -289,7 +293,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.Path)">
 <h3>BackupManifest</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/BackupManifest.html#line-401">BackupManifest</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/BackupManifest.html#line-407">BackupManifest</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.fs.Path&nbsp;backupPath)</span>
                throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Construct manifest from a backup directory.</div>
@@ -305,7 +309,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path)">
 <h3>BackupManifest</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/BackupManifest.html#line-411">BackupManifest</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.FileSystem&nbsp;fs,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/BackupManifest.html#line-417">BackupManifest</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.Path&nbsp;backupPath)</span>
                throws <span class="exceptions"><a href="BackupException.html" title="class in org.apache.hadoop.hbase.backup.impl">BackupException</a></span></div>
 <div class="block">Construct manifest from a backup directory.</div>
@@ -327,15 +331,27 @@ loadScripts(document, 'script');</script>
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
+<section class="detail" id="hydrateRootDir(org.apache.hadoop.hbase.backup.impl.BackupManifest.BackupImage,org.apache.hadoop.fs.Path)">
+<h3>hydrateRootDir</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="BackupManifest.BackupImage.html" title="class in org.apache.hadoop.hbase.backup.impl">BackupManifest.BackupImage</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/BackupManifest.html#line-462">hydrateRootDir</a></span><wbr><span class="parameters">(<a href="BackupManifest.BackupImage.html" title="class in org.apache.hadoop.hbase.backup.impl">BackupManifest.BackupImage</a>&nbsp;backupImage,
+ org.apache.hadoop.fs.Path&nbsp;backupPath)</span>
+                                                 throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
+<dl class="notes">
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
+</dl>
+</section>
+</li>
+<li>
 <section class="detail" id="getType()">
 <h3>getType</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../BackupType.html" title="enum class in org.apache.hadoop.hbase.backup">BackupType</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/BackupManifest.html#line-455">getType</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../BackupType.html" title="enum class in org.apache.hadoop.hbase.backup">BackupType</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/BackupManifest.html#line-475">getType</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getTableList()">
 <h3>getTableList</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/BackupManifest.html#line-463">getTableList</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/BackupManifest.html#line-483">getTableList</a></span>()</div>
 <div class="block">Get the table set of this image.</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -346,7 +362,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="store(org.apache.hadoop.conf.Configuration)">
 <h3>store</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/BackupManifest.html#line-471">store</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf)</span>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/BackupManifest.html#line-491">store</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf)</span>
            throws <span class="exceptions"><a href="BackupException.html" title="class in org.apache.hadoop.hbase.backup.impl">BackupException</a></span></div>
 <div class="block">Persist the manifest file.</div>
 <dl class="notes">
@@ -358,7 +374,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getBackupImage()">
 <h3>getBackupImage</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="BackupManifest.BackupImage.html" title="class in org.apache.hadoop.hbase.backup.impl">BackupManifest.BackupImage</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/BackupManifest.html#line-491">getBackupImage</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="BackupManifest.BackupImage.html" title="class in org.apache.hadoop.hbase.backup.impl">BackupManifest.BackupImage</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/BackupManifest.html#line-511">getBackupImage</a></span>()</div>
 <div class="block">Get this backup image.</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -369,7 +385,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="addDependentImage(org.apache.hadoop.hbase.backup.impl.BackupManifest.BackupImage)">
 <h3>addDependentImage</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/BackupManifest.html#line-499">addDependentImage</a></span><wbr><span class="parameters">(<a href="BackupManifest.BackupImage.html" title="class in org.apache.hadoop.hbase.backup.impl">BackupManifest.BackupImage</a>&nbsp;image)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/BackupManifest.html#line-519">addDependentImage</a></span><wbr><span class="parameters">(<a href="BackupManifest.BackupImage.html" title="class in org.apache.hadoop.hbase.backup.impl">BackupManifest.BackupImage</a>&nbsp;image)</span></div>
 <div class="block">Add dependent backup image for this backup.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -380,7 +396,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="setIncrTimestampMap(java.util.Map)">
 <h3>setIncrTimestampMap</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/BackupManifest.html#line-507">setIncrTimestampMap</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;&gt;&nbsp;incrTimestampMap)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/BackupManifest.html#line-527">setIncrTimestampMap</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;&gt;&nbsp;incrTimestampMap)</span></div>
 <div class="block">Set the incremental timestamp map directly.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -391,13 +407,13 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getIncrTimestampMap()">
 <h3>getIncrTimestampMap</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/BackupManifest.html#line-511">getIncrTimestampMap</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/BackupManifest.html#line-531">getIncrTimestampMap</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getRestoreDependentList(boolean)">
 <h3>getRestoreDependentList</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;<a href="BackupManifest.BackupImage.html" title="class in org.apache.hadoop.hbase.backup.impl">BackupManifest.BackupImage</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/BackupManifest.html#line-520">getRestoreDependentList</a></span><wbr><span class="parameters">(boolean&nbsp;reverse)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;<a href="BackupManifest.BackupImage.html" title="class in org.apache.hadoop.hbase.backup.impl">BackupManifest.BackupImage</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/BackupManifest.html#line-540">getRestoreDependentList</a></span><wbr><span class="parameters">(boolean&nbsp;reverse)</span></div>
 <div class="block">Get the image list of this backup for restore in time order.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -410,7 +426,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getDependentListByTable(org.apache.hadoop.hbase.TableName)">
 <h3>getDependentListByTable</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;<a href="BackupManifest.BackupImage.html" title="class in org.apache.hadoop.hbase.backup.impl">BackupManifest.BackupImage</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/BackupManifest.html#line-536">getDependentListByTable</a></span><wbr><span class="parameters">(<a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;table)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;<a href="BackupManifest.BackupImage.html" title="class in org.apache.hadoop.hbase.backup.impl">BackupManifest.BackupImage</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/BackupManifest.html#line-556">getDependentListByTable</a></span><wbr><span class="parameters">(<a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;table)</span></div>
 <div class="block">Get the dependent image list for a specific table of this backup in time order from old to new
  if want to restore to this backup image level.</div>
 <dl class="notes">
@@ -424,7 +440,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="toBackupInfo()">
 <h3>toBackupInfo</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../BackupInfo.html" title="class in org.apache.hadoop.hbase.backup">BackupInfo</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/BackupManifest.html#line-551">toBackupInfo</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../BackupInfo.html" title="class in org.apache.hadoop.hbase.backup">BackupInfo</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/impl/BackupManifest.html#line-571">toBackupInfo</a></span>()</div>
 </section>
 </li>
 </ul>

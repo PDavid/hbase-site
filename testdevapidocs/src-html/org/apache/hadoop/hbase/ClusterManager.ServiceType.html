@@ -106,15 +106,27 @@
 <span class="source-line-no">093</span><span id="line-93">   */</span>
 <span class="source-line-no">094</span><span id="line-94">  boolean isRunning(ServiceType service, String hostname, int port) throws IOException;</span>
 <span class="source-line-no">095</span><span id="line-95"></span>
-<span class="source-line-no">096</span><span id="line-96">  /*</span>
-<span class="source-line-no">097</span><span id="line-97">   * TODO: further API ideas: //return services running on host: ServiceType[]</span>
-<span class="source-line-no">098</span><span id="line-98">   * getRunningServicesOnHost(String hostname); //return which services can be run on host (for</span>
-<span class="source-line-no">099</span><span id="line-99">   * example, to query whether hmaster can run on this host) ServiceType[]</span>
-<span class="source-line-no">100</span><span id="line-100">   * getRunnableServicesOnHost(String hostname); //return which hosts can run this service String[]</span>
-<span class="source-line-no">101</span><span id="line-101">   * getRunnableHostsForService(ServiceType service);</span>
-<span class="source-line-no">102</span><span id="line-102">   */</span>
-<span class="source-line-no">103</span><span id="line-103"></span>
-<span class="source-line-no">104</span><span id="line-104">}</span>
+<span class="source-line-no">096</span><span id="line-96">  /**</span>
+<span class="source-line-no">097</span><span id="line-97">   * Returns whether the service is suspended on the remote host. This only checks whether the</span>
+<span class="source-line-no">098</span><span id="line-98">   * service status is suspended.</span>
+<span class="source-line-no">099</span><span id="line-99">   */</span>
+<span class="source-line-no">100</span><span id="line-100">  boolean isSuspended(ServiceType service, String hostname, int port) throws IOException;</span>
+<span class="source-line-no">101</span><span id="line-101"></span>
+<span class="source-line-no">102</span><span id="line-102">  /**</span>
+<span class="source-line-no">103</span><span id="line-103">   * Returns whether the service is resumed on the remote host. This only checks whether the service</span>
+<span class="source-line-no">104</span><span id="line-104">   * status is resumed.</span>
+<span class="source-line-no">105</span><span id="line-105">   */</span>
+<span class="source-line-no">106</span><span id="line-106">  boolean isResumed(ServiceType service, String hostname, int port) throws IOException;</span>
+<span class="source-line-no">107</span><span id="line-107"></span>
+<span class="source-line-no">108</span><span id="line-108">  /*</span>
+<span class="source-line-no">109</span><span id="line-109">   * TODO: further API ideas: //return services running on host: ServiceType[]</span>
+<span class="source-line-no">110</span><span id="line-110">   * getRunningServicesOnHost(String hostname); //return which services can be run on host (for</span>
+<span class="source-line-no">111</span><span id="line-111">   * example, to query whether hmaster can run on this host) ServiceType[]</span>
+<span class="source-line-no">112</span><span id="line-112">   * getRunnableServicesOnHost(String hostname); //return which hosts can run this service String[]</span>
+<span class="source-line-no">113</span><span id="line-113">   * getRunnableHostsForService(ServiceType service);</span>
+<span class="source-line-no">114</span><span id="line-114">   */</span>
+<span class="source-line-no">115</span><span id="line-115"></span>
+<span class="source-line-no">116</span><span id="line-116">}</span>
 
 
 

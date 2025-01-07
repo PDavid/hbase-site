@@ -46,13 +46,13 @@ loadScripts(document, 'script');</script>
 <ul class="sub-nav-list">
 <li>Summary:&nbsp;</li>
 <li><a href="#nested-class-summary">Nested</a>&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field-summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor-summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method-summary">Method</a></li>
 </ul>
 <ul class="sub-nav-list">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field-detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor-detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method-detail">Method</a></li>
 </ul>
@@ -85,7 +85,7 @@ loadScripts(document, 'script');</script>
 <dd><a href="RowCounter.html" title="class in org.apache.hadoop.hbase.mapreduce">RowCounter</a></dd>
 </dl>
 <hr>
-<div class="type-signature"><span class="modifiers">static class </span><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/RowCounter.html#line-79">RowCounter.RowCounterMapper</a></span>
+<div class="type-signature"><span class="modifiers">static class </span><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/RowCounter.html#line-86">RowCounter.RowCounterMapper</a></span>
 <span class="extends-implements">extends <a href="TableMapper.html" title="class in org.apache.hadoop.hbase.mapreduce">TableMapper</a>&lt;<a href="../io/ImmutableBytesWritable.html" title="class in org.apache.hadoop.hbase.io">ImmutableBytesWritable</a>,<wbr><a href="../client/Result.html" title="class in org.apache.hadoop.hbase.client">Result</a>&gt;</span></div>
 <div class="block">Mapper that runs the count.</div>
 </section>
@@ -103,12 +103,27 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color"><code>static enum&nbsp;</code></div>
 <div class="col-second even-row-color"><code><a href="RowCounter.RowCounterMapper.Counters.html" class="type-name-link" title="enum class in org.apache.hadoop.hbase.mapreduce">RowCounter.RowCounterMapper.Counters</a></code></div>
 <div class="col-last even-row-color">
-<div class="block">Counter enumeration to count the actual rows.</div>
+<div class="block">Counter enumeration to count the actual rows, cells and delete markers.</div>
 </div>
 </div>
 <div class="inherited-list">
 <h2 id="nested-classes-inherited-from-class-org.apache.hadoop.mapreduce.Mapper">Nested classes/interfaces inherited from class&nbsp;org.apache.hadoop.mapreduce.Mapper</h2>
 <code>org.apache.hadoop.mapreduce.Mapper.Context</code></div>
+</section>
+</li>
+<!-- =========== FIELD SUMMARY =========== -->
+<li>
+<section class="field-summary" id="field-summary">
+<h2>Field Summary</h2>
+<div class="caption"><span>Fields</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Field</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>private boolean</code></div>
+<div class="col-second even-row-color"><code><a href="#countDeleteMarkers" class="member-name-link">countDeleteMarkers</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
 </section>
 </li>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
@@ -142,12 +157,15 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Maps the data.</div>
 </div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setup(org.apache.hadoop.mapreduce.Mapper.Context)" class="member-name-link">setup</a><wbr>(org.apache.hadoop.mapreduce.Mapper&lt;<a href="../io/ImmutableBytesWritable.html" title="class in org.apache.hadoop.hbase.io">ImmutableBytesWritable</a>,<wbr><a href="../client/Result.html" title="class in org.apache.hadoop.hbase.client">Result</a>,<wbr><a href="../io/ImmutableBytesWritable.html" title="class in org.apache.hadoop.hbase.io">ImmutableBytesWritable</a>,<wbr><a href="../client/Result.html" title="class in org.apache.hadoop.hbase.client">Result</a>&gt;.org.apache.hadoop.mapreduce.Mapper.Context&nbsp;context)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
 </div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-org.apache.hadoop.mapreduce.Mapper">Methods inherited from class&nbsp;org.apache.hadoop.mapreduce.Mapper</h3>
-<code>cleanup, run, setup</code></div>
+<code>cleanup, run</code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;java.lang.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></h3>
 <code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
@@ -157,6 +175,20 @@ loadScripts(document, 'script');</script>
 </section>
 <section class="details">
 <ul class="details-list">
+<!-- ============ FIELD DETAIL =========== -->
+<li>
+<section class="field-details" id="field-detail">
+<h2>Field Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="countDeleteMarkers">
+<h3>countDeleteMarkers</h3>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/RowCounter.RowCounterMapper.html#line-98">countDeleteMarkers</a></span></div>
+</section>
+</li>
+</ul>
+</section>
+</li>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
 <li>
 <section class="constructor-details" id="constructor-detail">
@@ -165,7 +197,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;()">
 <h3>RowCounterMapper</h3>
-<div class="member-signature"><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/RowCounter.RowCounterMapper.html#line-79">RowCounterMapper</a></span>()</div>
+<div class="member-signature"><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/RowCounter.RowCounterMapper.html#line-86">RowCounterMapper</a></span>()</div>
 </section>
 </li>
 </ul>
@@ -177,9 +209,24 @@ loadScripts(document, 'script');</script>
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
+<section class="detail" id="setup(org.apache.hadoop.mapreduce.Mapper.Context)">
+<h3>setup</h3>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/RowCounter.RowCounterMapper.html#line-100">setup</a></span><wbr><span class="parameters">(org.apache.hadoop.mapreduce.Mapper&lt;<a href="../io/ImmutableBytesWritable.html" title="class in org.apache.hadoop.hbase.io">ImmutableBytesWritable</a>,<wbr><a href="../client/Result.html" title="class in org.apache.hadoop.hbase.client">Result</a>,<wbr><a href="../io/ImmutableBytesWritable.html" title="class in org.apache.hadoop.hbase.io">ImmutableBytesWritable</a>,<wbr><a href="../client/Result.html" title="class in org.apache.hadoop.hbase.client">Result</a>&gt;.org.apache.hadoop.mapreduce.Mapper.Context&nbsp;context)</span>
+              throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a>,
+<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/InterruptedException.html" title="class or interface in java.lang" class="external-link">InterruptedException</a></span></div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code>setup</code>&nbsp;in class&nbsp;<code>org.apache.hadoop.mapreduce.Mapper&lt;<a href="../io/ImmutableBytesWritable.html" title="class in org.apache.hadoop.hbase.io">ImmutableBytesWritable</a>,<wbr><a href="../client/Result.html" title="class in org.apache.hadoop.hbase.client">Result</a>,<wbr><a href="../io/ImmutableBytesWritable.html" title="class in org.apache.hadoop.hbase.io">ImmutableBytesWritable</a>,<wbr><a href="../client/Result.html" title="class in org.apache.hadoop.hbase.client">Result</a>&gt;</code></dd>
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/InterruptedException.html" title="class or interface in java.lang" class="external-link">InterruptedException</a></code></dd>
+</dl>
+</section>
+</li>
+<li>
 <section class="detail" id="map(org.apache.hadoop.hbase.io.ImmutableBytesWritable,org.apache.hadoop.hbase.client.Result,org.apache.hadoop.mapreduce.Mapper.Context)">
 <h3>map</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/RowCounter.RowCounterMapper.html#line-94">map</a></span><wbr><span class="parameters">(<a href="../io/ImmutableBytesWritable.html" title="class in org.apache.hadoop.hbase.io">ImmutableBytesWritable</a>&nbsp;row,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/RowCounter.RowCounterMapper.html#line-116">map</a></span><wbr><span class="parameters">(<a href="../io/ImmutableBytesWritable.html" title="class in org.apache.hadoop.hbase.io">ImmutableBytesWritable</a>&nbsp;row,
  <a href="../client/Result.html" title="class in org.apache.hadoop.hbase.client">Result</a>&nbsp;values,
  org.apache.hadoop.mapreduce.Mapper&lt;<a href="../io/ImmutableBytesWritable.html" title="class in org.apache.hadoop.hbase.io">ImmutableBytesWritable</a>,<wbr><a href="../client/Result.html" title="class in org.apache.hadoop.hbase.client">Result</a>,<wbr><a href="../io/ImmutableBytesWritable.html" title="class in org.apache.hadoop.hbase.io">ImmutableBytesWritable</a>,<wbr><a href="../client/Result.html" title="class in org.apache.hadoop.hbase.client">Result</a>&gt;.org.apache.hadoop.mapreduce.Mapper.Context&nbsp;context)</span>
          throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>

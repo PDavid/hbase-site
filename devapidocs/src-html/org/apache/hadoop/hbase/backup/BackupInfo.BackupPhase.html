@@ -280,7 +280,7 @@
 <span class="source-line-no">267</span><span id="line-267">  }</span>
 <span class="source-line-no">268</span><span id="line-268"></span>
 <span class="source-line-no">269</span><span id="line-269">  public void setFailedMsg(String failedMsg) {</span>
-<span class="source-line-no">270</span><span id="line-270">    if (failedMsg.length() &gt; MAX_FAILED_MESSAGE_LENGTH) {</span>
+<span class="source-line-no">270</span><span id="line-270">    if (failedMsg != null &amp;&amp; failedMsg.length() &gt; MAX_FAILED_MESSAGE_LENGTH) {</span>
 <span class="source-line-no">271</span><span id="line-271">      failedMsg = failedMsg.substring(0, MAX_FAILED_MESSAGE_LENGTH);</span>
 <span class="source-line-no">272</span><span id="line-272">    }</span>
 <span class="source-line-no">273</span><span id="line-273">    this.failedMsg = failedMsg;</span>

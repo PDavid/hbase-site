@@ -418,20 +418,20 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="initializeTrackFiles(long)">
 <h3>initializeTrackFiles</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/regionserver/storefiletracker/StoreFileListFile.html#line-187">initializeTrackFiles</a></span><wbr><span class="parameters">(long&nbsp;seqId)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/regionserver/storefiletracker/StoreFileListFile.html#line-189">initializeTrackFiles</a></span><wbr><span class="parameters">(long&nbsp;seqId)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="cleanUpTrackFiles(long,java.util.NavigableMap)">
 <h3>cleanUpTrackFiles</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/regionserver/storefiletracker/StoreFileListFile.html#line-193">cleanUpTrackFiles</a></span><wbr><span class="parameters">(long&nbsp;loadedSeqId,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/regionserver/storefiletracker/StoreFileListFile.html#line-195">cleanUpTrackFiles</a></span><wbr><span class="parameters">(long&nbsp;loadedSeqId,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/NavigableMap.html" title="class or interface in java.util" class="external-link">NavigableMap</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;org.apache.hadoop.fs.Path&gt;&gt;&nbsp;seqId2TrackFiles)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="load(boolean)">
 <h3>load</h3>
-<div class="member-signature"><span class="return-type">org.apache.hadoop.hbase.shaded.protobuf.generated.StoreFileTrackerProtos.StoreFileList</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/regionserver/storefiletracker/StoreFileListFile.html#line-211">load</a></span><wbr><span class="parameters">(boolean&nbsp;readOnly)</span>
+<div class="member-signature"><span class="return-type">org.apache.hadoop.hbase.shaded.protobuf.generated.StoreFileTrackerProtos.StoreFileList</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/regionserver/storefiletracker/StoreFileListFile.html#line-213">load</a></span><wbr><span class="parameters">(boolean&nbsp;readOnly)</span>
                                                                                      throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -442,7 +442,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="write(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.shaded.protobuf.generated.StoreFileTrackerProtos.StoreFileList)">
 <h3>write</h3>
-<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/regionserver/storefiletracker/StoreFileListFile.html#line-257">write</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.FileSystem&nbsp;fs,
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/regionserver/storefiletracker/StoreFileListFile.html#line-259">write</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.Path&nbsp;file,
  org.apache.hadoop.hbase.shaded.protobuf.generated.StoreFileTrackerProtos.StoreFileList&nbsp;storeFileList)</span>
            throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
@@ -455,7 +455,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="update(org.apache.hadoop.hbase.shaded.protobuf.generated.StoreFileTrackerProtos.StoreFileList.Builder)">
 <h3>update</h3>
-<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/regionserver/storefiletracker/StoreFileListFile.html#line-275">update</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.shaded.protobuf.generated.StoreFileTrackerProtos.StoreFileList.Builder&nbsp;builder)</span>
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/regionserver/storefiletracker/StoreFileListFile.html#line-277">update</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.shaded.protobuf.generated.StoreFileTrackerProtos.StoreFileList.Builder&nbsp;builder)</span>
      throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">We will set the timestamp and version in this method so just pass the builder in</div>
 <dl class="notes">

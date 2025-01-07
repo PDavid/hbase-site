@@ -409,12 +409,20 @@
 <span class="source-line-no">396</span><span id="line-396">    long onHeapCacheSize = MemorySizeUtil.getOnHeapCacheSize(copyConf);</span>
 <span class="source-line-no">397</span><span id="line-397">    assertEquals(null, copyConf.get(HConstants.HFILE_ONHEAP_BLOCK_CACHE_FIXED_SIZE_KEY));</span>
 <span class="source-line-no">398</span><span id="line-398">    assertTrue(onHeapCacheSize &gt; 0 &amp;&amp; onHeapCacheSize != fixedSize);</span>
-<span class="source-line-no">399</span><span id="line-399">    // when HBASE_BLOCK_CACHE_FIXED_SIZE_KEY is set, it will be a fixed size</span>
-<span class="source-line-no">400</span><span id="line-400">    copyConf.setLong(HConstants.HFILE_ONHEAP_BLOCK_CACHE_FIXED_SIZE_KEY, fixedSize);</span>
+<span class="source-line-no">399</span><span id="line-399">    // when HBASE_BLOCK_CACHE_MEMORY_SIZE is set in number</span>
+<span class="source-line-no">400</span><span id="line-400">    copyConf.setLong(HConstants.HFILE_BLOCK_CACHE_MEMORY_SIZE_KEY, 3 * 1024 * 1024);</span>
 <span class="source-line-no">401</span><span id="line-401">    onHeapCacheSize = MemorySizeUtil.getOnHeapCacheSize(copyConf);</span>
-<span class="source-line-no">402</span><span id="line-402">    assertEquals(fixedSize, onHeapCacheSize);</span>
-<span class="source-line-no">403</span><span id="line-403">  }</span>
-<span class="source-line-no">404</span><span id="line-404">}</span>
+<span class="source-line-no">402</span><span id="line-402">    assertEquals(3 * 1024 * 1024, onHeapCacheSize);</span>
+<span class="source-line-no">403</span><span id="line-403">    // when HBASE_BLOCK_CACHE_MEMORY_SIZE is set in human-readable format</span>
+<span class="source-line-no">404</span><span id="line-404">    copyConf.set(HConstants.HFILE_BLOCK_CACHE_MEMORY_SIZE_KEY, "2m");</span>
+<span class="source-line-no">405</span><span id="line-405">    onHeapCacheSize = MemorySizeUtil.getOnHeapCacheSize(copyConf);</span>
+<span class="source-line-no">406</span><span id="line-406">    assertEquals(2 * 1024 * 1024, onHeapCacheSize);</span>
+<span class="source-line-no">407</span><span id="line-407">    // when HBASE_BLOCK_CACHE_FIXED_SIZE_KEY is set, it will be a fixed size</span>
+<span class="source-line-no">408</span><span id="line-408">    copyConf.setLong(HConstants.HFILE_ONHEAP_BLOCK_CACHE_FIXED_SIZE_KEY, fixedSize);</span>
+<span class="source-line-no">409</span><span id="line-409">    onHeapCacheSize = MemorySizeUtil.getOnHeapCacheSize(copyConf);</span>
+<span class="source-line-no">410</span><span id="line-410">    assertEquals(fixedSize, onHeapCacheSize);</span>
+<span class="source-line-no">411</span><span id="line-411">  }</span>
+<span class="source-line-no">412</span><span id="line-412">}</span>
 
 
 

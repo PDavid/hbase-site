@@ -155,88 +155,90 @@ loadScripts(document, 'script');</script>
 </div>
 <div class="col-first odd-row-color class-summary class-summary-tab2"><a href="FileChangeWatcher.html" title="class in org.apache.hadoop.hbase.io">FileChangeWatcher</a></div>
 <div class="col-last odd-row-color class-summary class-summary-tab2">
-<div class="block">Instances of this class can be used to watch a directory for file changes.</div>
+<div class="block">Instances of this class can be used to watch a file for changes.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab3"><a href="FileChangeWatcher.State.html" title="enum class in org.apache.hadoop.hbase.io">FileChangeWatcher.State</a></div>
-<div class="col-last even-row-color class-summary class-summary-tab3">&nbsp;</div>
-<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="FileLink.html" title="class in org.apache.hadoop.hbase.io">FileLink</a></div>
-<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="col-first even-row-color class-summary class-summary-tab1"><a href="FileChangeWatcher.FileChangeWatcherCallback.html" title="interface in org.apache.hadoop.hbase.io">FileChangeWatcher.FileChangeWatcherCallback</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab1">&nbsp;</div>
+<div class="col-first odd-row-color class-summary class-summary-tab3"><a href="FileChangeWatcher.State.html" title="enum class in org.apache.hadoop.hbase.io">FileChangeWatcher.State</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab3">&nbsp;</div>
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="FileLink.html" title="class in org.apache.hadoop.hbase.io">FileLink</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
 <div class="block">The FileLink is a sort of hardlink, that allows access to a file given a set of locations.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab2"><a href="FileLink.FileLinkInputStream.html" title="class in org.apache.hadoop.hbase.io">FileLink.FileLinkInputStream</a></div>
-<div class="col-last even-row-color class-summary class-summary-tab2">
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="FileLink.FileLinkInputStream.html" title="class in org.apache.hadoop.hbase.io">FileLink.FileLinkInputStream</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">
 <div class="block">FileLink InputStream that handles the switch between the original path and the alternative
  locations, when the file is moved.</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="FSDataInputStreamWrapper.html" title="class in org.apache.hadoop.hbase.io">FSDataInputStreamWrapper</a></div>
-<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="FSDataInputStreamWrapper.html" title="class in org.apache.hadoop.hbase.io">FSDataInputStreamWrapper</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
 <div class="block">Wrapper for input stream(s) that takes care of the interaction of FS and HBase checksums, as well
  as closing streams.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab2"><a href="FSDataInputStreamWrapper.ReadStatistics.html" title="class in org.apache.hadoop.hbase.io">FSDataInputStreamWrapper.ReadStatistics</a></div>
-<div class="col-last even-row-color class-summary class-summary-tab2">&nbsp;</div>
-<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="HalfStoreFileReader.html" title="class in org.apache.hadoop.hbase.io">HalfStoreFileReader</a></div>
-<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="FSDataInputStreamWrapper.ReadStatistics.html" title="class in org.apache.hadoop.hbase.io">FSDataInputStreamWrapper.ReadStatistics</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">&nbsp;</div>
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="HalfStoreFileReader.html" title="class in org.apache.hadoop.hbase.io">HalfStoreFileReader</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
 <div class="block">A facade for a <a href="hfile/HFile.Reader.html" title="interface in org.apache.hadoop.hbase.io.hfile"><code>HFile.Reader</code></a> that serves up either the
  top or bottom half of a HFile where 'bottom' is the first half of the file containing the keys
  that sort lowest and 'top' is the second half of the file with keys that sort greater than those
  of the bottom half.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab1"><a href="HeapSize.html" title="interface in org.apache.hadoop.hbase.io">HeapSize</a></div>
-<div class="col-last even-row-color class-summary class-summary-tab1">
+<div class="col-first odd-row-color class-summary class-summary-tab1"><a href="HeapSize.html" title="interface in org.apache.hadoop.hbase.io">HeapSize</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab1">
 <div class="block">Implementations can be asked for an estimate of their size in bytes.</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="HFileLink.html" title="class in org.apache.hadoop.hbase.io">HFileLink</a></div>
-<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="HFileLink.html" title="class in org.apache.hadoop.hbase.io">HFileLink</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
 <div class="block">HFileLink describes a link to an hfile.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab2"><a href="ImmutableBytesWritable.html" title="class in org.apache.hadoop.hbase.io">ImmutableBytesWritable</a></div>
-<div class="col-last even-row-color class-summary class-summary-tab2">
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="ImmutableBytesWritable.html" title="class in org.apache.hadoop.hbase.io">ImmutableBytesWritable</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">
 <div class="block">A byte sequence that is usable as a key or value.</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="ImmutableBytesWritable.Comparator.html" title="class in org.apache.hadoop.hbase.io">ImmutableBytesWritable.Comparator</a></div>
-<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="ImmutableBytesWritable.Comparator.html" title="class in org.apache.hadoop.hbase.io">ImmutableBytesWritable.Comparator</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
 <div class="block">A Comparator optimized for ImmutableBytesWritable.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab2"><a href="MetricsIO.html" title="class in org.apache.hadoop.hbase.io">MetricsIO</a></div>
-<div class="col-last even-row-color class-summary class-summary-tab2">&nbsp;</div>
-<div class="col-first odd-row-color class-summary class-summary-tab1"><a href="MetricsIOSource.html" title="interface in org.apache.hadoop.hbase.io">MetricsIOSource</a></div>
-<div class="col-last odd-row-color class-summary class-summary-tab1">&nbsp;</div>
-<div class="col-first even-row-color class-summary class-summary-tab2"><a href="MetricsIOSourceImpl.html" title="class in org.apache.hadoop.hbase.io">MetricsIOSourceImpl</a></div>
-<div class="col-last even-row-color class-summary class-summary-tab2">&nbsp;</div>
-<div class="col-first odd-row-color class-summary class-summary-tab1"><a href="MetricsIOWrapper.html" title="interface in org.apache.hadoop.hbase.io">MetricsIOWrapper</a></div>
-<div class="col-last odd-row-color class-summary class-summary-tab1">&nbsp;</div>
-<div class="col-first even-row-color class-summary class-summary-tab2"><a href="MetricsIOWrapperImpl.html" title="class in org.apache.hadoop.hbase.io">MetricsIOWrapperImpl</a></div>
-<div class="col-last even-row-color class-summary class-summary-tab2">&nbsp;</div>
-<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="Reference.html" title="class in org.apache.hadoop.hbase.io">Reference</a></div>
-<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="MetricsIO.html" title="class in org.apache.hadoop.hbase.io">MetricsIO</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">&nbsp;</div>
+<div class="col-first even-row-color class-summary class-summary-tab1"><a href="MetricsIOSource.html" title="interface in org.apache.hadoop.hbase.io">MetricsIOSource</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab1">&nbsp;</div>
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="MetricsIOSourceImpl.html" title="class in org.apache.hadoop.hbase.io">MetricsIOSourceImpl</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">&nbsp;</div>
+<div class="col-first even-row-color class-summary class-summary-tab1"><a href="MetricsIOWrapper.html" title="interface in org.apache.hadoop.hbase.io">MetricsIOWrapper</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab1">&nbsp;</div>
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="MetricsIOWrapperImpl.html" title="class in org.apache.hadoop.hbase.io">MetricsIOWrapperImpl</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">&nbsp;</div>
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="Reference.html" title="class in org.apache.hadoop.hbase.io">Reference</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
 <div class="block">A reference to the top or bottom half of a store file where 'bottom' is the first half of the
  file containing the keys that sort lowest and 'top' is the second half of the file with keys that
  sort greater than those of the bottom half.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab3"><a href="Reference.Range.html" title="enum class in org.apache.hadoop.hbase.io">Reference.Range</a></div>
-<div class="col-last even-row-color class-summary class-summary-tab3">
+<div class="col-first odd-row-color class-summary class-summary-tab3"><a href="Reference.Range.html" title="enum class in org.apache.hadoop.hbase.io">Reference.Range</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab3">
 <div class="block">For split HStoreFiles, it specifies if the file covers the lower half or the upper half of the
  key range</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab1"><a href="SizedExtendedCellScanner.html" title="interface in org.apache.hadoop.hbase.io">SizedExtendedCellScanner</a></div>
-<div class="col-last odd-row-color class-summary class-summary-tab1">
+<div class="col-first even-row-color class-summary class-summary-tab1"><a href="SizedExtendedCellScanner.html" title="interface in org.apache.hadoop.hbase.io">SizedExtendedCellScanner</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab1">
 <div class="block">A CellScanner that knows its size in memory in bytes.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab2"><a href="TagCompressionContext.html" title="class in org.apache.hadoop.hbase.io">TagCompressionContext</a></div>
-<div class="col-last even-row-color class-summary class-summary-tab2">
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="TagCompressionContext.html" title="class in org.apache.hadoop.hbase.io">TagCompressionContext</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">
 <div class="block">Context that holds the dictionary for Tag compression and doing the compress/uncompress.</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="TimeRange.html" title="class in org.apache.hadoop.hbase.io">TimeRange</a></div>
-<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="TimeRange.html" title="class in org.apache.hadoop.hbase.io">TimeRange</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
 <div class="block">Represents an interval of version timestamps.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab2"><a href="WALLink.html" title="class in org.apache.hadoop.hbase.io">WALLink</a></div>
-<div class="col-last even-row-color class-summary class-summary-tab2">
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="WALLink.html" title="class in org.apache.hadoop.hbase.io">WALLink</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">
 <div class="block">WALLink describes a link to a WAL.</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab1"><a href="WritableWithSize.html" title="interface in org.apache.hadoop.hbase.io">WritableWithSize</a></div>
-<div class="col-last odd-row-color class-summary class-summary-tab1">
+<div class="col-first even-row-color class-summary class-summary-tab1"><a href="WritableWithSize.html" title="interface in org.apache.hadoop.hbase.io">WritableWithSize</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab1">
 <div class="block">An optional interface to 'size' writables.</div>
 </div>
 </div>

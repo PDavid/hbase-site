@@ -80,6 +80,10 @@ loadScripts(document, 'script');</script>
 </div>
 <div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.coprocessor.example">org.apache.hadoop.hbase.coprocessor.example</a></div>
 <div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.coprocessor.example.row.stats">org.apache.hadoop.hbase.coprocessor.example.row.stats</a></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.coprocessor.example.row.stats.utils">org.apache.hadoop.hbase.coprocessor.example.row.stats.utils</a></div>
+<div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.filter">org.apache.hadoop.hbase.filter</a></div>
 <div class="col-last odd-row-color">
 <div class="block">Provides row-level filters applied to HRegion scan results during calls to
@@ -1616,6 +1620,78 @@ service.</div>
  <a href="../client/Get.html" title="class in org.apache.hadoop.hbase.client">Get</a>&nbsp;get,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&gt;&nbsp;result)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="org.apache.hadoop.hbase.coprocessor.example.row.stats">
+<h2>Uses of <a href="../Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a> in <a href="../coprocessor/example/row/stats/package-summary.html">org.apache.hadoop.hbase.coprocessor.example.row.stats</a></h2>
+<div class="caption"><span>Fields in <a href="../coprocessor/example/row/stats/package-summary.html">org.apache.hadoop.hbase.coprocessor.example.row.stats</a> declared as <a href="../Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Field</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>private <a href="../Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">RowStatisticsImpl.</span><code><a href="../coprocessor/example/row/stats/RowStatisticsImpl.html#largestCell" class="member-name-link">largestCell</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private <a href="../Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a></code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">RowStatisticsImpl.</span><code><a href="../coprocessor/example/row/stats/RowStatisticsImpl.html#largestCellRef" class="member-name-link">largestCellRef</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private <a href="../Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">RowStatisticsImpl.</span><code><a href="../coprocessor/example/row/stats/RowStatisticsImpl.html#largestRowRef" class="member-name-link">largestRowRef</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private <a href="../Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a></code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">RowStatisticsCompactionObserver.RowStatisticsScanner.</span><code><a href="../coprocessor/example/row/stats/RowStatisticsCompactionObserver.RowStatisticsScanner.html#lastCell" class="member-name-link">lastCell</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+</div>
+<div class="caption"><span>Methods in <a href="../coprocessor/example/row/stats/package-summary.html">org.apache.hadoop.hbase.coprocessor.example.row.stats</a> that return <a href="../Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code><a href="../Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">RowStatisticsImpl.</span><code><a href="../coprocessor/example/row/stats/RowStatisticsImpl.html#getLargestCell()" class="member-name-link">getLargestCell</a>()</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+<div class="caption"><span>Methods in <a href="../coprocessor/example/row/stats/package-summary.html">org.apache.hadoop.hbase.coprocessor.example.row.stats</a> with parameters of type <a href="../Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>void</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">RowStatisticsImpl.</span><code><a href="../coprocessor/example/row/stats/RowStatisticsImpl.html#consumeCell(org.apache.hadoop.hbase.Cell)" class="member-name-link">consumeCell</a><wbr>(<a href="../Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>void</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">RowStatisticsImpl.</span><code><a href="../coprocessor/example/row/stats/RowStatisticsImpl.html#handleRowChanged(org.apache.hadoop.hbase.Cell)" class="member-name-link">handleRowChanged</a><wbr>(<a href="../Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;lastCell)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private boolean</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">RowStatisticsCompactionObserver.RowStatisticsScanner.</span><code><a href="../coprocessor/example/row/stats/RowStatisticsCompactionObserver.RowStatisticsScanner.html#rowChanged(org.apache.hadoop.hbase.Cell)" class="member-name-link">rowChanged</a><wbr>(<a href="../Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="org.apache.hadoop.hbase.coprocessor.example.row.stats.utils">
+<h2>Uses of <a href="../Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a> in <a href="../coprocessor/example/row/stats/utils/package-summary.html">org.apache.hadoop.hbase.coprocessor.example.row.stats.utils</a></h2>
+<div class="caption"><span>Methods in <a href="../coprocessor/example/row/stats/utils/package-summary.html">org.apache.hadoop.hbase.coprocessor.example.row.stats.utils</a> that return <a href="../Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>static <a href="../Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">RowStatisticsUtil.</span><code><a href="../coprocessor/example/row/stats/utils/RowStatisticsUtil.html#cloneWithoutValue(org.apache.hadoop.hbase.RawCellBuilder,org.apache.hadoop.hbase.Cell)" class="member-name-link">cloneWithoutValue</a><wbr>(<a href="../RawCellBuilder.html" title="interface in org.apache.hadoop.hbase">RawCellBuilder</a>&nbsp;cellBuilder,
+ <a href="../Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+<div class="caption"><span>Methods in <a href="../coprocessor/example/row/stats/utils/package-summary.html">org.apache.hadoop.hbase.coprocessor.example.row.stats.utils</a> with parameters of type <a href="../Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>static <a href="../Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">RowStatisticsUtil.</span><code><a href="../coprocessor/example/row/stats/utils/RowStatisticsUtil.html#cloneWithoutValue(org.apache.hadoop.hbase.RawCellBuilder,org.apache.hadoop.hbase.Cell)" class="member-name-link">cloneWithoutValue</a><wbr>(<a href="../RawCellBuilder.html" title="interface in org.apache.hadoop.hbase">RawCellBuilder</a>&nbsp;cellBuilder,
+ <a href="../Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
 </li>

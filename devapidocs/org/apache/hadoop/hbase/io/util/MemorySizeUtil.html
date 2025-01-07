@@ -78,7 +78,7 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <hr>
 <div class="type-signature"><span class="annotations">@Private
-</span><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/util/MemorySizeUtil.html#line-34">MemorySizeUtil</a></span>
+</span><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/util/MemorySizeUtil.html#line-35">MemorySizeUtil</a></span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
 <div class="block">Util class to calculate memory size for memstore(on heap, off heap), block cache(L1, L2) of RS.</div>
 </section>
@@ -161,38 +161,43 @@ loadScripts(document, 'script');</script>
 <div class="block">Retrieve configured size for on heap block cache as percentage of total heap.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static long</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getBucketCacheSize(org.apache.hadoop.conf.Configuration)" class="member-name-link">getBucketCacheSize</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static float</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getGlobalMemStoreHeapLowerMark(org.apache.hadoop.conf.Configuration,boolean)" class="member-name-link">getGlobalMemStoreHeapLowerMark</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getBlockCacheSizeInBytes(org.apache.hadoop.conf.Configuration)" class="member-name-link">getBlockCacheSizeInBytes</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Retrieve an explicit block cache size in bytes in the configuration.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static long</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getBucketCacheSize(org.apache.hadoop.conf.Configuration)" class="member-name-link">getBucketCacheSize</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static float</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getGlobalMemStoreHeapLowerMark(org.apache.hadoop.conf.Configuration,boolean)" class="member-name-link">getGlobalMemStoreHeapLowerMark</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
  boolean&nbsp;honorOldConfig)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Retrieve configured size for global memstore lower water mark as fraction of global memstore
  size.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static float</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getGlobalMemStoreHeapPercent(org.apache.hadoop.conf.Configuration,boolean)" class="member-name-link">getGlobalMemStoreHeapPercent</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;c,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static float</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getGlobalMemStoreHeapPercent(org.apache.hadoop.conf.Configuration,boolean)" class="member-name-link">getGlobalMemStoreHeapPercent</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;c,
  boolean&nbsp;logInvalid)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Retrieve global memstore configured size as percentage of total heap.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../../util/Pair.html" title="class in org.apache.hadoop.hbase.util">Pair</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.management/java/lang/management/MemoryType.html" title="class or interface in java.lang.management" class="external-link">MemoryType</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getGlobalMemStoreSize(org.apache.hadoop.conf.Configuration)" class="member-name-link">getGlobalMemStoreSize</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../../util/Pair.html" title="class in org.apache.hadoop.hbase.util">Pair</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.management/java/lang/management/MemoryType.html" title="class or interface in java.lang.management" class="external-link">MemoryType</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getGlobalMemStoreSize(org.apache.hadoop.conf.Configuration)" class="member-name-link">getGlobalMemStoreSize</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Returns Pair of global memstore size and memory type(ie.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static long</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getOnHeapCacheSize(org.apache.hadoop.conf.Configuration)" class="member-name-link">getOnHeapCacheSize</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static long</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getOnheapGlobalMemStoreSize(org.apache.hadoop.conf.Configuration)" class="member-name-link">getOnheapGlobalMemStoreSize</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getOnHeapCacheSize(org.apache.hadoop.conf.Configuration)" class="member-name-link">getOnHeapCacheSize</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static long</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getOnheapGlobalMemStoreSize(org.apache.hadoop.conf.Configuration)" class="member-name-link">getOnheapGlobalMemStoreSize</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Returns the onheap global memstore limit based on the config
  'hbase.regionserver.global.memstore.size'.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.management/java/lang/management/MemoryUsage.html" title="class or interface in java.lang.management" class="external-link">MemoryUsage</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#safeGetHeapMemoryUsage()" class="member-name-link">safeGetHeapMemoryUsage</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.management/java/lang/management/MemoryUsage.html" title="class or interface in java.lang.management" class="external-link">MemoryUsage</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#safeGetHeapMemoryUsage()" class="member-name-link">safeGetHeapMemoryUsage</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Return JVM memory statistics while properly handling runtime exceptions from the JVM.</div>
 </div>
 </div>
@@ -215,7 +220,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="MEMSTORE_SIZE_KEY">
 <h3>MEMSTORE_SIZE_KEY</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/util/MemorySizeUtil.html#line-37">MEMSTORE_SIZE_KEY</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/util/MemorySizeUtil.html#line-38">MEMSTORE_SIZE_KEY</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -229,7 +234,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="MEMSTORE_SIZE_OLD_KEY">
 <h3>MEMSTORE_SIZE_OLD_KEY</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/util/MemorySizeUtil.html#line-38">MEMSTORE_SIZE_OLD_KEY</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/util/MemorySizeUtil.html#line-39">MEMSTORE_SIZE_OLD_KEY</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -243,7 +248,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="MEMSTORE_SIZE_LOWER_LIMIT_KEY">
 <h3>MEMSTORE_SIZE_LOWER_LIMIT_KEY</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/util/MemorySizeUtil.html#line-40">MEMSTORE_SIZE_LOWER_LIMIT_KEY</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/util/MemorySizeUtil.html#line-41">MEMSTORE_SIZE_LOWER_LIMIT_KEY</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -257,7 +262,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="MEMSTORE_SIZE_LOWER_LIMIT_OLD_KEY">
 <h3>MEMSTORE_SIZE_LOWER_LIMIT_OLD_KEY</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/util/MemorySizeUtil.html#line-42">MEMSTORE_SIZE_LOWER_LIMIT_OLD_KEY</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/util/MemorySizeUtil.html#line-43">MEMSTORE_SIZE_LOWER_LIMIT_OLD_KEY</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -271,7 +276,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="OFFHEAP_MEMSTORE_SIZE_KEY">
 <h3>OFFHEAP_MEMSTORE_SIZE_KEY</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/util/MemorySizeUtil.html#line-46">OFFHEAP_MEMSTORE_SIZE_KEY</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/util/MemorySizeUtil.html#line-47">OFFHEAP_MEMSTORE_SIZE_KEY</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -285,7 +290,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="DEFAULT_MEMSTORE_SIZE">
 <h3>DEFAULT_MEMSTORE_SIZE</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/util/MemorySizeUtil.html#line-49">DEFAULT_MEMSTORE_SIZE</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/util/MemorySizeUtil.html#line-50">DEFAULT_MEMSTORE_SIZE</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -299,7 +304,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="DEFAULT_MEMSTORE_SIZE_LOWER_LIMIT">
 <h3>DEFAULT_MEMSTORE_SIZE_LOWER_LIMIT</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/util/MemorySizeUtil.html#line-51">DEFAULT_MEMSTORE_SIZE_LOWER_LIMIT</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/util/MemorySizeUtil.html#line-52">DEFAULT_MEMSTORE_SIZE_LOWER_LIMIT</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -313,13 +318,13 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="LOG">
 <h3>LOG</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/util/MemorySizeUtil.html#line-53">LOG</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/util/MemorySizeUtil.html#line-54">LOG</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="CONVERT_TO_PERCENTAGE">
 <h3>CONVERT_TO_PERCENTAGE</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/util/MemorySizeUtil.html#line-55">CONVERT_TO_PERCENTAGE</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/util/MemorySizeUtil.html#line-56">CONVERT_TO_PERCENTAGE</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -333,7 +338,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="JVM_HEAP_EXCEPTION">
 <h3>JVM_HEAP_EXCEPTION</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/util/MemorySizeUtil.html#line-57">JVM_HEAP_EXCEPTION</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/util/MemorySizeUtil.html#line-58">JVM_HEAP_EXCEPTION</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -355,7 +360,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;()">
 <h3>MemorySizeUtil</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/util/MemorySizeUtil.html#line-35">MemorySizeUtil</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/util/MemorySizeUtil.html#line-36">MemorySizeUtil</a></span>()</div>
 </section>
 </li>
 </ul>
@@ -369,7 +374,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="safeGetHeapMemoryUsage()">
 <h3>safeGetHeapMemoryUsage</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.management/java/lang/management/MemoryUsage.html" title="class or interface in java.lang.management" class="external-link">MemoryUsage</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/util/MemorySizeUtil.html#line-68">safeGetHeapMemoryUsage</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.management/java/lang/management/MemoryUsage.html" title="class or interface in java.lang.management" class="external-link">MemoryUsage</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/util/MemorySizeUtil.html#line-69">safeGetHeapMemoryUsage</a></span>()</div>
 <div class="block">Return JVM memory statistics while properly handling runtime exceptions from the JVM.</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -387,7 +392,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="checkForClusterFreeHeapMemoryLimit(org.apache.hadoop.conf.Configuration)">
 <h3>checkForClusterFreeHeapMemoryLimit</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/util/MemorySizeUtil.html#line-82">checkForClusterFreeHeapMemoryLimit</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/util/MemorySizeUtil.html#line-83">checkForClusterFreeHeapMemoryLimit</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf)</span></div>
 <div class="block">Checks whether we have enough heap memory left out after portion for Memstore and Block cache.
  We need atleast 20% of heap left out for other RS functions.</div>
 </section>
@@ -395,7 +400,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getGlobalMemStoreHeapPercent(org.apache.hadoop.conf.Configuration,boolean)">
 <h3>getGlobalMemStoreHeapPercent</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/util/MemorySizeUtil.html#line-107">getGlobalMemStoreHeapPercent</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;c,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/util/MemorySizeUtil.html#line-113">getGlobalMemStoreHeapPercent</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;c,
  boolean&nbsp;logInvalid)</span></div>
 <div class="block">Retrieve global memstore configured size as percentage of total heap.</div>
 </section>
@@ -403,7 +408,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getGlobalMemStoreHeapLowerMark(org.apache.hadoop.conf.Configuration,boolean)">
 <h3>getGlobalMemStoreHeapLowerMark</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/util/MemorySizeUtil.html#line-125">getGlobalMemStoreHeapLowerMark</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/util/MemorySizeUtil.html#line-131">getGlobalMemStoreHeapLowerMark</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
  boolean&nbsp;honorOldConfig)</span></div>
 <div class="block">Retrieve configured size for global memstore lower water mark as fraction of global memstore
  size.</div>
@@ -412,14 +417,14 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getGlobalMemStoreSize(org.apache.hadoop.conf.Configuration)">
 <h3>getGlobalMemStoreSize</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../../util/Pair.html" title="class in org.apache.hadoop.hbase.util">Pair</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.management/java/lang/management/MemoryType.html" title="class or interface in java.lang.management" class="external-link">MemoryType</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/util/MemorySizeUtil.html#line-157">getGlobalMemStoreSize</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../../util/Pair.html" title="class in org.apache.hadoop.hbase.util">Pair</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.management/java/lang/management/MemoryType.html" title="class or interface in java.lang.management" class="external-link">MemoryType</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/util/MemorySizeUtil.html#line-163">getGlobalMemStoreSize</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf)</span></div>
 <div class="block">Returns Pair of global memstore size and memory type(ie. on heap or off heap).</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getOnheapGlobalMemStoreSize(org.apache.hadoop.conf.Configuration)">
 <h3>getOnheapGlobalMemStoreSize</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/util/MemorySizeUtil.html#line-184">getOnheapGlobalMemStoreSize</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/util/MemorySizeUtil.html#line-190">getOnheapGlobalMemStoreSize</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf)</span></div>
 <div class="block">Returns the onheap global memstore limit based on the config
  'hbase.regionserver.global.memstore.size'.</div>
 <dl class="notes">
@@ -431,14 +436,29 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getBlockCacheHeapPercent(org.apache.hadoop.conf.Configuration)">
 <h3>getBlockCacheHeapPercent</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/util/MemorySizeUtil.html#line-197">getBlockCacheHeapPercent</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/util/MemorySizeUtil.html#line-203">getBlockCacheHeapPercent</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf)</span></div>
 <div class="block">Retrieve configured size for on heap block cache as percentage of total heap.</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getBlockCacheSizeInBytes(org.apache.hadoop.conf.Configuration)">
+<h3>getBlockCacheSizeInBytes</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/util/MemorySizeUtil.html#line-221">getBlockCacheSizeInBytes</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf)</span></div>
+<div class="block">Retrieve an explicit block cache size in bytes in the configuration.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>conf</code> - used to read cache configs</dd>
+<dt>Returns:</dt>
+<dd>the number of bytes to use for LRU, negative if disabled.</dd>
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/IllegalArgumentException.html" title="class or interface in java.lang" class="external-link">IllegalArgumentException</a></code> - if HFILE_BLOCK_CACHE_MEMORY_SIZE_KEY format is invalid</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="getOnHeapCacheSize(org.apache.hadoop.conf.Configuration)">
 <h3>getOnHeapCacheSize</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/util/MemorySizeUtil.html#line-209">getOnHeapCacheSize</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/util/MemorySizeUtil.html#line-235">getOnHeapCacheSize</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf)</span></div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>conf</code> - used to read cache configs</dd>
@@ -452,7 +472,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getBucketCacheSize(org.apache.hadoop.conf.Configuration)">
 <h3>getBucketCacheSize</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/util/MemorySizeUtil.html#line-237">getBucketCacheSize</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/util/MemorySizeUtil.html#line-266">getBucketCacheSize</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf)</span></div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>conf</code> - used to read config for bucket cache size.</dd>

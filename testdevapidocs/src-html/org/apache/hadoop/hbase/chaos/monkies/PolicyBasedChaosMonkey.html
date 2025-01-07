@@ -98,89 +98,90 @@
 <span class="source-line-no">085</span><span id="line-85">  private static ExecutorService buildMonkeyThreadPool(final int size) {</span>
 <span class="source-line-no">086</span><span id="line-86">    return Executors.newFixedThreadPool(size, new ThreadFactoryBuilder().setDaemon(false)</span>
 <span class="source-line-no">087</span><span id="line-87">      .setNameFormat("ChaosMonkey-%d").setUncaughtExceptionHandler((t, e) -&gt; {</span>
-<span class="source-line-no">088</span><span id="line-88">        throw new RuntimeException(e);</span>
-<span class="source-line-no">089</span><span id="line-89">      }).build());</span>
-<span class="source-line-no">090</span><span id="line-90">  }</span>
-<span class="source-line-no">091</span><span id="line-91"></span>
-<span class="source-line-no">092</span><span id="line-92">  /** Selects a random item from the given items */</span>
-<span class="source-line-no">093</span><span id="line-93">  public static &lt;T&gt; T selectRandomItem(T[] items) {</span>
-<span class="source-line-no">094</span><span id="line-94">    return items[ThreadLocalRandom.current().nextInt(items.length)];</span>
-<span class="source-line-no">095</span><span id="line-95">  }</span>
-<span class="source-line-no">096</span><span id="line-96"></span>
-<span class="source-line-no">097</span><span id="line-97">  /** Selects a random item from the given items with weights */</span>
-<span class="source-line-no">098</span><span id="line-98">  public static &lt;T&gt; T selectWeightedRandomItem(List&lt;Pair&lt;T, Integer&gt;&gt; items) {</span>
-<span class="source-line-no">099</span><span id="line-99">    int totalWeight = 0;</span>
-<span class="source-line-no">100</span><span id="line-100">    for (Pair&lt;T, Integer&gt; pair : items) {</span>
-<span class="source-line-no">101</span><span id="line-101">      totalWeight += pair.getSecond();</span>
-<span class="source-line-no">102</span><span id="line-102">    }</span>
-<span class="source-line-no">103</span><span id="line-103"></span>
-<span class="source-line-no">104</span><span id="line-104">    int cutoff = ThreadLocalRandom.current().nextInt(totalWeight);</span>
-<span class="source-line-no">105</span><span id="line-105">    int cummulative = 0;</span>
-<span class="source-line-no">106</span><span id="line-106">    T item = null;</span>
-<span class="source-line-no">107</span><span id="line-107"></span>
-<span class="source-line-no">108</span><span id="line-108">    // warn: O(n)</span>
-<span class="source-line-no">109</span><span id="line-109">    for (int i = 0; i &lt; items.size(); i++) {</span>
-<span class="source-line-no">110</span><span id="line-110">      int curWeight = items.get(i).getSecond();</span>
-<span class="source-line-no">111</span><span id="line-111">      if (cutoff &lt; cummulative + curWeight) {</span>
-<span class="source-line-no">112</span><span id="line-112">        item = items.get(i).getFirst();</span>
-<span class="source-line-no">113</span><span id="line-113">        break;</span>
-<span class="source-line-no">114</span><span id="line-114">      }</span>
-<span class="source-line-no">115</span><span id="line-115">      cummulative += curWeight;</span>
-<span class="source-line-no">116</span><span id="line-116">    }</span>
-<span class="source-line-no">117</span><span id="line-117"></span>
-<span class="source-line-no">118</span><span id="line-118">    return item;</span>
-<span class="source-line-no">119</span><span id="line-119">  }</span>
-<span class="source-line-no">120</span><span id="line-120"></span>
-<span class="source-line-no">121</span><span id="line-121">  /** Selects and returns ceil(ratio * items.length) random items from the given array */</span>
-<span class="source-line-no">122</span><span id="line-122">  public static &lt;T&gt; List&lt;T&gt; selectRandomItems(T[] items, float ratio) {</span>
-<span class="source-line-no">123</span><span id="line-123">    // clamp ratio to [0.0,1.0]</span>
-<span class="source-line-no">124</span><span id="line-124">    ratio = Math.max(Math.min(ratio, 1.0f), 0.0f);</span>
-<span class="source-line-no">125</span><span id="line-125">    final int selectedNumber = (int) Math.ceil(items.length * ratio);</span>
-<span class="source-line-no">126</span><span id="line-126">    final ReservoirSample&lt;T&gt; sample = new ReservoirSample&lt;&gt;(selectedNumber);</span>
-<span class="source-line-no">127</span><span id="line-127">    sample.add(Arrays.stream(items));</span>
-<span class="source-line-no">128</span><span id="line-128">    final List&lt;T&gt; shuffledItems = sample.getSamplingResult();</span>
-<span class="source-line-no">129</span><span id="line-129">    Collections.shuffle(shuffledItems);</span>
-<span class="source-line-no">130</span><span id="line-130">    return shuffledItems;</span>
-<span class="source-line-no">131</span><span id="line-131">  }</span>
-<span class="source-line-no">132</span><span id="line-132"></span>
-<span class="source-line-no">133</span><span id="line-133">  @Override</span>
-<span class="source-line-no">134</span><span id="line-134">  public void start() throws Exception {</span>
-<span class="source-line-no">135</span><span id="line-135">    final Policy.PolicyContext context = new Policy.PolicyContext(monkeyProps, util);</span>
-<span class="source-line-no">136</span><span id="line-136">    for (final Policy policy : policies) {</span>
-<span class="source-line-no">137</span><span id="line-137">      policy.init(context);</span>
-<span class="source-line-no">138</span><span id="line-138">      monkeyThreadPool.execute(policy);</span>
-<span class="source-line-no">139</span><span id="line-139">    }</span>
-<span class="source-line-no">140</span><span id="line-140">  }</span>
-<span class="source-line-no">141</span><span id="line-141"></span>
-<span class="source-line-no">142</span><span id="line-142">  @Override</span>
-<span class="source-line-no">143</span><span id="line-143">  public void stop(String why) {</span>
-<span class="source-line-no">144</span><span id="line-144">    // stop accepting new work (shouldn't be any with a fixed-size pool)</span>
-<span class="source-line-no">145</span><span id="line-145">    monkeyThreadPool.shutdown();</span>
-<span class="source-line-no">146</span><span id="line-146">    // notify all executing policies that it's time to halt.</span>
-<span class="source-line-no">147</span><span id="line-147">    for (Policy policy : policies) {</span>
-<span class="source-line-no">148</span><span id="line-148">      policy.stop(why);</span>
-<span class="source-line-no">149</span><span id="line-149">    }</span>
-<span class="source-line-no">150</span><span id="line-150">  }</span>
-<span class="source-line-no">151</span><span id="line-151"></span>
-<span class="source-line-no">152</span><span id="line-152">  @Override</span>
-<span class="source-line-no">153</span><span id="line-153">  public boolean isStopped() {</span>
-<span class="source-line-no">154</span><span id="line-154">    return monkeyThreadPool.isTerminated();</span>
-<span class="source-line-no">155</span><span id="line-155">  }</span>
-<span class="source-line-no">156</span><span id="line-156"></span>
-<span class="source-line-no">157</span><span id="line-157">  @Override</span>
-<span class="source-line-no">158</span><span id="line-158">  public void waitForStop() throws InterruptedException {</span>
-<span class="source-line-no">159</span><span id="line-159">    if (!monkeyThreadPool.awaitTermination(1, TimeUnit.MINUTES)) {</span>
-<span class="source-line-no">160</span><span id="line-160">      LOG.warn("Some pool threads failed to terminate. Forcing. {}", monkeyThreadPool);</span>
-<span class="source-line-no">161</span><span id="line-161">      monkeyThreadPool.shutdownNow();</span>
-<span class="source-line-no">162</span><span id="line-162">    }</span>
-<span class="source-line-no">163</span><span id="line-163">  }</span>
-<span class="source-line-no">164</span><span id="line-164"></span>
-<span class="source-line-no">165</span><span id="line-165">  @Override</span>
-<span class="source-line-no">166</span><span id="line-166">  public boolean isDestructive() {</span>
-<span class="source-line-no">167</span><span id="line-167">    // TODO: we can look at the actions, and decide to do the restore cluster or not based on them.</span>
-<span class="source-line-no">168</span><span id="line-168">    return true;</span>
-<span class="source-line-no">169</span><span id="line-169">  }</span>
-<span class="source-line-no">170</span><span id="line-170">}</span>
+<span class="source-line-no">088</span><span id="line-88">        LOG.error("Uncaught exception in thread {}", t.getName(), e);</span>
+<span class="source-line-no">089</span><span id="line-89">        throw new RuntimeException(e);</span>
+<span class="source-line-no">090</span><span id="line-90">      }).build());</span>
+<span class="source-line-no">091</span><span id="line-91">  }</span>
+<span class="source-line-no">092</span><span id="line-92"></span>
+<span class="source-line-no">093</span><span id="line-93">  /** Selects a random item from the given items */</span>
+<span class="source-line-no">094</span><span id="line-94">  public static &lt;T&gt; T selectRandomItem(T[] items) {</span>
+<span class="source-line-no">095</span><span id="line-95">    return items[ThreadLocalRandom.current().nextInt(items.length)];</span>
+<span class="source-line-no">096</span><span id="line-96">  }</span>
+<span class="source-line-no">097</span><span id="line-97"></span>
+<span class="source-line-no">098</span><span id="line-98">  /** Selects a random item from the given items with weights */</span>
+<span class="source-line-no">099</span><span id="line-99">  public static &lt;T&gt; T selectWeightedRandomItem(List&lt;Pair&lt;T, Integer&gt;&gt; items) {</span>
+<span class="source-line-no">100</span><span id="line-100">    int totalWeight = 0;</span>
+<span class="source-line-no">101</span><span id="line-101">    for (Pair&lt;T, Integer&gt; pair : items) {</span>
+<span class="source-line-no">102</span><span id="line-102">      totalWeight += pair.getSecond();</span>
+<span class="source-line-no">103</span><span id="line-103">    }</span>
+<span class="source-line-no">104</span><span id="line-104"></span>
+<span class="source-line-no">105</span><span id="line-105">    int cutoff = ThreadLocalRandom.current().nextInt(totalWeight);</span>
+<span class="source-line-no">106</span><span id="line-106">    int cummulative = 0;</span>
+<span class="source-line-no">107</span><span id="line-107">    T item = null;</span>
+<span class="source-line-no">108</span><span id="line-108"></span>
+<span class="source-line-no">109</span><span id="line-109">    // warn: O(n)</span>
+<span class="source-line-no">110</span><span id="line-110">    for (int i = 0; i &lt; items.size(); i++) {</span>
+<span class="source-line-no">111</span><span id="line-111">      int curWeight = items.get(i).getSecond();</span>
+<span class="source-line-no">112</span><span id="line-112">      if (cutoff &lt; cummulative + curWeight) {</span>
+<span class="source-line-no">113</span><span id="line-113">        item = items.get(i).getFirst();</span>
+<span class="source-line-no">114</span><span id="line-114">        break;</span>
+<span class="source-line-no">115</span><span id="line-115">      }</span>
+<span class="source-line-no">116</span><span id="line-116">      cummulative += curWeight;</span>
+<span class="source-line-no">117</span><span id="line-117">    }</span>
+<span class="source-line-no">118</span><span id="line-118"></span>
+<span class="source-line-no">119</span><span id="line-119">    return item;</span>
+<span class="source-line-no">120</span><span id="line-120">  }</span>
+<span class="source-line-no">121</span><span id="line-121"></span>
+<span class="source-line-no">122</span><span id="line-122">  /** Selects and returns ceil(ratio * items.length) random items from the given array */</span>
+<span class="source-line-no">123</span><span id="line-123">  public static &lt;T&gt; List&lt;T&gt; selectRandomItems(T[] items, float ratio) {</span>
+<span class="source-line-no">124</span><span id="line-124">    // clamp ratio to [0.0,1.0]</span>
+<span class="source-line-no">125</span><span id="line-125">    ratio = Math.max(Math.min(ratio, 1.0f), 0.0f);</span>
+<span class="source-line-no">126</span><span id="line-126">    final int selectedNumber = (int) Math.ceil(items.length * ratio);</span>
+<span class="source-line-no">127</span><span id="line-127">    final ReservoirSample&lt;T&gt; sample = new ReservoirSample&lt;&gt;(selectedNumber);</span>
+<span class="source-line-no">128</span><span id="line-128">    sample.add(Arrays.stream(items));</span>
+<span class="source-line-no">129</span><span id="line-129">    final List&lt;T&gt; shuffledItems = sample.getSamplingResult();</span>
+<span class="source-line-no">130</span><span id="line-130">    Collections.shuffle(shuffledItems);</span>
+<span class="source-line-no">131</span><span id="line-131">    return shuffledItems;</span>
+<span class="source-line-no">132</span><span id="line-132">  }</span>
+<span class="source-line-no">133</span><span id="line-133"></span>
+<span class="source-line-no">134</span><span id="line-134">  @Override</span>
+<span class="source-line-no">135</span><span id="line-135">  public void start() throws Exception {</span>
+<span class="source-line-no">136</span><span id="line-136">    final Policy.PolicyContext context = new Policy.PolicyContext(monkeyProps, util);</span>
+<span class="source-line-no">137</span><span id="line-137">    for (final Policy policy : policies) {</span>
+<span class="source-line-no">138</span><span id="line-138">      policy.init(context);</span>
+<span class="source-line-no">139</span><span id="line-139">      monkeyThreadPool.execute(policy);</span>
+<span class="source-line-no">140</span><span id="line-140">    }</span>
+<span class="source-line-no">141</span><span id="line-141">  }</span>
+<span class="source-line-no">142</span><span id="line-142"></span>
+<span class="source-line-no">143</span><span id="line-143">  @Override</span>
+<span class="source-line-no">144</span><span id="line-144">  public void stop(String why) {</span>
+<span class="source-line-no">145</span><span id="line-145">    // stop accepting new work (shouldn't be any with a fixed-size pool)</span>
+<span class="source-line-no">146</span><span id="line-146">    monkeyThreadPool.shutdown();</span>
+<span class="source-line-no">147</span><span id="line-147">    // notify all executing policies that it's time to halt.</span>
+<span class="source-line-no">148</span><span id="line-148">    for (Policy policy : policies) {</span>
+<span class="source-line-no">149</span><span id="line-149">      policy.stop(why);</span>
+<span class="source-line-no">150</span><span id="line-150">    }</span>
+<span class="source-line-no">151</span><span id="line-151">  }</span>
+<span class="source-line-no">152</span><span id="line-152"></span>
+<span class="source-line-no">153</span><span id="line-153">  @Override</span>
+<span class="source-line-no">154</span><span id="line-154">  public boolean isStopped() {</span>
+<span class="source-line-no">155</span><span id="line-155">    return monkeyThreadPool.isTerminated();</span>
+<span class="source-line-no">156</span><span id="line-156">  }</span>
+<span class="source-line-no">157</span><span id="line-157"></span>
+<span class="source-line-no">158</span><span id="line-158">  @Override</span>
+<span class="source-line-no">159</span><span id="line-159">  public void waitForStop() throws InterruptedException {</span>
+<span class="source-line-no">160</span><span id="line-160">    if (!monkeyThreadPool.awaitTermination(1, TimeUnit.MINUTES)) {</span>
+<span class="source-line-no">161</span><span id="line-161">      LOG.warn("Some pool threads failed to terminate. Forcing. {}", monkeyThreadPool);</span>
+<span class="source-line-no">162</span><span id="line-162">      monkeyThreadPool.shutdownNow();</span>
+<span class="source-line-no">163</span><span id="line-163">    }</span>
+<span class="source-line-no">164</span><span id="line-164">  }</span>
+<span class="source-line-no">165</span><span id="line-165"></span>
+<span class="source-line-no">166</span><span id="line-166">  @Override</span>
+<span class="source-line-no">167</span><span id="line-167">  public boolean isDestructive() {</span>
+<span class="source-line-no">168</span><span id="line-168">    // TODO: we can look at the actions, and decide to do the restore cluster or not based on them.</span>
+<span class="source-line-no">169</span><span id="line-169">    return true;</span>
+<span class="source-line-no">170</span><span id="line-170">  }</span>
+<span class="source-line-no">171</span><span id="line-171">}</span>
 
 
 

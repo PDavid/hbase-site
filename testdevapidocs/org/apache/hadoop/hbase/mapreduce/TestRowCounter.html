@@ -77,7 +77,7 @@ loadScripts(document, 'script');</script>
 </div>
 <section class="class-description" id="class-description">
 <hr>
-<div class="type-signature"><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-52">TestRowCounter</a></span>
+<div class="type-signature"><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-55">TestRowCounter</a></span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
 <div class="block">Test the rowcounter map reduce job.</div>
 </section>
@@ -306,6 +306,20 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Test a case when the timerange is specified with --starttime and --endtime options</div>
 </div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#testRowCounterWithCountDeleteMarkersOption()" class="member-name-link">testRowCounterWithCountDeleteMarkersOption</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Step 1: Add 10 rows(row1, row2, row3, row4, row5, row6, row7, row8, row9, row10) to a table.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#validateCounterCounts(org.apache.hadoop.mapreduce.Counters,long,long,long,long,long,long)" class="member-name-link">validateCounterCounts</a><wbr>(org.apache.hadoop.mapreduce.Counters&nbsp;counters,
+ long&nbsp;rowCount,
+ long&nbsp;rowsWithDeleteMarkersCount,
+ long&nbsp;deleteCount,
+ long&nbsp;deleteColumnCount,
+ long&nbsp;deleteFamilyCount,
+ long&nbsp;deleteFamilyVersionCount)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#writeRows(org.apache.hadoop.hbase.client.Table,int,int)" class="member-name-link">writeRows</a><wbr>(org.apache.hadoop.hbase.client.Table&nbsp;table,
  int&nbsp;totalRows,
@@ -333,25 +347,25 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="CLASS_RULE">
 <h3>CLASS_RULE</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../HBaseClassTestRule.html" title="class in org.apache.hadoop.hbase">HBaseClassTestRule</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-55">CLASS_RULE</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../HBaseClassTestRule.html" title="class in org.apache.hadoop.hbase">HBaseClassTestRule</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-58">CLASS_RULE</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="LOG">
 <h3>LOG</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-59">LOG</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-62">LOG</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="TEST_UTIL">
 <h3>TEST_UTIL</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="../HBaseTestingUtil.html" title="class in org.apache.hadoop.hbase">HBaseTestingUtil</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-60">TEST_UTIL</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="../HBaseTestingUtil.html" title="class in org.apache.hadoop.hbase">HBaseTestingUtil</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-63">TEST_UTIL</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="TABLE_NAME">
 <h3>TABLE_NAME</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-61">TABLE_NAME</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-64">TABLE_NAME</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -365,7 +379,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="TABLE_NAME_TS_RANGE">
 <h3>TABLE_NAME_TS_RANGE</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-62">TABLE_NAME_TS_RANGE</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-65">TABLE_NAME_TS_RANGE</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -379,7 +393,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="COL_FAM">
 <h3>COL_FAM</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-63">COL_FAM</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-66">COL_FAM</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -393,7 +407,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="COL1">
 <h3>COL1</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-64">COL1</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-67">COL1</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -407,7 +421,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="COL2">
 <h3>COL2</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-65">COL2</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-68">COL2</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -421,7 +435,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="COMPOSITE_COLUMN">
 <h3>COMPOSITE_COLUMN</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-66">COMPOSITE_COLUMN</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-69">COMPOSITE_COLUMN</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -435,7 +449,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="TOTAL_ROWS">
 <h3>TOTAL_ROWS</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-67">TOTAL_ROWS</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-70">TOTAL_ROWS</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -449,7 +463,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="ROWS_WITH_ONE_COL">
 <h3>ROWS_WITH_ONE_COL</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-68">ROWS_WITH_ONE_COL</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-71">ROWS_WITH_ONE_COL</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -471,7 +485,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;()">
 <h3>TestRowCounter</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-53">TestRowCounter</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-56">TestRowCounter</a></span>()</div>
 </section>
 </li>
 </ul>
@@ -485,7 +499,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="setUpBeforeClass()">
 <h3>setUpBeforeClass</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-73">setUpBeforeClass</a></span>()
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-76">setUpBeforeClass</a></span>()
                              throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -496,7 +510,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="tearDownAfterClass()">
 <h3>tearDownAfterClass</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-84">tearDownAfterClass</a></span>()
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-87">tearDownAfterClass</a></span>()
                                throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -507,7 +521,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testRowCounterNoColumn()">
 <h3>testRowCounterNoColumn</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-92">testRowCounterNoColumn</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-95">testRowCounterNoColumn</a></span>()
                             throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <div class="block">Test a case when no column was specified in command line arguments.</div>
 <dl class="notes">
@@ -519,7 +533,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testRowCounterExclusiveColumn()">
 <h3>testRowCounterExclusiveColumn</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-101">testRowCounterExclusiveColumn</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-104">testRowCounterExclusiveColumn</a></span>()
                                    throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <div class="block">Test a case when the column specified in command line arguments is exclusive for few rows.</div>
 <dl class="notes">
@@ -531,7 +545,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testRowCounterColumnWithColonInQualifier()">
 <h3>testRowCounterColumnWithColonInQualifier</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-111">testRowCounterColumnWithColonInQualifier</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-114">testRowCounterColumnWithColonInQualifier</a></span>()
                                               throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <div class="block">Test a case when the column specified in command line arguments is one for which the qualifier
  contains colons.</div>
@@ -544,7 +558,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testRowCounterHiddenColumn()">
 <h3>testRowCounterHiddenColumn</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-121">testRowCounterHiddenColumn</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-124">testRowCounterHiddenColumn</a></span>()
                                 throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <div class="block">Test a case when the column specified in command line arguments is not part of first KV for a
  row.</div>
@@ -557,7 +571,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testRowCounterColumnAndRowRange()">
 <h3>testRowCounterColumnAndRowRange</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-131">testRowCounterColumnAndRowRange</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-134">testRowCounterColumnAndRowRange</a></span>()
                                      throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <div class="block">Test a case when the column specified in command line arguments is exclusive for few rows and
  also a row range filter is specified</div>
@@ -570,7 +584,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testRowCounterRowSingleRange()">
 <h3>testRowCounterRowSingleRange</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-140">testRowCounterRowSingleRange</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-143">testRowCounterRowSingleRange</a></span>()
                                   throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <div class="block">Test a case when a range is specified with single range of start-end keys</div>
 <dl class="notes">
@@ -582,7 +596,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testRowCounterRowSingleRangeUpperBound()">
 <h3>testRowCounterRowSingleRangeUpperBound</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-149">testRowCounterRowSingleRangeUpperBound</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-152">testRowCounterRowSingleRangeUpperBound</a></span>()
                                             throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <div class="block">Test a case when a range is specified with single range with end key only</div>
 <dl class="notes">
@@ -594,7 +608,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testRowCounterRowMultiRangeUpperBound()">
 <h3>testRowCounterRowMultiRangeUpperBound</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-158">testRowCounterRowMultiRangeUpperBound</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-161">testRowCounterRowMultiRangeUpperBound</a></span>()
                                            throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <div class="block">Test a case when a range is specified with two ranges where one range is with end key only</div>
 <dl class="notes">
@@ -606,7 +620,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testRowCounterRowMultiRange()">
 <h3>testRowCounterRowMultiRange</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-167">testRowCounterRowMultiRange</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-170">testRowCounterRowMultiRange</a></span>()
                                  throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <div class="block">Test a case when a range is specified with multiple ranges of start-end keys</div>
 <dl class="notes">
@@ -618,7 +632,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testRowCounterRowMultiEmptyRange()">
 <h3>testRowCounterRowMultiEmptyRange</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-177">testRowCounterRowMultiEmptyRange</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-180">testRowCounterRowMultiEmptyRange</a></span>()
                                       throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <div class="block">Test a case when a range is specified with multiple ranges of start-end keys; one range is
  filled, another two are not</div>
@@ -631,7 +645,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testRowCounter10kRowRange()">
 <h3>testRowCounter10kRowRange</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-183">testRowCounter10kRowRange</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-186">testRowCounter10kRowRange</a></span>()
                                throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -642,7 +656,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testRowCounterTimeRange()">
 <h3>testRowCounterTimeRange</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-198">testRowCounterTimeRange</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-201">testRowCounterTimeRange</a></span>()
                              throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <div class="block">Test a case when the timerange is specified with --starttime and --endtime options</div>
 <dl class="notes">
@@ -654,7 +668,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="runRowCount(java.lang.String[],int)">
 <h3>runRowCount</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-246">runRowCount</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>[]&nbsp;args,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-249">runRowCount</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>[]&nbsp;args,
  int&nbsp;expectedCount)</span>
                   throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <div class="block">Run the RowCounter map reduce job and verify the row count.</div>
@@ -670,7 +684,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="runCreateSubmittableJobWithArgs(java.lang.String[],int)">
 <h3>runCreateSubmittableJobWithArgs</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-264">runCreateSubmittableJobWithArgs</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>[]&nbsp;args,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-267">runCreateSubmittableJobWithArgs</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>[]&nbsp;args,
  int&nbsp;expectedCount)</span>
                                       throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <div class="block">Run the RowCounter map reduce job and verify the row count.</div>
@@ -686,7 +700,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testCreateSubmittableJobWithArgsNoColumn()">
 <h3>testCreateSubmittableJobWithArgsNoColumn</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-275">testCreateSubmittableJobWithArgsNoColumn</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-278">testCreateSubmittableJobWithArgsNoColumn</a></span>()
                                               throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -697,7 +711,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testCreateSubmittableJobWithArgsExclusiveColumn()">
 <h3>testCreateSubmittableJobWithArgsExclusiveColumn</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-285">testCreateSubmittableJobWithArgsExclusiveColumn</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-288">testCreateSubmittableJobWithArgsExclusiveColumn</a></span>()
                                                      throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <div class="block">Test a case when the column specified in command line arguments is exclusive for few rows.</div>
 <dl class="notes">
@@ -709,7 +723,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testCreateSubmittableJobWithArgsColumnWithColonInQualifier()">
 <h3>testCreateSubmittableJobWithArgsColumnWithColonInQualifier</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-296">testCreateSubmittableJobWithArgsColumnWithColonInQualifier</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-299">testCreateSubmittableJobWithArgsColumnWithColonInQualifier</a></span>()
                                                                 throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <div class="block">Test a case when the column specified in command line arguments is one for which the qualifier
  contains colons.</div>
@@ -722,7 +736,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testCreateSubmittableJobWithArgsHiddenColumn()">
 <h3>testCreateSubmittableJobWithArgsHiddenColumn</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-307">testCreateSubmittableJobWithArgsHiddenColumn</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-310">testCreateSubmittableJobWithArgsHiddenColumn</a></span>()
                                                   throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <div class="block">Test a case when the column specified in command line arguments is not part of first KV for a
  row.</div>
@@ -735,7 +749,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testCreateSubmittableJobWithArgsColumnAndRowRange()">
 <h3>testCreateSubmittableJobWithArgsColumnAndRowRange</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-318">testCreateSubmittableJobWithArgsColumnAndRowRange</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-321">testCreateSubmittableJobWithArgsColumnAndRowRange</a></span>()
                                                        throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <div class="block">Test a case when the column specified in command line arguments is exclusive for few rows and
  also a row range filter is specified</div>
@@ -748,7 +762,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testCreateSubmittableJobWithArgsRowSingleRange()">
 <h3>testCreateSubmittableJobWithArgsRowSingleRange</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-328">testCreateSubmittableJobWithArgsRowSingleRange</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-331">testCreateSubmittableJobWithArgsRowSingleRange</a></span>()
                                                     throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <div class="block">Test a case when a range is specified with single range of start-end keys</div>
 <dl class="notes">
@@ -760,7 +774,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testCreateSubmittableJobWithArgsRowSingleRangeUpperBound()">
 <h3>testCreateSubmittableJobWithArgsRowSingleRangeUpperBound</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-338">testCreateSubmittableJobWithArgsRowSingleRangeUpperBound</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-341">testCreateSubmittableJobWithArgsRowSingleRangeUpperBound</a></span>()
                                                               throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <div class="block">Test a case when a range is specified with single range with end key only</div>
 <dl class="notes">
@@ -772,7 +786,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testCreateSubmittableJobWithArgsRowMultiRangeUpperBound()">
 <h3>testCreateSubmittableJobWithArgsRowMultiRangeUpperBound</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-348">testCreateSubmittableJobWithArgsRowMultiRangeUpperBound</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-351">testCreateSubmittableJobWithArgsRowMultiRangeUpperBound</a></span>()
                                                              throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <div class="block">Test a case when a range is specified with two ranges where one range is with end key only</div>
 <dl class="notes">
@@ -784,7 +798,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testCreateSubmittableJobWithArgsRowMultiRange()">
 <h3>testCreateSubmittableJobWithArgsRowMultiRange</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-358">testCreateSubmittableJobWithArgsRowMultiRange</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-361">testCreateSubmittableJobWithArgsRowMultiRange</a></span>()
                                                    throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <div class="block">Test a case when a range is specified with multiple ranges of start-end keys</div>
 <dl class="notes">
@@ -796,7 +810,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testCreateSubmittableJobWithArgsRowMultiEmptyRange()">
 <h3>testCreateSubmittableJobWithArgsRowMultiEmptyRange</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-369">testCreateSubmittableJobWithArgsRowMultiEmptyRange</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-372">testCreateSubmittableJobWithArgsRowMultiEmptyRange</a></span>()
                                                         throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <div class="block">Test a case when a range is specified with multiple ranges of start-end keys; one range is
  filled, another two are not</div>
@@ -809,7 +823,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testCreateSubmittableJobWithArgs10kRowRange()">
 <h3>testCreateSubmittableJobWithArgs10kRowRange</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-375">testCreateSubmittableJobWithArgs10kRowRange</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-378">testCreateSubmittableJobWithArgs10kRowRange</a></span>()
                                                  throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -820,7 +834,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testCreateSubmittableJobWithArgsTimeRange()">
 <h3>testCreateSubmittableJobWithArgsTimeRange</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-391">testCreateSubmittableJobWithArgsTimeRange</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-394">testCreateSubmittableJobWithArgsTimeRange</a></span>()
                                                throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <div class="block">Test a case when the timerange is specified with --starttime and --endtime options</div>
 <dl class="notes">
@@ -832,7 +846,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="writeRows(org.apache.hadoop.hbase.client.Table,int,int)">
 <h3>writeRows</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-438">writeRows</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.client.Table&nbsp;table,
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-441">writeRows</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.client.Table&nbsp;table,
  int&nbsp;totalRows,
  int&nbsp;rowsWithOneCol)</span>
                        throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
@@ -847,7 +861,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testImportMain()">
 <h3>testImportMain</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-470">testImportMain</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-473">testImportMain</a></span>()
                     throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <div class="block">test main method. Import should print help and call System.exit</div>
 <dl class="notes">
@@ -859,7 +873,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testHelp()">
 <h3>testHelp</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-498">testHelp</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-501">testHelp</a></span>()
               throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -870,7 +884,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testInvalidTable()">
 <h3>testInvalidTable</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-516">testInvalidTable</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-519">testInvalidTable</a></span>()
                       throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -879,9 +893,52 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
+<section class="detail" id="testRowCounterWithCountDeleteMarkersOption()">
+<h3>testRowCounterWithCountDeleteMarkersOption</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-552">testRowCounterWithCountDeleteMarkersOption</a></span>()
+                                                throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
+<div class="block">Step 1: Add 10 rows(row1, row2, row3, row4, row5, row6, row7, row8, row9, row10) to a table.
+ Each row contains 1 column family and 4 columns and values for two different timestamps - 5 &amp;
+ 10.
+ <p>
+ Step 2: Delete the latest version of column A for row1. --> 1 X Delete
+ <p>
+ Step 3: Delete the cell for timestamp 5 of column B for row1. --> 1 X Delete
+ <p>
+ Step 4: Delete a column family for row2 and row4. --> 2 X DeleteFamily
+ <p>
+ Step 5: Delete all versions of a specific column for row3, row5 and row6. --> 3 X DeleteColumn
+ <p>
+ Step 6: Delete all columns for timestamp 5 for row 7. --> 1 X DeleteFamilyVersion
+ <p>
+ Case 1: Run row counter without countDeleteMarkers and validate counter values.
+ <p>
+ Case 2: Run row counter with countDeleteMarkers flag and validate counter values.
+ <p>
+ Case 3: Run row counter with countDeleteMarkers flag for a row range and validate counter
+ values.</div>
+<dl class="notes">
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="validateCounterCounts(org.apache.hadoop.mapreduce.Counters,long,long,long,long,long,long)">
+<h3>validateCounterCounts</h3>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-636">validateCounterCounts</a></span><wbr><span class="parameters">(org.apache.hadoop.mapreduce.Counters&nbsp;counters,
+ long&nbsp;rowCount,
+ long&nbsp;rowsWithDeleteMarkersCount,
+ long&nbsp;deleteCount,
+ long&nbsp;deleteColumnCount,
+ long&nbsp;deleteFamilyCount,
+ long&nbsp;deleteFamilyVersionCount)</span></div>
+</section>
+</li>
+<li>
 <section class="detail" id="assertUsageContent(java.lang.String)">
 <h3>assertUsageContent</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-527">assertUsageContent</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;usage)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TestRowCounter.html#line-661">assertUsageContent</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;usage)</span></div>
 </section>
 </li>
 </ul>

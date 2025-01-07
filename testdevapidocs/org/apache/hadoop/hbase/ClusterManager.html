@@ -120,11 +120,25 @@ extends org.apache.hadoop.conf.Configurable</span></div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#isRunning(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">isRunning</a><wbr>(<a href="ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#isResumed(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">isResumed</a><wbr>(<a href="ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
  int&nbsp;port)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="block">Returns whether the service is resumed on the remote host.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#isRunning(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">isRunning</a><wbr>(<a href="ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
+ int&nbsp;port)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Returns whether the service is running on the remote host.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#isSuspended(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">isSuspended</a><wbr>(<a href="ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
+ int&nbsp;port)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="block">Returns whether the service is suspended on the remote host.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#kill(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)" class="member-name-link">kill</a><wbr>(<a href="ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
@@ -278,6 +292,36 @@ extends org.apache.hadoop.conf.Configurable</span></div>
            throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Returns whether the service is running on the remote host. This only checks whether the service
  still has a pid.</div>
+<dl class="notes">
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="isSuspended(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)">
+<h3>isSuspended</h3>
+<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/ClusterManager.html#line-100">isSuspended</a></span><wbr><span class="parameters">(<a href="ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
+ int&nbsp;port)</span>
+             throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
+<div class="block">Returns whether the service is suspended on the remote host. This only checks whether the
+ service status is suspended.</div>
+<dl class="notes">
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="isResumed(org.apache.hadoop.hbase.ClusterManager.ServiceType,java.lang.String,int)">
+<h3>isResumed</h3>
+<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/ClusterManager.html#line-106">isResumed</a></span><wbr><span class="parameters">(<a href="ClusterManager.ServiceType.html" title="enum class in org.apache.hadoop.hbase">ClusterManager.ServiceType</a>&nbsp;service,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostname,
+ int&nbsp;port)</span>
+           throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
+<div class="block">Returns whether the service is resumed on the remote host. This only checks whether the service
+ status is resumed.</div>
 <dl class="notes">
 <dt>Throws:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>

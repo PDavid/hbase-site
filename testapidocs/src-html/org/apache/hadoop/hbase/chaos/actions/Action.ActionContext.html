@@ -210,7 +210,7 @@
 <span class="source-line-no">197</span><span id="line-197">    getLogger().info("Suspending regionserver {}", server);</span>
 <span class="source-line-no">198</span><span id="line-198">    cluster.suspendRegionServer(server);</span>
 <span class="source-line-no">199</span><span id="line-199">    if (!(cluster instanceof SingleProcessHBaseCluster)) {</span>
-<span class="source-line-no">200</span><span id="line-200">      cluster.waitForRegionServerToStop(server, killRsTimeout);</span>
+<span class="source-line-no">200</span><span id="line-200">      cluster.waitForRegionServerToSuspend(server, killRsTimeout);</span>
 <span class="source-line-no">201</span><span id="line-201">    }</span>
 <span class="source-line-no">202</span><span id="line-202">    getLogger().info("Suspending regionserver {}. Reported num of rs:{}", server,</span>
 <span class="source-line-no">203</span><span id="line-203">      cluster.getClusterMetrics().getLiveServerMetrics().size());</span>
@@ -220,7 +220,7 @@
 <span class="source-line-no">207</span><span id="line-207">    getLogger().info("Resuming regionserver {}", server);</span>
 <span class="source-line-no">208</span><span id="line-208">    cluster.resumeRegionServer(server);</span>
 <span class="source-line-no">209</span><span id="line-209">    if (!(cluster instanceof SingleProcessHBaseCluster)) {</span>
-<span class="source-line-no">210</span><span id="line-210">      cluster.waitForRegionServerToStart(server.getHostname(), server.getPort(), startRsTimeout);</span>
+<span class="source-line-no">210</span><span id="line-210">      cluster.waitForRegionServerToResume(server, startRsTimeout);</span>
 <span class="source-line-no">211</span><span id="line-211">    }</span>
 <span class="source-line-no">212</span><span id="line-212">    getLogger().info("Resuming regionserver {}. Reported num of rs:{}", server,</span>
 <span class="source-line-no">213</span><span id="line-213">      cluster.getClusterMetrics().getLiveServerMetrics().size());</span>

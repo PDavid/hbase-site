@@ -167,6 +167,12 @@ implements <a href="../ProtobufMessageHandler.html" title="interface in org.apac
 <div class="col-first odd-row-color"><code>private <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color"><code><a href="#filter" class="member-name-link">filter</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private boolean</code></div>
+<div class="col-second even-row-color"><code><a href="#includeStartRow" class="member-name-link">includeStartRow</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private boolean</code></div>
+<div class="col-second odd-row-color"><code><a href="#includeStopRow" class="member-name-link">includeStopRow</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>private <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</code></div>
 <div class="col-second even-row-color"><code><a href="#labels" class="member-name-link">labels</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
@@ -331,6 +337,12 @@ implements <a href="../ProtobufMessageHandler.html" title="interface in org.apac
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns true if a start row was specified</div>
 </div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isIncludeStartRow()" class="member-name-link">isIncludeStartRow</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isIncludeStopRow()" class="member-name-link">isIncludeStopRow</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>org.apache.hbase.thirdparty.com.google.protobuf.Message</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#messageFromObject()" class="member-name-link">messageFromObject</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
@@ -356,6 +368,12 @@ implements <a href="../ProtobufMessageHandler.html" title="interface in org.apac
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setFilter(java.lang.String)" class="member-name-link">setFilter</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;filter)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setIncludeStartRow(boolean)" class="member-name-link">setIncludeStartRow</a><wbr>(boolean&nbsp;includeStartRow)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setIncludeStopRow(boolean)" class="member-name-link">setIncludeStopRow</a><wbr>(boolean&nbsp;includeStopRow)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setLimit(int)" class="member-name-link">setLimit</a><wbr>(int&nbsp;limit)</code></div>
@@ -479,9 +497,21 @@ implements <a href="../ProtobufMessageHandler.html" title="interface in org.apac
 </section>
 </li>
 <li>
+<section class="detail" id="includeStartRow">
+<h3>includeStartRow</h3>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-124">includeStartRow</a></span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="includeStopRow">
+<h3>includeStopRow</h3>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-126">includeStopRow</a></span></div>
+</section>
+</li>
+<li>
 <section class="detail" id="COLUMN_DIVIDER">
 <h3>COLUMN_DIVIDER</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">byte[]</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-683">COLUMN_DIVIDER</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">byte[]</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-705">COLUMN_DIVIDER</a></span></div>
 </section>
 </li>
 </ul>
@@ -495,14 +525,14 @@ implements <a href="../ProtobufMessageHandler.html" title="interface in org.apac
 <li>
 <section class="detail" id="&lt;init&gt;()">
 <h3>ScannerModel</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-739">ScannerModel</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-763">ScannerModel</a></span>()</div>
 <div class="block">Default constructor</div>
 </section>
 </li>
 <li>
 <section class="detail" id="&lt;init&gt;(byte[],byte[],java.util.List,int,int,long,int,java.lang.String)">
 <h3>ScannerModel</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-753">ScannerModel</a></span><wbr><span class="parameters">(byte[]&nbsp;startRow,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-777">ScannerModel</a></span><wbr><span class="parameters">(byte[]&nbsp;startRow,
  byte[]&nbsp;endRow,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;byte[]&gt;&nbsp;columns,
  int&nbsp;batch,
@@ -527,7 +557,7 @@ implements <a href="../ProtobufMessageHandler.html" title="interface in org.apac
 <li>
 <section class="detail" id="&lt;init&gt;(byte[],byte[],java.util.List,int,int,long,long,java.lang.String)">
 <h3>ScannerModel</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-779">ScannerModel</a></span><wbr><span class="parameters">(byte[]&nbsp;startRow,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-803">ScannerModel</a></span><wbr><span class="parameters">(byte[]&nbsp;startRow,
  byte[]&nbsp;endRow,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;byte[]&gt;&nbsp;columns,
  int&nbsp;batch,
@@ -560,9 +590,33 @@ implements <a href="../ProtobufMessageHandler.html" title="interface in org.apac
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
+<section class="detail" id="isIncludeStopRow()">
+<h3>isIncludeStopRow</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-128">isIncludeStopRow</a></span>()</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setIncludeStopRow(boolean)">
+<h3>setIncludeStopRow</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-133">setIncludeStopRow</a></span><wbr><span class="parameters">(boolean&nbsp;includeStopRow)</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="isIncludeStartRow()">
+<h3>isIncludeStartRow</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-137">isIncludeStartRow</a></span>()</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setIncludeStartRow(boolean)">
+<h3>setIncludeStartRow</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-142">setIncludeStartRow</a></span><wbr><span class="parameters">(boolean&nbsp;includeStartRow)</span></div>
+</section>
+</li>
+<li>
 <section class="detail" id="getJasonProvider()">
 <h3>getJasonProvider</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">org.apache.hbase.thirdparty.com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-659">getJasonProvider</a></span>()</div>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">org.apache.hbase.thirdparty.com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-681">getJasonProvider</a></span>()</div>
 <div class="block">Get the <code>JacksonJaxbJsonProvider</code> instance;</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -573,7 +627,7 @@ implements <a href="../ProtobufMessageHandler.html" title="interface in org.apac
 <li>
 <section class="detail" id="buildFilter(java.lang.String)">
 <h3>buildFilter</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../../filter/Filter.html" title="class in org.apache.hadoop.hbase.filter">Filter</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-667">buildFilter</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;s)</span>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../../filter/Filter.html" title="class in org.apache.hadoop.hbase.filter">Filter</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-689">buildFilter</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;s)</span>
                           throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -588,7 +642,7 @@ implements <a href="../ProtobufMessageHandler.html" title="interface in org.apac
 <li>
 <section class="detail" id="stringifyFilter(org.apache.hadoop.hbase.filter.Filter)">
 <h3>stringifyFilter</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-678">stringifyFilter</a></span><wbr><span class="parameters">(<a href="../../filter/Filter.html" title="class in org.apache.hadoop.hbase.filter">Filter</a>&nbsp;filter)</span>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-700">stringifyFilter</a></span><wbr><span class="parameters">(<a href="../../filter/Filter.html" title="class in org.apache.hadoop.hbase.filter">Filter</a>&nbsp;filter)</span>
                               throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -603,7 +657,7 @@ implements <a href="../ProtobufMessageHandler.html" title="interface in org.apac
 <li>
 <section class="detail" id="fromScan(org.apache.hadoop.hbase.client.Scan)">
 <h3>fromScan</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ScannerModel.html" title="class in org.apache.hadoop.hbase.rest.model">ScannerModel</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-688">fromScan</a></span><wbr><span class="parameters">(<a href="../../client/Scan.html" title="class in org.apache.hadoop.hbase.client">Scan</a>&nbsp;scan)</span>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ScannerModel.html" title="class in org.apache.hadoop.hbase.rest.model">ScannerModel</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-710">fromScan</a></span><wbr><span class="parameters">(<a href="../../client/Scan.html" title="class in org.apache.hadoop.hbase.client">Scan</a>&nbsp;scan)</span>
                              throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -616,7 +670,7 @@ implements <a href="../ProtobufMessageHandler.html" title="interface in org.apac
 <li>
 <section class="detail" id="addColumn(byte[])">
 <h3>addColumn</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-796">addColumn</a></span><wbr><span class="parameters">(byte[]&nbsp;column)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-820">addColumn</a></span><wbr><span class="parameters">(byte[]&nbsp;column)</span></div>
 <div class="block">Add a column to the column set</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -627,111 +681,111 @@ implements <a href="../ProtobufMessageHandler.html" title="interface in org.apac
 <li>
 <section class="detail" id="addLabel(java.lang.String)">
 <h3>addLabel</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-803">addLabel</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;label)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-827">addLabel</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;label)</span></div>
 <div class="block">Add a visibility label to the scan</div>
 </section>
 </li>
 <li>
 <section class="detail" id="hasStartRow()">
 <h3>hasStartRow</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-808">hasStartRow</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-832">hasStartRow</a></span>()</div>
 <div class="block">Returns true if a start row was specified</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getStartRow()">
 <h3>getStartRow</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">byte[]</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-813">getStartRow</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">byte[]</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-837">getStartRow</a></span>()</div>
 <div class="block">Returns start row</div>
 </section>
 </li>
 <li>
 <section class="detail" id="hasEndRow()">
 <h3>hasEndRow</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-819">hasEndRow</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-843">hasEndRow</a></span>()</div>
 <div class="block">Returns true if an end row was specified</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getEndRow()">
 <h3>getEndRow</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">byte[]</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-824">getEndRow</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">byte[]</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-848">getEndRow</a></span>()</div>
 <div class="block">Returns end row</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getColumns()">
 <h3>getColumns</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;byte[]&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-830">getColumns</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;byte[]&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-854">getColumns</a></span>()</div>
 <div class="block">Returns list of columns of interest in column:qualifier format, or empty for all</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getLabels()">
 <h3>getLabels</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-835">getLabels</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-859">getLabels</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getBatch()">
 <h3>getBatch</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-841">getBatch</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-865">getBatch</a></span>()</div>
 <div class="block">Returns the number of cells to return in batch</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getCaching()">
 <h3>getCaching</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-847">getCaching</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-871">getCaching</a></span>()</div>
 <div class="block">Returns the number of rows that the scanner to fetch at once</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getLimit()">
 <h3>getLimit</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-853">getLimit</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-877">getLimit</a></span>()</div>
 <div class="block">Returns the limit specification</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getCacheBlocks()">
 <h3>getCacheBlocks</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-859">getCacheBlocks</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-883">getCacheBlocks</a></span>()</div>
 <div class="block">Returns true if HFile blocks should be cached on the servers for this scan, false otherwise</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getStartTime()">
 <h3>getStartTime</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-865">getStartTime</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-889">getStartTime</a></span>()</div>
 <div class="block">Returns the lower bound on timestamps of items of interest</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getEndTime()">
 <h3>getEndTime</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-871">getEndTime</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-895">getEndTime</a></span>()</div>
 <div class="block">Returns the upper bound on timestamps of items of interest</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getMaxVersions()">
 <h3>getMaxVersions</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-877">getMaxVersions</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-901">getMaxVersions</a></span>()</div>
 <div class="block">Returns maximum number of versions to return</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getFilter()">
 <h3>getFilter</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-883">getFilter</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-907">getFilter</a></span>()</div>
 <div class="block">Returns the filter specification</div>
 </section>
 </li>
 <li>
 <section class="detail" id="setStartRow(byte[])">
 <h3>setStartRow</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-891">setStartRow</a></span><wbr><span class="parameters">(byte[]&nbsp;startRow)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-915">setStartRow</a></span><wbr><span class="parameters">(byte[]&nbsp;startRow)</span></div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>startRow</code> - start row</dd>
@@ -741,7 +795,7 @@ implements <a href="../ProtobufMessageHandler.html" title="interface in org.apac
 <li>
 <section class="detail" id="setEndRow(byte[])">
 <h3>setEndRow</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-898">setEndRow</a></span><wbr><span class="parameters">(byte[]&nbsp;endRow)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-922">setEndRow</a></span><wbr><span class="parameters">(byte[]&nbsp;endRow)</span></div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>endRow</code> - end row</dd>
@@ -751,7 +805,7 @@ implements <a href="../ProtobufMessageHandler.html" title="interface in org.apac
 <li>
 <section class="detail" id="setColumns(java.util.List)">
 <h3>setColumns</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-905">setColumns</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;byte[]&gt;&nbsp;columns)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-929">setColumns</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;byte[]&gt;&nbsp;columns)</span></div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>columns</code> - list of columns of interest in column:qualifier format, or empty for all</dd>
@@ -761,7 +815,7 @@ implements <a href="../ProtobufMessageHandler.html" title="interface in org.apac
 <li>
 <section class="detail" id="setBatch(int)">
 <h3>setBatch</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-912">setBatch</a></span><wbr><span class="parameters">(int&nbsp;batch)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-936">setBatch</a></span><wbr><span class="parameters">(int&nbsp;batch)</span></div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>batch</code> - the number of cells to return in batch</dd>
@@ -771,7 +825,7 @@ implements <a href="../ProtobufMessageHandler.html" title="interface in org.apac
 <li>
 <section class="detail" id="setCaching(int)">
 <h3>setCaching</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-919">setCaching</a></span><wbr><span class="parameters">(int&nbsp;caching)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-943">setCaching</a></span><wbr><span class="parameters">(int&nbsp;caching)</span></div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>caching</code> - the number of rows to fetch at once</dd>
@@ -781,7 +835,7 @@ implements <a href="../ProtobufMessageHandler.html" title="interface in org.apac
 <li>
 <section class="detail" id="setCacheBlocks(boolean)">
 <h3>setCacheBlocks</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-927">setCacheBlocks</a></span><wbr><span class="parameters">(boolean&nbsp;value)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-951">setCacheBlocks</a></span><wbr><span class="parameters">(boolean&nbsp;value)</span></div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>value</code> - true if HFile blocks should be cached on the servers for this scan, false
@@ -792,7 +846,7 @@ implements <a href="../ProtobufMessageHandler.html" title="interface in org.apac
 <li>
 <section class="detail" id="setLimit(int)">
 <h3>setLimit</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-934">setLimit</a></span><wbr><span class="parameters">(int&nbsp;limit)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-958">setLimit</a></span><wbr><span class="parameters">(int&nbsp;limit)</span></div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>limit</code> - the number of rows can fetch of each scanner at lifetime</dd>
@@ -802,7 +856,7 @@ implements <a href="../ProtobufMessageHandler.html" title="interface in org.apac
 <li>
 <section class="detail" id="setMaxVersions(int)">
 <h3>setMaxVersions</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-941">setMaxVersions</a></span><wbr><span class="parameters">(int&nbsp;maxVersions)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-965">setMaxVersions</a></span><wbr><span class="parameters">(int&nbsp;maxVersions)</span></div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>maxVersions</code> - maximum number of versions to return</dd>
@@ -812,7 +866,7 @@ implements <a href="../ProtobufMessageHandler.html" title="interface in org.apac
 <li>
 <section class="detail" id="setStartTime(long)">
 <h3>setStartTime</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-948">setStartTime</a></span><wbr><span class="parameters">(long&nbsp;startTime)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-972">setStartTime</a></span><wbr><span class="parameters">(long&nbsp;startTime)</span></div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>startTime</code> - the lower bound on timestamps of values of interest</dd>
@@ -822,7 +876,7 @@ implements <a href="../ProtobufMessageHandler.html" title="interface in org.apac
 <li>
 <section class="detail" id="setEndTime(long)">
 <h3>setEndTime</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-955">setEndTime</a></span><wbr><span class="parameters">(long&nbsp;endTime)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-979">setEndTime</a></span><wbr><span class="parameters">(long&nbsp;endTime)</span></div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>endTime</code> - the upper bound on timestamps of values of interest</dd>
@@ -832,7 +886,7 @@ implements <a href="../ProtobufMessageHandler.html" title="interface in org.apac
 <li>
 <section class="detail" id="setFilter(java.lang.String)">
 <h3>setFilter</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-962">setFilter</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;filter)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-986">setFilter</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;filter)</span></div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>filter</code> - the filter specification</dd>
@@ -842,7 +896,7 @@ implements <a href="../ProtobufMessageHandler.html" title="interface in org.apac
 <li>
 <section class="detail" id="messageFromObject()">
 <h3>messageFromObject</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hbase.thirdparty.com.google.protobuf.Message</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-966">messageFromObject</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hbase.thirdparty.com.google.protobuf.Message</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-990">messageFromObject</a></span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../ProtobufMessageHandler.html#messageFromObject()">ProtobufMessageHandler</a></code></span></div>
 <div class="block">Convert to model to a protobuf Message object</div>
 <dl class="notes">
@@ -856,7 +910,7 @@ implements <a href="../ProtobufMessageHandler.html" title="interface in org.apac
 <li>
 <section class="detail" id="getObjectFromMessage(org.apache.hbase.thirdparty.com.google.protobuf.CodedInputStream)">
 <h3>getObjectFromMessage</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../ProtobufMessageHandler.html" title="interface in org.apache.hadoop.hbase.rest">ProtobufMessageHandler</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-1003">getObjectFromMessage</a></span><wbr><span class="parameters">(org.apache.hbase.thirdparty.com.google.protobuf.CodedInputStream&nbsp;cis)</span>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../ProtobufMessageHandler.html" title="interface in org.apache.hadoop.hbase.rest">ProtobufMessageHandler</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/rest/model/ScannerModel.html#line-1029">getObjectFromMessage</a></span><wbr><span class="parameters">(org.apache.hbase.thirdparty.com.google.protobuf.CodedInputStream&nbsp;cis)</span>
                                             throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Specified by:</dt>

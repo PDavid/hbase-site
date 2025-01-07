@@ -755,7 +755,7 @@ implements <a href="Server.html" title="interface in org.apache.hadoop.hbase">Se
 <li>
 <section class="detail" id="setAbortRequested()">
 <h3>setAbortRequested</h3>
-<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-375">setAbortRequested</a></span>()</div>
+<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-377">setAbortRequested</a></span>()</div>
 <div class="block">Sets the abort state if not already set.</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -767,7 +767,7 @@ implements <a href="Server.html" title="interface in org.apache.hadoop.hbase">Se
 <li>
 <section class="detail" id="isStopped()">
 <h3>isStopped</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-379">isStopped</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-381">isStopped</a></span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Stoppable.html#isStopped()">Stoppable</a></code></span></div>
 <div class="block">Returns True if <a href="Stoppable.html#stop(java.lang.String)"><code>Stoppable.stop(String)</code></a> has been closed.</div>
 <dl class="notes">
@@ -779,7 +779,7 @@ implements <a href="Server.html" title="interface in org.apache.hadoop.hbase">Se
 <li>
 <section class="detail" id="isAborted()">
 <h3>isAborted</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-384">isAborted</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-386">isAborted</a></span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Abortable.html#isAborted()">Abortable</a></code></span></div>
 <div class="block">Check if the server or client was aborted.</div>
 <dl class="notes">
@@ -793,7 +793,7 @@ implements <a href="Server.html" title="interface in org.apache.hadoop.hbase">Se
 <li>
 <section class="detail" id="getConfiguration()">
 <h3>getConfiguration</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hadoop.conf.Configuration</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-389">getConfiguration</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hadoop.conf.Configuration</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-391">getConfiguration</a></span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Server.html#getConfiguration()">Server</a></code></span></div>
 <div class="block">Gets the configuration object for this server.</div>
 <dl class="notes">
@@ -805,7 +805,7 @@ implements <a href="Server.html" title="interface in org.apache.hadoop.hbase">Se
 <li>
 <section class="detail" id="getAsyncClusterConnection()">
 <h3>getAsyncClusterConnection</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="client/AsyncClusterConnection.html" title="interface in org.apache.hadoop.hbase.client">AsyncClusterConnection</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-394">getAsyncClusterConnection</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="client/AsyncClusterConnection.html" title="interface in org.apache.hadoop.hbase.client">AsyncClusterConnection</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-396">getAsyncClusterConnection</a></span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Server.html#getAsyncClusterConnection()">Server</a></code></span></div>
 <div class="block">Returns a reference to the servers' async cluster connection.
  <p/>
@@ -820,7 +820,7 @@ implements <a href="Server.html" title="interface in org.apache.hadoop.hbase">Se
 <li>
 <section class="detail" id="getZooKeeper()">
 <h3>getZooKeeper</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="zookeeper/ZKWatcher.html" title="class in org.apache.hadoop.hbase.zookeeper">ZKWatcher</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-399">getZooKeeper</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="zookeeper/ZKWatcher.html" title="class in org.apache.hadoop.hbase.zookeeper">ZKWatcher</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-401">getZooKeeper</a></span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Server.html#getZooKeeper()">Server</a></code></span></div>
 <div class="block">Gets the ZooKeeper instance for this server.</div>
 <dl class="notes">
@@ -832,61 +832,61 @@ implements <a href="Server.html" title="interface in org.apache.hadoop.hbase">Se
 <li>
 <section class="detail" id="shutdownChore(org.apache.hadoop.hbase.ScheduledChore)">
 <h3>shutdownChore</h3>
-<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-404">shutdownChore</a></span><wbr><span class="parameters">(<a href="ScheduledChore.html" title="class in org.apache.hadoop.hbase">ScheduledChore</a>&nbsp;chore)</span></div>
+<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-406">shutdownChore</a></span><wbr><span class="parameters">(<a href="ScheduledChore.html" title="class in org.apache.hadoop.hbase">ScheduledChore</a>&nbsp;chore)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="initializeMemStoreChunkCreator(org.apache.hadoop.hbase.regionserver.HeapMemoryManager)">
 <h3>initializeMemStoreChunkCreator</h3>
-<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-410">initializeMemStoreChunkCreator</a></span><wbr><span class="parameters">(<a href="regionserver/HeapMemoryManager.html" title="class in org.apache.hadoop.hbase.regionserver">HeapMemoryManager</a>&nbsp;hMemManager)</span></div>
+<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-412">initializeMemStoreChunkCreator</a></span><wbr><span class="parameters">(<a href="regionserver/HeapMemoryManager.html" title="class in org.apache.hadoop.hbase.regionserver">HeapMemoryManager</a>&nbsp;hMemManager)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="stopChores()">
 <h3>stopChores</h3>
-<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-433">stopChores</a></span>()</div>
+<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-435">stopChores</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="stopChoreService()">
 <h3>stopChoreService</h3>
-<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-435">stopChoreService</a></span>()</div>
+<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-437">stopChoreService</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="stopExecutorService()">
 <h3>stopExecutorService</h3>
-<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-446">stopExecutorService</a></span>()</div>
+<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-448">stopExecutorService</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="closeClusterConnection()">
 <h3>closeClusterConnection</h3>
-<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-453">closeClusterConnection</a></span>()</div>
+<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-455">closeClusterConnection</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="stopInfoServer()">
 <h3>stopInfoServer</h3>
-<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-466">stopInfoServer</a></span>()</div>
+<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-468">stopInfoServer</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="closeZooKeeper()">
 <h3>closeZooKeeper</h3>
-<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-477">closeZooKeeper</a></span>()</div>
+<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-479">closeZooKeeper</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="closeTableDescriptors()">
 <h3>closeTableDescriptors</h3>
-<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-484">closeTableDescriptors</a></span>()</div>
+<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-486">closeTableDescriptors</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="installShutdownHook()">
 <h3>installShutdownHook</h3>
-<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-499">installShutdownHook</a></span>()</div>
+<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-501">installShutdownHook</a></span>()</div>
 <div class="block">In order to register ShutdownHook, this method is called when HMaster and HRegionServer are
  started. For details, please refer to HBASE-26951</div>
 </section>
@@ -894,13 +894,13 @@ implements <a href="Server.html" title="interface in org.apache.hadoop.hbase">Se
 <li>
 <section class="detail" id="isShutdownHookInstalled()">
 <h3>isShutdownHookInstalled</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-504">isShutdownHookInstalled</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-506">isShutdownHookInstalled</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getServerName()">
 <h3>getServerName</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ServerName.html" title="class in org.apache.hadoop.hbase">ServerName</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-510">getServerName</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ServerName.html" title="class in org.apache.hadoop.hbase">ServerName</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-512">getServerName</a></span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Server.html#getServerName()">Server</a></code></span></div>
 <div class="block">Returns The unique server name for this server.</div>
 <dl class="notes">
@@ -912,7 +912,7 @@ implements <a href="Server.html" title="interface in org.apache.hadoop.hbase">Se
 <li>
 <section class="detail" id="getChoreService()">
 <h3>getChoreService</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ChoreService.html" title="class in org.apache.hadoop.hbase">ChoreService</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-515">getChoreService</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ChoreService.html" title="class in org.apache.hadoop.hbase">ChoreService</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-517">getChoreService</a></span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Server.html#getChoreService()">Server</a></code></span></div>
 <div class="block">Returns The <a href="ChoreService.html" title="class in org.apache.hadoop.hbase"><code>ChoreService</code></a> instance for this server</div>
 <dl class="notes">
@@ -924,32 +924,32 @@ implements <a href="Server.html" title="interface in org.apache.hadoop.hbase">Se
 <li>
 <section class="detail" id="getTableDescriptors()">
 <h3>getTableDescriptors</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="TableDescriptors.html" title="interface in org.apache.hadoop.hbase">TableDescriptors</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-521">getTableDescriptors</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="TableDescriptors.html" title="interface in org.apache.hadoop.hbase">TableDescriptors</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-523">getTableDescriptors</a></span>()</div>
 <div class="block">Returns Return table descriptors implementation.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getExecutorService()">
 <h3>getExecutorService</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="executor/ExecutorService.html" title="class in org.apache.hadoop.hbase.executor">ExecutorService</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-525">getExecutorService</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="executor/ExecutorService.html" title="class in org.apache.hadoop.hbase.executor">ExecutorService</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-527">getExecutorService</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getAccessChecker()">
 <h3>getAccessChecker</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="security/access/AccessChecker.html" title="class in org.apache.hadoop.hbase.security.access">AccessChecker</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-529">getAccessChecker</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="security/access/AccessChecker.html" title="class in org.apache.hadoop.hbase.security.access">AccessChecker</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-531">getAccessChecker</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getZKPermissionWatcher()">
 <h3>getZKPermissionWatcher</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="security/access/ZKPermissionWatcher.html" title="class in org.apache.hadoop.hbase.security.access">ZKPermissionWatcher</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-533">getZKPermissionWatcher</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="security/access/ZKPermissionWatcher.html" title="class in org.apache.hadoop.hbase.security.access">ZKPermissionWatcher</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-535">getZKPermissionWatcher</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getCoordinatedStateManager()">
 <h3>getCoordinatedStateManager</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="CoordinatedStateManager.html" title="interface in org.apache.hadoop.hbase">CoordinatedStateManager</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-537">getCoordinatedStateManager</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="CoordinatedStateManager.html" title="interface in org.apache.hadoop.hbase">CoordinatedStateManager</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-539">getCoordinatedStateManager</a></span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Server.html#getCoordinatedStateManager()">Server</a></code></span></div>
 <div class="block">Get CoordinatedStateManager instance for this server.</div>
 <dl class="notes">
@@ -961,7 +961,7 @@ implements <a href="Server.html" title="interface in org.apache.hadoop.hbase">Se
 <li>
 <section class="detail" id="createConnection(org.apache.hadoop.conf.Configuration)">
 <h3>createConnection</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-542">createConnection</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf)</span>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-544">createConnection</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf)</span>
                             throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
@@ -974,14 +974,14 @@ implements <a href="Server.html" title="interface in org.apache.hadoop.hbase">Se
 <li>
 <section class="detail" id="getDataRootDir()">
 <h3>getDataRootDir</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-549">getDataRootDir</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-551">getDataRootDir</a></span>()</div>
 <div class="block">Returns Return the rootDir.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getFileSystem()">
 <h3>getFileSystem</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.FileSystem</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-553">getFileSystem</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.FileSystem</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-555">getFileSystem</a></span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Server.html#getFileSystem()">Server</a></code></span></div>
 <div class="block">Returns Return the FileSystem object used (can return null!).</div>
 <dl class="notes">
@@ -993,84 +993,84 @@ implements <a href="Server.html" title="interface in org.apache.hadoop.hbase">Se
 <li>
 <section class="detail" id="getWALRootDir()">
 <h3>getWALRootDir</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-559">getWALRootDir</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-561">getWALRootDir</a></span>()</div>
 <div class="block">Returns Return the walRootDir.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getWALFileSystem()">
 <h3>getWALFileSystem</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.FileSystem</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-564">getWALFileSystem</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.FileSystem</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-566">getWALFileSystem</a></span>()</div>
 <div class="block">Returns Return the walFs.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="isClusterUp()">
 <h3>isClusterUp</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-569">isClusterUp</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-571">isClusterUp</a></span>()</div>
 <div class="block">Returns True if the cluster is up.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getStartcode()">
 <h3>getStartcode</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-574">getStartcode</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-576">getStartcode</a></span>()</div>
 <div class="block">Returns time stamp in millis of when this server was started</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getInfoServer()">
 <h3>getInfoServer</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="http/InfoServer.html" title="class in org.apache.hadoop.hbase.http">InfoServer</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-578">getInfoServer</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="http/InfoServer.html" title="class in org.apache.hadoop.hbase.http">InfoServer</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-580">getInfoServer</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getMsgInterval()">
 <h3>getMsgInterval</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-582">getMsgInterval</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-584">getMsgInterval</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getNamedQueueRecorder()">
 <h3>getNamedQueueRecorder</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="namequeues/NamedQueueRecorder.html" title="class in org.apache.hadoop.hbase.namequeues">NamedQueueRecorder</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-589">getNamedQueueRecorder</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="namequeues/NamedQueueRecorder.html" title="class in org.apache.hadoop.hbase.namequeues">NamedQueueRecorder</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-591">getNamedQueueRecorder</a></span>()</div>
 <div class="block">get NamedQueue Provider to add different logs to ringbuffer</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getRpcServer()">
 <h3>getRpcServer</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ipc/RpcServerInterface.html" title="interface in org.apache.hadoop.hbase.ipc">RpcServerInterface</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-593">getRpcServer</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ipc/RpcServerInterface.html" title="interface in org.apache.hadoop.hbase.ipc">RpcServerInterface</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-595">getRpcServer</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getEventLoopGroupConfig()">
 <h3>getEventLoopGroupConfig</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="util/NettyEventLoopGroupConfig.html" title="class in org.apache.hadoop.hbase.util">NettyEventLoopGroupConfig</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-597">getEventLoopGroupConfig</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="util/NettyEventLoopGroupConfig.html" title="class in org.apache.hadoop.hbase.util">NettyEventLoopGroupConfig</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-599">getEventLoopGroupConfig</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getRpcServices()">
 <h3>getRpcServices</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="HBaseServerBase.html" title="type parameter in HBaseServerBase">R</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-601">getRpcServices</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="HBaseServerBase.html" title="type parameter in HBaseServerBase">R</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-603">getRpcServices</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getMetaRegionLocationCache()">
 <h3>getMetaRegionLocationCache</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="MetaRegionLocationCache.html" title="class in org.apache.hadoop.hbase">MetaRegionLocationCache</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-605">getMetaRegionLocationCache</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="MetaRegionLocationCache.html" title="class in org.apache.hadoop.hbase">MetaRegionLocationCache</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-607">getMetaRegionLocationCache</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getConfigurationManager()">
 <h3>getConfigurationManager</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="conf/ConfigurationManager.html" title="class in org.apache.hadoop.hbase.conf">ConfigurationManager</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-611">getConfigurationManager</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="conf/ConfigurationManager.html" title="class in org.apache.hadoop.hbase.conf">ConfigurationManager</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-613">getConfigurationManager</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="updateConfiguration()">
 <h3>updateConfiguration</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-620">updateConfiguration</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-622">updateConfiguration</a></span>()
                          throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Reload the configuration from disk.</div>
 <dl class="notes">
@@ -1082,7 +1082,7 @@ implements <a href="Server.html" title="interface in org.apache.hadoop.hbase">Se
 <li>
 <section class="detail" id="preUpdateConfiguration()">
 <h3>preUpdateConfiguration</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-629">preUpdateConfiguration</a></span>()
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-631">preUpdateConfiguration</a></span>()
                              throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -1093,7 +1093,7 @@ implements <a href="Server.html" title="interface in org.apache.hadoop.hbase">Se
 <li>
 <section class="detail" id="postUpdateConfiguration()">
 <h3>postUpdateConfiguration</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-638">postUpdateConfiguration</a></span>()
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-640">postUpdateConfiguration</a></span>()
                               throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -1104,7 +1104,7 @@ implements <a href="Server.html" title="interface in org.apache.hadoop.hbase">Se
 <li>
 <section class="detail" id="toString()">
 <h3>toString</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-647">toString</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-649">toString</a></span>()</div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Thread.html#toString()" title="class or interface in java.lang" class="external-link">toString</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Thread.html" title="class or interface in java.lang" class="external-link">Thread</a></code></dd>
@@ -1114,25 +1114,25 @@ implements <a href="Server.html" title="interface in org.apache.hadoop.hbase">Se
 <li>
 <section class="detail" id="getCoprocessorHost()">
 <h3>getCoprocessorHost</h3>
-<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type"><a href="coprocessor/CoprocessorHost.html" title="class in org.apache.hadoop.hbase.coprocessor">CoprocessorHost</a>&lt;?,<wbr>?&gt;</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-652">getCoprocessorHost</a></span>()</div>
+<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type"><a href="coprocessor/CoprocessorHost.html" title="class in org.apache.hadoop.hbase.coprocessor">CoprocessorHost</a>&lt;?,<wbr>?&gt;</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-654">getCoprocessorHost</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="canCreateBaseZNode()">
 <h3>canCreateBaseZNode</h3>
-<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-654">canCreateBaseZNode</a></span>()</div>
+<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-656">canCreateBaseZNode</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getProcessName()">
 <h3>getProcessName</h3>
-<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-656">getProcessName</a></span>()</div>
+<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-658">getProcessName</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="createRpcServices()">
 <h3>createRpcServices</h3>
-<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type"><a href="HBaseServerBase.html" title="type parameter in HBaseServerBase">R</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-658">createRpcServices</a></span>()
+<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type"><a href="HBaseServerBase.html" title="type parameter in HBaseServerBase">R</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-660">createRpcServices</a></span>()
                                 throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -1143,7 +1143,7 @@ implements <a href="Server.html" title="interface in org.apache.hadoop.hbase">Se
 <li>
 <section class="detail" id="getUseThisHostnameInstead(org.apache.hadoop.conf.Configuration)">
 <h3>getUseThisHostnameInstead</h3>
-<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-660">getUseThisHostnameInstead</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf)</span>
+<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-662">getUseThisHostnameInstead</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf)</span>
                                              throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -1154,7 +1154,7 @@ implements <a href="Server.html" title="interface in org.apache.hadoop.hbase">Se
 <li>
 <section class="detail" id="login(org.apache.hadoop.hbase.security.UserProvider,java.lang.String)">
 <h3>login</h3>
-<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-662">login</a></span><wbr><span class="parameters">(<a href="security/UserProvider.html" title="class in org.apache.hadoop.hbase.security">UserProvider</a>&nbsp;user,
+<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-664">login</a></span><wbr><span class="parameters">(<a href="security/UserProvider.html" title="class in org.apache.hadoop.hbase.security">UserProvider</a>&nbsp;user,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;host)</span>
                        throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
@@ -1166,37 +1166,37 @@ implements <a href="Server.html" title="interface in org.apache.hadoop.hbase">Se
 <li>
 <section class="detail" id="createNamedQueueRecord()">
 <h3>createNamedQueueRecord</h3>
-<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type"><a href="namequeues/NamedQueueRecorder.html" title="class in org.apache.hadoop.hbase.namequeues">NamedQueueRecorder</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-664">createNamedQueueRecord</a></span>()</div>
+<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type"><a href="namequeues/NamedQueueRecorder.html" title="class in org.apache.hadoop.hbase.namequeues">NamedQueueRecorder</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-666">createNamedQueueRecord</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="configureInfoServer(org.apache.hadoop.hbase.http.InfoServer)">
 <h3>configureInfoServer</h3>
-<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-666">configureInfoServer</a></span><wbr><span class="parameters">(<a href="http/InfoServer.html" title="class in org.apache.hadoop.hbase.http">InfoServer</a>&nbsp;infoServer)</span></div>
+<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-668">configureInfoServer</a></span><wbr><span class="parameters">(<a href="http/InfoServer.html" title="class in org.apache.hadoop.hbase.http">InfoServer</a>&nbsp;infoServer)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getDumpServlet()">
 <h3>getDumpServlet</h3>
-<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;? extends javax.servlet.http.HttpServlet&gt;</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-668">getDumpServlet</a></span>()</div>
+<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;? extends javax.servlet.http.HttpServlet&gt;</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-670">getDumpServlet</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="canUpdateTableDescriptor()">
 <h3>canUpdateTableDescriptor</h3>
-<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-670">canUpdateTableDescriptor</a></span>()</div>
+<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-672">canUpdateTableDescriptor</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="cacheTableDescriptor()">
 <h3>cacheTableDescriptor</h3>
-<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-672">cacheTableDescriptor</a></span>()</div>
+<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-674">cacheTableDescriptor</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="clusterMode()">
 <h3>clusterMode</h3>
-<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-674">clusterMode</a></span>()</div>
+<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/HBaseServerBase.html#line-676">clusterMode</a></span>()</div>
 </section>
 </li>
 </ul>

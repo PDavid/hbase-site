@@ -209,78 +209,82 @@ the order they are declared.</div>
 <div class="col-second even-row-color"><span class="type-name-label">HFileWriterImpl.</span><code><a href="../HFileWriterImpl.html#addBloomFilter(org.apache.hadoop.hbase.util.BloomFilterWriter,org.apache.hadoop.hbase.io.hfile.BlockType)" class="member-name-link">addBloomFilter</a><wbr>(<a href="../../../util/BloomFilterWriter.html" title="interface in org.apache.hadoop.hbase.util">BloomFilterWriter</a>&nbsp;bfw,
  <a href="../BlockType.html" title="enum class in org.apache.hadoop.hbase.io.hfile">BlockType</a>&nbsp;blockType)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">HFileDataBlockEncoder.</span><code><a href="../HFileDataBlockEncoder.html#endBlockEncoding(org.apache.hadoop.hbase.io.encoding.HFileBlockEncodingContext,java.io.DataOutputStream,byte%5B%5D,org.apache.hadoop.hbase.io.hfile.BlockType)" class="member-name-link">endBlockEncoding</a><wbr>(<a href="../../encoding/HFileBlockEncodingContext.html" title="interface in org.apache.hadoop.hbase.io.encoding">HFileBlockEncodingContext</a>&nbsp;encodingCtx,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/DataOutputStream.html" title="class or interface in java.io" class="external-link">DataOutputStream</a>&nbsp;out,
- byte[]&nbsp;uncompressedBytesWithHeader,
- <a href="../BlockType.html" title="enum class in org.apache.hadoop.hbase.io.hfile">BlockType</a>&nbsp;blockType)</code></div>
-<div class="col-last odd-row-color">
-<div class="block">Ends encoding for a block of KeyValues.</div>
-</div>
-<div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">HFileDataBlockEncoderImpl.</span><code><a href="../HFileDataBlockEncoderImpl.html#endBlockEncoding(org.apache.hadoop.hbase.io.encoding.HFileBlockEncodingContext,java.io.DataOutputStream,byte%5B%5D,org.apache.hadoop.hbase.io.hfile.BlockType)" class="member-name-link">endBlockEncoding</a><wbr>(<a href="../../encoding/HFileBlockEncodingContext.html" title="interface in org.apache.hadoop.hbase.io.encoding">HFileBlockEncodingContext</a>&nbsp;encodingCtx,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/DataOutputStream.html" title="class or interface in java.io" class="external-link">DataOutputStream</a>&nbsp;out,
- byte[]&nbsp;uncompressedBytesWithHeader,
- <a href="../BlockType.html" title="enum class in org.apache.hadoop.hbase.io.hfile">BlockType</a>&nbsp;blockType)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">NoOpDataBlockEncoder.</span><code><a href="../NoOpDataBlockEncoder.html#endBlockEncoding(org.apache.hadoop.hbase.io.encoding.HFileBlockEncodingContext,java.io.DataOutputStream,byte%5B%5D,org.apache.hadoop.hbase.io.hfile.BlockType)" class="member-name-link">endBlockEncoding</a><wbr>(<a href="../../encoding/HFileBlockEncodingContext.html" title="interface in org.apache.hadoop.hbase.io.encoding">HFileBlockEncodingContext</a>&nbsp;encodingCtx,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/DataOutputStream.html" title="class or interface in java.io" class="external-link">DataOutputStream</a>&nbsp;out,
- byte[]&nbsp;uncompressedBytesWithHeader,
+<div class="col-first odd-row-color"><code>private <a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a></code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">HFileWriterImpl.</span><code><a href="../HFileWriterImpl.html#buildCacheBlockKey(long,org.apache.hadoop.hbase.io.hfile.BlockType)" class="member-name-link">buildCacheBlockKey</a><wbr>(long&nbsp;offset,
  <a href="../BlockType.html" title="enum class in org.apache.hadoop.hbase.io.hfile">BlockType</a>&nbsp;blockType)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>default <a href="../Cacheable.html" title="interface in org.apache.hadoop.hbase.io.hfile">Cacheable</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">BlockCache.</span><code><a href="../BlockCache.html#getBlock(org.apache.hadoop.hbase.io.hfile.BlockCacheKey,boolean,boolean,boolean,org.apache.hadoop.hbase.io.hfile.BlockType)" class="member-name-link">getBlock</a><wbr>(<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;cacheKey,
- boolean&nbsp;caching,
- boolean&nbsp;repeat,
- boolean&nbsp;updateCacheMetrics,
+<div class="col-first even-row-color"><code>void</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">HFileDataBlockEncoder.</span><code><a href="../HFileDataBlockEncoder.html#endBlockEncoding(org.apache.hadoop.hbase.io.encoding.HFileBlockEncodingContext,java.io.DataOutputStream,byte%5B%5D,org.apache.hadoop.hbase.io.hfile.BlockType)" class="member-name-link">endBlockEncoding</a><wbr>(<a href="../../encoding/HFileBlockEncodingContext.html" title="interface in org.apache.hadoop.hbase.io.encoding">HFileBlockEncodingContext</a>&nbsp;encodingCtx,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/DataOutputStream.html" title="class or interface in java.io" class="external-link">DataOutputStream</a>&nbsp;out,
+ byte[]&nbsp;uncompressedBytesWithHeader,
  <a href="../BlockType.html" title="enum class in org.apache.hadoop.hbase.io.hfile">BlockType</a>&nbsp;blockType)</code></div>
 <div class="col-last even-row-color">
-<div class="block">Fetch block from cache.</div>
+<div class="block">Ends encoding for a block of KeyValues.</div>
 </div>
-<div class="col-first odd-row-color"><code><a href="../Cacheable.html" title="interface in org.apache.hadoop.hbase.io.hfile">Cacheable</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">CombinedBlockCache.</span><code><a href="../CombinedBlockCache.html#getBlock(org.apache.hadoop.hbase.io.hfile.BlockCacheKey,boolean,boolean,boolean,org.apache.hadoop.hbase.io.hfile.BlockType)" class="member-name-link">getBlock</a><wbr>(<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;cacheKey,
+<div class="col-first odd-row-color"><code>void</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">HFileDataBlockEncoderImpl.</span><code><a href="../HFileDataBlockEncoderImpl.html#endBlockEncoding(org.apache.hadoop.hbase.io.encoding.HFileBlockEncodingContext,java.io.DataOutputStream,byte%5B%5D,org.apache.hadoop.hbase.io.hfile.BlockType)" class="member-name-link">endBlockEncoding</a><wbr>(<a href="../../encoding/HFileBlockEncodingContext.html" title="interface in org.apache.hadoop.hbase.io.encoding">HFileBlockEncodingContext</a>&nbsp;encodingCtx,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/DataOutputStream.html" title="class or interface in java.io" class="external-link">DataOutputStream</a>&nbsp;out,
+ byte[]&nbsp;uncompressedBytesWithHeader,
+ <a href="../BlockType.html" title="enum class in org.apache.hadoop.hbase.io.hfile">BlockType</a>&nbsp;blockType)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>void</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">NoOpDataBlockEncoder.</span><code><a href="../NoOpDataBlockEncoder.html#endBlockEncoding(org.apache.hadoop.hbase.io.encoding.HFileBlockEncodingContext,java.io.DataOutputStream,byte%5B%5D,org.apache.hadoop.hbase.io.hfile.BlockType)" class="member-name-link">endBlockEncoding</a><wbr>(<a href="../../encoding/HFileBlockEncodingContext.html" title="interface in org.apache.hadoop.hbase.io.encoding">HFileBlockEncodingContext</a>&nbsp;encodingCtx,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/DataOutputStream.html" title="class or interface in java.io" class="external-link">DataOutputStream</a>&nbsp;out,
+ byte[]&nbsp;uncompressedBytesWithHeader,
+ <a href="../BlockType.html" title="enum class in org.apache.hadoop.hbase.io.hfile">BlockType</a>&nbsp;blockType)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>default <a href="../Cacheable.html" title="interface in org.apache.hadoop.hbase.io.hfile">Cacheable</a></code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">BlockCache.</span><code><a href="../BlockCache.html#getBlock(org.apache.hadoop.hbase.io.hfile.BlockCacheKey,boolean,boolean,boolean,org.apache.hadoop.hbase.io.hfile.BlockType)" class="member-name-link">getBlock</a><wbr>(<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;cacheKey,
  boolean&nbsp;caching,
  boolean&nbsp;repeat,
  boolean&nbsp;updateCacheMetrics,
  <a href="../BlockType.html" title="enum class in org.apache.hadoop.hbase.io.hfile">BlockType</a>&nbsp;blockType)</code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>private <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/DataInput.html" title="class or interface in java.io" class="external-link">DataInput</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">HFileReaderImpl.</span><code><a href="../HFileReaderImpl.html#getBloomFilterMetadata(org.apache.hadoop.hbase.io.hfile.BlockType)" class="member-name-link">getBloomFilterMetadata</a><wbr>(<a href="../BlockType.html" title="enum class in org.apache.hadoop.hbase.io.hfile">BlockType</a>&nbsp;blockType)</code></div>
+<div class="col-last odd-row-color">
+<div class="block">Fetch block from cache.</div>
+</div>
+<div class="col-first even-row-color"><code><a href="../Cacheable.html" title="interface in org.apache.hadoop.hbase.io.hfile">Cacheable</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">CombinedBlockCache.</span><code><a href="../CombinedBlockCache.html#getBlock(org.apache.hadoop.hbase.io.hfile.BlockCacheKey,boolean,boolean,boolean,org.apache.hadoop.hbase.io.hfile.BlockType)" class="member-name-link">getBlock</a><wbr>(<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;cacheKey,
+ boolean&nbsp;caching,
+ boolean&nbsp;repeat,
+ boolean&nbsp;updateCacheMetrics,
+ <a href="../BlockType.html" title="enum class in org.apache.hadoop.hbase.io.hfile">BlockType</a>&nbsp;blockType)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>private <a href="../HFileBlock.html" title="class in org.apache.hadoop.hbase.io.hfile">HFileBlock</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">HFileReaderImpl.</span><code><a href="../HFileReaderImpl.html#getCachedBlock(org.apache.hadoop.hbase.io.hfile.BlockCacheKey,boolean,boolean,boolean,org.apache.hadoop.hbase.io.hfile.BlockType,org.apache.hadoop.hbase.io.encoding.DataBlockEncoding)" class="member-name-link">getCachedBlock</a><wbr>(<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;cacheKey,
+<div class="col-first odd-row-color"><code>private <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/DataInput.html" title="class or interface in java.io" class="external-link">DataInput</a></code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">HFileReaderImpl.</span><code><a href="../HFileReaderImpl.html#getBloomFilterMetadata(org.apache.hadoop.hbase.io.hfile.BlockType)" class="member-name-link">getBloomFilterMetadata</a><wbr>(<a href="../BlockType.html" title="enum class in org.apache.hadoop.hbase.io.hfile">BlockType</a>&nbsp;blockType)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private <a href="../HFileBlock.html" title="class in org.apache.hadoop.hbase.io.hfile">HFileBlock</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">HFileReaderImpl.</span><code><a href="../HFileReaderImpl.html#getCachedBlock(org.apache.hadoop.hbase.io.hfile.BlockCacheKey,boolean,boolean,boolean,org.apache.hadoop.hbase.io.hfile.BlockType,org.apache.hadoop.hbase.io.encoding.DataBlockEncoding)" class="member-name-link">getCachedBlock</a><wbr>(<a href="../BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a>&nbsp;cacheKey,
  boolean&nbsp;cacheBlock,
  boolean&nbsp;useLock,
  boolean&nbsp;updateCacheMetrics,
  <a href="../BlockType.html" title="enum class in org.apache.hadoop.hbase.io.hfile">BlockType</a>&nbsp;expectedBlockType,
  <a href="../../encoding/DataBlockEncoding.html" title="enum class in org.apache.hadoop.hbase.io.encoding">DataBlockEncoding</a>&nbsp;expectedDataBlockEncoding)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-last even-row-color">
 <div class="block">Retrieve block from cache.</div>
 </div>
-<div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">CacheStats.</span><code><a href="../CacheStats.html#hit(boolean,boolean,org.apache.hadoop.hbase.io.hfile.BlockType)" class="member-name-link">hit</a><wbr>(boolean&nbsp;caching,
+<div class="col-first odd-row-color"><code>void</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">CacheStats.</span><code><a href="../CacheStats.html#hit(boolean,boolean,org.apache.hadoop.hbase.io.hfile.BlockType)" class="member-name-link">hit</a><wbr>(boolean&nbsp;caching,
  boolean&nbsp;primary,
  <a href="../BlockType.html" title="enum class in org.apache.hadoop.hbase.io.hfile">BlockType</a>&nbsp;type)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>default boolean</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">BlockCache.</span><code><a href="../BlockCache.html#isMetaBlock(org.apache.hadoop.hbase.io.hfile.BlockType)" class="member-name-link">isMetaBlock</a><wbr>(<a href="../BlockType.html" title="enum class in org.apache.hadoop.hbase.io.hfile">BlockType</a>&nbsp;blockType)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>default boolean</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">BlockCache.</span><code><a href="../BlockCache.html#isMetaBlock(org.apache.hadoop.hbase.io.hfile.BlockType)" class="member-name-link">isMetaBlock</a><wbr>(<a href="../BlockType.html" title="enum class in org.apache.hadoop.hbase.io.hfile">BlockType</a>&nbsp;blockType)</code></div>
+<div class="col-last even-row-color">
 <div class="block">Check if block type is meta or index block</div>
 </div>
-<div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">CacheStats.</span><code><a href="../CacheStats.html#miss(boolean,boolean,org.apache.hadoop.hbase.io.hfile.BlockType)" class="member-name-link">miss</a><wbr>(boolean&nbsp;caching,
+<div class="col-first odd-row-color"><code>void</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">CacheStats.</span><code><a href="../CacheStats.html#miss(boolean,boolean,org.apache.hadoop.hbase.io.hfile.BlockType)" class="member-name-link">miss</a><wbr>(boolean&nbsp;caching,
  boolean&nbsp;primary,
  <a href="../BlockType.html" title="enum class in org.apache.hadoop.hbase.io.hfile">BlockType</a>&nbsp;type)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code><a href="../HFileBlock.html" title="class in org.apache.hadoop.hbase.io.hfile">HFileBlock</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">HFileBlock.BlockIterator.</span><code><a href="../HFileBlock.BlockIterator.html#nextBlockWithBlockType(org.apache.hadoop.hbase.io.hfile.BlockType)" class="member-name-link">nextBlockWithBlockType</a><wbr>(<a href="../BlockType.html" title="enum class in org.apache.hadoop.hbase.io.hfile">BlockType</a>&nbsp;blockType)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code><a href="../HFileBlock.html" title="class in org.apache.hadoop.hbase.io.hfile">HFileBlock</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">HFileBlock.BlockIterator.</span><code><a href="../HFileBlock.BlockIterator.html#nextBlockWithBlockType(org.apache.hadoop.hbase.io.hfile.BlockType)" class="member-name-link">nextBlockWithBlockType</a><wbr>(<a href="../BlockType.html" title="enum class in org.apache.hadoop.hbase.io.hfile">BlockType</a>&nbsp;blockType)</code></div>
+<div class="col-last even-row-color">
 <div class="block">Similar to <a href="../HFileBlock.BlockIterator.html#nextBlock()"><code>HFileBlock.BlockIterator.nextBlock()</code></a> but checks block type, throws an exception if incorrect, and
  returns the HFile block</div>
 </div>
-<div class="col-first even-row-color"><code><a href="../HFileBlock.html" title="class in org.apache.hadoop.hbase.io.hfile">HFileBlock</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">HFile.CachingBlockReader.</span><code><a href="../HFile.CachingBlockReader.html#readBlock(long,long,boolean,boolean,boolean,boolean,org.apache.hadoop.hbase.io.hfile.BlockType,org.apache.hadoop.hbase.io.encoding.DataBlockEncoding)" class="member-name-link">readBlock</a><wbr>(long&nbsp;offset,
+<div class="col-first odd-row-color"><code><a href="../HFileBlock.html" title="class in org.apache.hadoop.hbase.io.hfile">HFileBlock</a></code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">HFile.CachingBlockReader.</span><code><a href="../HFile.CachingBlockReader.html#readBlock(long,long,boolean,boolean,boolean,boolean,org.apache.hadoop.hbase.io.hfile.BlockType,org.apache.hadoop.hbase.io.encoding.DataBlockEncoding)" class="member-name-link">readBlock</a><wbr>(long&nbsp;offset,
  long&nbsp;onDiskBlockSize,
  boolean&nbsp;cacheBlock,
  boolean&nbsp;pread,
@@ -288,11 +292,11 @@ the order they are declared.</div>
  boolean&nbsp;updateCacheMetrics,
  <a href="../BlockType.html" title="enum class in org.apache.hadoop.hbase.io.hfile">BlockType</a>&nbsp;expectedBlockType,
  <a href="../../encoding/DataBlockEncoding.html" title="enum class in org.apache.hadoop.hbase.io.encoding">DataBlockEncoding</a>&nbsp;expectedDataBlockEncoding)</code></div>
-<div class="col-last even-row-color">
+<div class="col-last odd-row-color">
 <div class="block">Read in a file block.</div>
 </div>
-<div class="col-first odd-row-color"><code><a href="../HFileBlock.html" title="class in org.apache.hadoop.hbase.io.hfile">HFileBlock</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">HFile.CachingBlockReader.</span><code><a href="../HFile.CachingBlockReader.html#readBlock(long,long,boolean,boolean,boolean,boolean,org.apache.hadoop.hbase.io.hfile.BlockType,org.apache.hadoop.hbase.io.encoding.DataBlockEncoding,boolean)" class="member-name-link">readBlock</a><wbr>(long&nbsp;offset,
+<div class="col-first even-row-color"><code><a href="../HFileBlock.html" title="class in org.apache.hadoop.hbase.io.hfile">HFileBlock</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">HFile.CachingBlockReader.</span><code><a href="../HFile.CachingBlockReader.html#readBlock(long,long,boolean,boolean,boolean,boolean,org.apache.hadoop.hbase.io.hfile.BlockType,org.apache.hadoop.hbase.io.encoding.DataBlockEncoding,boolean)" class="member-name-link">readBlock</a><wbr>(long&nbsp;offset,
  long&nbsp;onDiskBlockSize,
  boolean&nbsp;cacheBlock,
  boolean&nbsp;pread,
@@ -301,9 +305,9 @@ the order they are declared.</div>
  <a href="../BlockType.html" title="enum class in org.apache.hadoop.hbase.io.hfile">BlockType</a>&nbsp;expectedBlockType,
  <a href="../../encoding/DataBlockEncoding.html" title="enum class in org.apache.hadoop.hbase.io.encoding">DataBlockEncoding</a>&nbsp;expectedDataBlockEncoding,
  boolean&nbsp;cacheOnly)</code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code><a href="../HFileBlock.html" title="class in org.apache.hadoop.hbase.io.hfile">HFileBlock</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">HFileReaderImpl.</span><code><a href="../HFileReaderImpl.html#readBlock(long,long,boolean,boolean,boolean,boolean,org.apache.hadoop.hbase.io.hfile.BlockType,org.apache.hadoop.hbase.io.encoding.DataBlockEncoding)" class="member-name-link">readBlock</a><wbr>(long&nbsp;dataBlockOffset,
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code><a href="../HFileBlock.html" title="class in org.apache.hadoop.hbase.io.hfile">HFileBlock</a></code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">HFileReaderImpl.</span><code><a href="../HFileReaderImpl.html#readBlock(long,long,boolean,boolean,boolean,boolean,org.apache.hadoop.hbase.io.hfile.BlockType,org.apache.hadoop.hbase.io.encoding.DataBlockEncoding)" class="member-name-link">readBlock</a><wbr>(long&nbsp;dataBlockOffset,
  long&nbsp;onDiskBlockSize,
  boolean&nbsp;cacheBlock,
  boolean&nbsp;pread,
@@ -311,9 +315,9 @@ the order they are declared.</div>
  boolean&nbsp;updateCacheMetrics,
  <a href="../BlockType.html" title="enum class in org.apache.hadoop.hbase.io.hfile">BlockType</a>&nbsp;expectedBlockType,
  <a href="../../encoding/DataBlockEncoding.html" title="enum class in org.apache.hadoop.hbase.io.encoding">DataBlockEncoding</a>&nbsp;expectedDataBlockEncoding)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code><a href="../HFileBlock.html" title="class in org.apache.hadoop.hbase.io.hfile">HFileBlock</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">HFileReaderImpl.</span><code><a href="../HFileReaderImpl.html#readBlock(long,long,boolean,boolean,boolean,boolean,org.apache.hadoop.hbase.io.hfile.BlockType,org.apache.hadoop.hbase.io.encoding.DataBlockEncoding,boolean)" class="member-name-link">readBlock</a><wbr>(long&nbsp;dataBlockOffset,
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code><a href="../HFileBlock.html" title="class in org.apache.hadoop.hbase.io.hfile">HFileBlock</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">HFileReaderImpl.</span><code><a href="../HFileReaderImpl.html#readBlock(long,long,boolean,boolean,boolean,boolean,org.apache.hadoop.hbase.io.hfile.BlockType,org.apache.hadoop.hbase.io.encoding.DataBlockEncoding,boolean)" class="member-name-link">readBlock</a><wbr>(long&nbsp;dataBlockOffset,
  long&nbsp;onDiskBlockSize,
  boolean&nbsp;cacheBlock,
  boolean&nbsp;pread,
@@ -322,46 +326,46 @@ the order they are declared.</div>
  <a href="../BlockType.html" title="enum class in org.apache.hadoop.hbase.io.hfile">BlockType</a>&nbsp;expectedBlockType,
  <a href="../../encoding/DataBlockEncoding.html" title="enum class in org.apache.hadoop.hbase.io.encoding">DataBlockEncoding</a>&nbsp;expectedDataBlockEncoding,
  boolean&nbsp;cacheOnly)</code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>private void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">HFileBlock.</span><code><a href="../HFileBlock.html#sanityCheckAssertion(org.apache.hadoop.hbase.io.hfile.BlockType,org.apache.hadoop.hbase.io.hfile.BlockType)" class="member-name-link">sanityCheckAssertion</a><wbr>(<a href="../BlockType.html" title="enum class in org.apache.hadoop.hbase.io.hfile">BlockType</a>&nbsp;valueFromBuf,
- <a href="../BlockType.html" title="enum class in org.apache.hadoop.hbase.io.hfile">BlockType</a>&nbsp;valueFromField)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">BlockCacheKey.</span><code><a href="../BlockCacheKey.html#setBlockType(org.apache.hadoop.hbase.io.hfile.BlockType)" class="member-name-link">setBlockType</a><wbr>(<a href="../BlockType.html" title="enum class in org.apache.hadoop.hbase.io.hfile">BlockType</a>&nbsp;blockType)</code></div>
+<div class="col-first odd-row-color"><code>private void</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">HFileBlock.</span><code><a href="../HFileBlock.html#sanityCheckAssertion(org.apache.hadoop.hbase.io.hfile.BlockType,org.apache.hadoop.hbase.io.hfile.BlockType)" class="member-name-link">sanityCheckAssertion</a><wbr>(<a href="../BlockType.html" title="enum class in org.apache.hadoop.hbase.io.hfile">BlockType</a>&nbsp;valueFromBuf,
+ <a href="../BlockType.html" title="enum class in org.apache.hadoop.hbase.io.hfile">BlockType</a>&nbsp;valueFromField)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>boolean</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">CacheConfig.</span><code><a href="../CacheConfig.html#shouldLockOnCacheMiss(org.apache.hadoop.hbase.io.hfile.BlockType)" class="member-name-link">shouldLockOnCacheMiss</a><wbr>(<a href="../BlockType.html" title="enum class in org.apache.hadoop.hbase.io.hfile">BlockType</a>&nbsp;blockType)</code></div>
-<div class="col-last even-row-color">
+<div class="col-first even-row-color"><code>void</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">BlockCacheKey.</span><code><a href="../BlockCacheKey.html#setBlockType(org.apache.hadoop.hbase.io.hfile.BlockType)" class="member-name-link">setBlockType</a><wbr>(<a href="../BlockType.html" title="enum class in org.apache.hadoop.hbase.io.hfile">BlockType</a>&nbsp;blockType)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>boolean</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">CacheConfig.</span><code><a href="../CacheConfig.html#shouldLockOnCacheMiss(org.apache.hadoop.hbase.io.hfile.BlockType)" class="member-name-link">shouldLockOnCacheMiss</a><wbr>(<a href="../BlockType.html" title="enum class in org.apache.hadoop.hbase.io.hfile">BlockType</a>&nbsp;blockType)</code></div>
+<div class="col-last odd-row-color">
 <div class="block">If we make sure the block could not be cached, we will not acquire the lock otherwise we will
  acquire lock</div>
 </div>
-<div class="col-first odd-row-color"><code>boolean</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">CacheConfig.</span><code><a href="../CacheConfig.html#shouldReadBlockFromCache(org.apache.hadoop.hbase.io.hfile.BlockType)" class="member-name-link">shouldReadBlockFromCache</a><wbr>(<a href="../BlockType.html" title="enum class in org.apache.hadoop.hbase.io.hfile">BlockType</a>&nbsp;blockType)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code>boolean</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">CacheConfig.</span><code><a href="../CacheConfig.html#shouldReadBlockFromCache(org.apache.hadoop.hbase.io.hfile.BlockType)" class="member-name-link">shouldReadBlockFromCache</a><wbr>(<a href="../BlockType.html" title="enum class in org.apache.hadoop.hbase.io.hfile">BlockType</a>&nbsp;blockType)</code></div>
+<div class="col-last even-row-color">
 <div class="block">Return true if we may find this type of block in block cache.</div>
 </div>
-<div class="col-first even-row-color"><code>private boolean</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">HFileReaderImpl.</span><code><a href="../HFileReaderImpl.html#shouldUseHeap(org.apache.hadoop.hbase.io.hfile.BlockType,boolean)" class="member-name-link">shouldUseHeap</a><wbr>(<a href="../BlockType.html" title="enum class in org.apache.hadoop.hbase.io.hfile">BlockType</a>&nbsp;expectedBlockType,
+<div class="col-first odd-row-color"><code>private boolean</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">HFileReaderImpl.</span><code><a href="../HFileReaderImpl.html#shouldUseHeap(org.apache.hadoop.hbase.io.hfile.BlockType,boolean)" class="member-name-link">shouldUseHeap</a><wbr>(<a href="../BlockType.html" title="enum class in org.apache.hadoop.hbase.io.hfile">BlockType</a>&nbsp;expectedBlockType,
  boolean&nbsp;cacheBlock)</code></div>
-<div class="col-last even-row-color">
+<div class="col-last odd-row-color">
 <div class="block">Whether we use heap or not depends on our intent to cache the block.</div>
 </div>
-<div class="col-first odd-row-color"><code>(package private) <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/DataOutputStream.html" title="class or interface in java.io" class="external-link">DataOutputStream</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">HFileBlock.Writer.</span><code><a href="../HFileBlock.Writer.html#startWriting(org.apache.hadoop.hbase.io.hfile.BlockType)" class="member-name-link">startWriting</a><wbr>(<a href="../BlockType.html" title="enum class in org.apache.hadoop.hbase.io.hfile">BlockType</a>&nbsp;newBlockType)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code>(package private) <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/DataOutputStream.html" title="class or interface in java.io" class="external-link">DataOutputStream</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">HFileBlock.Writer.</span><code><a href="../HFileBlock.Writer.html#startWriting(org.apache.hadoop.hbase.io.hfile.BlockType)" class="member-name-link">startWriting</a><wbr>(<a href="../BlockType.html" title="enum class in org.apache.hadoop.hbase.io.hfile">BlockType</a>&nbsp;newBlockType)</code></div>
+<div class="col-last even-row-color">
 <div class="block">Starts writing into the block.</div>
 </div>
-<div class="col-first even-row-color"><code>private void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">HFileReaderImpl.</span><code><a href="../HFileReaderImpl.html#validateBlockType(org.apache.hadoop.hbase.io.hfile.HFileBlock,org.apache.hadoop.hbase.io.hfile.BlockType)" class="member-name-link">validateBlockType</a><wbr>(<a href="../HFileBlock.html" title="class in org.apache.hadoop.hbase.io.hfile">HFileBlock</a>&nbsp;block,
+<div class="col-first odd-row-color"><code>private void</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">HFileReaderImpl.</span><code><a href="../HFileReaderImpl.html#validateBlockType(org.apache.hadoop.hbase.io.hfile.HFileBlock,org.apache.hadoop.hbase.io.hfile.BlockType)" class="member-name-link">validateBlockType</a><wbr>(<a href="../HFileBlock.html" title="class in org.apache.hadoop.hbase.io.hfile">HFileBlock</a>&nbsp;block,
  <a href="../BlockType.html" title="enum class in org.apache.hadoop.hbase.io.hfile">BlockType</a>&nbsp;expectedBlockType)</code></div>
-<div class="col-last even-row-color">
+<div class="col-last odd-row-color">
 <div class="block">Compares the actual type of a block retrieved from cache or disk with its expected type and
  throws an exception in case of a mismatch.</div>
 </div>
-<div class="col-first odd-row-color"><code><a href="../HFileBlockBuilder.html" title="class in org.apache.hadoop.hbase.io.hfile">HFileBlockBuilder</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">HFileBlockBuilder.</span><code><a href="../HFileBlockBuilder.html#withBlockType(org.apache.hadoop.hbase.io.hfile.BlockType)" class="member-name-link">withBlockType</a><wbr>(<a href="../BlockType.html" title="enum class in org.apache.hadoop.hbase.io.hfile">BlockType</a>&nbsp;blockType)</code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code><a href="../HFileBlockBuilder.html" title="class in org.apache.hadoop.hbase.io.hfile">HFileBlockBuilder</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">HFileBlockBuilder.</span><code><a href="../HFileBlockBuilder.html#withBlockType(org.apache.hadoop.hbase.io.hfile.BlockType)" class="member-name-link">withBlockType</a><wbr>(<a href="../BlockType.html" title="enum class in org.apache.hadoop.hbase.io.hfile">BlockType</a>&nbsp;blockType)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
 </div>
 <div class="caption"><span>Constructors in <a href="../package-summary.html">org.apache.hadoop.hbase.io.hfile</a> with parameters of type <a href="../BlockType.html" title="enum class in org.apache.hadoop.hbase.io.hfile">BlockType</a></span></div>
 <div class="summary-table three-column-summary">

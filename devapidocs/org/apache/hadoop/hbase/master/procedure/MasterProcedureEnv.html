@@ -136,11 +136,9 @@ implements <a href="../../conf/ConfigurationObserver.html" title="interface in o
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(org.apache.hadoop.hbase.master.MasterServices)" class="member-name-link">MasterProcedureEnv</a><wbr>(<a href="../MasterServices.html" title="interface in org.apache.hadoop.hbase.master">MasterServices</a>&nbsp;master)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
-<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(org.apache.hadoop.hbase.master.MasterServices,org.apache.hadoop.hbase.master.procedure.RSProcedureDispatcher)" class="member-name-link">MasterProcedureEnv</a><wbr>(<a href="../MasterServices.html" title="interface in org.apache.hadoop.hbase.master">MasterServices</a>&nbsp;master,
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(org.apache.hadoop.hbase.master.MasterServices,org.apache.hadoop.hbase.master.procedure.RSProcedureDispatcher)" class="member-name-link">MasterProcedureEnv</a><wbr>(<a href="../MasterServices.html" title="interface in org.apache.hadoop.hbase.master">MasterServices</a>&nbsp;master,
  <a href="RSProcedureDispatcher.html" title="class in org.apache.hadoop.hbase.master.procedure">RSProcedureDispatcher</a>&nbsp;remoteDispatcher)</code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
 </li>
@@ -256,15 +254,9 @@ implements <a href="../../conf/ConfigurationObserver.html" title="interface in o
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(org.apache.hadoop.hbase.master.MasterServices)">
-<h3>MasterProcedureEnv</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/procedure/MasterProcedureEnv.html#line-78">MasterProcedureEnv</a></span><wbr><span class="parameters">(<a href="../MasterServices.html" title="interface in org.apache.hadoop.hbase.master">MasterServices</a>&nbsp;master)</span></div>
-</section>
-</li>
-<li>
 <section class="detail" id="&lt;init&gt;(org.apache.hadoop.hbase.master.MasterServices,org.apache.hadoop.hbase.master.procedure.RSProcedureDispatcher)">
 <h3>MasterProcedureEnv</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/procedure/MasterProcedureEnv.html#line-82">MasterProcedureEnv</a></span><wbr><span class="parameters">(<a href="../MasterServices.html" title="interface in org.apache.hadoop.hbase.master">MasterServices</a>&nbsp;master,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/procedure/MasterProcedureEnv.html#line-78">MasterProcedureEnv</a></span><wbr><span class="parameters">(<a href="../MasterServices.html" title="interface in org.apache.hadoop.hbase.master">MasterServices</a>&nbsp;master,
  <a href="RSProcedureDispatcher.html" title="class in org.apache.hadoop.hbase.master.procedure">RSProcedureDispatcher</a>&nbsp;remoteDispatcher)</span></div>
 </section>
 </li>
@@ -279,93 +271,93 @@ implements <a href="../../conf/ConfigurationObserver.html" title="interface in o
 <li>
 <section class="detail" id="getAsyncTaskExecutor()">
 <h3>getAsyncTaskExecutor</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ExecutorService.html" title="class or interface in java.util.concurrent" class="external-link">ExecutorService</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/procedure/MasterProcedureEnv.html#line-93">getAsyncTaskExecutor</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ExecutorService.html" title="class or interface in java.util.concurrent" class="external-link">ExecutorService</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/procedure/MasterProcedureEnv.html#line-89">getAsyncTaskExecutor</a></span>()</div>
 <div class="block">Get a thread pool for executing some asynchronous tasks</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getRequestUser()">
 <h3>getRequestUser</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../security/User.html" title="class in org.apache.hadoop.hbase.security">User</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/procedure/MasterProcedureEnv.html#line-97">getRequestUser</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../security/User.html" title="class in org.apache.hadoop.hbase.security">User</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/procedure/MasterProcedureEnv.html#line-93">getRequestUser</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getMasterServices()">
 <h3>getMasterServices</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../MasterServices.html" title="interface in org.apache.hadoop.hbase.master">MasterServices</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/procedure/MasterProcedureEnv.html#line-101">getMasterServices</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../MasterServices.html" title="interface in org.apache.hadoop.hbase.master">MasterServices</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/procedure/MasterProcedureEnv.html#line-97">getMasterServices</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getMasterConfiguration()">
 <h3>getMasterConfiguration</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hadoop.conf.Configuration</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/procedure/MasterProcedureEnv.html#line-105">getMasterConfiguration</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hadoop.conf.Configuration</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/procedure/MasterProcedureEnv.html#line-101">getMasterConfiguration</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getAssignmentManager()">
 <h3>getAssignmentManager</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../assignment/AssignmentManager.html" title="class in org.apache.hadoop.hbase.master.assignment">AssignmentManager</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/procedure/MasterProcedureEnv.html#line-109">getAssignmentManager</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../assignment/AssignmentManager.html" title="class in org.apache.hadoop.hbase.master.assignment">AssignmentManager</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/procedure/MasterProcedureEnv.html#line-105">getAssignmentManager</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getMasterCoprocessorHost()">
 <h3>getMasterCoprocessorHost</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../MasterCoprocessorHost.html" title="class in org.apache.hadoop.hbase.master">MasterCoprocessorHost</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/procedure/MasterProcedureEnv.html#line-113">getMasterCoprocessorHost</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../MasterCoprocessorHost.html" title="class in org.apache.hadoop.hbase.master">MasterCoprocessorHost</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/procedure/MasterProcedureEnv.html#line-109">getMasterCoprocessorHost</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getProcedureScheduler()">
 <h3>getProcedureScheduler</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="MasterProcedureScheduler.html" title="class in org.apache.hadoop.hbase.master.procedure">MasterProcedureScheduler</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/procedure/MasterProcedureEnv.html#line-117">getProcedureScheduler</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="MasterProcedureScheduler.html" title="class in org.apache.hadoop.hbase.master.procedure">MasterProcedureScheduler</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/procedure/MasterProcedureEnv.html#line-113">getProcedureScheduler</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getRemoteDispatcher()">
 <h3>getRemoteDispatcher</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="RSProcedureDispatcher.html" title="class in org.apache.hadoop.hbase.master.procedure">RSProcedureDispatcher</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/procedure/MasterProcedureEnv.html#line-121">getRemoteDispatcher</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="RSProcedureDispatcher.html" title="class in org.apache.hadoop.hbase.master.procedure">RSProcedureDispatcher</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/procedure/MasterProcedureEnv.html#line-117">getRemoteDispatcher</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getReplicationPeerManager()">
 <h3>getReplicationPeerManager</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../replication/ReplicationPeerManager.html" title="class in org.apache.hadoop.hbase.master.replication">ReplicationPeerManager</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/procedure/MasterProcedureEnv.html#line-125">getReplicationPeerManager</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../replication/ReplicationPeerManager.html" title="class in org.apache.hadoop.hbase.master.replication">ReplicationPeerManager</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/procedure/MasterProcedureEnv.html#line-121">getReplicationPeerManager</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getMasterFileSystem()">
 <h3>getMasterFileSystem</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../MasterFileSystem.html" title="class in org.apache.hadoop.hbase.master">MasterFileSystem</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/procedure/MasterProcedureEnv.html#line-129">getMasterFileSystem</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../MasterFileSystem.html" title="class in org.apache.hadoop.hbase.master">MasterFileSystem</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/procedure/MasterProcedureEnv.html#line-125">getMasterFileSystem</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="isRunning()">
 <h3>isRunning</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/procedure/MasterProcedureEnv.html#line-133">isRunning</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/procedure/MasterProcedureEnv.html#line-129">isRunning</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="isInitialized()">
 <h3>isInitialized</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/procedure/MasterProcedureEnv.html#line-138">isInitialized</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/procedure/MasterProcedureEnv.html#line-134">isInitialized</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="waitInitialized(org.apache.hadoop.hbase.procedure2.Procedure)">
 <h3>waitInitialized</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/procedure/MasterProcedureEnv.html#line-142">waitInitialized</a></span><wbr><span class="parameters">(<a href="../../procedure2/Procedure.html" title="class in org.apache.hadoop.hbase.procedure2">Procedure</a>&lt;?&gt;&nbsp;proc)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/procedure/MasterProcedureEnv.html#line-138">waitInitialized</a></span><wbr><span class="parameters">(<a href="../../procedure2/Procedure.html" title="class in org.apache.hadoop.hbase.procedure2">Procedure</a>&lt;?&gt;&nbsp;proc)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="setEventReady(org.apache.hadoop.hbase.procedure2.ProcedureEvent,boolean)">
 <h3>setEventReady</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/procedure/MasterProcedureEnv.html#line-146">setEventReady</a></span><wbr><span class="parameters">(<a href="../../procedure2/ProcedureEvent.html" title="class in org.apache.hadoop.hbase.procedure2">ProcedureEvent</a>&lt;?&gt;&nbsp;event,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/procedure/MasterProcedureEnv.html#line-142">setEventReady</a></span><wbr><span class="parameters">(<a href="../../procedure2/ProcedureEvent.html" title="class in org.apache.hadoop.hbase.procedure2">ProcedureEvent</a>&lt;?&gt;&nbsp;event,
  boolean&nbsp;isReady)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="onConfigurationChange(org.apache.hadoop.conf.Configuration)">
 <h3>onConfigurationChange</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/procedure/MasterProcedureEnv.html#line-154">onConfigurationChange</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/procedure/MasterProcedureEnv.html#line-150">onConfigurationChange</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf)</span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../../conf/ConfigurationObserver.html#onConfigurationChange(org.apache.hadoop.conf.Configuration)">ConfigurationObserver</a></code></span></div>
 <div class="block">This method would be called by the <a href="../../conf/ConfigurationManager.html" title="class in org.apache.hadoop.hbase.conf"><code>ConfigurationManager</code></a> object when the
  <code>Configuration</code> object is reloaded from disk.</div>

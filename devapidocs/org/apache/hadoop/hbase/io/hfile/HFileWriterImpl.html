@@ -333,131 +333,135 @@ implements <a href="HFile.Writer.html" title="interface in org.apache.hadoop.hba
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">The action that needs to be performed before <a href="../../regionserver/Shipper.html#shipped()"><code>Shipper.shipped()</code></a> is performed</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#checkBlockBoundary()" class="member-name-link">checkBlockBoundary</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#buildCacheBlockKey(long,org.apache.hadoop.hbase.io.hfile.BlockType)" class="member-name-link">buildCacheBlockKey</a><wbr>(long&nbsp;offset,
+ <a href="BlockType.html" title="enum class in org.apache.hadoop.hbase.io.hfile">BlockType</a>&nbsp;blockType)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#checkBlockBoundary()" class="member-name-link">checkBlockBoundary</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">At a block boundary, write all the inline blocks and opens new block.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#checkKey(org.apache.hadoop.hbase.Cell)" class="member-name-link">checkKey</a><wbr>(<a href="../../Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#checkKey(org.apache.hadoop.hbase.Cell)" class="member-name-link">checkKey</a><wbr>(<a href="../../Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Checks that the given Cell's key does not violate the key order.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#checkValue(byte%5B%5D,int,int)" class="member-name-link">checkValue</a><wbr>(byte[]&nbsp;value,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#checkValue(byte%5B%5D,int,int)" class="member-name-link">checkValue</a><wbr>(byte[]&nbsp;value,
  int&nbsp;offset,
  int&nbsp;length)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Checks the given value for validity.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#close()" class="member-name-link">close</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../compress/Compression.Algorithm.html" title="enum class in org.apache.hadoop.hbase.io.compress">Compression.Algorithm</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#compressionByName(java.lang.String)" class="member-name-link">compressionByName</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;algoName)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>protected static org.apache.hadoop.fs.FSDataOutputStream</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createOutputStream(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,java.net.InetSocketAddress%5B%5D)" class="member-name-link">createOutputStream</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#close()" class="member-name-link">close</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../compress/Compression.Algorithm.html" title="enum class in org.apache.hadoop.hbase.io.compress">Compression.Algorithm</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#compressionByName(java.lang.String)" class="member-name-link">compressionByName</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;algoName)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>protected static org.apache.hadoop.fs.FSDataOutputStream</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createOutputStream(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,java.net.InetSocketAddress%5B%5D)" class="member-name-link">createOutputStream</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.Path&nbsp;path,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/InetSocketAddress.html" title="class or interface in java.net" class="external-link">InetSocketAddress</a>[]&nbsp;favoredNodes)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">A helper method to create HFile output streams in constructors</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#doCacheOnWrite(long)" class="member-name-link">doCacheOnWrite</a><wbr>(long&nbsp;offset)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#doCacheOnWrite(long)" class="member-name-link">doCacheOnWrite</a><wbr>(long&nbsp;offset)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Caches the last written HFile block.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#finishBlock()" class="member-name-link">finishBlock</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#finishBlock()" class="member-name-link">finishBlock</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Clean up the data block that is currently being written.</div>
 </div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#finishClose(org.apache.hadoop.hbase.io.hfile.FixedFileTrailer)" class="member-name-link">finishClose</a><wbr>(<a href="FixedFileTrailer.html" title="class in org.apache.hadoop.hbase.io.hfile">FixedFileTrailer</a>&nbsp;trailer)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#finishClose(org.apache.hadoop.hbase.io.hfile.FixedFileTrailer)" class="member-name-link">finishClose</a><wbr>(<a href="FixedFileTrailer.html" title="class in org.apache.hadoop.hbase.io.hfile">FixedFileTrailer</a>&nbsp;trailer)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#finishFileInfo()" class="member-name-link">finishFileInfo</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#finishFileInfo()" class="member-name-link">finishFileInfo</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#finishInit(org.apache.hadoop.conf.Configuration)" class="member-name-link">finishInit</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#finishInit(org.apache.hadoop.conf.Configuration)" class="member-name-link">finishInit</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Additional initialization steps</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="HFileContext.html" title="class in org.apache.hadoop.hbase.io.hfile">HFileContext</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getFileContext()" class="member-name-link">getFileContext</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="HFileContext.html" title="class in org.apache.hadoop.hbase.io.hfile">HFileContext</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getFileContext()" class="member-name-link">getFileContext</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Return the file context for the HFile this writer belongs to</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getLastCell()" class="member-name-link">getLastCell</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getLexicalErrorMessage(org.apache.hadoop.hbase.Cell)" class="member-name-link">getLexicalErrorMessage</a><wbr>(<a href="../../Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell)</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getLastCell()" class="member-name-link">getLastCell</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected int</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getMajorVersion()" class="member-name-link">getMajorVersion</a>()</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getLexicalErrorMessage(org.apache.hadoop.hbase.Cell)" class="member-name-link">getLexicalErrorMessage</a><wbr>(<a href="../../Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a>&nbsp;cell)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../../ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getMidpoint(org.apache.hadoop.hbase.CellComparator,org.apache.hadoop.hbase.ExtendedCell,org.apache.hadoop.hbase.ExtendedCell)" class="member-name-link">getMidpoint</a><wbr>(<a href="../../CellComparator.html" title="interface in org.apache.hadoop.hbase">CellComparator</a>&nbsp;comparator,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getMajorVersion()" class="member-name-link">getMajorVersion</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../../ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getMidpoint(org.apache.hadoop.hbase.CellComparator,org.apache.hadoop.hbase.ExtendedCell,org.apache.hadoop.hbase.ExtendedCell)" class="member-name-link">getMidpoint</a><wbr>(<a href="../../CellComparator.html" title="interface in org.apache.hadoop.hbase">CellComparator</a>&nbsp;comparator,
  <a href="../../ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;left,
  <a href="../../ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;right)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Try to return a Cell that falls between <code>left</code> and <code>right</code> but that is
  shorter; i.e.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static byte[]</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getMinimumMidpointArray(byte%5B%5D,int,int,byte%5B%5D,int,int)" class="member-name-link">getMinimumMidpointArray</a><wbr>(byte[]&nbsp;leftArray,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static byte[]</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getMinimumMidpointArray(byte%5B%5D,int,int,byte%5B%5D,int,int)" class="member-name-link">getMinimumMidpointArray</a><wbr>(byte[]&nbsp;leftArray,
  int&nbsp;leftOffset,
  int&nbsp;leftLength,
  byte[]&nbsp;rightArray,
  int&nbsp;rightOffset,
  int&nbsp;rightLength)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Try to get a byte array that falls between left and right as short as possible with
  lexicographical order;</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static byte[]</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getMinimumMidpointArray(java.nio.ByteBuffer,int,int,java.nio.ByteBuffer,int,int)" class="member-name-link">getMinimumMidpointArray</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a>&nbsp;left,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static byte[]</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getMinimumMidpointArray(java.nio.ByteBuffer,int,int,java.nio.ByteBuffer,int,int)" class="member-name-link">getMinimumMidpointArray</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a>&nbsp;left,
  int&nbsp;leftOffset,
  int&nbsp;leftLength,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a>&nbsp;right,
  int&nbsp;rightOffset,
  int&nbsp;rightLength)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Try to create a new byte array that falls between left and right as short as possible with
  lexicographical order.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected int</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getMinorVersion()" class="member-name-link">getMinorVersion</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>org.apache.hadoop.fs.Path</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getPath()" class="member-name-link">getPath</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getMinorVersion()" class="member-name-link">getMinorVersion</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>org.apache.hadoop.fs.Path</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getPath()" class="member-name-link">getPath</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns Path or null if we were passed a stream rather than a Path.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getPos()" class="member-name-link">getPos</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#newBlock()" class="member-name-link">newBlock</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getPos()" class="member-name-link">getPos</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#newBlock()" class="member-name-link">newBlock</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Ready a new block for writing.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected final void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#writeFileInfo(org.apache.hadoop.hbase.io.hfile.FixedFileTrailer,java.io.DataOutputStream)" class="member-name-link">writeFileInfo</a><wbr>(<a href="FixedFileTrailer.html" title="class in org.apache.hadoop.hbase.io.hfile">FixedFileTrailer</a>&nbsp;trailer,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected final void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#writeFileInfo(org.apache.hadoop.hbase.io.hfile.FixedFileTrailer,java.io.DataOutputStream)" class="member-name-link">writeFileInfo</a><wbr>(<a href="FixedFileTrailer.html" title="class in org.apache.hadoop.hbase.io.hfile">FixedFileTrailer</a>&nbsp;trailer,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/DataOutputStream.html" title="class or interface in java.io" class="external-link">DataOutputStream</a>&nbsp;out)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Sets the file info offset in the trailer, finishes up populating fields in the file info, and
  writes the file info into the given data output.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#writeInlineBlocks(boolean)" class="member-name-link">writeInlineBlocks</a><wbr>(boolean&nbsp;closing)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#writeInlineBlocks(boolean)" class="member-name-link">writeInlineBlocks</a><wbr>(boolean&nbsp;closing)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gives inline block writers an opportunity to contribute blocks.</div>
 </div>
 </div>
@@ -1003,9 +1007,16 @@ implements <a href="HFile.Writer.html" title="interface in org.apache.hadoop.hba
 </section>
 </li>
 <li>
+<section class="detail" id="buildCacheBlockKey(long,org.apache.hadoop.hbase.io.hfile.BlockType)">
+<h3>buildCacheBlockKey</h3>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="BlockCacheKey.html" title="class in org.apache.hadoop.hbase.io.hfile">BlockCacheKey</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/HFileWriterImpl.html#line-569">buildCacheBlockKey</a></span><wbr><span class="parameters">(long&nbsp;offset,
+ <a href="BlockType.html" title="enum class in org.apache.hadoop.hbase.io.hfile">BlockType</a>&nbsp;blockType)</span></div>
+</section>
+</li>
+<li>
 <section class="detail" id="newBlock()">
 <h3>newBlock</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/HFileWriterImpl.html#line-572">newBlock</a></span>()
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/HFileWriterImpl.html#line-579">newBlock</a></span>()
                  throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Ready a new block for writing.</div>
 <dl class="notes">
@@ -1017,7 +1028,7 @@ implements <a href="HFile.Writer.html" title="interface in org.apache.hadoop.hba
 <li>
 <section class="detail" id="appendMetaBlock(java.lang.String,org.apache.hadoop.io.Writable)">
 <h3>appendMetaBlock</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/HFileWriterImpl.html#line-588">appendMetaBlock</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;metaBlockName,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/HFileWriterImpl.html#line-595">appendMetaBlock</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;metaBlockName,
  org.apache.hadoop.io.Writable&nbsp;content)</span></div>
 <div class="block">Add a meta block to the end of the file. Call before close(). Metadata blocks are expensive.
  Fill one with a bunch of serialized data rather than do a metadata block per metadata instance.
@@ -1033,7 +1044,7 @@ implements <a href="HFile.Writer.html" title="interface in org.apache.hadoop.hba
 <li>
 <section class="detail" id="close()">
 <h3>close</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/HFileWriterImpl.html#line-603">close</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/HFileWriterImpl.html#line-610">close</a></span>()
            throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
@@ -1048,7 +1059,7 @@ implements <a href="HFile.Writer.html" title="interface in org.apache.hadoop.hba
 <li>
 <section class="detail" id="addInlineBlockWriter(org.apache.hadoop.hbase.io.hfile.InlineBlockWriter)">
 <h3>addInlineBlockWriter</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/HFileWriterImpl.html#line-685">addInlineBlockWriter</a></span><wbr><span class="parameters">(<a href="InlineBlockWriter.html" title="interface in org.apache.hadoop.hbase.io.hfile">InlineBlockWriter</a>&nbsp;ibw)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/HFileWriterImpl.html#line-692">addInlineBlockWriter</a></span><wbr><span class="parameters">(<a href="InlineBlockWriter.html" title="interface in org.apache.hadoop.hbase.io.hfile">InlineBlockWriter</a>&nbsp;ibw)</span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="HFile.Writer.html#addInlineBlockWriter(org.apache.hadoop.hbase.io.hfile.InlineBlockWriter)">HFile.Writer</a></code></span></div>
 <div class="block">Adds an inline block writer such as a multi-level block index writer or a compound Bloom
  filter writer.</div>
@@ -1061,7 +1072,7 @@ implements <a href="HFile.Writer.html" title="interface in org.apache.hadoop.hba
 <li>
 <section class="detail" id="addGeneralBloomFilter(org.apache.hadoop.hbase.util.BloomFilterWriter)">
 <h3>addGeneralBloomFilter</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/HFileWriterImpl.html#line-690">addGeneralBloomFilter</a></span><wbr><span class="parameters">(<a href="../../util/BloomFilterWriter.html" title="interface in org.apache.hadoop.hbase.util">BloomFilterWriter</a>&nbsp;bfw)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/HFileWriterImpl.html#line-697">addGeneralBloomFilter</a></span><wbr><span class="parameters">(<a href="../../util/BloomFilterWriter.html" title="interface in org.apache.hadoop.hbase.util">BloomFilterWriter</a>&nbsp;bfw)</span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="HFile.Writer.html#addGeneralBloomFilter(org.apache.hadoop.hbase.util.BloomFilterWriter)">HFile.Writer</a></code></span></div>
 <div class="block">Store general Bloom filter in the file. This does not deal with Bloom filter internals but is
  necessary, since Bloom filters are stored differently in HFile version 1 and version 2.</div>
@@ -1074,7 +1085,7 @@ implements <a href="HFile.Writer.html" title="interface in org.apache.hadoop.hba
 <li>
 <section class="detail" id="addDeleteFamilyBloomFilter(org.apache.hadoop.hbase.util.BloomFilterWriter)">
 <h3>addDeleteFamilyBloomFilter</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/HFileWriterImpl.html#line-695">addDeleteFamilyBloomFilter</a></span><wbr><span class="parameters">(<a href="../../util/BloomFilterWriter.html" title="interface in org.apache.hadoop.hbase.util">BloomFilterWriter</a>&nbsp;bfw)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/HFileWriterImpl.html#line-702">addDeleteFamilyBloomFilter</a></span><wbr><span class="parameters">(<a href="../../util/BloomFilterWriter.html" title="interface in org.apache.hadoop.hbase.util">BloomFilterWriter</a>&nbsp;bfw)</span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="HFile.Writer.html#addDeleteFamilyBloomFilter(org.apache.hadoop.hbase.util.BloomFilterWriter)">HFile.Writer</a></code></span></div>
 <div class="block">Store delete family Bloom filter in the file, which is only supported in HFile V2.</div>
 <dl class="notes">
@@ -1086,14 +1097,14 @@ implements <a href="HFile.Writer.html" title="interface in org.apache.hadoop.hba
 <li>
 <section class="detail" id="addBloomFilter(org.apache.hadoop.hbase.util.BloomFilterWriter,org.apache.hadoop.hbase.io.hfile.BlockType)">
 <h3>addBloomFilter</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/HFileWriterImpl.html#line-700">addBloomFilter</a></span><wbr><span class="parameters">(<a href="../../util/BloomFilterWriter.html" title="interface in org.apache.hadoop.hbase.util">BloomFilterWriter</a>&nbsp;bfw,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/HFileWriterImpl.html#line-707">addBloomFilter</a></span><wbr><span class="parameters">(<a href="../../util/BloomFilterWriter.html" title="interface in org.apache.hadoop.hbase.util">BloomFilterWriter</a>&nbsp;bfw,
  <a href="BlockType.html" title="enum class in org.apache.hadoop.hbase.io.hfile">BlockType</a>&nbsp;blockType)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getFileContext()">
 <h3>getFileContext</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="HFileContext.html" title="class in org.apache.hadoop.hbase.io.hfile">HFileContext</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/HFileWriterImpl.html#line-727">getFileContext</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="HFileContext.html" title="class in org.apache.hadoop.hbase.io.hfile">HFileContext</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/HFileWriterImpl.html#line-734">getFileContext</a></span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="HFile.Writer.html#getFileContext()">HFile.Writer</a></code></span></div>
 <div class="block">Return the file context for the HFile this writer belongs to</div>
 <dl class="notes">
@@ -1105,7 +1116,7 @@ implements <a href="HFile.Writer.html" title="interface in org.apache.hadoop.hba
 <li>
 <section class="detail" id="append(org.apache.hadoop.hbase.ExtendedCell)">
 <h3>append</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/HFileWriterImpl.html#line-736">append</a></span><wbr><span class="parameters">(<a href="../../ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</span>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/HFileWriterImpl.html#line-743">append</a></span><wbr><span class="parameters">(<a href="../../ExtendedCell.html" title="interface in org.apache.hadoop.hbase">ExtendedCell</a>&nbsp;cell)</span>
             throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Add key/value to file. Keys must be added in an order that agrees with the Comparator passed on
  construction. Cell to add. Cannot be empty nor null.</div>
@@ -1122,7 +1133,7 @@ implements <a href="HFile.Writer.html" title="interface in org.apache.hadoop.hba
 <li>
 <section class="detail" id="beforeShipped()">
 <h3>beforeShipped</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/HFileWriterImpl.html#line-773">beforeShipped</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/HFileWriterImpl.html#line-780">beforeShipped</a></span>()
                    throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../../regionserver/ShipperListener.html#beforeShipped()">ShipperListener</a></code></span></div>
 <div class="block">The action that needs to be performed before <a href="../../regionserver/Shipper.html#shipped()"><code>Shipper.shipped()</code></a> is performed</div>
@@ -1137,13 +1148,13 @@ implements <a href="HFile.Writer.html" title="interface in org.apache.hadoop.hba
 <li>
 <section class="detail" id="getLastCell()">
 <h3>getLastCell</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/HFileWriterImpl.html#line-788">getLastCell</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../Cell.html" title="interface in org.apache.hadoop.hbase">Cell</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/HFileWriterImpl.html#line-795">getLastCell</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="finishFileInfo()">
 <h3>finishFileInfo</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/HFileWriterImpl.html#line-792">finishFileInfo</a></span>()
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/HFileWriterImpl.html#line-799">finishFileInfo</a></span>()
                        throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -1154,19 +1165,19 @@ implements <a href="HFile.Writer.html" title="interface in org.apache.hadoop.hba
 <li>
 <section class="detail" id="getMajorVersion()">
 <h3>getMajorVersion</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/HFileWriterImpl.html#line-829">getMajorVersion</a></span>()</div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/HFileWriterImpl.html#line-836">getMajorVersion</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getMinorVersion()">
 <h3>getMinorVersion</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/HFileWriterImpl.html#line-833">getMinorVersion</a></span>()</div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/HFileWriterImpl.html#line-840">getMinorVersion</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="finishClose(org.apache.hadoop.hbase.io.hfile.FixedFileTrailer)">
 <h3>finishClose</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/HFileWriterImpl.html#line-837">finishClose</a></span><wbr><span class="parameters">(<a href="FixedFileTrailer.html" title="class in org.apache.hadoop.hbase.io.hfile">FixedFileTrailer</a>&nbsp;trailer)</span>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/io/hfile/HFileWriterImpl.html#line-844">finishClose</a></span><wbr><span class="parameters">(<a href="FixedFileTrailer.html" title="class in org.apache.hadoop.hbase.io.hfile">FixedFileTrailer</a>&nbsp;trailer)</span>
                     throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>

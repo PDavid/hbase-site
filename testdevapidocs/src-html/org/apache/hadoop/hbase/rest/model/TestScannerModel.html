@@ -75,95 +75,96 @@
 <span class="source-line-no">062</span><span id="line-62">    AS_JSON = "{\"batch\":100,\"caching\":1000,\"cacheBlocks\":false,\"endRow\":\"enp5eng=\","</span>
 <span class="source-line-no">063</span><span id="line-63">      + "\"endTime\":1245393318192,\"maxVersions\":2147483647,\"startRow\":\"YWJyYWNhZGFicmE=\","</span>
 <span class="source-line-no">064</span><span id="line-64">      + "\"startTime\":1245219839331,\"column\":[\"Y29sdW1uMQ==\",\"Y29sdW1uMjpmb28=\"],"</span>
-<span class="source-line-no">065</span><span id="line-65">      + "\"labels\":[\"private\",\"public\"]," + "\"limit\":10000}";</span>
-<span class="source-line-no">066</span><span id="line-66"></span>
-<span class="source-line-no">067</span><span id="line-67">    AS_PB = "CgthYnJhY2FkYWJyYRIFenp5engaB2NvbHVtbjEaC2NvbHVtbjI6Zm9vIGQo47qL554kMLDi57mfJDj"</span>
-<span class="source-line-no">068</span><span id="line-68">      + "/////B0joB1IHcHJpdmF0ZVIGcHVibGljWABgkE4=";</span>
-<span class="source-line-no">069</span><span id="line-69">  }</span>
-<span class="source-line-no">070</span><span id="line-70"></span>
-<span class="source-line-no">071</span><span id="line-71">  @Override</span>
-<span class="source-line-no">072</span><span id="line-72">  protected ScannerModel buildTestModel() {</span>
-<span class="source-line-no">073</span><span id="line-73">    ScannerModel model = new ScannerModel();</span>
-<span class="source-line-no">074</span><span id="line-74">    model.setStartRow(START_ROW);</span>
-<span class="source-line-no">075</span><span id="line-75">    model.setEndRow(END_ROW);</span>
-<span class="source-line-no">076</span><span id="line-76">    model.addColumn(COLUMN1);</span>
-<span class="source-line-no">077</span><span id="line-77">    model.addColumn(COLUMN2);</span>
-<span class="source-line-no">078</span><span id="line-78">    model.setStartTime(START_TIME);</span>
-<span class="source-line-no">079</span><span id="line-79">    model.setEndTime(END_TIME);</span>
-<span class="source-line-no">080</span><span id="line-80">    model.setBatch(BATCH);</span>
-<span class="source-line-no">081</span><span id="line-81">    model.setCaching(CACHING);</span>
-<span class="source-line-no">082</span><span id="line-82">    model.addLabel(PRIVATE);</span>
-<span class="source-line-no">083</span><span id="line-83">    model.addLabel(PUBLIC);</span>
-<span class="source-line-no">084</span><span id="line-84">    model.setCacheBlocks(CACHE_BLOCKS);</span>
-<span class="source-line-no">085</span><span id="line-85">    model.setLimit(LIMIT);</span>
-<span class="source-line-no">086</span><span id="line-86">    return model;</span>
-<span class="source-line-no">087</span><span id="line-87">  }</span>
-<span class="source-line-no">088</span><span id="line-88"></span>
-<span class="source-line-no">089</span><span id="line-89">  @Override</span>
-<span class="source-line-no">090</span><span id="line-90">  protected void checkModel(ScannerModel model) {</span>
-<span class="source-line-no">091</span><span id="line-91">    assertTrue(Bytes.equals(model.getStartRow(), START_ROW));</span>
-<span class="source-line-no">092</span><span id="line-92">    assertTrue(Bytes.equals(model.getEndRow(), END_ROW));</span>
-<span class="source-line-no">093</span><span id="line-93">    boolean foundCol1 = false, foundCol2 = false;</span>
-<span class="source-line-no">094</span><span id="line-94">    for (byte[] column : model.getColumns()) {</span>
-<span class="source-line-no">095</span><span id="line-95">      if (Bytes.equals(column, COLUMN1)) {</span>
-<span class="source-line-no">096</span><span id="line-96">        foundCol1 = true;</span>
-<span class="source-line-no">097</span><span id="line-97">      } else if (Bytes.equals(column, COLUMN2)) {</span>
-<span class="source-line-no">098</span><span id="line-98">        foundCol2 = true;</span>
-<span class="source-line-no">099</span><span id="line-99">      }</span>
-<span class="source-line-no">100</span><span id="line-100">    }</span>
-<span class="source-line-no">101</span><span id="line-101">    assertTrue(foundCol1);</span>
-<span class="source-line-no">102</span><span id="line-102">    assertTrue(foundCol2);</span>
-<span class="source-line-no">103</span><span id="line-103">    assertEquals(START_TIME, model.getStartTime());</span>
-<span class="source-line-no">104</span><span id="line-104">    assertEquals(END_TIME, model.getEndTime());</span>
-<span class="source-line-no">105</span><span id="line-105">    assertEquals(BATCH, model.getBatch());</span>
-<span class="source-line-no">106</span><span id="line-106">    assertEquals(LIMIT, model.getLimit());</span>
-<span class="source-line-no">107</span><span id="line-107">    assertEquals(CACHING, model.getCaching());</span>
-<span class="source-line-no">108</span><span id="line-108">    assertEquals(CACHE_BLOCKS, model.getCacheBlocks());</span>
-<span class="source-line-no">109</span><span id="line-109">    boolean foundLabel1 = false;</span>
-<span class="source-line-no">110</span><span id="line-110">    boolean foundLabel2 = false;</span>
-<span class="source-line-no">111</span><span id="line-111">    if (model.getLabels() != null &amp;&amp; model.getLabels().size() &gt; 0) {</span>
-<span class="source-line-no">112</span><span id="line-112">      for (String label : model.getLabels()) {</span>
-<span class="source-line-no">113</span><span id="line-113">        if (label.equals(PRIVATE)) {</span>
-<span class="source-line-no">114</span><span id="line-114">          foundLabel1 = true;</span>
-<span class="source-line-no">115</span><span id="line-115">        } else if (label.equals(PUBLIC)) {</span>
-<span class="source-line-no">116</span><span id="line-116">          foundLabel2 = true;</span>
-<span class="source-line-no">117</span><span id="line-117">        }</span>
-<span class="source-line-no">118</span><span id="line-118">      }</span>
-<span class="source-line-no">119</span><span id="line-119">      assertTrue(foundLabel1);</span>
-<span class="source-line-no">120</span><span id="line-120">      assertTrue(foundLabel2);</span>
-<span class="source-line-no">121</span><span id="line-121">    }</span>
-<span class="source-line-no">122</span><span id="line-122">  }</span>
-<span class="source-line-no">123</span><span id="line-123"></span>
-<span class="source-line-no">124</span><span id="line-124">  @Test</span>
-<span class="source-line-no">125</span><span id="line-125">  public void testExistingFilter() throws Exception {</span>
-<span class="source-line-no">126</span><span id="line-126">    final String CORRECT_FILTER = "{\"type\": \"PrefixFilter\", \"value\": \"cg==\"}";</span>
-<span class="source-line-no">127</span><span id="line-127">    verifyException(CORRECT_FILTER);</span>
-<span class="source-line-no">128</span><span id="line-128">  }</span>
-<span class="source-line-no">129</span><span id="line-129"></span>
-<span class="source-line-no">130</span><span id="line-130">  @Test(expected = IllegalArgumentException.class)</span>
-<span class="source-line-no">131</span><span id="line-131">  public void testNonExistingFilter() throws Exception {</span>
-<span class="source-line-no">132</span><span id="line-132">    final String UNKNOWN_FILTER = "{\"type\": \"UnknownFilter\", \"value\": \"cg==\"}";</span>
-<span class="source-line-no">133</span><span id="line-133">    verifyException(UNKNOWN_FILTER);</span>
-<span class="source-line-no">134</span><span id="line-134">  }</span>
-<span class="source-line-no">135</span><span id="line-135"></span>
-<span class="source-line-no">136</span><span id="line-136">  @Test(expected = JsonMappingException.class)</span>
-<span class="source-line-no">137</span><span id="line-137">  public void testIncorrectFilterThrowsJME() throws Exception {</span>
-<span class="source-line-no">138</span><span id="line-138">    final String JME_FILTER = "{\"invalid_tag\": \"PrefixFilter\", \"value\": \"cg==\"}";</span>
-<span class="source-line-no">139</span><span id="line-139">    verifyException(JME_FILTER);</span>
-<span class="source-line-no">140</span><span id="line-140">  }</span>
-<span class="source-line-no">141</span><span id="line-141"></span>
-<span class="source-line-no">142</span><span id="line-142">  @Test(expected = JsonParseException.class)</span>
-<span class="source-line-no">143</span><span id="line-143">  public void tesIncorrecttFilterThrowsJPE() throws Exception {</span>
-<span class="source-line-no">144</span><span id="line-144">    final String JPE_FILTER = "{\"type\": \"PrefixFilter\",, \"value\": \"cg==\"}";</span>
-<span class="source-line-no">145</span><span id="line-145">    verifyException(JPE_FILTER);</span>
-<span class="source-line-no">146</span><span id="line-146">  }</span>
-<span class="source-line-no">147</span><span id="line-147"></span>
-<span class="source-line-no">148</span><span id="line-148">  private void verifyException(final String FILTER) throws Exception {</span>
-<span class="source-line-no">149</span><span id="line-149">    ScannerModel model = new ScannerModel();</span>
-<span class="source-line-no">150</span><span id="line-150">    model.setFilter(FILTER);</span>
-<span class="source-line-no">151</span><span id="line-151">    ScannerResultGenerator.buildFilterFromModel(model);</span>
-<span class="source-line-no">152</span><span id="line-152">  }</span>
-<span class="source-line-no">153</span><span id="line-153">}</span>
+<span class="source-line-no">065</span><span id="line-65">      + "\"labels\":[\"private\",\"public\"]," + "\"limit\":10000,"</span>
+<span class="source-line-no">066</span><span id="line-66">      + "\"includeStartRow\":true,\"includeStopRow\":false}";</span>
+<span class="source-line-no">067</span><span id="line-67"></span>
+<span class="source-line-no">068</span><span id="line-68">    AS_PB = "CgthYnJhY2FkYWJyYRIFenp5engaB2NvbHVtbjEaC2NvbHVtbjI6Zm9vIGQo47qL554kMLDi57mfJDj"</span>
+<span class="source-line-no">069</span><span id="line-69">      + "/////B0joB1IHcHJpdmF0ZVIGcHVibGljWABgkE4=";</span>
+<span class="source-line-no">070</span><span id="line-70">  }</span>
+<span class="source-line-no">071</span><span id="line-71"></span>
+<span class="source-line-no">072</span><span id="line-72">  @Override</span>
+<span class="source-line-no">073</span><span id="line-73">  protected ScannerModel buildTestModel() {</span>
+<span class="source-line-no">074</span><span id="line-74">    ScannerModel model = new ScannerModel();</span>
+<span class="source-line-no">075</span><span id="line-75">    model.setStartRow(START_ROW);</span>
+<span class="source-line-no">076</span><span id="line-76">    model.setEndRow(END_ROW);</span>
+<span class="source-line-no">077</span><span id="line-77">    model.addColumn(COLUMN1);</span>
+<span class="source-line-no">078</span><span id="line-78">    model.addColumn(COLUMN2);</span>
+<span class="source-line-no">079</span><span id="line-79">    model.setStartTime(START_TIME);</span>
+<span class="source-line-no">080</span><span id="line-80">    model.setEndTime(END_TIME);</span>
+<span class="source-line-no">081</span><span id="line-81">    model.setBatch(BATCH);</span>
+<span class="source-line-no">082</span><span id="line-82">    model.setCaching(CACHING);</span>
+<span class="source-line-no">083</span><span id="line-83">    model.addLabel(PRIVATE);</span>
+<span class="source-line-no">084</span><span id="line-84">    model.addLabel(PUBLIC);</span>
+<span class="source-line-no">085</span><span id="line-85">    model.setCacheBlocks(CACHE_BLOCKS);</span>
+<span class="source-line-no">086</span><span id="line-86">    model.setLimit(LIMIT);</span>
+<span class="source-line-no">087</span><span id="line-87">    return model;</span>
+<span class="source-line-no">088</span><span id="line-88">  }</span>
+<span class="source-line-no">089</span><span id="line-89"></span>
+<span class="source-line-no">090</span><span id="line-90">  @Override</span>
+<span class="source-line-no">091</span><span id="line-91">  protected void checkModel(ScannerModel model) {</span>
+<span class="source-line-no">092</span><span id="line-92">    assertTrue(Bytes.equals(model.getStartRow(), START_ROW));</span>
+<span class="source-line-no">093</span><span id="line-93">    assertTrue(Bytes.equals(model.getEndRow(), END_ROW));</span>
+<span class="source-line-no">094</span><span id="line-94">    boolean foundCol1 = false, foundCol2 = false;</span>
+<span class="source-line-no">095</span><span id="line-95">    for (byte[] column : model.getColumns()) {</span>
+<span class="source-line-no">096</span><span id="line-96">      if (Bytes.equals(column, COLUMN1)) {</span>
+<span class="source-line-no">097</span><span id="line-97">        foundCol1 = true;</span>
+<span class="source-line-no">098</span><span id="line-98">      } else if (Bytes.equals(column, COLUMN2)) {</span>
+<span class="source-line-no">099</span><span id="line-99">        foundCol2 = true;</span>
+<span class="source-line-no">100</span><span id="line-100">      }</span>
+<span class="source-line-no">101</span><span id="line-101">    }</span>
+<span class="source-line-no">102</span><span id="line-102">    assertTrue(foundCol1);</span>
+<span class="source-line-no">103</span><span id="line-103">    assertTrue(foundCol2);</span>
+<span class="source-line-no">104</span><span id="line-104">    assertEquals(START_TIME, model.getStartTime());</span>
+<span class="source-line-no">105</span><span id="line-105">    assertEquals(END_TIME, model.getEndTime());</span>
+<span class="source-line-no">106</span><span id="line-106">    assertEquals(BATCH, model.getBatch());</span>
+<span class="source-line-no">107</span><span id="line-107">    assertEquals(LIMIT, model.getLimit());</span>
+<span class="source-line-no">108</span><span id="line-108">    assertEquals(CACHING, model.getCaching());</span>
+<span class="source-line-no">109</span><span id="line-109">    assertEquals(CACHE_BLOCKS, model.getCacheBlocks());</span>
+<span class="source-line-no">110</span><span id="line-110">    boolean foundLabel1 = false;</span>
+<span class="source-line-no">111</span><span id="line-111">    boolean foundLabel2 = false;</span>
+<span class="source-line-no">112</span><span id="line-112">    if (model.getLabels() != null &amp;&amp; model.getLabels().size() &gt; 0) {</span>
+<span class="source-line-no">113</span><span id="line-113">      for (String label : model.getLabels()) {</span>
+<span class="source-line-no">114</span><span id="line-114">        if (label.equals(PRIVATE)) {</span>
+<span class="source-line-no">115</span><span id="line-115">          foundLabel1 = true;</span>
+<span class="source-line-no">116</span><span id="line-116">        } else if (label.equals(PUBLIC)) {</span>
+<span class="source-line-no">117</span><span id="line-117">          foundLabel2 = true;</span>
+<span class="source-line-no">118</span><span id="line-118">        }</span>
+<span class="source-line-no">119</span><span id="line-119">      }</span>
+<span class="source-line-no">120</span><span id="line-120">      assertTrue(foundLabel1);</span>
+<span class="source-line-no">121</span><span id="line-121">      assertTrue(foundLabel2);</span>
+<span class="source-line-no">122</span><span id="line-122">    }</span>
+<span class="source-line-no">123</span><span id="line-123">  }</span>
+<span class="source-line-no">124</span><span id="line-124"></span>
+<span class="source-line-no">125</span><span id="line-125">  @Test</span>
+<span class="source-line-no">126</span><span id="line-126">  public void testExistingFilter() throws Exception {</span>
+<span class="source-line-no">127</span><span id="line-127">    final String CORRECT_FILTER = "{\"type\": \"PrefixFilter\", \"value\": \"cg==\"}";</span>
+<span class="source-line-no">128</span><span id="line-128">    verifyException(CORRECT_FILTER);</span>
+<span class="source-line-no">129</span><span id="line-129">  }</span>
+<span class="source-line-no">130</span><span id="line-130"></span>
+<span class="source-line-no">131</span><span id="line-131">  @Test(expected = IllegalArgumentException.class)</span>
+<span class="source-line-no">132</span><span id="line-132">  public void testNonExistingFilter() throws Exception {</span>
+<span class="source-line-no">133</span><span id="line-133">    final String UNKNOWN_FILTER = "{\"type\": \"UnknownFilter\", \"value\": \"cg==\"}";</span>
+<span class="source-line-no">134</span><span id="line-134">    verifyException(UNKNOWN_FILTER);</span>
+<span class="source-line-no">135</span><span id="line-135">  }</span>
+<span class="source-line-no">136</span><span id="line-136"></span>
+<span class="source-line-no">137</span><span id="line-137">  @Test(expected = JsonMappingException.class)</span>
+<span class="source-line-no">138</span><span id="line-138">  public void testIncorrectFilterThrowsJME() throws Exception {</span>
+<span class="source-line-no">139</span><span id="line-139">    final String JME_FILTER = "{\"invalid_tag\": \"PrefixFilter\", \"value\": \"cg==\"}";</span>
+<span class="source-line-no">140</span><span id="line-140">    verifyException(JME_FILTER);</span>
+<span class="source-line-no">141</span><span id="line-141">  }</span>
+<span class="source-line-no">142</span><span id="line-142"></span>
+<span class="source-line-no">143</span><span id="line-143">  @Test(expected = JsonParseException.class)</span>
+<span class="source-line-no">144</span><span id="line-144">  public void tesIncorrecttFilterThrowsJPE() throws Exception {</span>
+<span class="source-line-no">145</span><span id="line-145">    final String JPE_FILTER = "{\"type\": \"PrefixFilter\",, \"value\": \"cg==\"}";</span>
+<span class="source-line-no">146</span><span id="line-146">    verifyException(JPE_FILTER);</span>
+<span class="source-line-no">147</span><span id="line-147">  }</span>
+<span class="source-line-no">148</span><span id="line-148"></span>
+<span class="source-line-no">149</span><span id="line-149">  private void verifyException(final String FILTER) throws Exception {</span>
+<span class="source-line-no">150</span><span id="line-150">    ScannerModel model = new ScannerModel();</span>
+<span class="source-line-no">151</span><span id="line-151">    model.setFilter(FILTER);</span>
+<span class="source-line-no">152</span><span id="line-152">    ScannerResultGenerator.buildFilterFromModel(model);</span>
+<span class="source-line-no">153</span><span id="line-153">  }</span>
+<span class="source-line-no">154</span><span id="line-154">}</span>
 
 
 

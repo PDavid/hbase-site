@@ -78,26 +78,28 @@ loadScripts(document, 'script');</script>
 </div>
 <div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.coprocessor.example">org.apache.hadoop.hbase.coprocessor.example</a></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.master">org.apache.hadoop.hbase.master</a></div>
+<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.coprocessor.example.row.stats">org.apache.hadoop.hbase.coprocessor.example.row.stats</a></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.quotas">org.apache.hadoop.hbase.quotas</a></div>
+<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.master">org.apache.hadoop.hbase.master</a></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.regionserver">org.apache.hadoop.hbase.regionserver</a></div>
+<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.quotas">org.apache.hadoop.hbase.quotas</a></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.regionserver.wal">org.apache.hadoop.hbase.regionserver.wal</a></div>
+<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.regionserver">org.apache.hadoop.hbase.regionserver</a></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.replication.regionserver">org.apache.hadoop.hbase.replication.regionserver</a></div>
+<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.regionserver.wal">org.apache.hadoop.hbase.regionserver.wal</a></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.rsgroup">org.apache.hadoop.hbase.rsgroup</a></div>
+<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.replication.regionserver">org.apache.hadoop.hbase.replication.regionserver</a></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.security.access">org.apache.hadoop.hbase.security.access</a></div>
+<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.rsgroup">org.apache.hadoop.hbase.rsgroup</a></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.security.token">org.apache.hadoop.hbase.security.token</a></div>
+<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.security.access">org.apache.hadoop.hbase.security.access</a></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.security.visibility">org.apache.hadoop.hbase.security.visibility</a></div>
+<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.security.token">org.apache.hadoop.hbase.security.token</a></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.tool">org.apache.hadoop.hbase.tool</a></div>
+<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.security.visibility">org.apache.hadoop.hbase.security.visibility</a></div>
 <div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.tool">org.apache.hadoop.hbase.tool</a></div>
+<div class="col-last even-row-color">&nbsp;</div>
 </div>
 <section class="package-uses">
 <ul class="block-list">
@@ -275,6 +277,37 @@ loadScripts(document, 'script');</script>
 <div class="col-first odd-row-color"><a href="class-use/RegionCoprocessorEnvironment.html#org.apache.hadoop.hbase.coprocessor.example">RegionCoprocessorEnvironment</a></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><a href="class-use/RegionObserver.html#org.apache.hadoop.hbase.coprocessor.example">RegionObserver</a></div>
+<div class="col-last even-row-color">
+<div class="block">Coprocessors implement this interface to observe and mediate client actions on the region.</div>
+</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="org.apache.hadoop.hbase.coprocessor.example.row.stats">
+<div class="caption"><span>Classes in <a href="package-summary.html">org.apache.hadoop.hbase.coprocessor</a> used by <a href="example/row/stats/package-summary.html">org.apache.hadoop.hbase.coprocessor.example.row.stats</a></span></div>
+<div class="summary-table two-column-summary">
+<div class="table-header col-first">Class</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><a href="class-use/MasterCoprocessor.html#org.apache.hadoop.hbase.coprocessor.example.row.stats">MasterCoprocessor</a></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><a href="class-use/MasterCoprocessorEnvironment.html#org.apache.hadoop.hbase.coprocessor.example.row.stats">MasterCoprocessorEnvironment</a></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><a href="class-use/MasterObserver.html#org.apache.hadoop.hbase.coprocessor.example.row.stats">MasterObserver</a></div>
+<div class="col-last even-row-color">
+<div class="block">Defines coprocessor hooks for interacting with operations on the
+ <a href="../master/HMaster.html" title="class in org.apache.hadoop.hbase.master"><code>HMaster</code></a> process.</div>
+</div>
+<div class="col-first odd-row-color"><a href="class-use/ObserverContext.html#org.apache.hadoop.hbase.coprocessor.example.row.stats">ObserverContext</a></div>
+<div class="col-last odd-row-color">
+<div class="block">Carries the execution state for a given invocation of an Observer coprocessor
+ (<a href="RegionObserver.html" title="interface in org.apache.hadoop.hbase.coprocessor"><code>RegionObserver</code></a>, <a href="MasterObserver.html" title="interface in org.apache.hadoop.hbase.coprocessor"><code>MasterObserver</code></a>, or <a href="WALObserver.html" title="interface in org.apache.hadoop.hbase.coprocessor"><code>WALObserver</code></a>) method.</div>
+</div>
+<div class="col-first even-row-color"><a href="class-use/RegionCoprocessor.html#org.apache.hadoop.hbase.coprocessor.example.row.stats">RegionCoprocessor</a></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><a href="class-use/RegionCoprocessorEnvironment.html#org.apache.hadoop.hbase.coprocessor.example.row.stats">RegionCoprocessorEnvironment</a></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><a href="class-use/RegionObserver.html#org.apache.hadoop.hbase.coprocessor.example.row.stats">RegionObserver</a></div>
 <div class="col-last even-row-color">
 <div class="block">Coprocessors implement this interface to observe and mediate client actions on the region.</div>
 </div>

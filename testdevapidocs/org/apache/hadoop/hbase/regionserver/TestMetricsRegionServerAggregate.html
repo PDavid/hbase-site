@@ -77,7 +77,7 @@ loadScripts(document, 'script');</script>
 </div>
 <section class="class-description" id="class-description">
 <hr>
-<div class="type-signature"><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestMetricsRegionServerAggregate.html#line-49">TestMetricsRegionServerAggregate</a></span>
+<div class="type-signature"><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestMetricsRegionServerAggregate.html#line-51">TestMetricsRegionServerAggregate</a></span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
 </section>
 <section class="summary">
@@ -136,6 +136,9 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#test()" class="member-name-link">test</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#testWalMetricsForRegionServer()" class="member-name-link">testWalMetricsForRegionServer</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
 </div>
@@ -156,7 +159,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="CLASS_RULE">
 <h3>CLASS_RULE</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../HBaseClassTestRule.html" title="class in org.apache.hadoop.hbase">HBaseClassTestRule</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestMetricsRegionServerAggregate.html#line-52">CLASS_RULE</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../HBaseClassTestRule.html" title="class in org.apache.hadoop.hbase">HBaseClassTestRule</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestMetricsRegionServerAggregate.html#line-54">CLASS_RULE</a></span></div>
 </section>
 </li>
 </ul>
@@ -170,7 +173,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;()">
 <h3>TestMetricsRegionServerAggregate</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestMetricsRegionServerAggregate.html#line-50">TestMetricsRegionServerAggregate</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestMetricsRegionServerAggregate.html#line-52">TestMetricsRegionServerAggregate</a></span>()</div>
 </section>
 </li>
 </ul>
@@ -184,13 +187,24 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="test()">
 <h3>test</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestMetricsRegionServerAggregate.html#line-56">test</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestMetricsRegionServerAggregate.html#line-58">test</a></span>()</div>
+</section>
+</li>
+<li>
+<section class="detail" id="testWalMetricsForRegionServer()">
+<h3>testWalMetricsForRegionServer</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestMetricsRegionServerAggregate.html#line-196">testWalMetricsForRegionServer</a></span>()
+                                   throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/InterruptedException.html" title="class or interface in java.lang" class="external-link">InterruptedException</a></span></div>
+<dl class="notes">
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/InterruptedException.html" title="class or interface in java.lang" class="external-link">InterruptedException</a></code></dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="getMockedRegion(org.mockito.stubbing.Answer,java.lang.String,java.lang.String,boolean,java.util.concurrent.atomic.AtomicInteger)">
 <h3>getMockedRegion</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.regionserver.HRegion</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestMetricsRegionServerAggregate.html#line-194">getMockedRegion</a></span><wbr><span class="parameters">(org.mockito.stubbing.Answer&nbsp;defaultAnswer,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.regionserver.HRegion</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestMetricsRegionServerAggregate.html#line-232">getMockedRegion</a></span><wbr><span class="parameters">(org.mockito.stubbing.Answer&nbsp;defaultAnswer,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;localOnHost,
  boolean&nbsp;isPrimary,
@@ -201,7 +215,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="getMockedStore(java.lang.Class,org.mockito.stubbing.Answer,java.util.concurrent.atomic.AtomicInteger)">
 <h3>getMockedStore</h3>
 <div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="type-parameters-long">&lt;T extends org.apache.hadoop.hbase.regionserver.HStore&gt;</span>
-<span class="return-type">T</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestMetricsRegionServerAggregate.html#line-214">getMockedStore</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;T&gt;&nbsp;clazz,
+<span class="return-type">T</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/TestMetricsRegionServerAggregate.html#line-252">getMockedStore</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;T&gt;&nbsp;clazz,
  org.mockito.stubbing.Answer&nbsp;defaultAnswer,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/atomic/AtomicInteger.html" title="class or interface in java.util.concurrent.atomic" class="external-link">AtomicInteger</a>&nbsp;storeFileCount)</span></div>
 </section>

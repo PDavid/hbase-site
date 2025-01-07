@@ -108,7 +108,7 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color"><code>protected final org.apache.hadoop.conf.Configuration</code></div>
 <div class="col-second even-row-color"><code><a href="#conf" class="member-name-link">conf</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>private final int</code></div>
+<div class="col-first odd-row-color"><code>private final long</code></div>
 <div class="col-second odd-row-color"><code><a href="#everyN" class="member-name-link">everyN</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>protected com.codahale.metrics.Histogram</code></div>
@@ -125,12 +125,6 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>protected final <a href="PerformanceEvaluation.TestOptions.html" title="class in org.apache.hadoop.hbase">PerformanceEvaluation.TestOptions</a></code></div>
 <div class="col-second even-row-color"><code><a href="#opts" class="member-name-link">opts</a></code></div>
-<div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>protected final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Random.html" title="class or interface in java.util" class="external-link">Random</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#rand" class="member-name-link">rand</a></code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>private static final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Random.html" title="class or interface in java.util" class="external-link">Random</a></code></div>
-<div class="col-second even-row-color"><code><a href="#randomSeed" class="member-name-link">randomSeed</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>private com.codahale.metrics.Histogram</code></div>
 <div class="col-second odd-row-color"><code><a href="#regionsScannedHistogram" class="member-name-link">regionsScannedHistogram</a></code></div>
@@ -182,18 +176,18 @@ loadScripts(document, 'script');</script>
 <section class="method-summary" id="method-summary">
 <h2>Method Summary</h2>
 <div id="method-summary-table">
-<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab1" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab1', 3)" class="table-tab">Static Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab3" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab3', 3)" class="table-tab">Abstract Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button></div>
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab3" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab3', 3)" class="table-tab">Abstract Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button></div>
 <div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
 <div class="summary-table three-column-summary">
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#generateStatus(int,int,int)" class="member-name-link">generateStatus</a><wbr>(int&nbsp;sr,
- int&nbsp;i,
- int&nbsp;lr)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#generateStatus(long,long,long)" class="member-name-link">generateStatus</a><wbr>(long&nbsp;sr,
+ long&nbsp;i,
+ long&nbsp;lr)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) int</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) long</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getLastRow()" class="member-name-link">getLastRow</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>com.codahale.metrics.Histogram</code></div>
@@ -201,7 +195,7 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Populated by testTakedown.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected int</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected long</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getReportingPeriod()" class="member-name-link">getReportingPeriod</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
@@ -214,64 +208,61 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns Subset of the histograms' calculation.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) int</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) long</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getStartRow()" class="member-name-link">getStartRow</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) int</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getValueLength(java.util.Random)" class="member-name-link">getValueLength</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Random.html" title="class or interface in java.util" class="external-link">Random</a>&nbsp;r)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getValueLength()" class="member-name-link">getValueLength</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) boolean</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isRandomValueSize()" class="member-name-link">isRandomValueSize</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static long</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#nextRandomSeed()" class="member-name-link">nextRandomSeed</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>(package private) abstract void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#onStartup()" class="member-name-link">onStartup</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>(package private) abstract void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#onTakedown()" class="member-name-link">onTakedown</a>()</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#onStartup()" class="member-name-link">onStartup</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) long</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#test()" class="member-name-link">test</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>(package private) abstract boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#testRow(int,long)" class="member-name-link">testRow</a><wbr>(int&nbsp;i,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>(package private) abstract void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#onTakedown()" class="member-name-link">onTakedown</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) long</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#test()" class="member-name-link">test</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>(package private) abstract boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#testRow(long,long)" class="member-name-link">testRow</a><wbr>(long&nbsp;i,
  long&nbsp;startTime)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Test for individual row.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#testSetup()" class="member-name-link">testSetup</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#testTakedown()" class="member-name-link">testTakedown</a>()</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#testSetup()" class="member-name-link">testSetup</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#testTimed()" class="member-name-link">testTimed</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#testTakedown()" class="member-name-link">testTakedown</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#testTimed()" class="member-name-link">testTimed</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Provides an extension point for tests that don't want a per row invocation.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateScanMetrics(org.apache.hadoop.hbase.client.metrics.ScanMetrics)" class="member-name-link">updateScanMetrics</a><wbr>(<a href="client/metrics/ScanMetrics.html" title="class in org.apache.hadoop.hbase.client.metrics">ScanMetrics</a>&nbsp;metrics)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateValueSize(int)" class="member-name-link">updateValueSize</a><wbr>(int&nbsp;valueSize)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateScanMetrics(org.apache.hadoop.hbase.client.metrics.ScanMetrics)" class="member-name-link">updateScanMetrics</a><wbr>(<a href="client/metrics/ScanMetrics.html" title="class in org.apache.hadoop.hbase.client.metrics">ScanMetrics</a>&nbsp;metrics)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateValueSize(org.apache.hadoop.hbase.client.Result)" class="member-name-link">updateValueSize</a><wbr>(<a href="client/Result.html" title="class in org.apache.hadoop.hbase.client">Result</a>&nbsp;r)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateValueSize(int)" class="member-name-link">updateValueSize</a><wbr>(int&nbsp;valueSize)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateValueSize(org.apache.hadoop.hbase.client.Result%5B%5D)" class="member-name-link">updateValueSize</a><wbr>(<a href="client/Result.html" title="class in org.apache.hadoop.hbase.client">Result</a>[]&nbsp;rs)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateValueSize(org.apache.hadoop.hbase.client.Result)" class="member-name-link">updateValueSize</a><wbr>(<a href="client/Result.html" title="class in org.apache.hadoop.hbase.client">Result</a>&nbsp;r)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateValueSize(org.apache.hadoop.hbase.client.Result%5B%5D,long)" class="member-name-link">updateValueSize</a><wbr>(<a href="client/Result.html" title="class in org.apache.hadoop.hbase.client">Result</a>[]&nbsp;rs,
- long&nbsp;latency)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateValueSize(org.apache.hadoop.hbase.client.Result%5B%5D)" class="member-name-link">updateValueSize</a><wbr>(<a href="client/Result.html" title="class in org.apache.hadoop.hbase.client">Result</a>[]&nbsp;rs)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateValueSize(org.apache.hadoop.hbase.client.Result,long)" class="member-name-link">updateValueSize</a><wbr>(<a href="client/Result.html" title="class in org.apache.hadoop.hbase.client">Result</a>&nbsp;r,
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateValueSize(org.apache.hadoop.hbase.client.Result%5B%5D,long)" class="member-name-link">updateValueSize</a><wbr>(<a href="client/Result.html" title="class in org.apache.hadoop.hbase.client">Result</a>[]&nbsp;rs,
  long&nbsp;latency)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateValueSize(org.apache.hadoop.hbase.client.Result,long)" class="member-name-link">updateValueSize</a><wbr>(<a href="client/Result.html" title="class in org.apache.hadoop.hbase.client">Result</a>&nbsp;r,
+ long&nbsp;latency)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
 </div>
@@ -290,117 +281,105 @@ loadScripts(document, 'script');</script>
 <h2>Field Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="randomSeed">
-<h3>randomSeed</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Random.html" title="class or interface in java.util" class="external-link">Random</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1171">randomSeed</a></span></div>
-</section>
-</li>
-<li>
 <section class="detail" id="everyN">
 <h3>everyN</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1177">everyN</a></span></div>
-</section>
-</li>
-<li>
-<section class="detail" id="rand">
-<h3>rand</h3>
-<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Random.html" title="class or interface in java.util" class="external-link">Random</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1179">rand</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1169">everyN</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="conf">
 <h3>conf</h3>
-<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type">org.apache.hadoop.conf.Configuration</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1180">conf</a></span></div>
+<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type">org.apache.hadoop.conf.Configuration</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1171">conf</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="opts">
 <h3>opts</h3>
-<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type"><a href="PerformanceEvaluation.TestOptions.html" title="class in org.apache.hadoop.hbase">PerformanceEvaluation.TestOptions</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1181">opts</a></span></div>
+<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type"><a href="PerformanceEvaluation.TestOptions.html" title="class in org.apache.hadoop.hbase">PerformanceEvaluation.TestOptions</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1172">opts</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="status">
 <h3>status</h3>
-<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type"><a href="PerformanceEvaluation.Status.html" title="interface in org.apache.hadoop.hbase">PerformanceEvaluation.Status</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1183">status</a></span></div>
+<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type"><a href="PerformanceEvaluation.Status.html" title="interface in org.apache.hadoop.hbase">PerformanceEvaluation.Status</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1174">status</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="testName">
 <h3>testName</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1185">testName</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1176">testName</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="latencyHistogram">
 <h3>latencyHistogram</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">com.codahale.metrics.Histogram</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1186">latencyHistogram</a></span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">com.codahale.metrics.Histogram</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1177">latencyHistogram</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="replicaLatencyHistogram">
 <h3>replicaLatencyHistogram</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">com.codahale.metrics.Histogram</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1187">replicaLatencyHistogram</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">com.codahale.metrics.Histogram</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1178">replicaLatencyHistogram</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="valueSizeHistogram">
 <h3>valueSizeHistogram</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">com.codahale.metrics.Histogram</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1188">valueSizeHistogram</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">com.codahale.metrics.Histogram</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1179">valueSizeHistogram</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="rpcCallsHistogram">
 <h3>rpcCallsHistogram</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">com.codahale.metrics.Histogram</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1189">rpcCallsHistogram</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">com.codahale.metrics.Histogram</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1180">rpcCallsHistogram</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="remoteRpcCallsHistogram">
 <h3>remoteRpcCallsHistogram</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">com.codahale.metrics.Histogram</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1190">remoteRpcCallsHistogram</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">com.codahale.metrics.Histogram</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1181">remoteRpcCallsHistogram</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="millisBetweenNextHistogram">
 <h3>millisBetweenNextHistogram</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">com.codahale.metrics.Histogram</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1191">millisBetweenNextHistogram</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">com.codahale.metrics.Histogram</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1182">millisBetweenNextHistogram</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="regionsScannedHistogram">
 <h3>regionsScannedHistogram</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">com.codahale.metrics.Histogram</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1192">regionsScannedHistogram</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">com.codahale.metrics.Histogram</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1183">regionsScannedHistogram</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="bytesInResultsHistogram">
 <h3>bytesInResultsHistogram</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">com.codahale.metrics.Histogram</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1193">bytesInResultsHistogram</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">com.codahale.metrics.Histogram</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1184">bytesInResultsHistogram</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="bytesInRemoteResultsHistogram">
 <h3>bytesInRemoteResultsHistogram</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">com.codahale.metrics.Histogram</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1194">bytesInRemoteResultsHistogram</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">com.codahale.metrics.Histogram</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1185">bytesInRemoteResultsHistogram</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="zipf">
 <h3>zipf</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="util/RandomDistribution.Zipf.html" title="class in org.apache.hadoop.hbase.util">RandomDistribution.Zipf</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1195">zipf</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="util/RandomDistribution.Zipf.html" title="class in org.apache.hadoop.hbase.util">RandomDistribution.Zipf</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1186">zipf</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="numOfReplyOverLatencyThreshold">
 <h3>numOfReplyOverLatencyThreshold</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1196">numOfReplyOverLatencyThreshold</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1187">numOfReplyOverLatencyThreshold</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="numOfReplyFromReplica">
 <h3>numOfReplyFromReplica</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1197">numOfReplyFromReplica</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1188">numOfReplyFromReplica</a></span></div>
 </section>
 </li>
 </ul>
@@ -414,7 +393,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;(org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.PerformanceEvaluation.TestOptions,org.apache.hadoop.hbase.PerformanceEvaluation.Status)">
 <h3>TestBase</h3>
-<div class="member-signature"><span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1203">TestBase</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="member-signature"><span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1194">TestBase</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
  <a href="PerformanceEvaluation.TestOptions.html" title="class in org.apache.hadoop.hbase">PerformanceEvaluation.TestOptions</a>&nbsp;options,
  <a href="PerformanceEvaluation.Status.html" title="interface in org.apache.hadoop.hbase">PerformanceEvaluation.Status</a>&nbsp;status)</span></div>
 <div class="block">Note that all subclasses of this class must provide a public constructor that has the exact
@@ -430,21 +409,15 @@ loadScripts(document, 'script');</script>
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="nextRandomSeed()">
-<h3>nextRandomSeed</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1173">nextRandomSeed</a></span>()</div>
-</section>
-</li>
-<li>
-<section class="detail" id="getValueLength(java.util.Random)">
+<section class="detail" id="getValueLength()">
 <h3>getValueLength</h3>
-<div class="member-signature"><span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1215">getValueLength</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Random.html" title="class or interface in java.util" class="external-link">Random</a>&nbsp;r)</span></div>
+<div class="member-signature"><span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1207">getValueLength</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="updateValueSize(org.apache.hadoop.hbase.client.Result[])">
 <h3>updateValueSize</h3>
-<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1225">updateValueSize</a></span><wbr><span class="parameters">(<a href="client/Result.html" title="class in org.apache.hadoop.hbase.client">Result</a>[]&nbsp;rs)</span>
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1217">updateValueSize</a></span><wbr><span class="parameters">(<a href="client/Result.html" title="class in org.apache.hadoop.hbase.client">Result</a>[]&nbsp;rs)</span>
               throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -455,7 +428,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="updateValueSize(org.apache.hadoop.hbase.client.Result[],long)">
 <h3>updateValueSize</h3>
-<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1229">updateValueSize</a></span><wbr><span class="parameters">(<a href="client/Result.html" title="class in org.apache.hadoop.hbase.client">Result</a>[]&nbsp;rs,
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1221">updateValueSize</a></span><wbr><span class="parameters">(<a href="client/Result.html" title="class in org.apache.hadoop.hbase.client">Result</a>[]&nbsp;rs,
  long&nbsp;latency)</span>
               throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
@@ -467,7 +440,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="updateValueSize(org.apache.hadoop.hbase.client.Result)">
 <h3>updateValueSize</h3>
-<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1235">updateValueSize</a></span><wbr><span class="parameters">(<a href="client/Result.html" title="class in org.apache.hadoop.hbase.client">Result</a>&nbsp;r)</span>
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1227">updateValueSize</a></span><wbr><span class="parameters">(<a href="client/Result.html" title="class in org.apache.hadoop.hbase.client">Result</a>&nbsp;r)</span>
               throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -478,7 +451,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="updateValueSize(org.apache.hadoop.hbase.client.Result,long)">
 <h3>updateValueSize</h3>
-<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1239">updateValueSize</a></span><wbr><span class="parameters">(<a href="client/Result.html" title="class in org.apache.hadoop.hbase.client">Result</a>&nbsp;r,
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1231">updateValueSize</a></span><wbr><span class="parameters">(<a href="client/Result.html" title="class in org.apache.hadoop.hbase.client">Result</a>&nbsp;r,
  long&nbsp;latency)</span>
               throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
@@ -490,46 +463,46 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="updateValueSize(int)">
 <h3>updateValueSize</h3>
-<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1255">updateValueSize</a></span><wbr><span class="parameters">(int&nbsp;valueSize)</span></div>
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1247">updateValueSize</a></span><wbr><span class="parameters">(int&nbsp;valueSize)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="updateScanMetrics(org.apache.hadoop.hbase.client.metrics.ScanMetrics)">
 <h3>updateScanMetrics</h3>
-<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1260">updateScanMetrics</a></span><wbr><span class="parameters">(<a href="client/metrics/ScanMetrics.html" title="class in org.apache.hadoop.hbase.client.metrics">ScanMetrics</a>&nbsp;metrics)</span></div>
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1252">updateScanMetrics</a></span><wbr><span class="parameters">(<a href="client/metrics/ScanMetrics.html" title="class in org.apache.hadoop.hbase.client.metrics">ScanMetrics</a>&nbsp;metrics)</span></div>
 </section>
 </li>
 <li>
-<section class="detail" id="generateStatus(int,int,int)">
+<section class="detail" id="generateStatus(long,long,long)">
 <h3>generateStatus</h3>
-<div class="member-signature"><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1289">generateStatus</a></span><wbr><span class="parameters">(int&nbsp;sr,
- int&nbsp;i,
- int&nbsp;lr)</span></div>
+<div class="member-signature"><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1281">generateStatus</a></span><wbr><span class="parameters">(long&nbsp;sr,
+ long&nbsp;i,
+ long&nbsp;lr)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="isRandomValueSize()">
 <h3>isRandomValueSize</h3>
-<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1295">isRandomValueSize</a></span>()</div>
+<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1287">isRandomValueSize</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getReportingPeriod()">
 <h3>getReportingPeriod</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1299">getReportingPeriod</a></span>()</div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1291">getReportingPeriod</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getLatencyHistogram()">
 <h3>getLatencyHistogram</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">com.codahale.metrics.Histogram</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1306">getLatencyHistogram</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">com.codahale.metrics.Histogram</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1298">getLatencyHistogram</a></span>()</div>
 <div class="block">Populated by testTakedown. Only implemented by RandomReadTest at the moment.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="testSetup()">
 <h3>testSetup</h3>
-<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1310">testSetup</a></span>()
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1302">testSetup</a></span>()
         throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -540,7 +513,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="onStartup()">
 <h3>onStartup</h3>
-<div class="member-signature"><span class="modifiers">abstract</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1332">onStartup</a></span>()
+<div class="member-signature"><span class="modifiers">abstract</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1324">onStartup</a></span>()
                  throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -551,7 +524,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testTakedown()">
 <h3>testTakedown</h3>
-<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1334">testTakedown</a></span>()
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1326">testTakedown</a></span>()
            throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -562,7 +535,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="onTakedown()">
 <h3>onTakedown</h3>
-<div class="member-signature"><span class="modifiers">abstract</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1384">onTakedown</a></span>()
+<div class="member-signature"><span class="modifiers">abstract</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1376">onTakedown</a></span>()
                   throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -573,7 +546,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="test()">
 <h3>test</h3>
-<div class="member-signature"><span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1390">test</a></span>()
+<div class="member-signature"><span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1382">test</a></span>()
    throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a>,
 <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/InterruptedException.html" title="class or interface in java.lang" class="external-link">InterruptedException</a></span></div>
 <dl class="notes">
@@ -586,19 +559,19 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getStartRow()">
 <h3>getStartRow</h3>
-<div class="member-signature"><span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1402">getStartRow</a></span>()</div>
+<div class="member-signature"><span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1394">getStartRow</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getLastRow()">
 <h3>getLastRow</h3>
-<div class="member-signature"><span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1406">getLastRow</a></span>()</div>
+<div class="member-signature"><span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1398">getLastRow</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="testTimed()">
 <h3>testTimed</h3>
-<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1413">testTimed</a></span>()
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1405">testTimed</a></span>()
         throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a>,
 <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/InterruptedException.html" title="class or interface in java.lang" class="external-link">InterruptedException</a></span></div>
 <div class="block">Provides an extension point for tests that don't want a per row invocation.</div>
@@ -612,21 +585,21 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getShortLatencyReport()">
 <h3>getShortLatencyReport</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1450">getShortLatencyReport</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1442">getShortLatencyReport</a></span>()</div>
 <div class="block">Returns Subset of the histograms' calculation.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getShortValueSizeReport()">
 <h3>getShortValueSizeReport</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1455">getShortValueSizeReport</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1447">getShortValueSizeReport</a></span>()</div>
 <div class="block">Returns Subset of the histograms' calculation.</div>
 </section>
 </li>
 <li>
-<section class="detail" id="testRow(int,long)">
+<section class="detail" id="testRow(long,long)">
 <h3>testRow</h3>
-<div class="member-signature"><span class="modifiers">abstract</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1465">testRow</a></span><wbr><span class="parameters">(int&nbsp;i,
+<div class="member-signature"><span class="modifiers">abstract</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.TestBase.html#line-1457">testRow</a></span><wbr><span class="parameters">(long&nbsp;i,
  long&nbsp;startTime)</span>
                   throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a>,
 <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/InterruptedException.html" title="class or interface in java.lang" class="external-link">InterruptedException</a></span></div>
