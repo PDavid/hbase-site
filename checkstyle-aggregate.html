@@ -176,7 +176,7 @@
 <td>5037</td>
 <td>0</td>
 <td>0</td>
-<td>1707</td></tr></table></section><section>
+<td>1709</td></tr></table></section><section>
 <h2><a name="Files"></a>Files</h2>
 <table border="0" class="table table-striped">
 <tr class="a">
@@ -2508,7 +2508,7 @@
 <td><a href="#org.apache.hadoop.hbase.rest.model.ScannerModel.java">org/apache/hadoop/hbase/rest/model/ScannerModel.java</a></td>
 <td>0</td>
 <td>0</td>
-<td>22</td></tr>
+<td>24</td></tr>
 <tr class="a">
 <td><a href="#org.apache.hadoop.hbase.rest.model.TableRegionModel.java">org/apache/hadoop/hbase/rest/model/TableRegionModel.java</a></td>
 <td>0</td>
@@ -3244,7 +3244,7 @@
 <tr class="a">
 <td></td>
 <td><a class="externalLink" href="http://checkstyle.sourceforge.net/config_coding.html#EqualsHashCode">EqualsHashCode</a></td>
-<td>2</td>
+<td>3</td>
 <td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td></tr>
 <tr class="b">
 <td></td>
@@ -3317,7 +3317,7 @@
 <ul>
 <li>max: <code>&quot;100&quot;</code></li>
 <li>ignorePattern: <code>&quot;^package.*|^import.*|a href|href|http://|https://|ftp://|org.apache.thrift.|com.google.protobuf.|hbase.protobuf.generated&quot;</code></li></ul></td>
-<td>139</td>
+<td>140</td>
 <td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td></tr>
 <tr class="b">
 <td></td>
@@ -14612,136 +14612,148 @@
 <th>Line</th></tr>
 <tr class="a">
 <td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td>
+<td>sizes</td>
+<td>LineLength</td>
+<td>Line is longer than 100 characters (found 186).</td>
+<td>150</td></tr>
+<tr class="b">
+<td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td>
+<td>coding</td>
+<td>EqualsHashCode</td>
+<td>Definition of 'equals()' without corresponding definition of 'hashCode()'.</td>
+<td>152</td></tr>
+<tr class="a">
+<td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td>
 <td>design</td>
 <td>VisibilityModifier</td>
 <td>Variable 'type' must be private and have accessor methods.</td>
-<td>160</td></tr>
+<td>172</td></tr>
 <tr class="b">
 <td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td>
 <td>design</td>
 <td>VisibilityModifier</td>
 <td>Variable 'value' must be private and have accessor methods.</td>
-<td>162</td></tr>
+<td>174</td></tr>
 <tr class="a">
 <td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td>
 <td>design</td>
 <td>VisibilityModifier</td>
 <td>Variable 'op' must be private and have accessor methods.</td>
-<td>164</td></tr>
+<td>176</td></tr>
 <tr class="b">
 <td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td>
 <td>design</td>
 <td>VisibilityModifier</td>
 <td>Variable 'type' must be private and have accessor methods.</td>
-<td>365</td></tr>
-<tr class="a">
-<td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td>
-<td>design</td>
-<td>VisibilityModifier</td>
-<td>Variable 'op' must be private and have accessor methods.</td>
-<td>367</td></tr>
-<tr class="b">
-<td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td>
-<td>design</td>
-<td>VisibilityModifier</td>
-<td>Variable 'value' must be private and have accessor methods.</td>
-<td>371</td></tr>
-<tr class="a">
-<td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td>
-<td>design</td>
-<td>VisibilityModifier</td>
-<td>Variable 'filters' must be private and have accessor methods.</td>
-<td>373</td></tr>
-<tr class="b">
-<td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td>
-<td>design</td>
-<td>VisibilityModifier</td>
-<td>Variable 'limit' must be private and have accessor methods.</td>
-<td>375</td></tr>
-<tr class="a">
-<td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td>
-<td>design</td>
-<td>VisibilityModifier</td>
-<td>Variable 'offset' must be private and have accessor methods.</td>
 <td>377</td></tr>
-<tr class="b">
-<td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td>
-<td>design</td>
-<td>VisibilityModifier</td>
-<td>Variable 'family' must be private and have accessor methods.</td>
-<td>379</td></tr>
 <tr class="a">
 <td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td>
 <td>design</td>
 <td>VisibilityModifier</td>
-<td>Variable 'qualifier' must be private and have accessor methods.</td>
-<td>381</td></tr>
+<td>Variable 'op' must be private and have accessor methods.</td>
+<td>379</td></tr>
 <tr class="b">
 <td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td>
 <td>design</td>
 <td>VisibilityModifier</td>
-<td>Variable 'ifMissing' must be private and have accessor methods.</td>
+<td>Variable 'value' must be private and have accessor methods.</td>
 <td>383</td></tr>
 <tr class="a">
 <td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td>
 <td>design</td>
 <td>VisibilityModifier</td>
-<td>Variable 'latestVersion' must be private and have accessor methods.</td>
+<td>Variable 'filters' must be private and have accessor methods.</td>
 <td>385</td></tr>
 <tr class="b">
 <td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td>
 <td>design</td>
 <td>VisibilityModifier</td>
-<td>Variable 'minColumn' must be private and have accessor methods.</td>
+<td>Variable 'limit' must be private and have accessor methods.</td>
 <td>387</td></tr>
 <tr class="a">
 <td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td>
 <td>design</td>
 <td>VisibilityModifier</td>
-<td>Variable 'minColumnInclusive' must be private and have accessor methods.</td>
+<td>Variable 'offset' must be private and have accessor methods.</td>
 <td>389</td></tr>
 <tr class="b">
 <td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td>
 <td>design</td>
 <td>VisibilityModifier</td>
-<td>Variable 'maxColumn' must be private and have accessor methods.</td>
+<td>Variable 'family' must be private and have accessor methods.</td>
 <td>391</td></tr>
 <tr class="a">
 <td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td>
 <td>design</td>
 <td>VisibilityModifier</td>
-<td>Variable 'maxColumnInclusive' must be private and have accessor methods.</td>
+<td>Variable 'qualifier' must be private and have accessor methods.</td>
 <td>393</td></tr>
 <tr class="b">
 <td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td>
 <td>design</td>
 <td>VisibilityModifier</td>
-<td>Variable 'dropDependentColumn' must be private and have accessor methods.</td>
+<td>Variable 'ifMissing' must be private and have accessor methods.</td>
 <td>395</td></tr>
 <tr class="a">
 <td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td>
 <td>design</td>
 <td>VisibilityModifier</td>
-<td>Variable 'chance' must be private and have accessor methods.</td>
+<td>Variable 'latestVersion' must be private and have accessor methods.</td>
 <td>397</td></tr>
 <tr class="b">
 <td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td>
 <td>design</td>
 <td>VisibilityModifier</td>
-<td>Variable 'prefixes' must be private and have accessor methods.</td>
+<td>Variable 'minColumn' must be private and have accessor methods.</td>
 <td>399</td></tr>
 <tr class="a">
 <td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td>
 <td>design</td>
 <td>VisibilityModifier</td>
-<td>Variable 'timestamps' must be private and have accessor methods.</td>
+<td>Variable 'minColumnInclusive' must be private and have accessor methods.</td>
+<td>401</td></tr>
+<tr class="b">
+<td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td>
+<td>design</td>
+<td>VisibilityModifier</td>
+<td>Variable 'maxColumn' must be private and have accessor methods.</td>
 <td>403</td></tr>
+<tr class="a">
+<td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td>
+<td>design</td>
+<td>VisibilityModifier</td>
+<td>Variable 'maxColumnInclusive' must be private and have accessor methods.</td>
+<td>405</td></tr>
+<tr class="b">
+<td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td>
+<td>design</td>
+<td>VisibilityModifier</td>
+<td>Variable 'dropDependentColumn' must be private and have accessor methods.</td>
+<td>407</td></tr>
+<tr class="a">
+<td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td>
+<td>design</td>
+<td>VisibilityModifier</td>
+<td>Variable 'chance' must be private and have accessor methods.</td>
+<td>409</td></tr>
+<tr class="b">
+<td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td>
+<td>design</td>
+<td>VisibilityModifier</td>
+<td>Variable 'prefixes' must be private and have accessor methods.</td>
+<td>411</td></tr>
+<tr class="a">
+<td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td>
+<td>design</td>
+<td>VisibilityModifier</td>
+<td>Variable 'timestamps' must be private and have accessor methods.</td>
+<td>415</td></tr>
 <tr class="b">
 <td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td>
 <td>blocks</td>
 <td>NeedBraces</td>
 <td>'for' construct must use '{}'s.</td>
-<td>1020</td></tr></table></section><section>
+<td>1032</td></tr></table></section><section>
 <h3 id="org.apache.hadoop.hbase.rest.model.TableRegionModel.java">org/apache/hadoop/hbase/rest/model/TableRegionModel.java</h3>
 <table border="0" class="table table-striped">
 <tr class="a">
@@ -14769,13 +14781,13 @@
 <td>sizes</td>
 <td>LineLength</td>
 <td>Line is longer than 100 characters (found 117).</td>
-<td>57</td></tr>
+<td>58</td></tr>
 <tr class="a">
 <td><figure><img src="images/icon_error_sml.gif" alt="" /></figure>&#160;Error</td>
 <td>sizes</td>
 <td>LineLength</td>
 <td>Line is longer than 100 characters (found 112).</td>
-<td>58</td></tr></table></section><section>
+<td>59</td></tr></table></section><section>
 <h3 id="org.apache.hadoop.hbase.rest.model.VersionModel.java">org/apache/hadoop/hbase/rest/model/VersionModel.java</h3>
 <table border="0" class="table table-striped">
 <tr class="b">
@@ -18432,7 +18444,7 @@
         All other marks mentioned may be trademarks or registered trademarks of their respective owners.
       </div>
       <div style="float: right">
-        Last Published: 2025-01-10
+        Last Published: 2025-01-11
       </div>
         </div>
         <p id="poweredBy" class="pull-right"><a href="http://maven.apache.org/" title="Built by Maven" class="poweredBy"><img class="builtBy" alt="Built by Maven" src="./images/logos/maven-feather.png" /></a>

@@ -35,48 +35,48 @@
 <span class="source-line-no">022</span><span id="line-22"></span>
 <span class="source-line-no">023</span><span id="line-23">import com.fasterxml.jackson.core.JsonParseException;</span>
 <span class="source-line-no">024</span><span id="line-24">import com.fasterxml.jackson.databind.JsonMappingException;</span>
-<span class="source-line-no">025</span><span id="line-25">import org.apache.hadoop.hbase.HBaseClassTestRule;</span>
-<span class="source-line-no">026</span><span id="line-26">import org.apache.hadoop.hbase.rest.ScannerResultGenerator;</span>
-<span class="source-line-no">027</span><span id="line-27">import org.apache.hadoop.hbase.testclassification.RestTests;</span>
-<span class="source-line-no">028</span><span id="line-28">import org.apache.hadoop.hbase.testclassification.SmallTests;</span>
-<span class="source-line-no">029</span><span id="line-29">import org.apache.hadoop.hbase.util.Bytes;</span>
-<span class="source-line-no">030</span><span id="line-30">import org.junit.ClassRule;</span>
-<span class="source-line-no">031</span><span id="line-31">import org.junit.Test;</span>
-<span class="source-line-no">032</span><span id="line-32">import org.junit.experimental.categories.Category;</span>
-<span class="source-line-no">033</span><span id="line-33"></span>
-<span class="source-line-no">034</span><span id="line-34">@Category({ RestTests.class, SmallTests.class })</span>
-<span class="source-line-no">035</span><span id="line-35">public class TestScannerModel extends TestModelBase&lt;ScannerModel&gt; {</span>
-<span class="source-line-no">036</span><span id="line-36">  @ClassRule</span>
-<span class="source-line-no">037</span><span id="line-37">  public static final HBaseClassTestRule CLASS_RULE =</span>
-<span class="source-line-no">038</span><span id="line-38">    HBaseClassTestRule.forClass(TestScannerModel.class);</span>
-<span class="source-line-no">039</span><span id="line-39"></span>
-<span class="source-line-no">040</span><span id="line-40">  private static final String PRIVATE = "private";</span>
-<span class="source-line-no">041</span><span id="line-41">  private static final String PUBLIC = "public";</span>
-<span class="source-line-no">042</span><span id="line-42">  private static final byte[] START_ROW = Bytes.toBytes("abracadabra");</span>
-<span class="source-line-no">043</span><span id="line-43">  private static final byte[] END_ROW = Bytes.toBytes("zzyzx");</span>
-<span class="source-line-no">044</span><span id="line-44">  private static final byte[] COLUMN1 = Bytes.toBytes("column1");</span>
-<span class="source-line-no">045</span><span id="line-45">  private static final byte[] COLUMN2 = Bytes.toBytes("column2:foo");</span>
-<span class="source-line-no">046</span><span id="line-46">  private static final long START_TIME = 1245219839331L;</span>
-<span class="source-line-no">047</span><span id="line-47">  private static final long END_TIME = 1245393318192L;</span>
-<span class="source-line-no">048</span><span id="line-48">  private static final int CACHING = 1000;</span>
-<span class="source-line-no">049</span><span id="line-49">  private static final int LIMIT = 10000;</span>
-<span class="source-line-no">050</span><span id="line-50">  private static final int BATCH = 100;</span>
-<span class="source-line-no">051</span><span id="line-51">  private static final boolean CACHE_BLOCKS = false;</span>
-<span class="source-line-no">052</span><span id="line-52"></span>
-<span class="source-line-no">053</span><span id="line-53">  public TestScannerModel() throws Exception {</span>
-<span class="source-line-no">054</span><span id="line-54">    super(ScannerModel.class);</span>
-<span class="source-line-no">055</span><span id="line-55"></span>
-<span class="source-line-no">056</span><span id="line-56">    AS_XML = "&lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?&gt;"</span>
-<span class="source-line-no">057</span><span id="line-57">      + "&lt;Scanner batch=\"100\" cacheBlocks=\"false\" caching=\"1000\" endRow=\"enp5eng=\" endTime=\"1245393318192\""</span>
-<span class="source-line-no">058</span><span id="line-58">      + " limit=\"10000\" maxVersions=\"2147483647\" startRow=\"YWJyYWNhZGFicmE=\" startTime=\"1245219839331\"&gt;"</span>
-<span class="source-line-no">059</span><span id="line-59">      + "&lt;column&gt;Y29sdW1uMQ==&lt;/column&gt; &lt;column&gt;Y29sdW1uMjpmb28=&lt;/column&gt;"</span>
-<span class="source-line-no">060</span><span id="line-60">      + "&lt;labels&gt;private&lt;/labels&gt; &lt;labels&gt;public&lt;/labels&gt;&lt;/Scanner&gt;";</span>
-<span class="source-line-no">061</span><span id="line-61"></span>
-<span class="source-line-no">062</span><span id="line-62">    AS_JSON = "{\"batch\":100,\"caching\":1000,\"cacheBlocks\":false,\"endRow\":\"enp5eng=\","</span>
-<span class="source-line-no">063</span><span id="line-63">      + "\"endTime\":1245393318192,\"maxVersions\":2147483647,\"startRow\":\"YWJyYWNhZGFicmE=\","</span>
-<span class="source-line-no">064</span><span id="line-64">      + "\"startTime\":1245219839331,\"column\":[\"Y29sdW1uMQ==\",\"Y29sdW1uMjpmb28=\"],"</span>
-<span class="source-line-no">065</span><span id="line-65">      + "\"labels\":[\"private\",\"public\"]," + "\"limit\":10000,"</span>
-<span class="source-line-no">066</span><span id="line-66">      + "\"includeStartRow\":true,\"includeStopRow\":false}";</span>
+<span class="source-line-no">025</span><span id="line-25">import com.fasterxml.jackson.databind.node.ObjectNode;</span>
+<span class="source-line-no">026</span><span id="line-26">import org.apache.hadoop.hbase.HBaseClassTestRule;</span>
+<span class="source-line-no">027</span><span id="line-27">import org.apache.hadoop.hbase.rest.ScannerResultGenerator;</span>
+<span class="source-line-no">028</span><span id="line-28">import org.apache.hadoop.hbase.testclassification.RestTests;</span>
+<span class="source-line-no">029</span><span id="line-29">import org.apache.hadoop.hbase.testclassification.SmallTests;</span>
+<span class="source-line-no">030</span><span id="line-30">import org.apache.hadoop.hbase.util.Bytes;</span>
+<span class="source-line-no">031</span><span id="line-31">import org.junit.ClassRule;</span>
+<span class="source-line-no">032</span><span id="line-32">import org.junit.Test;</span>
+<span class="source-line-no">033</span><span id="line-33">import org.junit.experimental.categories.Category;</span>
+<span class="source-line-no">034</span><span id="line-34"></span>
+<span class="source-line-no">035</span><span id="line-35">@Category({ RestTests.class, SmallTests.class })</span>
+<span class="source-line-no">036</span><span id="line-36">public class TestScannerModel extends TestModelBase&lt;ScannerModel&gt; {</span>
+<span class="source-line-no">037</span><span id="line-37">  @ClassRule</span>
+<span class="source-line-no">038</span><span id="line-38">  public static final HBaseClassTestRule CLASS_RULE =</span>
+<span class="source-line-no">039</span><span id="line-39">    HBaseClassTestRule.forClass(TestScannerModel.class);</span>
+<span class="source-line-no">040</span><span id="line-40"></span>
+<span class="source-line-no">041</span><span id="line-41">  private static final String PRIVATE = "private";</span>
+<span class="source-line-no">042</span><span id="line-42">  private static final String PUBLIC = "public";</span>
+<span class="source-line-no">043</span><span id="line-43">  private static final byte[] START_ROW = Bytes.toBytes("abracadabra");</span>
+<span class="source-line-no">044</span><span id="line-44">  private static final byte[] END_ROW = Bytes.toBytes("zzyzx");</span>
+<span class="source-line-no">045</span><span id="line-45">  private static final byte[] COLUMN1 = Bytes.toBytes("column1");</span>
+<span class="source-line-no">046</span><span id="line-46">  private static final byte[] COLUMN2 = Bytes.toBytes("column2:foo");</span>
+<span class="source-line-no">047</span><span id="line-47">  private static final long START_TIME = 1245219839331L;</span>
+<span class="source-line-no">048</span><span id="line-48">  private static final long END_TIME = 1245393318192L;</span>
+<span class="source-line-no">049</span><span id="line-49">  private static final int CACHING = 1000;</span>
+<span class="source-line-no">050</span><span id="line-50">  private static final int LIMIT = 10000;</span>
+<span class="source-line-no">051</span><span id="line-51">  private static final int BATCH = 100;</span>
+<span class="source-line-no">052</span><span id="line-52">  private static final boolean CACHE_BLOCKS = false;</span>
+<span class="source-line-no">053</span><span id="line-53"></span>
+<span class="source-line-no">054</span><span id="line-54">  public TestScannerModel() throws Exception {</span>
+<span class="source-line-no">055</span><span id="line-55">    super(ScannerModel.class);</span>
+<span class="source-line-no">056</span><span id="line-56"></span>
+<span class="source-line-no">057</span><span id="line-57">    AS_XML = "&lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?&gt;"</span>
+<span class="source-line-no">058</span><span id="line-58">      + "&lt;Scanner batch=\"100\" cacheBlocks=\"false\" caching=\"1000\" endRow=\"enp5eng=\" endTime=\"1245393318192\""</span>
+<span class="source-line-no">059</span><span id="line-59">      + " limit=\"10000\" maxVersions=\"2147483647\" startRow=\"YWJyYWNhZGFicmE=\" startTime=\"1245219839331\"&gt;"</span>
+<span class="source-line-no">060</span><span id="line-60">      + "&lt;column&gt;Y29sdW1uMQ==&lt;/column&gt; &lt;column&gt;Y29sdW1uMjpmb28=&lt;/column&gt;"</span>
+<span class="source-line-no">061</span><span id="line-61">      + "&lt;labels&gt;private&lt;/labels&gt; &lt;labels&gt;public&lt;/labels&gt;&lt;/Scanner&gt;";</span>
+<span class="source-line-no">062</span><span id="line-62"></span>
+<span class="source-line-no">063</span><span id="line-63">    AS_JSON = "{\"batch\":100,\"caching\":1000,\"cacheBlocks\":false,\"endRow\":\"enp5eng=\","</span>
+<span class="source-line-no">064</span><span id="line-64">      + "\"endTime\":1245393318192,\"maxVersions\":2147483647,\"startRow\":\"YWJyYWNhZGFicmE=\","</span>
+<span class="source-line-no">065</span><span id="line-65">      + "\"startTime\":1245219839331,\"column\":[\"Y29sdW1uMQ==\",\"Y29sdW1uMjpmb28=\"],"</span>
+<span class="source-line-no">066</span><span id="line-66">      + "\"labels\":[\"private\",\"public\"]," + "\"limit\":10000}";</span>
 <span class="source-line-no">067</span><span id="line-67"></span>
 <span class="source-line-no">068</span><span id="line-68">    AS_PB = "CgthYnJhY2FkYWJyYRIFenp5engaB2NvbHVtbjEaC2NvbHVtbjI6Zm9vIGQo47qL554kMLDi57mfJDj"</span>
 <span class="source-line-no">069</span><span id="line-69">      + "/////B0joB1IHcHJpdmF0ZVIGcHVibGljWABgkE4=";</span>
@@ -164,7 +164,63 @@
 <span class="source-line-no">151</span><span id="line-151">    model.setFilter(FILTER);</span>
 <span class="source-line-no">152</span><span id="line-152">    ScannerResultGenerator.buildFilterFromModel(model);</span>
 <span class="source-line-no">153</span><span id="line-153">  }</span>
-<span class="source-line-no">154</span><span id="line-154">}</span>
+<span class="source-line-no">154</span><span id="line-154"></span>
+<span class="source-line-no">155</span><span id="line-155">  @Test()</span>
+<span class="source-line-no">156</span><span id="line-156">  public void testToJsonWithIncludeStartRowAndIncludeStopRow() throws Exception {</span>
+<span class="source-line-no">157</span><span id="line-157">    String jsonStr =</span>
+<span class="source-line-no">158</span><span id="line-158">      "{\"batch\":100,\"caching\":1000,\"cacheBlocks\":false,\"endRow\":\"enp5eng=\","</span>
+<span class="source-line-no">159</span><span id="line-159">        + "\"endTime\":1245393318192,\"maxVersions\":2147483647,\"startRow\":\"YWJyYWNhZGFicmE=\","</span>
+<span class="source-line-no">160</span><span id="line-160">        + "\"startTime\":1245219839331,\"column\":[\"Y29sdW1uMQ==\",\"Y29sdW1uMjpmb28=\"],"</span>
+<span class="source-line-no">161</span><span id="line-161">        + "\"labels\":[\"private\",\"public\"]," + "\"limit\":10000,"</span>
+<span class="source-line-no">162</span><span id="line-162">        + "\"includeStartRow\":false,\"includeStopRow\":true}";</span>
+<span class="source-line-no">163</span><span id="line-163"></span>
+<span class="source-line-no">164</span><span id="line-164">    ObjectNode expObj = mapper.readValue(jsonStr, ObjectNode.class);</span>
+<span class="source-line-no">165</span><span id="line-165">    ObjectNode actObj = mapper.readValue(</span>
+<span class="source-line-no">166</span><span id="line-166">      toJSON(buildTestModelWithIncludeStartRowAndIncludeStopRow(false, true)), ObjectNode.class);</span>
+<span class="source-line-no">167</span><span id="line-167">    assertEquals(expObj, actObj);</span>
+<span class="source-line-no">168</span><span id="line-168"></span>
+<span class="source-line-no">169</span><span id="line-169">    jsonStr = "{\"batch\":100,\"caching\":1000,\"cacheBlocks\":false,\"endRow\":\"enp5eng=\","</span>
+<span class="source-line-no">170</span><span id="line-170">      + "\"endTime\":1245393318192,\"maxVersions\":2147483647,\"startRow\":\"YWJyYWNhZGFicmE=\","</span>
+<span class="source-line-no">171</span><span id="line-171">      + "\"startTime\":1245219839331,\"column\":[\"Y29sdW1uMQ==\",\"Y29sdW1uMjpmb28=\"],"</span>
+<span class="source-line-no">172</span><span id="line-172">      + "\"labels\":[\"private\",\"public\"]," + "\"limit\":10000," + "\"includeStopRow\":true}";</span>
+<span class="source-line-no">173</span><span id="line-173"></span>
+<span class="source-line-no">174</span><span id="line-174">    expObj = mapper.readValue(jsonStr, ObjectNode.class);</span>
+<span class="source-line-no">175</span><span id="line-175">    actObj = mapper.readValue(</span>
+<span class="source-line-no">176</span><span id="line-176">      toJSON(buildTestModelWithIncludeStartRowAndIncludeStopRow(true, true)), ObjectNode.class);</span>
+<span class="source-line-no">177</span><span id="line-177">    assertEquals(expObj, actObj);</span>
+<span class="source-line-no">178</span><span id="line-178"></span>
+<span class="source-line-no">179</span><span id="line-179">    jsonStr = "{\"batch\":100,\"caching\":1000,\"cacheBlocks\":false,\"endRow\":\"enp5eng=\","</span>
+<span class="source-line-no">180</span><span id="line-180">      + "\"endTime\":1245393318192,\"maxVersions\":2147483647,\"startRow\":\"YWJyYWNhZGFicmE=\","</span>
+<span class="source-line-no">181</span><span id="line-181">      + "\"startTime\":1245219839331,\"column\":[\"Y29sdW1uMQ==\",\"Y29sdW1uMjpmb28=\"],"</span>
+<span class="source-line-no">182</span><span id="line-182">      + "\"labels\":[\"private\",\"public\"]," + "\"limit\":10000," + "\"includeStartRow\":false}";</span>
+<span class="source-line-no">183</span><span id="line-183"></span>
+<span class="source-line-no">184</span><span id="line-184">    expObj = mapper.readValue(jsonStr, ObjectNode.class);</span>
+<span class="source-line-no">185</span><span id="line-185">    actObj = mapper.readValue(</span>
+<span class="source-line-no">186</span><span id="line-186">      toJSON(buildTestModelWithIncludeStartRowAndIncludeStopRow(false, false)), ObjectNode.class);</span>
+<span class="source-line-no">187</span><span id="line-187">    assertEquals(expObj, actObj);</span>
+<span class="source-line-no">188</span><span id="line-188"></span>
+<span class="source-line-no">189</span><span id="line-189">  }</span>
+<span class="source-line-no">190</span><span id="line-190"></span>
+<span class="source-line-no">191</span><span id="line-191">  protected ScannerModel buildTestModelWithIncludeStartRowAndIncludeStopRow(boolean includeStartRow,</span>
+<span class="source-line-no">192</span><span id="line-192">    boolean includeStopRow) {</span>
+<span class="source-line-no">193</span><span id="line-193">    ScannerModel model = new ScannerModel();</span>
+<span class="source-line-no">194</span><span id="line-194">    model.setStartRow(START_ROW);</span>
+<span class="source-line-no">195</span><span id="line-195">    model.setEndRow(END_ROW);</span>
+<span class="source-line-no">196</span><span id="line-196">    model.addColumn(COLUMN1);</span>
+<span class="source-line-no">197</span><span id="line-197">    model.addColumn(COLUMN2);</span>
+<span class="source-line-no">198</span><span id="line-198">    model.setStartTime(START_TIME);</span>
+<span class="source-line-no">199</span><span id="line-199">    model.setEndTime(END_TIME);</span>
+<span class="source-line-no">200</span><span id="line-200">    model.setBatch(BATCH);</span>
+<span class="source-line-no">201</span><span id="line-201">    model.setCaching(CACHING);</span>
+<span class="source-line-no">202</span><span id="line-202">    model.addLabel(PRIVATE);</span>
+<span class="source-line-no">203</span><span id="line-203">    model.addLabel(PUBLIC);</span>
+<span class="source-line-no">204</span><span id="line-204">    model.setCacheBlocks(CACHE_BLOCKS);</span>
+<span class="source-line-no">205</span><span id="line-205">    model.setLimit(LIMIT);</span>
+<span class="source-line-no">206</span><span id="line-206">    model.setIncludeStartRow(includeStartRow);</span>
+<span class="source-line-no">207</span><span id="line-207">    model.setIncludeStopRow(includeStopRow);</span>
+<span class="source-line-no">208</span><span id="line-208">    return model;</span>
+<span class="source-line-no">209</span><span id="line-209">  }</span>
+<span class="source-line-no">210</span><span id="line-210">}</span>
 
 
 
