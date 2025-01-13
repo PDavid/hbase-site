@@ -952,7 +952,7 @@ implements org.apache.hadoop.util.Tool</span></div>
 <li>
 <section class="detail" id="parseOpts(java.util.Queue)">
 <h3>parseOpts</h3>
-<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type"><a href="PerformanceEvaluation.TestOptions.html" title="class in org.apache.hadoop.hbase">PerformanceEvaluation.TestOptions</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.html#line-2814">parseOpts</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Queue.html" title="class or interface in java.util" class="external-link">Queue</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;args)</span></div>
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type"><a href="PerformanceEvaluation.TestOptions.html" title="class in org.apache.hadoop.hbase">PerformanceEvaluation.TestOptions</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.html#line-2813">parseOpts</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Queue.html" title="class or interface in java.util" class="external-link">Queue</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;args)</span></div>
 <div class="block">Parse options passed in via an arguments array. Assumes that array has been split on
  white-space and placed into a <code>Queue</code>. Any unknown arguments will remain in the queue at
  the conclusion of this method call. It's up to the caller to deal with these unrecognized
@@ -962,26 +962,26 @@ implements org.apache.hadoop.util.Tool</span></div>
 <li>
 <section class="detail" id="validateParsedOpts(org.apache.hadoop.hbase.PerformanceEvaluation.TestOptions)">
 <h3>validateParsedOpts</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.html#line-3132">validateParsedOpts</a></span><wbr><span class="parameters">(<a href="PerformanceEvaluation.TestOptions.html" title="class in org.apache.hadoop.hbase">PerformanceEvaluation.TestOptions</a>&nbsp;opts)</span></div>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.html#line-3131">validateParsedOpts</a></span><wbr><span class="parameters">(<a href="PerformanceEvaluation.TestOptions.html" title="class in org.apache.hadoop.hbase">PerformanceEvaluation.TestOptions</a>&nbsp;opts)</span></div>
 <div class="block">Validates opts after all the opts are parsed, so that caller need not to maintain order of opts</div>
 </section>
 </li>
 <li>
 <section class="detail" id="calculateRowsAndSize(org.apache.hadoop.hbase.PerformanceEvaluation.TestOptions)">
 <h3>calculateRowsAndSize</h3>
-<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type"><a href="PerformanceEvaluation.TestOptions.html" title="class in org.apache.hadoop.hbase">PerformanceEvaluation.TestOptions</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.html#line-3148">calculateRowsAndSize</a></span><wbr><span class="parameters">(<a href="PerformanceEvaluation.TestOptions.html" title="class in org.apache.hadoop.hbase">PerformanceEvaluation.TestOptions</a>&nbsp;opts)</span></div>
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type"><a href="PerformanceEvaluation.TestOptions.html" title="class in org.apache.hadoop.hbase">PerformanceEvaluation.TestOptions</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.html#line-3147">calculateRowsAndSize</a></span><wbr><span class="parameters">(<a href="PerformanceEvaluation.TestOptions.html" title="class in org.apache.hadoop.hbase">PerformanceEvaluation.TestOptions</a>&nbsp;opts)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getRowsPerGB(org.apache.hadoop.hbase.PerformanceEvaluation.TestOptions)">
 <h3>getRowsPerGB</h3>
-<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.html#line-3168">getRowsPerGB</a></span><wbr><span class="parameters">(<a href="PerformanceEvaluation.TestOptions.html" title="class in org.apache.hadoop.hbase">PerformanceEvaluation.TestOptions</a>&nbsp;opts)</span></div>
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.html#line-3167">getRowsPerGB</a></span><wbr><span class="parameters">(<a href="PerformanceEvaluation.TestOptions.html" title="class in org.apache.hadoop.hbase">PerformanceEvaluation.TestOptions</a>&nbsp;opts)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="run(java.lang.String[])">
 <h3>run</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.html#line-3173">run</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>[]&nbsp;args)</span>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.html#line-3172">run</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>[]&nbsp;args)</span>
         throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
@@ -994,25 +994,25 @@ implements org.apache.hadoop.util.Tool</span></div>
 <li>
 <section class="detail" id="isCommandClass(java.lang.String)">
 <h3>isCommandClass</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.html#line-3219">isCommandClass</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;cmd)</span></div>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.html#line-3218">isCommandClass</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;cmd)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="isCustomTestClass(java.lang.String)">
 <h3>isCustomTestClass</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.html#line-3223">isCustomTestClass</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;cmd)</span></div>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.html#line-3222">isCustomTestClass</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;cmd)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="determineCommandClass(java.lang.String)">
 <h3>determineCommandClass</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;? extends <a href="PerformanceEvaluation.TestBase.html" title="class in org.apache.hadoop.hbase">PerformanceEvaluation.TestBase</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.html#line-3236">determineCommandClass</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;cmd)</span></div>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;? extends <a href="PerformanceEvaluation.TestBase.html" title="class in org.apache.hadoop.hbase">PerformanceEvaluation.TestBase</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.html#line-3235">determineCommandClass</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;cmd)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="main(java.lang.String[])">
 <h3>main</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.html#line-3241">main</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>[]&nbsp;args)</span>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/PerformanceEvaluation.html#line-3240">main</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>[]&nbsp;args)</span>
                  throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>

@@ -1209,7 +1209,7 @@
 <span class="source-line-no">1196</span><span id="line-1196">      this.opts = options;</span>
 <span class="source-line-no">1197</span><span id="line-1197">      this.status = status;</span>
 <span class="source-line-no">1198</span><span id="line-1198">      this.testName = this.getClass().getSimpleName();</span>
-<span class="source-line-no">1199</span><span id="line-1199">      everyN = (long) (opts.totalRows / (opts.totalRows * opts.sampleRate));</span>
+<span class="source-line-no">1199</span><span id="line-1199">      everyN = (long) (1 / opts.sampleRate);</span>
 <span class="source-line-no">1200</span><span id="line-1200">      if (options.isValueZipf()) {</span>
 <span class="source-line-no">1201</span><span id="line-1201">        this.zipf =</span>
 <span class="source-line-no">1202</span><span id="line-1202">          new RandomDistribution.Zipf(ThreadLocalRandom.current(), 1, options.getValueSize(), 1.2);</span>
@@ -2712,550 +2712,549 @@
 <span class="source-line-no">2699</span><span id="line-2699">      + "Default: depend on oneCon parameter. if oneCon set to true, then connCount=1, "</span>
 <span class="source-line-no">2700</span><span id="line-2700">      + "if not, connCount=thread number");</span>
 <span class="source-line-no">2701</span><span id="line-2701"></span>
-<span class="source-line-no">2702</span><span id="line-2702">    System.err.println(" sampleRate      Execute test on a sample of total "</span>
-<span class="source-line-no">2703</span><span id="line-2703">      + "rows. Only supported by randomRead. Default: 1.0");</span>
-<span class="source-line-no">2704</span><span id="line-2704">    System.err.println(" period          Report every 'period' rows: "</span>
-<span class="source-line-no">2705</span><span id="line-2705">      + "Default: opts.perClientRunRows / 10 = " + DEFAULT_OPTS.getPerClientRunRows() / 10);</span>
-<span class="source-line-no">2706</span><span id="line-2706">    System.err.println(" cycles          How many times to cycle the test. Defaults: 1.");</span>
-<span class="source-line-no">2707</span><span id="line-2707">    System.err.println(</span>
-<span class="source-line-no">2708</span><span id="line-2708">      " traceRate       Enable HTrace spans. Initiate tracing every N rows. " + "Default: 0");</span>
-<span class="source-line-no">2709</span><span id="line-2709">    System.err.println(" latency         Set to report operation latencies. Default: False");</span>
-<span class="source-line-no">2710</span><span id="line-2710">    System.err.println(" latencyThreshold  Set to report number of operations with latency "</span>
-<span class="source-line-no">2711</span><span id="line-2711">      + "over lantencyThreshold, unit in millisecond, default 0");</span>
-<span class="source-line-no">2712</span><span id="line-2712">    System.err.println(" measureAfter    Start to measure the latency once 'measureAfter'"</span>
-<span class="source-line-no">2713</span><span id="line-2713">      + " rows have been treated. Default: 0");</span>
-<span class="source-line-no">2714</span><span id="line-2714">    System.err</span>
-<span class="source-line-no">2715</span><span id="line-2715">      .println(" valueSize       Pass value size to use: Default: " + DEFAULT_OPTS.getValueSize());</span>
-<span class="source-line-no">2716</span><span id="line-2716">    System.err.println(" valueRandom     Set if we should vary value size between 0 and "</span>
-<span class="source-line-no">2717</span><span id="line-2717">      + "'valueSize'; set on read for stats on size: Default: Not set.");</span>
-<span class="source-line-no">2718</span><span id="line-2718">    System.err.println(" blockEncoding   Block encoding to use. Value should be one of "</span>
-<span class="source-line-no">2719</span><span id="line-2719">      + Arrays.toString(DataBlockEncoding.values()) + ". Default: NONE");</span>
-<span class="source-line-no">2720</span><span id="line-2720">    System.err.println();</span>
-<span class="source-line-no">2721</span><span id="line-2721">    System.err.println("Table Creation / Write Tests:");</span>
-<span class="source-line-no">2722</span><span id="line-2722">    System.err.println(" table           Alternate table name. Default: 'TestTable'");</span>
-<span class="source-line-no">2723</span><span id="line-2723">    System.err.println(</span>
-<span class="source-line-no">2724</span><span id="line-2724">      " rows            Rows each client runs. Default: " + DEFAULT_OPTS.getPerClientRunRows()</span>
-<span class="source-line-no">2725</span><span id="line-2725">        + ".  In case of randomReads and randomSeekScans this could"</span>
-<span class="source-line-no">2726</span><span id="line-2726">        + " be specified along with --size to specify the number of rows to be scanned within"</span>
-<span class="source-line-no">2727</span><span id="line-2727">        + " the total range specified by the size.");</span>
-<span class="source-line-no">2728</span><span id="line-2728">    System.err.println(</span>
-<span class="source-line-no">2729</span><span id="line-2729">      " size            Total size in GiB. Mutually exclusive with --rows for writes and scans"</span>
-<span class="source-line-no">2730</span><span id="line-2730">        + ". But for randomReads and randomSeekScans when you use size with --rows you could"</span>
-<span class="source-line-no">2731</span><span id="line-2731">        + " use size to specify the end range and --rows"</span>
-<span class="source-line-no">2732</span><span id="line-2732">        + " specifies the number of rows within that range. " + "Default: 1.0.");</span>
-<span class="source-line-no">2733</span><span id="line-2733">    System.err.println(" compress        Compression type to use (GZ, LZO, ...). Default: 'NONE'");</span>
-<span class="source-line-no">2734</span><span id="line-2734">    System.err.println(" encryption      Encryption type to use (AES, ...). Default: 'NONE'");</span>
-<span class="source-line-no">2735</span><span id="line-2735">    System.err.println(</span>
-<span class="source-line-no">2736</span><span id="line-2736">      " flushCommits    Used to determine if the test should flush the table. " + "Default: false");</span>
-<span class="source-line-no">2737</span><span id="line-2737">    System.err.println(" valueZipf       Set if we should vary value size between 0 and "</span>
-<span class="source-line-no">2738</span><span id="line-2738">      + "'valueSize' in zipf form: Default: Not set.");</span>
-<span class="source-line-no">2739</span><span id="line-2739">    System.err.println(" writeToWAL      Set writeToWAL on puts. Default: True");</span>
-<span class="source-line-no">2740</span><span id="line-2740">    System.err.println(" autoFlush       Set autoFlush on htable. Default: False");</span>
-<span class="source-line-no">2741</span><span id="line-2741">    System.err.println(" multiPut        Batch puts together into groups of N. Only supported "</span>
-<span class="source-line-no">2742</span><span id="line-2742">      + "by write. If multiPut is bigger than 0, autoFlush need to set to true. Default: 0");</span>
-<span class="source-line-no">2743</span><span id="line-2743">    System.err.println(" presplit        Create presplit table. If a table with same name exists,"</span>
-<span class="source-line-no">2744</span><span id="line-2744">      + " it'll be deleted and recreated (instead of verifying count of its existing regions). "</span>
-<span class="source-line-no">2745</span><span id="line-2745">      + "Recommended for accurate perf analysis (see guide). Default: disabled");</span>
-<span class="source-line-no">2746</span><span id="line-2746">    System.err.println(</span>
-<span class="source-line-no">2747</span><span id="line-2747">      " usetags         Writes tags along with KVs. Use with HFile V3. " + "Default: false");</span>
-<span class="source-line-no">2748</span><span id="line-2748">    System.err.println(" numoftags       Specify the no of tags that would be needed. "</span>
-<span class="source-line-no">2749</span><span id="line-2749">      + "This works only if usetags is true. Default: " + DEFAULT_OPTS.noOfTags);</span>
-<span class="source-line-no">2750</span><span id="line-2750">    System.err.println(" splitPolicy     Specify a custom RegionSplitPolicy for the table.");</span>
-<span class="source-line-no">2751</span><span id="line-2751">    System.err.println(" columns         Columns to write per row. Default: 1");</span>
-<span class="source-line-no">2752</span><span id="line-2752">    System.err</span>
-<span class="source-line-no">2753</span><span id="line-2753">      .println(" families        Specify number of column families for the table. Default: 1");</span>
-<span class="source-line-no">2754</span><span id="line-2754">    System.err.println();</span>
-<span class="source-line-no">2755</span><span id="line-2755">    System.err.println("Read Tests:");</span>
-<span class="source-line-no">2756</span><span id="line-2756">    System.err.println(" filterAll       Helps to filter out all the rows on the server side"</span>
-<span class="source-line-no">2757</span><span id="line-2757">      + " there by not returning any thing back to the client.  Helps to check the server side"</span>
-<span class="source-line-no">2758</span><span id="line-2758">      + " performance.  Uses FilterAllFilter internally. ");</span>
-<span class="source-line-no">2759</span><span id="line-2759">    System.err.println(" multiGet        Batch gets together into groups of N. Only supported "</span>
-<span class="source-line-no">2760</span><span id="line-2760">      + "by randomRead. Default: disabled");</span>
-<span class="source-line-no">2761</span><span id="line-2761">    System.err.println(" inmemory        Tries to keep the HFiles of the CF "</span>
-<span class="source-line-no">2762</span><span id="line-2762">      + "inmemory as far as possible. Not guaranteed that reads are always served "</span>
-<span class="source-line-no">2763</span><span id="line-2763">      + "from memory.  Default: false");</span>
-<span class="source-line-no">2764</span><span id="line-2764">    System.err</span>
-<span class="source-line-no">2765</span><span id="line-2765">      .println(" bloomFilter     Bloom filter type, one of " + Arrays.toString(BloomType.values()));</span>
-<span class="source-line-no">2766</span><span id="line-2766">    System.err.println(" blockSize       Blocksize to use when writing out hfiles. ");</span>
-<span class="source-line-no">2767</span><span id="line-2767">    System.err</span>
-<span class="source-line-no">2768</span><span id="line-2768">      .println(" inmemoryCompaction  Makes the column family to do inmemory flushes/compactions. "</span>
-<span class="source-line-no">2769</span><span id="line-2769">        + "Uses the CompactingMemstore");</span>
-<span class="source-line-no">2770</span><span id="line-2770">    System.err.println(" addColumns      Adds columns to scans/gets explicitly. Default: true");</span>
-<span class="source-line-no">2771</span><span id="line-2771">    System.err.println(" replicas        Enable region replica testing. Defaults: 1.");</span>
-<span class="source-line-no">2772</span><span id="line-2772">    System.err.println(</span>
-<span class="source-line-no">2773</span><span id="line-2773">      " randomSleep     Do a random sleep before each get between 0 and entered value. Defaults: 0");</span>
-<span class="source-line-no">2774</span><span id="line-2774">    System.err.println(" caching         Scan caching to use. Default: 30");</span>
-<span class="source-line-no">2775</span><span id="line-2775">    System.err.println(" asyncPrefetch   Enable asyncPrefetch for scan");</span>
-<span class="source-line-no">2776</span><span id="line-2776">    System.err.println(" cacheBlocks     Set the cacheBlocks option for scan. Default: true");</span>
-<span class="source-line-no">2777</span><span id="line-2777">    System.err.println(</span>
-<span class="source-line-no">2778</span><span id="line-2778">      " scanReadType    Set the readType option for scan, stream/pread/default. Default: default");</span>
-<span class="source-line-no">2779</span><span id="line-2779">    System.err.println(" bufferSize      Set the value of client side buffering. Default: 2MB");</span>
-<span class="source-line-no">2780</span><span id="line-2780">    System.err.println();</span>
-<span class="source-line-no">2781</span><span id="line-2781">    System.err.println(" Note: -D properties will be applied to the conf used. ");</span>
-<span class="source-line-no">2782</span><span id="line-2782">    System.err.println("  For example: ");</span>
-<span class="source-line-no">2783</span><span id="line-2783">    System.err.println("   -Dmapreduce.output.fileoutputformat.compress=true");</span>
-<span class="source-line-no">2784</span><span id="line-2784">    System.err.println("   -Dmapreduce.task.timeout=60000");</span>
-<span class="source-line-no">2785</span><span id="line-2785">    System.err.println();</span>
-<span class="source-line-no">2786</span><span id="line-2786">    System.err.println("Command:");</span>
-<span class="source-line-no">2787</span><span id="line-2787">    for (CmdDescriptor command : COMMANDS.values()) {</span>
-<span class="source-line-no">2788</span><span id="line-2788">      System.err.println(String.format(" %-20s %s", command.getName(), command.getDescription()));</span>
-<span class="source-line-no">2789</span><span id="line-2789">    }</span>
-<span class="source-line-no">2790</span><span id="line-2790">    System.err.println();</span>
-<span class="source-line-no">2791</span><span id="line-2791">    System.err.println("Class:");</span>
-<span class="source-line-no">2792</span><span id="line-2792">    System.err.println("To run any custom implementation of PerformanceEvaluation.Test, "</span>
-<span class="source-line-no">2793</span><span id="line-2793">      + "provide the classname of the implementaion class in place of "</span>
-<span class="source-line-no">2794</span><span id="line-2794">      + "command name and it will be loaded at runtime from classpath.:");</span>
-<span class="source-line-no">2795</span><span id="line-2795">    System.err.println("Please consider to contribute back "</span>
-<span class="source-line-no">2796</span><span id="line-2796">      + "this custom test impl into a builtin PE command for the benefit of the community");</span>
-<span class="source-line-no">2797</span><span id="line-2797">    System.err.println();</span>
-<span class="source-line-no">2798</span><span id="line-2798">    System.err.println("Args:");</span>
-<span class="source-line-no">2799</span><span id="line-2799">    System.err.println(" nclients        Integer. Required. Total number of clients "</span>
-<span class="source-line-no">2800</span><span id="line-2800">      + "(and HRegionServers) running. 1 &lt;= value &lt;= 500");</span>
-<span class="source-line-no">2801</span><span id="line-2801">    System.err.println("Examples:");</span>
-<span class="source-line-no">2802</span><span id="line-2802">    System.err.println(" To run a single client doing the default 1M sequentialWrites:");</span>
-<span class="source-line-no">2803</span><span id="line-2803">    System.err.println(" $ hbase " + shortName + " sequentialWrite 1");</span>
-<span class="source-line-no">2804</span><span id="line-2804">    System.err.println(" To run 10 clients doing increments over ten rows:");</span>
-<span class="source-line-no">2805</span><span id="line-2805">    System.err.println(" $ hbase " + shortName + " --rows=10 --nomapred increment 10");</span>
-<span class="source-line-no">2806</span><span id="line-2806">  }</span>
-<span class="source-line-no">2807</span><span id="line-2807"></span>
-<span class="source-line-no">2808</span><span id="line-2808">  /**</span>
-<span class="source-line-no">2809</span><span id="line-2809">   * Parse options passed in via an arguments array. Assumes that array has been split on</span>
-<span class="source-line-no">2810</span><span id="line-2810">   * white-space and placed into a {@code Queue}. Any unknown arguments will remain in the queue at</span>
-<span class="source-line-no">2811</span><span id="line-2811">   * the conclusion of this method call. It's up to the caller to deal with these unrecognized</span>
-<span class="source-line-no">2812</span><span id="line-2812">   * arguments.</span>
-<span class="source-line-no">2813</span><span id="line-2813">   */</span>
-<span class="source-line-no">2814</span><span id="line-2814">  static TestOptions parseOpts(Queue&lt;String&gt; args) {</span>
-<span class="source-line-no">2815</span><span id="line-2815">    TestOptions opts = new TestOptions();</span>
-<span class="source-line-no">2816</span><span id="line-2816"></span>
-<span class="source-line-no">2817</span><span id="line-2817">    String cmd = null;</span>
-<span class="source-line-no">2818</span><span id="line-2818">    while ((cmd = args.poll()) != null) {</span>
-<span class="source-line-no">2819</span><span id="line-2819">      if (cmd.equals("-h") || cmd.startsWith("--h")) {</span>
-<span class="source-line-no">2820</span><span id="line-2820">        // place item back onto queue so that caller knows parsing was incomplete</span>
-<span class="source-line-no">2821</span><span id="line-2821">        args.add(cmd);</span>
-<span class="source-line-no">2822</span><span id="line-2822">        break;</span>
-<span class="source-line-no">2823</span><span id="line-2823">      }</span>
-<span class="source-line-no">2824</span><span id="line-2824"></span>
-<span class="source-line-no">2825</span><span id="line-2825">      final String nmr = "--nomapred";</span>
-<span class="source-line-no">2826</span><span id="line-2826">      if (cmd.startsWith(nmr)) {</span>
-<span class="source-line-no">2827</span><span id="line-2827">        opts.nomapred = true;</span>
-<span class="source-line-no">2828</span><span id="line-2828">        continue;</span>
-<span class="source-line-no">2829</span><span id="line-2829">      }</span>
-<span class="source-line-no">2830</span><span id="line-2830"></span>
-<span class="source-line-no">2831</span><span id="line-2831">      final String rows = "--rows=";</span>
-<span class="source-line-no">2832</span><span id="line-2832">      if (cmd.startsWith(rows)) {</span>
-<span class="source-line-no">2833</span><span id="line-2833">        opts.perClientRunRows = Long.parseLong(cmd.substring(rows.length()));</span>
-<span class="source-line-no">2834</span><span id="line-2834">        continue;</span>
-<span class="source-line-no">2835</span><span id="line-2835">      }</span>
-<span class="source-line-no">2836</span><span id="line-2836"></span>
-<span class="source-line-no">2837</span><span id="line-2837">      final String cycles = "--cycles=";</span>
-<span class="source-line-no">2838</span><span id="line-2838">      if (cmd.startsWith(cycles)) {</span>
-<span class="source-line-no">2839</span><span id="line-2839">        opts.cycles = Integer.parseInt(cmd.substring(cycles.length()));</span>
-<span class="source-line-no">2840</span><span id="line-2840">        continue;</span>
-<span class="source-line-no">2841</span><span id="line-2841">      }</span>
-<span class="source-line-no">2842</span><span id="line-2842"></span>
-<span class="source-line-no">2843</span><span id="line-2843">      final String sampleRate = "--sampleRate=";</span>
-<span class="source-line-no">2844</span><span id="line-2844">      if (cmd.startsWith(sampleRate)) {</span>
-<span class="source-line-no">2845</span><span id="line-2845">        opts.sampleRate = Float.parseFloat(cmd.substring(sampleRate.length()));</span>
-<span class="source-line-no">2846</span><span id="line-2846">        continue;</span>
-<span class="source-line-no">2847</span><span id="line-2847">      }</span>
-<span class="source-line-no">2848</span><span id="line-2848"></span>
-<span class="source-line-no">2849</span><span id="line-2849">      final String table = "--table=";</span>
-<span class="source-line-no">2850</span><span id="line-2850">      if (cmd.startsWith(table)) {</span>
-<span class="source-line-no">2851</span><span id="line-2851">        opts.tableName = cmd.substring(table.length());</span>
-<span class="source-line-no">2852</span><span id="line-2852">        continue;</span>
-<span class="source-line-no">2853</span><span id="line-2853">      }</span>
-<span class="source-line-no">2854</span><span id="line-2854"></span>
-<span class="source-line-no">2855</span><span id="line-2855">      final String startRow = "--startRow=";</span>
-<span class="source-line-no">2856</span><span id="line-2856">      if (cmd.startsWith(startRow)) {</span>
-<span class="source-line-no">2857</span><span id="line-2857">        opts.startRow = Long.parseLong(cmd.substring(startRow.length()));</span>
-<span class="source-line-no">2858</span><span id="line-2858">        continue;</span>
-<span class="source-line-no">2859</span><span id="line-2859">      }</span>
-<span class="source-line-no">2860</span><span id="line-2860"></span>
-<span class="source-line-no">2861</span><span id="line-2861">      final String compress = "--compress=";</span>
-<span class="source-line-no">2862</span><span id="line-2862">      if (cmd.startsWith(compress)) {</span>
-<span class="source-line-no">2863</span><span id="line-2863">        opts.compression = Compression.Algorithm.valueOf(cmd.substring(compress.length()));</span>
-<span class="source-line-no">2864</span><span id="line-2864">        continue;</span>
-<span class="source-line-no">2865</span><span id="line-2865">      }</span>
-<span class="source-line-no">2866</span><span id="line-2866"></span>
-<span class="source-line-no">2867</span><span id="line-2867">      final String encryption = "--encryption=";</span>
-<span class="source-line-no">2868</span><span id="line-2868">      if (cmd.startsWith(encryption)) {</span>
-<span class="source-line-no">2869</span><span id="line-2869">        opts.encryption = cmd.substring(encryption.length());</span>
-<span class="source-line-no">2870</span><span id="line-2870">        continue;</span>
-<span class="source-line-no">2871</span><span id="line-2871">      }</span>
-<span class="source-line-no">2872</span><span id="line-2872"></span>
-<span class="source-line-no">2873</span><span id="line-2873">      final String traceRate = "--traceRate=";</span>
-<span class="source-line-no">2874</span><span id="line-2874">      if (cmd.startsWith(traceRate)) {</span>
-<span class="source-line-no">2875</span><span id="line-2875">        opts.traceRate = Double.parseDouble(cmd.substring(traceRate.length()));</span>
-<span class="source-line-no">2876</span><span id="line-2876">        continue;</span>
-<span class="source-line-no">2877</span><span id="line-2877">      }</span>
-<span class="source-line-no">2878</span><span id="line-2878"></span>
-<span class="source-line-no">2879</span><span id="line-2879">      final String blockEncoding = "--blockEncoding=";</span>
-<span class="source-line-no">2880</span><span id="line-2880">      if (cmd.startsWith(blockEncoding)) {</span>
-<span class="source-line-no">2881</span><span id="line-2881">        opts.blockEncoding = DataBlockEncoding.valueOf(cmd.substring(blockEncoding.length()));</span>
-<span class="source-line-no">2882</span><span id="line-2882">        continue;</span>
-<span class="source-line-no">2883</span><span id="line-2883">      }</span>
-<span class="source-line-no">2884</span><span id="line-2884"></span>
-<span class="source-line-no">2885</span><span id="line-2885">      final String flushCommits = "--flushCommits=";</span>
-<span class="source-line-no">2886</span><span id="line-2886">      if (cmd.startsWith(flushCommits)) {</span>
-<span class="source-line-no">2887</span><span id="line-2887">        opts.flushCommits = Boolean.parseBoolean(cmd.substring(flushCommits.length()));</span>
-<span class="source-line-no">2888</span><span id="line-2888">        continue;</span>
-<span class="source-line-no">2889</span><span id="line-2889">      }</span>
-<span class="source-line-no">2890</span><span id="line-2890"></span>
-<span class="source-line-no">2891</span><span id="line-2891">      final String writeToWAL = "--writeToWAL=";</span>
-<span class="source-line-no">2892</span><span id="line-2892">      if (cmd.startsWith(writeToWAL)) {</span>
-<span class="source-line-no">2893</span><span id="line-2893">        opts.writeToWAL = Boolean.parseBoolean(cmd.substring(writeToWAL.length()));</span>
-<span class="source-line-no">2894</span><span id="line-2894">        continue;</span>
-<span class="source-line-no">2895</span><span id="line-2895">      }</span>
-<span class="source-line-no">2896</span><span id="line-2896"></span>
-<span class="source-line-no">2897</span><span id="line-2897">      final String presplit = "--presplit=";</span>
-<span class="source-line-no">2898</span><span id="line-2898">      if (cmd.startsWith(presplit)) {</span>
-<span class="source-line-no">2899</span><span id="line-2899">        opts.presplitRegions = Integer.parseInt(cmd.substring(presplit.length()));</span>
-<span class="source-line-no">2900</span><span id="line-2900">        continue;</span>
-<span class="source-line-no">2901</span><span id="line-2901">      }</span>
-<span class="source-line-no">2902</span><span id="line-2902"></span>
-<span class="source-line-no">2903</span><span id="line-2903">      final String inMemory = "--inmemory=";</span>
-<span class="source-line-no">2904</span><span id="line-2904">      if (cmd.startsWith(inMemory)) {</span>
-<span class="source-line-no">2905</span><span id="line-2905">        opts.inMemoryCF = Boolean.parseBoolean(cmd.substring(inMemory.length()));</span>
-<span class="source-line-no">2906</span><span id="line-2906">        continue;</span>
-<span class="source-line-no">2907</span><span id="line-2907">      }</span>
-<span class="source-line-no">2908</span><span id="line-2908"></span>
-<span class="source-line-no">2909</span><span id="line-2909">      final String autoFlush = "--autoFlush=";</span>
-<span class="source-line-no">2910</span><span id="line-2910">      if (cmd.startsWith(autoFlush)) {</span>
-<span class="source-line-no">2911</span><span id="line-2911">        opts.autoFlush = Boolean.parseBoolean(cmd.substring(autoFlush.length()));</span>
-<span class="source-line-no">2912</span><span id="line-2912">        continue;</span>
-<span class="source-line-no">2913</span><span id="line-2913">      }</span>
-<span class="source-line-no">2914</span><span id="line-2914"></span>
-<span class="source-line-no">2915</span><span id="line-2915">      final String onceCon = "--oneCon=";</span>
-<span class="source-line-no">2916</span><span id="line-2916">      if (cmd.startsWith(onceCon)) {</span>
-<span class="source-line-no">2917</span><span id="line-2917">        opts.oneCon = Boolean.parseBoolean(cmd.substring(onceCon.length()));</span>
-<span class="source-line-no">2918</span><span id="line-2918">        continue;</span>
-<span class="source-line-no">2919</span><span id="line-2919">      }</span>
-<span class="source-line-no">2920</span><span id="line-2920"></span>
-<span class="source-line-no">2921</span><span id="line-2921">      final String connCount = "--connCount=";</span>
-<span class="source-line-no">2922</span><span id="line-2922">      if (cmd.startsWith(connCount)) {</span>
-<span class="source-line-no">2923</span><span id="line-2923">        opts.connCount = Integer.parseInt(cmd.substring(connCount.length()));</span>
-<span class="source-line-no">2924</span><span id="line-2924">        continue;</span>
-<span class="source-line-no">2925</span><span id="line-2925">      }</span>
-<span class="source-line-no">2926</span><span id="line-2926"></span>
-<span class="source-line-no">2927</span><span id="line-2927">      final String latencyThreshold = "--latencyThreshold=";</span>
-<span class="source-line-no">2928</span><span id="line-2928">      if (cmd.startsWith(latencyThreshold)) {</span>
-<span class="source-line-no">2929</span><span id="line-2929">        opts.latencyThreshold = Integer.parseInt(cmd.substring(latencyThreshold.length()));</span>
-<span class="source-line-no">2930</span><span id="line-2930">        continue;</span>
-<span class="source-line-no">2931</span><span id="line-2931">      }</span>
-<span class="source-line-no">2932</span><span id="line-2932"></span>
-<span class="source-line-no">2933</span><span id="line-2933">      final String latency = "--latency";</span>
-<span class="source-line-no">2934</span><span id="line-2934">      if (cmd.startsWith(latency)) {</span>
-<span class="source-line-no">2935</span><span id="line-2935">        opts.reportLatency = true;</span>
-<span class="source-line-no">2936</span><span id="line-2936">        continue;</span>
-<span class="source-line-no">2937</span><span id="line-2937">      }</span>
-<span class="source-line-no">2938</span><span id="line-2938"></span>
-<span class="source-line-no">2939</span><span id="line-2939">      final String multiGet = "--multiGet=";</span>
-<span class="source-line-no">2940</span><span id="line-2940">      if (cmd.startsWith(multiGet)) {</span>
-<span class="source-line-no">2941</span><span id="line-2941">        opts.multiGet = Integer.parseInt(cmd.substring(multiGet.length()));</span>
-<span class="source-line-no">2942</span><span id="line-2942">        continue;</span>
-<span class="source-line-no">2943</span><span id="line-2943">      }</span>
-<span class="source-line-no">2944</span><span id="line-2944"></span>
-<span class="source-line-no">2945</span><span id="line-2945">      final String multiPut = "--multiPut=";</span>
-<span class="source-line-no">2946</span><span id="line-2946">      if (cmd.startsWith(multiPut)) {</span>
-<span class="source-line-no">2947</span><span id="line-2947">        opts.multiPut = Integer.parseInt(cmd.substring(multiPut.length()));</span>
-<span class="source-line-no">2948</span><span id="line-2948">        continue;</span>
-<span class="source-line-no">2949</span><span id="line-2949">      }</span>
-<span class="source-line-no">2950</span><span id="line-2950"></span>
-<span class="source-line-no">2951</span><span id="line-2951">      final String useTags = "--usetags=";</span>
-<span class="source-line-no">2952</span><span id="line-2952">      if (cmd.startsWith(useTags)) {</span>
-<span class="source-line-no">2953</span><span id="line-2953">        opts.useTags = Boolean.parseBoolean(cmd.substring(useTags.length()));</span>
-<span class="source-line-no">2954</span><span id="line-2954">        continue;</span>
-<span class="source-line-no">2955</span><span id="line-2955">      }</span>
-<span class="source-line-no">2956</span><span id="line-2956"></span>
-<span class="source-line-no">2957</span><span id="line-2957">      final String noOfTags = "--numoftags=";</span>
-<span class="source-line-no">2958</span><span id="line-2958">      if (cmd.startsWith(noOfTags)) {</span>
-<span class="source-line-no">2959</span><span id="line-2959">        opts.noOfTags = Integer.parseInt(cmd.substring(noOfTags.length()));</span>
-<span class="source-line-no">2960</span><span id="line-2960">        continue;</span>
-<span class="source-line-no">2961</span><span id="line-2961">      }</span>
-<span class="source-line-no">2962</span><span id="line-2962"></span>
-<span class="source-line-no">2963</span><span id="line-2963">      final String replicas = "--replicas=";</span>
-<span class="source-line-no">2964</span><span id="line-2964">      if (cmd.startsWith(replicas)) {</span>
-<span class="source-line-no">2965</span><span id="line-2965">        opts.replicas = Integer.parseInt(cmd.substring(replicas.length()));</span>
-<span class="source-line-no">2966</span><span id="line-2966">        continue;</span>
-<span class="source-line-no">2967</span><span id="line-2967">      }</span>
-<span class="source-line-no">2968</span><span id="line-2968"></span>
-<span class="source-line-no">2969</span><span id="line-2969">      final String filterOutAll = "--filterAll";</span>
-<span class="source-line-no">2970</span><span id="line-2970">      if (cmd.startsWith(filterOutAll)) {</span>
-<span class="source-line-no">2971</span><span id="line-2971">        opts.filterAll = true;</span>
-<span class="source-line-no">2972</span><span id="line-2972">        continue;</span>
-<span class="source-line-no">2973</span><span id="line-2973">      }</span>
-<span class="source-line-no">2974</span><span id="line-2974"></span>
-<span class="source-line-no">2975</span><span id="line-2975">      final String size = "--size=";</span>
-<span class="source-line-no">2976</span><span id="line-2976">      if (cmd.startsWith(size)) {</span>
-<span class="source-line-no">2977</span><span id="line-2977">        opts.size = Float.parseFloat(cmd.substring(size.length()));</span>
-<span class="source-line-no">2978</span><span id="line-2978">        if (opts.size &lt;= 1.0f) throw new IllegalStateException("Size must be &gt; 1; i.e. 1GB");</span>
-<span class="source-line-no">2979</span><span id="line-2979">        continue;</span>
-<span class="source-line-no">2980</span><span id="line-2980">      }</span>
-<span class="source-line-no">2981</span><span id="line-2981"></span>
-<span class="source-line-no">2982</span><span id="line-2982">      final String splitPolicy = "--splitPolicy=";</span>
-<span class="source-line-no">2983</span><span id="line-2983">      if (cmd.startsWith(splitPolicy)) {</span>
-<span class="source-line-no">2984</span><span id="line-2984">        opts.splitPolicy = cmd.substring(splitPolicy.length());</span>
-<span class="source-line-no">2985</span><span id="line-2985">        continue;</span>
-<span class="source-line-no">2986</span><span id="line-2986">      }</span>
-<span class="source-line-no">2987</span><span id="line-2987"></span>
-<span class="source-line-no">2988</span><span id="line-2988">      final String randomSleep = "--randomSleep=";</span>
-<span class="source-line-no">2989</span><span id="line-2989">      if (cmd.startsWith(randomSleep)) {</span>
-<span class="source-line-no">2990</span><span id="line-2990">        opts.randomSleep = Integer.parseInt(cmd.substring(randomSleep.length()));</span>
-<span class="source-line-no">2991</span><span id="line-2991">        continue;</span>
-<span class="source-line-no">2992</span><span id="line-2992">      }</span>
-<span class="source-line-no">2993</span><span id="line-2993"></span>
-<span class="source-line-no">2994</span><span id="line-2994">      final String measureAfter = "--measureAfter=";</span>
-<span class="source-line-no">2995</span><span id="line-2995">      if (cmd.startsWith(measureAfter)) {</span>
-<span class="source-line-no">2996</span><span id="line-2996">        opts.measureAfter = Integer.parseInt(cmd.substring(measureAfter.length()));</span>
-<span class="source-line-no">2997</span><span id="line-2997">        continue;</span>
-<span class="source-line-no">2998</span><span id="line-2998">      }</span>
-<span class="source-line-no">2999</span><span id="line-2999"></span>
-<span class="source-line-no">3000</span><span id="line-3000">      final String bloomFilter = "--bloomFilter=";</span>
-<span class="source-line-no">3001</span><span id="line-3001">      if (cmd.startsWith(bloomFilter)) {</span>
-<span class="source-line-no">3002</span><span id="line-3002">        opts.bloomType = BloomType.valueOf(cmd.substring(bloomFilter.length()));</span>
-<span class="source-line-no">3003</span><span id="line-3003">        continue;</span>
-<span class="source-line-no">3004</span><span id="line-3004">      }</span>
-<span class="source-line-no">3005</span><span id="line-3005"></span>
-<span class="source-line-no">3006</span><span id="line-3006">      final String blockSize = "--blockSize=";</span>
-<span class="source-line-no">3007</span><span id="line-3007">      if (cmd.startsWith(blockSize)) {</span>
-<span class="source-line-no">3008</span><span id="line-3008">        opts.blockSize = Integer.parseInt(cmd.substring(blockSize.length()));</span>
-<span class="source-line-no">3009</span><span id="line-3009">        continue;</span>
-<span class="source-line-no">3010</span><span id="line-3010">      }</span>
-<span class="source-line-no">3011</span><span id="line-3011"></span>
-<span class="source-line-no">3012</span><span id="line-3012">      final String valueSize = "--valueSize=";</span>
-<span class="source-line-no">3013</span><span id="line-3013">      if (cmd.startsWith(valueSize)) {</span>
-<span class="source-line-no">3014</span><span id="line-3014">        opts.valueSize = Integer.parseInt(cmd.substring(valueSize.length()));</span>
-<span class="source-line-no">3015</span><span id="line-3015">        continue;</span>
-<span class="source-line-no">3016</span><span id="line-3016">      }</span>
-<span class="source-line-no">3017</span><span id="line-3017"></span>
-<span class="source-line-no">3018</span><span id="line-3018">      final String valueRandom = "--valueRandom";</span>
-<span class="source-line-no">3019</span><span id="line-3019">      if (cmd.startsWith(valueRandom)) {</span>
-<span class="source-line-no">3020</span><span id="line-3020">        opts.valueRandom = true;</span>
-<span class="source-line-no">3021</span><span id="line-3021">        continue;</span>
-<span class="source-line-no">3022</span><span id="line-3022">      }</span>
-<span class="source-line-no">3023</span><span id="line-3023"></span>
-<span class="source-line-no">3024</span><span id="line-3024">      final String valueZipf = "--valueZipf";</span>
-<span class="source-line-no">3025</span><span id="line-3025">      if (cmd.startsWith(valueZipf)) {</span>
-<span class="source-line-no">3026</span><span id="line-3026">        opts.valueZipf = true;</span>
-<span class="source-line-no">3027</span><span id="line-3027">        continue;</span>
-<span class="source-line-no">3028</span><span id="line-3028">      }</span>
-<span class="source-line-no">3029</span><span id="line-3029"></span>
-<span class="source-line-no">3030</span><span id="line-3030">      final String period = "--period=";</span>
-<span class="source-line-no">3031</span><span id="line-3031">      if (cmd.startsWith(period)) {</span>
-<span class="source-line-no">3032</span><span id="line-3032">        opts.period = Integer.parseInt(cmd.substring(period.length()));</span>
-<span class="source-line-no">3033</span><span id="line-3033">        continue;</span>
-<span class="source-line-no">3034</span><span id="line-3034">      }</span>
-<span class="source-line-no">3035</span><span id="line-3035"></span>
-<span class="source-line-no">3036</span><span id="line-3036">      final String addColumns = "--addColumns=";</span>
-<span class="source-line-no">3037</span><span id="line-3037">      if (cmd.startsWith(addColumns)) {</span>
-<span class="source-line-no">3038</span><span id="line-3038">        opts.addColumns = Boolean.parseBoolean(cmd.substring(addColumns.length()));</span>
-<span class="source-line-no">3039</span><span id="line-3039">        continue;</span>
-<span class="source-line-no">3040</span><span id="line-3040">      }</span>
-<span class="source-line-no">3041</span><span id="line-3041"></span>
-<span class="source-line-no">3042</span><span id="line-3042">      final String inMemoryCompaction = "--inmemoryCompaction=";</span>
-<span class="source-line-no">3043</span><span id="line-3043">      if (cmd.startsWith(inMemoryCompaction)) {</span>
-<span class="source-line-no">3044</span><span id="line-3044">        opts.inMemoryCompaction =</span>
-<span class="source-line-no">3045</span><span id="line-3045">          MemoryCompactionPolicy.valueOf(cmd.substring(inMemoryCompaction.length()));</span>
-<span class="source-line-no">3046</span><span id="line-3046">        continue;</span>
-<span class="source-line-no">3047</span><span id="line-3047">      }</span>
-<span class="source-line-no">3048</span><span id="line-3048"></span>
-<span class="source-line-no">3049</span><span id="line-3049">      final String columns = "--columns=";</span>
-<span class="source-line-no">3050</span><span id="line-3050">      if (cmd.startsWith(columns)) {</span>
-<span class="source-line-no">3051</span><span id="line-3051">        opts.columns = Integer.parseInt(cmd.substring(columns.length()));</span>
-<span class="source-line-no">3052</span><span id="line-3052">        continue;</span>
-<span class="source-line-no">3053</span><span id="line-3053">      }</span>
-<span class="source-line-no">3054</span><span id="line-3054"></span>
-<span class="source-line-no">3055</span><span id="line-3055">      final String families = "--families=";</span>
-<span class="source-line-no">3056</span><span id="line-3056">      if (cmd.startsWith(families)) {</span>
-<span class="source-line-no">3057</span><span id="line-3057">        opts.families = Integer.parseInt(cmd.substring(families.length()));</span>
-<span class="source-line-no">3058</span><span id="line-3058">        continue;</span>
-<span class="source-line-no">3059</span><span id="line-3059">      }</span>
-<span class="source-line-no">3060</span><span id="line-3060"></span>
-<span class="source-line-no">3061</span><span id="line-3061">      final String caching = "--caching=";</span>
-<span class="source-line-no">3062</span><span id="line-3062">      if (cmd.startsWith(caching)) {</span>
-<span class="source-line-no">3063</span><span id="line-3063">        opts.caching = Integer.parseInt(cmd.substring(caching.length()));</span>
-<span class="source-line-no">3064</span><span id="line-3064">        continue;</span>
-<span class="source-line-no">3065</span><span id="line-3065">      }</span>
-<span class="source-line-no">3066</span><span id="line-3066"></span>
-<span class="source-line-no">3067</span><span id="line-3067">      final String asyncPrefetch = "--asyncPrefetch";</span>
-<span class="source-line-no">3068</span><span id="line-3068">      if (cmd.startsWith(asyncPrefetch)) {</span>
-<span class="source-line-no">3069</span><span id="line-3069">        opts.asyncPrefetch = true;</span>
-<span class="source-line-no">3070</span><span id="line-3070">        continue;</span>
-<span class="source-line-no">3071</span><span id="line-3071">      }</span>
-<span class="source-line-no">3072</span><span id="line-3072"></span>
-<span class="source-line-no">3073</span><span id="line-3073">      final String cacheBlocks = "--cacheBlocks=";</span>
-<span class="source-line-no">3074</span><span id="line-3074">      if (cmd.startsWith(cacheBlocks)) {</span>
-<span class="source-line-no">3075</span><span id="line-3075">        opts.cacheBlocks = Boolean.parseBoolean(cmd.substring(cacheBlocks.length()));</span>
-<span class="source-line-no">3076</span><span id="line-3076">        continue;</span>
-<span class="source-line-no">3077</span><span id="line-3077">      }</span>
-<span class="source-line-no">3078</span><span id="line-3078"></span>
-<span class="source-line-no">3079</span><span id="line-3079">      final String scanReadType = "--scanReadType=";</span>
-<span class="source-line-no">3080</span><span id="line-3080">      if (cmd.startsWith(scanReadType)) {</span>
-<span class="source-line-no">3081</span><span id="line-3081">        opts.scanReadType =</span>
-<span class="source-line-no">3082</span><span id="line-3082">          Scan.ReadType.valueOf(cmd.substring(scanReadType.length()).toUpperCase());</span>
-<span class="source-line-no">3083</span><span id="line-3083">        continue;</span>
-<span class="source-line-no">3084</span><span id="line-3084">      }</span>
-<span class="source-line-no">3085</span><span id="line-3085"></span>
-<span class="source-line-no">3086</span><span id="line-3086">      final String bufferSize = "--bufferSize=";</span>
-<span class="source-line-no">3087</span><span id="line-3087">      if (cmd.startsWith(bufferSize)) {</span>
-<span class="source-line-no">3088</span><span id="line-3088">        opts.bufferSize = Long.parseLong(cmd.substring(bufferSize.length()));</span>
-<span class="source-line-no">3089</span><span id="line-3089">        continue;</span>
-<span class="source-line-no">3090</span><span id="line-3090">      }</span>
-<span class="source-line-no">3091</span><span id="line-3091"></span>
-<span class="source-line-no">3092</span><span id="line-3092">      final String commandPropertiesFile = "--commandPropertiesFile=";</span>
-<span class="source-line-no">3093</span><span id="line-3093">      if (cmd.startsWith(commandPropertiesFile)) {</span>
-<span class="source-line-no">3094</span><span id="line-3094">        String fileName = String.valueOf(cmd.substring(commandPropertiesFile.length()));</span>
-<span class="source-line-no">3095</span><span id="line-3095">        Properties properties = new Properties();</span>
-<span class="source-line-no">3096</span><span id="line-3096">        try {</span>
-<span class="source-line-no">3097</span><span id="line-3097">          properties</span>
-<span class="source-line-no">3098</span><span id="line-3098">            .load(PerformanceEvaluation.class.getClassLoader().getResourceAsStream(fileName));</span>
-<span class="source-line-no">3099</span><span id="line-3099">          opts.commandProperties = properties;</span>
-<span class="source-line-no">3100</span><span id="line-3100">        } catch (IOException e) {</span>
-<span class="source-line-no">3101</span><span id="line-3101">          LOG.error("Failed to load metricIds from properties file", e);</span>
-<span class="source-line-no">3102</span><span id="line-3102">        }</span>
-<span class="source-line-no">3103</span><span id="line-3103">        continue;</span>
-<span class="source-line-no">3104</span><span id="line-3104">      }</span>
-<span class="source-line-no">3105</span><span id="line-3105"></span>
-<span class="source-line-no">3106</span><span id="line-3106">      validateParsedOpts(opts);</span>
-<span class="source-line-no">3107</span><span id="line-3107"></span>
-<span class="source-line-no">3108</span><span id="line-3108">      if (isCommandClass(cmd)) {</span>
-<span class="source-line-no">3109</span><span id="line-3109">        opts.cmdName = cmd;</span>
-<span class="source-line-no">3110</span><span id="line-3110">        try {</span>
-<span class="source-line-no">3111</span><span id="line-3111">          opts.numClientThreads = Integer.parseInt(args.remove());</span>
-<span class="source-line-no">3112</span><span id="line-3112">        } catch (NoSuchElementException | NumberFormatException e) {</span>
-<span class="source-line-no">3113</span><span id="line-3113">          throw new IllegalArgumentException("Command " + cmd + " does not have threads number", e);</span>
-<span class="source-line-no">3114</span><span id="line-3114">        }</span>
-<span class="source-line-no">3115</span><span id="line-3115">        opts = calculateRowsAndSize(opts);</span>
-<span class="source-line-no">3116</span><span id="line-3116">        break;</span>
-<span class="source-line-no">3117</span><span id="line-3117">      } else {</span>
-<span class="source-line-no">3118</span><span id="line-3118">        printUsageAndExit("ERROR: Unrecognized option/command: " + cmd, -1);</span>
-<span class="source-line-no">3119</span><span id="line-3119">      }</span>
-<span class="source-line-no">3120</span><span id="line-3120"></span>
-<span class="source-line-no">3121</span><span id="line-3121">      // Not matching any option or command.</span>
-<span class="source-line-no">3122</span><span id="line-3122">      System.err.println("Error: Wrong option or command: " + cmd);</span>
-<span class="source-line-no">3123</span><span id="line-3123">      args.add(cmd);</span>
-<span class="source-line-no">3124</span><span id="line-3124">      break;</span>
-<span class="source-line-no">3125</span><span id="line-3125">    }</span>
-<span class="source-line-no">3126</span><span id="line-3126">    return opts;</span>
-<span class="source-line-no">3127</span><span id="line-3127">  }</span>
-<span class="source-line-no">3128</span><span id="line-3128"></span>
-<span class="source-line-no">3129</span><span id="line-3129">  /**</span>
-<span class="source-line-no">3130</span><span id="line-3130">   * Validates opts after all the opts are parsed, so that caller need not to maintain order of opts</span>
-<span class="source-line-no">3131</span><span id="line-3131">   */</span>
-<span class="source-line-no">3132</span><span id="line-3132">  private static void validateParsedOpts(TestOptions opts) {</span>
-<span class="source-line-no">3133</span><span id="line-3133"></span>
-<span class="source-line-no">3134</span><span id="line-3134">    if (!opts.autoFlush &amp;&amp; opts.multiPut &gt; 0) {</span>
-<span class="source-line-no">3135</span><span id="line-3135">      throw new IllegalArgumentException("autoFlush must be true when multiPut is more than 0");</span>
-<span class="source-line-no">3136</span><span id="line-3136">    }</span>
-<span class="source-line-no">3137</span><span id="line-3137"></span>
-<span class="source-line-no">3138</span><span id="line-3138">    if (opts.oneCon &amp;&amp; opts.connCount &gt; 1) {</span>
-<span class="source-line-no">3139</span><span id="line-3139">      throw new IllegalArgumentException(</span>
-<span class="source-line-no">3140</span><span id="line-3140">        "oneCon is set to true, " + "connCount should not bigger than 1");</span>
-<span class="source-line-no">3141</span><span id="line-3141">    }</span>
-<span class="source-line-no">3142</span><span id="line-3142"></span>
-<span class="source-line-no">3143</span><span id="line-3143">    if (opts.valueZipf &amp;&amp; opts.valueRandom) {</span>
-<span class="source-line-no">3144</span><span id="line-3144">      throw new IllegalStateException("Either valueZipf or valueRandom but not both");</span>
-<span class="source-line-no">3145</span><span id="line-3145">    }</span>
-<span class="source-line-no">3146</span><span id="line-3146">  }</span>
-<span class="source-line-no">3147</span><span id="line-3147"></span>
-<span class="source-line-no">3148</span><span id="line-3148">  static TestOptions calculateRowsAndSize(final TestOptions opts) {</span>
-<span class="source-line-no">3149</span><span id="line-3149">    int rowsPerGB = getRowsPerGB(opts);</span>
-<span class="source-line-no">3150</span><span id="line-3150">    if (</span>
-<span class="source-line-no">3151</span><span id="line-3151">      (opts.getCmdName() != null</span>
-<span class="source-line-no">3152</span><span id="line-3152">        &amp;&amp; (opts.getCmdName().equals(RANDOM_READ) || opts.getCmdName().equals(RANDOM_SEEK_SCAN)))</span>
-<span class="source-line-no">3153</span><span id="line-3153">        &amp;&amp; opts.size != DEFAULT_OPTS.size &amp;&amp; opts.perClientRunRows != DEFAULT_OPTS.perClientRunRows</span>
-<span class="source-line-no">3154</span><span id="line-3154">    ) {</span>
-<span class="source-line-no">3155</span><span id="line-3155">      opts.totalRows = (long) (opts.size * rowsPerGB);</span>
-<span class="source-line-no">3156</span><span id="line-3156">    } else if (opts.size != DEFAULT_OPTS.size) {</span>
-<span class="source-line-no">3157</span><span id="line-3157">      // total size in GB specified</span>
-<span class="source-line-no">3158</span><span id="line-3158">      opts.totalRows = (long) (opts.size * rowsPerGB);</span>
-<span class="source-line-no">3159</span><span id="line-3159">      opts.perClientRunRows = opts.totalRows / opts.numClientThreads;</span>
-<span class="source-line-no">3160</span><span id="line-3160">    } else {</span>
-<span class="source-line-no">3161</span><span id="line-3161">      opts.totalRows = opts.perClientRunRows * opts.numClientThreads;</span>
-<span class="source-line-no">3162</span><span id="line-3162">      // Cast to float to ensure floating-point division</span>
-<span class="source-line-no">3163</span><span id="line-3163">      opts.size = (float) opts.totalRows / rowsPerGB;</span>
-<span class="source-line-no">3164</span><span id="line-3164">    }</span>
-<span class="source-line-no">3165</span><span id="line-3165">    return opts;</span>
-<span class="source-line-no">3166</span><span id="line-3166">  }</span>
-<span class="source-line-no">3167</span><span id="line-3167"></span>
-<span class="source-line-no">3168</span><span id="line-3168">  static int getRowsPerGB(final TestOptions opts) {</span>
-<span class="source-line-no">3169</span><span id="line-3169">    return ONE_GB / ((opts.valueRandom ? opts.valueSize / 2 : opts.valueSize) * opts.getFamilies()</span>
-<span class="source-line-no">3170</span><span id="line-3170">      * opts.getColumns());</span>
-<span class="source-line-no">3171</span><span id="line-3171">  }</span>
-<span class="source-line-no">3172</span><span id="line-3172"></span>
-<span class="source-line-no">3173</span><span id="line-3173">  @Override</span>
-<span class="source-line-no">3174</span><span id="line-3174">  public int run(String[] args) throws Exception {</span>
-<span class="source-line-no">3175</span><span id="line-3175">    // Process command-line args. TODO: Better cmd-line processing</span>
-<span class="source-line-no">3176</span><span id="line-3176">    // (but hopefully something not as painful as cli options).</span>
-<span class="source-line-no">3177</span><span id="line-3177">    int errCode = -1;</span>
-<span class="source-line-no">3178</span><span id="line-3178">    if (args.length &lt; 1) {</span>
-<span class="source-line-no">3179</span><span id="line-3179">      printUsage();</span>
-<span class="source-line-no">3180</span><span id="line-3180">      return errCode;</span>
-<span class="source-line-no">3181</span><span id="line-3181">    }</span>
-<span class="source-line-no">3182</span><span id="line-3182"></span>
-<span class="source-line-no">3183</span><span id="line-3183">    try {</span>
-<span class="source-line-no">3184</span><span id="line-3184">      LinkedList&lt;String&gt; argv = new LinkedList&lt;&gt;();</span>
-<span class="source-line-no">3185</span><span id="line-3185">      argv.addAll(Arrays.asList(args));</span>
-<span class="source-line-no">3186</span><span id="line-3186">      TestOptions opts = parseOpts(argv);</span>
-<span class="source-line-no">3187</span><span id="line-3187"></span>
-<span class="source-line-no">3188</span><span id="line-3188">      // args remaining, print help and exit</span>
-<span class="source-line-no">3189</span><span id="line-3189">      if (!argv.isEmpty()) {</span>
-<span class="source-line-no">3190</span><span id="line-3190">        errCode = 0;</span>
-<span class="source-line-no">3191</span><span id="line-3191">        printUsage();</span>
-<span class="source-line-no">3192</span><span id="line-3192">        return errCode;</span>
-<span class="source-line-no">3193</span><span id="line-3193">      }</span>
-<span class="source-line-no">3194</span><span id="line-3194"></span>
-<span class="source-line-no">3195</span><span id="line-3195">      // must run at least 1 client</span>
-<span class="source-line-no">3196</span><span id="line-3196">      if (opts.numClientThreads &lt;= 0) {</span>
-<span class="source-line-no">3197</span><span id="line-3197">        throw new IllegalArgumentException("Number of clients must be &gt; 0");</span>
-<span class="source-line-no">3198</span><span id="line-3198">      }</span>
-<span class="source-line-no">3199</span><span id="line-3199"></span>
-<span class="source-line-no">3200</span><span id="line-3200">      // cmdName should not be null, print help and exit</span>
-<span class="source-line-no">3201</span><span id="line-3201">      if (opts.cmdName == null) {</span>
-<span class="source-line-no">3202</span><span id="line-3202">        printUsage();</span>
-<span class="source-line-no">3203</span><span id="line-3203">        return errCode;</span>
-<span class="source-line-no">3204</span><span id="line-3204">      }</span>
-<span class="source-line-no">3205</span><span id="line-3205"></span>
-<span class="source-line-no">3206</span><span id="line-3206">      Class&lt;? extends TestBase&gt; cmdClass = determineCommandClass(opts.cmdName);</span>
-<span class="source-line-no">3207</span><span id="line-3207">      if (cmdClass != null) {</span>
-<span class="source-line-no">3208</span><span id="line-3208">        runTest(cmdClass, opts);</span>
-<span class="source-line-no">3209</span><span id="line-3209">        errCode = 0;</span>
-<span class="source-line-no">3210</span><span id="line-3210">      }</span>
-<span class="source-line-no">3211</span><span id="line-3211"></span>
-<span class="source-line-no">3212</span><span id="line-3212">    } catch (Exception e) {</span>
-<span class="source-line-no">3213</span><span id="line-3213">      e.printStackTrace();</span>
-<span class="source-line-no">3214</span><span id="line-3214">    }</span>
-<span class="source-line-no">3215</span><span id="line-3215"></span>
-<span class="source-line-no">3216</span><span id="line-3216">    return errCode;</span>
-<span class="source-line-no">3217</span><span id="line-3217">  }</span>
-<span class="source-line-no">3218</span><span id="line-3218"></span>
-<span class="source-line-no">3219</span><span id="line-3219">  private static boolean isCommandClass(String cmd) {</span>
-<span class="source-line-no">3220</span><span id="line-3220">    return COMMANDS.containsKey(cmd) || isCustomTestClass(cmd);</span>
-<span class="source-line-no">3221</span><span id="line-3221">  }</span>
-<span class="source-line-no">3222</span><span id="line-3222"></span>
-<span class="source-line-no">3223</span><span id="line-3223">  private static boolean isCustomTestClass(String cmd) {</span>
-<span class="source-line-no">3224</span><span id="line-3224">    Class&lt;? extends Test&gt; cmdClass;</span>
-<span class="source-line-no">3225</span><span id="line-3225">    try {</span>
-<span class="source-line-no">3226</span><span id="line-3226">      cmdClass =</span>
-<span class="source-line-no">3227</span><span id="line-3227">        (Class&lt;? extends Test&gt;) PerformanceEvaluation.class.getClassLoader().loadClass(cmd);</span>
-<span class="source-line-no">3228</span><span id="line-3228">      addCommandDescriptor(cmdClass, cmd, "custom command");</span>
-<span class="source-line-no">3229</span><span id="line-3229">      return true;</span>
-<span class="source-line-no">3230</span><span id="line-3230">    } catch (Throwable th) {</span>
-<span class="source-line-no">3231</span><span id="line-3231">      LOG.info("No class found for command: " + cmd, th);</span>
-<span class="source-line-no">3232</span><span id="line-3232">      return false;</span>
-<span class="source-line-no">3233</span><span id="line-3233">    }</span>
-<span class="source-line-no">3234</span><span id="line-3234">  }</span>
-<span class="source-line-no">3235</span><span id="line-3235"></span>
-<span class="source-line-no">3236</span><span id="line-3236">  private static Class&lt;? extends TestBase&gt; determineCommandClass(String cmd) {</span>
-<span class="source-line-no">3237</span><span id="line-3237">    CmdDescriptor descriptor = COMMANDS.get(cmd);</span>
-<span class="source-line-no">3238</span><span id="line-3238">    return descriptor != null ? descriptor.getCmdClass() : null;</span>
-<span class="source-line-no">3239</span><span id="line-3239">  }</span>
-<span class="source-line-no">3240</span><span id="line-3240"></span>
-<span class="source-line-no">3241</span><span id="line-3241">  public static void main(final String[] args) throws Exception {</span>
-<span class="source-line-no">3242</span><span id="line-3242">    int res = ToolRunner.run(new PerformanceEvaluation(HBaseConfiguration.create()), args);</span>
-<span class="source-line-no">3243</span><span id="line-3243">    System.exit(res);</span>
-<span class="source-line-no">3244</span><span id="line-3244">  }</span>
-<span class="source-line-no">3245</span><span id="line-3245">}</span>
+<span class="source-line-no">2702</span><span id="line-2702">    System.err.println(" sampleRate      Execute test on a sample of total rows. Default: 1.0");</span>
+<span class="source-line-no">2703</span><span id="line-2703">    System.err.println(" period          Report every 'period' rows: "</span>
+<span class="source-line-no">2704</span><span id="line-2704">      + "Default: opts.perClientRunRows / 10 = " + DEFAULT_OPTS.getPerClientRunRows() / 10);</span>
+<span class="source-line-no">2705</span><span id="line-2705">    System.err.println(" cycles          How many times to cycle the test. Defaults: 1.");</span>
+<span class="source-line-no">2706</span><span id="line-2706">    System.err.println(</span>
+<span class="source-line-no">2707</span><span id="line-2707">      " traceRate       Enable HTrace spans. Initiate tracing every N rows. " + "Default: 0");</span>
+<span class="source-line-no">2708</span><span id="line-2708">    System.err.println(" latency         Set to report operation latencies. Default: False");</span>
+<span class="source-line-no">2709</span><span id="line-2709">    System.err.println(" latencyThreshold  Set to report number of operations with latency "</span>
+<span class="source-line-no">2710</span><span id="line-2710">      + "over lantencyThreshold, unit in millisecond, default 0");</span>
+<span class="source-line-no">2711</span><span id="line-2711">    System.err.println(" measureAfter    Start to measure the latency once 'measureAfter'"</span>
+<span class="source-line-no">2712</span><span id="line-2712">      + " rows have been treated. Default: 0");</span>
+<span class="source-line-no">2713</span><span id="line-2713">    System.err</span>
+<span class="source-line-no">2714</span><span id="line-2714">      .println(" valueSize       Pass value size to use: Default: " + DEFAULT_OPTS.getValueSize());</span>
+<span class="source-line-no">2715</span><span id="line-2715">    System.err.println(" valueRandom     Set if we should vary value size between 0 and "</span>
+<span class="source-line-no">2716</span><span id="line-2716">      + "'valueSize'; set on read for stats on size: Default: Not set.");</span>
+<span class="source-line-no">2717</span><span id="line-2717">    System.err.println(" blockEncoding   Block encoding to use. Value should be one of "</span>
+<span class="source-line-no">2718</span><span id="line-2718">      + Arrays.toString(DataBlockEncoding.values()) + ". Default: NONE");</span>
+<span class="source-line-no">2719</span><span id="line-2719">    System.err.println();</span>
+<span class="source-line-no">2720</span><span id="line-2720">    System.err.println("Table Creation / Write Tests:");</span>
+<span class="source-line-no">2721</span><span id="line-2721">    System.err.println(" table           Alternate table name. Default: 'TestTable'");</span>
+<span class="source-line-no">2722</span><span id="line-2722">    System.err.println(</span>
+<span class="source-line-no">2723</span><span id="line-2723">      " rows            Rows each client runs. Default: " + DEFAULT_OPTS.getPerClientRunRows()</span>
+<span class="source-line-no">2724</span><span id="line-2724">        + ".  In case of randomReads and randomSeekScans this could"</span>
+<span class="source-line-no">2725</span><span id="line-2725">        + " be specified along with --size to specify the number of rows to be scanned within"</span>
+<span class="source-line-no">2726</span><span id="line-2726">        + " the total range specified by the size.");</span>
+<span class="source-line-no">2727</span><span id="line-2727">    System.err.println(</span>
+<span class="source-line-no">2728</span><span id="line-2728">      " size            Total size in GiB. Mutually exclusive with --rows for writes and scans"</span>
+<span class="source-line-no">2729</span><span id="line-2729">        + ". But for randomReads and randomSeekScans when you use size with --rows you could"</span>
+<span class="source-line-no">2730</span><span id="line-2730">        + " use size to specify the end range and --rows"</span>
+<span class="source-line-no">2731</span><span id="line-2731">        + " specifies the number of rows within that range. " + "Default: 1.0.");</span>
+<span class="source-line-no">2732</span><span id="line-2732">    System.err.println(" compress        Compression type to use (GZ, LZO, ...). Default: 'NONE'");</span>
+<span class="source-line-no">2733</span><span id="line-2733">    System.err.println(" encryption      Encryption type to use (AES, ...). Default: 'NONE'");</span>
+<span class="source-line-no">2734</span><span id="line-2734">    System.err.println(</span>
+<span class="source-line-no">2735</span><span id="line-2735">      " flushCommits    Used to determine if the test should flush the table. " + "Default: false");</span>
+<span class="source-line-no">2736</span><span id="line-2736">    System.err.println(" valueZipf       Set if we should vary value size between 0 and "</span>
+<span class="source-line-no">2737</span><span id="line-2737">      + "'valueSize' in zipf form: Default: Not set.");</span>
+<span class="source-line-no">2738</span><span id="line-2738">    System.err.println(" writeToWAL      Set writeToWAL on puts. Default: True");</span>
+<span class="source-line-no">2739</span><span id="line-2739">    System.err.println(" autoFlush       Set autoFlush on htable. Default: False");</span>
+<span class="source-line-no">2740</span><span id="line-2740">    System.err.println(" multiPut        Batch puts together into groups of N. Only supported "</span>
+<span class="source-line-no">2741</span><span id="line-2741">      + "by write. If multiPut is bigger than 0, autoFlush need to set to true. Default: 0");</span>
+<span class="source-line-no">2742</span><span id="line-2742">    System.err.println(" presplit        Create presplit table. If a table with same name exists,"</span>
+<span class="source-line-no">2743</span><span id="line-2743">      + " it'll be deleted and recreated (instead of verifying count of its existing regions). "</span>
+<span class="source-line-no">2744</span><span id="line-2744">      + "Recommended for accurate perf analysis (see guide). Default: disabled");</span>
+<span class="source-line-no">2745</span><span id="line-2745">    System.err.println(</span>
+<span class="source-line-no">2746</span><span id="line-2746">      " usetags         Writes tags along with KVs. Use with HFile V3. " + "Default: false");</span>
+<span class="source-line-no">2747</span><span id="line-2747">    System.err.println(" numoftags       Specify the no of tags that would be needed. "</span>
+<span class="source-line-no">2748</span><span id="line-2748">      + "This works only if usetags is true. Default: " + DEFAULT_OPTS.noOfTags);</span>
+<span class="source-line-no">2749</span><span id="line-2749">    System.err.println(" splitPolicy     Specify a custom RegionSplitPolicy for the table.");</span>
+<span class="source-line-no">2750</span><span id="line-2750">    System.err.println(" columns         Columns to write per row. Default: 1");</span>
+<span class="source-line-no">2751</span><span id="line-2751">    System.err</span>
+<span class="source-line-no">2752</span><span id="line-2752">      .println(" families        Specify number of column families for the table. Default: 1");</span>
+<span class="source-line-no">2753</span><span id="line-2753">    System.err.println();</span>
+<span class="source-line-no">2754</span><span id="line-2754">    System.err.println("Read Tests:");</span>
+<span class="source-line-no">2755</span><span id="line-2755">    System.err.println(" filterAll       Helps to filter out all the rows on the server side"</span>
+<span class="source-line-no">2756</span><span id="line-2756">      + " there by not returning any thing back to the client.  Helps to check the server side"</span>
+<span class="source-line-no">2757</span><span id="line-2757">      + " performance.  Uses FilterAllFilter internally. ");</span>
+<span class="source-line-no">2758</span><span id="line-2758">    System.err.println(" multiGet        Batch gets together into groups of N. Only supported "</span>
+<span class="source-line-no">2759</span><span id="line-2759">      + "by randomRead. Default: disabled");</span>
+<span class="source-line-no">2760</span><span id="line-2760">    System.err.println(" inmemory        Tries to keep the HFiles of the CF "</span>
+<span class="source-line-no">2761</span><span id="line-2761">      + "inmemory as far as possible. Not guaranteed that reads are always served "</span>
+<span class="source-line-no">2762</span><span id="line-2762">      + "from memory.  Default: false");</span>
+<span class="source-line-no">2763</span><span id="line-2763">    System.err</span>
+<span class="source-line-no">2764</span><span id="line-2764">      .println(" bloomFilter     Bloom filter type, one of " + Arrays.toString(BloomType.values()));</span>
+<span class="source-line-no">2765</span><span id="line-2765">    System.err.println(" blockSize       Blocksize to use when writing out hfiles. ");</span>
+<span class="source-line-no">2766</span><span id="line-2766">    System.err</span>
+<span class="source-line-no">2767</span><span id="line-2767">      .println(" inmemoryCompaction  Makes the column family to do inmemory flushes/compactions. "</span>
+<span class="source-line-no">2768</span><span id="line-2768">        + "Uses the CompactingMemstore");</span>
+<span class="source-line-no">2769</span><span id="line-2769">    System.err.println(" addColumns      Adds columns to scans/gets explicitly. Default: true");</span>
+<span class="source-line-no">2770</span><span id="line-2770">    System.err.println(" replicas        Enable region replica testing. Defaults: 1.");</span>
+<span class="source-line-no">2771</span><span id="line-2771">    System.err.println(</span>
+<span class="source-line-no">2772</span><span id="line-2772">      " randomSleep     Do a random sleep before each get between 0 and entered value. Defaults: 0");</span>
+<span class="source-line-no">2773</span><span id="line-2773">    System.err.println(" caching         Scan caching to use. Default: 30");</span>
+<span class="source-line-no">2774</span><span id="line-2774">    System.err.println(" asyncPrefetch   Enable asyncPrefetch for scan");</span>
+<span class="source-line-no">2775</span><span id="line-2775">    System.err.println(" cacheBlocks     Set the cacheBlocks option for scan. Default: true");</span>
+<span class="source-line-no">2776</span><span id="line-2776">    System.err.println(</span>
+<span class="source-line-no">2777</span><span id="line-2777">      " scanReadType    Set the readType option for scan, stream/pread/default. Default: default");</span>
+<span class="source-line-no">2778</span><span id="line-2778">    System.err.println(" bufferSize      Set the value of client side buffering. Default: 2MB");</span>
+<span class="source-line-no">2779</span><span id="line-2779">    System.err.println();</span>
+<span class="source-line-no">2780</span><span id="line-2780">    System.err.println(" Note: -D properties will be applied to the conf used. ");</span>
+<span class="source-line-no">2781</span><span id="line-2781">    System.err.println("  For example: ");</span>
+<span class="source-line-no">2782</span><span id="line-2782">    System.err.println("   -Dmapreduce.output.fileoutputformat.compress=true");</span>
+<span class="source-line-no">2783</span><span id="line-2783">    System.err.println("   -Dmapreduce.task.timeout=60000");</span>
+<span class="source-line-no">2784</span><span id="line-2784">    System.err.println();</span>
+<span class="source-line-no">2785</span><span id="line-2785">    System.err.println("Command:");</span>
+<span class="source-line-no">2786</span><span id="line-2786">    for (CmdDescriptor command : COMMANDS.values()) {</span>
+<span class="source-line-no">2787</span><span id="line-2787">      System.err.println(String.format(" %-20s %s", command.getName(), command.getDescription()));</span>
+<span class="source-line-no">2788</span><span id="line-2788">    }</span>
+<span class="source-line-no">2789</span><span id="line-2789">    System.err.println();</span>
+<span class="source-line-no">2790</span><span id="line-2790">    System.err.println("Class:");</span>
+<span class="source-line-no">2791</span><span id="line-2791">    System.err.println("To run any custom implementation of PerformanceEvaluation.Test, "</span>
+<span class="source-line-no">2792</span><span id="line-2792">      + "provide the classname of the implementaion class in place of "</span>
+<span class="source-line-no">2793</span><span id="line-2793">      + "command name and it will be loaded at runtime from classpath.:");</span>
+<span class="source-line-no">2794</span><span id="line-2794">    System.err.println("Please consider to contribute back "</span>
+<span class="source-line-no">2795</span><span id="line-2795">      + "this custom test impl into a builtin PE command for the benefit of the community");</span>
+<span class="source-line-no">2796</span><span id="line-2796">    System.err.println();</span>
+<span class="source-line-no">2797</span><span id="line-2797">    System.err.println("Args:");</span>
+<span class="source-line-no">2798</span><span id="line-2798">    System.err.println(" nclients        Integer. Required. Total number of clients "</span>
+<span class="source-line-no">2799</span><span id="line-2799">      + "(and HRegionServers) running. 1 &lt;= value &lt;= 500");</span>
+<span class="source-line-no">2800</span><span id="line-2800">    System.err.println("Examples:");</span>
+<span class="source-line-no">2801</span><span id="line-2801">    System.err.println(" To run a single client doing the default 1M sequentialWrites:");</span>
+<span class="source-line-no">2802</span><span id="line-2802">    System.err.println(" $ hbase " + shortName + " sequentialWrite 1");</span>
+<span class="source-line-no">2803</span><span id="line-2803">    System.err.println(" To run 10 clients doing increments over ten rows:");</span>
+<span class="source-line-no">2804</span><span id="line-2804">    System.err.println(" $ hbase " + shortName + " --rows=10 --nomapred increment 10");</span>
+<span class="source-line-no">2805</span><span id="line-2805">  }</span>
+<span class="source-line-no">2806</span><span id="line-2806"></span>
+<span class="source-line-no">2807</span><span id="line-2807">  /**</span>
+<span class="source-line-no">2808</span><span id="line-2808">   * Parse options passed in via an arguments array. Assumes that array has been split on</span>
+<span class="source-line-no">2809</span><span id="line-2809">   * white-space and placed into a {@code Queue}. Any unknown arguments will remain in the queue at</span>
+<span class="source-line-no">2810</span><span id="line-2810">   * the conclusion of this method call. It's up to the caller to deal with these unrecognized</span>
+<span class="source-line-no">2811</span><span id="line-2811">   * arguments.</span>
+<span class="source-line-no">2812</span><span id="line-2812">   */</span>
+<span class="source-line-no">2813</span><span id="line-2813">  static TestOptions parseOpts(Queue&lt;String&gt; args) {</span>
+<span class="source-line-no">2814</span><span id="line-2814">    TestOptions opts = new TestOptions();</span>
+<span class="source-line-no">2815</span><span id="line-2815"></span>
+<span class="source-line-no">2816</span><span id="line-2816">    String cmd = null;</span>
+<span class="source-line-no">2817</span><span id="line-2817">    while ((cmd = args.poll()) != null) {</span>
+<span class="source-line-no">2818</span><span id="line-2818">      if (cmd.equals("-h") || cmd.startsWith("--h")) {</span>
+<span class="source-line-no">2819</span><span id="line-2819">        // place item back onto queue so that caller knows parsing was incomplete</span>
+<span class="source-line-no">2820</span><span id="line-2820">        args.add(cmd);</span>
+<span class="source-line-no">2821</span><span id="line-2821">        break;</span>
+<span class="source-line-no">2822</span><span id="line-2822">      }</span>
+<span class="source-line-no">2823</span><span id="line-2823"></span>
+<span class="source-line-no">2824</span><span id="line-2824">      final String nmr = "--nomapred";</span>
+<span class="source-line-no">2825</span><span id="line-2825">      if (cmd.startsWith(nmr)) {</span>
+<span class="source-line-no">2826</span><span id="line-2826">        opts.nomapred = true;</span>
+<span class="source-line-no">2827</span><span id="line-2827">        continue;</span>
+<span class="source-line-no">2828</span><span id="line-2828">      }</span>
+<span class="source-line-no">2829</span><span id="line-2829"></span>
+<span class="source-line-no">2830</span><span id="line-2830">      final String rows = "--rows=";</span>
+<span class="source-line-no">2831</span><span id="line-2831">      if (cmd.startsWith(rows)) {</span>
+<span class="source-line-no">2832</span><span id="line-2832">        opts.perClientRunRows = Long.parseLong(cmd.substring(rows.length()));</span>
+<span class="source-line-no">2833</span><span id="line-2833">        continue;</span>
+<span class="source-line-no">2834</span><span id="line-2834">      }</span>
+<span class="source-line-no">2835</span><span id="line-2835"></span>
+<span class="source-line-no">2836</span><span id="line-2836">      final String cycles = "--cycles=";</span>
+<span class="source-line-no">2837</span><span id="line-2837">      if (cmd.startsWith(cycles)) {</span>
+<span class="source-line-no">2838</span><span id="line-2838">        opts.cycles = Integer.parseInt(cmd.substring(cycles.length()));</span>
+<span class="source-line-no">2839</span><span id="line-2839">        continue;</span>
+<span class="source-line-no">2840</span><span id="line-2840">      }</span>
+<span class="source-line-no">2841</span><span id="line-2841"></span>
+<span class="source-line-no">2842</span><span id="line-2842">      final String sampleRate = "--sampleRate=";</span>
+<span class="source-line-no">2843</span><span id="line-2843">      if (cmd.startsWith(sampleRate)) {</span>
+<span class="source-line-no">2844</span><span id="line-2844">        opts.sampleRate = Float.parseFloat(cmd.substring(sampleRate.length()));</span>
+<span class="source-line-no">2845</span><span id="line-2845">        continue;</span>
+<span class="source-line-no">2846</span><span id="line-2846">      }</span>
+<span class="source-line-no">2847</span><span id="line-2847"></span>
+<span class="source-line-no">2848</span><span id="line-2848">      final String table = "--table=";</span>
+<span class="source-line-no">2849</span><span id="line-2849">      if (cmd.startsWith(table)) {</span>
+<span class="source-line-no">2850</span><span id="line-2850">        opts.tableName = cmd.substring(table.length());</span>
+<span class="source-line-no">2851</span><span id="line-2851">        continue;</span>
+<span class="source-line-no">2852</span><span id="line-2852">      }</span>
+<span class="source-line-no">2853</span><span id="line-2853"></span>
+<span class="source-line-no">2854</span><span id="line-2854">      final String startRow = "--startRow=";</span>
+<span class="source-line-no">2855</span><span id="line-2855">      if (cmd.startsWith(startRow)) {</span>
+<span class="source-line-no">2856</span><span id="line-2856">        opts.startRow = Long.parseLong(cmd.substring(startRow.length()));</span>
+<span class="source-line-no">2857</span><span id="line-2857">        continue;</span>
+<span class="source-line-no">2858</span><span id="line-2858">      }</span>
+<span class="source-line-no">2859</span><span id="line-2859"></span>
+<span class="source-line-no">2860</span><span id="line-2860">      final String compress = "--compress=";</span>
+<span class="source-line-no">2861</span><span id="line-2861">      if (cmd.startsWith(compress)) {</span>
+<span class="source-line-no">2862</span><span id="line-2862">        opts.compression = Compression.Algorithm.valueOf(cmd.substring(compress.length()));</span>
+<span class="source-line-no">2863</span><span id="line-2863">        continue;</span>
+<span class="source-line-no">2864</span><span id="line-2864">      }</span>
+<span class="source-line-no">2865</span><span id="line-2865"></span>
+<span class="source-line-no">2866</span><span id="line-2866">      final String encryption = "--encryption=";</span>
+<span class="source-line-no">2867</span><span id="line-2867">      if (cmd.startsWith(encryption)) {</span>
+<span class="source-line-no">2868</span><span id="line-2868">        opts.encryption = cmd.substring(encryption.length());</span>
+<span class="source-line-no">2869</span><span id="line-2869">        continue;</span>
+<span class="source-line-no">2870</span><span id="line-2870">      }</span>
+<span class="source-line-no">2871</span><span id="line-2871"></span>
+<span class="source-line-no">2872</span><span id="line-2872">      final String traceRate = "--traceRate=";</span>
+<span class="source-line-no">2873</span><span id="line-2873">      if (cmd.startsWith(traceRate)) {</span>
+<span class="source-line-no">2874</span><span id="line-2874">        opts.traceRate = Double.parseDouble(cmd.substring(traceRate.length()));</span>
+<span class="source-line-no">2875</span><span id="line-2875">        continue;</span>
+<span class="source-line-no">2876</span><span id="line-2876">      }</span>
+<span class="source-line-no">2877</span><span id="line-2877"></span>
+<span class="source-line-no">2878</span><span id="line-2878">      final String blockEncoding = "--blockEncoding=";</span>
+<span class="source-line-no">2879</span><span id="line-2879">      if (cmd.startsWith(blockEncoding)) {</span>
+<span class="source-line-no">2880</span><span id="line-2880">        opts.blockEncoding = DataBlockEncoding.valueOf(cmd.substring(blockEncoding.length()));</span>
+<span class="source-line-no">2881</span><span id="line-2881">        continue;</span>
+<span class="source-line-no">2882</span><span id="line-2882">      }</span>
+<span class="source-line-no">2883</span><span id="line-2883"></span>
+<span class="source-line-no">2884</span><span id="line-2884">      final String flushCommits = "--flushCommits=";</span>
+<span class="source-line-no">2885</span><span id="line-2885">      if (cmd.startsWith(flushCommits)) {</span>
+<span class="source-line-no">2886</span><span id="line-2886">        opts.flushCommits = Boolean.parseBoolean(cmd.substring(flushCommits.length()));</span>
+<span class="source-line-no">2887</span><span id="line-2887">        continue;</span>
+<span class="source-line-no">2888</span><span id="line-2888">      }</span>
+<span class="source-line-no">2889</span><span id="line-2889"></span>
+<span class="source-line-no">2890</span><span id="line-2890">      final String writeToWAL = "--writeToWAL=";</span>
+<span class="source-line-no">2891</span><span id="line-2891">      if (cmd.startsWith(writeToWAL)) {</span>
+<span class="source-line-no">2892</span><span id="line-2892">        opts.writeToWAL = Boolean.parseBoolean(cmd.substring(writeToWAL.length()));</span>
+<span class="source-line-no">2893</span><span id="line-2893">        continue;</span>
+<span class="source-line-no">2894</span><span id="line-2894">      }</span>
+<span class="source-line-no">2895</span><span id="line-2895"></span>
+<span class="source-line-no">2896</span><span id="line-2896">      final String presplit = "--presplit=";</span>
+<span class="source-line-no">2897</span><span id="line-2897">      if (cmd.startsWith(presplit)) {</span>
+<span class="source-line-no">2898</span><span id="line-2898">        opts.presplitRegions = Integer.parseInt(cmd.substring(presplit.length()));</span>
+<span class="source-line-no">2899</span><span id="line-2899">        continue;</span>
+<span class="source-line-no">2900</span><span id="line-2900">      }</span>
+<span class="source-line-no">2901</span><span id="line-2901"></span>
+<span class="source-line-no">2902</span><span id="line-2902">      final String inMemory = "--inmemory=";</span>
+<span class="source-line-no">2903</span><span id="line-2903">      if (cmd.startsWith(inMemory)) {</span>
+<span class="source-line-no">2904</span><span id="line-2904">        opts.inMemoryCF = Boolean.parseBoolean(cmd.substring(inMemory.length()));</span>
+<span class="source-line-no">2905</span><span id="line-2905">        continue;</span>
+<span class="source-line-no">2906</span><span id="line-2906">      }</span>
+<span class="source-line-no">2907</span><span id="line-2907"></span>
+<span class="source-line-no">2908</span><span id="line-2908">      final String autoFlush = "--autoFlush=";</span>
+<span class="source-line-no">2909</span><span id="line-2909">      if (cmd.startsWith(autoFlush)) {</span>
+<span class="source-line-no">2910</span><span id="line-2910">        opts.autoFlush = Boolean.parseBoolean(cmd.substring(autoFlush.length()));</span>
+<span class="source-line-no">2911</span><span id="line-2911">        continue;</span>
+<span class="source-line-no">2912</span><span id="line-2912">      }</span>
+<span class="source-line-no">2913</span><span id="line-2913"></span>
+<span class="source-line-no">2914</span><span id="line-2914">      final String onceCon = "--oneCon=";</span>
+<span class="source-line-no">2915</span><span id="line-2915">      if (cmd.startsWith(onceCon)) {</span>
+<span class="source-line-no">2916</span><span id="line-2916">        opts.oneCon = Boolean.parseBoolean(cmd.substring(onceCon.length()));</span>
+<span class="source-line-no">2917</span><span id="line-2917">        continue;</span>
+<span class="source-line-no">2918</span><span id="line-2918">      }</span>
+<span class="source-line-no">2919</span><span id="line-2919"></span>
+<span class="source-line-no">2920</span><span id="line-2920">      final String connCount = "--connCount=";</span>
+<span class="source-line-no">2921</span><span id="line-2921">      if (cmd.startsWith(connCount)) {</span>
+<span class="source-line-no">2922</span><span id="line-2922">        opts.connCount = Integer.parseInt(cmd.substring(connCount.length()));</span>
+<span class="source-line-no">2923</span><span id="line-2923">        continue;</span>
+<span class="source-line-no">2924</span><span id="line-2924">      }</span>
+<span class="source-line-no">2925</span><span id="line-2925"></span>
+<span class="source-line-no">2926</span><span id="line-2926">      final String latencyThreshold = "--latencyThreshold=";</span>
+<span class="source-line-no">2927</span><span id="line-2927">      if (cmd.startsWith(latencyThreshold)) {</span>
+<span class="source-line-no">2928</span><span id="line-2928">        opts.latencyThreshold = Integer.parseInt(cmd.substring(latencyThreshold.length()));</span>
+<span class="source-line-no">2929</span><span id="line-2929">        continue;</span>
+<span class="source-line-no">2930</span><span id="line-2930">      }</span>
+<span class="source-line-no">2931</span><span id="line-2931"></span>
+<span class="source-line-no">2932</span><span id="line-2932">      final String latency = "--latency";</span>
+<span class="source-line-no">2933</span><span id="line-2933">      if (cmd.startsWith(latency)) {</span>
+<span class="source-line-no">2934</span><span id="line-2934">        opts.reportLatency = true;</span>
+<span class="source-line-no">2935</span><span id="line-2935">        continue;</span>
+<span class="source-line-no">2936</span><span id="line-2936">      }</span>
+<span class="source-line-no">2937</span><span id="line-2937"></span>
+<span class="source-line-no">2938</span><span id="line-2938">      final String multiGet = "--multiGet=";</span>
+<span class="source-line-no">2939</span><span id="line-2939">      if (cmd.startsWith(multiGet)) {</span>
+<span class="source-line-no">2940</span><span id="line-2940">        opts.multiGet = Integer.parseInt(cmd.substring(multiGet.length()));</span>
+<span class="source-line-no">2941</span><span id="line-2941">        continue;</span>
+<span class="source-line-no">2942</span><span id="line-2942">      }</span>
+<span class="source-line-no">2943</span><span id="line-2943"></span>
+<span class="source-line-no">2944</span><span id="line-2944">      final String multiPut = "--multiPut=";</span>
+<span class="source-line-no">2945</span><span id="line-2945">      if (cmd.startsWith(multiPut)) {</span>
+<span class="source-line-no">2946</span><span id="line-2946">        opts.multiPut = Integer.parseInt(cmd.substring(multiPut.length()));</span>
+<span class="source-line-no">2947</span><span id="line-2947">        continue;</span>
+<span class="source-line-no">2948</span><span id="line-2948">      }</span>
+<span class="source-line-no">2949</span><span id="line-2949"></span>
+<span class="source-line-no">2950</span><span id="line-2950">      final String useTags = "--usetags=";</span>
+<span class="source-line-no">2951</span><span id="line-2951">      if (cmd.startsWith(useTags)) {</span>
+<span class="source-line-no">2952</span><span id="line-2952">        opts.useTags = Boolean.parseBoolean(cmd.substring(useTags.length()));</span>
+<span class="source-line-no">2953</span><span id="line-2953">        continue;</span>
+<span class="source-line-no">2954</span><span id="line-2954">      }</span>
+<span class="source-line-no">2955</span><span id="line-2955"></span>
+<span class="source-line-no">2956</span><span id="line-2956">      final String noOfTags = "--numoftags=";</span>
+<span class="source-line-no">2957</span><span id="line-2957">      if (cmd.startsWith(noOfTags)) {</span>
+<span class="source-line-no">2958</span><span id="line-2958">        opts.noOfTags = Integer.parseInt(cmd.substring(noOfTags.length()));</span>
+<span class="source-line-no">2959</span><span id="line-2959">        continue;</span>
+<span class="source-line-no">2960</span><span id="line-2960">      }</span>
+<span class="source-line-no">2961</span><span id="line-2961"></span>
+<span class="source-line-no">2962</span><span id="line-2962">      final String replicas = "--replicas=";</span>
+<span class="source-line-no">2963</span><span id="line-2963">      if (cmd.startsWith(replicas)) {</span>
+<span class="source-line-no">2964</span><span id="line-2964">        opts.replicas = Integer.parseInt(cmd.substring(replicas.length()));</span>
+<span class="source-line-no">2965</span><span id="line-2965">        continue;</span>
+<span class="source-line-no">2966</span><span id="line-2966">      }</span>
+<span class="source-line-no">2967</span><span id="line-2967"></span>
+<span class="source-line-no">2968</span><span id="line-2968">      final String filterOutAll = "--filterAll";</span>
+<span class="source-line-no">2969</span><span id="line-2969">      if (cmd.startsWith(filterOutAll)) {</span>
+<span class="source-line-no">2970</span><span id="line-2970">        opts.filterAll = true;</span>
+<span class="source-line-no">2971</span><span id="line-2971">        continue;</span>
+<span class="source-line-no">2972</span><span id="line-2972">      }</span>
+<span class="source-line-no">2973</span><span id="line-2973"></span>
+<span class="source-line-no">2974</span><span id="line-2974">      final String size = "--size=";</span>
+<span class="source-line-no">2975</span><span id="line-2975">      if (cmd.startsWith(size)) {</span>
+<span class="source-line-no">2976</span><span id="line-2976">        opts.size = Float.parseFloat(cmd.substring(size.length()));</span>
+<span class="source-line-no">2977</span><span id="line-2977">        if (opts.size &lt;= 1.0f) throw new IllegalStateException("Size must be &gt; 1; i.e. 1GB");</span>
+<span class="source-line-no">2978</span><span id="line-2978">        continue;</span>
+<span class="source-line-no">2979</span><span id="line-2979">      }</span>
+<span class="source-line-no">2980</span><span id="line-2980"></span>
+<span class="source-line-no">2981</span><span id="line-2981">      final String splitPolicy = "--splitPolicy=";</span>
+<span class="source-line-no">2982</span><span id="line-2982">      if (cmd.startsWith(splitPolicy)) {</span>
+<span class="source-line-no">2983</span><span id="line-2983">        opts.splitPolicy = cmd.substring(splitPolicy.length());</span>
+<span class="source-line-no">2984</span><span id="line-2984">        continue;</span>
+<span class="source-line-no">2985</span><span id="line-2985">      }</span>
+<span class="source-line-no">2986</span><span id="line-2986"></span>
+<span class="source-line-no">2987</span><span id="line-2987">      final String randomSleep = "--randomSleep=";</span>
+<span class="source-line-no">2988</span><span id="line-2988">      if (cmd.startsWith(randomSleep)) {</span>
+<span class="source-line-no">2989</span><span id="line-2989">        opts.randomSleep = Integer.parseInt(cmd.substring(randomSleep.length()));</span>
+<span class="source-line-no">2990</span><span id="line-2990">        continue;</span>
+<span class="source-line-no">2991</span><span id="line-2991">      }</span>
+<span class="source-line-no">2992</span><span id="line-2992"></span>
+<span class="source-line-no">2993</span><span id="line-2993">      final String measureAfter = "--measureAfter=";</span>
+<span class="source-line-no">2994</span><span id="line-2994">      if (cmd.startsWith(measureAfter)) {</span>
+<span class="source-line-no">2995</span><span id="line-2995">        opts.measureAfter = Integer.parseInt(cmd.substring(measureAfter.length()));</span>
+<span class="source-line-no">2996</span><span id="line-2996">        continue;</span>
+<span class="source-line-no">2997</span><span id="line-2997">      }</span>
+<span class="source-line-no">2998</span><span id="line-2998"></span>
+<span class="source-line-no">2999</span><span id="line-2999">      final String bloomFilter = "--bloomFilter=";</span>
+<span class="source-line-no">3000</span><span id="line-3000">      if (cmd.startsWith(bloomFilter)) {</span>
+<span class="source-line-no">3001</span><span id="line-3001">        opts.bloomType = BloomType.valueOf(cmd.substring(bloomFilter.length()));</span>
+<span class="source-line-no">3002</span><span id="line-3002">        continue;</span>
+<span class="source-line-no">3003</span><span id="line-3003">      }</span>
+<span class="source-line-no">3004</span><span id="line-3004"></span>
+<span class="source-line-no">3005</span><span id="line-3005">      final String blockSize = "--blockSize=";</span>
+<span class="source-line-no">3006</span><span id="line-3006">      if (cmd.startsWith(blockSize)) {</span>
+<span class="source-line-no">3007</span><span id="line-3007">        opts.blockSize = Integer.parseInt(cmd.substring(blockSize.length()));</span>
+<span class="source-line-no">3008</span><span id="line-3008">        continue;</span>
+<span class="source-line-no">3009</span><span id="line-3009">      }</span>
+<span class="source-line-no">3010</span><span id="line-3010"></span>
+<span class="source-line-no">3011</span><span id="line-3011">      final String valueSize = "--valueSize=";</span>
+<span class="source-line-no">3012</span><span id="line-3012">      if (cmd.startsWith(valueSize)) {</span>
+<span class="source-line-no">3013</span><span id="line-3013">        opts.valueSize = Integer.parseInt(cmd.substring(valueSize.length()));</span>
+<span class="source-line-no">3014</span><span id="line-3014">        continue;</span>
+<span class="source-line-no">3015</span><span id="line-3015">      }</span>
+<span class="source-line-no">3016</span><span id="line-3016"></span>
+<span class="source-line-no">3017</span><span id="line-3017">      final String valueRandom = "--valueRandom";</span>
+<span class="source-line-no">3018</span><span id="line-3018">      if (cmd.startsWith(valueRandom)) {</span>
+<span class="source-line-no">3019</span><span id="line-3019">        opts.valueRandom = true;</span>
+<span class="source-line-no">3020</span><span id="line-3020">        continue;</span>
+<span class="source-line-no">3021</span><span id="line-3021">      }</span>
+<span class="source-line-no">3022</span><span id="line-3022"></span>
+<span class="source-line-no">3023</span><span id="line-3023">      final String valueZipf = "--valueZipf";</span>
+<span class="source-line-no">3024</span><span id="line-3024">      if (cmd.startsWith(valueZipf)) {</span>
+<span class="source-line-no">3025</span><span id="line-3025">        opts.valueZipf = true;</span>
+<span class="source-line-no">3026</span><span id="line-3026">        continue;</span>
+<span class="source-line-no">3027</span><span id="line-3027">      }</span>
+<span class="source-line-no">3028</span><span id="line-3028"></span>
+<span class="source-line-no">3029</span><span id="line-3029">      final String period = "--period=";</span>
+<span class="source-line-no">3030</span><span id="line-3030">      if (cmd.startsWith(period)) {</span>
+<span class="source-line-no">3031</span><span id="line-3031">        opts.period = Integer.parseInt(cmd.substring(period.length()));</span>
+<span class="source-line-no">3032</span><span id="line-3032">        continue;</span>
+<span class="source-line-no">3033</span><span id="line-3033">      }</span>
+<span class="source-line-no">3034</span><span id="line-3034"></span>
+<span class="source-line-no">3035</span><span id="line-3035">      final String addColumns = "--addColumns=";</span>
+<span class="source-line-no">3036</span><span id="line-3036">      if (cmd.startsWith(addColumns)) {</span>
+<span class="source-line-no">3037</span><span id="line-3037">        opts.addColumns = Boolean.parseBoolean(cmd.substring(addColumns.length()));</span>
+<span class="source-line-no">3038</span><span id="line-3038">        continue;</span>
+<span class="source-line-no">3039</span><span id="line-3039">      }</span>
+<span class="source-line-no">3040</span><span id="line-3040"></span>
+<span class="source-line-no">3041</span><span id="line-3041">      final String inMemoryCompaction = "--inmemoryCompaction=";</span>
+<span class="source-line-no">3042</span><span id="line-3042">      if (cmd.startsWith(inMemoryCompaction)) {</span>
+<span class="source-line-no">3043</span><span id="line-3043">        opts.inMemoryCompaction =</span>
+<span class="source-line-no">3044</span><span id="line-3044">          MemoryCompactionPolicy.valueOf(cmd.substring(inMemoryCompaction.length()));</span>
+<span class="source-line-no">3045</span><span id="line-3045">        continue;</span>
+<span class="source-line-no">3046</span><span id="line-3046">      }</span>
+<span class="source-line-no">3047</span><span id="line-3047"></span>
+<span class="source-line-no">3048</span><span id="line-3048">      final String columns = "--columns=";</span>
+<span class="source-line-no">3049</span><span id="line-3049">      if (cmd.startsWith(columns)) {</span>
+<span class="source-line-no">3050</span><span id="line-3050">        opts.columns = Integer.parseInt(cmd.substring(columns.length()));</span>
+<span class="source-line-no">3051</span><span id="line-3051">        continue;</span>
+<span class="source-line-no">3052</span><span id="line-3052">      }</span>
+<span class="source-line-no">3053</span><span id="line-3053"></span>
+<span class="source-line-no">3054</span><span id="line-3054">      final String families = "--families=";</span>
+<span class="source-line-no">3055</span><span id="line-3055">      if (cmd.startsWith(families)) {</span>
+<span class="source-line-no">3056</span><span id="line-3056">        opts.families = Integer.parseInt(cmd.substring(families.length()));</span>
+<span class="source-line-no">3057</span><span id="line-3057">        continue;</span>
+<span class="source-line-no">3058</span><span id="line-3058">      }</span>
+<span class="source-line-no">3059</span><span id="line-3059"></span>
+<span class="source-line-no">3060</span><span id="line-3060">      final String caching = "--caching=";</span>
+<span class="source-line-no">3061</span><span id="line-3061">      if (cmd.startsWith(caching)) {</span>
+<span class="source-line-no">3062</span><span id="line-3062">        opts.caching = Integer.parseInt(cmd.substring(caching.length()));</span>
+<span class="source-line-no">3063</span><span id="line-3063">        continue;</span>
+<span class="source-line-no">3064</span><span id="line-3064">      }</span>
+<span class="source-line-no">3065</span><span id="line-3065"></span>
+<span class="source-line-no">3066</span><span id="line-3066">      final String asyncPrefetch = "--asyncPrefetch";</span>
+<span class="source-line-no">3067</span><span id="line-3067">      if (cmd.startsWith(asyncPrefetch)) {</span>
+<span class="source-line-no">3068</span><span id="line-3068">        opts.asyncPrefetch = true;</span>
+<span class="source-line-no">3069</span><span id="line-3069">        continue;</span>
+<span class="source-line-no">3070</span><span id="line-3070">      }</span>
+<span class="source-line-no">3071</span><span id="line-3071"></span>
+<span class="source-line-no">3072</span><span id="line-3072">      final String cacheBlocks = "--cacheBlocks=";</span>
+<span class="source-line-no">3073</span><span id="line-3073">      if (cmd.startsWith(cacheBlocks)) {</span>
+<span class="source-line-no">3074</span><span id="line-3074">        opts.cacheBlocks = Boolean.parseBoolean(cmd.substring(cacheBlocks.length()));</span>
+<span class="source-line-no">3075</span><span id="line-3075">        continue;</span>
+<span class="source-line-no">3076</span><span id="line-3076">      }</span>
+<span class="source-line-no">3077</span><span id="line-3077"></span>
+<span class="source-line-no">3078</span><span id="line-3078">      final String scanReadType = "--scanReadType=";</span>
+<span class="source-line-no">3079</span><span id="line-3079">      if (cmd.startsWith(scanReadType)) {</span>
+<span class="source-line-no">3080</span><span id="line-3080">        opts.scanReadType =</span>
+<span class="source-line-no">3081</span><span id="line-3081">          Scan.ReadType.valueOf(cmd.substring(scanReadType.length()).toUpperCase());</span>
+<span class="source-line-no">3082</span><span id="line-3082">        continue;</span>
+<span class="source-line-no">3083</span><span id="line-3083">      }</span>
+<span class="source-line-no">3084</span><span id="line-3084"></span>
+<span class="source-line-no">3085</span><span id="line-3085">      final String bufferSize = "--bufferSize=";</span>
+<span class="source-line-no">3086</span><span id="line-3086">      if (cmd.startsWith(bufferSize)) {</span>
+<span class="source-line-no">3087</span><span id="line-3087">        opts.bufferSize = Long.parseLong(cmd.substring(bufferSize.length()));</span>
+<span class="source-line-no">3088</span><span id="line-3088">        continue;</span>
+<span class="source-line-no">3089</span><span id="line-3089">      }</span>
+<span class="source-line-no">3090</span><span id="line-3090"></span>
+<span class="source-line-no">3091</span><span id="line-3091">      final String commandPropertiesFile = "--commandPropertiesFile=";</span>
+<span class="source-line-no">3092</span><span id="line-3092">      if (cmd.startsWith(commandPropertiesFile)) {</span>
+<span class="source-line-no">3093</span><span id="line-3093">        String fileName = String.valueOf(cmd.substring(commandPropertiesFile.length()));</span>
+<span class="source-line-no">3094</span><span id="line-3094">        Properties properties = new Properties();</span>
+<span class="source-line-no">3095</span><span id="line-3095">        try {</span>
+<span class="source-line-no">3096</span><span id="line-3096">          properties</span>
+<span class="source-line-no">3097</span><span id="line-3097">            .load(PerformanceEvaluation.class.getClassLoader().getResourceAsStream(fileName));</span>
+<span class="source-line-no">3098</span><span id="line-3098">          opts.commandProperties = properties;</span>
+<span class="source-line-no">3099</span><span id="line-3099">        } catch (IOException e) {</span>
+<span class="source-line-no">3100</span><span id="line-3100">          LOG.error("Failed to load metricIds from properties file", e);</span>
+<span class="source-line-no">3101</span><span id="line-3101">        }</span>
+<span class="source-line-no">3102</span><span id="line-3102">        continue;</span>
+<span class="source-line-no">3103</span><span id="line-3103">      }</span>
+<span class="source-line-no">3104</span><span id="line-3104"></span>
+<span class="source-line-no">3105</span><span id="line-3105">      validateParsedOpts(opts);</span>
+<span class="source-line-no">3106</span><span id="line-3106"></span>
+<span class="source-line-no">3107</span><span id="line-3107">      if (isCommandClass(cmd)) {</span>
+<span class="source-line-no">3108</span><span id="line-3108">        opts.cmdName = cmd;</span>
+<span class="source-line-no">3109</span><span id="line-3109">        try {</span>
+<span class="source-line-no">3110</span><span id="line-3110">          opts.numClientThreads = Integer.parseInt(args.remove());</span>
+<span class="source-line-no">3111</span><span id="line-3111">        } catch (NoSuchElementException | NumberFormatException e) {</span>
+<span class="source-line-no">3112</span><span id="line-3112">          throw new IllegalArgumentException("Command " + cmd + " does not have threads number", e);</span>
+<span class="source-line-no">3113</span><span id="line-3113">        }</span>
+<span class="source-line-no">3114</span><span id="line-3114">        opts = calculateRowsAndSize(opts);</span>
+<span class="source-line-no">3115</span><span id="line-3115">        break;</span>
+<span class="source-line-no">3116</span><span id="line-3116">      } else {</span>
+<span class="source-line-no">3117</span><span id="line-3117">        printUsageAndExit("ERROR: Unrecognized option/command: " + cmd, -1);</span>
+<span class="source-line-no">3118</span><span id="line-3118">      }</span>
+<span class="source-line-no">3119</span><span id="line-3119"></span>
+<span class="source-line-no">3120</span><span id="line-3120">      // Not matching any option or command.</span>
+<span class="source-line-no">3121</span><span id="line-3121">      System.err.println("Error: Wrong option or command: " + cmd);</span>
+<span class="source-line-no">3122</span><span id="line-3122">      args.add(cmd);</span>
+<span class="source-line-no">3123</span><span id="line-3123">      break;</span>
+<span class="source-line-no">3124</span><span id="line-3124">    }</span>
+<span class="source-line-no">3125</span><span id="line-3125">    return opts;</span>
+<span class="source-line-no">3126</span><span id="line-3126">  }</span>
+<span class="source-line-no">3127</span><span id="line-3127"></span>
+<span class="source-line-no">3128</span><span id="line-3128">  /**</span>
+<span class="source-line-no">3129</span><span id="line-3129">   * Validates opts after all the opts are parsed, so that caller need not to maintain order of opts</span>
+<span class="source-line-no">3130</span><span id="line-3130">   */</span>
+<span class="source-line-no">3131</span><span id="line-3131">  private static void validateParsedOpts(TestOptions opts) {</span>
+<span class="source-line-no">3132</span><span id="line-3132"></span>
+<span class="source-line-no">3133</span><span id="line-3133">    if (!opts.autoFlush &amp;&amp; opts.multiPut &gt; 0) {</span>
+<span class="source-line-no">3134</span><span id="line-3134">      throw new IllegalArgumentException("autoFlush must be true when multiPut is more than 0");</span>
+<span class="source-line-no">3135</span><span id="line-3135">    }</span>
+<span class="source-line-no">3136</span><span id="line-3136"></span>
+<span class="source-line-no">3137</span><span id="line-3137">    if (opts.oneCon &amp;&amp; opts.connCount &gt; 1) {</span>
+<span class="source-line-no">3138</span><span id="line-3138">      throw new IllegalArgumentException(</span>
+<span class="source-line-no">3139</span><span id="line-3139">        "oneCon is set to true, " + "connCount should not bigger than 1");</span>
+<span class="source-line-no">3140</span><span id="line-3140">    }</span>
+<span class="source-line-no">3141</span><span id="line-3141"></span>
+<span class="source-line-no">3142</span><span id="line-3142">    if (opts.valueZipf &amp;&amp; opts.valueRandom) {</span>
+<span class="source-line-no">3143</span><span id="line-3143">      throw new IllegalStateException("Either valueZipf or valueRandom but not both");</span>
+<span class="source-line-no">3144</span><span id="line-3144">    }</span>
+<span class="source-line-no">3145</span><span id="line-3145">  }</span>
+<span class="source-line-no">3146</span><span id="line-3146"></span>
+<span class="source-line-no">3147</span><span id="line-3147">  static TestOptions calculateRowsAndSize(final TestOptions opts) {</span>
+<span class="source-line-no">3148</span><span id="line-3148">    int rowsPerGB = getRowsPerGB(opts);</span>
+<span class="source-line-no">3149</span><span id="line-3149">    if (</span>
+<span class="source-line-no">3150</span><span id="line-3150">      (opts.getCmdName() != null</span>
+<span class="source-line-no">3151</span><span id="line-3151">        &amp;&amp; (opts.getCmdName().equals(RANDOM_READ) || opts.getCmdName().equals(RANDOM_SEEK_SCAN)))</span>
+<span class="source-line-no">3152</span><span id="line-3152">        &amp;&amp; opts.size != DEFAULT_OPTS.size &amp;&amp; opts.perClientRunRows != DEFAULT_OPTS.perClientRunRows</span>
+<span class="source-line-no">3153</span><span id="line-3153">    ) {</span>
+<span class="source-line-no">3154</span><span id="line-3154">      opts.totalRows = (long) (opts.size * rowsPerGB);</span>
+<span class="source-line-no">3155</span><span id="line-3155">    } else if (opts.size != DEFAULT_OPTS.size) {</span>
+<span class="source-line-no">3156</span><span id="line-3156">      // total size in GB specified</span>
+<span class="source-line-no">3157</span><span id="line-3157">      opts.totalRows = (long) (opts.size * rowsPerGB);</span>
+<span class="source-line-no">3158</span><span id="line-3158">      opts.perClientRunRows = opts.totalRows / opts.numClientThreads;</span>
+<span class="source-line-no">3159</span><span id="line-3159">    } else {</span>
+<span class="source-line-no">3160</span><span id="line-3160">      opts.totalRows = opts.perClientRunRows * opts.numClientThreads;</span>
+<span class="source-line-no">3161</span><span id="line-3161">      // Cast to float to ensure floating-point division</span>
+<span class="source-line-no">3162</span><span id="line-3162">      opts.size = (float) opts.totalRows / rowsPerGB;</span>
+<span class="source-line-no">3163</span><span id="line-3163">    }</span>
+<span class="source-line-no">3164</span><span id="line-3164">    return opts;</span>
+<span class="source-line-no">3165</span><span id="line-3165">  }</span>
+<span class="source-line-no">3166</span><span id="line-3166"></span>
+<span class="source-line-no">3167</span><span id="line-3167">  static int getRowsPerGB(final TestOptions opts) {</span>
+<span class="source-line-no">3168</span><span id="line-3168">    return ONE_GB / ((opts.valueRandom ? opts.valueSize / 2 : opts.valueSize) * opts.getFamilies()</span>
+<span class="source-line-no">3169</span><span id="line-3169">      * opts.getColumns());</span>
+<span class="source-line-no">3170</span><span id="line-3170">  }</span>
+<span class="source-line-no">3171</span><span id="line-3171"></span>
+<span class="source-line-no">3172</span><span id="line-3172">  @Override</span>
+<span class="source-line-no">3173</span><span id="line-3173">  public int run(String[] args) throws Exception {</span>
+<span class="source-line-no">3174</span><span id="line-3174">    // Process command-line args. TODO: Better cmd-line processing</span>
+<span class="source-line-no">3175</span><span id="line-3175">    // (but hopefully something not as painful as cli options).</span>
+<span class="source-line-no">3176</span><span id="line-3176">    int errCode = -1;</span>
+<span class="source-line-no">3177</span><span id="line-3177">    if (args.length &lt; 1) {</span>
+<span class="source-line-no">3178</span><span id="line-3178">      printUsage();</span>
+<span class="source-line-no">3179</span><span id="line-3179">      return errCode;</span>
+<span class="source-line-no">3180</span><span id="line-3180">    }</span>
+<span class="source-line-no">3181</span><span id="line-3181"></span>
+<span class="source-line-no">3182</span><span id="line-3182">    try {</span>
+<span class="source-line-no">3183</span><span id="line-3183">      LinkedList&lt;String&gt; argv = new LinkedList&lt;&gt;();</span>
+<span class="source-line-no">3184</span><span id="line-3184">      argv.addAll(Arrays.asList(args));</span>
+<span class="source-line-no">3185</span><span id="line-3185">      TestOptions opts = parseOpts(argv);</span>
+<span class="source-line-no">3186</span><span id="line-3186"></span>
+<span class="source-line-no">3187</span><span id="line-3187">      // args remaining, print help and exit</span>
+<span class="source-line-no">3188</span><span id="line-3188">      if (!argv.isEmpty()) {</span>
+<span class="source-line-no">3189</span><span id="line-3189">        errCode = 0;</span>
+<span class="source-line-no">3190</span><span id="line-3190">        printUsage();</span>
+<span class="source-line-no">3191</span><span id="line-3191">        return errCode;</span>
+<span class="source-line-no">3192</span><span id="line-3192">      }</span>
+<span class="source-line-no">3193</span><span id="line-3193"></span>
+<span class="source-line-no">3194</span><span id="line-3194">      // must run at least 1 client</span>
+<span class="source-line-no">3195</span><span id="line-3195">      if (opts.numClientThreads &lt;= 0) {</span>
+<span class="source-line-no">3196</span><span id="line-3196">        throw new IllegalArgumentException("Number of clients must be &gt; 0");</span>
+<span class="source-line-no">3197</span><span id="line-3197">      }</span>
+<span class="source-line-no">3198</span><span id="line-3198"></span>
+<span class="source-line-no">3199</span><span id="line-3199">      // cmdName should not be null, print help and exit</span>
+<span class="source-line-no">3200</span><span id="line-3200">      if (opts.cmdName == null) {</span>
+<span class="source-line-no">3201</span><span id="line-3201">        printUsage();</span>
+<span class="source-line-no">3202</span><span id="line-3202">        return errCode;</span>
+<span class="source-line-no">3203</span><span id="line-3203">      }</span>
+<span class="source-line-no">3204</span><span id="line-3204"></span>
+<span class="source-line-no">3205</span><span id="line-3205">      Class&lt;? extends TestBase&gt; cmdClass = determineCommandClass(opts.cmdName);</span>
+<span class="source-line-no">3206</span><span id="line-3206">      if (cmdClass != null) {</span>
+<span class="source-line-no">3207</span><span id="line-3207">        runTest(cmdClass, opts);</span>
+<span class="source-line-no">3208</span><span id="line-3208">        errCode = 0;</span>
+<span class="source-line-no">3209</span><span id="line-3209">      }</span>
+<span class="source-line-no">3210</span><span id="line-3210"></span>
+<span class="source-line-no">3211</span><span id="line-3211">    } catch (Exception e) {</span>
+<span class="source-line-no">3212</span><span id="line-3212">      e.printStackTrace();</span>
+<span class="source-line-no">3213</span><span id="line-3213">    }</span>
+<span class="source-line-no">3214</span><span id="line-3214"></span>
+<span class="source-line-no">3215</span><span id="line-3215">    return errCode;</span>
+<span class="source-line-no">3216</span><span id="line-3216">  }</span>
+<span class="source-line-no">3217</span><span id="line-3217"></span>
+<span class="source-line-no">3218</span><span id="line-3218">  private static boolean isCommandClass(String cmd) {</span>
+<span class="source-line-no">3219</span><span id="line-3219">    return COMMANDS.containsKey(cmd) || isCustomTestClass(cmd);</span>
+<span class="source-line-no">3220</span><span id="line-3220">  }</span>
+<span class="source-line-no">3221</span><span id="line-3221"></span>
+<span class="source-line-no">3222</span><span id="line-3222">  private static boolean isCustomTestClass(String cmd) {</span>
+<span class="source-line-no">3223</span><span id="line-3223">    Class&lt;? extends Test&gt; cmdClass;</span>
+<span class="source-line-no">3224</span><span id="line-3224">    try {</span>
+<span class="source-line-no">3225</span><span id="line-3225">      cmdClass =</span>
+<span class="source-line-no">3226</span><span id="line-3226">        (Class&lt;? extends Test&gt;) PerformanceEvaluation.class.getClassLoader().loadClass(cmd);</span>
+<span class="source-line-no">3227</span><span id="line-3227">      addCommandDescriptor(cmdClass, cmd, "custom command");</span>
+<span class="source-line-no">3228</span><span id="line-3228">      return true;</span>
+<span class="source-line-no">3229</span><span id="line-3229">    } catch (Throwable th) {</span>
+<span class="source-line-no">3230</span><span id="line-3230">      LOG.info("No class found for command: " + cmd, th);</span>
+<span class="source-line-no">3231</span><span id="line-3231">      return false;</span>
+<span class="source-line-no">3232</span><span id="line-3232">    }</span>
+<span class="source-line-no">3233</span><span id="line-3233">  }</span>
+<span class="source-line-no">3234</span><span id="line-3234"></span>
+<span class="source-line-no">3235</span><span id="line-3235">  private static Class&lt;? extends TestBase&gt; determineCommandClass(String cmd) {</span>
+<span class="source-line-no">3236</span><span id="line-3236">    CmdDescriptor descriptor = COMMANDS.get(cmd);</span>
+<span class="source-line-no">3237</span><span id="line-3237">    return descriptor != null ? descriptor.getCmdClass() : null;</span>
+<span class="source-line-no">3238</span><span id="line-3238">  }</span>
+<span class="source-line-no">3239</span><span id="line-3239"></span>
+<span class="source-line-no">3240</span><span id="line-3240">  public static void main(final String[] args) throws Exception {</span>
+<span class="source-line-no">3241</span><span id="line-3241">    int res = ToolRunner.run(new PerformanceEvaluation(HBaseConfiguration.create()), args);</span>
+<span class="source-line-no">3242</span><span id="line-3242">    System.exit(res);</span>
+<span class="source-line-no">3243</span><span id="line-3243">  }</span>
+<span class="source-line-no">3244</span><span id="line-3244">}</span>
 
 
 
