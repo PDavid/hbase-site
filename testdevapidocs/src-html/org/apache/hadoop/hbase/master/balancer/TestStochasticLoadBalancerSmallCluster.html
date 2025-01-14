@@ -51,31 +51,33 @@
 <span class="source-line-no">038</span><span id="line-38">    int numRegionsPerServer = 40; // all servers except one</span>
 <span class="source-line-no">039</span><span id="line-39">    int replication = 1;</span>
 <span class="source-line-no">040</span><span id="line-40">    int numTables = 10;</span>
-<span class="source-line-no">041</span><span id="line-41">    testWithCluster(numNodes, numRegions, numRegionsPerServer, replication, numTables, true, true);</span>
-<span class="source-line-no">042</span><span id="line-42">  }</span>
-<span class="source-line-no">043</span><span id="line-43"></span>
-<span class="source-line-no">044</span><span id="line-44">  @Test</span>
-<span class="source-line-no">045</span><span id="line-45">  public void testSmallCluster2() {</span>
-<span class="source-line-no">046</span><span id="line-46">    int numNodes = 20;</span>
-<span class="source-line-no">047</span><span id="line-47">    int numRegions = 2000;</span>
-<span class="source-line-no">048</span><span id="line-48">    int numRegionsPerServer = 40; // all servers except one</span>
-<span class="source-line-no">049</span><span id="line-49">    int replication = 1;</span>
-<span class="source-line-no">050</span><span id="line-50">    int numTables = 10;</span>
-<span class="source-line-no">051</span><span id="line-51">    testWithCluster(numNodes, numRegions, numRegionsPerServer, replication, numTables, true, true);</span>
-<span class="source-line-no">052</span><span id="line-52">  }</span>
-<span class="source-line-no">053</span><span id="line-53"></span>
-<span class="source-line-no">054</span><span id="line-54">  @Test</span>
-<span class="source-line-no">055</span><span id="line-55">  public void testSmallCluster3() {</span>
-<span class="source-line-no">056</span><span id="line-56">    int numNodes = 20;</span>
-<span class="source-line-no">057</span><span id="line-57">    int numRegions = 2000;</span>
-<span class="source-line-no">058</span><span id="line-58">    int numRegionsPerServer = 1; // all servers except one</span>
-<span class="source-line-no">059</span><span id="line-59">    int replication = 1;</span>
-<span class="source-line-no">060</span><span id="line-60">    int numTables = 10;</span>
-<span class="source-line-no">061</span><span id="line-61">    // fails because of max moves</span>
-<span class="source-line-no">062</span><span id="line-62">    testWithCluster(numNodes, numRegions, numRegionsPerServer, replication, numTables, false,</span>
-<span class="source-line-no">063</span><span id="line-63">      false);</span>
-<span class="source-line-no">064</span><span id="line-64">  }</span>
-<span class="source-line-no">065</span><span id="line-65">}</span>
+<span class="source-line-no">041</span><span id="line-41">    testWithClusterWithIteration(numNodes, numRegions, numRegionsPerServer, replication, numTables,</span>
+<span class="source-line-no">042</span><span id="line-42">      true, true);</span>
+<span class="source-line-no">043</span><span id="line-43">  }</span>
+<span class="source-line-no">044</span><span id="line-44"></span>
+<span class="source-line-no">045</span><span id="line-45">  @Test</span>
+<span class="source-line-no">046</span><span id="line-46">  public void testSmallCluster2() {</span>
+<span class="source-line-no">047</span><span id="line-47">    int numNodes = 20;</span>
+<span class="source-line-no">048</span><span id="line-48">    int numRegions = 2000;</span>
+<span class="source-line-no">049</span><span id="line-49">    int numRegionsPerServer = 40; // all servers except one</span>
+<span class="source-line-no">050</span><span id="line-50">    int replication = 1;</span>
+<span class="source-line-no">051</span><span id="line-51">    int numTables = 10;</span>
+<span class="source-line-no">052</span><span id="line-52">    testWithClusterWithIteration(numNodes, numRegions, numRegionsPerServer, replication, numTables,</span>
+<span class="source-line-no">053</span><span id="line-53">      true, true);</span>
+<span class="source-line-no">054</span><span id="line-54">  }</span>
+<span class="source-line-no">055</span><span id="line-55"></span>
+<span class="source-line-no">056</span><span id="line-56">  @Test</span>
+<span class="source-line-no">057</span><span id="line-57">  public void testSmallCluster3() {</span>
+<span class="source-line-no">058</span><span id="line-58">    int numNodes = 20;</span>
+<span class="source-line-no">059</span><span id="line-59">    int numRegions = 2000;</span>
+<span class="source-line-no">060</span><span id="line-60">    int numRegionsPerServer = 1; // all servers except one</span>
+<span class="source-line-no">061</span><span id="line-61">    int replication = 1;</span>
+<span class="source-line-no">062</span><span id="line-62">    int numTables = 10;</span>
+<span class="source-line-no">063</span><span id="line-63">    // fails because of max moves</span>
+<span class="source-line-no">064</span><span id="line-64">    testWithClusterWithIteration(numNodes, numRegions, numRegionsPerServer, replication, numTables,</span>
+<span class="source-line-no">065</span><span id="line-65">      false, false);</span>
+<span class="source-line-no">066</span><span id="line-66">  }</span>
+<span class="source-line-no">067</span><span id="line-67">}</span>
 
 
 

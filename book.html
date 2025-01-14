@@ -1812,6 +1812,11 @@ officially EOL Hadoop 2.x yet.</p>
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><span class="icon green"><i class="fa fa-check-circle"></i></span></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><span class="icon green"><i class="fa fa-check-circle"></i></span></p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Hadoop-3.4.0+</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><span class="icon green"><i class="fa fa-check-circle"></i></span> (2.5.11+)</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><span class="icon green"><i class="fa fa-check-circle"></i></span> (2.6.2+)</p></td>
+</tr>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
@@ -2232,7 +2237,39 @@ HBase appears hung.</p>
 </table>
 </div>
 <div class="sect3">
-<h4 id="dfs.datanode.max.transfer.threads"><a class="anchor" href="#dfs.datanode.max.transfer.threads"></a>4.1.1. <code>dfs.datanode.max.transfer.threads</code> </h4>
+<h4 id="binary_release_hadoop_version"><a class="anchor" href="#binary_release_hadoop_version"></a>4.1.1. Hadoop 3 Support for the HBase Binary Releases and Maven Artifacts</h4>
+<div class="paragraph">
+<p>For HBase 2.5.1 and earlier, the official HBase binary releases and Maven artifacts were built with Hadoop 2.x.</p>
+</div>
+<div class="paragraph">
+<p>Starting with HBase 2.5.2, HBase provides binary releases and Maven artifacts built with both Hadoop 2.x and Hadoop 3.x.
+The Hadoop 2 artifacts do not have any version suffix, the Hadoop 3 artifacts add the <code>-hadoop-3</code> suffix to the version.
+i.e. <code>hbase-2.5.2-bin.tar.gz.asc</code> is the Binary release built with Hadoop2, and <code>hbase-2.5.2-hadoop3-bin.tar.gz</code> is the
+release built with Hadoop 3.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="default_hadoop_version_policy"><a class="anchor" href="#default_hadoop_version_policy"></a>4.1.2. Hadoop 3 version policy</h4>
+<div class="paragraph">
+<p>Each HBase release has a default Hadoop 3 version. This is used when the Hadoop 3 version is not specified during build,
+and for building the official binary releases and artifacts. Generally when a new minor version is released
+(i.e. 2.5.0) the default version is set to the latest supported Hadoop 3 version at the start of the release
+process.</p>
+</div>
+<div class="paragraph">
+<p>Up to HBase 2.5.10 and 2.6.1 even if HBase added support for newer Hadoop 3 releases in a patch release,
+the default Hadoop 3 version (and the one used in the official binary releases) was not updated.
+This simplified upgrading, but meant that HBase releases often included old unfixed CVEs both from Hadoop and Hadoop&#8217;s
+dependencies, even when newer Hadoop releases with fixes were available.</p>
+</div>
+<div class="paragraph">
+<p>Starting with HBase 2.5.11 and 2.6.2, the default Hadoop 3 version is always set to the latest supported Hadoop 3 version,
+and is also used for the <code>-hadoop3</code> binary releases and artifacts. This will drastically reduce the number of known CVEs
+shipped in the HBase binary releases, and make sure that all fixes and improvements in Hadoop are included.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="dfs.datanode.max.transfer.threads"><a class="anchor" href="#dfs.datanode.max.transfer.threads"></a>4.1.3. <code>dfs.datanode.max.transfer.threads</code> </h4>
 <div class="paragraph">
 <p>An HDFS DataNode has an upper bound on the number of files that it will serve at any one time.
 Before doing any loading, make sure you have configured Hadoop&#8217;s <em>conf/hdfs-site.xml</em>, setting the
@@ -49743,7 +49780,7 @@ org/apache/hadoop/hbase/security/access/AccessControlClient.revoke:(Lorg/apache/
 <div id="footer">
 <div id="footer-text">
 Version 4.0.0-alpha-1-SNAPSHOT<br>
-Last updated 2025-01-13 14:30:54 UTC
+Last updated 2025-01-14 14:29:58 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">

@@ -1217,13 +1217,13 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getMergesDir(org.apache.hadoop.hbase.client.RegionInfo)">
 <h3>getMergesDir</h3>
-<div class="member-signature"><span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/HRegionFileSystem.html#line-711">getMergesDir</a></span><wbr><span class="parameters">(<a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;hri)</span></div>
+<div class="member-signature"><span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/HRegionFileSystem.html#line-710">getMergesDir</a></span><wbr><span class="parameters">(<a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;hri)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="cleanupMergedRegion(org.apache.hadoop.hbase.client.RegionInfo)">
 <h3>cleanupMergedRegion</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/HRegionFileSystem.html#line-719">cleanupMergedRegion</a></span><wbr><span class="parameters">(<a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;mergedRegion)</span>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/HRegionFileSystem.html#line-718">cleanupMergedRegion</a></span><wbr><span class="parameters">(<a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;mergedRegion)</span>
                          throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Remove merged region</div>
 <dl class="notes">
@@ -1237,7 +1237,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="mkdirs(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.Path)">
 <h3>mkdirs</h3>
-<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/HRegionFileSystem.html#line-726">mkdirs</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.FileSystem&nbsp;fs,
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/HRegionFileSystem.html#line-725">mkdirs</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.fs.Path&nbsp;dir)</span>
                throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
@@ -1250,7 +1250,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="mergeStoreFile(org.apache.hadoop.hbase.client.RegionInfo,java.lang.String,org.apache.hadoop.hbase.regionserver.HStoreFile,org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker)">
 <h3>mergeStoreFile</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/HRegionFileSystem.html#line-745">mergeStoreFile</a></span><wbr><span class="parameters">(<a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;mergingRegion,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/HRegionFileSystem.html#line-744">mergeStoreFile</a></span><wbr><span class="parameters">(<a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;mergingRegion,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;familyName,
  <a href="HStoreFile.html" title="class in org.apache.hadoop.hbase.regionserver">HStoreFile</a>&nbsp;f,
  <a href="storefiletracker/StoreFileTracker.html" title="interface in org.apache.hadoop.hbase.regionserver.storefiletracker">StoreFileTracker</a>&nbsp;tracker)</span>
@@ -1271,7 +1271,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="commitMergedRegion(java.util.List,org.apache.hadoop.hbase.master.procedure.MasterProcedureEnv)">
 <h3>commitMergedRegion</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/HRegionFileSystem.html#line-765">commitMergedRegion</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;org.apache.hadoop.fs.Path&gt;&nbsp;allMergedFiles,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/HRegionFileSystem.html#line-764">commitMergedRegion</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;org.apache.hadoop.fs.Path&gt;&nbsp;allMergedFiles,
  <a href="../master/procedure/MasterProcedureEnv.html" title="class in org.apache.hadoop.hbase.master.procedure">MasterProcedureEnv</a>&nbsp;env)</span>
                         throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Commit a merged region, making it ready for use.</div>
@@ -1284,7 +1284,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getRegionInfoFileContent(org.apache.hadoop.hbase.client.RegionInfo)">
 <h3>getRegionInfoFileContent</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">byte[]</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/HRegionFileSystem.html#line-782">getRegionInfoFileContent</a></span><wbr><span class="parameters">(<a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;hri)</span>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">byte[]</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/HRegionFileSystem.html#line-781">getRegionInfoFileContent</a></span><wbr><span class="parameters">(<a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;hri)</span>
                                         throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Returns Content of the file we write out to the filesystem under a region</div>
 <dl class="notes">
@@ -1296,7 +1296,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="loadRegionInfoFileContent(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path)">
 <h3>loadRegionInfoFileContent</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/HRegionFileSystem.html#line-793">loadRegionInfoFileContent</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.FileSystem&nbsp;fs,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/HRegionFileSystem.html#line-792">loadRegionInfoFileContent</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.Path&nbsp;regionDir)</span>
                                             throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Create a <a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client"><code>RegionInfo</code></a> from the serialized version on-disk.</div>
@@ -1314,7 +1314,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="writeRegionInfoFileContent(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,byte[])">
 <h3>writeRegionInfoFileContent</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/HRegionFileSystem.html#line-808">writeRegionInfoFileContent</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/HRegionFileSystem.html#line-807">writeRegionInfoFileContent</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.Path&nbsp;regionInfoFile,
  byte[]&nbsp;content)</span>
@@ -1331,7 +1331,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="checkRegionInfoOnFilesystem()">
 <h3>checkRegionInfoOnFilesystem</h3>
-<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/HRegionFileSystem.html#line-822">checkRegionInfoOnFilesystem</a></span>()
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/HRegionFileSystem.html#line-821">checkRegionInfoOnFilesystem</a></span>()
                           throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Write out an info file under the stored region directory. Useful recovering mangled regions. If
  the regionInfo already exists on-disk, then we fast exit.</div>
@@ -1344,7 +1344,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="writeRegionInfoOnFilesystem(boolean)">
 <h3>writeRegionInfoOnFilesystem</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/HRegionFileSystem.html#line-866">writeRegionInfoOnFilesystem</a></span><wbr><span class="parameters">(boolean&nbsp;useTempDir)</span>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/HRegionFileSystem.html#line-865">writeRegionInfoOnFilesystem</a></span><wbr><span class="parameters">(boolean&nbsp;useTempDir)</span>
                                   throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Write out an info file under the region directory. Useful recovering mangled regions.</div>
 <dl class="notes">
@@ -1358,7 +1358,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="writeRegionInfoOnFilesystem(byte[],boolean)">
 <h3>writeRegionInfoOnFilesystem</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/HRegionFileSystem.html#line-877">writeRegionInfoOnFilesystem</a></span><wbr><span class="parameters">(byte[]&nbsp;regionInfoContent,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/HRegionFileSystem.html#line-876">writeRegionInfoOnFilesystem</a></span><wbr><span class="parameters">(byte[]&nbsp;regionInfoContent,
  boolean&nbsp;useTempDir)</span>
                                   throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Write out an info file under the region directory. Useful recovering mangled regions.</div>
@@ -1375,7 +1375,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="createRegionOnFileSystem(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.client.RegionInfo)">
 <h3>createRegionOnFileSystem</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="HRegionFileSystem.html" title="class in org.apache.hadoop.hbase.regionserver">HRegionFileSystem</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/HRegionFileSystem.html#line-918">createRegionOnFileSystem</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="HRegionFileSystem.html" title="class in org.apache.hadoop.hbase.regionserver">HRegionFileSystem</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/HRegionFileSystem.html#line-917">createRegionOnFileSystem</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.Path&nbsp;tableDir,
  <a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;regionInfo)</span>
@@ -1395,7 +1395,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="openRegionFromFileSystem(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.client.RegionInfo,boolean)">
 <h3>openRegionFromFileSystem</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="HRegionFileSystem.html" title="class in org.apache.hadoop.hbase.regionserver">HRegionFileSystem</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/HRegionFileSystem.html#line-953">openRegionFromFileSystem</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="HRegionFileSystem.html" title="class in org.apache.hadoop.hbase.regionserver">HRegionFileSystem</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/HRegionFileSystem.html#line-952">openRegionFromFileSystem</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.Path&nbsp;tableDir,
  <a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;regionInfo,
@@ -1417,7 +1417,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="deleteRegionFromFileSystem(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.client.RegionInfo)">
 <h3>deleteRegionFromFileSystem</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/HRegionFileSystem.html#line-990">deleteRegionFromFileSystem</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/HRegionFileSystem.html#line-989">deleteRegionFromFileSystem</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.Path&nbsp;tableDir,
  <a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;regionInfo)</span>
@@ -1437,7 +1437,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="createDir(org.apache.hadoop.fs.Path)">
 <h3>createDir</h3>
-<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/HRegionFileSystem.html#line-1019">createDir</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;dir)</span>
+<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/HRegionFileSystem.html#line-1018">createDir</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;dir)</span>
            throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Creates a directory. Assumes the user has already checked for this directory existence.</div>
 <dl class="notes">
@@ -1452,7 +1452,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="rename(org.apache.hadoop.fs.Path,org.apache.hadoop.fs.Path)">
 <h3>rename</h3>
-<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/HRegionFileSystem.html#line-1042">rename</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;srcpath,
+<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/HRegionFileSystem.html#line-1041">rename</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;srcpath,
  org.apache.hadoop.fs.Path&nbsp;dstPath)</span>
         throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Renames a directory. Assumes the user has already checked for this directory existence.</div>
@@ -1467,7 +1467,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="deleteDir(org.apache.hadoop.fs.Path)">
 <h3>deleteDir</h3>
-<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/HRegionFileSystem.html#line-1067">deleteDir</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;dir)</span>
+<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/HRegionFileSystem.html#line-1066">deleteDir</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;dir)</span>
            throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Deletes a directory. Assumes the user has already checked for this directory existence.</div>
 <dl class="notes">
@@ -1481,7 +1481,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="sleepBeforeRetry(java.lang.String,int)">
 <h3>sleepBeforeRetry</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/HRegionFileSystem.html#line-1091">sleepBeforeRetry</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;msg,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/HRegionFileSystem.html#line-1090">sleepBeforeRetry</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;msg,
  int&nbsp;sleepMultiplier)</span>
                        throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/InterruptedException.html" title="class or interface in java.lang" class="external-link">InterruptedException</a></span></div>
 <div class="block">sleeping logic; handles the interrupt exception.</div>
@@ -1494,7 +1494,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="createDirOnFileSystem(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.Path)">
 <h3>createDirOnFileSystem</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/HRegionFileSystem.html#line-1101">createDirOnFileSystem</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.FileSystem&nbsp;fs,
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/HRegionFileSystem.html#line-1100">createDirOnFileSystem</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.fs.Path&nbsp;dir)</span>
                                       throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
@@ -1512,7 +1512,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="sleepBeforeRetry(java.lang.String,int,int,int)">
 <h3>sleepBeforeRetry</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/HRegionFileSystem.html#line-1131">sleepBeforeRetry</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;msg,
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/HRegionFileSystem.html#line-1130">sleepBeforeRetry</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;msg,
  int&nbsp;sleepMultiplier,
  int&nbsp;baseSleepBeforeRetries,
  int&nbsp;hdfsClientRetriesNumber)</span>
@@ -1528,7 +1528,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="create(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.client.RegionInfo)">
 <h3>create</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="HRegionFileSystem.html" title="class in org.apache.hadoop.hbase.regionserver">HRegionFileSystem</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/HRegionFileSystem.html#line-1145">create</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="HRegionFileSystem.html" title="class in org.apache.hadoop.hbase.regionserver">HRegionFileSystem</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/HRegionFileSystem.html#line-1144">create</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.Path&nbsp;tableDir,
  <a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;regionInfo)</span>

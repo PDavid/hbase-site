@@ -100,12 +100,9 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color"><code>protected <a href="BalancerClusterState.html" title="class in org.apache.hadoop.hbase.master.balancer">BalancerClusterState</a></code></div>
 <div class="col-second even-row-color"><code><a href="#cluster" class="member-name-link">cluster</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>static final double</code></div>
-<div class="col-second odd-row-color"><code><a href="#COST_EPSILON" class="member-name-link">COST_EPSILON</a></code></div>
+<div class="col-first odd-row-color"><code>private float</code></div>
+<div class="col-second odd-row-color"><code><a href="#multiplier" class="member-name-link">multiplier</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>private float</code></div>
-<div class="col-second even-row-color"><code><a href="#multiplier" class="member-name-link">multiplier</a></code></div>
-<div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
 </li>
@@ -136,41 +133,44 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>protected abstract double</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#cost()" class="member-name-link">cost</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) float</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getMultiplier()" class="member-name-link">getMultiplier</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isNeeded()" class="member-name-link">isNeeded</a>()</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getCostEpsilon(double)" class="member-name-link">getCostEpsilon</a><wbr>(double&nbsp;cost)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) float</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getMultiplier()" class="member-name-link">getMultiplier</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#postAction(org.apache.hadoop.hbase.master.balancer.BalanceAction)" class="member-name-link">postAction</a><wbr>(<a href="BalanceAction.html" title="class in org.apache.hadoop.hbase.master.balancer">BalanceAction</a>&nbsp;action)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isNeeded()" class="member-name-link">isNeeded</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#postAction(org.apache.hadoop.hbase.master.balancer.BalanceAction)" class="member-name-link">postAction</a><wbr>(<a href="BalanceAction.html" title="class in org.apache.hadoop.hbase.master.balancer">BalanceAction</a>&nbsp;action)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Called once per cluster Action to give the cost function an opportunity to update it's state.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#prepare(org.apache.hadoop.hbase.master.balancer.BalancerClusterState)" class="member-name-link">prepare</a><wbr>(<a href="BalancerClusterState.html" title="class in org.apache.hadoop.hbase.master.balancer">BalancerClusterState</a>&nbsp;cluster)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#prepare(org.apache.hadoop.hbase.master.balancer.BalancerClusterState)" class="member-name-link">prepare</a><wbr>(<a href="BalancerClusterState.html" title="class in org.apache.hadoop.hbase.master.balancer">BalancerClusterState</a>&nbsp;cluster)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Called once per LB invocation to give the cost function to initialize it's state, and perform
  any costly calculation.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#regionMoved(int,int,int)" class="member-name-link">regionMoved</a><wbr>(int&nbsp;region,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#regionMoved(int,int,int)" class="member-name-link">regionMoved</a><wbr>(int&nbsp;region,
  int&nbsp;oldServer,
  int&nbsp;newServer)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>protected static double</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#scale(double,double,double)" class="member-name-link">scale</a><wbr>(double&nbsp;min,
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>protected static double</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#scale(double,double,double)" class="member-name-link">scale</a><wbr>(double&nbsp;min,
  double&nbsp;max,
  double&nbsp;value)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Scale the value between 0 and 1.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setMultiplier(float)" class="member-name-link">setMultiplier</a><wbr>(float&nbsp;m)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateWeight(double%5B%5D)" class="member-name-link">updateWeight</a><wbr>(double[]&nbsp;weights)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setMultiplier(float)" class="member-name-link">setMultiplier</a><wbr>(float&nbsp;m)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateWeight(double%5B%5D)" class="member-name-link">updateWeight</a><wbr>(double[]&nbsp;weights)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Add the cost of this cost function to the weight of the candidate generator that is optimized
  for this cost function.</div>
 </div>
@@ -192,29 +192,15 @@ loadScripts(document, 'script');</script>
 <h2>Field Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="COST_EPSILON">
-<h3>COST_EPSILON</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/CostFunction.html#line-28">COST_EPSILON</a></span></div>
-<dl class="notes">
-<dt>See Also:</dt>
-<dd>
-<ul class="see-list">
-<li><a href="../../../../../../constant-values.html#org.apache.hadoop.hbase.master.balancer.CostFunction.COST_EPSILON">Constant Field Values</a></li>
-</ul>
-</dd>
-</dl>
-</section>
-</li>
-<li>
 <section class="detail" id="multiplier">
 <h3>multiplier</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/CostFunction.html#line-30">multiplier</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/CostFunction.html#line-32">multiplier</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="cluster">
 <h3>cluster</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="BalancerClusterState.html" title="class in org.apache.hadoop.hbase.master.balancer">BalancerClusterState</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/CostFunction.html#line-32">cluster</a></span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="BalancerClusterState.html" title="class in org.apache.hadoop.hbase.master.balancer">BalancerClusterState</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/CostFunction.html#line-34">cluster</a></span></div>
 </section>
 </li>
 </ul>
@@ -240,27 +226,33 @@ loadScripts(document, 'script');</script>
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
+<section class="detail" id="getCostEpsilon(double)">
+<h3>getCostEpsilon</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/CostFunction.html#line-28">getCostEpsilon</a></span><wbr><span class="parameters">(double&nbsp;cost)</span></div>
+</section>
+</li>
+<li>
 <section class="detail" id="isNeeded()">
 <h3>isNeeded</h3>
-<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/CostFunction.html#line-34">isNeeded</a></span>()</div>
+<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/CostFunction.html#line-36">isNeeded</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getMultiplier()">
 <h3>getMultiplier</h3>
-<div class="member-signature"><span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/CostFunction.html#line-38">getMultiplier</a></span>()</div>
+<div class="member-signature"><span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/CostFunction.html#line-40">getMultiplier</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="setMultiplier(float)">
 <h3>setMultiplier</h3>
-<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/CostFunction.html#line-42">setMultiplier</a></span><wbr><span class="parameters">(float&nbsp;m)</span></div>
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/CostFunction.html#line-44">setMultiplier</a></span><wbr><span class="parameters">(float&nbsp;m)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="prepare(org.apache.hadoop.hbase.master.balancer.BalancerClusterState)">
 <h3>prepare</h3>
-<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/CostFunction.html#line-50">prepare</a></span><wbr><span class="parameters">(<a href="BalancerClusterState.html" title="class in org.apache.hadoop.hbase.master.balancer">BalancerClusterState</a>&nbsp;cluster)</span></div>
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/CostFunction.html#line-52">prepare</a></span><wbr><span class="parameters">(<a href="BalancerClusterState.html" title="class in org.apache.hadoop.hbase.master.balancer">BalancerClusterState</a>&nbsp;cluster)</span></div>
 <div class="block">Called once per LB invocation to give the cost function to initialize it's state, and perform
  any costly calculation.</div>
 </section>
@@ -268,7 +260,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="postAction(org.apache.hadoop.hbase.master.balancer.BalanceAction)">
 <h3>postAction</h3>
-<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/CostFunction.html#line-59">postAction</a></span><wbr><span class="parameters">(<a href="BalanceAction.html" title="class in org.apache.hadoop.hbase.master.balancer">BalanceAction</a>&nbsp;action)</span></div>
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/CostFunction.html#line-61">postAction</a></span><wbr><span class="parameters">(<a href="BalanceAction.html" title="class in org.apache.hadoop.hbase.master.balancer">BalanceAction</a>&nbsp;action)</span></div>
 <div class="block">Called once per cluster Action to give the cost function an opportunity to update it's state.
  postAction() is always called at least once before cost() is called with the cluster that this
  action is performed on.</div>
@@ -277,7 +269,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="regionMoved(int,int,int)">
 <h3>regionMoved</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/CostFunction.html#line-81">regionMoved</a></span><wbr><span class="parameters">(int&nbsp;region,
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/CostFunction.html#line-83">regionMoved</a></span><wbr><span class="parameters">(int&nbsp;region,
  int&nbsp;oldServer,
  int&nbsp;newServer)</span></div>
 </section>
@@ -285,13 +277,13 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="cost()">
 <h3>cost</h3>
-<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/CostFunction.html#line-84">cost</a></span>()</div>
+<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/CostFunction.html#line-86">cost</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="updateWeight(double[])">
 <h3>updateWeight</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/CostFunction.html#line-92">updateWeight</a></span><wbr><span class="parameters">(double[]&nbsp;weights)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/CostFunction.html#line-94">updateWeight</a></span><wbr><span class="parameters">(double[]&nbsp;weights)</span></div>
 <div class="block">Add the cost of this cost function to the weight of the candidate generator that is optimized
  for this cost function. By default it is the RandomCandiateGenerator for a cost function.
  Called once per init or after postAction.</div>
@@ -304,7 +296,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="scale(double,double,double)">
 <h3>scale</h3>
-<div class="member-signature"><span class="modifiers">protected static</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/CostFunction.html#line-103">scale</a></span><wbr><span class="parameters">(double&nbsp;min,
+<div class="member-signature"><span class="modifiers">protected static</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/CostFunction.html#line-105">scale</a></span><wbr><span class="parameters">(double&nbsp;min,
  double&nbsp;max,
  double&nbsp;value)</span></div>
 <div class="block">Scale the value between 0 and 1.</div>

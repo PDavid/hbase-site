@@ -486,105 +486,106 @@
 <span class="source-line-no">473</span><span id="line-473">    HRegionFileSystem dstRegionFs = HRegionFileSystem.createRegionOnFileSystem(testConf, fs,</span>
 <span class="source-line-no">474</span><span id="line-474">      CommonFSUtils.getTableDir(testDir, dstHri.getTable()), dstHri);</span>
 <span class="source-line-no">475</span><span id="line-475">    Path dstPath = new Path(regionFs.getTableDir(), new Path(dstHri.getRegionNameAsString(), "cf"));</span>
-<span class="source-line-no">476</span><span id="line-476">    HFileLink.create(testConf, this.fs, dstPath, hri, storeFilePath.getName());</span>
-<span class="source-line-no">477</span><span id="line-477">    Path linkFilePath =</span>
-<span class="source-line-no">478</span><span id="line-478">      new Path(dstPath, HFileLink.createHFileLinkName(hri, storeFilePath.getName()));</span>
-<span class="source-line-no">479</span><span id="line-479"></span>
-<span class="source-line-no">480</span><span id="line-480">    StoreFileTracker sft = StoreFileTrackerFactory.create(testConf, false,</span>
-<span class="source-line-no">481</span><span id="line-481">      StoreContext.getBuilder()</span>
-<span class="source-line-no">482</span><span id="line-482">        .withFamilyStoreDirectoryPath(new Path(dstRegionFs.getRegionDir(), "cf"))</span>
-<span class="source-line-no">483</span><span id="line-483">        .withRegionFileSystem(dstRegionFs).build());</span>
-<span class="source-line-no">484</span><span id="line-484">    // Try to open store file from link</span>
-<span class="source-line-no">485</span><span id="line-485">    StoreFileInfo storeFileInfo = sft.getStoreFileInfo(linkFilePath, true);</span>
-<span class="source-line-no">486</span><span id="line-486">    HStoreFile hsf = new HStoreFile(storeFileInfo, BloomType.NONE, cacheConf);</span>
-<span class="source-line-no">487</span><span id="line-487">    assertTrue(storeFileInfo.isLink());</span>
-<span class="source-line-no">488</span><span id="line-488"></span>
-<span class="source-line-no">489</span><span id="line-489">    hsf.initReader();</span>
-<span class="source-line-no">490</span><span id="line-490">    HFile.Reader reader = hsf.getReader().getHFileReader();</span>
-<span class="source-line-no">491</span><span id="line-491">    while (!reader.prefetchComplete()) {</span>
-<span class="source-line-no">492</span><span id="line-492">      // Sleep for a bit</span>
-<span class="source-line-no">493</span><span id="line-493">      Thread.sleep(1000);</span>
-<span class="source-line-no">494</span><span id="line-494">    }</span>
-<span class="source-line-no">495</span><span id="line-495">    long offset = 0;</span>
-<span class="source-line-no">496</span><span id="line-496">    while (offset &lt; reader.getTrailer().getLoadOnOpenDataOffset()) {</span>
-<span class="source-line-no">497</span><span id="line-497">      HFileBlock block = reader.readBlock(offset, -1, false, true, false, true, null, null, true);</span>
-<span class="source-line-no">498</span><span id="line-498">      BlockCacheKey blockCacheKey = new BlockCacheKey(reader.getName(), offset);</span>
-<span class="source-line-no">499</span><span id="line-499">      if (block.getBlockType() == BlockType.DATA) {</span>
-<span class="source-line-no">500</span><span id="line-500">        test.accept(blockCache.getBlock(blockCacheKey, true, false, true));</span>
-<span class="source-line-no">501</span><span id="line-501">      }</span>
-<span class="source-line-no">502</span><span id="line-502">      offset += block.getOnDiskSizeWithHeader();</span>
-<span class="source-line-no">503</span><span id="line-503">    }</span>
-<span class="source-line-no">504</span><span id="line-504">  }</span>
-<span class="source-line-no">505</span><span id="line-505"></span>
-<span class="source-line-no">506</span><span id="line-506">  private Path writeStoreFile(String fname) throws IOException {</span>
-<span class="source-line-no">507</span><span id="line-507">    HFileContext meta = new HFileContextBuilder().withBlockSize(DATA_BLOCK_SIZE).build();</span>
-<span class="source-line-no">508</span><span id="line-508">    return writeStoreFile(fname, meta);</span>
-<span class="source-line-no">509</span><span id="line-509">  }</span>
-<span class="source-line-no">510</span><span id="line-510"></span>
-<span class="source-line-no">511</span><span id="line-511">  private Path writeStoreFile(String fname, HFileContext context) throws IOException {</span>
-<span class="source-line-no">512</span><span id="line-512">    return writeStoreFile(fname, context, cacheConf);</span>
-<span class="source-line-no">513</span><span id="line-513">  }</span>
-<span class="source-line-no">514</span><span id="line-514"></span>
-<span class="source-line-no">515</span><span id="line-515">  private Path writeStoreFile(String fname, HFileContext context, CacheConfig cacheConfig)</span>
-<span class="source-line-no">516</span><span id="line-516">    throws IOException {</span>
-<span class="source-line-no">517</span><span id="line-517">    Path storeFileParentDir = new Path(TEST_UTIL.getDataTestDir(), fname);</span>
-<span class="source-line-no">518</span><span id="line-518">    StoreFileWriter sfw = new StoreFileWriter.Builder(conf, cacheConfig, fs)</span>
-<span class="source-line-no">519</span><span id="line-519">      .withOutputDir(storeFileParentDir).withFileContext(context).build();</span>
-<span class="source-line-no">520</span><span id="line-520">    Random rand = ThreadLocalRandom.current();</span>
-<span class="source-line-no">521</span><span id="line-521">    final int rowLen = 32;</span>
-<span class="source-line-no">522</span><span id="line-522">    for (int i = 0; i &lt; NUM_KV; ++i) {</span>
-<span class="source-line-no">523</span><span id="line-523">      byte[] k = RandomKeyValueUtil.randomOrderedKey(rand, i);</span>
-<span class="source-line-no">524</span><span id="line-524">      byte[] v = RandomKeyValueUtil.randomValue(rand);</span>
-<span class="source-line-no">525</span><span id="line-525">      int cfLen = rand.nextInt(k.length - rowLen + 1);</span>
-<span class="source-line-no">526</span><span id="line-526">      KeyValue kv = new KeyValue(k, 0, rowLen, k, rowLen, cfLen, k, rowLen + cfLen,</span>
-<span class="source-line-no">527</span><span id="line-527">        k.length - rowLen - cfLen, rand.nextLong(), generateKeyType(rand), v, 0, v.length);</span>
-<span class="source-line-no">528</span><span id="line-528">      sfw.append(kv);</span>
-<span class="source-line-no">529</span><span id="line-529">    }</span>
-<span class="source-line-no">530</span><span id="line-530"></span>
-<span class="source-line-no">531</span><span id="line-531">    sfw.close();</span>
-<span class="source-line-no">532</span><span id="line-532">    return sfw.getPath();</span>
-<span class="source-line-no">533</span><span id="line-533">  }</span>
-<span class="source-line-no">534</span><span id="line-534"></span>
-<span class="source-line-no">535</span><span id="line-535">  private Pair&lt;Path, byte[]&gt; writeStoreFileForSplit(Path storeDir, HFileContext context)</span>
-<span class="source-line-no">536</span><span id="line-536">    throws IOException {</span>
-<span class="source-line-no">537</span><span id="line-537">    StoreFileWriter sfw = new StoreFileWriter.Builder(conf, cacheConf, fs).withOutputDir(storeDir)</span>
-<span class="source-line-no">538</span><span id="line-538">      .withFileContext(context).build();</span>
-<span class="source-line-no">539</span><span id="line-539">    Random rand = ThreadLocalRandom.current();</span>
-<span class="source-line-no">540</span><span id="line-540">    final int rowLen = 32;</span>
-<span class="source-line-no">541</span><span id="line-541">    byte[] splitPoint = null;</span>
-<span class="source-line-no">542</span><span id="line-542">    for (int i = 0; i &lt; NUM_KV; ++i) {</span>
-<span class="source-line-no">543</span><span id="line-543">      byte[] k = RandomKeyValueUtil.randomOrderedKey(rand, i);</span>
-<span class="source-line-no">544</span><span id="line-544">      byte[] v = RandomKeyValueUtil.randomValue(rand);</span>
-<span class="source-line-no">545</span><span id="line-545">      int cfLen = rand.nextInt(k.length - rowLen + 1);</span>
-<span class="source-line-no">546</span><span id="line-546">      KeyValue kv = new KeyValue(k, 0, rowLen, k, rowLen, cfLen, k, rowLen + cfLen,</span>
-<span class="source-line-no">547</span><span id="line-547">        k.length - rowLen - cfLen, rand.nextLong(), generateKeyType(rand), v, 0, v.length);</span>
-<span class="source-line-no">548</span><span id="line-548">      sfw.append(kv);</span>
-<span class="source-line-no">549</span><span id="line-549">      if (i == NUM_KV / 2) {</span>
-<span class="source-line-no">550</span><span id="line-550">        splitPoint = k;</span>
-<span class="source-line-no">551</span><span id="line-551">      }</span>
-<span class="source-line-no">552</span><span id="line-552">    }</span>
-<span class="source-line-no">553</span><span id="line-553">    sfw.close();</span>
-<span class="source-line-no">554</span><span id="line-554">    return new Pair(sfw.getPath(), splitPoint);</span>
-<span class="source-line-no">555</span><span id="line-555">  }</span>
-<span class="source-line-no">556</span><span id="line-556"></span>
-<span class="source-line-no">557</span><span id="line-557">  public static KeyValue.Type generateKeyType(Random rand) {</span>
-<span class="source-line-no">558</span><span id="line-558">    if (rand.nextBoolean()) {</span>
-<span class="source-line-no">559</span><span id="line-559">      // Let's make half of KVs puts.</span>
-<span class="source-line-no">560</span><span id="line-560">      return KeyValue.Type.Put;</span>
-<span class="source-line-no">561</span><span id="line-561">    } else {</span>
-<span class="source-line-no">562</span><span id="line-562">      KeyValue.Type keyType = KeyValue.Type.values()[1 + rand.nextInt(NUM_VALID_KEY_TYPES)];</span>
-<span class="source-line-no">563</span><span id="line-563">      if (keyType == KeyValue.Type.Minimum || keyType == KeyValue.Type.Maximum) {</span>
-<span class="source-line-no">564</span><span id="line-564">        throw new RuntimeException("Generated an invalid key type: " + keyType + ". "</span>
-<span class="source-line-no">565</span><span id="line-565">          + "Probably the layout of KeyValue.Type has changed.");</span>
-<span class="source-line-no">566</span><span id="line-566">      }</span>
-<span class="source-line-no">567</span><span id="line-567">      return keyType;</span>
-<span class="source-line-no">568</span><span id="line-568">    }</span>
-<span class="source-line-no">569</span><span id="line-569">  }</span>
-<span class="source-line-no">570</span><span id="line-570"></span>
-<span class="source-line-no">571</span><span id="line-571">  private long getElapsedTime(long startTime) {</span>
-<span class="source-line-no">572</span><span id="line-572">    return System.currentTimeMillis() - startTime;</span>
-<span class="source-line-no">573</span><span id="line-573">  }</span>
-<span class="source-line-no">574</span><span id="line-574">}</span>
+<span class="source-line-no">476</span><span id="line-476">    StoreFileTracker sft = StoreFileTrackerFactory.create(testConf, false,</span>
+<span class="source-line-no">477</span><span id="line-477">      StoreContext.getBuilder()</span>
+<span class="source-line-no">478</span><span id="line-478">        .withFamilyStoreDirectoryPath(new Path(dstRegionFs.getRegionDir(), "cf"))</span>
+<span class="source-line-no">479</span><span id="line-479">        .withColumnFamilyDescriptor(ColumnFamilyDescriptorBuilder.of("cf"))</span>
+<span class="source-line-no">480</span><span id="line-480">        .withRegionFileSystem(dstRegionFs).build());</span>
+<span class="source-line-no">481</span><span id="line-481">    sft.createHFileLink(hri.getTable(), hri.getEncodedName(), storeFilePath.getName(), true);</span>
+<span class="source-line-no">482</span><span id="line-482">    Path linkFilePath =</span>
+<span class="source-line-no">483</span><span id="line-483">      new Path(dstPath, HFileLink.createHFileLinkName(hri, storeFilePath.getName()));</span>
+<span class="source-line-no">484</span><span id="line-484"></span>
+<span class="source-line-no">485</span><span id="line-485">    // Try to open store file from link</span>
+<span class="source-line-no">486</span><span id="line-486">    StoreFileInfo storeFileInfo = sft.getStoreFileInfo(linkFilePath, true);</span>
+<span class="source-line-no">487</span><span id="line-487">    HStoreFile hsf = new HStoreFile(storeFileInfo, BloomType.NONE, cacheConf);</span>
+<span class="source-line-no">488</span><span id="line-488">    assertTrue(storeFileInfo.isLink());</span>
+<span class="source-line-no">489</span><span id="line-489"></span>
+<span class="source-line-no">490</span><span id="line-490">    hsf.initReader();</span>
+<span class="source-line-no">491</span><span id="line-491">    HFile.Reader reader = hsf.getReader().getHFileReader();</span>
+<span class="source-line-no">492</span><span id="line-492">    while (!reader.prefetchComplete()) {</span>
+<span class="source-line-no">493</span><span id="line-493">      // Sleep for a bit</span>
+<span class="source-line-no">494</span><span id="line-494">      Thread.sleep(1000);</span>
+<span class="source-line-no">495</span><span id="line-495">    }</span>
+<span class="source-line-no">496</span><span id="line-496">    long offset = 0;</span>
+<span class="source-line-no">497</span><span id="line-497">    while (offset &lt; reader.getTrailer().getLoadOnOpenDataOffset()) {</span>
+<span class="source-line-no">498</span><span id="line-498">      HFileBlock block = reader.readBlock(offset, -1, false, true, false, true, null, null, true);</span>
+<span class="source-line-no">499</span><span id="line-499">      BlockCacheKey blockCacheKey = new BlockCacheKey(reader.getName(), offset);</span>
+<span class="source-line-no">500</span><span id="line-500">      if (block.getBlockType() == BlockType.DATA) {</span>
+<span class="source-line-no">501</span><span id="line-501">        test.accept(blockCache.getBlock(blockCacheKey, true, false, true));</span>
+<span class="source-line-no">502</span><span id="line-502">      }</span>
+<span class="source-line-no">503</span><span id="line-503">      offset += block.getOnDiskSizeWithHeader();</span>
+<span class="source-line-no">504</span><span id="line-504">    }</span>
+<span class="source-line-no">505</span><span id="line-505">  }</span>
+<span class="source-line-no">506</span><span id="line-506"></span>
+<span class="source-line-no">507</span><span id="line-507">  private Path writeStoreFile(String fname) throws IOException {</span>
+<span class="source-line-no">508</span><span id="line-508">    HFileContext meta = new HFileContextBuilder().withBlockSize(DATA_BLOCK_SIZE).build();</span>
+<span class="source-line-no">509</span><span id="line-509">    return writeStoreFile(fname, meta);</span>
+<span class="source-line-no">510</span><span id="line-510">  }</span>
+<span class="source-line-no">511</span><span id="line-511"></span>
+<span class="source-line-no">512</span><span id="line-512">  private Path writeStoreFile(String fname, HFileContext context) throws IOException {</span>
+<span class="source-line-no">513</span><span id="line-513">    return writeStoreFile(fname, context, cacheConf);</span>
+<span class="source-line-no">514</span><span id="line-514">  }</span>
+<span class="source-line-no">515</span><span id="line-515"></span>
+<span class="source-line-no">516</span><span id="line-516">  private Path writeStoreFile(String fname, HFileContext context, CacheConfig cacheConfig)</span>
+<span class="source-line-no">517</span><span id="line-517">    throws IOException {</span>
+<span class="source-line-no">518</span><span id="line-518">    Path storeFileParentDir = new Path(TEST_UTIL.getDataTestDir(), fname);</span>
+<span class="source-line-no">519</span><span id="line-519">    StoreFileWriter sfw = new StoreFileWriter.Builder(conf, cacheConfig, fs)</span>
+<span class="source-line-no">520</span><span id="line-520">      .withOutputDir(storeFileParentDir).withFileContext(context).build();</span>
+<span class="source-line-no">521</span><span id="line-521">    Random rand = ThreadLocalRandom.current();</span>
+<span class="source-line-no">522</span><span id="line-522">    final int rowLen = 32;</span>
+<span class="source-line-no">523</span><span id="line-523">    for (int i = 0; i &lt; NUM_KV; ++i) {</span>
+<span class="source-line-no">524</span><span id="line-524">      byte[] k = RandomKeyValueUtil.randomOrderedKey(rand, i);</span>
+<span class="source-line-no">525</span><span id="line-525">      byte[] v = RandomKeyValueUtil.randomValue(rand);</span>
+<span class="source-line-no">526</span><span id="line-526">      int cfLen = rand.nextInt(k.length - rowLen + 1);</span>
+<span class="source-line-no">527</span><span id="line-527">      KeyValue kv = new KeyValue(k, 0, rowLen, k, rowLen, cfLen, k, rowLen + cfLen,</span>
+<span class="source-line-no">528</span><span id="line-528">        k.length - rowLen - cfLen, rand.nextLong(), generateKeyType(rand), v, 0, v.length);</span>
+<span class="source-line-no">529</span><span id="line-529">      sfw.append(kv);</span>
+<span class="source-line-no">530</span><span id="line-530">    }</span>
+<span class="source-line-no">531</span><span id="line-531"></span>
+<span class="source-line-no">532</span><span id="line-532">    sfw.close();</span>
+<span class="source-line-no">533</span><span id="line-533">    return sfw.getPath();</span>
+<span class="source-line-no">534</span><span id="line-534">  }</span>
+<span class="source-line-no">535</span><span id="line-535"></span>
+<span class="source-line-no">536</span><span id="line-536">  private Pair&lt;Path, byte[]&gt; writeStoreFileForSplit(Path storeDir, HFileContext context)</span>
+<span class="source-line-no">537</span><span id="line-537">    throws IOException {</span>
+<span class="source-line-no">538</span><span id="line-538">    StoreFileWriter sfw = new StoreFileWriter.Builder(conf, cacheConf, fs).withOutputDir(storeDir)</span>
+<span class="source-line-no">539</span><span id="line-539">      .withFileContext(context).build();</span>
+<span class="source-line-no">540</span><span id="line-540">    Random rand = ThreadLocalRandom.current();</span>
+<span class="source-line-no">541</span><span id="line-541">    final int rowLen = 32;</span>
+<span class="source-line-no">542</span><span id="line-542">    byte[] splitPoint = null;</span>
+<span class="source-line-no">543</span><span id="line-543">    for (int i = 0; i &lt; NUM_KV; ++i) {</span>
+<span class="source-line-no">544</span><span id="line-544">      byte[] k = RandomKeyValueUtil.randomOrderedKey(rand, i);</span>
+<span class="source-line-no">545</span><span id="line-545">      byte[] v = RandomKeyValueUtil.randomValue(rand);</span>
+<span class="source-line-no">546</span><span id="line-546">      int cfLen = rand.nextInt(k.length - rowLen + 1);</span>
+<span class="source-line-no">547</span><span id="line-547">      KeyValue kv = new KeyValue(k, 0, rowLen, k, rowLen, cfLen, k, rowLen + cfLen,</span>
+<span class="source-line-no">548</span><span id="line-548">        k.length - rowLen - cfLen, rand.nextLong(), generateKeyType(rand), v, 0, v.length);</span>
+<span class="source-line-no">549</span><span id="line-549">      sfw.append(kv);</span>
+<span class="source-line-no">550</span><span id="line-550">      if (i == NUM_KV / 2) {</span>
+<span class="source-line-no">551</span><span id="line-551">        splitPoint = k;</span>
+<span class="source-line-no">552</span><span id="line-552">      }</span>
+<span class="source-line-no">553</span><span id="line-553">    }</span>
+<span class="source-line-no">554</span><span id="line-554">    sfw.close();</span>
+<span class="source-line-no">555</span><span id="line-555">    return new Pair(sfw.getPath(), splitPoint);</span>
+<span class="source-line-no">556</span><span id="line-556">  }</span>
+<span class="source-line-no">557</span><span id="line-557"></span>
+<span class="source-line-no">558</span><span id="line-558">  public static KeyValue.Type generateKeyType(Random rand) {</span>
+<span class="source-line-no">559</span><span id="line-559">    if (rand.nextBoolean()) {</span>
+<span class="source-line-no">560</span><span id="line-560">      // Let's make half of KVs puts.</span>
+<span class="source-line-no">561</span><span id="line-561">      return KeyValue.Type.Put;</span>
+<span class="source-line-no">562</span><span id="line-562">    } else {</span>
+<span class="source-line-no">563</span><span id="line-563">      KeyValue.Type keyType = KeyValue.Type.values()[1 + rand.nextInt(NUM_VALID_KEY_TYPES)];</span>
+<span class="source-line-no">564</span><span id="line-564">      if (keyType == KeyValue.Type.Minimum || keyType == KeyValue.Type.Maximum) {</span>
+<span class="source-line-no">565</span><span id="line-565">        throw new RuntimeException("Generated an invalid key type: " + keyType + ". "</span>
+<span class="source-line-no">566</span><span id="line-566">          + "Probably the layout of KeyValue.Type has changed.");</span>
+<span class="source-line-no">567</span><span id="line-567">      }</span>
+<span class="source-line-no">568</span><span id="line-568">      return keyType;</span>
+<span class="source-line-no">569</span><span id="line-569">    }</span>
+<span class="source-line-no">570</span><span id="line-570">  }</span>
+<span class="source-line-no">571</span><span id="line-571"></span>
+<span class="source-line-no">572</span><span id="line-572">  private long getElapsedTime(long startTime) {</span>
+<span class="source-line-no">573</span><span id="line-573">    return System.currentTimeMillis() - startTime;</span>
+<span class="source-line-no">574</span><span id="line-574">  }</span>
+<span class="source-line-no">575</span><span id="line-575">}</span>
 
 
 

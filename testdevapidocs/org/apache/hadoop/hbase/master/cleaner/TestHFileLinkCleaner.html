@@ -77,7 +77,7 @@ loadScripts(document, 'script');</script>
 </div>
 <section class="class-description" id="class-description">
 <hr>
-<div class="type-signature"><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-55">TestHFileLinkCleaner</a></span>
+<div class="type-signature"><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-60">TestHFileLinkCleaner</a></span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
 <div class="block">Test the HFileLink Cleaner. HFiles with links cannot be deleted until a link is present.</div>
 </section>
@@ -213,7 +213,8 @@ loadScripts(document, 'script');</script>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#configureDirectoriesAndLinks()" class="member-name-link">configureDirectoriesAndLinks</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createLink(boolean)" class="member-name-link">createLink</a><wbr>(boolean&nbsp;createBackReference)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createLink(org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker,boolean)" class="member-name-link">createLink</a><wbr>(org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker&nbsp;sft,
+ boolean&nbsp;createBackReference)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static org.apache.hadoop.fs.Path</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getFamilyDirPath(org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.TableName,java.lang.String,java.lang.String)" class="member-name-link">getFamilyDirPath</a><wbr>(org.apache.hadoop.fs.Path&nbsp;rootDir,
@@ -256,139 +257,139 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="CLASS_RULE">
 <h3>CLASS_RULE</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../HBaseClassTestRule.html" title="class in org.apache.hadoop.hbase">HBaseClassTestRule</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-58">CLASS_RULE</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../HBaseClassTestRule.html" title="class in org.apache.hadoop.hbase">HBaseClassTestRule</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-63">CLASS_RULE</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="conf">
 <h3>conf</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.conf.Configuration</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-62">conf</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.conf.Configuration</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-67">conf</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="rootDir">
 <h3>rootDir</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-63">rootDir</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-68">rootDir</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="fs">
 <h3>fs</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.FileSystem</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-64">fs</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.FileSystem</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-69">fs</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="tableName">
 <h3>tableName</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.TableName</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-65">tableName</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.TableName</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-70">tableName</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="tableLinkName">
 <h3>tableLinkName</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.TableName</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-66">tableLinkName</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.TableName</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-71">tableLinkName</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="hfileName">
 <h3>hfileName</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-67">hfileName</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-72">hfileName</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="familyName">
 <h3>familyName</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-68">familyName</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-73">familyName</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="hri">
 <h3>hri</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.client.RegionInfo</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-69">hri</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.client.RegionInfo</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-74">hri</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="hriLink">
 <h3>hriLink</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.client.RegionInfo</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-70">hriLink</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.client.RegionInfo</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-75">hriLink</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="archiveDir">
 <h3>archiveDir</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-71">archiveDir</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-76">archiveDir</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="archiveStoreDir">
 <h3>archiveStoreDir</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-72">archiveStoreDir</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-77">archiveStoreDir</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="familyPath">
 <h3>familyPath</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-73">familyPath</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-78">familyPath</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="hfilePath">
 <h3>hfilePath</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-74">hfilePath</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-79">hfilePath</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="familyLinkPath">
 <h3>familyLinkPath</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-75">familyLinkPath</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-80">familyLinkPath</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="hfileLinkName">
 <h3>hfileLinkName</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-76">hfileLinkName</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-81">hfileLinkName</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="linkBackRefDir">
 <h3>linkBackRefDir</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-77">linkBackRefDir</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-82">linkBackRefDir</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="linkBackRef">
 <h3>linkBackRef</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-78">linkBackRef</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-83">linkBackRef</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="backRefs">
 <h3>backRefs</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.FileStatus[]</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-79">backRefs</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.FileStatus[]</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-84">backRefs</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="cleaner">
 <h3>cleaner</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.master.cleaner.HFileCleaner</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-80">cleaner</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.master.cleaner.HFileCleaner</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-85">cleaner</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="TEST_UTIL">
 <h3>TEST_UTIL</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="../../HBaseTestingUtil.html" title="class in org.apache.hadoop.hbase">HBaseTestingUtil</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-81">TEST_UTIL</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="../../HBaseTestingUtil.html" title="class in org.apache.hadoop.hbase">HBaseTestingUtil</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-86">TEST_UTIL</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="POOL">
 <h3>POOL</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.master.cleaner.DirScanPool</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-82">POOL</a></span></div>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.master.cleaner.DirScanPool</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-87">POOL</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="TTL">
 <h3>TTL</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-83">TTL</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-88">TTL</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -402,7 +403,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="name">
 <h3>name</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.junit.rules.TestName</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-85">name</a></span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.junit.rules.TestName</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-90">name</a></span></div>
 </section>
 </li>
 </ul>
@@ -416,7 +417,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;()">
 <h3>TestHFileLinkCleaner</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-56">TestHFileLinkCleaner</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-61">TestHFileLinkCleaner</a></span>()</div>
 </section>
 </li>
 </ul>
@@ -430,19 +431,19 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="setUp()">
 <h3>setUp</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-88">setUp</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-93">setUp</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="tearDown()">
 <h3>tearDown</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-93">tearDown</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-98">tearDown</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="configureDirectoriesAndLinks()">
 <h3>configureDirectoriesAndLinks</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-98">configureDirectoriesAndLinks</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-103">configureDirectoriesAndLinks</a></span>()
                                   throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -451,9 +452,10 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="createLink(boolean)">
+<section class="detail" id="createLink(org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker,boolean)">
 <h3>createLink</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-132">createLink</a></span><wbr><span class="parameters">(boolean&nbsp;createBackReference)</span>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-144">createLink</a></span><wbr><span class="parameters">(org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker&nbsp;sft,
+ boolean&nbsp;createBackReference)</span>
                  throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -464,7 +466,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="cleanup()">
 <h3>cleanup</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-144">cleanup</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-157">cleanup</a></span>()
              throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a>,
 <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/InterruptedException.html" title="class or interface in java.lang" class="external-link">InterruptedException</a></span></div>
 <dl class="notes">
@@ -477,7 +479,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testHFileLinkCleaning()">
 <h3>testHFileLinkCleaning</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-161">testHFileLinkCleaning</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-174">testHFileLinkCleaning</a></span>()
                            throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -488,7 +490,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testHFileLinkByRemovingReference()">
 <h3>testHFileLinkByRemovingReference</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-175">testHFileLinkByRemovingReference</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-189">testHFileLinkByRemovingReference</a></span>()
                                       throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -499,7 +501,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testHFileLinkEmptyBackReferenceDirectory()">
 <h3>testHFileLinkEmptyBackReferenceDirectory</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-188">testHFileLinkEmptyBackReferenceDirectory</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-202">testHFileLinkEmptyBackReferenceDirectory</a></span>()
                                               throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -510,7 +512,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getFamilyDirPath(org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.TableName,java.lang.String,java.lang.String)">
 <h3>getFamilyDirPath</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-197">getFamilyDirPath</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;rootDir,
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/cleaner/TestHFileLinkCleaner.html#line-211">getFamilyDirPath</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;rootDir,
  org.apache.hadoop.hbase.TableName&nbsp;table,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;region,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;family)</span></div>

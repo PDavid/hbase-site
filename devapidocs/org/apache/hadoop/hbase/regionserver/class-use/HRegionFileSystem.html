@@ -92,9 +92,9 @@ loadScripts(document, 'script');</script>
  <a href="../../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;mergedRegion)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>private <a href="../../util/Pair.html" title="class in org.apache.hadoop.hbase.util">Pair</a>&lt;org.apache.hadoop.fs.Path,<wbr>org.apache.hadoop.fs.Path&gt;</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">SplitTableRegionProcedure.</span><code><a href="../../master/assignment/SplitTableRegionProcedure.html#splitStoreFile(org.apache.hadoop.hbase.regionserver.HRegionFileSystem,org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker,byte%5B%5D,org.apache.hadoop.hbase.regionserver.HStoreFile)" class="member-name-link">splitStoreFile</a><wbr>(<a href="../HRegionFileSystem.html" title="class in org.apache.hadoop.hbase.regionserver">HRegionFileSystem</a>&nbsp;regionFs,
- <a href="../storefiletracker/StoreFileTracker.html" title="interface in org.apache.hadoop.hbase.regionserver.storefiletracker">StoreFileTracker</a>&nbsp;tracker,
- byte[]&nbsp;family,
+<div class="col-second odd-row-color"><span class="type-name-label">SplitTableRegionProcedure.</span><code><a href="../../master/assignment/SplitTableRegionProcedure.html#splitStoreFile(org.apache.hadoop.hbase.regionserver.HRegionFileSystem,org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.hbase.client.ColumnFamilyDescriptor,org.apache.hadoop.hbase.regionserver.HStoreFile)" class="member-name-link">splitStoreFile</a><wbr>(<a href="../HRegionFileSystem.html" title="class in org.apache.hadoop.hbase.regionserver">HRegionFileSystem</a>&nbsp;regionFs,
+ <a href="../../client/TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;htd,
+ <a href="../../client/ColumnFamilyDescriptor.html" title="interface in org.apache.hadoop.hbase.client">ColumnFamilyDescriptor</a>&nbsp;hcd,
  <a href="../HStoreFile.html" title="class in org.apache.hadoop.hbase.regionserver">HStoreFile</a>&nbsp;sf)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>private <a href="../../util/Pair.html" title="class in org.apache.hadoop.hbase.util">Pair</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;org.apache.hadoop.fs.Path&gt;,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;org.apache.hadoop.fs.Path&gt;&gt;</code></div>
@@ -110,9 +110,9 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>&nbsp;</code></div>
-<div class="col-second even-row-color"><code><a href="../../master/assignment/SplitTableRegionProcedure.StoreFileSplitter.html#%3Cinit%3E(org.apache.hadoop.hbase.regionserver.HRegionFileSystem,org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker,byte%5B%5D,org.apache.hadoop.hbase.regionserver.HStoreFile)" class="member-name-link">StoreFileSplitter</a><wbr>(<a href="../HRegionFileSystem.html" title="class in org.apache.hadoop.hbase.regionserver">HRegionFileSystem</a>&nbsp;regionFs,
- <a href="../storefiletracker/StoreFileTracker.html" title="interface in org.apache.hadoop.hbase.regionserver.storefiletracker">StoreFileTracker</a>&nbsp;tracker,
- byte[]&nbsp;family,
+<div class="col-second even-row-color"><code><a href="../../master/assignment/SplitTableRegionProcedure.StoreFileSplitter.html#%3Cinit%3E(org.apache.hadoop.hbase.regionserver.HRegionFileSystem,org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.hbase.client.ColumnFamilyDescriptor,org.apache.hadoop.hbase.regionserver.HStoreFile)" class="member-name-link">StoreFileSplitter</a><wbr>(<a href="../HRegionFileSystem.html" title="class in org.apache.hadoop.hbase.regionserver">HRegionFileSystem</a>&nbsp;regionFs,
+ <a href="../../client/TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;htd,
+ <a href="../../client/ColumnFamilyDescriptor.html" title="interface in org.apache.hadoop.hbase.client">ColumnFamilyDescriptor</a>&nbsp;hcd,
  <a href="../HStoreFile.html" title="class in org.apache.hadoop.hbase.regionserver">HStoreFile</a>&nbsp;sf)</code></div>
 <div class="col-last even-row-color">
 <div class="block">Constructor that takes what it needs to split</div>

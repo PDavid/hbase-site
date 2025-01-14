@@ -81,7 +81,7 @@ loadScripts(document, 'script');</script>
 </div>
 <section class="class-description" id="class-description">
 <hr>
-<div class="type-signature"><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerRegionReplicaWithRacks.html#line-33">TestStochasticLoadBalancerRegionReplicaWithRacks</a></span>
+<div class="type-signature"><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerRegionReplicaWithRacks.html#line-34">TestStochasticLoadBalancerRegionReplicaWithRacks</a></span>
 <span class="extends-implements">extends <a href="StochasticBalancerTestBase.html" title="class in org.apache.hadoop.hbase.master.balancer">StochasticBalancerTestBase</a></span></div>
 </section>
 <section class="summary">
@@ -160,7 +160,7 @@ loadScripts(document, 'script');</script>
 </div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-org.apache.hadoop.hbase.master.balancer.StochasticBalancerTestBase">Methods inherited from class&nbsp;org.apache.hadoop.hbase.master.balancer.<a href="StochasticBalancerTestBase.html" title="class in org.apache.hadoop.hbase.master.balancer">StochasticBalancerTestBase</a></h3>
-<code><a href="StochasticBalancerTestBase.html#beforeAllTests()">beforeAllTests</a>, <a href="StochasticBalancerTestBase.html#testWithCluster(int,int,int,int,int,boolean,boolean)">testWithCluster</a>, <a href="StochasticBalancerTestBase.html#testWithCluster(java.util.Map,org.apache.hadoop.hbase.master.RackManager,boolean,boolean)">testWithCluster</a>, <a href="StochasticBalancerTestBase.html#testWithClusterWithIteration(int,int,int,int,int,boolean,boolean)">testWithClusterWithIteration</a>, <a href="StochasticBalancerTestBase.html#testWithClusterWithIteration(java.util.Map,org.apache.hadoop.hbase.master.RackManager,boolean,boolean)">testWithClusterWithIteration</a></code></div>
+<code><a href="StochasticBalancerTestBase.html#beforeAllTests()">beforeAllTests</a>, <a href="StochasticBalancerTestBase.html#increaseMaxRunTimeOrFail()">increaseMaxRunTimeOrFail</a>, <a href="StochasticBalancerTestBase.html#setMaxRunTime(java.time.Duration)">setMaxRunTime</a>, <a href="StochasticBalancerTestBase.html#testWithClusterWithIteration(int,int,int,int,int,boolean,boolean)">testWithClusterWithIteration</a>, <a href="StochasticBalancerTestBase.html#testWithClusterWithIteration(java.util.Map,org.apache.hadoop.hbase.master.RackManager,boolean,boolean)">testWithClusterWithIteration</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-org.apache.hadoop.hbase.master.balancer.BalancerTestBase">Methods inherited from class&nbsp;org.apache.hadoop.hbase.master.balancer.<a href="BalancerTestBase.html" title="class in org.apache.hadoop.hbase.master.balancer">BalancerTestBase</a></h3>
 <code><a href="BalancerTestBase.html#assertClusterAsBalanced(java.util.List)">assertClusterAsBalanced</a>, <a href="BalancerTestBase.html#assertClusterOverallAsBalanced(java.util.List,int)">assertClusterOverallAsBalanced</a>, <a href="BalancerTestBase.html#assertRegionReplicaPlacement(java.util.Map,org.apache.hadoop.hbase.master.RackManager)">assertRegionReplicaPlacement</a>, <a href="BalancerTestBase.html#convertToList(java.util.Map)">convertToList</a>, <a href="BalancerTestBase.html#createRegions(int,org.apache.hadoop.hbase.TableName)">createRegions</a>, <a href="BalancerTestBase.html#createServerMap(int,int,int,int,int)">createServerMap</a>, <a href="BalancerTestBase.html#mockCluster(int%5B%5D)">mockCluster</a>, <a href="BalancerTestBase.html#mockClusterServers(int%5B%5D)">mockClusterServers</a>, <a href="BalancerTestBase.html#mockClusterServers(int%5B%5D%5B%5D)">mockClusterServers</a>, <a href="BalancerTestBase.html#mockClusterServers(int%5B%5D,int)">mockClusterServers</a>, <a href="BalancerTestBase.html#mockClusterServersUnsorted(int%5B%5D,int)">mockClusterServersUnsorted</a>, <a href="BalancerTestBase.html#mockClusterServersWithTables(java.util.Map)">mockClusterServersWithTables</a>, <a href="BalancerTestBase.html#mockUniformClusterServers(int%5B%5D)">mockUniformClusterServers</a>, <a href="BalancerTestBase.html#printMock(java.util.List)">printMock</a>, <a href="BalancerTestBase.html#printStats(java.util.List)">printStats</a>, <a href="BalancerTestBase.html#randomRegions(int)">randomRegions</a>, <a href="BalancerTestBase.html#randomRegions(int,int)">randomRegions</a>, <a href="BalancerTestBase.html#randomServer(int)">randomServer</a>, <a href="BalancerTestBase.html#randomServers(int,int)">randomServers</a>, <a href="BalancerTestBase.html#reconcile(java.util.List,java.util.List,java.util.Map)">reconcile</a>, <a href="BalancerTestBase.html#returnRegions(java.util.List)">returnRegions</a>, <a href="BalancerTestBase.html#returnServer(org.apache.hadoop.hbase.ServerName)">returnServer</a>, <a href="BalancerTestBase.html#returnServers(java.util.List)">returnServers</a>, <a href="BalancerTestBase.html#uniformRegions(int)">uniformRegions</a>, <a href="BalancerTestBase.html#updateLoad(java.util.Map,org.apache.hadoop.hbase.ServerName,int)">updateLoad</a></code></div>
@@ -181,7 +181,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="CLASS_RULE">
 <h3>CLASS_RULE</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../HBaseClassTestRule.html" title="class in org.apache.hadoop.hbase">HBaseClassTestRule</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerRegionReplicaWithRacks.html#line-36">CLASS_RULE</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../HBaseClassTestRule.html" title="class in org.apache.hadoop.hbase">HBaseClassTestRule</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerRegionReplicaWithRacks.html#line-37">CLASS_RULE</a></span></div>
 </section>
 </li>
 </ul>
@@ -195,7 +195,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;()">
 <h3>TestStochasticLoadBalancerRegionReplicaWithRacks</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerRegionReplicaWithRacks.html#line-34">TestStochasticLoadBalancerRegionReplicaWithRacks</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerRegionReplicaWithRacks.html#line-35">TestStochasticLoadBalancerRegionReplicaWithRacks</a></span>()</div>
 </section>
 </li>
 </ul>
@@ -209,13 +209,13 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testRegionReplicationOnMidClusterWithRacks()">
 <h3>testRegionReplicationOnMidClusterWithRacks</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerRegionReplicaWithRacks.html#line-60">testRegionReplicationOnMidClusterWithRacks</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerRegionReplicaWithRacks.html#line-61">testRegionReplicationOnMidClusterWithRacks</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="testRegionReplicationOnLargeClusterWithRacks()">
 <h3>testRegionReplicationOnLargeClusterWithRacks</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerRegionReplicaWithRacks.html#line-78">testRegionReplicationOnLargeClusterWithRacks</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerRegionReplicaWithRacks.html#line-79">testRegionReplicationOnLargeClusterWithRacks</a></span>()</div>
 </section>
 </li>
 </ul>

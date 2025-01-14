@@ -81,7 +81,7 @@ loadScripts(document, 'script');</script>
 </div>
 <section class="class-description" id="class-description">
 <hr>
-<div class="type-signature"><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerHeterogeneousCost.html#line-54">TestStochasticLoadBalancerHeterogeneousCost</a></span>
+<div class="type-signature"><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerHeterogeneousCost.html#line-50">TestStochasticLoadBalancerHeterogeneousCost</a></span>
 <span class="extends-implements">extends <a href="StochasticBalancerTestBase.html" title="class in org.apache.hadoop.hbase.master.balancer">StochasticBalancerTestBase</a></span></div>
 </section>
 <section class="summary">
@@ -116,17 +116,11 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Field</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code>private static final double</code></div>
-<div class="col-second even-row-color"><code><a href="#ALLOWED_WINDOW" class="member-name-link">ALLOWED_WINDOW</a></code></div>
+<div class="col-first even-row-color"><code>static final <a href="../../HBaseClassTestRule.html" title="class in org.apache.hadoop.hbase">HBaseClassTestRule</a></code></div>
+<div class="col-second even-row-color"><code><a href="#CLASS_RULE" class="member-name-link">CLASS_RULE</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>static final <a href="../../HBaseClassTestRule.html" title="class in org.apache.hadoop.hbase">HBaseClassTestRule</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#CLASS_RULE" class="member-name-link">CLASS_RULE</a></code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>private static final <a href="../../HBaseCommonTestingUtil.html" title="class in org.apache.hadoop.hbase">HBaseCommonTestingUtil</a></code></div>
-<div class="col-second even-row-color"><code><a href="#HTU" class="member-name-link">HTU</a></code></div>
-<div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>private static final org.slf4j.Logger</code></div>
-<div class="col-second odd-row-color"><code><a href="#LOG" class="member-name-link">LOG</a></code></div>
+<div class="col-first odd-row-color"><code>private static final <a href="../../HBaseCommonTestingUtil.html" title="class in org.apache.hadoop.hbase">HBaseCommonTestingUtil</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#HTU" class="member-name-link">HTU</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>private static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color"><code><a href="#RULES_FILE" class="member-name-link">RULES_FILE</a></code></div>
@@ -205,18 +199,12 @@ loadScripts(document, 'script');</script>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#testTwoGroups()" class="member-name-link">testTwoGroups</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#testWithCluster(java.util.Map,org.apache.hadoop.hbase.master.RackManager,boolean,boolean)" class="member-name-link">testWithCluster</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;org.apache.hadoop.hbase.ServerName,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;org.apache.hadoop.hbase.client.RegionInfo&gt;&gt;&nbsp;serverMap,
- org.apache.hadoop.hbase.master.RackManager&nbsp;rackManager,
- boolean&nbsp;assertFullyBalanced,
- boolean&nbsp;assertFullyBalancedForReplicas)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
 </div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-org.apache.hadoop.hbase.master.balancer.StochasticBalancerTestBase">Methods inherited from class&nbsp;org.apache.hadoop.hbase.master.balancer.<a href="StochasticBalancerTestBase.html" title="class in org.apache.hadoop.hbase.master.balancer">StochasticBalancerTestBase</a></h3>
-<code><a href="StochasticBalancerTestBase.html#testWithCluster(int,int,int,int,int,boolean,boolean)">testWithCluster</a>, <a href="StochasticBalancerTestBase.html#testWithClusterWithIteration(int,int,int,int,int,boolean,boolean)">testWithClusterWithIteration</a>, <a href="StochasticBalancerTestBase.html#testWithClusterWithIteration(java.util.Map,org.apache.hadoop.hbase.master.RackManager,boolean,boolean)">testWithClusterWithIteration</a></code></div>
+<code><a href="StochasticBalancerTestBase.html#increaseMaxRunTimeOrFail()">increaseMaxRunTimeOrFail</a>, <a href="StochasticBalancerTestBase.html#setMaxRunTime(java.time.Duration)">setMaxRunTime</a>, <a href="StochasticBalancerTestBase.html#testWithClusterWithIteration(int,int,int,int,int,boolean,boolean)">testWithClusterWithIteration</a>, <a href="StochasticBalancerTestBase.html#testWithClusterWithIteration(java.util.Map,org.apache.hadoop.hbase.master.RackManager,boolean,boolean)">testWithClusterWithIteration</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-org.apache.hadoop.hbase.master.balancer.BalancerTestBase">Methods inherited from class&nbsp;org.apache.hadoop.hbase.master.balancer.<a href="BalancerTestBase.html" title="class in org.apache.hadoop.hbase.master.balancer">BalancerTestBase</a></h3>
 <code><a href="BalancerTestBase.html#assertClusterAsBalanced(java.util.List)">assertClusterAsBalanced</a>, <a href="BalancerTestBase.html#assertClusterOverallAsBalanced(java.util.List,int)">assertClusterOverallAsBalanced</a>, <a href="BalancerTestBase.html#assertRegionReplicaPlacement(java.util.Map,org.apache.hadoop.hbase.master.RackManager)">assertRegionReplicaPlacement</a>, <a href="BalancerTestBase.html#convertToList(java.util.Map)">convertToList</a>, <a href="BalancerTestBase.html#createRegions(int,org.apache.hadoop.hbase.TableName)">createRegions</a>, <a href="BalancerTestBase.html#mockCluster(int%5B%5D)">mockCluster</a>, <a href="BalancerTestBase.html#mockClusterServers(int%5B%5D)">mockClusterServers</a>, <a href="BalancerTestBase.html#mockClusterServers(int%5B%5D%5B%5D)">mockClusterServers</a>, <a href="BalancerTestBase.html#mockClusterServersUnsorted(int%5B%5D,int)">mockClusterServersUnsorted</a>, <a href="BalancerTestBase.html#mockClusterServersWithTables(java.util.Map)">mockClusterServersWithTables</a>, <a href="BalancerTestBase.html#mockUniformClusterServers(int%5B%5D)">mockUniformClusterServers</a>, <a href="BalancerTestBase.html#printMock(java.util.List)">printMock</a>, <a href="BalancerTestBase.html#printStats(java.util.List)">printStats</a>, <a href="BalancerTestBase.html#randomRegions(int)">randomRegions</a>, <a href="BalancerTestBase.html#randomRegions(int,int)">randomRegions</a>, <a href="BalancerTestBase.html#randomServer(int)">randomServer</a>, <a href="BalancerTestBase.html#randomServers(int,int)">randomServers</a>, <a href="BalancerTestBase.html#reconcile(java.util.List,java.util.List,java.util.Map)">reconcile</a>, <a href="BalancerTestBase.html#returnRegions(java.util.List)">returnRegions</a>, <a href="BalancerTestBase.html#returnServer(org.apache.hadoop.hbase.ServerName)">returnServer</a>, <a href="BalancerTestBase.html#returnServers(java.util.List)">returnServers</a>, <a href="BalancerTestBase.html#uniformRegions(int)">uniformRegions</a>, <a href="BalancerTestBase.html#updateLoad(java.util.Map,org.apache.hadoop.hbase.ServerName,int)">updateLoad</a></code></div>
@@ -237,45 +225,25 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="CLASS_RULE">
 <h3>CLASS_RULE</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../HBaseClassTestRule.html" title="class in org.apache.hadoop.hbase">HBaseClassTestRule</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerHeterogeneousCost.html#line-57">CLASS_RULE</a></span></div>
-</section>
-</li>
-<li>
-<section class="detail" id="LOG">
-<h3>LOG</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerHeterogeneousCost.html#line-61">LOG</a></span></div>
-</section>
-</li>
-<li>
-<section class="detail" id="ALLOWED_WINDOW">
-<h3>ALLOWED_WINDOW</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerHeterogeneousCost.html#line-63">ALLOWED_WINDOW</a></span></div>
-<dl class="notes">
-<dt>See Also:</dt>
-<dd>
-<ul class="see-list">
-<li><a href="../../../../../../constant-values.html#org.apache.hadoop.hbase.master.balancer.TestStochasticLoadBalancerHeterogeneousCost.ALLOWED_WINDOW">Constant Field Values</a></li>
-</ul>
-</dd>
-</dl>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../HBaseClassTestRule.html" title="class in org.apache.hadoop.hbase">HBaseClassTestRule</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerHeterogeneousCost.html#line-53">CLASS_RULE</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="HTU">
 <h3>HTU</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="../../HBaseCommonTestingUtil.html" title="class in org.apache.hadoop.hbase">HBaseCommonTestingUtil</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerHeterogeneousCost.html#line-64">HTU</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="../../HBaseCommonTestingUtil.html" title="class in org.apache.hadoop.hbase">HBaseCommonTestingUtil</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerHeterogeneousCost.html#line-57">HTU</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="RULES_FILE">
 <h3>RULES_FILE</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerHeterogeneousCost.html#line-65">RULES_FILE</a></span></div>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerHeterogeneousCost.html#line-58">RULES_FILE</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="serverQueue">
 <h3>serverQueue</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Queue.html" title="class or interface in java.util" class="external-link">Queue</a>&lt;org.apache.hadoop.hbase.ServerName&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerHeterogeneousCost.html#line-270">serverQueue</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Queue.html" title="class or interface in java.util" class="external-link">Queue</a>&lt;org.apache.hadoop.hbase.ServerName&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerHeterogeneousCost.html#line-204">serverQueue</a></span></div>
 </section>
 </li>
 </ul>
@@ -289,7 +257,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;()">
 <h3>TestStochasticLoadBalancerHeterogeneousCost</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerHeterogeneousCost.html#line-55">TestStochasticLoadBalancerHeterogeneousCost</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerHeterogeneousCost.html#line-51">TestStochasticLoadBalancerHeterogeneousCost</a></span>()</div>
 </section>
 </li>
 </ul>
@@ -303,7 +271,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="beforeAllTests()">
 <h3>beforeAllTests</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerHeterogeneousCost.html#line-67">beforeAllTests</a></span>()
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerHeterogeneousCost.html#line-60">beforeAllTests</a></span>()
                            throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -314,7 +282,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testDefault()">
 <h3>testDefault</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerHeterogeneousCost.html#line-85">testDefault</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerHeterogeneousCost.html#line-78">testDefault</a></span>()
                  throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -325,7 +293,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testOneGroup()">
 <h3>testOneGroup</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerHeterogeneousCost.html#line-99">testOneGroup</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerHeterogeneousCost.html#line-92">testOneGroup</a></span>()
                   throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -336,7 +304,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testTwoGroups()">
 <h3>testTwoGroups</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerHeterogeneousCost.html#line-113">testTwoGroups</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerHeterogeneousCost.html#line-106">testTwoGroups</a></span>()
                    throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -347,7 +315,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testFourGroups()">
 <h3>testFourGroups</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerHeterogeneousCost.html#line-129">testFourGroups</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerHeterogeneousCost.html#line-122">testFourGroups</a></span>()
                     throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -358,7 +326,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testOverloaded()">
 <h3>testOverloaded</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerHeterogeneousCost.html#line-145">testOverloaded</a></span>()
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerHeterogeneousCost.html#line-138">testOverloaded</a></span>()
                     throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -369,7 +337,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testHeterogeneousWithCluster(int,int,int,java.util.List)">
 <h3>testHeterogeneousWithCluster</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerHeterogeneousCost.html#line-161">testHeterogeneousWithCluster</a></span><wbr><span class="parameters">(int&nbsp;numNodes,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerHeterogeneousCost.html#line-154">testHeterogeneousWithCluster</a></span><wbr><span class="parameters">(int&nbsp;numNodes,
  int&nbsp;numRegions,
  int&nbsp;numRegionsPerServer,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;rules)</span>
@@ -381,22 +349,9 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="testWithCluster(java.util.Map,org.apache.hadoop.hbase.master.RackManager,boolean,boolean)">
-<h3>testWithCluster</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerHeterogeneousCost.html#line-170">testWithCluster</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;org.apache.hadoop.hbase.ServerName,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;org.apache.hadoop.hbase.client.RegionInfo&gt;&gt;&nbsp;serverMap,
- org.apache.hadoop.hbase.master.RackManager&nbsp;rackManager,
- boolean&nbsp;assertFullyBalanced,
- boolean&nbsp;assertFullyBalancedForReplicas)</span></div>
-<dl class="notes">
-<dt>Overrides:</dt>
-<dd><code><a href="StochasticBalancerTestBase.html#testWithCluster(java.util.Map,org.apache.hadoop.hbase.master.RackManager,boolean,boolean)">testWithCluster</a></code>&nbsp;in class&nbsp;<code><a href="StochasticBalancerTestBase.html" title="class in org.apache.hadoop.hbase.master.balancer">StochasticBalancerTestBase</a></code></dd>
-</dl>
-</section>
-</li>
-<li>
 <section class="detail" id="createServerMap(int,int,int,int,int)">
 <h3>createServerMap</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;org.apache.hadoop.hbase.ServerName,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;org.apache.hadoop.hbase.client.RegionInfo&gt;&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerHeterogeneousCost.html#line-229">createServerMap</a></span><wbr><span class="parameters">(int&nbsp;numNodes,
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;org.apache.hadoop.hbase.ServerName,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;org.apache.hadoop.hbase.client.RegionInfo&gt;&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerHeterogeneousCost.html#line-163">createServerMap</a></span><wbr><span class="parameters">(int&nbsp;numNodes,
  int&nbsp;numRegions,
  int&nbsp;numRegionsPerServer,
  int&nbsp;replication,
@@ -410,7 +365,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="mockClusterServers(int[],int)">
 <h3>mockClusterServers</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/TreeMap.html" title="class or interface in java.util" class="external-link">TreeMap</a>&lt;org.apache.hadoop.hbase.ServerName,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;org.apache.hadoop.hbase.client.RegionInfo&gt;&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerHeterogeneousCost.html#line-256">mockClusterServers</a></span><wbr><span class="parameters">(int[]&nbsp;mockCluster,
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/TreeMap.html" title="class or interface in java.util" class="external-link">TreeMap</a>&lt;org.apache.hadoop.hbase.ServerName,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;org.apache.hadoop.hbase.client.RegionInfo&gt;&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerHeterogeneousCost.html#line-190">mockClusterServers</a></span><wbr><span class="parameters">(int[]&nbsp;mockCluster,
  int&nbsp;numTables)</span></div>
 <dl class="notes">
 <dt>Overrides:</dt>
@@ -421,7 +376,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="createServer(java.lang.String)">
 <h3>createServer</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.master.balancer.ServerAndLoad</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerHeterogeneousCost.html#line-272">createServer</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;host)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">org.apache.hadoop.hbase.master.balancer.ServerAndLoad</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerHeterogeneousCost.html#line-206">createServer</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;host)</span></div>
 </section>
 </li>
 </ul>

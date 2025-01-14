@@ -80,7 +80,7 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <hr>
 <div class="type-signature"><span class="annotations">@Private
-</span><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-53">HFileLink</a></span>
+</span><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-52">HFileLink</a></span>
 <span class="extends-implements">extends <a href="FileLink.html" title="class in org.apache.hadoop.hbase.io">FileLink</a></span></div>
 <div class="block">HFileLink describes a link to an hfile. An hfile can be served from a region or from the hfile
  archive directory (/hbase/.archive) HFileLink allows to access the referenced hfile regardless of
@@ -199,73 +199,10 @@ loadScripts(document, 'script');</script>
  org.apache.hadoop.fs.Path&nbsp;hFileLinkPattern)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#create(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,java.lang.String,java.lang.String,java.lang.String,org.apache.hadoop.hbase.TableName,java.lang.String,java.lang.String,boolean)" class="member-name-link">create</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
- org.apache.hadoop.fs.FileSystem&nbsp;fs,
- org.apache.hadoop.fs.Path&nbsp;dstFamilyPath,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;familyName,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;dstTableName,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;dstRegionName,
- <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;linkedTable,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;linkedRegion,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hfileName,
- boolean&nbsp;createBackRef)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Create a new HFileLink</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#create(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.client.RegionInfo,java.lang.String)" class="member-name-link">create</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
- org.apache.hadoop.fs.FileSystem&nbsp;fs,
- org.apache.hadoop.fs.Path&nbsp;dstFamilyPath,
- <a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;hfileRegionInfo,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hfileName)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Create a new HFileLink</div>
-</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#create(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.client.RegionInfo,java.lang.String,boolean)" class="member-name-link">create</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
- org.apache.hadoop.fs.FileSystem&nbsp;fs,
- org.apache.hadoop.fs.Path&nbsp;dstFamilyPath,
- <a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;hfileRegionInfo,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hfileName,
- boolean&nbsp;createBackRef)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Create a new HFileLink</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#create(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.TableName,java.lang.String,java.lang.String)" class="member-name-link">create</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
- org.apache.hadoop.fs.FileSystem&nbsp;fs,
- org.apache.hadoop.fs.Path&nbsp;dstFamilyPath,
- <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;linkedTable,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;linkedRegion,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hfileName)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Create a new HFileLink</div>
-</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#create(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.TableName,java.lang.String,java.lang.String,boolean)" class="member-name-link">create</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
- org.apache.hadoop.fs.FileSystem&nbsp;fs,
- org.apache.hadoop.fs.Path&nbsp;dstFamilyPath,
- <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;linkedTable,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;linkedRegion,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hfileName,
- boolean&nbsp;createBackRef)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Create a new HFileLink.</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createBackReferenceName(java.lang.String,java.lang.String)" class="member-name-link">createBackReferenceName</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;tableNameStr,
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createBackReferenceName(java.lang.String,java.lang.String)" class="member-name-link">createBackReferenceName</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;tableNameStr,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;regionName)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Create the back reference name</div>
-</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createFromHFileLink(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,java.lang.String,boolean)" class="member-name-link">createFromHFileLink</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
- org.apache.hadoop.fs.FileSystem&nbsp;fs,
- org.apache.hadoop.fs.Path&nbsp;dstFamilyPath,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hfileLinkName,
- boolean&nbsp;createBackRef)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Create a new HFileLink starting from a hfileLink name</div>
+<div class="block">Create the back reference name</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createHFileLinkName(org.apache.hadoop.hbase.client.RegionInfo,java.lang.String)" class="member-name-link">createHFileLinkName</a><wbr>(<a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;hfileRegionInfo,
@@ -367,13 +304,13 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="LOG">
 <h3>LOG</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-57">LOG</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-56">LOG</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="LINK_NAME_REGEX">
 <h3>LINK_NAME_REGEX</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-71">LINK_NAME_REGEX</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-70">LINK_NAME_REGEX</a></span></div>
 <div class="block">A non-capture group, for HFileLink, so that this can be embedded. The HFileLink describe a link
  to an hfile in a different table/region and the name is in the form: table=region-hfile.
  <p>
@@ -389,14 +326,14 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="LINK_NAME_PATTERN">
 <h3>LINK_NAME_PATTERN</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/regex/Pattern.html" title="class or interface in java.util.regex" class="external-link">Pattern</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-76">LINK_NAME_PATTERN</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/regex/Pattern.html" title="class or interface in java.util.regex" class="external-link">Pattern</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-75">LINK_NAME_PATTERN</a></span></div>
 <div class="block">Define the HFile Link name parser in the form of: table=region-hfile</div>
 </section>
 </li>
 <li>
 <section class="detail" id="REF_OR_HFILE_LINK_PATTERN">
 <h3>REF_OR_HFILE_LINK_PATTERN</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/regex/Pattern.html" title="class or interface in java.util.regex" class="external-link">Pattern</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-85">REF_OR_HFILE_LINK_PATTERN</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/regex/Pattern.html" title="class or interface in java.util.regex" class="external-link">Pattern</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-84">REF_OR_HFILE_LINK_PATTERN</a></span></div>
 <div class="block">The pattern should be used for hfile and reference links that can be found in
  /hbase/table/region/family/</div>
 </section>
@@ -404,25 +341,25 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="archivePath">
 <h3>archivePath</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-89">archivePath</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-88">archivePath</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="originPath">
 <h3>originPath</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-90">originPath</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-89">originPath</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="mobPath">
 <h3>mobPath</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-91">mobPath</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-90">mobPath</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="tempPath">
 <h3>tempPath</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-92">tempPath</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-91">tempPath</a></span></div>
 </section>
 </li>
 </ul>
@@ -436,7 +373,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;(org.apache.hadoop.fs.Path,org.apache.hadoop.fs.Path,org.apache.hadoop.fs.Path,org.apache.hadoop.fs.Path)">
 <h3>HFileLink</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-97">HFileLink</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;originPath,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-96">HFileLink</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;originPath,
  org.apache.hadoop.fs.Path&nbsp;tempPath,
  org.apache.hadoop.fs.Path&nbsp;mobPath,
  org.apache.hadoop.fs.Path&nbsp;archivePath)</span></div>
@@ -454,7 +391,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="buildFromHFileLinkPattern(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.Path)">
 <h3>buildFromHFileLinkPattern</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="HFileLink.html" title="class in org.apache.hadoop.hbase.io">HFileLink</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-111">buildFromHFileLinkPattern</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="HFileLink.html" title="class in org.apache.hadoop.hbase.io">HFileLink</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-110">buildFromHFileLinkPattern</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.fs.Path&nbsp;hFileLinkPattern)</span>
                                                  throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
@@ -469,7 +406,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="buildFromHFileLinkPattern(org.apache.hadoop.fs.Path,org.apache.hadoop.fs.Path,org.apache.hadoop.fs.Path)">
 <h3>buildFromHFileLinkPattern</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="HFileLink.html" title="class in org.apache.hadoop.hbase.io">HFileLink</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-122">buildFromHFileLinkPattern</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;rootDir,
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="HFileLink.html" title="class in org.apache.hadoop.hbase.io">HFileLink</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-121">buildFromHFileLinkPattern</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;rootDir,
  org.apache.hadoop.fs.Path&nbsp;archiveDir,
  org.apache.hadoop.fs.Path&nbsp;hFileLinkPattern)</span></div>
 <dl class="notes">
@@ -483,7 +420,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="createPath(org.apache.hadoop.hbase.TableName,java.lang.String,java.lang.String,java.lang.String)">
 <h3>createPath</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-140">createPath</a></span><wbr><span class="parameters">(<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;table,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-139">createPath</a></span><wbr><span class="parameters">(<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;table,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;region,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;family,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hfile)</span></div>
@@ -502,7 +439,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="build(org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.TableName,java.lang.String,java.lang.String,java.lang.String)">
 <h3>build</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="HFileLink.html" title="class in org.apache.hadoop.hbase.io">HFileLink</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-158">build</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="HFileLink.html" title="class in org.apache.hadoop.hbase.io">HFileLink</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-157">build</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
  <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;table,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;region,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;family,
@@ -526,28 +463,28 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getOriginPath()">
 <h3>getOriginPath</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-164">getOriginPath</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-163">getOriginPath</a></span>()</div>
 <div class="block">Returns the origin path of the hfile.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getArchivePath()">
 <h3>getArchivePath</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-169">getArchivePath</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-168">getArchivePath</a></span>()</div>
 <div class="block">Returns the path of the archived hfile.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getMobPath()">
 <h3>getMobPath</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-174">getMobPath</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-173">getMobPath</a></span>()</div>
 <div class="block">Returns the path of the mob hfiles.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="isHFileLink(org.apache.hadoop.fs.Path)">
 <h3>isHFileLink</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-182">isHFileLink</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;path)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-181">isHFileLink</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;path)</span></div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>path</code> - Path to check.</dd>
@@ -559,7 +496,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="isHFileLink(java.lang.String)">
 <h3>isHFileLink</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-190">isHFileLink</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;fileName)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-189">isHFileLink</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;fileName)</span></div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>fileName</code> - File name to check.</dd>
@@ -571,7 +508,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getHFileLinkPatternRelativePath(org.apache.hadoop.fs.Path)">
 <h3>getHFileLinkPatternRelativePath</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-212">getHFileLinkPatternRelativePath</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;path)</span></div>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-211">getHFileLinkPatternRelativePath</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;path)</span></div>
 <div class="block">Convert a HFileLink path to a table relative path. e.g. the link:
  /hbase/test/0123/cf/testtb=4567-abcd becomes: /hbase/testtb/4567/cf/abcd</div>
 <dl class="notes">
@@ -587,7 +524,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getReferencedHFileName(java.lang.String)">
 <h3>getReferencedHFileName</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-233">getReferencedHFileName</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;fileName)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-232">getReferencedHFileName</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;fileName)</span></div>
 <div class="block">Get the HFile name of the referenced link</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -600,7 +537,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getReferencedRegionName(java.lang.String)">
 <h3>getReferencedRegionName</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-246">getReferencedRegionName</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;fileName)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-245">getReferencedRegionName</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;fileName)</span></div>
 <div class="block">Get the Region name of the referenced link</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -613,7 +550,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getReferencedTableName(java.lang.String)">
 <h3>getReferencedTableName</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-259">getReferencedTableName</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;fileName)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-258">getReferencedTableName</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;fileName)</span></div>
 <div class="block">Get the Table name of the referenced link</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -626,7 +563,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="createHFileLinkName(org.apache.hadoop.hbase.client.RegionInfo,java.lang.String)">
 <h3>createHFileLinkName</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-273">createHFileLinkName</a></span><wbr><span class="parameters">(<a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;hfileRegionInfo,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-272">createHFileLinkName</a></span><wbr><span class="parameters">(<a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;hfileRegionInfo,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hfileName)</span></div>
 <div class="block">Create a new HFileLink name</div>
 <dl class="notes">
@@ -641,7 +578,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="createHFileLinkName(org.apache.hadoop.hbase.TableName,java.lang.String,java.lang.String)">
 <h3>createHFileLinkName</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-286">createHFileLinkName</a></span><wbr><span class="parameters">(<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-285">createHFileLinkName</a></span><wbr><span class="parameters">(<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;regionName,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hfileName)</span></div>
 <div class="block">Create a new HFileLink name</div>
@@ -656,189 +593,9 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="create(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.client.RegionInfo,java.lang.String)">
-<h3>create</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-306">create</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
- org.apache.hadoop.fs.FileSystem&nbsp;fs,
- org.apache.hadoop.fs.Path&nbsp;dstFamilyPath,
- <a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;hfileRegionInfo,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hfileName)</span>
-                     throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
-<div class="block">Create a new HFileLink
- <p>
- It also adds a back-reference to the hfile back-reference directory to simplify the
- reference-count and the cleaning process.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>conf</code> - <code>Configuration</code> to read for the archive directory name</dd>
-<dd><code>fs</code> - <code>FileSystem</code> on which to write the HFileLink</dd>
-<dd><code>dstFamilyPath</code> - - Destination path (table/region/cf/)</dd>
-<dd><code>hfileRegionInfo</code> - - Linked HFile Region Info</dd>
-<dd><code>hfileName</code> - - Linked HFile name</dd>
-<dt>Returns:</dt>
-<dd>the file link name.</dd>
-<dt>Throws:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code> - on file or parent directory creation failure.</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="create(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.client.RegionInfo,java.lang.String,boolean)">
-<h3>create</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-326">create</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
- org.apache.hadoop.fs.FileSystem&nbsp;fs,
- org.apache.hadoop.fs.Path&nbsp;dstFamilyPath,
- <a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;hfileRegionInfo,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hfileName,
- boolean&nbsp;createBackRef)</span>
-                     throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
-<div class="block">Create a new HFileLink
- <p>
- It also adds a back-reference to the hfile back-reference directory to simplify the
- reference-count and the cleaning process.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>conf</code> - <code>Configuration</code> to read for the archive directory name</dd>
-<dd><code>fs</code> - <code>FileSystem</code> on which to write the HFileLink</dd>
-<dd><code>dstFamilyPath</code> - - Destination path (table/region/cf/)</dd>
-<dd><code>hfileRegionInfo</code> - - Linked HFile Region Info</dd>
-<dd><code>hfileName</code> - - Linked HFile name</dd>
-<dd><code>createBackRef</code> - - Whether back reference should be created. Defaults to true.</dd>
-<dt>Returns:</dt>
-<dd>the file link name.</dd>
-<dt>Throws:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code> - on file or parent directory creation failure.</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="create(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.TableName,java.lang.String,java.lang.String)">
-<h3>create</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-348">create</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
- org.apache.hadoop.fs.FileSystem&nbsp;fs,
- org.apache.hadoop.fs.Path&nbsp;dstFamilyPath,
- <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;linkedTable,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;linkedRegion,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hfileName)</span>
-                     throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
-<div class="block">Create a new HFileLink
- <p>
- It also adds a back-reference to the hfile back-reference directory to simplify the
- reference-count and the cleaning process.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>conf</code> - <code>Configuration</code> to read for the archive directory name</dd>
-<dd><code>fs</code> - <code>FileSystem</code> on which to write the HFileLink</dd>
-<dd><code>dstFamilyPath</code> - - Destination path (table/region/cf/)</dd>
-<dd><code>linkedTable</code> - - Linked Table Name</dd>
-<dd><code>linkedRegion</code> - - Linked Region Name</dd>
-<dd><code>hfileName</code> - - Linked HFile name</dd>
-<dt>Returns:</dt>
-<dd>the file link name.</dd>
-<dt>Throws:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code> - on file or parent directory creation failure.</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="create(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.TableName,java.lang.String,java.lang.String,boolean)">
-<h3>create</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-370">create</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
- org.apache.hadoop.fs.FileSystem&nbsp;fs,
- org.apache.hadoop.fs.Path&nbsp;dstFamilyPath,
- <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;linkedTable,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;linkedRegion,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hfileName,
- boolean&nbsp;createBackRef)</span>
-                     throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
-<div class="block">Create a new HFileLink. In the event of link creation failure, this method throws an
- IOException, so that the calling upper laying can decide on how to proceed with this.
- <p>
- It also adds a back-reference to the hfile back-reference directory to simplify the
- reference-count and the cleaning process.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>conf</code> - <code>Configuration</code> to read for the archive directory name</dd>
-<dd><code>fs</code> - <code>FileSystem</code> on which to write the HFileLink</dd>
-<dd><code>dstFamilyPath</code> - - Destination path (table/region/cf/)</dd>
-<dd><code>linkedTable</code> - - Linked Table Name</dd>
-<dd><code>linkedRegion</code> - - Linked Region Name</dd>
-<dd><code>hfileName</code> - - Linked HFile name</dd>
-<dd><code>createBackRef</code> - - Whether back reference should be created. Defaults to true.</dd>
-<dt>Returns:</dt>
-<dd>the file link name.</dd>
-<dt>Throws:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code> - on file or parent directory creation failure.</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="create(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,java.lang.String,java.lang.String,java.lang.String,org.apache.hadoop.hbase.TableName,java.lang.String,java.lang.String,boolean)">
-<h3>create</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-399">create</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
- org.apache.hadoop.fs.FileSystem&nbsp;fs,
- org.apache.hadoop.fs.Path&nbsp;dstFamilyPath,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;familyName,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;dstTableName,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;dstRegionName,
- <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;linkedTable,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;linkedRegion,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hfileName,
- boolean&nbsp;createBackRef)</span>
-                     throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
-<div class="block">Create a new HFileLink
- <p>
- It also adds a back-reference to the hfile back-reference directory to simplify the
- reference-count and the cleaning process.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>conf</code> - <code>Configuration</code> to read for the archive directory name</dd>
-<dd><code>fs</code> - <code>FileSystem</code> on which to write the HFileLink</dd>
-<dd><code>dstFamilyPath</code> - - Destination path (table/region/cf/)</dd>
-<dd><code>dstTableName</code> - - Destination table name</dd>
-<dd><code>dstRegionName</code> - - Destination region name</dd>
-<dd><code>linkedTable</code> - - Linked Table Name</dd>
-<dd><code>linkedRegion</code> - - Linked Region Name</dd>
-<dd><code>hfileName</code> - - Linked HFile name</dd>
-<dd><code>createBackRef</code> - - Whether back reference should be created. Defaults to true.</dd>
-<dt>Returns:</dt>
-<dd>the file link name.</dd>
-<dt>Throws:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code> - on file or parent directory creation failure</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="createFromHFileLink(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,java.lang.String,boolean)">
-<h3>createFromHFileLink</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-451">createFromHFileLink</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
- org.apache.hadoop.fs.FileSystem&nbsp;fs,
- org.apache.hadoop.fs.Path&nbsp;dstFamilyPath,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hfileLinkName,
- boolean&nbsp;createBackRef)</span>
-                                  throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
-<div class="block">Create a new HFileLink starting from a hfileLink name
- <p>
- It also adds a back-reference to the hfile back-reference directory to simplify the
- reference-count and the cleaning process.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>conf</code> - <code>Configuration</code> to read for the archive directory name</dd>
-<dd><code>fs</code> - <code>FileSystem</code> on which to write the HFileLink</dd>
-<dd><code>dstFamilyPath</code> - - Destination path (table/region/cf/)</dd>
-<dd><code>hfileLinkName</code> - - HFileLink name (it contains hfile-region-table)</dd>
-<dd><code>createBackRef</code> - - Whether back reference should be created. Defaults to true.</dd>
-<dt>Returns:</dt>
-<dd>the file link name.</dd>
-<dt>Throws:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code> - on file or parent directory creation failure.</dd>
-</dl>
-</section>
-</li>
-<li>
 <section class="detail" id="createBackReferenceName(java.lang.String,java.lang.String)">
 <h3>createBackReferenceName</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-466">createBackReferenceName</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;tableNameStr,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-296">createBackReferenceName</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;tableNameStr,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;regionName)</span></div>
 <div class="block">Create the back reference name</div>
 </section>
@@ -846,7 +603,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getHFileFromBackReference(org.apache.hadoop.fs.Path,org.apache.hadoop.fs.Path)">
 <h3>getHFileFromBackReference</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-477">getHFileFromBackReference</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;rootDir,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-307">getHFileFromBackReference</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;rootDir,
  org.apache.hadoop.fs.Path&nbsp;linkRefPath)</span></div>
 <div class="block">Get the full path of the HFile referenced by the back reference</div>
 <dl class="notes">
@@ -861,13 +618,13 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="parseBackReferenceName(java.lang.String)">
 <h3>parseBackReferenceName</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../util/Pair.html" title="class in org.apache.hadoop.hbase.util">Pair</a>&lt;<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-494">parseBackReferenceName</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../util/Pair.html" title="class in org.apache.hadoop.hbase.util">Pair</a>&lt;<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-324">parseBackReferenceName</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getHFileFromBackReference(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.Path)">
 <h3>getHFileFromBackReference</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-509">getHFileFromBackReference</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/io/HFileLink.html#line-339">getHFileFromBackReference</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.fs.Path&nbsp;linkRefPath)</span>
                                                            throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Get the full path of the HFile referenced by the back reference</div>

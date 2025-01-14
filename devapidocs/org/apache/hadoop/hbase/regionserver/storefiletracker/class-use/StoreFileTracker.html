@@ -55,63 +55,21 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Package</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.master.assignment">org.apache.hadoop.hbase.master.assignment</a></div>
+<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.mob">org.apache.hadoop.hbase.mob</a></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.mob">org.apache.hadoop.hbase.mob</a></div>
+<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.regionserver">org.apache.hadoop.hbase.regionserver</a></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.regionserver">org.apache.hadoop.hbase.regionserver</a></div>
+<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.regionserver.storefiletracker">org.apache.hadoop.hbase.regionserver.storefiletracker</a></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.regionserver.storefiletracker">org.apache.hadoop.hbase.regionserver.storefiletracker</a></div>
+<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.snapshot">org.apache.hadoop.hbase.snapshot</a></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.snapshot">org.apache.hadoop.hbase.snapshot</a></div>
+<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.util">org.apache.hadoop.hbase.util</a></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.util">org.apache.hadoop.hbase.util</a></div>
+<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.util.compaction">org.apache.hadoop.hbase.util.compaction</a></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.util.compaction">org.apache.hadoop.hbase.util.compaction</a></div>
-<div class="col-last even-row-color">&nbsp;</div>
 </div>
 <section class="class-uses">
 <ul class="block-list">
-<li>
-<section class="detail" id="org.apache.hadoop.hbase.master.assignment">
-<h2>Uses of <a href="../StoreFileTracker.html" title="interface in org.apache.hadoop.hbase.regionserver.storefiletracker">StoreFileTracker</a> in <a href="../../../master/assignment/package-summary.html">org.apache.hadoop.hbase.master.assignment</a></h2>
-<div class="caption"><span>Fields in <a href="../../../master/assignment/package-summary.html">org.apache.hadoop.hbase.master.assignment</a> declared as <a href="../StoreFileTracker.html" title="interface in org.apache.hadoop.hbase.regionserver.storefiletracker">StoreFileTracker</a></span></div>
-<div class="summary-table three-column-summary">
-<div class="table-header col-first">Modifier and Type</div>
-<div class="table-header col-second">Field</div>
-<div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code>private final <a href="../StoreFileTracker.html" title="interface in org.apache.hadoop.hbase.regionserver.storefiletracker">StoreFileTracker</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">SplitTableRegionProcedure.StoreFileSplitter.</span><code><a href="../../../master/assignment/SplitTableRegionProcedure.StoreFileSplitter.html#tracker" class="member-name-link">tracker</a></code></div>
-<div class="col-last even-row-color">&nbsp;</div>
-</div>
-<div class="caption"><span>Methods in <a href="../../../master/assignment/package-summary.html">org.apache.hadoop.hbase.master.assignment</a> with parameters of type <a href="../StoreFileTracker.html" title="interface in org.apache.hadoop.hbase.regionserver.storefiletracker">StoreFileTracker</a></span></div>
-<div class="summary-table three-column-summary">
-<div class="table-header col-first">Modifier and Type</div>
-<div class="table-header col-second">Method</div>
-<div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code>private <a href="../../../util/Pair.html" title="class in org.apache.hadoop.hbase.util">Pair</a>&lt;org.apache.hadoop.fs.Path,<wbr>org.apache.hadoop.fs.Path&gt;</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">SplitTableRegionProcedure.</span><code><a href="../../../master/assignment/SplitTableRegionProcedure.html#splitStoreFile(org.apache.hadoop.hbase.regionserver.HRegionFileSystem,org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker,byte%5B%5D,org.apache.hadoop.hbase.regionserver.HStoreFile)" class="member-name-link">splitStoreFile</a><wbr>(<a href="../../HRegionFileSystem.html" title="class in org.apache.hadoop.hbase.regionserver">HRegionFileSystem</a>&nbsp;regionFs,
- <a href="../StoreFileTracker.html" title="interface in org.apache.hadoop.hbase.regionserver.storefiletracker">StoreFileTracker</a>&nbsp;tracker,
- byte[]&nbsp;family,
- <a href="../../HStoreFile.html" title="class in org.apache.hadoop.hbase.regionserver">HStoreFile</a>&nbsp;sf)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
-</div>
-<div class="caption"><span>Constructors in <a href="../../../master/assignment/package-summary.html">org.apache.hadoop.hbase.master.assignment</a> with parameters of type <a href="../StoreFileTracker.html" title="interface in org.apache.hadoop.hbase.regionserver.storefiletracker">StoreFileTracker</a></span></div>
-<div class="summary-table three-column-summary">
-<div class="table-header col-first">Modifier</div>
-<div class="table-header col-second">Constructor</div>
-<div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code>&nbsp;</code></div>
-<div class="col-second even-row-color"><code><a href="../../../master/assignment/SplitTableRegionProcedure.StoreFileSplitter.html#%3Cinit%3E(org.apache.hadoop.hbase.regionserver.HRegionFileSystem,org.apache.hadoop.hbase.regionserver.storefiletracker.StoreFileTracker,byte%5B%5D,org.apache.hadoop.hbase.regionserver.HStoreFile)" class="member-name-link">StoreFileSplitter</a><wbr>(<a href="../../HRegionFileSystem.html" title="class in org.apache.hadoop.hbase.regionserver">HRegionFileSystem</a>&nbsp;regionFs,
- <a href="../StoreFileTracker.html" title="interface in org.apache.hadoop.hbase.regionserver.storefiletracker">StoreFileTracker</a>&nbsp;tracker,
- byte[]&nbsp;family,
- <a href="../../HStoreFile.html" title="class in org.apache.hadoop.hbase.regionserver">HStoreFile</a>&nbsp;sf)</code></div>
-<div class="col-last even-row-color">
-<div class="block">Constructor that takes what it needs to split</div>
-</div>
-</div>
-</section>
-</li>
 <li>
 <section class="detail" id="org.apache.hadoop.hbase.mob">
 <h2>Uses of <a href="../StoreFileTracker.html" title="interface in org.apache.hadoop.hbase.regionserver.storefiletracker">StoreFileTracker</a> in <a href="../../../mob/package-summary.html">org.apache.hadoop.hbase.mob</a></h2>
