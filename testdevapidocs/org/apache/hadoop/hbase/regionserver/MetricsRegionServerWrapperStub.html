@@ -445,104 +445,107 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getPercentFileLocal()" class="member-name-link">getPercentFileLocal</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getPercentFileLocalSecondaryRegions()" class="member-name-link">getPercentFileLocalSecondaryRegions</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getReadRequestsCount()" class="member-name-link">getReadRequestsCount</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getReadRequestsRatePerSecond()" class="member-name-link">getReadRequestsRatePerSecond</a>()</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getPercentFileLocalPrimaryRegions()" class="member-name-link">getPercentFileLocalPrimaryRegions</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRequestsPerSecond()" class="member-name-link">getRequestsPerSecond</a>()</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getPercentFileLocalSecondaryRegions()" class="member-name-link">getPercentFileLocalSecondaryRegions</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRootIndexHitCount()" class="member-name-link">getRootIndexHitCount</a>()</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getReadRequestsCount()" class="member-name-link">getReadRequestsCount</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRootIndexMissCount()" class="member-name-link">getRootIndexMissCount</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRpcFullScanRequestsCount()" class="member-name-link">getRpcFullScanRequestsCount</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRpcGetRequestsCount()" class="member-name-link">getRpcGetRequestsCount</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRpcMultiRequestsCount()" class="member-name-link">getRpcMultiRequestsCount</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRpcMutateRequestsCount()" class="member-name-link">getRpcMutateRequestsCount</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRpcScanRequestsCount()" class="member-name-link">getRpcScanRequestsCount</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getServerName()" class="member-name-link">getServerName</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getShortCircuitBytesRead()" class="member-name-link">getShortCircuitBytesRead</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSmallCompactionQueueSize()" class="member-name-link">getSmallCompactionQueueSize</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSplitQueueSize()" class="member-name-link">getSplitQueueSize</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getStartCode()" class="member-name-link">getStartCode</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getStoreFileIndexSize()" class="member-name-link">getStoreFileIndexSize</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getStoreFileSize()" class="member-name-link">getStoreFileSize</a>()</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getReadRequestsRatePerSecond()" class="member-name-link">getReadRequestsRatePerSecond</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getStoreFileSizeGrowthRate()" class="member-name-link">getStoreFileSizeGrowthRate</a>()</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRequestsPerSecond()" class="member-name-link">getRequestsPerSecond</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTotalBytesRead()" class="member-name-link">getTotalBytesRead</a>()</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRootIndexHitCount()" class="member-name-link">getRootIndexHitCount</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTotalRequestCount()" class="member-name-link">getTotalRequestCount</a>()</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRootIndexMissCount()" class="member-name-link">getRootIndexMissCount</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTotalRowActionRequestCount()" class="member-name-link">getTotalRowActionRequestCount</a>()</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRpcFullScanRequestsCount()" class="member-name-link">getRpcFullScanRequestsCount</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTotalStaticBloomSize()" class="member-name-link">getTotalStaticBloomSize</a>()</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRpcGetRequestsCount()" class="member-name-link">getRpcGetRequestsCount</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTotalStaticIndexSize()" class="member-name-link">getTotalStaticIndexSize</a>()</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRpcMultiRequestsCount()" class="member-name-link">getRpcMultiRequestsCount</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTrailerHitCount()" class="member-name-link">getTrailerHitCount</a>()</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRpcMutateRequestsCount()" class="member-name-link">getRpcMutateRequestsCount</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTrailerMissCount()" class="member-name-link">getTrailerMissCount</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getUpdatesBlockedTime()" class="member-name-link">getUpdatesBlockedTime</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getWALExcludeDNs()" class="member-name-link">getWALExcludeDNs</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getWALFileSize()" class="member-name-link">getWALFileSize</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getWriteRequestsCount()" class="member-name-link">getWriteRequestsCount</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getWriteRequestsRatePerSecond()" class="member-name-link">getWriteRequestsRatePerSecond</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getZeroCopyBytesRead()" class="member-name-link">getZeroCopyBytesRead</a>()</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRpcScanRequestsCount()" class="member-name-link">getRpcScanRequestsCount</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getZookeeperQuorum()" class="member-name-link">getZookeeperQuorum</a>()</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getServerName()" class="member-name-link">getServerName</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getShortCircuitBytesRead()" class="member-name-link">getShortCircuitBytesRead</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSmallCompactionQueueSize()" class="member-name-link">getSmallCompactionQueueSize</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSplitQueueSize()" class="member-name-link">getSplitQueueSize</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getStartCode()" class="member-name-link">getStartCode</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getStoreFileIndexSize()" class="member-name-link">getStoreFileIndexSize</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getStoreFileSize()" class="member-name-link">getStoreFileSize</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getStoreFileSizeGrowthRate()" class="member-name-link">getStoreFileSizeGrowthRate</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTotalBytesRead()" class="member-name-link">getTotalBytesRead</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTotalRequestCount()" class="member-name-link">getTotalRequestCount</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTotalRowActionRequestCount()" class="member-name-link">getTotalRowActionRequestCount</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTotalStaticBloomSize()" class="member-name-link">getTotalStaticBloomSize</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTotalStaticIndexSize()" class="member-name-link">getTotalStaticIndexSize</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTrailerHitCount()" class="member-name-link">getTrailerHitCount</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTrailerMissCount()" class="member-name-link">getTrailerMissCount</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getUpdatesBlockedTime()" class="member-name-link">getUpdatesBlockedTime</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getWALExcludeDNs()" class="member-name-link">getWALExcludeDNs</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getWALFileSize()" class="member-name-link">getWALFileSize</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getWriteRequestsCount()" class="member-name-link">getWriteRequestsCount</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getWriteRequestsRatePerSecond()" class="member-name-link">getWriteRequestsRatePerSecond</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getZeroCopyBytesRead()" class="member-name-link">getZeroCopyBytesRead</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getZookeeperQuorum()" class="member-name-link">getZookeeperQuorum</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
 </div>
@@ -1055,9 +1058,19 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 </section>
 </li>
 <li>
+<section class="detail" id="getPercentFileLocalPrimaryRegions()">
+<h3>getPercentFileLocalPrimaryRegions</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-265">getPercentFileLocalPrimaryRegions</a></span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code>getPercentFileLocalPrimaryRegions</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
+</dl>
+</section>
+</li>
+<li>
 <section class="detail" id="getPercentFileLocalSecondaryRegions()">
 <h3>getPercentFileLocalSecondaryRegions</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-265">getPercentFileLocalSecondaryRegions</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-270">getPercentFileLocalSecondaryRegions</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getPercentFileLocalSecondaryRegions</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1067,7 +1080,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getCompactionQueueSize()">
 <h3>getCompactionQueueSize</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-270">getCompactionQueueSize</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-275">getCompactionQueueSize</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getCompactionQueueSize</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1077,7 +1090,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getSmallCompactionQueueSize()">
 <h3>getSmallCompactionQueueSize</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-275">getSmallCompactionQueueSize</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-280">getSmallCompactionQueueSize</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getSmallCompactionQueueSize</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1087,7 +1100,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getLargeCompactionQueueSize()">
 <h3>getLargeCompactionQueueSize</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-280">getLargeCompactionQueueSize</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-285">getLargeCompactionQueueSize</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getLargeCompactionQueueSize</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1097,7 +1110,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getFlushQueueSize()">
 <h3>getFlushQueueSize</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-285">getFlushQueueSize</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-290">getFlushQueueSize</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getFlushQueueSize</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1107,7 +1120,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getMemStoreLimit()">
 <h3>getMemStoreLimit</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-290">getMemStoreLimit</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-295">getMemStoreLimit</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getMemStoreLimit</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1117,7 +1130,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getOnHeapMemStoreLimit()">
 <h3>getOnHeapMemStoreLimit</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-295">getOnHeapMemStoreLimit</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-300">getOnHeapMemStoreLimit</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getOnHeapMemStoreLimit</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1127,7 +1140,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getOffHeapMemStoreLimit()">
 <h3>getOffHeapMemStoreLimit</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-300">getOffHeapMemStoreLimit</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-305">getOffHeapMemStoreLimit</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getOffHeapMemStoreLimit</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1137,7 +1150,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getBlockCacheFreeSize()">
 <h3>getBlockCacheFreeSize</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-305">getBlockCacheFreeSize</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-310">getBlockCacheFreeSize</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getBlockCacheFreeSize</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1147,7 +1160,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getBlockCacheCount()">
 <h3>getBlockCacheCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-310">getBlockCacheCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-315">getBlockCacheCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getBlockCacheCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1157,7 +1170,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getBlockCacheDataBlockCount()">
 <h3>getBlockCacheDataBlockCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-315">getBlockCacheDataBlockCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-320">getBlockCacheDataBlockCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getBlockCacheDataBlockCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1167,7 +1180,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getBlockCacheSize()">
 <h3>getBlockCacheSize</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-320">getBlockCacheSize</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-325">getBlockCacheSize</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getBlockCacheSize</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1177,7 +1190,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getBlockCacheHitCount()">
 <h3>getBlockCacheHitCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-325">getBlockCacheHitCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-330">getBlockCacheHitCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getBlockCacheHitCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1187,7 +1200,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getBlockCachePrimaryHitCount()">
 <h3>getBlockCachePrimaryHitCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-330">getBlockCachePrimaryHitCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-335">getBlockCachePrimaryHitCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getBlockCachePrimaryHitCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1197,7 +1210,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getBlockCacheHitCachingCount()">
 <h3>getBlockCacheHitCachingCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-335">getBlockCacheHitCachingCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-340">getBlockCacheHitCachingCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getBlockCacheHitCachingCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1207,7 +1220,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getBlockCacheMissCount()">
 <h3>getBlockCacheMissCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-340">getBlockCacheMissCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-345">getBlockCacheMissCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getBlockCacheMissCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1217,7 +1230,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getBlockCachePrimaryMissCount()">
 <h3>getBlockCachePrimaryMissCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-345">getBlockCachePrimaryMissCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-350">getBlockCachePrimaryMissCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getBlockCachePrimaryMissCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1227,7 +1240,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getBlockCacheMissCachingCount()">
 <h3>getBlockCacheMissCachingCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-350">getBlockCacheMissCachingCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-355">getBlockCacheMissCachingCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getBlockCacheMissCachingCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1237,7 +1250,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getBlockCacheEvictedCount()">
 <h3>getBlockCacheEvictedCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-355">getBlockCacheEvictedCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-360">getBlockCacheEvictedCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getBlockCacheEvictedCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1247,7 +1260,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getBlockCachePrimaryEvictedCount()">
 <h3>getBlockCachePrimaryEvictedCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-360">getBlockCachePrimaryEvictedCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-365">getBlockCachePrimaryEvictedCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getBlockCachePrimaryEvictedCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1257,7 +1270,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getBlockCacheHitPercent()">
 <h3>getBlockCacheHitPercent</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-365">getBlockCacheHitPercent</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-370">getBlockCacheHitPercent</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getBlockCacheHitPercent</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1267,7 +1280,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getBlockCacheHitCachingPercent()">
 <h3>getBlockCacheHitCachingPercent</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-370">getBlockCacheHitCachingPercent</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-375">getBlockCacheHitCachingPercent</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getBlockCacheHitCachingPercent</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1277,7 +1290,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getBlockCacheFailedInsertions()">
 <h3>getBlockCacheFailedInsertions</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-375">getBlockCacheFailedInsertions</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-380">getBlockCacheFailedInsertions</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getBlockCacheFailedInsertions</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1287,7 +1300,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getL1CacheSize()">
 <h3>getL1CacheSize</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-380">getL1CacheSize</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-385">getL1CacheSize</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getL1CacheSize</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1297,7 +1310,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getL1CacheFreeSize()">
 <h3>getL1CacheFreeSize</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-385">getL1CacheFreeSize</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-390">getL1CacheFreeSize</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getL1CacheFreeSize</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1307,7 +1320,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getL1CacheCount()">
 <h3>getL1CacheCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-390">getL1CacheCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-395">getL1CacheCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getL1CacheCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1317,7 +1330,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getL1CacheEvictedCount()">
 <h3>getL1CacheEvictedCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-395">getL1CacheEvictedCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-400">getL1CacheEvictedCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getL1CacheEvictedCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1327,7 +1340,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getL1CacheHitCount()">
 <h3>getL1CacheHitCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-400">getL1CacheHitCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-405">getL1CacheHitCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getL1CacheHitCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1337,7 +1350,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getL1CacheMissCount()">
 <h3>getL1CacheMissCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-405">getL1CacheMissCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-410">getL1CacheMissCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getL1CacheMissCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1347,7 +1360,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getL1CacheHitRatio()">
 <h3>getL1CacheHitRatio</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-410">getL1CacheHitRatio</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-415">getL1CacheHitRatio</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getL1CacheHitRatio</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1357,7 +1370,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getL1CacheMissRatio()">
 <h3>getL1CacheMissRatio</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-415">getL1CacheMissRatio</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-420">getL1CacheMissRatio</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getL1CacheMissRatio</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1367,7 +1380,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getL2CacheSize()">
 <h3>getL2CacheSize</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-420">getL2CacheSize</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-425">getL2CacheSize</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getL2CacheSize</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1377,7 +1390,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getL2CacheFreeSize()">
 <h3>getL2CacheFreeSize</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-425">getL2CacheFreeSize</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-430">getL2CacheFreeSize</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getL2CacheFreeSize</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1387,7 +1400,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getL2CacheCount()">
 <h3>getL2CacheCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-430">getL2CacheCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-435">getL2CacheCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getL2CacheCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1397,7 +1410,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getL2CacheEvictedCount()">
 <h3>getL2CacheEvictedCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-435">getL2CacheEvictedCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-440">getL2CacheEvictedCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getL2CacheEvictedCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1407,7 +1420,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getL2CacheHitCount()">
 <h3>getL2CacheHitCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-440">getL2CacheHitCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-445">getL2CacheHitCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getL2CacheHitCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1417,7 +1430,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getL2CacheMissCount()">
 <h3>getL2CacheMissCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-445">getL2CacheMissCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-450">getL2CacheMissCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getL2CacheMissCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1427,7 +1440,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getL2CacheHitRatio()">
 <h3>getL2CacheHitRatio</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-450">getL2CacheHitRatio</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-455">getL2CacheHitRatio</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getL2CacheHitRatio</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1437,7 +1450,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getL2CacheMissRatio()">
 <h3>getL2CacheMissRatio</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-455">getL2CacheMissRatio</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-460">getL2CacheMissRatio</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getL2CacheMissRatio</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1447,7 +1460,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getUpdatesBlockedTime()">
 <h3>getUpdatesBlockedTime</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-460">getUpdatesBlockedTime</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-465">getUpdatesBlockedTime</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getUpdatesBlockedTime</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1457,7 +1470,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="forceRecompute()">
 <h3>forceRecompute</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-465">forceRecompute</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-470">forceRecompute</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>forceRecompute</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1467,7 +1480,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getNumWALFiles()">
 <h3>getNumWALFiles</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-470">getNumWALFiles</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-475">getNumWALFiles</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getNumWALFiles</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1477,7 +1490,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getWALFileSize()">
 <h3>getWALFileSize</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-475">getWALFileSize</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-480">getWALFileSize</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getWALFileSize</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1487,7 +1500,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getWALExcludeDNs()">
 <h3>getWALExcludeDNs</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-480">getWALExcludeDNs</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-485">getWALExcludeDNs</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getWALExcludeDNs</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1497,7 +1510,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getNumWALSlowAppend()">
 <h3>getNumWALSlowAppend</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-485">getNumWALSlowAppend</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-490">getNumWALSlowAppend</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getNumWALSlowAppend</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1507,7 +1520,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getFlushedCellsCount()">
 <h3>getFlushedCellsCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-490">getFlushedCellsCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-495">getFlushedCellsCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getFlushedCellsCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1517,7 +1530,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getCompactedCellsCount()">
 <h3>getCompactedCellsCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-495">getCompactedCellsCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-500">getCompactedCellsCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getCompactedCellsCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1527,7 +1540,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getMajorCompactedCellsCount()">
 <h3>getMajorCompactedCellsCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-500">getMajorCompactedCellsCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-505">getMajorCompactedCellsCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getMajorCompactedCellsCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1537,7 +1550,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getFlushedCellsSize()">
 <h3>getFlushedCellsSize</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-505">getFlushedCellsSize</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-510">getFlushedCellsSize</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getFlushedCellsSize</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1547,7 +1560,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getCompactedCellsSize()">
 <h3>getCompactedCellsSize</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-510">getCompactedCellsSize</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-515">getCompactedCellsSize</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getCompactedCellsSize</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1557,7 +1570,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getMajorCompactedCellsSize()">
 <h3>getMajorCompactedCellsSize</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-515">getMajorCompactedCellsSize</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-520">getMajorCompactedCellsSize</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getMajorCompactedCellsSize</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1567,7 +1580,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getHedgedReadOps()">
 <h3>getHedgedReadOps</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-520">getHedgedReadOps</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-525">getHedgedReadOps</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getHedgedReadOps</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1577,7 +1590,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getHedgedReadWins()">
 <h3>getHedgedReadWins</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-525">getHedgedReadWins</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-530">getHedgedReadWins</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getHedgedReadWins</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1587,7 +1600,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getHedgedReadOpsInCurThread()">
 <h3>getHedgedReadOpsInCurThread</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-530">getHedgedReadOpsInCurThread</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-535">getHedgedReadOpsInCurThread</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getHedgedReadOpsInCurThread</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1597,7 +1610,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getTotalBytesRead()">
 <h3>getTotalBytesRead</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-535">getTotalBytesRead</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-540">getTotalBytesRead</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getTotalBytesRead</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1607,7 +1620,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getLocalBytesRead()">
 <h3>getLocalBytesRead</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-540">getLocalBytesRead</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-545">getLocalBytesRead</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getLocalBytesRead</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1617,7 +1630,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getShortCircuitBytesRead()">
 <h3>getShortCircuitBytesRead</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-545">getShortCircuitBytesRead</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-550">getShortCircuitBytesRead</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getShortCircuitBytesRead</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1627,7 +1640,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getZeroCopyBytesRead()">
 <h3>getZeroCopyBytesRead</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-550">getZeroCopyBytesRead</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-555">getZeroCopyBytesRead</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getZeroCopyBytesRead</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1637,7 +1650,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getBlockedRequestsCount()">
 <h3>getBlockedRequestsCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-555">getBlockedRequestsCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-560">getBlockedRequestsCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getBlockedRequestsCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1647,7 +1660,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getDataMissCount()">
 <h3>getDataMissCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-560">getDataMissCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-565">getDataMissCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getDataMissCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1657,7 +1670,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getLeafIndexMissCount()">
 <h3>getLeafIndexMissCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-565">getLeafIndexMissCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-570">getLeafIndexMissCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getLeafIndexMissCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1667,7 +1680,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getBloomChunkMissCount()">
 <h3>getBloomChunkMissCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-570">getBloomChunkMissCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-575">getBloomChunkMissCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getBloomChunkMissCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1677,7 +1690,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getMetaMissCount()">
 <h3>getMetaMissCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-575">getMetaMissCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-580">getMetaMissCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getMetaMissCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1687,7 +1700,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getRootIndexMissCount()">
 <h3>getRootIndexMissCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-580">getRootIndexMissCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-585">getRootIndexMissCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getRootIndexMissCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1697,7 +1710,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getIntermediateIndexMissCount()">
 <h3>getIntermediateIndexMissCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-585">getIntermediateIndexMissCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-590">getIntermediateIndexMissCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getIntermediateIndexMissCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1707,7 +1720,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getFileInfoMissCount()">
 <h3>getFileInfoMissCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-590">getFileInfoMissCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-595">getFileInfoMissCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getFileInfoMissCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1717,7 +1730,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getGeneralBloomMetaMissCount()">
 <h3>getGeneralBloomMetaMissCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-595">getGeneralBloomMetaMissCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-600">getGeneralBloomMetaMissCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getGeneralBloomMetaMissCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1727,7 +1740,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getDeleteFamilyBloomMissCount()">
 <h3>getDeleteFamilyBloomMissCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-600">getDeleteFamilyBloomMissCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-605">getDeleteFamilyBloomMissCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getDeleteFamilyBloomMissCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1737,7 +1750,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getTrailerMissCount()">
 <h3>getTrailerMissCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-605">getTrailerMissCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-610">getTrailerMissCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getTrailerMissCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1747,7 +1760,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getDataHitCount()">
 <h3>getDataHitCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-610">getDataHitCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-615">getDataHitCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getDataHitCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1757,7 +1770,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getLeafIndexHitCount()">
 <h3>getLeafIndexHitCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-615">getLeafIndexHitCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-620">getLeafIndexHitCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getLeafIndexHitCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1767,7 +1780,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getBloomChunkHitCount()">
 <h3>getBloomChunkHitCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-620">getBloomChunkHitCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-625">getBloomChunkHitCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getBloomChunkHitCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1777,7 +1790,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getMetaHitCount()">
 <h3>getMetaHitCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-625">getMetaHitCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-630">getMetaHitCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getMetaHitCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1787,7 +1800,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getRootIndexHitCount()">
 <h3>getRootIndexHitCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-630">getRootIndexHitCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-635">getRootIndexHitCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getRootIndexHitCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1797,7 +1810,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getIntermediateIndexHitCount()">
 <h3>getIntermediateIndexHitCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-635">getIntermediateIndexHitCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-640">getIntermediateIndexHitCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getIntermediateIndexHitCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1807,7 +1820,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getFileInfoHitCount()">
 <h3>getFileInfoHitCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-640">getFileInfoHitCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-645">getFileInfoHitCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getFileInfoHitCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1817,7 +1830,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getGeneralBloomMetaHitCount()">
 <h3>getGeneralBloomMetaHitCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-645">getGeneralBloomMetaHitCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-650">getGeneralBloomMetaHitCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getGeneralBloomMetaHitCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1827,7 +1840,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getDeleteFamilyBloomHitCount()">
 <h3>getDeleteFamilyBloomHitCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-650">getDeleteFamilyBloomHitCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-655">getDeleteFamilyBloomHitCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getDeleteFamilyBloomHitCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1837,7 +1850,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getTrailerHitCount()">
 <h3>getTrailerHitCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-655">getTrailerHitCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-660">getTrailerHitCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getTrailerHitCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1847,7 +1860,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getSplitQueueSize()">
 <h3>getSplitQueueSize</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-660">getSplitQueueSize</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-665">getSplitQueueSize</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getSplitQueueSize</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1857,7 +1870,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getCellsCountCompactedToMob()">
 <h3>getCellsCountCompactedToMob</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-665">getCellsCountCompactedToMob</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-670">getCellsCountCompactedToMob</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getCellsCountCompactedToMob</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1867,7 +1880,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getCellsCountCompactedFromMob()">
 <h3>getCellsCountCompactedFromMob</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-670">getCellsCountCompactedFromMob</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-675">getCellsCountCompactedFromMob</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getCellsCountCompactedFromMob</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1877,7 +1890,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getCellsSizeCompactedToMob()">
 <h3>getCellsSizeCompactedToMob</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-675">getCellsSizeCompactedToMob</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-680">getCellsSizeCompactedToMob</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getCellsSizeCompactedToMob</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1887,7 +1900,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getCellsSizeCompactedFromMob()">
 <h3>getCellsSizeCompactedFromMob</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-680">getCellsSizeCompactedFromMob</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-685">getCellsSizeCompactedFromMob</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getCellsSizeCompactedFromMob</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1897,7 +1910,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getMobFlushCount()">
 <h3>getMobFlushCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-685">getMobFlushCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-690">getMobFlushCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getMobFlushCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1907,7 +1920,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getMobFlushedCellsCount()">
 <h3>getMobFlushedCellsCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-690">getMobFlushedCellsCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-695">getMobFlushedCellsCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getMobFlushedCellsCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1917,7 +1930,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getMobFlushedCellsSize()">
 <h3>getMobFlushedCellsSize</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-695">getMobFlushedCellsSize</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-700">getMobFlushedCellsSize</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getMobFlushedCellsSize</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1927,7 +1940,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getMobScanCellsCount()">
 <h3>getMobScanCellsCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-700">getMobScanCellsCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-705">getMobScanCellsCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getMobScanCellsCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1937,7 +1950,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getMobScanCellsSize()">
 <h3>getMobScanCellsSize</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-705">getMobScanCellsSize</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-710">getMobScanCellsSize</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getMobScanCellsSize</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1947,7 +1960,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getMobFileCacheAccessCount()">
 <h3>getMobFileCacheAccessCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-710">getMobFileCacheAccessCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-715">getMobFileCacheAccessCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getMobFileCacheAccessCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1957,7 +1970,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getMobFileCacheMissCount()">
 <h3>getMobFileCacheMissCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-715">getMobFileCacheMissCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-720">getMobFileCacheMissCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getMobFileCacheMissCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1967,7 +1980,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getMobFileCacheEvictedCount()">
 <h3>getMobFileCacheEvictedCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-720">getMobFileCacheEvictedCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-725">getMobFileCacheEvictedCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getMobFileCacheEvictedCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1977,7 +1990,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getMobFileCacheCount()">
 <h3>getMobFileCacheCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-725">getMobFileCacheCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-730">getMobFileCacheCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getMobFileCacheCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1987,7 +2000,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getMobFileCacheHitPercent()">
 <h3>getMobFileCacheHitPercent</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-730">getMobFileCacheHitPercent</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-735">getMobFileCacheHitPercent</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getMobFileCacheHitPercent</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -1997,7 +2010,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getAverageRegionSize()">
 <h3>getAverageRegionSize</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-735">getAverageRegionSize</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-740">getAverageRegionSize</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getAverageRegionSize</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
@@ -2007,7 +2020,7 @@ implements org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</span
 <li>
 <section class="detail" id="getRpcFullScanRequestsCount()">
 <h3>getRpcFullScanRequestsCount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-740">getRpcFullScanRequestsCount</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/regionserver/MetricsRegionServerWrapperStub.html#line-745">getRpcFullScanRequestsCount</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getRpcFullScanRequestsCount</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.hbase.regionserver.MetricsRegionServerWrapper</code></dd>
