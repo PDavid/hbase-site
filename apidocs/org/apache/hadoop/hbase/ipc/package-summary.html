@@ -329,79 +329,81 @@ This is the hadoop copied local so can fix bugs and make hbase-specific optimiza
 <div class="col-last odd-row-color class-summary class-summary-tab2">
 <div class="block">Factory to create a <code>HBaseRpcController</code></div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab2">org.apache.hadoop.hbase.ipc.RpcExecutor</div>
-<div class="col-last even-row-color class-summary class-summary-tab2">
+<div class="col-first even-row-color class-summary class-summary-tab2">org.apache.hadoop.hbase.ipc.RpcCoprocessorHost</div>
+<div class="col-last even-row-color class-summary class-summary-tab2">&nbsp;</div>
+<div class="col-first odd-row-color class-summary class-summary-tab2">org.apache.hadoop.hbase.ipc.RpcExecutor</div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">
 <div class="block">Runs the CallRunners passed here via <code>RpcExecutor.dispatch(CallRunner)</code>.</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab2">org.apache.hadoop.hbase.ipc.RpcHandler</div>
-<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="col-first even-row-color class-summary class-summary-tab2">org.apache.hadoop.hbase.ipc.RpcHandler</div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
 <div class="block">Thread to handle rpc call.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab2">org.apache.hadoop.hbase.ipc.RpcScheduler</div>
-<div class="col-last even-row-color class-summary class-summary-tab2">
+<div class="col-first odd-row-color class-summary class-summary-tab2">org.apache.hadoop.hbase.ipc.RpcScheduler</div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">
 <div class="block">An interface for RPC request scheduling algorithm.</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab2">org.apache.hadoop.hbase.ipc.RpcScheduler.Context</div>
-<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="col-first even-row-color class-summary class-summary-tab2">org.apache.hadoop.hbase.ipc.RpcScheduler.Context</div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
 <div class="block">Exposes runtime information of a <code>RpcServer</code> that a <code>RpcScheduler</code> may need.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab2">org.apache.hadoop.hbase.ipc.RpcServer</div>
-<div class="col-last even-row-color class-summary class-summary-tab2">
+<div class="col-first odd-row-color class-summary class-summary-tab2">org.apache.hadoop.hbase.ipc.RpcServer</div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">
 <div class="block">An RPC server that hosts protobuf described Services.</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab2">org.apache.hadoop.hbase.ipc.RpcServer.BlockingServiceAndInterface</div>
-<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="col-first even-row-color class-summary class-summary-tab2">org.apache.hadoop.hbase.ipc.RpcServer.BlockingServiceAndInterface</div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
 <div class="block">Datastructure for passing a <code>BlockingService</code> and its associated class of protobuf
  service interface.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab1">org.apache.hadoop.hbase.ipc.RpcServer.CallCleanup</div>
-<div class="col-last even-row-color class-summary class-summary-tab1">&nbsp;</div>
-<div class="col-first odd-row-color class-summary class-summary-tab2">org.apache.hadoop.hbase.ipc.RpcServerFactory</div>
-<div class="col-last odd-row-color class-summary class-summary-tab2">&nbsp;</div>
-<div class="col-first even-row-color class-summary class-summary-tab1">org.apache.hadoop.hbase.ipc.RpcServerInterface</div>
-<div class="col-last even-row-color class-summary class-summary-tab1">&nbsp;</div>
-<div class="col-first odd-row-color class-summary class-summary-tab2">org.apache.hadoop.hbase.ipc.RWQueueRpcExecutor</div>
-<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="col-first odd-row-color class-summary class-summary-tab1">org.apache.hadoop.hbase.ipc.RpcServer.CallCleanup</div>
+<div class="col-last odd-row-color class-summary class-summary-tab1">&nbsp;</div>
+<div class="col-first even-row-color class-summary class-summary-tab2">org.apache.hadoop.hbase.ipc.RpcServerFactory</div>
+<div class="col-last even-row-color class-summary class-summary-tab2">&nbsp;</div>
+<div class="col-first odd-row-color class-summary class-summary-tab1">org.apache.hadoop.hbase.ipc.RpcServerInterface</div>
+<div class="col-last odd-row-color class-summary class-summary-tab1">&nbsp;</div>
+<div class="col-first even-row-color class-summary class-summary-tab2">org.apache.hadoop.hbase.ipc.RWQueueRpcExecutor</div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
 <div class="block">RPC Executor that uses different queues for reads and writes.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab5">org.apache.hadoop.hbase.ipc.SecurityNotEnabledException</div>
-<div class="col-last even-row-color class-summary class-summary-tab5">
+<div class="col-first odd-row-color class-summary class-summary-tab5">org.apache.hadoop.hbase.ipc.SecurityNotEnabledException</div>
+<div class="col-last odd-row-color class-summary class-summary-tab5">
 <div class="block">Will be thrown when server received a security preamble call for asking the server principal but
  security is not enabled for this server.</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab2">org.apache.hadoop.hbase.ipc.ServerCall&lt;T extends org.apache.hadoop.hbase.ipc.ServerRpcConnection&gt;</div>
-<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="col-first even-row-color class-summary class-summary-tab2">org.apache.hadoop.hbase.ipc.ServerCall&lt;T extends org.apache.hadoop.hbase.ipc.ServerRpcConnection&gt;</div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
 <div class="block">Datastructure that holds all necessary to a method invocation and then afterward, carries the
  result.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab5">org.apache.hadoop.hbase.ipc.ServerNotRunningYetException</div>
-<div class="col-last even-row-color class-summary class-summary-tab5">&nbsp;</div>
-<div class="col-first odd-row-color class-summary class-summary-tab2">org.apache.hadoop.hbase.ipc.ServerRpcController</div>
-<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="col-first odd-row-color class-summary class-summary-tab5">org.apache.hadoop.hbase.ipc.ServerNotRunningYetException</div>
+<div class="col-last odd-row-color class-summary class-summary-tab5">&nbsp;</div>
+<div class="col-first even-row-color class-summary class-summary-tab2">org.apache.hadoop.hbase.ipc.ServerRpcController</div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
 <div class="block">Used for server-side protobuf RPC service invocations.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab5">org.apache.hadoop.hbase.ipc.ServerTooBusyException</div>
-<div class="col-last even-row-color class-summary class-summary-tab5">
+<div class="col-first odd-row-color class-summary class-summary-tab5">org.apache.hadoop.hbase.ipc.ServerTooBusyException</div>
+<div class="col-last odd-row-color class-summary class-summary-tab5">
 <div class="block">Throw this in RPC call if there are too many pending requests for one region server</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab2">org.apache.hadoop.hbase.ipc.SimpleRpcScheduler</div>
-<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="col-first even-row-color class-summary class-summary-tab2">org.apache.hadoop.hbase.ipc.SimpleRpcScheduler</div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
 <div class="block">The default scheduler.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab2">org.apache.hadoop.hbase.ipc.SimpleRpcServer</div>
-<div class="col-last even-row-color class-summary class-summary-tab2">Deprecated.</div>
-<div class="col-first odd-row-color class-summary class-summary-tab5">org.apache.hadoop.hbase.ipc.StoppedRpcClientException</div>
-<div class="col-last odd-row-color class-summary class-summary-tab5">&nbsp;</div>
-<div class="col-first even-row-color class-summary class-summary-tab5">org.apache.hadoop.hbase.ipc.UnknownServiceException</div>
+<div class="col-first odd-row-color class-summary class-summary-tab2">org.apache.hadoop.hbase.ipc.SimpleRpcServer</div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">Deprecated.</div>
+<div class="col-first even-row-color class-summary class-summary-tab5">org.apache.hadoop.hbase.ipc.StoppedRpcClientException</div>
 <div class="col-last even-row-color class-summary class-summary-tab5">&nbsp;</div>
-<div class="col-first odd-row-color class-summary class-summary-tab5">org.apache.hadoop.hbase.ipc.UnsupportedCellCodecException</div>
+<div class="col-first odd-row-color class-summary class-summary-tab5">org.apache.hadoop.hbase.ipc.UnknownServiceException</div>
 <div class="col-last odd-row-color class-summary class-summary-tab5">&nbsp;</div>
-<div class="col-first even-row-color class-summary class-summary-tab5">org.apache.hadoop.hbase.ipc.UnsupportedCompressionCodecException</div>
+<div class="col-first even-row-color class-summary class-summary-tab5">org.apache.hadoop.hbase.ipc.UnsupportedCellCodecException</div>
 <div class="col-last even-row-color class-summary class-summary-tab5">&nbsp;</div>
-<div class="col-first odd-row-color class-summary class-summary-tab5">org.apache.hadoop.hbase.ipc.UnsupportedCryptoException</div>
+<div class="col-first odd-row-color class-summary class-summary-tab5">org.apache.hadoop.hbase.ipc.UnsupportedCompressionCodecException</div>
 <div class="col-last odd-row-color class-summary class-summary-tab5">&nbsp;</div>
-<div class="col-first even-row-color class-summary class-summary-tab5">org.apache.hadoop.hbase.ipc.WrongVersionException</div>
+<div class="col-first even-row-color class-summary class-summary-tab5">org.apache.hadoop.hbase.ipc.UnsupportedCryptoException</div>
 <div class="col-last even-row-color class-summary class-summary-tab5">&nbsp;</div>
+<div class="col-first odd-row-color class-summary class-summary-tab5">org.apache.hadoop.hbase.ipc.WrongVersionException</div>
+<div class="col-last odd-row-color class-summary class-summary-tab5">&nbsp;</div>
 </div>
 </div>
 </div>

@@ -79,6 +79,11 @@ loadScripts(document, 'script');</script>
 </li>
 <li class="circle">org.apache.hadoop.hbase.ipc.<a href="AdaptiveLifoCoDelCallQueue.html" class="type-name-link" title="class in org.apache.hadoop.hbase.ipc">AdaptiveLifoCoDelCallQueue</a> (implements java.util.concurrent.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/BlockingQueue.html" title="class or interface in java.util.concurrent" class="external-link">BlockingQueue</a>&lt;E&gt;)</li>
 <li class="circle">org.apache.hadoop.hbase.ipc.<a href="AnnotationReadingPriorityFunction.html" class="type-name-link" title="class in org.apache.hadoop.hbase.ipc">AnnotationReadingPriorityFunction</a>&lt;T&gt; (implements org.apache.hadoop.hbase.ipc.<a href="PriorityFunction.html" title="interface in org.apache.hadoop.hbase.ipc">PriorityFunction</a>)</li>
+<li class="circle">org.apache.hadoop.hbase.coprocessor.<a href="../coprocessor/BaseEnvironment.html" class="type-name-link" title="class in org.apache.hadoop.hbase.coprocessor">BaseEnvironment</a>&lt;C&gt; (implements org.apache.hadoop.hbase.<a href="../CoprocessorEnvironment.html" title="interface in org.apache.hadoop.hbase">CoprocessorEnvironment</a>&lt;C&gt;)
+<ul>
+<li class="circle">org.apache.hadoop.hbase.ipc.<a href="RpcCoprocessorHost.RpcEnvironment.html" class="type-name-link" title="class in org.apache.hadoop.hbase.ipc">RpcCoprocessorHost.RpcEnvironment</a> (implements org.apache.hadoop.hbase.coprocessor.<a href="../coprocessor/RpcCoprocessorEnvironment.html" title="interface in org.apache.hadoop.hbase.coprocessor">RpcCoprocessorEnvironment</a>)</li>
+</ul>
+</li>
 <li class="circle">org.apache.hadoop.hbase.metrics.<a href="../metrics/BaseSourceImpl.html" class="type-name-link" title="class in org.apache.hadoop.hbase.metrics">BaseSourceImpl</a> (implements org.apache.hadoop.hbase.metrics.<a href="../metrics/BaseSource.html" title="interface in org.apache.hadoop.hbase.metrics">BaseSource</a>, org.apache.hadoop.metrics2.MetricsSource)
 <ul>
 <li class="circle">org.apache.hadoop.hbase.metrics.<a href="../metrics/ExceptionTrackingSourceImpl.html" class="type-name-link" title="class in org.apache.hadoop.hbase.metrics">ExceptionTrackingSourceImpl</a> (implements org.apache.hadoop.hbase.metrics.<a href="../metrics/ExceptionTrackingSource.html" title="interface in org.apache.hadoop.hbase.metrics">ExceptionTrackingSource</a>)
@@ -142,6 +147,11 @@ loadScripts(document, 'script');</script>
 </ul>
 </li>
 <li class="circle">org.apache.hadoop.hbase.ipc.<a href="ConnectionId.html" class="type-name-link" title="class in org.apache.hadoop.hbase.ipc">ConnectionId</a></li>
+<li class="circle">org.apache.hadoop.hbase.coprocessor.<a href="../coprocessor/CoprocessorHost.html" class="type-name-link" title="class in org.apache.hadoop.hbase.coprocessor">CoprocessorHost</a>&lt;C,<wbr>E&gt;
+<ul>
+<li class="circle">org.apache.hadoop.hbase.ipc.<a href="RpcCoprocessorHost.html" class="type-name-link" title="class in org.apache.hadoop.hbase.ipc">RpcCoprocessorHost</a></li>
+</ul>
+</li>
 <li class="circle">org.apache.hadoop.hbase.ipc.<a href="CoprocessorRpcUtils.html" class="type-name-link" title="class in org.apache.hadoop.hbase.ipc">CoprocessorRpcUtils</a></li>
 <li class="circle">org.apache.hadoop.hbase.ipc.<a href="CoprocessorRpcUtils.BlockingRpcCallback.html" class="type-name-link" title="class in org.apache.hadoop.hbase.ipc">CoprocessorRpcUtils.BlockingRpcCallback</a>&lt;R&gt; (implements org.apache.hbase.thirdparty.com.google.protobuf.RpcCallback&lt;ParameterType&gt;)</li>
 <li class="circle">org.apache.hadoop.hbase.ipc.<a href="DelegatingHBaseRpcController.html" class="type-name-link" title="class in org.apache.hadoop.hbase.ipc">DelegatingHBaseRpcController</a> (implements org.apache.hadoop.hbase.ipc.<a href="HBaseRpcController.html" title="interface in org.apache.hadoop.hbase.ipc">HBaseRpcController</a>)</li>
@@ -157,6 +167,19 @@ loadScripts(document, 'script');</script>
 </li>
 <li class="circle">org.apache.hadoop.hbase.ipc.<a href="MetricsHBaseServerWrapperImpl.html" class="type-name-link" title="class in org.apache.hadoop.hbase.ipc">MetricsHBaseServerWrapperImpl</a> (implements org.apache.hadoop.hbase.ipc.<a href="MetricsHBaseServerWrapper.html" title="interface in org.apache.hadoop.hbase.ipc">MetricsHBaseServerWrapper</a>)</li>
 <li class="circle">org.apache.hadoop.hbase.ipc.<a href="NettyRpcClientConfigHelper.html" class="type-name-link" title="class in org.apache.hadoop.hbase.ipc">NettyRpcClientConfigHelper</a></li>
+<li class="circle">org.apache.hadoop.hbase.coprocessor.<a href="../coprocessor/ObserverContextImpl.html" class="type-name-link" title="class in org.apache.hadoop.hbase.coprocessor">ObserverContextImpl</a>&lt;E&gt; (implements org.apache.hadoop.hbase.coprocessor.<a href="../coprocessor/ObserverContext.html" title="interface in org.apache.hadoop.hbase.coprocessor">ObserverContext</a>&lt;E&gt;)
+<ul>
+<li class="circle">org.apache.hadoop.hbase.coprocessor.<a href="../coprocessor/CoprocessorHost.ObserverOperation.html" class="type-name-link" title="class in org.apache.hadoop.hbase.coprocessor">CoprocessorHost.ObserverOperation</a>&lt;O&gt;
+<ul>
+<li class="circle">org.apache.hadoop.hbase.coprocessor.<a href="../coprocessor/CoprocessorHost.ObserverOperationWithoutResult.html" class="type-name-link" title="class in org.apache.hadoop.hbase.coprocessor">CoprocessorHost.ObserverOperationWithoutResult</a>&lt;O&gt;
+<ul>
+<li class="circle">org.apache.hadoop.hbase.ipc.<a href="RpcCoprocessorHost.RpcObserverOperation.html" class="type-name-link" title="class in org.apache.hadoop.hbase.ipc">RpcCoprocessorHost.RpcObserverOperation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="circle">org.apache.hadoop.hbase.ipc.<a href="PluggableBlockingQueue.html" class="type-name-link" title="class in org.apache.hadoop.hbase.ipc">PluggableBlockingQueue</a> (implements java.util.concurrent.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/BlockingQueue.html" title="class or interface in java.util.concurrent" class="external-link">BlockingQueue</a>&lt;E&gt;)</li>
 <li class="circle">org.apache.hadoop.hbase.ipc.<a href="RandomQueueBalancer.html" class="type-name-link" title="class in org.apache.hadoop.hbase.ipc">RandomQueueBalancer</a> (implements org.apache.hadoop.hbase.ipc.<a href="QueueBalancer.html" title="interface in org.apache.hadoop.hbase.ipc">QueueBalancer</a>)</li>
 <li class="circle">org.apache.hadoop.hbase.ipc.<a href="RemoteWithExtrasException.ClassLoaderHolder.html" class="type-name-link" title="class in org.apache.hadoop.hbase.ipc">RemoteWithExtrasException.ClassLoaderHolder</a></li>

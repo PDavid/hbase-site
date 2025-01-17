@@ -119,41 +119,46 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Returns the metrics instance for reporting RPC call statistics</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="RpcScheduler.html" title="class in org.apache.hadoop.hbase.ipc">RpcScheduler</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getScheduler()" class="member-name-link">getScheduler</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#isStarted()" class="member-name-link">isStarted</a>()</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="RpcCoprocessorHost.html" title="class in org.apache.hadoop.hbase.ipc">RpcCoprocessorHost</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getRpcCoprocessorHost()" class="member-name-link">getRpcCoprocessorHost</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="block">Return RPC's instance of <a href="RpcCoprocessorHost.html" title="class in org.apache.hadoop.hbase.ipc"><code>RpcCoprocessorHost</code></a></div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="RpcScheduler.html" title="class in org.apache.hadoop.hbase.ipc">RpcScheduler</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getScheduler()" class="member-name-link">getScheduler</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#join()" class="member-name-link">join</a>()</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#isStarted()" class="member-name-link">isStarted</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#refreshAuthManager(org.apache.hadoop.conf.Configuration,org.apache.hadoop.security.authorize.PolicyProvider)" class="member-name-link">refreshAuthManager</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#join()" class="member-name-link">join</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#refreshAuthManager(org.apache.hadoop.conf.Configuration,org.apache.hadoop.security.authorize.PolicyProvider)" class="member-name-link">refreshAuthManager</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.security.authorize.PolicyProvider&nbsp;pp)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Refresh authentication manager policy.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#setErrorHandler(org.apache.hadoop.hbase.ipc.HBaseRPCErrorHandler)" class="member-name-link">setErrorHandler</a><wbr>(<a href="HBaseRPCErrorHandler.html" title="interface in org.apache.hadoop.hbase.ipc">HBaseRPCErrorHandler</a>&nbsp;handler)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#setNamedQueueRecorder(org.apache.hadoop.hbase.namequeues.NamedQueueRecorder)" class="member-name-link">setNamedQueueRecorder</a><wbr>(<a href="../namequeues/NamedQueueRecorder.html" title="class in org.apache.hadoop.hbase.namequeues">NamedQueueRecorder</a>&nbsp;namedQueueRecorder)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#setErrorHandler(org.apache.hadoop.hbase.ipc.HBaseRPCErrorHandler)" class="member-name-link">setErrorHandler</a><wbr>(<a href="HBaseRPCErrorHandler.html" title="interface in org.apache.hadoop.hbase.ipc">HBaseRPCErrorHandler</a>&nbsp;handler)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#setNamedQueueRecorder(org.apache.hadoop.hbase.namequeues.NamedQueueRecorder)" class="member-name-link">setNamedQueueRecorder</a><wbr>(<a href="../namequeues/NamedQueueRecorder.html" title="class in org.apache.hadoop.hbase.namequeues">NamedQueueRecorder</a>&nbsp;namedQueueRecorder)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Set Online SlowLog Provider</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#setRsRpcServices(org.apache.hadoop.hbase.regionserver.RSRpcServices)" class="member-name-link">setRsRpcServices</a><wbr>(<a href="../regionserver/RSRpcServices.html" title="class in org.apache.hadoop.hbase.regionserver">RSRpcServices</a>&nbsp;rsRpcServices)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#setSocketSendBufSize(int)" class="member-name-link">setSocketSendBufSize</a><wbr>(int&nbsp;size)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#setRsRpcServices(org.apache.hadoop.hbase.regionserver.RSRpcServices)" class="member-name-link">setRsRpcServices</a><wbr>(<a href="../regionserver/RSRpcServices.html" title="class in org.apache.hadoop.hbase.regionserver">RSRpcServices</a>&nbsp;rsRpcServices)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#start()" class="member-name-link">start</a>()</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#setSocketSendBufSize(int)" class="member-name-link">setSocketSendBufSize</a><wbr>(int&nbsp;size)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#stop()" class="member-name-link">stop</a>()</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#start()" class="member-name-link">start</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#stop()" class="member-name-link">stop</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
 </div>
 </div>
 </div>
@@ -292,6 +297,13 @@ loadScripts(document, 'script');</script>
 <dt>Parameters:</dt>
 <dd><code>namedQueueRecorder</code> - instance of <a href="../namequeues/NamedQueueRecorder.html" title="class in org.apache.hadoop.hbase.namequeues"><code>NamedQueueRecorder</code></a></dd>
 </dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getRpcCoprocessorHost()">
+<h3>getRpcCoprocessorHost</h3>
+<div class="member-signature"><span class="return-type"><a href="RpcCoprocessorHost.html" title="class in org.apache.hadoop.hbase.ipc">RpcCoprocessorHost</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/ipc/RpcServerInterface.html#line-89">getRpcCoprocessorHost</a></span>()</div>
+<div class="block">Return RPC's instance of <a href="RpcCoprocessorHost.html" title="class in org.apache.hadoop.hbase.ipc"><code>RpcCoprocessorHost</code></a></div>
 </section>
 </li>
 </ul>

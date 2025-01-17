@@ -445,14 +445,23 @@ order of assigned priority.
 <div class="block">Defines coprocessor hooks for interacting with operations on the
  <code>HRegionServer</code> process.</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab1">org.apache.hadoop.hbase.coprocessor.WALCoprocessor</div>
+<div class="col-first odd-row-color class-summary class-summary-tab1">org.apache.hadoop.hbase.coprocessor.RpcCoprocessor</div>
+<div class="col-last odd-row-color class-summary class-summary-tab1">&nbsp;</div>
+<div class="col-first even-row-color class-summary class-summary-tab1">org.apache.hadoop.hbase.coprocessor.RpcCoprocessorEnvironment</div>
+<div class="col-last even-row-color class-summary class-summary-tab1">&nbsp;</div>
+<div class="col-first odd-row-color class-summary class-summary-tab1">org.apache.hadoop.hbase.coprocessor.RpcObserver</div>
 <div class="col-last odd-row-color class-summary class-summary-tab1">
+<div class="block">Coprocessors implement this interface to observe and mediate RPC events in Master and RS
+ instances.</div>
+</div>
+<div class="col-first even-row-color class-summary class-summary-tab1">org.apache.hadoop.hbase.coprocessor.WALCoprocessor</div>
+<div class="col-last even-row-color class-summary class-summary-tab1">
 <div class="block">WALCoprocessor don't support loading services using <code>Coprocessor.getServices()</code>.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab1">org.apache.hadoop.hbase.coprocessor.WALCoprocessorEnvironment</div>
-<div class="col-last even-row-color class-summary class-summary-tab1">&nbsp;</div>
-<div class="col-first odd-row-color class-summary class-summary-tab1">org.apache.hadoop.hbase.coprocessor.WALObserver</div>
-<div class="col-last odd-row-color class-summary class-summary-tab1">
+<div class="col-first odd-row-color class-summary class-summary-tab1">org.apache.hadoop.hbase.coprocessor.WALCoprocessorEnvironment</div>
+<div class="col-last odd-row-color class-summary class-summary-tab1">&nbsp;</div>
+<div class="col-first even-row-color class-summary class-summary-tab1">org.apache.hadoop.hbase.coprocessor.WALObserver</div>
+<div class="col-last even-row-color class-summary class-summary-tab1">
 <div class="block">It's provided to have a way for coprocessors to observe, rewrite, or skip WALEdits as they are
  being written to the WAL.</div>
 </div>

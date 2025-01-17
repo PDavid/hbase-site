@@ -63,16 +63,20 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color">
 <div class="block">Table of Contents</div>
 </div>
-<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.master">org.apache.hadoop.hbase.master</a></div>
-<div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.quotas">org.apache.hadoop.hbase.quotas</a></div>
+<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.ipc">org.apache.hadoop.hbase.ipc</a></div>
+<div class="col-last odd-row-color">
+<div class="block">Tools to help define network clients and servers.</div>
+</div>
+<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.master">org.apache.hadoop.hbase.master</a></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.regionserver">org.apache.hadoop.hbase.regionserver</a></div>
+<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.quotas">org.apache.hadoop.hbase.quotas</a></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.regionserver.wal">org.apache.hadoop.hbase.regionserver.wal</a></div>
+<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.regionserver">org.apache.hadoop.hbase.regionserver</a></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.rsgroup">org.apache.hadoop.hbase.rsgroup</a></div>
+<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.regionserver.wal">org.apache.hadoop.hbase.regionserver.wal</a></div>
 <div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.rsgroup">org.apache.hadoop.hbase.rsgroup</a></div>
+<div class="col-last even-row-color">&nbsp;</div>
 </div>
 <section class="package-uses">
 <ul class="block-list">
@@ -173,6 +177,13 @@ loadScripts(document, 'script');</script>
 <div class="block">Defines coprocessor hooks for interacting with operations on the
  <code>HRegionServer</code> process.</div>
 </div>
+<div class="col-first even-row-color"><a href="class-use/RpcCoprocessorEnvironment.html#org.apache.hadoop.hbase.coprocessor">RpcCoprocessorEnvironment</a></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><a href="class-use/RpcObserver.html#org.apache.hadoop.hbase.coprocessor">RpcObserver</a></div>
+<div class="col-last odd-row-color">
+<div class="block">Coprocessors implement this interface to observe and mediate RPC events in Master and RS
+ instances.</div>
+</div>
 <div class="col-first even-row-color"><a href="class-use/WALCoprocessorEnvironment.html#org.apache.hadoop.hbase.coprocessor">WALCoprocessorEnvironment</a></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><a href="class-use/WALObserver.html#org.apache.hadoop.hbase.coprocessor">WALObserver</a></div>
@@ -180,6 +191,24 @@ loadScripts(document, 'script');</script>
 <div class="block">It's provided to have a way for coprocessors to observe, rewrite, or skip WALEdits as they are
  being written to the WAL.</div>
 </div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="org.apache.hadoop.hbase.ipc">
+<div class="caption"><span>Classes in <a href="package-summary.html">org.apache.hadoop.hbase.coprocessor</a> used by <a href="../ipc/package-summary.html">org.apache.hadoop.hbase.ipc</a></span></div>
+<div class="summary-table two-column-summary">
+<div class="table-header col-first">Class</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><a href="class-use/CoprocessorHost.html#org.apache.hadoop.hbase.ipc">CoprocessorHost</a></div>
+<div class="col-last even-row-color">
+<div class="block">Provides the common setup framework and runtime services for coprocessor invocation from HBase
+ services.</div>
+</div>
+<div class="col-first odd-row-color"><a href="class-use/RpcCoprocessor.html#org.apache.hadoop.hbase.ipc">RpcCoprocessor</a></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><a href="class-use/RpcCoprocessorEnvironment.html#org.apache.hadoop.hbase.ipc">RpcCoprocessorEnvironment</a></div>
+<div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
 </li>
