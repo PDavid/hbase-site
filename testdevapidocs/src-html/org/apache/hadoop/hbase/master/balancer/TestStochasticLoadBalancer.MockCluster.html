@@ -501,7 +501,7 @@
 <span class="source-line-no">488</span><span id="line-488">      loadBalancer.initCosts(cluster);</span>
 <span class="source-line-no">489</span><span id="line-489">      for (int i = 0; i != runs; ++i) {</span>
 <span class="source-line-no">490</span><span id="line-490">        final double expectedCost = loadBalancer.computeCost(cluster, Double.MAX_VALUE);</span>
-<span class="source-line-no">491</span><span id="line-491">        BalanceAction action = loadBalancer.nextAction(cluster);</span>
+<span class="source-line-no">491</span><span id="line-491">        BalanceAction action = loadBalancer.nextAction(cluster).getSecond();</span>
 <span class="source-line-no">492</span><span id="line-492">        cluster.doAction(action);</span>
 <span class="source-line-no">493</span><span id="line-493">        loadBalancer.updateCostsAndWeightsWithAction(cluster, action);</span>
 <span class="source-line-no">494</span><span id="line-494">        BalanceAction undoAction = action.undoAction();</span>

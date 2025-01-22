@@ -30,8 +30,8 @@
 <span class="source-line-no">017</span><span id="line-17"> */</span>
 <span class="source-line-no">018</span><span id="line-18">package org.apache.hadoop.hbase.master.balancer;</span>
 <span class="source-line-no">019</span><span id="line-19"></span>
-<span class="source-line-no">020</span><span id="line-20">import java.util.ArrayList;</span>
-<span class="source-line-no">021</span><span id="line-21">import java.util.List;</span>
+<span class="source-line-no">020</span><span id="line-20">import java.util.HashMap;</span>
+<span class="source-line-no">021</span><span id="line-21">import java.util.Map;</span>
 <span class="source-line-no">022</span><span id="line-22"></span>
 <span class="source-line-no">023</span><span id="line-23">/**</span>
 <span class="source-line-no">024</span><span id="line-24"> * Used for FavoredNode unit tests</span>
@@ -39,12 +39,13 @@
 <span class="source-line-no">026</span><span id="line-26">public class LoadOnlyFavoredStochasticBalancer extends FavoredStochasticBalancer {</span>
 <span class="source-line-no">027</span><span id="line-27"></span>
 <span class="source-line-no">028</span><span id="line-28">  @Override</span>
-<span class="source-line-no">029</span><span id="line-29">  protected List&lt;CandidateGenerator&gt; createCandidateGenerators() {</span>
-<span class="source-line-no">030</span><span id="line-30">    List&lt;CandidateGenerator&gt; fnPickers = new ArrayList&lt;&gt;(1);</span>
-<span class="source-line-no">031</span><span id="line-31">    fnPickers.add(new FavoredNodeLoadPicker());</span>
-<span class="source-line-no">032</span><span id="line-32">    return fnPickers;</span>
-<span class="source-line-no">033</span><span id="line-33">  }</span>
-<span class="source-line-no">034</span><span id="line-34">}</span>
+<span class="source-line-no">029</span><span id="line-29">  protected Map&lt;Class&lt;? extends CandidateGenerator&gt;, CandidateGenerator&gt;</span>
+<span class="source-line-no">030</span><span id="line-30">    createCandidateGenerators() {</span>
+<span class="source-line-no">031</span><span id="line-31">    Map&lt;Class&lt;? extends CandidateGenerator&gt;, CandidateGenerator&gt; fnPickers = new HashMap&lt;&gt;(1);</span>
+<span class="source-line-no">032</span><span id="line-32">    fnPickers.put(FavoredNodeLoadPicker.class, new FavoredNodeLoadPicker());</span>
+<span class="source-line-no">033</span><span id="line-33">    return fnPickers;</span>
+<span class="source-line-no">034</span><span id="line-34">  }</span>
+<span class="source-line-no">035</span><span id="line-35">}</span>
 
 
 

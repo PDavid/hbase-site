@@ -65,7 +65,7 @@
 <span class="source-line-no">052</span><span id="line-52">   */</span>
 <span class="source-line-no">053</span><span id="line-53">  @Test</span>
 <span class="source-line-no">054</span><span id="line-54">  public void testBalanceCluster() throws Exception {</span>
-<span class="source-line-no">055</span><span id="line-55">    setMaxRunTime(Duration.ofMillis(1500));</span>
+<span class="source-line-no">055</span><span id="line-55">    setMaxRunTime(Duration.ofMillis(2500));</span>
 <span class="source-line-no">056</span><span id="line-56">    loadBalancer.onConfigurationChange(conf);</span>
 <span class="source-line-no">057</span><span id="line-57">    for (int[] mockCluster : clusterStateMocks) {</span>
 <span class="source-line-no">058</span><span id="line-58">      Map&lt;ServerName, List&lt;RegionInfo&gt;&gt; servers = mockClusterServers(mockCluster);</span>

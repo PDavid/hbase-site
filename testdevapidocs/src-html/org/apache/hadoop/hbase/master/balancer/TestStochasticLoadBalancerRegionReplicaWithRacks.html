@@ -93,7 +93,7 @@
 <span class="source-line-no">080</span><span id="line-80">  public void testRegionReplicationOnLargeClusterWithRacks() {</span>
 <span class="source-line-no">081</span><span id="line-81">    conf.setBoolean("hbase.master.balancer.stochastic.runMaxSteps", true);</span>
 <span class="source-line-no">082</span><span id="line-82">    conf.setLong(StochasticLoadBalancer.MAX_STEPS_KEY, 100000000L);</span>
-<span class="source-line-no">083</span><span id="line-83">    setMaxRunTime(Duration.ofSeconds(5));</span>
+<span class="source-line-no">083</span><span id="line-83">    setMaxRunTime(Duration.ofSeconds(10));</span>
 <span class="source-line-no">084</span><span id="line-84">    loadBalancer.onConfigurationChange(conf);</span>
 <span class="source-line-no">085</span><span id="line-85">    int numNodes = 100;</span>
 <span class="source-line-no">086</span><span id="line-86">    int numRegions = numNodes * 30;</span>

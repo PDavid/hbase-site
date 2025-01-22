@@ -84,7 +84,7 @@ loadScripts(document, 'script');</script>
 </dl>
 <hr>
 <div class="type-signature"><span class="annotations">@Private
-</span><span class="modifiers">abstract class </span><span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/LocalityBasedCostFunction.html#line-28">LocalityBasedCostFunction</a></span>
+</span><span class="modifiers">abstract class </span><span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/LocalityBasedCostFunction.html#line-29">LocalityBasedCostFunction</a></span>
 <span class="extends-implements">extends <a href="CostFunction.html" title="class in org.apache.hadoop.hbase.master.balancer">CostFunction</a></span></div>
 <div class="block">Compute a cost of a potential cluster configuration based upon where
  <a href="../../regionserver/HStoreFile.html" title="class in org.apache.hadoop.hbase.regionserver"><code>HStoreFile</code></a>s are located.</div>
@@ -169,7 +169,7 @@ loadScripts(document, 'script');</script>
  int&nbsp;newServer)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateWeight(double%5B%5D)" class="member-name-link">updateWeight</a><wbr>(double[]&nbsp;weights)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateWeight(java.util.Map)" class="member-name-link">updateWeight</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;? extends <a href="CandidateGenerator.html" title="class in org.apache.hadoop.hbase.master.balancer">CandidateGenerator</a>&gt;,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&gt;&nbsp;weights)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Add the cost of this cost function to the weight of the candidate generator that is optimized
  for this cost function.</div>
@@ -197,19 +197,19 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="type">
 <h3>type</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="BalancerClusterState.LocalityType.html" title="enum class in org.apache.hadoop.hbase.master.balancer">BalancerClusterState.LocalityType</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/LocalityBasedCostFunction.html#line-31">type</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="BalancerClusterState.LocalityType.html" title="enum class in org.apache.hadoop.hbase.master.balancer">BalancerClusterState.LocalityType</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/LocalityBasedCostFunction.html#line-32">type</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="bestLocality">
 <h3>bestLocality</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/LocalityBasedCostFunction.html#line-33">bestLocality</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/LocalityBasedCostFunction.html#line-34">bestLocality</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="locality">
 <h3>locality</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/LocalityBasedCostFunction.html#line-34">locality</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/LocalityBasedCostFunction.html#line-35">locality</a></span></div>
 </section>
 </li>
 </ul>
@@ -223,7 +223,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;(org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.master.balancer.BalancerClusterState.LocalityType,java.lang.String,float)">
 <h3>LocalityBasedCostFunction</h3>
-<div class="member-signature"><span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/LocalityBasedCostFunction.html#line-36">LocalityBasedCostFunction</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="member-signature"><span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/LocalityBasedCostFunction.html#line-37">LocalityBasedCostFunction</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;conf,
  <a href="BalancerClusterState.LocalityType.html" title="enum class in org.apache.hadoop.hbase.master.balancer">BalancerClusterState.LocalityType</a>&nbsp;type,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;localityCostKey,
  float&nbsp;defaultLocalityCost)</span></div>
@@ -240,14 +240,14 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="regionIndexToEntityIndex(int)">
 <h3>regionIndexToEntityIndex</h3>
-<div class="member-signature"><span class="modifiers">abstract</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/LocalityBasedCostFunction.html#line-47">regionIndexToEntityIndex</a></span><wbr><span class="parameters">(int&nbsp;region)</span></div>
+<div class="member-signature"><span class="modifiers">abstract</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/LocalityBasedCostFunction.html#line-48">regionIndexToEntityIndex</a></span><wbr><span class="parameters">(int&nbsp;region)</span></div>
 <div class="block">Maps region to the current entity (server or rack) on which it is stored</div>
 </section>
 </li>
 <li>
 <section class="detail" id="prepare(org.apache.hadoop.hbase.master.balancer.BalancerClusterState)">
 <h3>prepare</h3>
-<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/LocalityBasedCostFunction.html#line-49">prepare</a></span><wbr><span class="parameters">(<a href="BalancerClusterState.html" title="class in org.apache.hadoop.hbase.master.balancer">BalancerClusterState</a>&nbsp;cluster)</span></div>
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/LocalityBasedCostFunction.html#line-50">prepare</a></span><wbr><span class="parameters">(<a href="BalancerClusterState.html" title="class in org.apache.hadoop.hbase.master.balancer">BalancerClusterState</a>&nbsp;cluster)</span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="CostFunction.html#prepare(org.apache.hadoop.hbase.master.balancer.BalancerClusterState)">CostFunction</a></code></span></div>
 <div class="block">Called once per LB invocation to give the cost function to initialize it's state, and perform
  any costly calculation.</div>
@@ -260,7 +260,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="regionMoved(int,int,int)">
 <h3>regionMoved</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/LocalityBasedCostFunction.html#line-66">regionMoved</a></span><wbr><span class="parameters">(int&nbsp;region,
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/LocalityBasedCostFunction.html#line-67">regionMoved</a></span><wbr><span class="parameters">(int&nbsp;region,
  int&nbsp;oldServer,
  int&nbsp;newServer)</span></div>
 <dl class="notes">
@@ -272,7 +272,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="cost()">
 <h3>cost</h3>
-<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/LocalityBasedCostFunction.html#line-78">cost</a></span>()</div>
+<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/LocalityBasedCostFunction.html#line-79">cost</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="CostFunction.html#cost()">cost</a></code>&nbsp;in class&nbsp;<code><a href="CostFunction.html" title="class in org.apache.hadoop.hbase.master.balancer">CostFunction</a></code></dd>
@@ -282,27 +282,27 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getMostLocalEntityForRegion(int)">
 <h3>getMostLocalEntityForRegion</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/LocalityBasedCostFunction.html#line-83">getMostLocalEntityForRegion</a></span><wbr><span class="parameters">(int&nbsp;region)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/LocalityBasedCostFunction.html#line-84">getMostLocalEntityForRegion</a></span><wbr><span class="parameters">(int&nbsp;region)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getWeightedLocality(int,int)">
 <h3>getWeightedLocality</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/LocalityBasedCostFunction.html#line-87">getWeightedLocality</a></span><wbr><span class="parameters">(int&nbsp;region,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/LocalityBasedCostFunction.html#line-88">getWeightedLocality</a></span><wbr><span class="parameters">(int&nbsp;region,
  int&nbsp;entity)</span></div>
 </section>
 </li>
 <li>
-<section class="detail" id="updateWeight(double[])">
+<section class="detail" id="updateWeight(java.util.Map)">
 <h3>updateWeight</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/LocalityBasedCostFunction.html#line-91">updateWeight</a></span><wbr><span class="parameters">(double[]&nbsp;weights)</span></div>
-<div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="CostFunction.html#updateWeight(double%5B%5D)">CostFunction</a></code></span></div>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/LocalityBasedCostFunction.html#line-92">updateWeight</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;? extends <a href="CandidateGenerator.html" title="class in org.apache.hadoop.hbase.master.balancer">CandidateGenerator</a>&gt;,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&gt;&nbsp;weights)</span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="CostFunction.html#updateWeight(java.util.Map)">CostFunction</a></code></span></div>
 <div class="block">Add the cost of this cost function to the weight of the candidate generator that is optimized
  for this cost function. By default it is the RandomCandiateGenerator for a cost function.
  Called once per init or after postAction.</div>
 <dl class="notes">
 <dt>Overrides:</dt>
-<dd><code><a href="CostFunction.html#updateWeight(double%5B%5D)">updateWeight</a></code>&nbsp;in class&nbsp;<code><a href="CostFunction.html" title="class in org.apache.hadoop.hbase.master.balancer">CostFunction</a></code></dd>
+<dd><code><a href="CostFunction.html#updateWeight(java.util.Map)">updateWeight</a></code>&nbsp;in class&nbsp;<code><a href="CostFunction.html" title="class in org.apache.hadoop.hbase.master.balancer">CostFunction</a></code></dd>
 <dt>Parameters:</dt>
 <dd><code>weights</code> - the weights for every generator.</dd>
 </dl>

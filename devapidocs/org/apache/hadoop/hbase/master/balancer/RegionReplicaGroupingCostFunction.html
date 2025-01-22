@@ -84,7 +84,7 @@ loadScripts(document, 'script');</script>
 </dl>
 <hr>
 <div class="type-signature"><span class="annotations">@Private
-</span><span class="modifiers">abstract class </span><span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/RegionReplicaGroupingCostFunction.html#line-30">RegionReplicaGroupingCostFunction</a></span>
+</span><span class="modifiers">abstract class </span><span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/RegionReplicaGroupingCostFunction.html#line-31">RegionReplicaGroupingCostFunction</a></span>
 <span class="extends-implements">extends <a href="CostFunction.html" title="class in org.apache.hadoop.hbase.master.balancer">CostFunction</a></span></div>
 <div class="block">A cost function for region replicas. We give a high cost for hosting replicas of the same region
  in the same server, host or rack. We do not prevent the case though, since if numReplicas >
@@ -162,7 +162,7 @@ loadScripts(document, 'script');</script>
  any costly calculation.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateWeight(double%5B%5D)" class="member-name-link">updateWeight</a><wbr>(double[]&nbsp;weights)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateWeight(java.util.Map)" class="member-name-link">updateWeight</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;? extends <a href="CandidateGenerator.html" title="class in org.apache.hadoop.hbase.master.balancer">CandidateGenerator</a>&gt;,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&gt;&nbsp;weights)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Add the cost of this cost function to the weight of the candidate generator that is optimized
  for this cost function.</div>
@@ -190,13 +190,13 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="maxCost">
 <h3>maxCost</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/RegionReplicaGroupingCostFunction.html#line-32">maxCost</a></span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/RegionReplicaGroupingCostFunction.html#line-33">maxCost</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="costsPerGroup">
 <h3>costsPerGroup</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">long[]</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/RegionReplicaGroupingCostFunction.html#line-33">costsPerGroup</a></span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">long[]</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/RegionReplicaGroupingCostFunction.html#line-34">costsPerGroup</a></span></div>
 </section>
 </li>
 </ul>
@@ -210,7 +210,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;()">
 <h3>RegionReplicaGroupingCostFunction</h3>
-<div class="member-signature"><span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/RegionReplicaGroupingCostFunction.html#line-31">RegionReplicaGroupingCostFunction</a></span>()</div>
+<div class="member-signature"><span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/RegionReplicaGroupingCostFunction.html#line-32">RegionReplicaGroupingCostFunction</a></span>()</div>
 </section>
 </li>
 </ul>
@@ -224,7 +224,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="prepare(org.apache.hadoop.hbase.master.balancer.BalancerClusterState)">
 <h3>prepare</h3>
-<div class="member-signature"><span class="modifiers">final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/RegionReplicaGroupingCostFunction.html#line-35">prepare</a></span><wbr><span class="parameters">(<a href="BalancerClusterState.html" title="class in org.apache.hadoop.hbase.master.balancer">BalancerClusterState</a>&nbsp;cluster)</span></div>
+<div class="member-signature"><span class="modifiers">final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/RegionReplicaGroupingCostFunction.html#line-36">prepare</a></span><wbr><span class="parameters">(<a href="BalancerClusterState.html" title="class in org.apache.hadoop.hbase.master.balancer">BalancerClusterState</a>&nbsp;cluster)</span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="CostFunction.html#prepare(org.apache.hadoop.hbase.master.balancer.BalancerClusterState)">CostFunction</a></code></span></div>
 <div class="block">Called once per LB invocation to give the cost function to initialize it's state, and perform
  any costly calculation.</div>
@@ -237,19 +237,19 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="loadCosts()">
 <h3>loadCosts</h3>
-<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/RegionReplicaGroupingCostFunction.html#line-44">loadCosts</a></span>()</div>
+<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/RegionReplicaGroupingCostFunction.html#line-45">loadCosts</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getMaxCost(org.apache.hadoop.hbase.master.balancer.BalancerClusterState)">
 <h3>getMaxCost</h3>
-<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/RegionReplicaGroupingCostFunction.html#line-46">getMaxCost</a></span><wbr><span class="parameters">(<a href="BalancerClusterState.html" title="class in org.apache.hadoop.hbase.master.balancer">BalancerClusterState</a>&nbsp;cluster)</span></div>
+<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/RegionReplicaGroupingCostFunction.html#line-47">getMaxCost</a></span><wbr><span class="parameters">(<a href="BalancerClusterState.html" title="class in org.apache.hadoop.hbase.master.balancer">BalancerClusterState</a>&nbsp;cluster)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="isNeeded()">
 <h3>isNeeded</h3>
-<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/RegionReplicaGroupingCostFunction.html#line-57">isNeeded</a></span>()</div>
+<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/RegionReplicaGroupingCostFunction.html#line-58">isNeeded</a></span>()</div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="CostFunction.html#isNeeded()">isNeeded</a></code>&nbsp;in class&nbsp;<code><a href="CostFunction.html" title="class in org.apache.hadoop.hbase.master.balancer">CostFunction</a></code></dd>
@@ -259,7 +259,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="cost()">
 <h3>cost</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/RegionReplicaGroupingCostFunction.html#line-62">cost</a></span>()</div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/RegionReplicaGroupingCostFunction.html#line-63">cost</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="CostFunction.html#cost()">cost</a></code>&nbsp;in class&nbsp;<code><a href="CostFunction.html" title="class in org.apache.hadoop.hbase.master.balancer">CostFunction</a></code></dd>
@@ -267,16 +267,16 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="updateWeight(double[])">
+<section class="detail" id="updateWeight(java.util.Map)">
 <h3>updateWeight</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/RegionReplicaGroupingCostFunction.html#line-75">updateWeight</a></span><wbr><span class="parameters">(double[]&nbsp;weights)</span></div>
-<div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="CostFunction.html#updateWeight(double%5B%5D)">CostFunction</a></code></span></div>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/RegionReplicaGroupingCostFunction.html#line-76">updateWeight</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;? extends <a href="CandidateGenerator.html" title="class in org.apache.hadoop.hbase.master.balancer">CandidateGenerator</a>&gt;,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&gt;&nbsp;weights)</span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="CostFunction.html#updateWeight(java.util.Map)">CostFunction</a></code></span></div>
 <div class="block">Add the cost of this cost function to the weight of the candidate generator that is optimized
  for this cost function. By default it is the RandomCandiateGenerator for a cost function.
  Called once per init or after postAction.</div>
 <dl class="notes">
 <dt>Overrides:</dt>
-<dd><code><a href="CostFunction.html#updateWeight(double%5B%5D)">updateWeight</a></code>&nbsp;in class&nbsp;<code><a href="CostFunction.html" title="class in org.apache.hadoop.hbase.master.balancer">CostFunction</a></code></dd>
+<dd><code><a href="CostFunction.html#updateWeight(java.util.Map)">updateWeight</a></code>&nbsp;in class&nbsp;<code><a href="CostFunction.html" title="class in org.apache.hadoop.hbase.master.balancer">CostFunction</a></code></dd>
 <dt>Parameters:</dt>
 <dd><code>weights</code> - the weights for every generator.</dd>
 </dl>
@@ -285,7 +285,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="costPerGroup(org.agrona.collections.Int2IntCounterMap)">
 <h3>costPerGroup</h3>
-<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/RegionReplicaGroupingCostFunction.html#line-88">costPerGroup</a></span><wbr><span class="parameters">(org.agrona.collections.Int2IntCounterMap&nbsp;colocatedReplicaCounts)</span></div>
+<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/RegionReplicaGroupingCostFunction.html#line-89">costPerGroup</a></span><wbr><span class="parameters">(org.agrona.collections.Int2IntCounterMap&nbsp;colocatedReplicaCounts)</span></div>
 <div class="block">For each primary region, it computes the total number of replicas in the array (numReplicas)
  and returns a sum of numReplicas-1 squared. For example, if the server hosts regions a, b, c,
  d, e, f where a and b are same replicas, and c,d,e are same replicas, it returns (2-1) * (2-1)

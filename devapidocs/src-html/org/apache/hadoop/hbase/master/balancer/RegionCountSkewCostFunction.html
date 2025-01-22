@@ -30,54 +30,55 @@
 <span class="source-line-no">017</span><span id="line-17"> */</span>
 <span class="source-line-no">018</span><span id="line-18">package org.apache.hadoop.hbase.master.balancer;</span>
 <span class="source-line-no">019</span><span id="line-19"></span>
-<span class="source-line-no">020</span><span id="line-20">import org.apache.hadoop.conf.Configuration;</span>
-<span class="source-line-no">021</span><span id="line-21">import org.apache.yetus.audience.InterfaceAudience;</span>
-<span class="source-line-no">022</span><span id="line-22"></span>
-<span class="source-line-no">023</span><span id="line-23">/**</span>
-<span class="source-line-no">024</span><span id="line-24"> * Compute the cost of a potential cluster state from skew in number of regions on a cluster.</span>
-<span class="source-line-no">025</span><span id="line-25"> */</span>
-<span class="source-line-no">026</span><span id="line-26">@InterfaceAudience.Private</span>
-<span class="source-line-no">027</span><span id="line-27">class RegionCountSkewCostFunction extends CostFunction {</span>
-<span class="source-line-no">028</span><span id="line-28">  static final String REGION_COUNT_SKEW_COST_KEY =</span>
-<span class="source-line-no">029</span><span id="line-29">    "hbase.master.balancer.stochastic.regionCountCost";</span>
-<span class="source-line-no">030</span><span id="line-30">  static final float DEFAULT_REGION_COUNT_SKEW_COST = 500;</span>
-<span class="source-line-no">031</span><span id="line-31"></span>
-<span class="source-line-no">032</span><span id="line-32">  private final DoubleArrayCost cost = new DoubleArrayCost();</span>
-<span class="source-line-no">033</span><span id="line-33"></span>
-<span class="source-line-no">034</span><span id="line-34">  RegionCountSkewCostFunction(Configuration conf) {</span>
-<span class="source-line-no">035</span><span id="line-35">    // Load multiplier should be the greatest as it is the most general way to balance data.</span>
-<span class="source-line-no">036</span><span id="line-36">    this.setMultiplier(conf.getFloat(REGION_COUNT_SKEW_COST_KEY, DEFAULT_REGION_COUNT_SKEW_COST));</span>
-<span class="source-line-no">037</span><span id="line-37">  }</span>
-<span class="source-line-no">038</span><span id="line-38"></span>
-<span class="source-line-no">039</span><span id="line-39">  @Override</span>
-<span class="source-line-no">040</span><span id="line-40">  void prepare(BalancerClusterState cluster) {</span>
-<span class="source-line-no">041</span><span id="line-41">    super.prepare(cluster);</span>
-<span class="source-line-no">042</span><span id="line-42">    cost.prepare(cluster.numServers);</span>
-<span class="source-line-no">043</span><span id="line-43">    cost.applyCostsChange(costs -&gt; {</span>
-<span class="source-line-no">044</span><span id="line-44">      for (int i = 0; i &lt; cluster.numServers; i++) {</span>
-<span class="source-line-no">045</span><span id="line-45">        costs[i] = cluster.regionsPerServer[i].length;</span>
-<span class="source-line-no">046</span><span id="line-46">      }</span>
-<span class="source-line-no">047</span><span id="line-47">    });</span>
-<span class="source-line-no">048</span><span id="line-48">  }</span>
-<span class="source-line-no">049</span><span id="line-49"></span>
-<span class="source-line-no">050</span><span id="line-50">  @Override</span>
-<span class="source-line-no">051</span><span id="line-51">  protected double cost() {</span>
-<span class="source-line-no">052</span><span id="line-52">    return cost.cost();</span>
-<span class="source-line-no">053</span><span id="line-53">  }</span>
-<span class="source-line-no">054</span><span id="line-54"></span>
-<span class="source-line-no">055</span><span id="line-55">  @Override</span>
-<span class="source-line-no">056</span><span id="line-56">  protected void regionMoved(int region, int oldServer, int newServer) {</span>
-<span class="source-line-no">057</span><span id="line-57">    cost.applyCostsChange(costs -&gt; {</span>
-<span class="source-line-no">058</span><span id="line-58">      costs[oldServer] = cluster.regionsPerServer[oldServer].length;</span>
-<span class="source-line-no">059</span><span id="line-59">      costs[newServer] = cluster.regionsPerServer[newServer].length;</span>
-<span class="source-line-no">060</span><span id="line-60">    });</span>
-<span class="source-line-no">061</span><span id="line-61">  }</span>
-<span class="source-line-no">062</span><span id="line-62"></span>
-<span class="source-line-no">063</span><span id="line-63">  @Override</span>
-<span class="source-line-no">064</span><span id="line-64">  public final void updateWeight(double[] weights) {</span>
-<span class="source-line-no">065</span><span id="line-65">    weights[StochasticLoadBalancer.GeneratorType.LOAD.ordinal()] += cost();</span>
-<span class="source-line-no">066</span><span id="line-66">  }</span>
-<span class="source-line-no">067</span><span id="line-67">}</span>
+<span class="source-line-no">020</span><span id="line-20">import java.util.Map;</span>
+<span class="source-line-no">021</span><span id="line-21">import org.apache.hadoop.conf.Configuration;</span>
+<span class="source-line-no">022</span><span id="line-22">import org.apache.yetus.audience.InterfaceAudience;</span>
+<span class="source-line-no">023</span><span id="line-23"></span>
+<span class="source-line-no">024</span><span id="line-24">/**</span>
+<span class="source-line-no">025</span><span id="line-25"> * Compute the cost of a potential cluster state from skew in number of regions on a cluster.</span>
+<span class="source-line-no">026</span><span id="line-26"> */</span>
+<span class="source-line-no">027</span><span id="line-27">@InterfaceAudience.Private</span>
+<span class="source-line-no">028</span><span id="line-28">class RegionCountSkewCostFunction extends CostFunction {</span>
+<span class="source-line-no">029</span><span id="line-29">  static final String REGION_COUNT_SKEW_COST_KEY =</span>
+<span class="source-line-no">030</span><span id="line-30">    "hbase.master.balancer.stochastic.regionCountCost";</span>
+<span class="source-line-no">031</span><span id="line-31">  static final float DEFAULT_REGION_COUNT_SKEW_COST = 500;</span>
+<span class="source-line-no">032</span><span id="line-32"></span>
+<span class="source-line-no">033</span><span id="line-33">  private final DoubleArrayCost cost = new DoubleArrayCost();</span>
+<span class="source-line-no">034</span><span id="line-34"></span>
+<span class="source-line-no">035</span><span id="line-35">  RegionCountSkewCostFunction(Configuration conf) {</span>
+<span class="source-line-no">036</span><span id="line-36">    // Load multiplier should be the greatest as it is the most general way to balance data.</span>
+<span class="source-line-no">037</span><span id="line-37">    this.setMultiplier(conf.getFloat(REGION_COUNT_SKEW_COST_KEY, DEFAULT_REGION_COUNT_SKEW_COST));</span>
+<span class="source-line-no">038</span><span id="line-38">  }</span>
+<span class="source-line-no">039</span><span id="line-39"></span>
+<span class="source-line-no">040</span><span id="line-40">  @Override</span>
+<span class="source-line-no">041</span><span id="line-41">  void prepare(BalancerClusterState cluster) {</span>
+<span class="source-line-no">042</span><span id="line-42">    super.prepare(cluster);</span>
+<span class="source-line-no">043</span><span id="line-43">    cost.prepare(cluster.numServers);</span>
+<span class="source-line-no">044</span><span id="line-44">    cost.applyCostsChange(costs -&gt; {</span>
+<span class="source-line-no">045</span><span id="line-45">      for (int i = 0; i &lt; cluster.numServers; i++) {</span>
+<span class="source-line-no">046</span><span id="line-46">        costs[i] = cluster.regionsPerServer[i].length;</span>
+<span class="source-line-no">047</span><span id="line-47">      }</span>
+<span class="source-line-no">048</span><span id="line-48">    });</span>
+<span class="source-line-no">049</span><span id="line-49">  }</span>
+<span class="source-line-no">050</span><span id="line-50"></span>
+<span class="source-line-no">051</span><span id="line-51">  @Override</span>
+<span class="source-line-no">052</span><span id="line-52">  protected double cost() {</span>
+<span class="source-line-no">053</span><span id="line-53">    return cost.cost();</span>
+<span class="source-line-no">054</span><span id="line-54">  }</span>
+<span class="source-line-no">055</span><span id="line-55"></span>
+<span class="source-line-no">056</span><span id="line-56">  @Override</span>
+<span class="source-line-no">057</span><span id="line-57">  protected void regionMoved(int region, int oldServer, int newServer) {</span>
+<span class="source-line-no">058</span><span id="line-58">    cost.applyCostsChange(costs -&gt; {</span>
+<span class="source-line-no">059</span><span id="line-59">      costs[oldServer] = cluster.regionsPerServer[oldServer].length;</span>
+<span class="source-line-no">060</span><span id="line-60">      costs[newServer] = cluster.regionsPerServer[newServer].length;</span>
+<span class="source-line-no">061</span><span id="line-61">    });</span>
+<span class="source-line-no">062</span><span id="line-62">  }</span>
+<span class="source-line-no">063</span><span id="line-63"></span>
+<span class="source-line-no">064</span><span id="line-64">  @Override</span>
+<span class="source-line-no">065</span><span id="line-65">  public final void updateWeight(Map&lt;Class&lt;? extends CandidateGenerator&gt;, Double&gt; weights) {</span>
+<span class="source-line-no">066</span><span id="line-66">    weights.merge(LoadCandidateGenerator.class, cost(), Double::sum);</span>
+<span class="source-line-no">067</span><span id="line-67">  }</span>
+<span class="source-line-no">068</span><span id="line-68">}</span>
 
 
 
