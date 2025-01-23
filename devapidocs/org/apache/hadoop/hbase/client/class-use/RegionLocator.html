@@ -57,20 +57,24 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase">org.apache.hadoop.hbase</a></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.client">org.apache.hadoop.hbase.client</a></div>
-<div class="col-last odd-row-color">
+<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.backup.mapreduce">org.apache.hadoop.hbase.backup.mapreduce</a></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.client">org.apache.hadoop.hbase.client</a></div>
+<div class="col-last even-row-color">
 <div class="block">Provides HBase Client</div>
 </div>
-<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.mapred">org.apache.hadoop.hbase.mapred</a></div>
+<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.mapred">org.apache.hadoop.hbase.mapred</a></div>
+<div class="col-last odd-row-color">
+<div class="block">Provides HBase <a href="https://cwiki.apache.org/confluence/display/HADOOP2/HadoopMapReduce">MapReduce</a>
+Input/OutputFormats, a table indexing MapReduce job, and utility methods.</div>
+</div>
+<div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.mapreduce">org.apache.hadoop.hbase.mapreduce</a></div>
 <div class="col-last even-row-color">
 <div class="block">Provides HBase <a href="https://cwiki.apache.org/confluence/display/HADOOP2/HadoopMapReduce">MapReduce</a>
 Input/OutputFormats, a table indexing MapReduce job, and utility methods.</div>
 </div>
-<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.mapreduce">org.apache.hadoop.hbase.mapreduce</a></div>
-<div class="col-last odd-row-color">
-<div class="block">Provides HBase <a href="https://cwiki.apache.org/confluence/display/HADOOP2/HadoopMapReduce">MapReduce</a>
-Input/OutputFormats, a table indexing MapReduce job, and utility methods.</div>
-</div>
+<div class="col-first odd-row-color"><a href="#org.apache.hadoop.hbase.snapshot">org.apache.hadoop.hbase.snapshot</a></div>
+<div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><a href="#org.apache.hadoop.hbase.thrift2">org.apache.hadoop.hbase.thrift2</a></div>
 <div class="col-last even-row-color">
 <div class="block">Provides an HBase <a href="http://thrift.apache.org/">Thrift</a>
@@ -114,6 +118,22 @@ service.</div>
 <div class="block"><span class="deprecated-label">Deprecated.</span></div>
 <div class="block">Closes the region containing the given row.</div>
 </div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="org.apache.hadoop.hbase.backup.mapreduce">
+<h2>Uses of <a href="../RegionLocator.html" title="interface in org.apache.hadoop.hbase.client">RegionLocator</a> in <a href="../../backup/mapreduce/package-summary.html">org.apache.hadoop.hbase.backup.mapreduce</a></h2>
+<div class="caption"><span>Methods in <a href="../../backup/mapreduce/package-summary.html">org.apache.hadoop.hbase.backup.mapreduce</a> that return <a href="../RegionLocator.html" title="interface in org.apache.hadoop.hbase.client">RegionLocator</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>private static <a href="../RegionLocator.html" title="interface in org.apache.hadoop.hbase.client">RegionLocator</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">MapReduceHFileSplitterJob.</span><code><a href="../../backup/mapreduce/MapReduceHFileSplitterJob.html#getRegionLocator(org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.client.Connection,org.apache.hadoop.hbase.TableName)" class="member-name-link">getRegionLocator</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+ <a href="../Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;conn,
+ <a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;table)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
 </li>
@@ -208,6 +228,11 @@ service.</div>
 <div class="col-last odd-row-color">
 <div class="block">Allows subclasses to get the <a href="../RegionLocator.html" title="interface in org.apache.hadoop.hbase.client"><code>RegionLocator</code></a>.</div>
 </div>
+<div class="col-first even-row-color"><code>private static <a href="../RegionLocator.html" title="interface in org.apache.hadoop.hbase.client">RegionLocator</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">WALPlayer.</span><code><a href="../../mapreduce/WALPlayer.html#getRegionLocator(org.apache.hadoop.hbase.TableName,org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.client.Connection)" class="member-name-link">getRegionLocator</a><wbr>(<a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName,
+ org.apache.hadoop.conf.Configuration&nbsp;conf,
+ <a href="../Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;conn)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
 </div>
 <div class="caption"><span>Methods in <a href="../../mapreduce/package-summary.html">org.apache.hadoop.hbase.mapreduce</a> with parameters of type <a href="../RegionLocator.html" title="interface in org.apache.hadoop.hbase.client">RegionLocator</a></span></div>
 <div class="summary-table three-column-summary">
@@ -267,6 +292,23 @@ service.</div>
 <div class="col-second odd-row-color"><code><a href="../../mapreduce/HFileOutputFormat2.TableInfo.html#%3Cinit%3E(org.apache.hadoop.hbase.client.TableDescriptor,org.apache.hadoop.hbase.client.RegionLocator)" class="member-name-link">TableInfo</a><wbr>(<a href="../TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;tableDesctiptor,
  <a href="../RegionLocator.html" title="interface in org.apache.hadoop.hbase.client">RegionLocator</a>&nbsp;regionLocator)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="org.apache.hadoop.hbase.snapshot">
+<h2>Uses of <a href="../RegionLocator.html" title="interface in org.apache.hadoop.hbase.client">RegionLocator</a> in <a href="../../snapshot/package-summary.html">org.apache.hadoop.hbase.snapshot</a></h2>
+<div class="caption"><span>Classes in <a href="../../snapshot/package-summary.html">org.apache.hadoop.hbase.snapshot</a> that implement <a href="../RegionLocator.html" title="interface in org.apache.hadoop.hbase.client">RegionLocator</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Class</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>final class&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="../../snapshot/SnapshotRegionLocator.html" class="type-name-link" title="class in org.apache.hadoop.hbase.snapshot">SnapshotRegionLocator</a></code></div>
+<div class="col-last even-row-color">
+<div class="block"><a href="../RegionLocator.html" title="interface in org.apache.hadoop.hbase.client"><code>RegionLocator</code></a> built using the most recent full backup's snapshot manifest for a given
+ table.</div>
+</div>
 </div>
 </section>
 </li>

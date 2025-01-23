@@ -161,19 +161,21 @@ loadScripts(document, 'script');</script>
  <code>BulkLoadHFilesTool</code>.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createAndRestoreTable(org.apache.hadoop.hbase.client.Connection,org.apache.hadoop.hbase.TableName,org.apache.hadoop.hbase.TableName,org.apache.hadoop.fs.Path,boolean,java.lang.String)" class="member-name-link">createAndRestoreTable</a><wbr>(<a href="../../client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;conn,
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createAndRestoreTable(org.apache.hadoop.hbase.client.Connection,org.apache.hadoop.hbase.TableName,org.apache.hadoop.hbase.TableName,org.apache.hadoop.fs.Path,boolean,boolean,java.lang.String)" class="member-name-link">createAndRestoreTable</a><wbr>(<a href="../../client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;conn,
  <a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName,
  <a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;newTableName,
  org.apache.hadoop.fs.Path&nbsp;tableBackupPath,
  boolean&nbsp;truncateIfExists,
+ boolean&nbsp;isKeepOriginalSplits,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;lastIncrBackupId)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#fullRestoreTable(org.apache.hadoop.hbase.client.Connection,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.TableName,org.apache.hadoop.hbase.TableName,boolean,java.lang.String)" class="member-name-link">fullRestoreTable</a><wbr>(<a href="../../client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;conn,
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#fullRestoreTable(org.apache.hadoop.hbase.client.Connection,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.TableName,org.apache.hadoop.hbase.TableName,boolean,boolean,java.lang.String)" class="member-name-link">fullRestoreTable</a><wbr>(<a href="../../client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;conn,
  org.apache.hadoop.fs.Path&nbsp;tableBackupPath,
  <a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName,
  <a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;newTableName,
  boolean&nbsp;truncateIfExists,
+ boolean&nbsp;isKeepOriginalSplits,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;lastIncrBackupId)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) byte[][]</code></div>
@@ -224,12 +226,13 @@ loadScripts(document, 'script');</script>
  "/$USER/SBACKUP_ROOT/backup_id/namespace/table/.hbase-snapshot"</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#incrementalRestoreTable(org.apache.hadoop.hbase.client.Connection,org.apache.hadoop.fs.Path,org.apache.hadoop.fs.Path%5B%5D,org.apache.hadoop.hbase.TableName%5B%5D,org.apache.hadoop.hbase.TableName%5B%5D,java.lang.String)" class="member-name-link">incrementalRestoreTable</a><wbr>(<a href="../../client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;conn,
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#incrementalRestoreTable(org.apache.hadoop.hbase.client.Connection,org.apache.hadoop.fs.Path,org.apache.hadoop.fs.Path%5B%5D,org.apache.hadoop.hbase.TableName%5B%5D,org.apache.hadoop.hbase.TableName%5B%5D,java.lang.String,boolean)" class="member-name-link">incrementalRestoreTable</a><wbr>(<a href="../../client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;conn,
  org.apache.hadoop.fs.Path&nbsp;tableBackupPath,
  org.apache.hadoop.fs.Path[]&nbsp;logDirs,
  <a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>[]&nbsp;tableNames,
  <a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>[]&nbsp;newTableNames,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;incrBackupId)</code></div>
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;incrBackupId,
+ boolean&nbsp;keepOriginalSplits)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">During incremental backup operation.</div>
 </div>
@@ -392,14 +395,15 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="incrementalRestoreTable(org.apache.hadoop.hbase.client.Connection,org.apache.hadoop.fs.Path,org.apache.hadoop.fs.Path[],org.apache.hadoop.hbase.TableName[],org.apache.hadoop.hbase.TableName[],java.lang.String)">
+<section class="detail" id="incrementalRestoreTable(org.apache.hadoop.hbase.client.Connection,org.apache.hadoop.fs.Path,org.apache.hadoop.fs.Path[],org.apache.hadoop.hbase.TableName[],org.apache.hadoop.hbase.TableName[],java.lang.String,boolean)">
 <h3>incrementalRestoreTable</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/util/RestoreTool.html#line-154">incrementalRestoreTable</a></span><wbr><span class="parameters">(<a href="../../client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;conn,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/util/RestoreTool.html#line-156">incrementalRestoreTable</a></span><wbr><span class="parameters">(<a href="../../client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;conn,
  org.apache.hadoop.fs.Path&nbsp;tableBackupPath,
  org.apache.hadoop.fs.Path[]&nbsp;logDirs,
  <a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>[]&nbsp;tableNames,
  <a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>[]&nbsp;newTableNames,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;incrBackupId)</span>
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;incrBackupId,
+ boolean&nbsp;keepOriginalSplits)</span>
                              throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">During incremental backup operation. Call WalPlayer to replay WAL in backup image Currently
  tableNames and newTablesNames only contain single table, will be expanded to multiple tables in
@@ -412,19 +416,22 @@ loadScripts(document, 'script');</script>
 <dd><code>tableNames</code> - : source tableNames(table names were backuped)</dd>
 <dd><code>newTableNames</code> - : target tableNames(table names to be restored to)</dd>
 <dd><code>incrBackupId</code> - incremental backup Id</dd>
+<dd><code>keepOriginalSplits</code> - whether the original region splits from the full backup should be
+                           kept</dd>
 <dt>Throws:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code> - exception</dd>
 </dl>
 </section>
 </li>
 <li>
-<section class="detail" id="fullRestoreTable(org.apache.hadoop.hbase.client.Connection,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.TableName,org.apache.hadoop.hbase.TableName,boolean,java.lang.String)">
+<section class="detail" id="fullRestoreTable(org.apache.hadoop.hbase.client.Connection,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.TableName,org.apache.hadoop.hbase.TableName,boolean,boolean,java.lang.String)">
 <h3>fullRestoreTable</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/util/RestoreTool.html#line-209">fullRestoreTable</a></span><wbr><span class="parameters">(<a href="../../client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;conn,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/util/RestoreTool.html#line-213">fullRestoreTable</a></span><wbr><span class="parameters">(<a href="../../client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;conn,
  org.apache.hadoop.fs.Path&nbsp;tableBackupPath,
  <a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName,
  <a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;newTableName,
  boolean&nbsp;truncateIfExists,
+ boolean&nbsp;isKeepOriginalSplits,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;lastIncrBackupId)</span>
                       throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
@@ -436,7 +443,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getTableSnapshotPath(org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.TableName,java.lang.String)">
 <h3>getTableSnapshotPath</h3>
-<div class="member-signature"><span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/util/RestoreTool.html#line-223">getTableSnapshotPath</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;backupRootPath,
+<div class="member-signature"><span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/util/RestoreTool.html#line-228">getTableSnapshotPath</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;backupRootPath,
  <a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupId)</span></div>
 <div class="block">Returns value represent path for path to backup table snapshot directory:
@@ -454,7 +461,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getTableInfoPath(org.apache.hadoop.hbase.TableName)">
 <h3>getTableInfoPath</h3>
-<div class="member-signature"><span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/util/RestoreTool.html#line-237">getTableInfoPath</a></span><wbr><span class="parameters">(<a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName)</span>
+<div class="member-signature"><span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/util/RestoreTool.html#line-242">getTableInfoPath</a></span><wbr><span class="parameters">(<a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName)</span>
                                     throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Returns value represent path for:
  ""/$USER/SBACKUP_ROOT/backup_id/namespace/table/.hbase-snapshot/
@@ -473,7 +480,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getTableDesc(org.apache.hadoop.hbase.TableName)">
 <h3>getTableDesc</h3>
-<div class="member-signature"><span class="return-type"><a href="../../client/TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/util/RestoreTool.html#line-259">getTableDesc</a></span><wbr><span class="parameters">(<a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName)</span>
+<div class="member-signature"><span class="return-type"><a href="../../client/TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/util/RestoreTool.html#line-264">getTableDesc</a></span><wbr><span class="parameters">(<a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName)</span>
                       throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Get table descriptor</div>
 <dl class="notes">
@@ -489,7 +496,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getTableDescriptor(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.hbase.TableName,java.lang.String)">
 <h3>getTableDescriptor</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../../client/TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/util/RestoreTool.html#line-275">getTableDescriptor</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.FileSystem&nbsp;fileSys,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../../client/TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/util/RestoreTool.html#line-280">getTableDescriptor</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.FileSystem&nbsp;fileSys,
  <a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;lastIncrBackupId)</span>
                                     throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
@@ -500,13 +507,14 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="createAndRestoreTable(org.apache.hadoop.hbase.client.Connection,org.apache.hadoop.hbase.TableName,org.apache.hadoop.hbase.TableName,org.apache.hadoop.fs.Path,boolean,java.lang.String)">
+<section class="detail" id="createAndRestoreTable(org.apache.hadoop.hbase.client.Connection,org.apache.hadoop.hbase.TableName,org.apache.hadoop.hbase.TableName,org.apache.hadoop.fs.Path,boolean,boolean,java.lang.String)">
 <h3>createAndRestoreTable</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/util/RestoreTool.html#line-285">createAndRestoreTable</a></span><wbr><span class="parameters">(<a href="../../client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;conn,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/util/RestoreTool.html#line-290">createAndRestoreTable</a></span><wbr><span class="parameters">(<a href="../../client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;conn,
  <a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName,
  <a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;newTableName,
  org.apache.hadoop.fs.Path&nbsp;tableBackupPath,
  boolean&nbsp;truncateIfExists,
+ boolean&nbsp;isKeepOriginalSplits,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;lastIncrBackupId)</span>
                             throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
@@ -518,7 +526,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getRegionList(org.apache.hadoop.fs.Path)">
 <h3>getRegionList</h3>
-<div class="member-signature"><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;org.apache.hadoop.fs.Path&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/util/RestoreTool.html#line-370">getRegionList</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;tableArchivePath)</span>
+<div class="member-signature"><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;org.apache.hadoop.fs.Path&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/util/RestoreTool.html#line-377">getRegionList</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;tableArchivePath)</span>
                                             throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Gets region list</div>
 <dl class="notes">
@@ -534,7 +542,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="generateBoundaryKeys(java.util.ArrayList)">
 <h3>generateBoundaryKeys</h3>
-<div class="member-signature"><span class="return-type">byte[][]</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/util/RestoreTool.html#line-386">generateBoundaryKeys</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;org.apache.hadoop.fs.Path&gt;&nbsp;regionDirList)</span>
+<div class="member-signature"><span class="return-type">byte[][]</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/util/RestoreTool.html#line-393">generateBoundaryKeys</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;org.apache.hadoop.fs.Path&gt;&nbsp;regionDirList)</span>
                        throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Calculate region boundaries and add all the column families to the table descriptor</div>
 <dl class="notes">
@@ -550,7 +558,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="checkAndCreateTable(org.apache.hadoop.hbase.client.Connection,org.apache.hadoop.hbase.TableName,java.util.ArrayList,org.apache.hadoop.hbase.client.TableDescriptor,boolean)">
 <h3>checkAndCreateTable</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/util/RestoreTool.html#line-473">checkAndCreateTable</a></span><wbr><span class="parameters">(<a href="../../client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;conn,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/util/RestoreTool.html#line-480">checkAndCreateTable</a></span><wbr><span class="parameters">(<a href="../../client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;conn,
  <a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;targetTableName,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;org.apache.hadoop.fs.Path&gt;&nbsp;regionDirList,
  <a href="../../client/TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;htd,

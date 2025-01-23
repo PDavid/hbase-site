@@ -2254,6 +2254,20 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color"><code>"Usage: hbase restore &lt;backup_path&gt; &lt;backup_id&gt; [options]\n  backup_path     Path to a backup destination root\n  backup_id       Backup image ID to restore\n  table(s)        Comma-separated list of tables to restore\n"</code></div>
 </div>
 </li>
+<li>
+<div class="caption"><span>org.apache.hadoop.hbase.backup.<a href="org/apache/hadoop/hbase/backup/RestoreJob.html" title="interface in org.apache.hadoop.hbase.backup">RestoreJob</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Constant Field</div>
+<div class="table-header col-last">Value</div>
+<div class="col-first even-row-color"><code id="org.apache.hadoop.hbase.backup.RestoreJob.KEEP_ORIGINAL_SPLITS_DEFAULT">public&nbsp;static&nbsp;final&nbsp;boolean</code></div>
+<div class="col-second even-row-color"><code><a href="org/apache/hadoop/hbase/backup/RestoreJob.html#KEEP_ORIGINAL_SPLITS_DEFAULT">KEEP_ORIGINAL_SPLITS_DEFAULT</a></code></div>
+<div class="col-last even-row-color"><code>false</code></div>
+<div class="col-first odd-row-color"><code id="org.apache.hadoop.hbase.backup.RestoreJob.KEEP_ORIGINAL_SPLITS_KEY">public&nbsp;static&nbsp;final&nbsp;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><code><a href="org/apache/hadoop/hbase/backup/RestoreJob.html#KEEP_ORIGINAL_SPLITS_KEY">KEEP_ORIGINAL_SPLITS_KEY</a></code></div>
+<div class="col-last odd-row-color"><code>"hbase.backup.restorejob.keep.original.splits"</code></div>
+</div>
+</li>
 </ul>
 <ul class="block-list">
 <li>
@@ -17282,6 +17296,17 @@ loadScripts(document, 'script');</script>
 <div class="col-first odd-row-color"><code id="org.apache.hadoop.hbase.snapshot.SnapshotManifestV2.SNAPSHOT_MANIFEST_PREFIX">public&nbsp;static&nbsp;final&nbsp;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color"><code><a href="org/apache/hadoop/hbase/snapshot/SnapshotManifestV2.html#SNAPSHOT_MANIFEST_PREFIX">SNAPSHOT_MANIFEST_PREFIX</a></code></div>
 <div class="col-last odd-row-color"><code>"region-manifest."</code></div>
+</div>
+</li>
+<li>
+<div class="caption"><span>org.apache.hadoop.hbase.snapshot.<a href="org/apache/hadoop/hbase/snapshot/SnapshotRegionLocator.html" title="class in org.apache.hadoop.hbase.snapshot">SnapshotRegionLocator</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Constant Field</div>
+<div class="table-header col-last">Value</div>
+<div class="col-first even-row-color"><code id="org.apache.hadoop.hbase.snapshot.SnapshotRegionLocator.SNAPSHOT_MANIFEST_DIR_PREFIX">private&nbsp;static&nbsp;final&nbsp;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="org/apache/hadoop/hbase/snapshot/SnapshotRegionLocator.html#SNAPSHOT_MANIFEST_DIR_PREFIX">SNAPSHOT_MANIFEST_DIR_PREFIX</a></code></div>
+<div class="col-last even-row-color"><code>"region.locator.snapshot.manifest.dir."</code></div>
 </div>
 </li>
 <li>

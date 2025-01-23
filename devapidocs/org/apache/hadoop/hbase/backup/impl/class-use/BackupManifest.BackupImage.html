@@ -151,10 +151,11 @@ loadScripts(document, 'script');</script>
  org.apache.hadoop.fs.Path&nbsp;backupPath)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>private void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">RestoreTablesClient.</span><code><a href="../RestoreTablesClient.html#restoreImages(org.apache.hadoop.hbase.backup.impl.BackupManifest.BackupImage%5B%5D,org.apache.hadoop.hbase.TableName,org.apache.hadoop.hbase.TableName,boolean)" class="member-name-link">restoreImages</a><wbr>(<a href="../BackupManifest.BackupImage.html" title="class in org.apache.hadoop.hbase.backup.impl">BackupManifest.BackupImage</a>[]&nbsp;images,
+<div class="col-second even-row-color"><span class="type-name-label">RestoreTablesClient.</span><code><a href="../RestoreTablesClient.html#restoreImages(org.apache.hadoop.hbase.backup.impl.BackupManifest.BackupImage%5B%5D,org.apache.hadoop.hbase.TableName,org.apache.hadoop.hbase.TableName,boolean,boolean)" class="member-name-link">restoreImages</a><wbr>(<a href="../BackupManifest.BackupImage.html" title="class in org.apache.hadoop.hbase.backup.impl">BackupManifest.BackupImage</a>[]&nbsp;images,
  <a href="../../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;sTable,
  <a href="../../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tTable,
- boolean&nbsp;truncateIfExists)</code></div>
+ boolean&nbsp;truncateIfExists,
+ boolean&nbsp;isKeepOriginalSplits)</code></div>
 <div class="col-last even-row-color">
 <div class="block">Restore operation handle each backupImage in array.</div>
 </div>

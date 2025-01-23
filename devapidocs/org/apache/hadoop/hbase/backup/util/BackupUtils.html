@@ -178,157 +178,166 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Create restore request.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#failed(int)" class="member-name-link">failed</a><wbr>(int&nbsp;result)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../RestoreRequest.html" title="class in org.apache.hadoop.hbase.backup">RestoreRequest</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createRestoreRequest(java.lang.String,java.lang.String,boolean,org.apache.hadoop.hbase.TableName%5B%5D,org.apache.hadoop.hbase.TableName%5B%5D,boolean,boolean)" class="member-name-link">createRestoreRequest</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupRootDir,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupId,
+ boolean&nbsp;check,
+ <a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>[]&nbsp;fromTables,
+ <a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>[]&nbsp;toTables,
+ boolean&nbsp;isOverwrite,
+ boolean&nbsp;isKeepOriginalSplits)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#findMostRecentBackupId(java.lang.String%5B%5D)" class="member-name-link">findMostRecentBackupId</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>[]&nbsp;backupIds)</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#failed(int)" class="member-name-link">failed</a><wbr>(int&nbsp;result)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static org.apache.hadoop.fs.Path</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getBulkOutputDir(java.lang.String,org.apache.hadoop.conf.Configuration,boolean)" class="member-name-link">getBulkOutputDir</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;tableName,
- org.apache.hadoop.conf.Configuration&nbsp;conf,
- boolean&nbsp;deleteOnExit)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#findMostRecentBackupId(java.lang.String%5B%5D)" class="member-name-link">findMostRecentBackupId</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>[]&nbsp;backupIds)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static org.apache.hadoop.fs.Path</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getBulkOutputDir(org.apache.hadoop.fs.Path,java.lang.String,org.apache.hadoop.conf.Configuration)" class="member-name-link">getBulkOutputDir</a><wbr>(org.apache.hadoop.fs.Path&nbsp;restoreRootDir,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;tableName,
- org.apache.hadoop.conf.Configuration&nbsp;conf)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getBulkOutputDir(java.lang.String,org.apache.hadoop.conf.Configuration,boolean)" class="member-name-link">getBulkOutputDir</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;tableName,
+ org.apache.hadoop.conf.Configuration&nbsp;conf,
+ boolean&nbsp;deleteOnExit)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static org.apache.hadoop.fs.Path</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getBulkOutputDir(org.apache.hadoop.fs.Path,java.lang.String,org.apache.hadoop.conf.Configuration,boolean)" class="member-name-link">getBulkOutputDir</a><wbr>(org.apache.hadoop.fs.Path&nbsp;restoreRootDir,
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getBulkOutputDir(org.apache.hadoop.fs.Path,java.lang.String,org.apache.hadoop.conf.Configuration)" class="member-name-link">getBulkOutputDir</a><wbr>(org.apache.hadoop.fs.Path&nbsp;restoreRootDir,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;tableName,
+ org.apache.hadoop.conf.Configuration&nbsp;conf)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static org.apache.hadoop.fs.Path</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getBulkOutputDir(org.apache.hadoop.fs.Path,java.lang.String,org.apache.hadoop.conf.Configuration,boolean)" class="member-name-link">getBulkOutputDir</a><wbr>(org.apache.hadoop.fs.Path&nbsp;restoreRootDir,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;tableName,
  org.apache.hadoop.conf.Configuration&nbsp;conf,
  boolean&nbsp;deleteOnExit)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getCreationTime(org.apache.hadoop.fs.Path)" class="member-name-link">getCreationTime</a><wbr>(org.apache.hadoop.fs.Path&nbsp;p)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getCreationTime(org.apache.hadoop.fs.Path)" class="member-name-link">getCreationTime</a><wbr>(org.apache.hadoop.fs.Path&nbsp;p)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Given the log file, parse the timestamp from the file name.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getFileNameCompatibleString(org.apache.hadoop.hbase.TableName)" class="member-name-link">getFileNameCompatibleString</a><wbr>(<a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;table)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getFiles(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,java.util.List,org.apache.hadoop.fs.PathFilter)" class="member-name-link">getFiles</a><wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fs,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getFileNameCompatibleString(org.apache.hadoop.hbase.TableName)" class="member-name-link">getFileNameCompatibleString</a><wbr>(<a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;table)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getFiles(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,java.util.List,org.apache.hadoop.fs.PathFilter)" class="member-name-link">getFiles</a><wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.Path&nbsp;rootDir,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;files,
  org.apache.hadoop.fs.PathFilter&nbsp;filter)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static long</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getFilesLength(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path)" class="member-name-link">getFilesLength</a><wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fs,
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static long</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getFilesLength(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path)" class="member-name-link">getFilesLength</a><wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.Path&nbsp;dir)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Get the total length of files under the given directory recursively.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../BackupInfo.html" title="class in org.apache.hadoop.hbase.backup">BackupInfo</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getHistory(org.apache.hadoop.conf.Configuration,int,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.backup.BackupInfo.Filter...)" class="member-name-link">getHistory</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../BackupInfo.html" title="class in org.apache.hadoop.hbase.backup">BackupInfo</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getHistory(org.apache.hadoop.conf.Configuration,int,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.backup.BackupInfo.Filter...)" class="member-name-link">getHistory</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
  int&nbsp;n,
  org.apache.hadoop.fs.Path&nbsp;backupRootPath,
  <a href="../BackupInfo.Filter.html" title="interface in org.apache.hadoop.hbase.backup">BackupInfo.Filter</a>...&nbsp;filters)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../BackupInfo.html" title="class in org.apache.hadoop.hbase.backup">BackupInfo</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getHistory(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.Path)" class="member-name-link">getHistory</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
- org.apache.hadoop.fs.Path&nbsp;backupRootPath)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getLogBackupDir(java.lang.String,java.lang.String)" class="member-name-link">getLogBackupDir</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupRootDir,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../BackupInfo.html" title="class in org.apache.hadoop.hbase.backup">BackupInfo</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getHistory(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.Path)" class="member-name-link">getHistory</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+ org.apache.hadoop.fs.Path&nbsp;backupRootPath)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getLogBackupDir(java.lang.String,java.lang.String)" class="member-name-link">getLogBackupDir</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupRootDir,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupId)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Given the backup root dir and the backup id, return the log file location for an incremental
  backup.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;T&gt;&nbsp;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getMinValue(java.util.Map)" class="member-name-link">getMinValue</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;T,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;&nbsp;map)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;T&gt;&nbsp;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getMinValue(java.util.Map)" class="member-name-link">getMinValue</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;T,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;&nbsp;map)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Get the min value for all the Values a map.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getPath(org.apache.hadoop.fs.Path)" class="member-name-link">getPath</a><wbr>(org.apache.hadoop.fs.Path&nbsp;p)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getPath(org.apache.hadoop.fs.Path)" class="member-name-link">getPath</a><wbr>(org.apache.hadoop.fs.Path&nbsp;p)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Return the 'path' component of a Path.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getRSLogTimestampMins(java.util.Map)" class="member-name-link">getRSLogTimestampMins</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;&gt;&nbsp;rsLogTimestampMap)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getRSLogTimestampMins(java.util.Map)" class="member-name-link">getRSLogTimestampMins</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;&gt;&nbsp;rsLogTimestampMap)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Loop through the RS log timestamp map for the tables, for each RS, find the min timestamp value
  for the RS among the tables.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getTableBackupDir(java.lang.String,java.lang.String,org.apache.hadoop.hbase.TableName)" class="member-name-link">getTableBackupDir</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupRootDir,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getTableBackupDir(java.lang.String,java.lang.String,org.apache.hadoop.hbase.TableName)" class="member-name-link">getTableBackupDir</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupRootDir,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupId,
  <a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Given the backup root dir, backup id and the table name, return the backup image location,
  which is also where the backup manifest file is.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static org.apache.hadoop.fs.Path</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getTmpRestoreOutputDir(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.conf.Configuration)" class="member-name-link">getTmpRestoreOutputDir</a><wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fs,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static org.apache.hadoop.fs.Path</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getTmpRestoreOutputDir(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.conf.Configuration)" class="member-name-link">getTmpRestoreOutputDir</a><wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.conf.Configuration&nbsp;conf)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Build temporary output path</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getUniqueWALFileNamePart(java.lang.String)" class="member-name-link">getUniqueWALFileNamePart</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;walFileName)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Returns WAL file name</div>
-</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getUniqueWALFileNamePart(org.apache.hadoop.fs.Path)" class="member-name-link">getUniqueWALFileNamePart</a><wbr>(org.apache.hadoop.fs.Path&nbsp;p)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getUniqueWALFileNamePart(java.lang.String)" class="member-name-link">getUniqueWALFileNamePart</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;walFileName)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Returns WAL file name</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getWALFilesOlderThan(org.apache.hadoop.conf.Configuration,java.util.HashMap)" class="member-name-link">getWALFilesOlderThan</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;c,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/HashMap.html" title="class or interface in java.util" class="external-link">HashMap</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;&nbsp;hostTimestampMap)</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getUniqueWALFileNamePart(org.apache.hadoop.fs.Path)" class="member-name-link">getUniqueWALFileNamePart</a><wbr>(org.apache.hadoop.fs.Path&nbsp;p)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Returns WAL file name</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getWALFilesOlderThan(org.apache.hadoop.conf.Configuration,java.util.HashMap)" class="member-name-link">getWALFilesOlderThan</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;c,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/HashMap.html" title="class or interface in java.util" class="external-link">HashMap</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;&nbsp;hostTimestampMap)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Get list of all old WAL files (WALs and archive)</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static org.apache.hadoop.fs.FileStatus[]</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#listStatus(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.fs.PathFilter)" class="member-name-link">listStatus</a><wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fs,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static org.apache.hadoop.fs.FileStatus[]</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#listStatus(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.fs.PathFilter)" class="member-name-link">listStatus</a><wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.Path&nbsp;dir,
  org.apache.hadoop.fs.PathFilter&nbsp;filter)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Calls fs.listStatus() and treats FileNotFoundException as non-fatal This accommodates
  differences between hadoop versions, where hadoop 1 does not throw a FileNotFoundException, and
  return an empty FileStatus[] while Hadoop 2 will throw FileNotFoundException.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../BackupInfo.html" title="class in org.apache.hadoop.hbase.backup">BackupInfo</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#loadBackupInfo(org.apache.hadoop.fs.Path,java.lang.String,org.apache.hadoop.fs.FileSystem)" class="member-name-link">loadBackupInfo</a><wbr>(org.apache.hadoop.fs.Path&nbsp;backupRootPath,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../BackupInfo.html" title="class in org.apache.hadoop.hbase.backup">BackupInfo</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#loadBackupInfo(org.apache.hadoop.fs.Path,java.lang.String,org.apache.hadoop.fs.FileSystem)" class="member-name-link">loadBackupInfo</a><wbr>(org.apache.hadoop.fs.Path&nbsp;backupRootPath,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupId,
  org.apache.hadoop.fs.FileSystem&nbsp;fs)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#parseHostFromOldLog(org.apache.hadoop.fs.Path)" class="member-name-link">parseHostFromOldLog</a><wbr>(org.apache.hadoop.fs.Path&nbsp;p)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#parseHostFromOldLog(org.apache.hadoop.fs.Path)" class="member-name-link">parseHostFromOldLog</a><wbr>(org.apache.hadoop.fs.Path&nbsp;p)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Parses host name:port from archived WAL path</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#parseHostNameFromLogFile(org.apache.hadoop.fs.Path)" class="member-name-link">parseHostNameFromLogFile</a><wbr>(org.apache.hadoop.fs.Path&nbsp;p)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#parseHostNameFromLogFile(org.apache.hadoop.fs.Path)" class="member-name-link">parseHostNameFromLogFile</a><wbr>(org.apache.hadoop.fs.Path&nbsp;p)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Parses hostname:port from WAL file path</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>[]</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#parseTableNames(java.lang.String)" class="member-name-link">parseTableNames</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;tables)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;<a href="../BackupInfo.html" title="class in org.apache.hadoop.hbase.backup">BackupInfo</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#sortHistoryListDesc(java.util.ArrayList)" class="member-name-link">sortHistoryListDesc</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;<a href="../BackupInfo.html" title="class in org.apache.hadoop.hbase.backup">BackupInfo</a>&gt;&nbsp;historyList)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>[]</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#parseTableNames(java.lang.String)" class="member-name-link">parseTableNames</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;tables)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;<a href="../BackupInfo.html" title="class in org.apache.hadoop.hbase.backup">BackupInfo</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#sortHistoryListDesc(java.util.ArrayList)" class="member-name-link">sortHistoryListDesc</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;<a href="../BackupInfo.html" title="class in org.apache.hadoop.hbase.backup">BackupInfo</a>&gt;&nbsp;historyList)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Sort history list by start time in descending order.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#succeeded(int)" class="member-name-link">succeeded</a><wbr>(int&nbsp;result)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#validate(java.util.List,org.apache.hadoop.hbase.backup.impl.BackupManifest,org.apache.hadoop.conf.Configuration)" class="member-name-link">validate</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&gt;&nbsp;tables,
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#succeeded(int)" class="member-name-link">succeeded</a><wbr>(int&nbsp;result)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#validate(java.util.List,org.apache.hadoop.hbase.backup.impl.BackupManifest,org.apache.hadoop.conf.Configuration)" class="member-name-link">validate</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&gt;&nbsp;tables,
  <a href="../impl/BackupManifest.html" title="class in org.apache.hadoop.hbase.backup.impl">BackupManifest</a>&nbsp;backupManifest,
  org.apache.hadoop.conf.Configuration&nbsp;conf)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#writeRegioninfoOnFilesystem(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.client.RegionInfo)" class="member-name-link">writeRegioninfoOnFilesystem</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#writeRegioninfoOnFilesystem(org.apache.hadoop.conf.Configuration,org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.client.RegionInfo)" class="member-name-link">writeRegioninfoOnFilesystem</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
  org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.Path&nbsp;regionInfoDir,
  <a href="../../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;regionInfo)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Write the .regioninfo file on-disk.</div>
 </div>
 </div>
@@ -808,9 +817,21 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
+<section class="detail" id="createRestoreRequest(java.lang.String,java.lang.String,boolean,org.apache.hadoop.hbase.TableName[],org.apache.hadoop.hbase.TableName[],boolean,boolean)">
+<h3>createRestoreRequest</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../RestoreRequest.html" title="class in org.apache.hadoop.hbase.backup">RestoreRequest</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/util/BackupUtils.html#line-664">createRestoreRequest</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupRootDir,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupId,
+ boolean&nbsp;check,
+ <a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>[]&nbsp;fromTables,
+ <a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>[]&nbsp;toTables,
+ boolean&nbsp;isOverwrite,
+ boolean&nbsp;isKeepOriginalSplits)</span></div>
+</section>
+</li>
+<li>
 <section class="detail" id="validate(java.util.List,org.apache.hadoop.hbase.backup.impl.BackupManifest,org.apache.hadoop.conf.Configuration)">
 <h3>validate</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/util/BackupUtils.html#line-667">validate</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&gt;&nbsp;tables,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/util/BackupUtils.html#line-674">validate</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&gt;&nbsp;tables,
  <a href="../impl/BackupManifest.html" title="class in org.apache.hadoop.hbase.backup.impl">BackupManifest</a>&nbsp;backupManifest,
  org.apache.hadoop.conf.Configuration&nbsp;conf)</span>
                         throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
@@ -823,7 +844,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getBulkOutputDir(org.apache.hadoop.fs.Path,java.lang.String,org.apache.hadoop.conf.Configuration,boolean)">
 <h3>getBulkOutputDir</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/util/BackupUtils.html#line-694">getBulkOutputDir</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;restoreRootDir,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/util/BackupUtils.html#line-701">getBulkOutputDir</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;restoreRootDir,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;tableName,
  org.apache.hadoop.conf.Configuration&nbsp;conf,
  boolean&nbsp;deleteOnExit)</span>
@@ -837,7 +858,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getBulkOutputDir(org.apache.hadoop.fs.Path,java.lang.String,org.apache.hadoop.conf.Configuration)">
 <h3>getBulkOutputDir</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/util/BackupUtils.html#line-705">getBulkOutputDir</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;restoreRootDir,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/util/BackupUtils.html#line-712">getBulkOutputDir</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;restoreRootDir,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;tableName,
  org.apache.hadoop.conf.Configuration&nbsp;conf)</span>
                                                   throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
@@ -850,7 +871,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getBulkOutputDir(java.lang.String,org.apache.hadoop.conf.Configuration,boolean)">
 <h3>getBulkOutputDir</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/util/BackupUtils.html#line-710">getBulkOutputDir</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;tableName,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/util/BackupUtils.html#line-717">getBulkOutputDir</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;tableName,
  org.apache.hadoop.conf.Configuration&nbsp;conf,
  boolean&nbsp;deleteOnExit)</span>
                                                   throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
@@ -863,7 +884,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getTmpRestoreOutputDir(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.conf.Configuration)">
 <h3>getTmpRestoreOutputDir</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/util/BackupUtils.html#line-722">getTmpRestoreOutputDir</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.FileSystem&nbsp;fs,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">org.apache.hadoop.fs.Path</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/util/BackupUtils.html#line-729">getTmpRestoreOutputDir</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.conf.Configuration&nbsp;conf)</span></div>
 <div class="block">Build temporary output path</div>
 <dl class="notes">
@@ -878,31 +899,31 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getFileNameCompatibleString(org.apache.hadoop.hbase.TableName)">
 <h3>getFileNameCompatibleString</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/util/BackupUtils.html#line-728">getFileNameCompatibleString</a></span><wbr><span class="parameters">(<a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;table)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/util/BackupUtils.html#line-735">getFileNameCompatibleString</a></span><wbr><span class="parameters">(<a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;table)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="failed(int)">
 <h3>failed</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/util/BackupUtils.html#line-732">failed</a></span><wbr><span class="parameters">(int&nbsp;result)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/util/BackupUtils.html#line-739">failed</a></span><wbr><span class="parameters">(int&nbsp;result)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="succeeded(int)">
 <h3>succeeded</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/util/BackupUtils.html#line-736">succeeded</a></span><wbr><span class="parameters">(int&nbsp;result)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/util/BackupUtils.html#line-743">succeeded</a></span><wbr><span class="parameters">(int&nbsp;result)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="createLoader(org.apache.hadoop.conf.Configuration)">
 <h3>createLoader</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../../tool/BulkLoadHFiles.html" title="interface in org.apache.hadoop.hbase.tool">BulkLoadHFiles</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/util/BackupUtils.html#line-740">createLoader</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;config)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../../tool/BulkLoadHFiles.html" title="interface in org.apache.hadoop.hbase.tool">BulkLoadHFiles</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/util/BackupUtils.html#line-747">createLoader</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;config)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="findMostRecentBackupId(java.lang.String[])">
 <h3>findMostRecentBackupId</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/util/BackupUtils.html#line-755">findMostRecentBackupId</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>[]&nbsp;backupIds)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/util/BackupUtils.html#line-762">findMostRecentBackupId</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>[]&nbsp;backupIds)</span></div>
 </section>
 </li>
 </ul>

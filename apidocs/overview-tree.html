@@ -1227,7 +1227,11 @@ loadScripts(document, 'script');</script>
 <li class="circle">org.apache.hadoop.hbase.regionserver.HRegionWALFileSystem</li>
 </ul>
 </li>
-<li class="circle">org.apache.hadoop.hbase.HRegionLocation (implements java.lang.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Comparable.html" title="class or interface in java.lang" class="external-link">Comparable</a>&lt;T&gt;)</li>
+<li class="circle">org.apache.hadoop.hbase.HRegionLocation (implements java.lang.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Comparable.html" title="class or interface in java.lang" class="external-link">Comparable</a>&lt;T&gt;)
+<ul>
+<li class="circle">org.apache.hadoop.hbase.snapshot.SnapshotRegionLocator.SnapshotHRegionLocation</li>
+</ul>
+</li>
 <li class="circle">org.apache.hadoop.hbase.mapred.HRegionPartitioner&lt;K2,<wbr>V2&gt; (implements org.apache.hadoop.mapred.Partitioner&lt;K2,<wbr>V2&gt;)</li>
 <li class="circle">org.apache.hadoop.hbase.regionserver.HStore (implements org.apache.hadoop.hbase.io.HeapSize, org.apache.hadoop.hbase.conf.PropagatingConfigurationObserver, org.apache.hadoop.hbase.regionserver.Store, org.apache.hadoop.hbase.regionserver.StoreConfigInformation)
 <ul>
@@ -2215,6 +2219,7 @@ loadScripts(document, 'script');</script>
 <li class="circle">org.apache.hadoop.hbase.snapshot.SnapshotManifestV2</li>
 <li class="circle">org.apache.hadoop.hbase.master.SnapshotOfRegionAssignmentFromMeta</li>
 <li class="circle">org.apache.hadoop.hbase.snapshot.SnapshotReferenceUtil</li>
+<li class="circle">org.apache.hadoop.hbase.snapshot.SnapshotRegionLocator (implements org.apache.hadoop.hbase.client.RegionLocator)</li>
 <li class="circle">org.apache.hadoop.hbase.util.SortedList&lt;E&gt; (implements java.util.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;E&gt;, java.util.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/RandomAccess.html" title="class or interface in java.util" class="external-link">RandomAccess</a>)</li>
 <li class="circle">org.apache.hadoop.hbase.quotas.SpaceQuotaSnapshot (implements org.apache.hadoop.hbase.quotas.SpaceQuotaSnapshotView)</li>
 <li class="circle">org.apache.hadoop.hbase.quotas.SpaceQuotaSnapshot.SpaceQuotaStatus (implements org.apache.hadoop.hbase.quotas.SpaceQuotaSnapshotView.SpaceQuotaStatusView)</li>

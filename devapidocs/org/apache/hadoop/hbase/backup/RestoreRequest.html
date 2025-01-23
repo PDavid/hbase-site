@@ -121,14 +121,17 @@ loadScripts(document, 'script');</script>
 <div class="col-second odd-row-color"><code><a href="#fromTables" class="member-name-link">fromTables</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>private boolean</code></div>
-<div class="col-second even-row-color"><code><a href="#overwrite" class="member-name-link">overwrite</a></code></div>
+<div class="col-second even-row-color"><code><a href="#keepOriginalSplits" class="member-name-link">keepOriginalSplits</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>private <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#restoreRootDir" class="member-name-link">restoreRootDir</a></code></div>
+<div class="col-first odd-row-color"><code>private boolean</code></div>
+<div class="col-second odd-row-color"><code><a href="#overwrite" class="member-name-link">overwrite</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>private <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>[]</code></div>
-<div class="col-second even-row-color"><code><a href="#toTables" class="member-name-link">toTables</a></code></div>
+<div class="col-first even-row-color"><code>private <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="#restoreRootDir" class="member-name-link">restoreRootDir</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>[]</code></div>
+<div class="col-second odd-row-color"><code><a href="#toTables" class="member-name-link">toTables</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
 </div>
 </section>
 </li>
@@ -177,19 +180,25 @@ loadScripts(document, 'script');</script>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isCheck()" class="member-name-link">isCheck</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isOverwrite()" class="member-name-link">isOverwrite</a>()</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isKeepOriginalSplits()" class="member-name-link">isKeepOriginalSplits</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="RestoreRequest.html" title="class in org.apache.hadoop.hbase.backup">RestoreRequest</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setBackupId(java.lang.String)" class="member-name-link">setBackupId</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupId)</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isOverwrite()" class="member-name-link">isOverwrite</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="RestoreRequest.html" title="class in org.apache.hadoop.hbase.backup">RestoreRequest</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setBackupRootDir(java.lang.String)" class="member-name-link">setBackupRootDir</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupRootDir)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setBackupId(java.lang.String)" class="member-name-link">setBackupId</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupId)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="RestoreRequest.html" title="class in org.apache.hadoop.hbase.backup">RestoreRequest</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setCheck(boolean)" class="member-name-link">setCheck</a><wbr>(boolean&nbsp;check)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setBackupRootDir(java.lang.String)" class="member-name-link">setBackupRootDir</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupRootDir)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="RestoreRequest.html" title="class in org.apache.hadoop.hbase.backup">RestoreRequest</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setFromTables(org.apache.hadoop.hbase.TableName%5B%5D)" class="member-name-link">setFromTables</a><wbr>(<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>[]&nbsp;fromTables)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setCheck(boolean)" class="member-name-link">setCheck</a><wbr>(boolean&nbsp;check)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="RestoreRequest.html" title="class in org.apache.hadoop.hbase.backup">RestoreRequest</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setFromTables(org.apache.hadoop.hbase.TableName%5B%5D)" class="member-name-link">setFromTables</a><wbr>(<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>[]&nbsp;fromTables)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="RestoreRequest.html" title="class in org.apache.hadoop.hbase.backup">RestoreRequest</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setKeepOriginalSplits(boolean)" class="member-name-link">setKeepOriginalSplits</a><wbr>(boolean&nbsp;keepOriginalSplits)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="RestoreRequest.html" title="class in org.apache.hadoop.hbase.backup">RestoreRequest</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setOverwrite(boolean)" class="member-name-link">setOverwrite</a><wbr>(boolean&nbsp;overwrite)</code></div>
@@ -220,43 +229,49 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="backupRootDir">
 <h3>backupRootDir</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreRequest.html#line-75">backupRootDir</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreRequest.html#line-80">backupRootDir</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="restoreRootDir">
 <h3>restoreRootDir</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreRequest.html#line-76">restoreRootDir</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreRequest.html#line-81">restoreRootDir</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="backupId">
 <h3>backupId</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreRequest.html#line-77">backupId</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreRequest.html#line-82">backupId</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="check">
 <h3>check</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreRequest.html#line-78">check</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreRequest.html#line-83">check</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="fromTables">
 <h3>fromTables</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>[]</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreRequest.html#line-79">fromTables</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>[]</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreRequest.html#line-84">fromTables</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="toTables">
 <h3>toTables</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>[]</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreRequest.html#line-80">toTables</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>[]</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreRequest.html#line-85">toTables</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="overwrite">
 <h3>overwrite</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreRequest.html#line-81">overwrite</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreRequest.html#line-86">overwrite</a></span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="keepOriginalSplits">
+<h3>keepOriginalSplits</h3>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreRequest.html#line-88">keepOriginalSplits</a></span></div>
 </section>
 </li>
 </ul>
@@ -270,7 +285,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;()">
 <h3>RestoreRequest</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreRequest.html#line-83">RestoreRequest</a></span>()</div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreRequest.html#line-90">RestoreRequest</a></span>()</div>
 </section>
 </li>
 </ul>
@@ -284,85 +299,97 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getBackupRootDir()">
 <h3>getBackupRootDir</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreRequest.html#line-86">getBackupRootDir</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreRequest.html#line-93">getBackupRootDir</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="setBackupRootDir(java.lang.String)">
 <h3>setBackupRootDir</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="RestoreRequest.html" title="class in org.apache.hadoop.hbase.backup">RestoreRequest</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreRequest.html#line-90">setBackupRootDir</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupRootDir)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="RestoreRequest.html" title="class in org.apache.hadoop.hbase.backup">RestoreRequest</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreRequest.html#line-97">setBackupRootDir</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupRootDir)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getRestoreRootDir()">
 <h3>getRestoreRootDir</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreRequest.html#line-95">getRestoreRootDir</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreRequest.html#line-102">getRestoreRootDir</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="setRestoreRootDir(java.lang.String)">
 <h3>setRestoreRootDir</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="RestoreRequest.html" title="class in org.apache.hadoop.hbase.backup">RestoreRequest</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreRequest.html#line-99">setRestoreRootDir</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;restoreRootDir)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="RestoreRequest.html" title="class in org.apache.hadoop.hbase.backup">RestoreRequest</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreRequest.html#line-106">setRestoreRootDir</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;restoreRootDir)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getBackupId()">
 <h3>getBackupId</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreRequest.html#line-104">getBackupId</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreRequest.html#line-111">getBackupId</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="setBackupId(java.lang.String)">
 <h3>setBackupId</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="RestoreRequest.html" title="class in org.apache.hadoop.hbase.backup">RestoreRequest</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreRequest.html#line-108">setBackupId</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupId)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="RestoreRequest.html" title="class in org.apache.hadoop.hbase.backup">RestoreRequest</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreRequest.html#line-115">setBackupId</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupId)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="isCheck()">
 <h3>isCheck</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreRequest.html#line-113">isCheck</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreRequest.html#line-120">isCheck</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="setCheck(boolean)">
 <h3>setCheck</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="RestoreRequest.html" title="class in org.apache.hadoop.hbase.backup">RestoreRequest</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreRequest.html#line-117">setCheck</a></span><wbr><span class="parameters">(boolean&nbsp;check)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="RestoreRequest.html" title="class in org.apache.hadoop.hbase.backup">RestoreRequest</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreRequest.html#line-124">setCheck</a></span><wbr><span class="parameters">(boolean&nbsp;check)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getFromTables()">
 <h3>getFromTables</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>[]</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreRequest.html#line-122">getFromTables</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>[]</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreRequest.html#line-129">getFromTables</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="setFromTables(org.apache.hadoop.hbase.TableName[])">
 <h3>setFromTables</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="RestoreRequest.html" title="class in org.apache.hadoop.hbase.backup">RestoreRequest</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreRequest.html#line-126">setFromTables</a></span><wbr><span class="parameters">(<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>[]&nbsp;fromTables)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="RestoreRequest.html" title="class in org.apache.hadoop.hbase.backup">RestoreRequest</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreRequest.html#line-133">setFromTables</a></span><wbr><span class="parameters">(<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>[]&nbsp;fromTables)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getToTables()">
 <h3>getToTables</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>[]</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreRequest.html#line-131">getToTables</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>[]</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreRequest.html#line-138">getToTables</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="setToTables(org.apache.hadoop.hbase.TableName[])">
 <h3>setToTables</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="RestoreRequest.html" title="class in org.apache.hadoop.hbase.backup">RestoreRequest</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreRequest.html#line-135">setToTables</a></span><wbr><span class="parameters">(<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>[]&nbsp;toTables)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="RestoreRequest.html" title="class in org.apache.hadoop.hbase.backup">RestoreRequest</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreRequest.html#line-142">setToTables</a></span><wbr><span class="parameters">(<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>[]&nbsp;toTables)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="isOverwrite()">
 <h3>isOverwrite</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreRequest.html#line-140">isOverwrite</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreRequest.html#line-147">isOverwrite</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="setOverwrite(boolean)">
 <h3>setOverwrite</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="RestoreRequest.html" title="class in org.apache.hadoop.hbase.backup">RestoreRequest</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreRequest.html#line-144">setOverwrite</a></span><wbr><span class="parameters">(boolean&nbsp;overwrite)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="RestoreRequest.html" title="class in org.apache.hadoop.hbase.backup">RestoreRequest</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreRequest.html#line-151">setOverwrite</a></span><wbr><span class="parameters">(boolean&nbsp;overwrite)</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="isKeepOriginalSplits()">
+<h3>isKeepOriginalSplits</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreRequest.html#line-156">isKeepOriginalSplits</a></span>()</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setKeepOriginalSplits(boolean)">
+<h3>setKeepOriginalSplits</h3>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="RestoreRequest.html" title="class in org.apache.hadoop.hbase.backup">RestoreRequest</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreRequest.html#line-160">setKeepOriginalSplits</a></span><wbr><span class="parameters">(boolean&nbsp;keepOriginalSplits)</span></div>
 </section>
 </li>
 </ul>

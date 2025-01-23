@@ -4633,6 +4633,15 @@ Input/OutputFormats, a table indexing MapReduce job, and utility methods.</div>
 <li>
 <section class="detail" id="org.apache.hadoop.hbase.snapshot">
 <h2>Uses of org.apache.hadoop.hbase.TableName in <a href="../snapshot/package-summary.html">org.apache.hadoop.hbase.snapshot</a></h2>
+<div class="caption"><span>Methods in <a href="../snapshot/package-summary.html">org.apache.hadoop.hbase.snapshot</a> that return org.apache.hadoop.hbase.TableName in  in </span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>org.apache.hadoop.hbase.TableName</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">SnapshotRegionLocator.</span><code>getName()</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
 <div class="caption"><span>Methods in <a href="../snapshot/package-summary.html">org.apache.hadoop.hbase.snapshot</a> with parameters of type org.apache.hadoop.hbase.TableName in  in </span></div>
 <div class="summary-table three-column-summary">
 <div class="table-header col-first">Modifier and Type</div>
@@ -4642,11 +4651,24 @@ Input/OutputFormats, a table indexing MapReduce job, and utility methods.</div>
 <div class="col-second even-row-color"><span class="type-name-label">RestoreSnapshotHelper.</span><code>cloneRegionInfo<wbr>(org.apache.hadoop.hbase.TableName&nbsp;tableName,
  org.apache.hadoop.hbase.client.RegionInfo&nbsp;snapshotRegionInfo)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>static void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">RestoreSnapshotHelper.</span><code>restoreSnapshotAcl<wbr>(org.apache.hadoop.hbase.shaded.protobuf.generated.SnapshotProtos.SnapshotDescription&nbsp;snapshot,
+<div class="col-first odd-row-color"><code>static org.apache.hadoop.hbase.snapshot.SnapshotRegionLocator</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">SnapshotRegionLocator.</span><code>create<wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+ org.apache.hadoop.hbase.TableName&nbsp;table)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static void</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">RestoreSnapshotHelper.</span><code>restoreSnapshotAcl<wbr>(org.apache.hadoop.hbase.shaded.protobuf.generated.SnapshotProtos.SnapshotDescription&nbsp;snapshot,
  org.apache.hadoop.hbase.TableName&nbsp;newTableName,
  org.apache.hadoop.conf.Configuration&nbsp;conf)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static void</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">SnapshotRegionLocator.</span><code>setSnapshotManifestDir<wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;dir,
+ org.apache.hadoop.hbase.TableName&nbsp;table)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static boolean</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">SnapshotRegionLocator.</span><code>shouldUseSnapshotRegionLocator<wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+ org.apache.hadoop.hbase.TableName&nbsp;table)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
 </div>
 <div class="caption"><span>Constructors in <a href="../snapshot/package-summary.html">org.apache.hadoop.hbase.snapshot</a> with parameters of type org.apache.hadoop.hbase.TableName in  in </span></div>
 <div class="summary-table three-column-summary">

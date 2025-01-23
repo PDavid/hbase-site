@@ -46,13 +46,13 @@ loadScripts(document, 'script');</script>
 <ul class="sub-nav-list">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field-summary">Field</a>&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method-summary">Method</a></li>
 </ul>
 <ul class="sub-nav-list">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field-detail">Field</a>&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method-detail">Method</a></li>
 </ul>
@@ -79,7 +79,7 @@ loadScripts(document, 'script');</script>
 </dl>
 <dl class="notes">
 <dt>All Known Implementing Classes:</dt>
-<dd><code><a href="mapreduce/MapReduceRestoreJob.html" title="class in org.apache.hadoop.hbase.backup.mapreduce">MapReduceRestoreJob</a></code></dd>
+<dd><code><a href="mapreduce/MapReduceRestoreJob.html" title="class in org.apache.hadoop.hbase.backup.mapreduce">MapReduceRestoreJob</a></code>, <code><a href="mapreduce/MapReduceRestoreToOriginalSplitsJob.html" title="class in org.apache.hadoop.hbase.backup.mapreduce">MapReduceRestoreToOriginalSplitsJob</a></code></dd>
 </dl>
 <hr>
 <div class="type-signature"><span class="annotations">@Private
@@ -90,6 +90,24 @@ extends org.apache.hadoop.conf.Configurable</span></div>
 </section>
 <section class="summary">
 <ul class="summary-list">
+<!-- =========== FIELD SUMMARY =========== -->
+<li>
+<section class="field-summary" id="field-summary">
+<h2>Field Summary</h2>
+<div class="caption"><span>Fields</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Field</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>static final boolean</code></div>
+<div class="col-second even-row-color"><code><a href="#KEEP_ORIGINAL_SPLITS_DEFAULT" class="member-name-link">KEEP_ORIGINAL_SPLITS_DEFAULT</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#KEEP_ORIGINAL_SPLITS_KEY" class="member-name-link">KEEP_ORIGINAL_SPLITS_KEY</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
 <!-- ========== METHOD SUMMARY =========== -->
 <li>
 <section class="method-summary" id="method-summary">
@@ -122,6 +140,42 @@ extends org.apache.hadoop.conf.Configurable</span></div>
 </section>
 <section class="details">
 <ul class="details-list">
+<!-- ============ FIELD DETAIL =========== -->
+<li>
+<section class="field-details" id="field-detail">
+<h2>Field Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="KEEP_ORIGINAL_SPLITS_KEY">
+<h3>KEEP_ORIGINAL_SPLITS_KEY</h3>
+<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreJob.html#line-34">KEEP_ORIGINAL_SPLITS_KEY</a></span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="see-list">
+<li><a href="../../../../../constant-values.html#org.apache.hadoop.hbase.backup.RestoreJob.KEEP_ORIGINAL_SPLITS_KEY">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="KEEP_ORIGINAL_SPLITS_DEFAULT">
+<h3>KEEP_ORIGINAL_SPLITS_DEFAULT</h3>
+<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreJob.html#line-35">KEEP_ORIGINAL_SPLITS_DEFAULT</a></span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="see-list">
+<li><a href="../../../../../constant-values.html#org.apache.hadoop.hbase.backup.RestoreJob.KEEP_ORIGINAL_SPLITS_DEFAULT">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
 <!-- ============ METHOD DETAIL ========== -->
 <li>
 <section class="method-details" id="method-detail">
@@ -130,7 +184,7 @@ extends org.apache.hadoop.conf.Configurable</span></div>
 <li>
 <section class="detail" id="run(org.apache.hadoop.fs.Path[],org.apache.hadoop.hbase.TableName[],org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.TableName[],boolean)">
 <h3>run</h3>
-<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreJob.html#line-42">run</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path[]&nbsp;dirPaths,
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreJob.html#line-46">run</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path[]&nbsp;dirPaths,
  <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>[]&nbsp;fromTables,
  org.apache.hadoop.fs.Path&nbsp;restoreRootDir,
  <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>[]&nbsp;toTables,

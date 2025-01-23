@@ -1459,13 +1459,29 @@ service.</div>
 <div class="col-second odd-row-color"><span class="type-name-label">IncrementalTableBackupClient.</span><code><a href="../backup/impl/IncrementalTableBackupClient.html#getIndex(org.apache.hadoop.hbase.TableName,java.util.List)" class="member-name-link">getIndex</a><wbr>(<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tbl,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&gt;&nbsp;sTableList)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>boolean</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">BackupManifest.BackupImage.</span><code><a href="../backup/impl/BackupManifest.BackupImage.html#hasTable(org.apache.hadoop.hbase.TableName)" class="member-name-link">hasTable</a><wbr>(<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;table)</code></div>
+<div class="col-first even-row-color"><code>private org.apache.hadoop.fs.Path</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">IncrementalTableBackupClient.</span><code><a href="../backup/impl/IncrementalTableBackupClient.html#getTargetDirForTable(org.apache.hadoop.hbase.TableName)" class="member-name-link">getTargetDirForTable</a><wbr>(<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;table)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>boolean</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">BackupManifest.BackupImage.</span><code><a href="../backup/impl/BackupManifest.BackupImage.html#hasTable(org.apache.hadoop.hbase.TableName)" class="member-name-link">hasTable</a><wbr>(<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;table)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private void</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">IncrementalTableBackupClient.</span><code><a href="../backup/impl/IncrementalTableBackupClient.html#incrementalCopyBulkloadHFiles(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.hbase.TableName)" class="member-name-link">incrementalCopyBulkloadHFiles</a><wbr>(org.apache.hadoop.fs.FileSystem&nbsp;tgtFs,
+ <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tn)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>private boolean</code></div>
 <div class="col-second odd-row-color"><span class="type-name-label">BackupAdminImpl.</span><code><a href="../backup/impl/BackupAdminImpl.html#isLastBackupSession(org.apache.hadoop.hbase.backup.impl.BackupSystemTable,org.apache.hadoop.hbase.TableName,long)" class="member-name-link">isLastBackupSession</a><wbr>(<a href="../backup/impl/BackupSystemTable.html" title="class in org.apache.hadoop.hbase.backup.impl">BackupSystemTable</a>&nbsp;table,
  <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tn,
  long&nbsp;startTime)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private void</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">IncrementalTableBackupClient.</span><code><a href="../backup/impl/IncrementalTableBackupClient.html#mergeSplitBulkloads(java.util.List,java.util.List,org.apache.hadoop.hbase.TableName)" class="member-name-link">mergeSplitBulkloads</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;activeFiles,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;archiveFiles,
+ <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tn)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private void</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">IncrementalTableBackupClient.</span><code><a href="../backup/impl/IncrementalTableBackupClient.html#mergeSplitBulkloads(java.util.List,org.apache.hadoop.hbase.TableName)" class="member-name-link">mergeSplitBulkloads</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;files,
+ <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tn)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>void</code></div>
 <div class="col-second even-row-color"><span class="type-name-label">BackupSystemTable.</span><code><a href="../backup/impl/BackupSystemTable.html#registerBulkLoad(org.apache.hadoop.hbase.TableName,byte%5B%5D,java.util.Map)" class="member-name-link">registerBulkLoad</a><wbr>(<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName,
@@ -1484,18 +1500,20 @@ service.</div>
  <a href="../backup/impl/BackupSystemTable.html" title="class in org.apache.hadoop.hbase.backup.impl">BackupSystemTable</a>&nbsp;sysTable)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>private void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">RestoreTablesClient.</span><code><a href="../backup/impl/RestoreTablesClient.html#restore(org.apache.hadoop.hbase.backup.impl.BackupManifest,org.apache.hadoop.hbase.TableName%5B%5D,org.apache.hadoop.hbase.TableName%5B%5D,boolean)" class="member-name-link">restore</a><wbr>(<a href="../backup/impl/BackupManifest.html" title="class in org.apache.hadoop.hbase.backup.impl">BackupManifest</a>&nbsp;manifest,
+<div class="col-second odd-row-color"><span class="type-name-label">RestoreTablesClient.</span><code><a href="../backup/impl/RestoreTablesClient.html#restore(org.apache.hadoop.hbase.backup.impl.BackupManifest,org.apache.hadoop.hbase.TableName%5B%5D,org.apache.hadoop.hbase.TableName%5B%5D,boolean,boolean)" class="member-name-link">restore</a><wbr>(<a href="../backup/impl/BackupManifest.html" title="class in org.apache.hadoop.hbase.backup.impl">BackupManifest</a>&nbsp;manifest,
  <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>[]&nbsp;sTableArray,
  <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>[]&nbsp;tTableArray,
- boolean&nbsp;isOverwrite)</code></div>
+ boolean&nbsp;isOverwrite,
+ boolean&nbsp;isKeepOriginalSplits)</code></div>
 <div class="col-last odd-row-color">
 <div class="block">Restore operation.</div>
 </div>
 <div class="col-first even-row-color"><code>private void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">RestoreTablesClient.</span><code><a href="../backup/impl/RestoreTablesClient.html#restoreImages(org.apache.hadoop.hbase.backup.impl.BackupManifest.BackupImage%5B%5D,org.apache.hadoop.hbase.TableName,org.apache.hadoop.hbase.TableName,boolean)" class="member-name-link">restoreImages</a><wbr>(<a href="../backup/impl/BackupManifest.BackupImage.html" title="class in org.apache.hadoop.hbase.backup.impl">BackupManifest.BackupImage</a>[]&nbsp;images,
+<div class="col-second even-row-color"><span class="type-name-label">RestoreTablesClient.</span><code><a href="../backup/impl/RestoreTablesClient.html#restoreImages(org.apache.hadoop.hbase.backup.impl.BackupManifest.BackupImage%5B%5D,org.apache.hadoop.hbase.TableName,org.apache.hadoop.hbase.TableName,boolean,boolean)" class="member-name-link">restoreImages</a><wbr>(<a href="../backup/impl/BackupManifest.BackupImage.html" title="class in org.apache.hadoop.hbase.backup.impl">BackupManifest.BackupImage</a>[]&nbsp;images,
  <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;sTable,
  <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tTable,
- boolean&nbsp;truncateIfExists)</code></div>
+ boolean&nbsp;truncateIfExists,
+ boolean&nbsp;isKeepOriginalSplits)</code></div>
 <div class="col-last even-row-color">
 <div class="block">Restore operation handle each backupImage in array.</div>
 </div>
@@ -1727,18 +1745,30 @@ service.</div>
  <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>[]&nbsp;backupIds)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>protected void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">MapReduceBackupMergeJob.</span><code><a href="../backup/mapreduce/MapReduceBackupMergeJob.html#moveData(org.apache.hadoop.fs.FileSystem,java.lang.String,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.TableName,java.lang.String)" class="member-name-link">moveData</a><wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fs,
+<div class="col-first odd-row-color"><code>private static <a href="../client/RegionLocator.html" title="interface in org.apache.hadoop.hbase.client">RegionLocator</a></code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">MapReduceHFileSplitterJob.</span><code><a href="../backup/mapreduce/MapReduceHFileSplitterJob.html#getRegionLocator(org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.client.Connection,org.apache.hadoop.hbase.TableName)" class="member-name-link">getRegionLocator</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+ <a href="../client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;conn,
+ <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;table)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>protected void</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">MapReduceBackupMergeJob.</span><code><a href="../backup/mapreduce/MapReduceBackupMergeJob.html#moveData(org.apache.hadoop.fs.FileSystem,java.lang.String,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.TableName,java.lang.String)" class="member-name-link">moveData</a><wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fs,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupRoot,
  org.apache.hadoop.fs.Path&nbsp;bulkOutputPath,
  <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;mergedBackupId)</code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">MapReduceRestoreJob.</span><code><a href="../backup/mapreduce/MapReduceRestoreJob.html#run(org.apache.hadoop.fs.Path%5B%5D,org.apache.hadoop.hbase.TableName%5B%5D,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.TableName%5B%5D,boolean)" class="member-name-link">run</a><wbr>(org.apache.hadoop.fs.Path[]&nbsp;dirPaths,
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>void</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">MapReduceRestoreJob.</span><code><a href="../backup/mapreduce/MapReduceRestoreJob.html#run(org.apache.hadoop.fs.Path%5B%5D,org.apache.hadoop.hbase.TableName%5B%5D,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.TableName%5B%5D,boolean)" class="member-name-link">run</a><wbr>(org.apache.hadoop.fs.Path[]&nbsp;dirPaths,
  <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>[]&nbsp;tableNames,
  org.apache.hadoop.fs.Path&nbsp;restoreRootDir,
  <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>[]&nbsp;newTableNames,
+ boolean&nbsp;fullBackupRestore)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>void</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">MapReduceRestoreToOriginalSplitsJob.</span><code><a href="../backup/mapreduce/MapReduceRestoreToOriginalSplitsJob.html#run(org.apache.hadoop.fs.Path%5B%5D,org.apache.hadoop.hbase.TableName%5B%5D,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.TableName%5B%5D,boolean)" class="member-name-link">run</a><wbr>(org.apache.hadoop.fs.Path[]&nbsp;dirPaths,
+ <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>[]&nbsp;fromTables,
+ org.apache.hadoop.fs.Path&nbsp;restoreRootDir,
+ <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>[]&nbsp;toTables,
  boolean&nbsp;fullBackupRestore)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
@@ -1815,11 +1845,12 @@ service.</div>
  <code>BulkLoadHFilesTool</code>.</div>
 </div>
 <div class="col-first odd-row-color"><code>private void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">RestoreTool.</span><code><a href="../backup/util/RestoreTool.html#createAndRestoreTable(org.apache.hadoop.hbase.client.Connection,org.apache.hadoop.hbase.TableName,org.apache.hadoop.hbase.TableName,org.apache.hadoop.fs.Path,boolean,java.lang.String)" class="member-name-link">createAndRestoreTable</a><wbr>(<a href="../client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;conn,
+<div class="col-second odd-row-color"><span class="type-name-label">RestoreTool.</span><code><a href="../backup/util/RestoreTool.html#createAndRestoreTable(org.apache.hadoop.hbase.client.Connection,org.apache.hadoop.hbase.TableName,org.apache.hadoop.hbase.TableName,org.apache.hadoop.fs.Path,boolean,boolean,java.lang.String)" class="member-name-link">createAndRestoreTable</a><wbr>(<a href="../client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;conn,
  <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName,
  <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;newTableName,
  org.apache.hadoop.fs.Path&nbsp;tableBackupPath,
  boolean&nbsp;truncateIfExists,
+ boolean&nbsp;isKeepOriginalSplits,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;lastIncrBackupId)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>static <a href="../backup/RestoreRequest.html" title="class in org.apache.hadoop.hbase.backup">RestoreRequest</a></code></div>
@@ -1832,70 +1863,81 @@ service.</div>
 <div class="col-last even-row-color">
 <div class="block">Create restore request.</div>
 </div>
-<div class="col-first odd-row-color"><code>void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">RestoreTool.</span><code><a href="../backup/util/RestoreTool.html#fullRestoreTable(org.apache.hadoop.hbase.client.Connection,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.TableName,org.apache.hadoop.hbase.TableName,boolean,java.lang.String)" class="member-name-link">fullRestoreTable</a><wbr>(<a href="../client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;conn,
+<div class="col-first odd-row-color"><code>static <a href="../backup/RestoreRequest.html" title="class in org.apache.hadoop.hbase.backup">RestoreRequest</a></code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">BackupUtils.</span><code><a href="../backup/util/BackupUtils.html#createRestoreRequest(java.lang.String,java.lang.String,boolean,org.apache.hadoop.hbase.TableName%5B%5D,org.apache.hadoop.hbase.TableName%5B%5D,boolean,boolean)" class="member-name-link">createRestoreRequest</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupRootDir,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupId,
+ boolean&nbsp;check,
+ <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>[]&nbsp;fromTables,
+ <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>[]&nbsp;toTables,
+ boolean&nbsp;isOverwrite,
+ boolean&nbsp;isKeepOriginalSplits)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>void</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">RestoreTool.</span><code><a href="../backup/util/RestoreTool.html#fullRestoreTable(org.apache.hadoop.hbase.client.Connection,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.TableName,org.apache.hadoop.hbase.TableName,boolean,boolean,java.lang.String)" class="member-name-link">fullRestoreTable</a><wbr>(<a href="../client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;conn,
  org.apache.hadoop.fs.Path&nbsp;tableBackupPath,
  <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName,
  <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;newTableName,
  boolean&nbsp;truncateIfExists,
+ boolean&nbsp;isKeepOriginalSplits,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;lastIncrBackupId)</code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">BackupUtils.</span><code><a href="../backup/util/BackupUtils.html#getFileNameCompatibleString(org.apache.hadoop.hbase.TableName)" class="member-name-link">getFileNameCompatibleString</a><wbr>(<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;table)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>(package private) <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;org.apache.hadoop.fs.Path&gt;</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">RestoreTool.</span><code><a href="../backup/util/RestoreTool.html#getRegionList(org.apache.hadoop.hbase.TableName)" class="member-name-link">getRegionList</a><wbr>(<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-first odd-row-color"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">BackupUtils.</span><code><a href="../backup/util/BackupUtils.html#getFileNameCompatibleString(org.apache.hadoop.hbase.TableName)" class="member-name-link">getFileNameCompatibleString</a><wbr>(<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;table)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>(package private) <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;org.apache.hadoop.fs.Path&gt;</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">RestoreTool.</span><code><a href="../backup/util/RestoreTool.html#getRegionList(org.apache.hadoop.hbase.TableName)" class="member-name-link">getRegionList</a><wbr>(<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName)</code></div>
+<div class="col-last even-row-color">
 <div class="block">Gets region list</div>
 </div>
-<div class="col-first even-row-color"><code>(package private) org.apache.hadoop.fs.Path</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">RestoreTool.</span><code><a href="../backup/util/RestoreTool.html#getTableArchivePath(org.apache.hadoop.hbase.TableName)" class="member-name-link">getTableArchivePath</a><wbr>(<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName)</code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code>(package private) org.apache.hadoop.fs.Path</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">RestoreTool.</span><code><a href="../backup/util/RestoreTool.html#getTableArchivePath(org.apache.hadoop.hbase.TableName)" class="member-name-link">getTableArchivePath</a><wbr>(<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName)</code></div>
+<div class="col-last odd-row-color">
 <div class="block">return value represent path for:
  ".../user/biadmin/backup1/default/t1_dn/backup_1396650096738/archive/data/default/t1_dn"</div>
 </div>
-<div class="col-first odd-row-color"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">BackupUtils.</span><code><a href="../backup/util/BackupUtils.html#getTableBackupDir(java.lang.String,java.lang.String,org.apache.hadoop.hbase.TableName)" class="member-name-link">getTableBackupDir</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupRootDir,
+<div class="col-first even-row-color"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">BackupUtils.</span><code><a href="../backup/util/BackupUtils.html#getTableBackupDir(java.lang.String,java.lang.String,org.apache.hadoop.hbase.TableName)" class="member-name-link">getTableBackupDir</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupRootDir,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupId,
  <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-last even-row-color">
 <div class="block">Given the backup root dir, backup id and the table name, return the backup image location,
  which is also where the backup manifest file is.</div>
 </div>
-<div class="col-first even-row-color"><code>(package private) <a href="../client/TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">RestoreTool.</span><code><a href="../backup/util/RestoreTool.html#getTableDesc(org.apache.hadoop.hbase.TableName)" class="member-name-link">getTableDesc</a><wbr>(<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName)</code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code>(package private) <a href="../client/TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a></code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">RestoreTool.</span><code><a href="../backup/util/RestoreTool.html#getTableDesc(org.apache.hadoop.hbase.TableName)" class="member-name-link">getTableDesc</a><wbr>(<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName)</code></div>
+<div class="col-last odd-row-color">
 <div class="block">Get table descriptor</div>
 </div>
-<div class="col-first odd-row-color"><code>private <a href="../client/TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">RestoreTool.</span><code><a href="../backup/util/RestoreTool.html#getTableDescriptor(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.hbase.TableName,java.lang.String)" class="member-name-link">getTableDescriptor</a><wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fileSys,
+<div class="col-first even-row-color"><code>private <a href="../client/TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">RestoreTool.</span><code><a href="../backup/util/RestoreTool.html#getTableDescriptor(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.hbase.TableName,java.lang.String)" class="member-name-link">getTableDescriptor</a><wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fileSys,
  <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;lastIncrBackupId)</code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>(package private) org.apache.hadoop.fs.Path</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">RestoreTool.</span><code><a href="../backup/util/RestoreTool.html#getTableInfoPath(org.apache.hadoop.hbase.TableName)" class="member-name-link">getTableInfoPath</a><wbr>(<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName)</code></div>
-<div class="col-last even-row-color">
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>(package private) org.apache.hadoop.fs.Path</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">RestoreTool.</span><code><a href="../backup/util/RestoreTool.html#getTableInfoPath(org.apache.hadoop.hbase.TableName)" class="member-name-link">getTableInfoPath</a><wbr>(<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName)</code></div>
+<div class="col-last odd-row-color">
 <div class="block">Returns value represent path for:
  ""/$USER/SBACKUP_ROOT/backup_id/namespace/table/.hbase-snapshot/
  snapshot_1396650097621_namespace_table" this path contains .snapshotinfo, .tabledesc (0.96 and
  0.98) this path contains .snapshotinfo, .data.manifest (trunk)</div>
 </div>
-<div class="col-first odd-row-color"><code>(package private) org.apache.hadoop.fs.Path</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">RestoreTool.</span><code><a href="../backup/util/RestoreTool.html#getTableSnapshotPath(org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.TableName,java.lang.String)" class="member-name-link">getTableSnapshotPath</a><wbr>(org.apache.hadoop.fs.Path&nbsp;backupRootPath,
+<div class="col-first even-row-color"><code>(package private) org.apache.hadoop.fs.Path</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">RestoreTool.</span><code><a href="../backup/util/RestoreTool.html#getTableSnapshotPath(org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.TableName,java.lang.String)" class="member-name-link">getTableSnapshotPath</a><wbr>(org.apache.hadoop.fs.Path&nbsp;backupRootPath,
  <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupId)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-last even-row-color">
 <div class="block">Returns value represent path for path to backup table snapshot directory:
  "/$USER/SBACKUP_ROOT/backup_id/namespace/table/.hbase-snapshot"</div>
 </div>
-<div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">RestoreTool.</span><code><a href="../backup/util/RestoreTool.html#incrementalRestoreTable(org.apache.hadoop.hbase.client.Connection,org.apache.hadoop.fs.Path,org.apache.hadoop.fs.Path%5B%5D,org.apache.hadoop.hbase.TableName%5B%5D,org.apache.hadoop.hbase.TableName%5B%5D,java.lang.String)" class="member-name-link">incrementalRestoreTable</a><wbr>(<a href="../client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;conn,
+<div class="col-first odd-row-color"><code>void</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">RestoreTool.</span><code><a href="../backup/util/RestoreTool.html#incrementalRestoreTable(org.apache.hadoop.hbase.client.Connection,org.apache.hadoop.fs.Path,org.apache.hadoop.fs.Path%5B%5D,org.apache.hadoop.hbase.TableName%5B%5D,org.apache.hadoop.hbase.TableName%5B%5D,java.lang.String,boolean)" class="member-name-link">incrementalRestoreTable</a><wbr>(<a href="../client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;conn,
  org.apache.hadoop.fs.Path&nbsp;tableBackupPath,
  org.apache.hadoop.fs.Path[]&nbsp;logDirs,
  <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>[]&nbsp;tableNames,
  <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>[]&nbsp;newTableNames,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;incrBackupId)</code></div>
-<div class="col-last even-row-color">
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;incrBackupId,
+ boolean&nbsp;keepOriginalSplits)</code></div>
+<div class="col-last odd-row-color">
 <div class="block">During incremental backup operation.</div>
 </div>
 </div>
@@ -5017,20 +5059,25 @@ PRESP&gt;<br><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.ba
 <div class="col-second even-row-color"><span class="type-name-label">TableMapReduceUtil.</span><code><a href="../mapreduce/TableMapReduceUtil.html#getRegionCount(org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.TableName)" class="member-name-link">getRegionCount</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
  <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>protected void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">TableInputFormatBase.</span><code><a href="../mapreduce/TableInputFormatBase.html#initializeTable(org.apache.hadoop.hbase.client.Connection,org.apache.hadoop.hbase.TableName)" class="member-name-link">initializeTable</a><wbr>(<a href="../client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;connection,
+<div class="col-first odd-row-color"><code>private static <a href="../client/RegionLocator.html" title="interface in org.apache.hadoop.hbase.client">RegionLocator</a></code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">WALPlayer.</span><code><a href="../mapreduce/WALPlayer.html#getRegionLocator(org.apache.hadoop.hbase.TableName,org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.client.Connection)" class="member-name-link">getRegionLocator</a><wbr>(<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName,
+ org.apache.hadoop.conf.Configuration&nbsp;conf,
+ <a href="../client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;conn)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>protected void</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">TableInputFormatBase.</span><code><a href="../mapreduce/TableInputFormatBase.html#initializeTable(org.apache.hadoop.hbase.client.Connection,org.apache.hadoop.hbase.TableName)" class="member-name-link">initializeTable</a><wbr>(<a href="../client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;connection,
  <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-last even-row-color">
 <div class="block">Allows subclasses to initialize the table information.</div>
 </div>
-<div class="col-first even-row-color"><code>static void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">TableMapReduceUtil.</span><code><a href="../mapreduce/TableMapReduceUtil.html#initTableMapperJob(org.apache.hadoop.hbase.TableName,org.apache.hadoop.hbase.client.Scan,java.lang.Class,java.lang.Class,java.lang.Class,org.apache.hadoop.mapreduce.Job)" class="member-name-link">initTableMapperJob</a><wbr>(<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;table,
+<div class="col-first odd-row-color"><code>static void</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">TableMapReduceUtil.</span><code><a href="../mapreduce/TableMapReduceUtil.html#initTableMapperJob(org.apache.hadoop.hbase.TableName,org.apache.hadoop.hbase.client.Scan,java.lang.Class,java.lang.Class,java.lang.Class,org.apache.hadoop.mapreduce.Job)" class="member-name-link">initTableMapperJob</a><wbr>(<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;table,
  <a href="../client/Scan.html" title="class in org.apache.hadoop.hbase.client">Scan</a>&nbsp;scan,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;? extends <a href="../mapreduce/TableMapper.html" title="class in org.apache.hadoop.hbase.mapreduce">TableMapper</a>&gt;&nbsp;mapper,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;?&gt;&nbsp;outputKeyClass,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;?&gt;&nbsp;outputValueClass,
  org.apache.hadoop.mapreduce.Job&nbsp;job)</code></div>
-<div class="col-last even-row-color">
+<div class="col-last odd-row-color">
 <div class="block">Use this before submitting a TableMap job.</div>
 </div>
 </div>
@@ -9658,6 +9705,18 @@ PRESP&gt;<br><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.ba
 <div class="col-first even-row-color"><code>private <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a></code></div>
 <div class="col-second even-row-color"><span class="type-name-label">CreateSnapshot.</span><code><a href="../snapshot/CreateSnapshot.html#tableName" class="member-name-link">tableName</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private final <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a></code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">SnapshotRegionLocator.</span><code><a href="../snapshot/SnapshotRegionLocator.html#tableName" class="member-name-link">tableName</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+</div>
+<div class="caption"><span>Methods in <a href="../snapshot/package-summary.html">org.apache.hadoop.hbase.snapshot</a> that return <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code><a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">SnapshotRegionLocator.</span><code><a href="../snapshot/SnapshotRegionLocator.html#getName()" class="member-name-link">getName</a>()</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
 </div>
 <div class="caption"><span>Methods in <a href="../snapshot/package-summary.html">org.apache.hadoop.hbase.snapshot</a> with parameters of type <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a></span></div>
 <div class="summary-table three-column-summary">
@@ -9668,29 +9727,54 @@ PRESP&gt;<br><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.ba
 <div class="col-second even-row-color"><span class="type-name-label">RestoreSnapshotHelper.</span><code><a href="../snapshot/RestoreSnapshotHelper.html#cloneRegionInfo(org.apache.hadoop.hbase.TableName,org.apache.hadoop.hbase.client.RegionInfo)" class="member-name-link">cloneRegionInfo</a><wbr>(<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName,
  <a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;snapshotRegionInfo)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>private static <a href="../util/Pair.html" title="class in org.apache.hadoop.hbase.util">Pair</a>&lt;org.apache.hadoop.hbase.shaded.protobuf.generated.SnapshotProtos.SnapshotFileInfo,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">ExportSnapshot.</span><code><a href="../snapshot/ExportSnapshot.html#getSnapshotFileAndSize(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.TableName,java.lang.String,java.lang.String,java.lang.String,long)" class="member-name-link">getSnapshotFileAndSize</a><wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fs,
+<div class="col-first odd-row-color"><code>static <a href="../snapshot/SnapshotRegionLocator.html" title="class in org.apache.hadoop.hbase.snapshot">SnapshotRegionLocator</a></code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">SnapshotRegionLocator.</span><code><a href="../snapshot/SnapshotRegionLocator.html#create(org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.TableName)" class="member-name-link">create</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+ <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;table)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private static <a href="../util/Pair.html" title="class in org.apache.hadoop.hbase.util">Pair</a>&lt;org.apache.hadoop.hbase.shaded.protobuf.generated.SnapshotProtos.SnapshotFileInfo,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">ExportSnapshot.</span><code><a href="../snapshot/ExportSnapshot.html#getSnapshotFileAndSize(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.TableName,java.lang.String,java.lang.String,java.lang.String,long)" class="member-name-link">getSnapshotFileAndSize</a><wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.conf.Configuration&nbsp;conf,
  <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;table,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;region,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;family,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hfile,
  long&nbsp;size)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">SnapshotRegionLocator.</span><code><a href="../snapshot/SnapshotRegionLocator.html#getSnapshotManifestDirKey(org.apache.hadoop.hbase.TableName)" class="member-name-link">getSnapshotManifestDirKey</a><wbr>(<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;table)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>static void</code></div>
 <div class="col-second even-row-color"><span class="type-name-label">RestoreSnapshotHelper.</span><code><a href="../snapshot/RestoreSnapshotHelper.html#restoreSnapshotAcl(org.apache.hadoop.hbase.shaded.protobuf.generated.SnapshotProtos.SnapshotDescription,org.apache.hadoop.hbase.TableName,org.apache.hadoop.conf.Configuration)" class="member-name-link">restoreSnapshotAcl</a><wbr>(org.apache.hadoop.hbase.shaded.protobuf.generated.SnapshotProtos.SnapshotDescription&nbsp;snapshot,
  <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;newTableName,
  org.apache.hadoop.conf.Configuration&nbsp;conf)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static void</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">SnapshotRegionLocator.</span><code><a href="../snapshot/SnapshotRegionLocator.html#setSnapshotManifestDir(org.apache.hadoop.conf.Configuration,java.lang.String,org.apache.hadoop.hbase.TableName)" class="member-name-link">setSnapshotManifestDir</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;dir,
+ <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;table)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static boolean</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">SnapshotRegionLocator.</span><code><a href="../snapshot/SnapshotRegionLocator.html#shouldUseSnapshotRegionLocator(org.apache.hadoop.conf.Configuration,org.apache.hadoop.hbase.TableName)" class="member-name-link">shouldUseSnapshotRegionLocator</a><wbr>(org.apache.hadoop.conf.Configuration&nbsp;conf,
+ <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;table)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static <a href="../snapshot/SnapshotRegionLocator.SnapshotHRegionLocation.html" title="class in org.apache.hadoop.hbase.snapshot">SnapshotRegionLocator.SnapshotHRegionLocation</a></code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">SnapshotRegionLocator.</span><code><a href="../snapshot/SnapshotRegionLocator.html#toLocation(org.apache.hadoop.hbase.shaded.protobuf.generated.HBaseProtos.RegionInfo,org.apache.hadoop.hbase.TableName)" class="member-name-link">toLocation</a><wbr>(org.apache.hadoop.hbase.shaded.protobuf.generated.HBaseProtos.RegionInfo&nbsp;ri,
+ <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
 </div>
 <div class="caption"><span>Constructors in <a href="../snapshot/package-summary.html">org.apache.hadoop.hbase.snapshot</a> with parameters of type <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a></span></div>
 <div class="summary-table three-column-summary">
 <div class="table-header col-first">Modifier</div>
 <div class="table-header col-second">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code>&nbsp;</code></div>
-<div class="col-second even-row-color"><code><a href="../snapshot/TablePartiallyOpenException.html#%3Cinit%3E(org.apache.hadoop.hbase.TableName)" class="member-name-link">TablePartiallyOpenException</a><wbr>(<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName)</code></div>
+<div class="col-first even-row-color"><code>private </code></div>
+<div class="col-second even-row-color"><code><a href="../snapshot/SnapshotRegionLocator.html#%3Cinit%3E(org.apache.hadoop.hbase.TableName,java.util.TreeMap,java.util.List)" class="member-name-link">SnapshotRegionLocator</a><wbr>(<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/TreeMap.html" title="class or interface in java.util" class="external-link">TreeMap</a>&lt;byte[],<wbr><a href="../snapshot/SnapshotRegionLocator.HRegionReplicas.html" title="class in org.apache.hadoop.hbase.snapshot">SnapshotRegionLocator.HRegionReplicas</a>&gt;&nbsp;regions,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../HRegionLocation.html" title="class in org.apache.hadoop.hbase">HRegionLocation</a>&gt;&nbsp;rawLocations)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>&nbsp;</code></div>
+<div class="col-second odd-row-color"><code><a href="../snapshot/TablePartiallyOpenException.html#%3Cinit%3E(org.apache.hadoop.hbase.TableName)" class="member-name-link">TablePartiallyOpenException</a><wbr>(<a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
 </div>
 </section>
 </li>
