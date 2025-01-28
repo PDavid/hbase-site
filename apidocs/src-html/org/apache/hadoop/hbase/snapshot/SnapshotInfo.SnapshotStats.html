@@ -55,7 +55,7 @@
 <span class="source-line-no">042</span><span id="line-42">import org.apache.hadoop.hbase.io.WALLink;</span>
 <span class="source-line-no">043</span><span id="line-43">import org.apache.hadoop.hbase.util.AbstractHBaseTool;</span>
 <span class="source-line-no">044</span><span id="line-44">import org.apache.hadoop.hbase.util.CommonFSUtils;</span>
-<span class="source-line-no">045</span><span id="line-45">import org.apache.hadoop.util.StringUtils;</span>
+<span class="source-line-no">045</span><span id="line-45">import org.apache.hadoop.hbase.util.Strings;</span>
 <span class="source-line-no">046</span><span id="line-46">import org.apache.yetus.audience.InterfaceAudience;</span>
 <span class="source-line-no">047</span><span id="line-47">import org.slf4j.Logger;</span>
 <span class="source-line-no">048</span><span id="line-48">import org.slf4j.LoggerFactory;</span>
@@ -534,7 +534,7 @@
 <span class="source-line-no">521</span><span id="line-521">  }</span>
 <span class="source-line-no">522</span><span id="line-522"></span>
 <span class="source-line-no">523</span><span id="line-523">  private String fileSizeToString(long size) {</span>
-<span class="source-line-no">524</span><span id="line-524">    return printSizeInBytes ? Long.toString(size) : StringUtils.humanReadableInt(size);</span>
+<span class="source-line-no">524</span><span id="line-524">    return printSizeInBytes ? Long.toString(size) : Strings.humanReadableInt(size);</span>
 <span class="source-line-no">525</span><span id="line-525">  }</span>
 <span class="source-line-no">526</span><span id="line-526"></span>
 <span class="source-line-no">527</span><span id="line-527">  @Override</span>

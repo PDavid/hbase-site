@@ -86,15 +86,15 @@
 <span class="source-line-no">073</span><span id="line-73">import org.apache.hadoop.hbase.util.EnvironmentEdgeManagerTestHelper;</span>
 <span class="source-line-no">074</span><span id="line-74">import org.apache.hadoop.hbase.util.FSUtils;</span>
 <span class="source-line-no">075</span><span id="line-75">import org.apache.hadoop.hbase.util.Pair;</span>
-<span class="source-line-no">076</span><span id="line-76">import org.apache.hadoop.hbase.wal.AbstractFSWALProvider;</span>
-<span class="source-line-no">077</span><span id="line-77">import org.apache.hadoop.hbase.wal.NoEOFWALStreamReader;</span>
-<span class="source-line-no">078</span><span id="line-78">import org.apache.hadoop.hbase.wal.WAL;</span>
-<span class="source-line-no">079</span><span id="line-79">import org.apache.hadoop.hbase.wal.WALEdit;</span>
-<span class="source-line-no">080</span><span id="line-80">import org.apache.hadoop.hbase.wal.WALFactory;</span>
-<span class="source-line-no">081</span><span id="line-81">import org.apache.hadoop.hbase.wal.WALKeyImpl;</span>
-<span class="source-line-no">082</span><span id="line-82">import org.apache.hadoop.hbase.wal.WALSplitUtil.MutationReplay;</span>
-<span class="source-line-no">083</span><span id="line-83">import org.apache.hadoop.hbase.wal.WALStreamReader;</span>
-<span class="source-line-no">084</span><span id="line-84">import org.apache.hadoop.util.StringUtils;</span>
+<span class="source-line-no">076</span><span id="line-76">import org.apache.hadoop.hbase.util.Strings;</span>
+<span class="source-line-no">077</span><span id="line-77">import org.apache.hadoop.hbase.wal.AbstractFSWALProvider;</span>
+<span class="source-line-no">078</span><span id="line-78">import org.apache.hadoop.hbase.wal.NoEOFWALStreamReader;</span>
+<span class="source-line-no">079</span><span id="line-79">import org.apache.hadoop.hbase.wal.WAL;</span>
+<span class="source-line-no">080</span><span id="line-80">import org.apache.hadoop.hbase.wal.WALEdit;</span>
+<span class="source-line-no">081</span><span id="line-81">import org.apache.hadoop.hbase.wal.WALFactory;</span>
+<span class="source-line-no">082</span><span id="line-82">import org.apache.hadoop.hbase.wal.WALKeyImpl;</span>
+<span class="source-line-no">083</span><span id="line-83">import org.apache.hadoop.hbase.wal.WALSplitUtil.MutationReplay;</span>
+<span class="source-line-no">084</span><span id="line-84">import org.apache.hadoop.hbase.wal.WALStreamReader;</span>
 <span class="source-line-no">085</span><span id="line-85">import org.junit.After;</span>
 <span class="source-line-no">086</span><span id="line-86">import org.junit.AfterClass;</span>
 <span class="source-line-no">087</span><span id="line-87">import org.junit.Before;</span>
@@ -403,7 +403,7 @@
 <span class="source-line-no">390</span><span id="line-390">          // assert that the store memstore is smaller now</span>
 <span class="source-line-no">391</span><span id="line-391">          long newStoreMemstoreSize = store.getMemStoreSize().getHeapSize();</span>
 <span class="source-line-no">392</span><span id="line-392">          LOG.info("Memstore size reduced by:"</span>
-<span class="source-line-no">393</span><span id="line-393">            + StringUtils.humanReadableInt(newStoreMemstoreSize - storeMemstoreSize));</span>
+<span class="source-line-no">393</span><span id="line-393">            + Strings.humanReadableInt(newStoreMemstoreSize - storeMemstoreSize));</span>
 <span class="source-line-no">394</span><span id="line-394">          assertTrue(storeMemstoreSize &gt; newStoreMemstoreSize);</span>
 <span class="source-line-no">395</span><span id="line-395"></span>
 <span class="source-line-no">396</span><span id="line-396">        } else if (flushDesc.getAction() == FlushAction.COMMIT_FLUSH) {</span>
@@ -503,7 +503,7 @@
 <span class="source-line-no">490</span><span id="line-490">          // assert that the store memstore is smaller now</span>
 <span class="source-line-no">491</span><span id="line-491">          long newStoreMemstoreSize = store.getMemStoreSize().getHeapSize();</span>
 <span class="source-line-no">492</span><span id="line-492">          LOG.info("Memstore size reduced by:"</span>
-<span class="source-line-no">493</span><span id="line-493">            + StringUtils.humanReadableInt(newStoreMemstoreSize - storeMemstoreSize));</span>
+<span class="source-line-no">493</span><span id="line-493">            + Strings.humanReadableInt(newStoreMemstoreSize - storeMemstoreSize));</span>
 <span class="source-line-no">494</span><span id="line-494">          assertTrue(storeMemstoreSize &gt; newStoreMemstoreSize);</span>
 <span class="source-line-no">495</span><span id="line-495">          verifyData(secondaryRegion, 0, lastReplayed + 1, cq, families);</span>
 <span class="source-line-no">496</span><span id="line-496"></span>

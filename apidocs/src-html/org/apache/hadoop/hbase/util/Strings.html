@@ -148,7 +148,19 @@
 <span class="source-line-no">135</span><span id="line-135">  public static void applyURIQueriesToConf(URI uri, Configuration conf) {</span>
 <span class="source-line-no">136</span><span id="line-136">    parseURIQueries(uri).forEach(conf::set);</span>
 <span class="source-line-no">137</span><span id="line-137">  }</span>
-<span class="source-line-no">138</span><span id="line-138">}</span>
+<span class="source-line-no">138</span><span id="line-138"></span>
+<span class="source-line-no">139</span><span id="line-139">  /**</span>
+<span class="source-line-no">140</span><span id="line-140">   * Note: This method was taken from org.apache.hadoop.util.StringUtils.humanReadableInt(long).</span>
+<span class="source-line-no">141</span><span id="line-141">   * Reason: that method got deprecated and this method provides an easy-to-understand usage of</span>
+<span class="source-line-no">142</span><span id="line-142">   * StringUtils.TraditionalBinaryPrefix.long2String. Given an integer, return a string that is in</span>
+<span class="source-line-no">143</span><span id="line-143">   * an approximate, but human readable format.</span>
+<span class="source-line-no">144</span><span id="line-144">   * @param number the number to format</span>
+<span class="source-line-no">145</span><span id="line-145">   * @return a human readable form of the integer</span>
+<span class="source-line-no">146</span><span id="line-146">   */</span>
+<span class="source-line-no">147</span><span id="line-147">  public static String humanReadableInt(long number) {</span>
+<span class="source-line-no">148</span><span id="line-148">    return org.apache.hadoop.util.StringUtils.TraditionalBinaryPrefix.long2String(number, "", 1);</span>
+<span class="source-line-no">149</span><span id="line-149">  }</span>
+<span class="source-line-no">150</span><span id="line-150">}</span>
 
 
 

@@ -81,7 +81,7 @@ loadScripts(document, 'script');</script>
 </div>
 <section class="class-description" id="class-description">
 <hr>
-<div class="type-signature"><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerRegionReplica.html#line-44">TestStochasticLoadBalancerRegionReplica</a></span>
+<div class="type-signature"><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerRegionReplica.html#line-46">TestStochasticLoadBalancerRegionReplica</a></span>
 <span class="extends-implements">extends <a href="StochasticBalancerTestBase.html" title="class in org.apache.hadoop.hbase.master.balancer">StochasticBalancerTestBase</a></span></div>
 </section>
 <section class="summary">
@@ -150,7 +150,13 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#testNeedsBalanceForColocatedReplicas()" class="member-name-link">testNeedsBalanceForColocatedReplicas</a>()</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#testNeedsBalanceForColocatedReplicasOnHost()" class="member-name-link">testNeedsBalanceForColocatedReplicasOnHost</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#testNeedsBalanceForColocatedReplicasOnRack()" class="member-name-link">testNeedsBalanceForColocatedReplicasOnRack</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#testNoNeededBalanceForColocatedReplicasTooFewRacks()" class="member-name-link">testNoNeededBalanceForColocatedReplicasTooFewRacks</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#testRegionReplicasOnSmallCluster()" class="member-name-link">testRegionReplicasOnSmallCluster</a>()</code></div>
@@ -187,7 +193,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="CLASS_RULE">
 <h3>CLASS_RULE</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../HBaseClassTestRule.html" title="class in org.apache.hadoop.hbase">HBaseClassTestRule</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerRegionReplica.html#line-47">CLASS_RULE</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../HBaseClassTestRule.html" title="class in org.apache.hadoop.hbase">HBaseClassTestRule</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerRegionReplica.html#line-49">CLASS_RULE</a></span></div>
 </section>
 </li>
 </ul>
@@ -201,7 +207,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;()">
 <h3>TestStochasticLoadBalancerRegionReplica</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerRegionReplica.html#line-45">TestStochasticLoadBalancerRegionReplica</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerRegionReplica.html#line-47">TestStochasticLoadBalancerRegionReplica</a></span>()</div>
 </section>
 </li>
 </ul>
@@ -215,25 +221,37 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="testReplicaCost()">
 <h3>testReplicaCost</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerRegionReplica.html#line-51">testReplicaCost</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerRegionReplica.html#line-53">testReplicaCost</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="testReplicaCostForReplicas()">
 <h3>testReplicaCostForReplicas</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerRegionReplica.html#line-64">testReplicaCostForReplicas</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerRegionReplica.html#line-66">testReplicaCostForReplicas</a></span>()</div>
 </section>
 </li>
 <li>
-<section class="detail" id="testNeedsBalanceForColocatedReplicas()">
-<h3>testNeedsBalanceForColocatedReplicas</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerRegionReplica.html#line-138">testNeedsBalanceForColocatedReplicas</a></span>()</div>
+<section class="detail" id="testNeedsBalanceForColocatedReplicasOnHost()">
+<h3>testNeedsBalanceForColocatedReplicasOnHost</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerRegionReplica.html#line-140">testNeedsBalanceForColocatedReplicasOnHost</a></span>()</div>
+</section>
+</li>
+<li>
+<section class="detail" id="testNeedsBalanceForColocatedReplicasOnRack()">
+<h3>testNeedsBalanceForColocatedReplicasOnRack</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerRegionReplica.html#line-159">testNeedsBalanceForColocatedReplicasOnRack</a></span>()</div>
+</section>
+</li>
+<li>
+<section class="detail" id="testNoNeededBalanceForColocatedReplicasTooFewRacks()">
+<h3>testNoNeededBalanceForColocatedReplicasTooFewRacks</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerRegionReplica.html#line-178">testNoNeededBalanceForColocatedReplicasTooFewRacks</a></span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="testRegionReplicasOnSmallCluster()">
 <h3>testRegionReplicasOnSmallCluster</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerRegionReplica.html#line-167">testRegionReplicasOnSmallCluster</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/master/balancer/TestStochasticLoadBalancerRegionReplica.html#line-199">testRegionReplicasOnSmallCluster</a></span>()</div>
 </section>
 </li>
 </ul>

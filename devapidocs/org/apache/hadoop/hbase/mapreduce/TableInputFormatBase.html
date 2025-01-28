@@ -84,7 +84,7 @@ loadScripts(document, 'script');</script>
 </dl>
 <hr>
 <div class="type-signature"><span class="annotations">@Public
-</span><span class="modifiers">public abstract class </span><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-102">TableInputFormatBase</a></span>
+</span><span class="modifiers">public abstract class </span><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-101">TableInputFormatBase</a></span>
 <span class="extends-implements">extends org.apache.hadoop.mapreduce.InputFormat&lt;<a href="../io/ImmutableBytesWritable.html" title="class in org.apache.hadoop.hbase.io">ImmutableBytesWritable</a>,<wbr><a href="../client/Result.html" title="class in org.apache.hadoop.hbase.client">Result</a>&gt;</span></div>
 <div class="block">A base for <a href="TableInputFormat.html" title="class in org.apache.hadoop.hbase.mapreduce"><code>TableInputFormat</code></a>s. Receives a <a href="../client/Connection.html" title="interface in org.apache.hadoop.hbase.client"><code>Connection</code></a>, a <a href="../TableName.html" title="class in org.apache.hadoop.hbase"><code>TableName</code></a>, an
  <a href="../client/Scan.html" title="class in org.apache.hadoop.hbase.client"><code>Scan</code></a> instance that defines the input columns etc. Subclasses may use other
@@ -351,13 +351,13 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="LOG">
 <h3>LOG</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-105">LOG</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-104">LOG</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="NOT_INITIALIZED">
 <h3>NOT_INITIALIZED</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-107">NOT_INITIALIZED</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-106">NOT_INITIALIZED</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -371,7 +371,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="INITIALIZATION_ERROR">
 <h3>INITIALIZATION_ERROR</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-110">INITIALIZATION_ERROR</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-109">INITIALIZATION_ERROR</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -385,7 +385,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="MAPREDUCE_INPUT_AUTOBALANCE">
 <h3>MAPREDUCE_INPUT_AUTOBALANCE</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-115">MAPREDUCE_INPUT_AUTOBALANCE</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-114">MAPREDUCE_INPUT_AUTOBALANCE</a></span></div>
 <div class="block">Specify if we enable auto-balance to set number of mappers in M/R jobs.</div>
 <dl class="notes">
 <dt>See Also:</dt>
@@ -400,7 +400,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="MAX_AVERAGE_REGION_SIZE">
 <h3>MAX_AVERAGE_REGION_SIZE</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-120">MAX_AVERAGE_REGION_SIZE</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-119">MAX_AVERAGE_REGION_SIZE</a></span></div>
 <div class="block">In auto-balance, we split input by ave region size, if calculated region size is too big, we
  can set it.</div>
 <dl class="notes">
@@ -416,7 +416,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="NUM_MAPPERS_PER_REGION">
 <h3>NUM_MAPPERS_PER_REGION</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-123">NUM_MAPPERS_PER_REGION</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-122">NUM_MAPPERS_PER_REGION</a></span></div>
 <div class="block">Set the number of Mappers for each region, all regions have same number of Mappers</div>
 <dl class="notes">
 <dt>See Also:</dt>
@@ -431,7 +431,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="scan">
 <h3>scan</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../client/Scan.html" title="class in org.apache.hadoop.hbase.client">Scan</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-130">scan</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../client/Scan.html" title="class in org.apache.hadoop.hbase.client">Scan</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-129">scan</a></span></div>
 <div class="block">Holds the details for the internal scanner.</div>
 <dl class="notes">
 <dt>See Also:</dt>
@@ -446,49 +446,49 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="admin">
 <h3>admin</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../client/Admin.html" title="interface in org.apache.hadoop.hbase.client">Admin</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-132">admin</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../client/Admin.html" title="interface in org.apache.hadoop.hbase.client">Admin</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-131">admin</a></span></div>
 <div class="block">The <a href="../client/Admin.html" title="interface in org.apache.hadoop.hbase.client"><code>Admin</code></a>.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="table">
 <h3>table</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../client/Table.html" title="interface in org.apache.hadoop.hbase.client">Table</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-134">table</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../client/Table.html" title="interface in org.apache.hadoop.hbase.client">Table</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-133">table</a></span></div>
 <div class="block">The <a href="../client/Table.html" title="interface in org.apache.hadoop.hbase.client"><code>Table</code></a> to scan.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="regionLocator">
 <h3>regionLocator</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../client/RegionLocator.html" title="interface in org.apache.hadoop.hbase.client">RegionLocator</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-136">regionLocator</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../client/RegionLocator.html" title="interface in org.apache.hadoop.hbase.client">RegionLocator</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-135">regionLocator</a></span></div>
 <div class="block">The <a href="../client/RegionLocator.html" title="interface in org.apache.hadoop.hbase.client"><code>RegionLocator</code></a> of the table.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="tableRecordReader">
 <h3>tableRecordReader</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="TableRecordReader.html" title="class in org.apache.hadoop.hbase.mapreduce">TableRecordReader</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-138">tableRecordReader</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="TableRecordReader.html" title="class in org.apache.hadoop.hbase.mapreduce">TableRecordReader</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-137">tableRecordReader</a></span></div>
 <div class="block">The reader scanning the table, can be a custom one.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="connection">
 <h3>connection</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-140">connection</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-139">connection</a></span></div>
 <div class="block">The underlying <a href="../client/Connection.html" title="interface in org.apache.hadoop.hbase.client"><code>Connection</code></a> of the table.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="regionSizeCalculator">
 <h3>regionSizeCalculator</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="RegionSizeCalculator.html" title="class in org.apache.hadoop.hbase.mapreduce">RegionSizeCalculator</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-142">regionSizeCalculator</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="RegionSizeCalculator.html" title="class in org.apache.hadoop.hbase.mapreduce">RegionSizeCalculator</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-141">regionSizeCalculator</a></span></div>
 <div class="block">Used to generate splits based on region size.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="reverseDNSCacheMap">
 <h3>reverseDNSCacheMap</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/HashMap.html" title="class or interface in java.util" class="external-link">HashMap</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/InetAddress.html" title="class or interface in java.net" class="external-link">InetAddress</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-145">reverseDNSCacheMap</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/HashMap.html" title="class or interface in java.util" class="external-link">HashMap</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/InetAddress.html" title="class or interface in java.net" class="external-link">InetAddress</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-144">reverseDNSCacheMap</a></span></div>
 <div class="block">The reverse DNS lookup cache mapping: IPAddress => HostName</div>
 </section>
 </li>
@@ -503,7 +503,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;()">
 <h3>TableInputFormatBase</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-103">TableInputFormatBase</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-102">TableInputFormatBase</a></span>()</div>
 </section>
 </li>
 </ul>
@@ -517,7 +517,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="createRecordReader(org.apache.hadoop.mapreduce.InputSplit,org.apache.hadoop.mapreduce.TaskAttemptContext)">
 <h3>createRecordReader</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hadoop.mapreduce.RecordReader&lt;<a href="../io/ImmutableBytesWritable.html" title="class in org.apache.hadoop.hbase.io">ImmutableBytesWritable</a>,<wbr><a href="../client/Result.html" title="class in org.apache.hadoop.hbase.client">Result</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-157">createRecordReader</a></span><wbr><span class="parameters">(org.apache.hadoop.mapreduce.InputSplit&nbsp;split,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hadoop.mapreduce.RecordReader&lt;<a href="../io/ImmutableBytesWritable.html" title="class in org.apache.hadoop.hbase.io">ImmutableBytesWritable</a>,<wbr><a href="../client/Result.html" title="class in org.apache.hadoop.hbase.client">Result</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-156">createRecordReader</a></span><wbr><span class="parameters">(org.apache.hadoop.mapreduce.InputSplit&nbsp;split,
  org.apache.hadoop.mapreduce.TaskAttemptContext&nbsp;context)</span>
                                                                                            throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Builds a <a href="TableRecordReader.html" title="class in org.apache.hadoop.hbase.mapreduce"><code>TableRecordReader</code></a>. If no <a href="TableRecordReader.html" title="class in org.apache.hadoop.hbase.mapreduce"><code>TableRecordReader</code></a> was provided, uses the
@@ -544,7 +544,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getStartEndKeys()">
 <h3>getStartEndKeys</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="../util/Pair.html" title="class in org.apache.hadoop.hbase.util">Pair</a>&lt;byte[][],<wbr>byte[][]&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-218">getStartEndKeys</a></span>()
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="../util/Pair.html" title="class in org.apache.hadoop.hbase.util">Pair</a>&lt;byte[][],<wbr>byte[][]&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-217">getStartEndKeys</a></span>()
                                            throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -555,7 +555,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getSplits(org.apache.hadoop.mapreduce.JobContext)">
 <h3>getSplits</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;org.apache.hadoop.mapreduce.InputSplit&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-229">getSplits</a></span><wbr><span class="parameters">(org.apache.hadoop.mapreduce.JobContext&nbsp;context)</span>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;org.apache.hadoop.mapreduce.InputSplit&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-228">getSplits</a></span><wbr><span class="parameters">(org.apache.hadoop.mapreduce.JobContext&nbsp;context)</span>
                                                        throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Calculates the splits that will serve as input for the map tasks.</div>
 <dl class="notes">
@@ -579,7 +579,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="oneInputSplitPerRegion()">
 <h3>oneInputSplitPerRegion</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;org.apache.hadoop.mapreduce.InputSplit&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-284">oneInputSplitPerRegion</a></span>()
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;org.apache.hadoop.mapreduce.InputSplit&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-283">oneInputSplitPerRegion</a></span>()
                                                                      throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Create one InputSplit per region</div>
 <dl class="notes">
@@ -593,7 +593,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="createNInputSplitsUniform(org.apache.hadoop.mapreduce.InputSplit,int)">
 <h3>createNInputSplitsUniform</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;org.apache.hadoop.mapreduce.InputSplit&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-367">createNInputSplitsUniform</a></span><wbr><span class="parameters">(org.apache.hadoop.mapreduce.InputSplit&nbsp;split,
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;org.apache.hadoop.mapreduce.InputSplit&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-366">createNInputSplitsUniform</a></span><wbr><span class="parameters">(org.apache.hadoop.mapreduce.InputSplit&nbsp;split,
  int&nbsp;n)</span>
                                                                           throws <span class="exceptions"><a href="../exceptions/IllegalArgumentIOException.html" title="class in org.apache.hadoop.hbase.exceptions">IllegalArgumentIOException</a></span></div>
 <div class="block">Create n splits for one InputSplit, For now only support uniform distribution</div>
@@ -612,7 +612,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="calculateAutoBalancedSplits(java.util.List,long)">
 <h3>calculateAutoBalancedSplits</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;org.apache.hadoop.mapreduce.InputSplit&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-432">calculateAutoBalancedSplits</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;org.apache.hadoop.mapreduce.InputSplit&gt;&nbsp;splits,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;org.apache.hadoop.mapreduce.InputSplit&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-431">calculateAutoBalancedSplits</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;org.apache.hadoop.mapreduce.InputSplit&gt;&nbsp;splits,
  long&nbsp;maxAverageRegionSize)</span>
                                                                          throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Calculates the number of MapReduce input splits for the map tasks. The number of MapReduce
@@ -637,7 +637,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="reverseDNS(java.net.InetAddress)">
 <h3>reverseDNS</h3>
-<div class="member-signature"><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-506">reverseDNS</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/InetAddress.html" title="class or interface in java.net" class="external-link">InetAddress</a>&nbsp;ipAddress)</span>
+<div class="member-signature"><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-505">reverseDNS</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/InetAddress.html" title="class or interface in java.net" class="external-link">InetAddress</a>&nbsp;ipAddress)</span>
            throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/UnknownHostException.html" title="class or interface in java.net" class="external-link">UnknownHostException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -648,7 +648,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="includeRegionInSplit(byte[],byte[])">
 <h3>includeRegionInSplit</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-546">includeRegionInSplit</a></span><wbr><span class="parameters">(byte[]&nbsp;startKey,
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-545">includeRegionInSplit</a></span><wbr><span class="parameters">(byte[]&nbsp;startKey,
  byte[]&nbsp;endKey)</span></div>
 <div class="block">Test if the given region is to be included in the InputSplit while splitting the regions of a
  table.
@@ -676,28 +676,28 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getRegionLocator()">
 <h3>getRegionLocator</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="../client/RegionLocator.html" title="interface in org.apache.hadoop.hbase.client">RegionLocator</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-553">getRegionLocator</a></span>()</div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="../client/RegionLocator.html" title="interface in org.apache.hadoop.hbase.client">RegionLocator</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-552">getRegionLocator</a></span>()</div>
 <div class="block">Allows subclasses to get the <a href="../client/RegionLocator.html" title="interface in org.apache.hadoop.hbase.client"><code>RegionLocator</code></a>.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getTable()">
 <h3>getTable</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="../client/Table.html" title="interface in org.apache.hadoop.hbase.client">Table</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-563">getTable</a></span>()</div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="../client/Table.html" title="interface in org.apache.hadoop.hbase.client">Table</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-562">getTable</a></span>()</div>
 <div class="block">Allows subclasses to get the <a href="../client/Table.html" title="interface in org.apache.hadoop.hbase.client"><code>Table</code></a>.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getAdmin()">
 <h3>getAdmin</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="../client/Admin.html" title="interface in org.apache.hadoop.hbase.client">Admin</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-573">getAdmin</a></span>()</div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="../client/Admin.html" title="interface in org.apache.hadoop.hbase.client">Admin</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-572">getAdmin</a></span>()</div>
 <div class="block">Allows subclasses to get the <a href="../client/Admin.html" title="interface in org.apache.hadoop.hbase.client"><code>Admin</code></a>.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="initializeTable(org.apache.hadoop.hbase.client.Connection,org.apache.hadoop.hbase.TableName)">
 <h3>initializeTable</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-585">initializeTable</a></span><wbr><span class="parameters">(<a href="../client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;connection,
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-584">initializeTable</a></span><wbr><span class="parameters">(<a href="../client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;connection,
  <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName)</span>
                         throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Allows subclasses to initialize the table information.</div>
@@ -714,7 +714,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="createRegionSizeCalculator(org.apache.hadoop.hbase.client.RegionLocator,org.apache.hadoop.hbase.client.Admin)">
 <h3>createRegionSizeCalculator</h3>
 <div class="member-signature"><span class="annotations">@Private
-</span><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="RegionSizeCalculator.html" title="class in org.apache.hadoop.hbase.mapreduce">RegionSizeCalculator</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-597">createRegionSizeCalculator</a></span><wbr><span class="parameters">(<a href="../client/RegionLocator.html" title="interface in org.apache.hadoop.hbase.client">RegionLocator</a>&nbsp;locator,
+</span><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="RegionSizeCalculator.html" title="class in org.apache.hadoop.hbase.mapreduce">RegionSizeCalculator</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-596">createRegionSizeCalculator</a></span><wbr><span class="parameters">(<a href="../client/RegionLocator.html" title="interface in org.apache.hadoop.hbase.client">RegionLocator</a>&nbsp;locator,
  <a href="../client/Admin.html" title="interface in org.apache.hadoop.hbase.client">Admin</a>&nbsp;admin)</span>
                                                    throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
@@ -726,7 +726,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getScan()">
 <h3>getScan</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../client/Scan.html" title="class in org.apache.hadoop.hbase.client">Scan</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-607">getScan</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../client/Scan.html" title="class in org.apache.hadoop.hbase.client">Scan</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-606">getScan</a></span>()</div>
 <div class="block">Gets the scan defining the actual details like columns etc.</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -737,7 +737,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="setScan(org.apache.hadoop.hbase.client.Scan)">
 <h3>setScan</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-616">setScan</a></span><wbr><span class="parameters">(<a href="../client/Scan.html" title="class in org.apache.hadoop.hbase.client">Scan</a>&nbsp;scan)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-615">setScan</a></span><wbr><span class="parameters">(<a href="../client/Scan.html" title="class in org.apache.hadoop.hbase.client">Scan</a>&nbsp;scan)</span></div>
 <div class="block">Sets the scan defining the actual details like columns etc.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -748,7 +748,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="setTableRecordReader(org.apache.hadoop.hbase.mapreduce.TableRecordReader)">
 <h3>setTableRecordReader</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-624">setTableRecordReader</a></span><wbr><span class="parameters">(<a href="TableRecordReader.html" title="class in org.apache.hadoop.hbase.mapreduce">TableRecordReader</a>&nbsp;tableRecordReader)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-623">setTableRecordReader</a></span><wbr><span class="parameters">(<a href="TableRecordReader.html" title="class in org.apache.hadoop.hbase.mapreduce">TableRecordReader</a>&nbsp;tableRecordReader)</span></div>
 <div class="block">Allows subclasses to set the <a href="TableRecordReader.html" title="class in org.apache.hadoop.hbase.mapreduce"><code>TableRecordReader</code></a>.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -759,7 +759,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="initialize(org.apache.hadoop.mapreduce.JobContext)">
 <h3>initialize</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-639">initialize</a></span><wbr><span class="parameters">(org.apache.hadoop.mapreduce.JobContext&nbsp;context)</span>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-638">initialize</a></span><wbr><span class="parameters">(org.apache.hadoop.mapreduce.JobContext&nbsp;context)</span>
                    throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Handle subclass specific set up. Each of the entry points used by the MapReduce framework,
  <a href="#createRecordReader(org.apache.hadoop.mapreduce.InputSplit,org.apache.hadoop.mapreduce.TaskAttemptContext)"><code>createRecordReader(InputSplit, TaskAttemptContext)</code></a> and <a href="#getSplits(org.apache.hadoop.mapreduce.JobContext)"><code>getSplits(JobContext)</code></a>,
@@ -779,7 +779,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="closeTable()">
 <h3>closeTable</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-646">closeTable</a></span>()
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-645">closeTable</a></span>()
                    throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Close the Table and related objects that were initialized via
  <a href="#initializeTable(org.apache.hadoop.hbase.client.Connection,org.apache.hadoop.hbase.TableName)"><code>initializeTable(Connection, TableName)</code></a>.</div>
@@ -792,7 +792,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="close(java.io.Closeable...)">
 <h3>close</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-655">close</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Closeable.html" title="class or interface in java.io" class="external-link">Closeable</a>...&nbsp;closables)</span>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/mapreduce/TableInputFormatBase.html#line-654">close</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Closeable.html" title="class or interface in java.io" class="external-link">Closeable</a>...&nbsp;closables)</span>
             throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>

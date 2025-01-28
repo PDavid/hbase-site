@@ -40,7 +40,7 @@
 <span class="source-line-no">027</span><span id="line-27">import org.apache.hadoop.fs.Path;</span>
 <span class="source-line-no">028</span><span id="line-28">import org.apache.hadoop.hbase.regionserver.HStoreFile;</span>
 <span class="source-line-no">029</span><span id="line-29">import org.apache.hadoop.hbase.regionserver.StoreFileReader;</span>
-<span class="source-line-no">030</span><span id="line-30">import org.apache.hadoop.util.StringUtils;</span>
+<span class="source-line-no">030</span><span id="line-30">import org.apache.hadoop.hbase.util.Strings;</span>
 <span class="source-line-no">031</span><span id="line-31"></span>
 <span class="source-line-no">032</span><span id="line-32">import org.apache.hbase.thirdparty.com.google.common.base.MoreObjects;</span>
 <span class="source-line-no">033</span><span id="line-33"></span>
@@ -84,7 +84,7 @@
 <span class="source-line-no">071</span><span id="line-71">    // this when selection takes this into account</span>
 <span class="source-line-no">072</span><span id="line-72">    when(mockSf.getReader()).thenReturn(reader);</span>
 <span class="source-line-no">073</span><span id="line-73">    String toString = MoreObjects.toStringHelper("MockStoreFile").add("isReference", false)</span>
-<span class="source-line-no">074</span><span id="line-74">      .add("fileSize", StringUtils.humanReadableInt(sizeInBytes)).add("seqId", seqId)</span>
+<span class="source-line-no">074</span><span id="line-74">      .add("fileSize", Strings.humanReadableInt(sizeInBytes)).add("seqId", seqId)</span>
 <span class="source-line-no">075</span><span id="line-75">      .add("path", stringPath).toString();</span>
 <span class="source-line-no">076</span><span id="line-76">    when(mockSf.toString()).thenReturn(toString);</span>
 <span class="source-line-no">077</span><span id="line-77"></span>

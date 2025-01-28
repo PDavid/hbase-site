@@ -34,9 +34,9 @@
 <span class="source-line-no">021</span><span id="line-21">import org.apache.hadoop.fs.Path;</span>
 <span class="source-line-no">022</span><span id="line-22">import org.apache.hadoop.hbase.CompatibilitySingletonFactory;</span>
 <span class="source-line-no">023</span><span id="line-23">import org.apache.hadoop.hbase.TableName;</span>
-<span class="source-line-no">024</span><span id="line-24">import org.apache.hadoop.hbase.wal.WALEdit;</span>
-<span class="source-line-no">025</span><span id="line-25">import org.apache.hadoop.hbase.wal.WALKey;</span>
-<span class="source-line-no">026</span><span id="line-26">import org.apache.hadoop.util.StringUtils;</span>
+<span class="source-line-no">024</span><span id="line-24">import org.apache.hadoop.hbase.util.Strings;</span>
+<span class="source-line-no">025</span><span id="line-25">import org.apache.hadoop.hbase.wal.WALEdit;</span>
+<span class="source-line-no">026</span><span id="line-26">import org.apache.hadoop.hbase.wal.WALKey;</span>
 <span class="source-line-no">027</span><span id="line-27">import org.apache.yetus.audience.InterfaceAudience;</span>
 <span class="source-line-no">028</span><span id="line-28">import org.slf4j.Logger;</span>
 <span class="source-line-no">029</span><span id="line-29">import org.slf4j.LoggerFactory;</span>
@@ -76,7 +76,7 @@
 <span class="source-line-no">063</span><span id="line-63">    if (time &gt; 1000) {</span>
 <span class="source-line-no">064</span><span id="line-64">      source.incrementSlowAppendCount();</span>
 <span class="source-line-no">065</span><span id="line-65">      LOG.warn(String.format("%s took %d ms appending an edit to wal; len~=%s",</span>
-<span class="source-line-no">066</span><span id="line-66">        Thread.currentThread().getName(), time, StringUtils.humanReadableInt(size)));</span>
+<span class="source-line-no">066</span><span id="line-66">        Thread.currentThread().getName(), time, Strings.humanReadableInt(size)));</span>
 <span class="source-line-no">067</span><span id="line-67">    }</span>
 <span class="source-line-no">068</span><span id="line-68">  }</span>
 <span class="source-line-no">069</span><span id="line-69"></span>
