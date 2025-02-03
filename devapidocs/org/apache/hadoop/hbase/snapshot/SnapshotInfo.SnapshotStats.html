@@ -561,21 +561,21 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getMobStoreFilePercentage()">
 <h3>getMobStoreFilePercentage</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotInfo.SnapshotStats.html#line-260">getMobStoreFilePercentage</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotInfo.SnapshotStats.html#line-262">getMobStoreFilePercentage</a></span>()</div>
 <div class="block">Returns the percentage of the mob store files</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getLogsSize()">
 <h3>getLogsSize</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotInfo.SnapshotStats.html#line-265">getLogsSize</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotInfo.SnapshotStats.html#line-269">getLogsSize</a></span>()</div>
 <div class="block">Returns the total log size</div>
 </section>
 </li>
 <li>
 <section class="detail" id="isArchivedFileStillReferenced(org.apache.hadoop.fs.Path,java.util.Map)">
 <h3>isArchivedFileStillReferenced</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotInfo.SnapshotStats.html#line-276">isArchivedFileStillReferenced</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;filePath,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotInfo.SnapshotStats.html#line-280">isArchivedFileStillReferenced</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path&nbsp;filePath,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;org.apache.hadoop.fs.Path,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;snapshotFilesMap)</span></div>
 <div class="block">Check if for a give file in archive, if there are other snapshots/tables still reference it.</div>
 <dl class="notes">
@@ -591,7 +591,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="addStoreFile(org.apache.hadoop.hbase.client.RegionInfo,java.lang.String,org.apache.hadoop.hbase.shaded.protobuf.generated.SnapshotProtos.SnapshotRegionManifest.StoreFile,java.util.Map)">
 <h3>addStoreFile</h3>
-<div class="member-signature"><span class="return-type"><a href="SnapshotInfo.SnapshotStats.FileInfo.html" title="class in org.apache.hadoop.hbase.snapshot">SnapshotInfo.SnapshotStats.FileInfo</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotInfo.SnapshotStats.html#line-306">addStoreFile</a></span><wbr><span class="parameters">(<a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;region,
+<div class="member-signature"><span class="return-type"><a href="SnapshotInfo.SnapshotStats.FileInfo.html" title="class in org.apache.hadoop.hbase.snapshot">SnapshotInfo.SnapshotStats.FileInfo</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotInfo.SnapshotStats.html#line-310">addStoreFile</a></span><wbr><span class="parameters">(<a href="../client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;region,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;family,
  org.apache.hadoop.hbase.shaded.protobuf.generated.SnapshotProtos.SnapshotRegionManifest.StoreFile&nbsp;storeFile,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;org.apache.hadoop.fs.Path,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;filesMap)</span>
@@ -613,7 +613,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="addLogFile(java.lang.String,java.lang.String)">
 <h3>addLogFile</h3>
-<div class="member-signature"><span class="return-type"><a href="SnapshotInfo.SnapshotStats.FileInfo.html" title="class in org.apache.hadoop.hbase.snapshot">SnapshotInfo.SnapshotStats.FileInfo</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotInfo.SnapshotStats.html#line-352">addLogFile</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;server,
+<div class="member-signature"><span class="return-type"><a href="SnapshotInfo.SnapshotStats.FileInfo.html" title="class in org.apache.hadoop.hbase.snapshot">SnapshotInfo.SnapshotStats.FileInfo</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/snapshot/SnapshotInfo.SnapshotStats.html#line-356">addLogFile</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;server,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;logfile)</span>
                                         throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Add the specified log file to the stats</div>
