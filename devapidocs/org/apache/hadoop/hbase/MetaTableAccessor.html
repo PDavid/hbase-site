@@ -1128,7 +1128,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="makeDeleteFromRegionInfo(org.apache.hadoop.hbase.client.RegionInfo,long)">
 <h3>makeDeleteFromRegionInfo</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="client/Delete.html" title="class in org.apache.hadoop.hbase.client">Delete</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/MetaTableAccessor.html#line-646">makeDeleteFromRegionInfo</a></span><wbr><span class="parameters">(<a href="client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;regionInfo,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="client/Delete.html" title="class in org.apache.hadoop.hbase.client">Delete</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/MetaTableAccessor.html#line-654">makeDeleteFromRegionInfo</a></span><wbr><span class="parameters">(<a href="client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;regionInfo,
  long&nbsp;ts)</span></div>
 <div class="block">Generates and returns a Delete containing the region info for the catalog table</div>
 </section>
@@ -1136,7 +1136,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="addDaughtersToPut(org.apache.hadoop.hbase.client.Put,org.apache.hadoop.hbase.client.RegionInfo,org.apache.hadoop.hbase.client.RegionInfo)">
 <h3>addDaughtersToPut</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="client/Put.html" title="class in org.apache.hadoop.hbase.client">Put</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/MetaTableAccessor.html#line-662">addDaughtersToPut</a></span><wbr><span class="parameters">(<a href="client/Put.html" title="class in org.apache.hadoop.hbase.client">Put</a>&nbsp;put,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="client/Put.html" title="class in org.apache.hadoop.hbase.client">Put</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/MetaTableAccessor.html#line-670">addDaughtersToPut</a></span><wbr><span class="parameters">(<a href="client/Put.html" title="class in org.apache.hadoop.hbase.client">Put</a>&nbsp;put,
  <a href="client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;splitA,
  <a href="client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;splitB)</span>
                              throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
@@ -1150,7 +1150,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="putToMetaTable(org.apache.hadoop.hbase.client.Connection,org.apache.hadoop.hbase.client.Put)">
 <h3>putToMetaTable</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/MetaTableAccessor.html#line-684">putToMetaTable</a></span><wbr><span class="parameters">(<a href="client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;connection,
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/MetaTableAccessor.html#line-692">putToMetaTable</a></span><wbr><span class="parameters">(<a href="client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;connection,
  <a href="client/Put.html" title="class in org.apache.hadoop.hbase.client">Put</a>&nbsp;p)</span>
                             throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Put the passed <code>p</code> to the <code>hbase:meta</code> table.</div>
@@ -1166,7 +1166,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="put(org.apache.hadoop.hbase.client.Table,org.apache.hadoop.hbase.client.Put)">
 <h3>put</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/MetaTableAccessor.html#line-694">put</a></span><wbr><span class="parameters">(<a href="client/Table.html" title="interface in org.apache.hadoop.hbase.client">Table</a>&nbsp;t,
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/MetaTableAccessor.html#line-702">put</a></span><wbr><span class="parameters">(<a href="client/Table.html" title="interface in org.apache.hadoop.hbase.client">Table</a>&nbsp;t,
  <a href="client/Put.html" title="class in org.apache.hadoop.hbase.client">Put</a>&nbsp;p)</span>
                  throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
@@ -1181,7 +1181,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="putsToMetaTable(org.apache.hadoop.hbase.client.Connection,java.util.List)">
 <h3>putsToMetaTable</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/MetaTableAccessor.html#line-704">putsToMetaTable</a></span><wbr><span class="parameters">(<a href="client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;connection,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/MetaTableAccessor.html#line-712">putsToMetaTable</a></span><wbr><span class="parameters">(<a href="client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;connection,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="client/Put.html" title="class in org.apache.hadoop.hbase.client">Put</a>&gt;&nbsp;ps)</span>
                             throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Put the passed <code>ps</code> to the <code>hbase:meta</code> table.</div>
@@ -1197,7 +1197,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="deleteFromMetaTable(org.apache.hadoop.hbase.client.Connection,org.apache.hadoop.hbase.client.Delete)">
 <h3>deleteFromMetaTable</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/MetaTableAccessor.html#line-725">deleteFromMetaTable</a></span><wbr><span class="parameters">(<a href="client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;connection,
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/MetaTableAccessor.html#line-733">deleteFromMetaTable</a></span><wbr><span class="parameters">(<a href="client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;connection,
  <a href="client/Delete.html" title="class in org.apache.hadoop.hbase.client">Delete</a>&nbsp;d)</span>
                                  throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Delete the passed <code>d</code> from the <code>hbase:meta</code> table.</div>
@@ -1213,7 +1213,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="deleteFromMetaTable(org.apache.hadoop.hbase.client.Connection,java.util.List)">
 <h3>deleteFromMetaTable</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/MetaTableAccessor.html#line-737">deleteFromMetaTable</a></span><wbr><span class="parameters">(<a href="client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;connection,
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/MetaTableAccessor.html#line-745">deleteFromMetaTable</a></span><wbr><span class="parameters">(<a href="client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;connection,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="client/Delete.html" title="class in org.apache.hadoop.hbase.client">Delete</a>&gt;&nbsp;deletes)</span>
                                  throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Delete the passed <code>deletes</code> from the <code>hbase:meta</code> table.</div>
@@ -1229,7 +1229,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="addRegionStateToPut(org.apache.hadoop.hbase.client.Put,int,org.apache.hadoop.hbase.master.RegionState.State)">
 <h3>addRegionStateToPut</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="client/Put.html" title="class in org.apache.hadoop.hbase.client">Put</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/MetaTableAccessor.html#line-749">addRegionStateToPut</a></span><wbr><span class="parameters">(<a href="client/Put.html" title="class in org.apache.hadoop.hbase.client">Put</a>&nbsp;put,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="client/Put.html" title="class in org.apache.hadoop.hbase.client">Put</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/MetaTableAccessor.html#line-757">addRegionStateToPut</a></span><wbr><span class="parameters">(<a href="client/Put.html" title="class in org.apache.hadoop.hbase.client">Put</a>&nbsp;put,
  int&nbsp;replicaId,
  <a href="master/RegionState.State.html" title="enum class in org.apache.hadoop.hbase.master">RegionState.State</a>&nbsp;state)</span>
                                throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
@@ -1244,7 +1244,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="updateRegionState(org.apache.hadoop.hbase.client.Connection,org.apache.hadoop.hbase.client.RegionInfo,org.apache.hadoop.hbase.master.RegionState.State)">
 <h3>updateRegionState</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/MetaTableAccessor.html#line-762">updateRegionState</a></span><wbr><span class="parameters">(<a href="client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;connection,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/MetaTableAccessor.html#line-770">updateRegionState</a></span><wbr><span class="parameters">(<a href="client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;connection,
  <a href="client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;ri,
  <a href="master/RegionState.State.html" title="enum class in org.apache.hadoop.hbase.master">RegionState.State</a>&nbsp;state)</span>
                               throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
@@ -1258,7 +1258,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="addSplitsToParent(org.apache.hadoop.hbase.client.Connection,org.apache.hadoop.hbase.client.RegionInfo,org.apache.hadoop.hbase.client.RegionInfo,org.apache.hadoop.hbase.client.RegionInfo)">
 <h3>addSplitsToParent</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/MetaTableAccessor.html#line-782">addSplitsToParent</a></span><wbr><span class="parameters">(<a href="client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;connection,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/MetaTableAccessor.html#line-790">addSplitsToParent</a></span><wbr><span class="parameters">(<a href="client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;connection,
  <a href="client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;regionInfo,
  <a href="client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;splitA,
  <a href="client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;splitB)</span>
@@ -1283,7 +1283,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="addRegionsToMeta(org.apache.hadoop.hbase.client.Connection,java.util.List,int)">
 <h3>addRegionsToMeta</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/MetaTableAccessor.html#line-800">addRegionsToMeta</a></span><wbr><span class="parameters">(<a href="client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;connection,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/MetaTableAccessor.html#line-808">addRegionsToMeta</a></span><wbr><span class="parameters">(<a href="client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;connection,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&gt;&nbsp;regionInfos,
  int&nbsp;regionReplication)</span>
                              throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
@@ -1301,7 +1301,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="addRegionsToMeta(org.apache.hadoop.hbase.client.Connection,java.util.List,int,long)">
 <h3>addRegionsToMeta</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/MetaTableAccessor.html#line-814">addRegionsToMeta</a></span><wbr><span class="parameters">(<a href="client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;connection,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/MetaTableAccessor.html#line-822">addRegionsToMeta</a></span><wbr><span class="parameters">(<a href="client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;connection,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&gt;&nbsp;regionInfos,
  int&nbsp;regionReplication,
  long&nbsp;ts)</span>
@@ -1321,7 +1321,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="updateTableState(org.apache.hadoop.hbase.client.Connection,org.apache.hadoop.hbase.client.TableState)">
 <h3>updateTableState</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/MetaTableAccessor.html#line-840">updateTableState</a></span><wbr><span class="parameters">(<a href="client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;connection,
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/MetaTableAccessor.html#line-848">updateTableState</a></span><wbr><span class="parameters">(<a href="client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;connection,
  <a href="client/TableState.html" title="class in org.apache.hadoop.hbase.client">TableState</a>&nbsp;state)</span>
                               throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Update state of the table in meta.</div>
@@ -1337,7 +1337,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="makePutFromTableState(org.apache.hadoop.hbase.client.TableState,long)">
 <h3>makePutFromTableState</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="client/Put.html" title="class in org.apache.hadoop.hbase.client">Put</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/MetaTableAccessor.html#line-850">makePutFromTableState</a></span><wbr><span class="parameters">(<a href="client/TableState.html" title="class in org.apache.hadoop.hbase.client">TableState</a>&nbsp;state,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="client/Put.html" title="class in org.apache.hadoop.hbase.client">Put</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/MetaTableAccessor.html#line-858">makePutFromTableState</a></span><wbr><span class="parameters">(<a href="client/TableState.html" title="class in org.apache.hadoop.hbase.client">TableState</a>&nbsp;state,
  long&nbsp;ts)</span></div>
 <div class="block">Construct PUT for given state</div>
 <dl class="notes">
@@ -1349,7 +1349,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="deleteTableState(org.apache.hadoop.hbase.client.Connection,org.apache.hadoop.hbase.TableName)">
 <h3>deleteTableState</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/MetaTableAccessor.html#line-862">deleteTableState</a></span><wbr><span class="parameters">(<a href="client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;connection,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/MetaTableAccessor.html#line-870">deleteTableState</a></span><wbr><span class="parameters">(<a href="client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;connection,
  <a href="TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;table)</span>
                              throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Remove state for table from meta</div>
@@ -1365,7 +1365,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="updateRegionLocation(org.apache.hadoop.hbase.client.Connection,org.apache.hadoop.hbase.client.RegionInfo,org.apache.hadoop.hbase.ServerName,long,long)">
 <h3>updateRegionLocation</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/MetaTableAccessor.html#line-882">updateRegionLocation</a></span><wbr><span class="parameters">(<a href="client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;connection,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/MetaTableAccessor.html#line-890">updateRegionLocation</a></span><wbr><span class="parameters">(<a href="client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;connection,
  <a href="client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;regionInfo,
  <a href="ServerName.html" title="class in org.apache.hadoop.hbase">ServerName</a>&nbsp;sn,
  long&nbsp;openSeqNum,
@@ -1391,7 +1391,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="updateLocation(org.apache.hadoop.hbase.client.Connection,org.apache.hadoop.hbase.client.RegionInfo,org.apache.hadoop.hbase.ServerName,long,long)">
 <h3>updateLocation</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/MetaTableAccessor.html#line-900">updateLocation</a></span><wbr><span class="parameters">(<a href="client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;connection,
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/MetaTableAccessor.html#line-908">updateLocation</a></span><wbr><span class="parameters">(<a href="client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;connection,
  <a href="client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;regionInfo,
  <a href="ServerName.html" title="class in org.apache.hadoop.hbase">ServerName</a>&nbsp;sn,
  long&nbsp;openSeqNum,
@@ -1417,7 +1417,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="addRegionInfo(org.apache.hadoop.hbase.client.Put,org.apache.hadoop.hbase.client.RegionInfo)">
 <h3>addRegionInfo</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="client/Put.html" title="class in org.apache.hadoop.hbase.client">Put</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/MetaTableAccessor.html#line-910">addRegionInfo</a></span><wbr><span class="parameters">(<a href="client/Put.html" title="class in org.apache.hadoop.hbase.client">Put</a>&nbsp;p,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="client/Put.html" title="class in org.apache.hadoop.hbase.client">Put</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/MetaTableAccessor.html#line-918">addRegionInfo</a></span><wbr><span class="parameters">(<a href="client/Put.html" title="class in org.apache.hadoop.hbase.client">Put</a>&nbsp;p,
  <a href="client/RegionInfo.html" title="interface in org.apache.hadoop.hbase.client">RegionInfo</a>&nbsp;hri)</span>
                          throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
@@ -1429,7 +1429,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="addLocation(org.apache.hadoop.hbase.client.Put,org.apache.hadoop.hbase.ServerName,long,int)">
 <h3>addLocation</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="client/Put.html" title="class in org.apache.hadoop.hbase.client">Put</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/MetaTableAccessor.html#line-922">addLocation</a></span><wbr><span class="parameters">(<a href="client/Put.html" title="class in org.apache.hadoop.hbase.client">Put</a>&nbsp;p,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="client/Put.html" title="class in org.apache.hadoop.hbase.client">Put</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/MetaTableAccessor.html#line-930">addLocation</a></span><wbr><span class="parameters">(<a href="client/Put.html" title="class in org.apache.hadoop.hbase.client">Put</a>&nbsp;p,
  <a href="ServerName.html" title="class in org.apache.hadoop.hbase">ServerName</a>&nbsp;sn,
  long&nbsp;openSeqNum,
  int&nbsp;replicaId)</span>
@@ -1443,7 +1443,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="addEmptyLocation(org.apache.hadoop.hbase.client.Put,int)">
 <h3>addEmptyLocation</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="client/Put.html" title="class in org.apache.hadoop.hbase.client">Put</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/MetaTableAccessor.html#line-938">addEmptyLocation</a></span><wbr><span class="parameters">(<a href="client/Put.html" title="class in org.apache.hadoop.hbase.client">Put</a>&nbsp;p,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="client/Put.html" title="class in org.apache.hadoop.hbase.client">Put</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/MetaTableAccessor.html#line-946">addEmptyLocation</a></span><wbr><span class="parameters">(<a href="client/Put.html" title="class in org.apache.hadoop.hbase.client">Put</a>&nbsp;p,
  int&nbsp;replicaId)</span>
                             throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
@@ -1455,7 +1455,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="debugLogMutations(java.util.List)">
 <h3>debugLogMutations</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/MetaTableAccessor.html#line-952">debugLogMutations</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;? extends <a href="client/Mutation.html" title="class in org.apache.hadoop.hbase.client">Mutation</a>&gt;&nbsp;mutations)</span>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/MetaTableAccessor.html#line-960">debugLogMutations</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;? extends <a href="client/Mutation.html" title="class in org.apache.hadoop.hbase.client">Mutation</a>&gt;&nbsp;mutations)</span>
                                throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -1466,7 +1466,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="debugLogMutation(org.apache.hadoop.hbase.client.Mutation)">
 <h3>debugLogMutation</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/MetaTableAccessor.html#line-963">debugLogMutation</a></span><wbr><span class="parameters">(<a href="client/Mutation.html" title="class in org.apache.hadoop.hbase.client">Mutation</a>&nbsp;p)</span>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/apache/hadoop/hbase/MetaTableAccessor.html#line-971">debugLogMutation</a></span><wbr><span class="parameters">(<a href="client/Mutation.html" title="class in org.apache.hadoop.hbase.client">Mutation</a>&nbsp;p)</span>
                               throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
