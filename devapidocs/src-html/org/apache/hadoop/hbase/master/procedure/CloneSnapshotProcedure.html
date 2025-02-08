@@ -495,76 +495,80 @@
 <span class="source-line-no">482</span><span id="line-482">          LOG.info(msg);</span>
 <span class="source-line-no">483</span><span id="line-483">          monitorStatus.setStatus(msg + " Waiting for table to be enabled...");</span>
 <span class="source-line-no">484</span><span id="line-484"></span>
-<span class="source-line-no">485</span><span id="line-485">          // 2. Let the next step to add the regions to meta</span>
-<span class="source-line-no">486</span><span id="line-486">          return metaChanges.getRegionsToAdd();</span>
-<span class="source-line-no">487</span><span id="line-487">        } catch (Exception e) {</span>
-<span class="source-line-no">488</span><span id="line-488">          String msg = "clone snapshot=" + ClientSnapshotDescriptionUtils.toString(snapshot)</span>
-<span class="source-line-no">489</span><span id="line-489">            + " failed because " + e.getMessage();</span>
-<span class="source-line-no">490</span><span id="line-490">          LOG.error(msg, e);</span>
-<span class="source-line-no">491</span><span id="line-491">          IOException rse =</span>
-<span class="source-line-no">492</span><span id="line-492">            new RestoreSnapshotException(msg, e, ProtobufUtil.createSnapshotDesc(snapshot));</span>
-<span class="source-line-no">493</span><span id="line-493"></span>
-<span class="source-line-no">494</span><span id="line-494">          // these handlers aren't futures so we need to register the error here.</span>
-<span class="source-line-no">495</span><span id="line-495">          monitorException.receive(new ForeignException("Master CloneSnapshotProcedure", rse));</span>
-<span class="source-line-no">496</span><span id="line-496">          throw rse;</span>
-<span class="source-line-no">497</span><span id="line-497">        }</span>
-<span class="source-line-no">498</span><span id="line-498">      }</span>
-<span class="source-line-no">499</span><span id="line-499">    });</span>
-<span class="source-line-no">500</span><span id="line-500">  }</span>
-<span class="source-line-no">501</span><span id="line-501"></span>
-<span class="source-line-no">502</span><span id="line-502">  /**</span>
-<span class="source-line-no">503</span><span id="line-503">   * Create region layout in file system.</span>
-<span class="source-line-no">504</span><span id="line-504">   * @param env MasterProcedureEnv</span>
-<span class="source-line-no">505</span><span id="line-505">   */</span>
-<span class="source-line-no">506</span><span id="line-506">  private List&lt;RegionInfo&gt; createFsLayout(final MasterProcedureEnv env,</span>
-<span class="source-line-no">507</span><span id="line-507">    final TableDescriptor tableDescriptor, List&lt;RegionInfo&gt; newRegions,</span>
-<span class="source-line-no">508</span><span id="line-508">    final CreateHdfsRegions hdfsRegionHandler) throws IOException {</span>
-<span class="source-line-no">509</span><span id="line-509">    final MasterFileSystem mfs = env.getMasterServices().getMasterFileSystem();</span>
-<span class="source-line-no">510</span><span id="line-510"></span>
-<span class="source-line-no">511</span><span id="line-511">    // 1. Create Table Descriptor</span>
-<span class="source-line-no">512</span><span id="line-512">    // using a copy of descriptor, table will be created enabling first</span>
-<span class="source-line-no">513</span><span id="line-513">    final Path tableDir =</span>
-<span class="source-line-no">514</span><span id="line-514">      CommonFSUtils.getTableDir(mfs.getRootDir(), tableDescriptor.getTableName());</span>
-<span class="source-line-no">515</span><span id="line-515">    if (CommonFSUtils.isExists(mfs.getFileSystem(), tableDir)) {</span>
-<span class="source-line-no">516</span><span id="line-516">      // if the region dirs exist, will cause exception and unlimited retry (see HBASE-24546)</span>
-<span class="source-line-no">517</span><span id="line-517">      LOG.warn("temp table dir already exists on disk: {}, will be deleted.", tableDir);</span>
-<span class="source-line-no">518</span><span id="line-518">      CommonFSUtils.deleteDirectory(mfs.getFileSystem(), tableDir);</span>
-<span class="source-line-no">519</span><span id="line-519">    }</span>
-<span class="source-line-no">520</span><span id="line-520">    ((FSTableDescriptors) (env.getMasterServices().getTableDescriptors()))</span>
-<span class="source-line-no">521</span><span id="line-521">      .createTableDescriptorForTableDirectory(tableDir,</span>
-<span class="source-line-no">522</span><span id="line-522">        TableDescriptorBuilder.newBuilder(tableDescriptor).build(), false);</span>
-<span class="source-line-no">523</span><span id="line-523"></span>
-<span class="source-line-no">524</span><span id="line-524">    // 2. Create Regions</span>
-<span class="source-line-no">525</span><span id="line-525">    newRegions = hdfsRegionHandler.createHdfsRegions(env, mfs.getRootDir(),</span>
-<span class="source-line-no">526</span><span id="line-526">      tableDescriptor.getTableName(), newRegions);</span>
-<span class="source-line-no">527</span><span id="line-527"></span>
-<span class="source-line-no">528</span><span id="line-528">    return newRegions;</span>
-<span class="source-line-no">529</span><span id="line-529">  }</span>
-<span class="source-line-no">530</span><span id="line-530"></span>
-<span class="source-line-no">531</span><span id="line-531">  /**</span>
-<span class="source-line-no">532</span><span id="line-532">   * Add regions to hbase:meta table.</span>
-<span class="source-line-no">533</span><span id="line-533">   * @param env MasterProcedureEnv</span>
-<span class="source-line-no">534</span><span id="line-534">   */</span>
-<span class="source-line-no">535</span><span id="line-535">  private void addRegionsToMeta(final MasterProcedureEnv env) throws IOException {</span>
-<span class="source-line-no">536</span><span id="line-536">    newRegions = CreateTableProcedure.addTableToMeta(env, tableDescriptor, newRegions);</span>
-<span class="source-line-no">537</span><span id="line-537"></span>
-<span class="source-line-no">538</span><span id="line-538">    // TODO: parentsToChildrenPairMap is always empty, which makes updateMetaParentRegions()</span>
-<span class="source-line-no">539</span><span id="line-539">    // a no-op. This part seems unnecessary. Figure out. - Appy 12/21/17</span>
-<span class="source-line-no">540</span><span id="line-540">    RestoreSnapshotHelper.RestoreMetaChanges metaChanges =</span>
-<span class="source-line-no">541</span><span id="line-541">      new RestoreSnapshotHelper.RestoreMetaChanges(tableDescriptor, parentsToChildrenPairMap);</span>
-<span class="source-line-no">542</span><span id="line-542">    metaChanges.updateMetaParentRegions(env.getMasterServices().getConnection(), newRegions);</span>
-<span class="source-line-no">543</span><span id="line-543">  }</span>
-<span class="source-line-no">544</span><span id="line-544"></span>
-<span class="source-line-no">545</span><span id="line-545">  /**</span>
-<span class="source-line-no">546</span><span id="line-546">   * Exposed for Testing: HBASE-26462</span>
-<span class="source-line-no">547</span><span id="line-547">   */</span>
-<span class="source-line-no">548</span><span id="line-548">  @RestrictedApi(explanation = "Should only be called in tests", link = "",</span>
-<span class="source-line-no">549</span><span id="line-549">      allowedOnPath = ".*/src/test/.*")</span>
-<span class="source-line-no">550</span><span id="line-550">  public boolean getRestoreAcl() {</span>
-<span class="source-line-no">551</span><span id="line-551">    return restoreAcl;</span>
-<span class="source-line-no">552</span><span id="line-552">  }</span>
-<span class="source-line-no">553</span><span id="line-553"></span>
-<span class="source-line-no">554</span><span id="line-554">}</span>
+<span class="source-line-no">485</span><span id="line-485">          // Extract the parent to children regions mapping so we can update meta later.</span>
+<span class="source-line-no">486</span><span id="line-486">          // If we don't update the split information, the parent region will be garbage-collected.</span>
+<span class="source-line-no">487</span><span id="line-487">          // And once the snapshot is deleted, HFiles of the parent region can be prematurely</span>
+<span class="source-line-no">488</span><span id="line-488">          // deleted, causing permanent data loss.</span>
+<span class="source-line-no">489</span><span id="line-489">          parentsToChildrenPairMap = metaChanges.getParentToChildrenPairMap();</span>
+<span class="source-line-no">490</span><span id="line-490"></span>
+<span class="source-line-no">491</span><span id="line-491">          // 2. Let the next step to add the regions to meta</span>
+<span class="source-line-no">492</span><span id="line-492">          return metaChanges.getRegionsToAdd();</span>
+<span class="source-line-no">493</span><span id="line-493">        } catch (Exception e) {</span>
+<span class="source-line-no">494</span><span id="line-494">          String msg = "clone snapshot=" + ClientSnapshotDescriptionUtils.toString(snapshot)</span>
+<span class="source-line-no">495</span><span id="line-495">            + " failed because " + e.getMessage();</span>
+<span class="source-line-no">496</span><span id="line-496">          LOG.error(msg, e);</span>
+<span class="source-line-no">497</span><span id="line-497">          IOException rse =</span>
+<span class="source-line-no">498</span><span id="line-498">            new RestoreSnapshotException(msg, e, ProtobufUtil.createSnapshotDesc(snapshot));</span>
+<span class="source-line-no">499</span><span id="line-499"></span>
+<span class="source-line-no">500</span><span id="line-500">          // these handlers aren't futures so we need to register the error here.</span>
+<span class="source-line-no">501</span><span id="line-501">          monitorException.receive(new ForeignException("Master CloneSnapshotProcedure", rse));</span>
+<span class="source-line-no">502</span><span id="line-502">          throw rse;</span>
+<span class="source-line-no">503</span><span id="line-503">        }</span>
+<span class="source-line-no">504</span><span id="line-504">      }</span>
+<span class="source-line-no">505</span><span id="line-505">    });</span>
+<span class="source-line-no">506</span><span id="line-506">  }</span>
+<span class="source-line-no">507</span><span id="line-507"></span>
+<span class="source-line-no">508</span><span id="line-508">  /**</span>
+<span class="source-line-no">509</span><span id="line-509">   * Create region layout in file system.</span>
+<span class="source-line-no">510</span><span id="line-510">   * @param env MasterProcedureEnv</span>
+<span class="source-line-no">511</span><span id="line-511">   */</span>
+<span class="source-line-no">512</span><span id="line-512">  private List&lt;RegionInfo&gt; createFsLayout(final MasterProcedureEnv env,</span>
+<span class="source-line-no">513</span><span id="line-513">    final TableDescriptor tableDescriptor, List&lt;RegionInfo&gt; newRegions,</span>
+<span class="source-line-no">514</span><span id="line-514">    final CreateHdfsRegions hdfsRegionHandler) throws IOException {</span>
+<span class="source-line-no">515</span><span id="line-515">    final MasterFileSystem mfs = env.getMasterServices().getMasterFileSystem();</span>
+<span class="source-line-no">516</span><span id="line-516"></span>
+<span class="source-line-no">517</span><span id="line-517">    // 1. Create Table Descriptor</span>
+<span class="source-line-no">518</span><span id="line-518">    // using a copy of descriptor, table will be created enabling first</span>
+<span class="source-line-no">519</span><span id="line-519">    final Path tableDir =</span>
+<span class="source-line-no">520</span><span id="line-520">      CommonFSUtils.getTableDir(mfs.getRootDir(), tableDescriptor.getTableName());</span>
+<span class="source-line-no">521</span><span id="line-521">    if (CommonFSUtils.isExists(mfs.getFileSystem(), tableDir)) {</span>
+<span class="source-line-no">522</span><span id="line-522">      // if the region dirs exist, will cause exception and unlimited retry (see HBASE-24546)</span>
+<span class="source-line-no">523</span><span id="line-523">      LOG.warn("temp table dir already exists on disk: {}, will be deleted.", tableDir);</span>
+<span class="source-line-no">524</span><span id="line-524">      CommonFSUtils.deleteDirectory(mfs.getFileSystem(), tableDir);</span>
+<span class="source-line-no">525</span><span id="line-525">    }</span>
+<span class="source-line-no">526</span><span id="line-526">    ((FSTableDescriptors) (env.getMasterServices().getTableDescriptors()))</span>
+<span class="source-line-no">527</span><span id="line-527">      .createTableDescriptorForTableDirectory(tableDir,</span>
+<span class="source-line-no">528</span><span id="line-528">        TableDescriptorBuilder.newBuilder(tableDescriptor).build(), false);</span>
+<span class="source-line-no">529</span><span id="line-529"></span>
+<span class="source-line-no">530</span><span id="line-530">    // 2. Create Regions</span>
+<span class="source-line-no">531</span><span id="line-531">    newRegions = hdfsRegionHandler.createHdfsRegions(env, mfs.getRootDir(),</span>
+<span class="source-line-no">532</span><span id="line-532">      tableDescriptor.getTableName(), newRegions);</span>
+<span class="source-line-no">533</span><span id="line-533"></span>
+<span class="source-line-no">534</span><span id="line-534">    return newRegions;</span>
+<span class="source-line-no">535</span><span id="line-535">  }</span>
+<span class="source-line-no">536</span><span id="line-536"></span>
+<span class="source-line-no">537</span><span id="line-537">  /**</span>
+<span class="source-line-no">538</span><span id="line-538">   * Add regions to hbase:meta table.</span>
+<span class="source-line-no">539</span><span id="line-539">   * @param env MasterProcedureEnv</span>
+<span class="source-line-no">540</span><span id="line-540">   */</span>
+<span class="source-line-no">541</span><span id="line-541">  private void addRegionsToMeta(final MasterProcedureEnv env) throws IOException {</span>
+<span class="source-line-no">542</span><span id="line-542">    newRegions = CreateTableProcedure.addTableToMeta(env, tableDescriptor, newRegions);</span>
+<span class="source-line-no">543</span><span id="line-543"></span>
+<span class="source-line-no">544</span><span id="line-544">    RestoreSnapshotHelper.RestoreMetaChanges metaChanges =</span>
+<span class="source-line-no">545</span><span id="line-545">      new RestoreSnapshotHelper.RestoreMetaChanges(tableDescriptor, parentsToChildrenPairMap);</span>
+<span class="source-line-no">546</span><span id="line-546">    metaChanges.updateMetaParentRegions(env.getMasterServices().getConnection(), newRegions);</span>
+<span class="source-line-no">547</span><span id="line-547">  }</span>
+<span class="source-line-no">548</span><span id="line-548"></span>
+<span class="source-line-no">549</span><span id="line-549">  /**</span>
+<span class="source-line-no">550</span><span id="line-550">   * Exposed for Testing: HBASE-26462</span>
+<span class="source-line-no">551</span><span id="line-551">   */</span>
+<span class="source-line-no">552</span><span id="line-552">  @RestrictedApi(explanation = "Should only be called in tests", link = "",</span>
+<span class="source-line-no">553</span><span id="line-553">      allowedOnPath = ".*/src/test/.*")</span>
+<span class="source-line-no">554</span><span id="line-554">  public boolean getRestoreAcl() {</span>
+<span class="source-line-no">555</span><span id="line-555">    return restoreAcl;</span>
+<span class="source-line-no">556</span><span id="line-556">  }</span>
+<span class="source-line-no">557</span><span id="line-557"></span>
+<span class="source-line-no">558</span><span id="line-558">}</span>
 
 
 

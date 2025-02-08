@@ -86,7 +86,7 @@ loadScripts(document, 'script');</script>
 </dl>
 <hr>
 <div class="type-signature"><span class="annotations">@Private
-</span><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-58">ProfileServlet</a></span>
+</span><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-61">ProfileServlet</a></span>
 <span class="extends-implements">extends javax.servlet.http.HttpServlet</span></div>
 <div class="block">Servlet that runs async-profiler as web-endpoint. Following options from async-profiler can be
  specified as query paramater. // -e event profiling event: cpu|alloc|lock|cache-misses etc. // -d
@@ -177,24 +177,27 @@ loadScripts(document, 'script');</script>
 <div class="col-first odd-row-color"><code>private static final org.slf4j.Logger</code></div>
 <div class="col-second odd-row-color"><code><a href="#LOG" class="member-name-link">LOG</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>(package private) static final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color"><code><a href="#OUTPUT_DIR" class="member-name-link">OUTPUT_DIR</a></code></div>
+<div class="col-first even-row-color"><code>private static final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="#OLD_PROFILER_SCRIPT" class="member-name-link">OLD_PROFILER_SCRIPT</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>private <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#pid" class="member-name-link">pid</a></code></div>
+<div class="col-first odd-row-color"><code>(package private) static final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#OUTPUT_DIR" class="member-name-link">OUTPUT_DIR</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>private <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Process.html" title="class or interface in java.lang" class="external-link">Process</a></code></div>
-<div class="col-second even-row-color"><code><a href="#process" class="member-name-link">process</a></code></div>
+<div class="col-first even-row-color"><code>private <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a></code></div>
+<div class="col-second even-row-color"><code><a href="#pid" class="member-name-link">pid</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>private static final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#PROFILER_SCRIPT" class="member-name-link">PROFILER_SCRIPT</a></code></div>
+<div class="col-first odd-row-color"><code>private <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Process.html" title="class or interface in java.lang" class="external-link">Process</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#process" class="member-name-link">process</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>private <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/locks/Lock.html" title="class or interface in java.util.concurrent.locks" class="external-link">Lock</a></code></div>
-<div class="col-second even-row-color"><code><a href="#profilerLock" class="member-name-link">profilerLock</a></code></div>
+<div class="col-first even-row-color"><code>private static final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="#PROFILER_SCRIPT" class="member-name-link">PROFILER_SCRIPT</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>private static final long</code></div>
-<div class="col-second odd-row-color"><code><a href="#serialVersionUID" class="member-name-link">serialVersionUID</a></code></div>
+<div class="col-first odd-row-color"><code>private <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/locks/Lock.html" title="class or interface in java.util.concurrent.locks" class="external-link">Lock</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#profilerLock" class="member-name-link">profilerLock</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private static final long</code></div>
+<div class="col-second even-row-color"><code><a href="#serialVersionUID" class="member-name-link">serialVersionUID</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
 </li>
@@ -276,7 +279,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="serialVersionUID">
 <h3>serialVersionUID</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-61">serialVersionUID</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-64">serialVersionUID</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -290,13 +293,13 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="LOG">
 <h3>LOG</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-62">LOG</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-65">LOG</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="ACCESS_CONTROL_ALLOW_METHODS">
 <h3>ACCESS_CONTROL_ALLOW_METHODS</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-64">ACCESS_CONTROL_ALLOW_METHODS</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-67">ACCESS_CONTROL_ALLOW_METHODS</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -310,7 +313,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="ALLOWED_METHODS">
 <h3>ALLOWED_METHODS</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-65">ALLOWED_METHODS</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-68">ALLOWED_METHODS</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -324,7 +327,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="ACCESS_CONTROL_ALLOW_ORIGIN">
 <h3>ACCESS_CONTROL_ALLOW_ORIGIN</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-66">ACCESS_CONTROL_ALLOW_ORIGIN</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-69">ACCESS_CONTROL_ALLOW_ORIGIN</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -338,7 +341,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="CONTENT_TYPE_TEXT">
 <h3>CONTENT_TYPE_TEXT</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-67">CONTENT_TYPE_TEXT</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-70">CONTENT_TYPE_TEXT</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -352,7 +355,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="ASYNC_PROFILER_HOME_ENV">
 <h3>ASYNC_PROFILER_HOME_ENV</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-68">ASYNC_PROFILER_HOME_ENV</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-71">ASYNC_PROFILER_HOME_ENV</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -366,7 +369,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="ASYNC_PROFILER_HOME_SYSTEM_PROPERTY">
 <h3>ASYNC_PROFILER_HOME_SYSTEM_PROPERTY</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-69">ASYNC_PROFILER_HOME_SYSTEM_PROPERTY</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-72">ASYNC_PROFILER_HOME_SYSTEM_PROPERTY</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -378,9 +381,23 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
+<section class="detail" id="OLD_PROFILER_SCRIPT">
+<h3>OLD_PROFILER_SCRIPT</h3>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-73">OLD_PROFILER_SCRIPT</a></span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="see-list">
+<li><a href="../../../../../constant-values.html#org.apache.hadoop.hbase.http.ProfileServlet.OLD_PROFILER_SCRIPT">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</section>
+</li>
+<li>
 <section class="detail" id="PROFILER_SCRIPT">
 <h3>PROFILER_SCRIPT</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-70">PROFILER_SCRIPT</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-74">PROFILER_SCRIPT</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -394,7 +411,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="DEFAULT_DURATION_SECONDS">
 <h3>DEFAULT_DURATION_SECONDS</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-71">DEFAULT_DURATION_SECONDS</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-75">DEFAULT_DURATION_SECONDS</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -408,37 +425,37 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="ID_GEN">
 <h3>ID_GEN</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/atomic/AtomicInteger.html" title="class or interface in java.util.concurrent.atomic" class="external-link">AtomicInteger</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-72">ID_GEN</a></span></div>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/atomic/AtomicInteger.html" title="class or interface in java.util.concurrent.atomic" class="external-link">AtomicInteger</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-76">ID_GEN</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="OUTPUT_DIR">
 <h3>OUTPUT_DIR</h3>
-<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-73">OUTPUT_DIR</a></span></div>
+<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-77">OUTPUT_DIR</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="profilerLock">
 <h3>profilerLock</h3>
-<div class="member-signature"><span class="modifiers">private transient</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/locks/Lock.html" title="class or interface in java.util.concurrent.locks" class="external-link">Lock</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-129">profilerLock</a></span></div>
+<div class="member-signature"><span class="modifiers">private transient</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/locks/Lock.html" title="class or interface in java.util.concurrent.locks" class="external-link">Lock</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-133">profilerLock</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="process">
 <h3>process</h3>
-<div class="member-signature"><span class="modifiers">private transient volatile</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Process.html" title="class or interface in java.lang" class="external-link">Process</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-132">process</a></span></div>
+<div class="member-signature"><span class="modifiers">private transient volatile</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Process.html" title="class or interface in java.lang" class="external-link">Process</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-136">process</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="asyncProfilerHome">
 <h3>asyncProfilerHome</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-133">asyncProfilerHome</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-137">asyncProfilerHome</a></span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="pid">
 <h3>pid</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-134">pid</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-138">pid</a></span></div>
 </section>
 </li>
 </ul>
@@ -452,7 +469,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;()">
 <h3>ProfileServlet</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-136">ProfileServlet</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-140">ProfileServlet</a></span>()</div>
 </section>
 </li>
 </ul>
@@ -466,7 +483,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="doGet(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)">
 <h3>doGet</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-142">doGet</a></span><wbr><span class="parameters">(javax.servlet.http.HttpServletRequest&nbsp;req,
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-146">doGet</a></span><wbr><span class="parameters">(javax.servlet.http.HttpServletRequest&nbsp;req,
  javax.servlet.http.HttpServletResponse&nbsp;resp)</span>
               throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
@@ -480,7 +497,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getInteger(javax.servlet.http.HttpServletRequest,java.lang.String,java.lang.Integer)">
 <h3>getInteger</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-285">getInteger</a></span><wbr><span class="parameters">(javax.servlet.http.HttpServletRequest&nbsp;req,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-296">getInteger</a></span><wbr><span class="parameters">(javax.servlet.http.HttpServletRequest&nbsp;req,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;param,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;defaultValue)</span></div>
 </section>
@@ -488,38 +505,38 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getLong(javax.servlet.http.HttpServletRequest,java.lang.String)">
 <h3>getLong</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-298">getLong</a></span><wbr><span class="parameters">(javax.servlet.http.HttpServletRequest&nbsp;req,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-309">getLong</a></span><wbr><span class="parameters">(javax.servlet.http.HttpServletRequest&nbsp;req,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;param)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getMinWidth(javax.servlet.http.HttpServletRequest)">
 <h3>getMinWidth</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-310">getMinWidth</a></span><wbr><span class="parameters">(javax.servlet.http.HttpServletRequest&nbsp;req)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-321">getMinWidth</a></span><wbr><span class="parameters">(javax.servlet.http.HttpServletRequest&nbsp;req)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getEvent(javax.servlet.http.HttpServletRequest)">
 <h3>getEvent</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="ProfileServlet.Event.html" title="enum class in org.apache.hadoop.hbase.http">ProfileServlet.Event</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-322">getEvent</a></span><wbr><span class="parameters">(javax.servlet.http.HttpServletRequest&nbsp;req)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="ProfileServlet.Event.html" title="enum class in org.apache.hadoop.hbase.http">ProfileServlet.Event</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-333">getEvent</a></span><wbr><span class="parameters">(javax.servlet.http.HttpServletRequest&nbsp;req)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getOutput(javax.servlet.http.HttpServletRequest)">
 <h3>getOutput</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="ProfileServlet.Output.html" title="enum class in org.apache.hadoop.hbase.http">ProfileServlet.Output</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-331">getOutput</a></span><wbr><span class="parameters">(javax.servlet.http.HttpServletRequest&nbsp;req)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="ProfileServlet.Output.html" title="enum class in org.apache.hadoop.hbase.http">ProfileServlet.Output</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-342">getOutput</a></span><wbr><span class="parameters">(javax.servlet.http.HttpServletRequest&nbsp;req)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="setResponseHeader(javax.servlet.http.HttpServletResponse)">
 <h3>setResponseHeader</h3>
-<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-343">setResponseHeader</a></span><wbr><span class="parameters">(javax.servlet.http.HttpServletResponse&nbsp;response)</span></div>
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-354">setResponseHeader</a></span><wbr><span class="parameters">(javax.servlet.http.HttpServletResponse&nbsp;response)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getAsyncProfilerHome()">
 <h3>getAsyncProfilerHome</h3>
-<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-349">getAsyncProfilerHome</a></span>()</div>
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/http/ProfileServlet.html#line-360">getAsyncProfilerHome</a></span>()</div>
 </section>
 </li>
 </ul>
