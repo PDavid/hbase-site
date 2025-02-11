@@ -161,85 +161,88 @@ loadScripts(document, 'script');</script>
  <code>BulkLoadHFilesTool</code>.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createAndRestoreTable(org.apache.hadoop.hbase.client.Connection,org.apache.hadoop.hbase.TableName,org.apache.hadoop.hbase.TableName,org.apache.hadoop.fs.Path,boolean,boolean,java.lang.String)" class="member-name-link">createAndRestoreTable</a><wbr>(<a href="../../client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;conn,
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#configureForRestoreJob(boolean)" class="member-name-link">configureForRestoreJob</a><wbr>(boolean&nbsp;keepOriginalSplits)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createAndRestoreTable(org.apache.hadoop.hbase.client.Connection,org.apache.hadoop.hbase.TableName,org.apache.hadoop.hbase.TableName,org.apache.hadoop.fs.Path,boolean,boolean,java.lang.String)" class="member-name-link">createAndRestoreTable</a><wbr>(<a href="../../client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;conn,
  <a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName,
  <a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;newTableName,
  org.apache.hadoop.fs.Path&nbsp;tableBackupPath,
+ boolean&nbsp;truncateIfExists,
+ boolean&nbsp;isKeepOriginalSplits,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;lastIncrBackupId)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#fullRestoreTable(org.apache.hadoop.hbase.client.Connection,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.TableName,org.apache.hadoop.hbase.TableName,boolean,boolean,java.lang.String)" class="member-name-link">fullRestoreTable</a><wbr>(<a href="../../client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;conn,
+ org.apache.hadoop.fs.Path&nbsp;tableBackupPath,
+ <a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName,
+ <a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;newTableName,
  boolean&nbsp;truncateIfExists,
  boolean&nbsp;isKeepOriginalSplits,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;lastIncrBackupId)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#fullRestoreTable(org.apache.hadoop.hbase.client.Connection,org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.TableName,org.apache.hadoop.hbase.TableName,boolean,boolean,java.lang.String)" class="member-name-link">fullRestoreTable</a><wbr>(<a href="../../client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;conn,
- org.apache.hadoop.fs.Path&nbsp;tableBackupPath,
- <a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName,
- <a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;newTableName,
- boolean&nbsp;truncateIfExists,
- boolean&nbsp;isKeepOriginalSplits,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;lastIncrBackupId)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) byte[][]</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#generateBoundaryKeys(java.util.ArrayList)" class="member-name-link">generateBoundaryKeys</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;org.apache.hadoop.fs.Path&gt;&nbsp;regionDirList)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) byte[][]</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#generateBoundaryKeys(java.util.ArrayList)" class="member-name-link">generateBoundaryKeys</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;org.apache.hadoop.fs.Path&gt;&nbsp;regionDirList)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Calculate region boundaries and add all the column families to the table descriptor</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;org.apache.hadoop.fs.Path&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRegionList(org.apache.hadoop.fs.Path)" class="member-name-link">getRegionList</a><wbr>(org.apache.hadoop.fs.Path&nbsp;tableArchivePath)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Gets region list</div>
-</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;org.apache.hadoop.fs.Path&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRegionList(org.apache.hadoop.hbase.TableName)" class="member-name-link">getRegionList</a><wbr>(<a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRegionList(org.apache.hadoop.fs.Path)" class="member-name-link">getRegionList</a><wbr>(org.apache.hadoop.fs.Path&nbsp;tableArchivePath)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gets region list</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) org.apache.hadoop.fs.Path</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTableArchivePath(org.apache.hadoop.hbase.TableName)" class="member-name-link">getTableArchivePath</a><wbr>(<a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;org.apache.hadoop.fs.Path&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRegionList(org.apache.hadoop.hbase.TableName)" class="member-name-link">getRegionList</a><wbr>(<a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Gets region list</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) org.apache.hadoop.fs.Path</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTableArchivePath(org.apache.hadoop.hbase.TableName)" class="member-name-link">getTableArchivePath</a><wbr>(<a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">return value represent path for:
  ".../user/biadmin/backup1/default/t1_dn/backup_1396650096738/archive/data/default/t1_dn"</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) <a href="../../client/TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTableDesc(org.apache.hadoop.hbase.TableName)" class="member-name-link">getTableDesc</a><wbr>(<a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) <a href="../../client/TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTableDesc(org.apache.hadoop.hbase.TableName)" class="member-name-link">getTableDesc</a><wbr>(<a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Get table descriptor</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="../../client/TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTableDescriptor(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.hbase.TableName,java.lang.String)" class="member-name-link">getTableDescriptor</a><wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fileSys,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="../../client/TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTableDescriptor(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.hbase.TableName,java.lang.String)" class="member-name-link">getTableDescriptor</a><wbr>(org.apache.hadoop.fs.FileSystem&nbsp;fileSys,
  <a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;lastIncrBackupId)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) org.apache.hadoop.fs.Path</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTableInfoPath(org.apache.hadoop.hbase.TableName)" class="member-name-link">getTableInfoPath</a><wbr>(<a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) org.apache.hadoop.fs.Path</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTableInfoPath(org.apache.hadoop.hbase.TableName)" class="member-name-link">getTableInfoPath</a><wbr>(<a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns value represent path for:
  ""/$USER/SBACKUP_ROOT/backup_id/namespace/table/.hbase-snapshot/
  snapshot_1396650097621_namespace_table" this path contains .snapshotinfo, .tabledesc (0.96 and
  0.98) this path contains .snapshotinfo, .data.manifest (trunk)</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) org.apache.hadoop.fs.Path</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTableSnapshotPath(org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.TableName,java.lang.String)" class="member-name-link">getTableSnapshotPath</a><wbr>(org.apache.hadoop.fs.Path&nbsp;backupRootPath,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) org.apache.hadoop.fs.Path</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTableSnapshotPath(org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.TableName,java.lang.String)" class="member-name-link">getTableSnapshotPath</a><wbr>(org.apache.hadoop.fs.Path&nbsp;backupRootPath,
  <a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>&nbsp;tableName,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;backupId)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns value represent path for path to backup table snapshot directory:
  "/$USER/SBACKUP_ROOT/backup_id/namespace/table/.hbase-snapshot"</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#incrementalRestoreTable(org.apache.hadoop.hbase.client.Connection,org.apache.hadoop.fs.Path,org.apache.hadoop.fs.Path%5B%5D,org.apache.hadoop.hbase.TableName%5B%5D,org.apache.hadoop.hbase.TableName%5B%5D,java.lang.String,boolean)" class="member-name-link">incrementalRestoreTable</a><wbr>(<a href="../../client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;conn,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#incrementalRestoreTable(org.apache.hadoop.hbase.client.Connection,org.apache.hadoop.fs.Path,org.apache.hadoop.fs.Path%5B%5D,org.apache.hadoop.hbase.TableName%5B%5D,org.apache.hadoop.hbase.TableName%5B%5D,java.lang.String,boolean)" class="member-name-link">incrementalRestoreTable</a><wbr>(<a href="../../client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;conn,
  org.apache.hadoop.fs.Path&nbsp;tableBackupPath,
  org.apache.hadoop.fs.Path[]&nbsp;logDirs,
  <a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>[]&nbsp;tableNames,
  <a href="../../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>[]&nbsp;newTableNames,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;incrBackupId,
  boolean&nbsp;keepOriginalSplits)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">During incremental backup operation.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#modifyTableSync(org.apache.hadoop.hbase.client.Connection,org.apache.hadoop.hbase.client.TableDescriptor)" class="member-name-link">modifyTableSync</a><wbr>(<a href="../../client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;conn,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#modifyTableSync(org.apache.hadoop.hbase.client.Connection,org.apache.hadoop.hbase.client.TableDescriptor)" class="member-name-link">modifyTableSync</a><wbr>(<a href="../../client/Connection.html" title="interface in org.apache.hadoop.hbase.client">Connection</a>&nbsp;conn,
  <a href="../../client/TableDescriptor.html" title="interface in org.apache.hadoop.hbase.client">TableDescriptor</a>&nbsp;desc)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
 </div>
@@ -576,6 +579,12 @@ loadScripts(document, 'script');</script>
 <dt>Throws:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code> - exception</dd>
 </dl>
+</section>
+</li>
+<li>
+<section class="detail" id="configureForRestoreJob(boolean)">
+<h3>configureForRestoreJob</h3>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/util/RestoreTool.html#line-540">configureForRestoreJob</a></span><wbr><span class="parameters">(boolean&nbsp;keepOriginalSplits)</span></div>
 </section>
 </li>
 </ul>

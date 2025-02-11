@@ -99,12 +99,15 @@ extends org.apache.hadoop.conf.Configurable</span></div>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Field</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code>static final boolean</code></div>
-<div class="col-second even-row-color"><code><a href="#KEEP_ORIGINAL_SPLITS_DEFAULT" class="member-name-link">KEEP_ORIGINAL_SPLITS_DEFAULT</a></code></div>
+<div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="#BACKUP_ROOT_PATH_KEY" class="member-name-link">BACKUP_ROOT_PATH_KEY</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#KEEP_ORIGINAL_SPLITS_KEY" class="member-name-link">KEEP_ORIGINAL_SPLITS_KEY</a></code></div>
+<div class="col-first odd-row-color"><code>static final boolean</code></div>
+<div class="col-second odd-row-color"><code><a href="#KEEP_ORIGINAL_SPLITS_DEFAULT" class="member-name-link">KEEP_ORIGINAL_SPLITS_DEFAULT</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="#KEEP_ORIGINAL_SPLITS_KEY" class="member-name-link">KEEP_ORIGINAL_SPLITS_KEY</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
 </li>
@@ -160,9 +163,23 @@ extends org.apache.hadoop.conf.Configurable</span></div>
 </section>
 </li>
 <li>
+<section class="detail" id="BACKUP_ROOT_PATH_KEY">
+<h3>BACKUP_ROOT_PATH_KEY</h3>
+<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreJob.html#line-35">BACKUP_ROOT_PATH_KEY</a></span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="see-list">
+<li><a href="../../../../../constant-values.html#org.apache.hadoop.hbase.backup.RestoreJob.BACKUP_ROOT_PATH_KEY">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</section>
+</li>
+<li>
 <section class="detail" id="KEEP_ORIGINAL_SPLITS_DEFAULT">
 <h3>KEEP_ORIGINAL_SPLITS_DEFAULT</h3>
-<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreJob.html#line-35">KEEP_ORIGINAL_SPLITS_DEFAULT</a></span></div>
+<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreJob.html#line-36">KEEP_ORIGINAL_SPLITS_DEFAULT</a></span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -184,7 +201,7 @@ extends org.apache.hadoop.conf.Configurable</span></div>
 <li>
 <section class="detail" id="run(org.apache.hadoop.fs.Path[],org.apache.hadoop.hbase.TableName[],org.apache.hadoop.fs.Path,org.apache.hadoop.hbase.TableName[],boolean)">
 <h3>run</h3>
-<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreJob.html#line-46">run</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path[]&nbsp;dirPaths,
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org/apache/hadoop/hbase/backup/RestoreJob.html#line-47">run</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.Path[]&nbsp;dirPaths,
  <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>[]&nbsp;fromTables,
  org.apache.hadoop.fs.Path&nbsp;restoreRootDir,
  <a href="../TableName.html" title="class in org.apache.hadoop.hbase">TableName</a>[]&nbsp;toTables,

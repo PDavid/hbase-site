@@ -103,7 +103,7 @@ implements <a href="../RestoreJob.html" title="interface in org.apache.hadoop.hb
 </div>
 <div class="inherited-list">
 <h3 id="fields-inherited-from-class-org.apache.hadoop.hbase.backup.RestoreJob">Fields inherited from interface&nbsp;org.apache.hadoop.hbase.backup.<a href="../RestoreJob.html" title="interface in org.apache.hadoop.hbase.backup">RestoreJob</a></h3>
-<code><a href="../RestoreJob.html#KEEP_ORIGINAL_SPLITS_DEFAULT">KEEP_ORIGINAL_SPLITS_DEFAULT</a>, <a href="../RestoreJob.html#KEEP_ORIGINAL_SPLITS_KEY">KEEP_ORIGINAL_SPLITS_KEY</a></code></div>
+<code><a href="../RestoreJob.html#BACKUP_ROOT_PATH_KEY">BACKUP_ROOT_PATH_KEY</a>, <a href="../RestoreJob.html#KEEP_ORIGINAL_SPLITS_DEFAULT">KEEP_ORIGINAL_SPLITS_DEFAULT</a>, <a href="../RestoreJob.html#KEEP_ORIGINAL_SPLITS_KEY">KEEP_ORIGINAL_SPLITS_KEY</a></code></div>
 </section>
 </li>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
@@ -227,7 +227,7 @@ implements <a href="../RestoreJob.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="setConf(org.apache.hadoop.conf.Configuration)">
 <h3>setConf</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/mapreduce/MapReduceRestoreToOriginalSplitsJob.html#line-57">setConf</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;configuration)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/mapreduce/MapReduceRestoreToOriginalSplitsJob.html#line-59">setConf</a></span><wbr><span class="parameters">(org.apache.hadoop.conf.Configuration&nbsp;configuration)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>setConf</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.conf.Configurable</code></dd>
@@ -237,7 +237,7 @@ implements <a href="../RestoreJob.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="getConf()">
 <h3>getConf</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hadoop.conf.Configuration</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/mapreduce/MapReduceRestoreToOriginalSplitsJob.html#line-62">getConf</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.apache.hadoop.conf.Configuration</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/mapreduce/MapReduceRestoreToOriginalSplitsJob.html#line-64">getConf</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>getConf</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.conf.Configurable</code></dd>
@@ -247,7 +247,7 @@ implements <a href="../RestoreJob.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="buildFamily2Files(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path[],boolean)">
 <h3>buildFamily2Files</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;byte[],<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;org.apache.hadoop.fs.Path&gt;&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/mapreduce/MapReduceRestoreToOriginalSplitsJob.html#line-67">buildFamily2Files</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.FileSystem&nbsp;fs,
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;byte[],<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;org.apache.hadoop.fs.Path&gt;&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/mapreduce/MapReduceRestoreToOriginalSplitsJob.html#line-69">buildFamily2Files</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.Path[]&nbsp;dirs,
  boolean&nbsp;isFullBackup)</span>
                                                                       throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
@@ -260,7 +260,7 @@ implements <a href="../RestoreJob.html" title="interface in org.apache.hadoop.hb
 <li>
 <section class="detail" id="buildFullBackupFamily2Files(org.apache.hadoop.fs.FileSystem,org.apache.hadoop.fs.Path[])">
 <h3>buildFullBackupFamily2Files</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;byte[],<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;org.apache.hadoop.fs.Path&gt;&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/mapreduce/MapReduceRestoreToOriginalSplitsJob.html#line-87">buildFullBackupFamily2Files</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.FileSystem&nbsp;fs,
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;byte[],<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;org.apache.hadoop.fs.Path&gt;&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org/apache/hadoop/hbase/backup/mapreduce/MapReduceRestoreToOriginalSplitsJob.html#line-89">buildFullBackupFamily2Files</a></span><wbr><span class="parameters">(org.apache.hadoop.fs.FileSystem&nbsp;fs,
  org.apache.hadoop.fs.Path[]&nbsp;dirs)</span>
                                                                                 throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
