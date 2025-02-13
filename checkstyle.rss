@@ -25,8 +25,8 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2007 - 2025 The Apache Software Foundation</copyright>
     <item>
-      <title>File: 5047,
-             Errors: 1710,
+      <title>File: 5045,
+             Errors: 1709,
              Warnings: 0,
              Infos: 0
       </title>
@@ -49620,20 +49620,6 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.io.compress.CodecPool.java">org/apache/hadoop/hbase/io/compress/CodecPool.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  1
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.master.procedure.SchemaLocking.java">org/apache/hadoop/hbase/master/procedure/SchemaLocking.java</a>
                 </td>
                 <td>
@@ -66897,20 +66883,6 @@ under the License.
                           <tr>
                 <td>
                   <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.master.replication.TestRegisterPeerWorkerWhenRestarting.java">org/apache/hadoop/hbase/master/replication/TestRegisterPeerWorkerWhenRestarting.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.io.compress.TestCodecPool.java">org/apache/hadoop/hbase/io/compress/TestCodecPool.java</a>
                 </td>
                 <td>
                   0
